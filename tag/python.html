@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>A Pelican Blog - python</title>
+        <title>pydanny - python</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
-        <link href=".././feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="A Pelican Blog ATOM Feed" />
+        <link href=".././feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
         
 
         
@@ -23,8 +23,14 @@
 
 <body id="index" class="home">
 
+<a href="https://github.com/pydanny">
+
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+
+</a>
+
         <header id="banner" class="body">
-                <h1><a href="../.">A Pelican Blog </a></h1>
+                <h1><a href="../.">pydanny </a></h1>
                 <nav><ul>
                 
                 
@@ -32,8 +38,6 @@
                 
                 
                     <li ><a href=".././category/blog.html">blog</a></li>
-                
-                    <li ><a href=".././category/yeah.html">yeah</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
@@ -45,73 +49,48 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././my-super-title.html">My super title</a></h1> 
+                    <h1 class="entry-title"><a href=".././readme.html">README</a></h1> 
                     <footer class="post-info">
-        <abbr class="published" title="2012-02-16T10:20:00">
-                Thu 16 February 2012
+        <abbr class="published" title="2012-02-17T00:30:00">
+                Fri 17 February 2012
         </abbr>
 
         
-<p>In <a href=".././category/yeah.html">yeah</a>. </p>
-<p>tags: <a href=".././tag/python.html">python</a></p>
+        <address class="vcard author">
+                By <a class="url fn" href="#">Daniel Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/blog.html">blog</a>. </p>
+<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/blog.html">blog</a></p>
 
 
-</footer><!-- /.post-info -->
+</footer><!-- /.post-info --><p>What I did to get it running:</p>
+<pre class="literal-block">
+pip install pelican
+git clone git://github.com/pydanny/pydanny.github.com.git
+</pre>
+<p>How I push up entries and pages and themes:</p>
+<pre class="literal-block">
+pelican . -o . -s settings.py
+git commit -am &quot;blogging here&quot;
+git push
+</pre>
+
                 </article>
                 
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                        <ol id="posts-list" class="hfeed">
-            
-        
-        
-        
-        
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href=".././my-first-blog-post.html" rel="bookmark" title="Permalink to My first blog post">My first blog post</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-02-15T10:20:00">
-                Wed 15 February 2012
-        </abbr>
-
-        
-<p>In <a href=".././category/yeah.html">yeah</a>. </p>
-<p>tags: <a href=".././tag/python.html">python</a></p>
-
-
-</footer><!-- /.post-info -->
-                <p>I love her</p>
-<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;I love her&#39;</span><span class="p">)</span>
-</pre></div>
-
-                <a class="readmore" href=".././my-first-blog-post.html">read more</a>
-                
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-            <p class="paginator">
+                    <p class="paginator">
     
     Page 1 / 1
     
 </p>
+                
+            </aside><!-- /#featured -->
+            
+        
+        
         
 
     
-    </ol><!-- /#posts-list -->
-    </section><!-- /#content -->
-
 
 
         <section id="extras" class="body">

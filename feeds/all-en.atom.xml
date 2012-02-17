@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="https://pydanny.github.com" rel="alternate"></link><link href="https://pydanny.github.com/feeds/all-en.atom.xml" rel="self"></link><id>https://pydanny.github.com</id><updated>2012-02-17T00:28:44Z</updated><entry><title>My Blog</title><link href="https://pydanny.github.com/my-blog.html" rel="alternate"></link><updated>2012-02-17T00:28:44Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-17:/my-blog.html/</id><summary type="html">&lt;p&gt;What I do to get it running:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="https://pydanny.github.com" rel="alternate"></link><link href="https://pydanny.github.com/feeds/all-en.atom.xml" rel="self"></link><id>https://pydanny.github.com</id><updated>2012-02-17T00:30:00Z</updated><entry><title>README</title><link href="https://pydanny.github.com/readme.html" rel="alternate"></link><updated>2012-02-17T00:30:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-17:/readme.html/</id><summary type="html">&lt;p&gt;What I did to get it running:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 pip install pelican
-git clone
+git clone git://github.com/pydanny/pydanny.github.com.git
 &lt;/pre&gt;
 &lt;p&gt;How I push up entries and pages and themes:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -10,7 +10,7 @@ pelican . -o . -s settings.py
 git commit -am &amp;quot;blogging here&amp;quot;
 git push
 &lt;/pre&gt;
-</summary></entry><entry><title>Tried out Jekyll</title><link href="https://pydanny.github.com/tried-out-jekyll.html" rel="alternate"></link><updated>2012-02-09T10:20:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-09:/tried-out-jekyll.html/</id><summary type="html">&lt;div class="section" id="why-move-my-blog"&gt;
+</summary><category term="python"></category><category term="blog"></category></entry><entry><title>Tried out Jekyll</title><link href="https://pydanny.github.com/tried-out-jekyll.html" rel="alternate"></link><updated>2012-02-09T10:20:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-09:/tried-out-jekyll.html/</id><summary type="html">&lt;div class="section" id="why-move-my-blog"&gt;
 &lt;h2&gt;Why move my blog?&lt;/h2&gt;
 &lt;p&gt;I've had issues with Blogger for some time.  After my fiancee, Audrey Roy, moved her blog to &lt;a class="reference external" href="https://github.com/mojombo/jekyll"&gt;https://github.com/mojombo/jekyll&lt;/a&gt;, I was impressed enough to give it a try.&lt;/p&gt;
 &lt;p&gt;Why did it impress me?&lt;/p&gt;

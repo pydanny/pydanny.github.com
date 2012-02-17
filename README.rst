@@ -3,8 +3,9 @@ README
 ======
 
 :date: 2012-02-17 00:30
-:tags: ruby, blog
+:tags: python, blog
 :category: blog
+
 
 What I did to get it running::
 
