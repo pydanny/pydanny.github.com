@@ -1,6 +1,6 @@
-======
-README
-======
+========
+My blog
+========
 
 :date: 2012-02-17 00:30
 :tags: python, blog
