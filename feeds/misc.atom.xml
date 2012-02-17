@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="https://pydanny.github.com" rel="alternate"></link><link href="https://pydanny.github.com/feeds/misc.atom.xml" rel="self"></link><id>https://pydanny.github.com</id><updated>2012-02-17T00:28:44Z</updated><entry><title>My Blog</title><link href="https://pydanny.github.com/my-blog.html" rel="alternate"></link><updated>2012-02-17T00:28:44Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-17:/my-blog.html/</id><summary type="html">&lt;p&gt;What I do to get it running:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install pelican
+git clone
+&lt;/pre&gt;
+&lt;p&gt;How I push up entries and pages and themes:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pelican . -o . -s settings.py
+git commit -am &amp;quot;blogging here&amp;quot;
+git push
+&lt;/pre&gt;
+</summary></entry></feed>

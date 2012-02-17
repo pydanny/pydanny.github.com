@@ -1,0 +1,5 @@
+AUTHOR = 'Daniel Greenfeld'
+SITEURL = 'https://pydanny.github.com'
+SITENAME = 'pydanny'
+TWITTER_USERNAME = 'pydanny'
+GITHUB_URL = 'https://github.com/pydanny'

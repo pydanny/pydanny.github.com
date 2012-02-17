@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>A Pelican Blog</title><link href="../." rel="alternate"></link><link href=".././feeds/posts.atom.xml" rel="self"></link><id>../.</id><updated>2012-02-17T00:17:45Z</updated><entry><title></title><link href=".././.html" rel="alternate"></link><updated>2012-02-17T00:17:45Z</updated><author><name>John Doe</name></author><id>tag:None,2012-02-17:.././.html/</id><summary type="html">&lt;p&gt;---
+layout: post
+category : blog
+tags : [blog]
+---
+{% include JB/setup %}&lt;/p&gt;
+&lt;p&gt;# [Trying out Jekyll](&lt;a class="reference external" href="https://github.com/mojombo/jekyll"&gt;https://github.com/mojombo/jekyll&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Welcome to my new blog!&lt;/p&gt;
+&lt;p&gt;##Why move my blog?&lt;/p&gt;
+&lt;p&gt;I've had issues with Blogger for some time.  After my fiancee, Audrey Roy, moved her blog to [Jekyll](&lt;a class="reference external" href="https://github.com/mojombo/jekyll"&gt;https://github.com/mojombo/jekyll&lt;/a&gt;), I was impressed enough to give it a try.&lt;/p&gt;
+&lt;p&gt;Why did it impress me?&lt;/p&gt;
+&lt;p&gt;## Code highlighting made easy&lt;/p&gt;
+&lt;p&gt;I don't have to hand-craft HTML code to get google prettify in a post. I just stick in a simple macro of 'highlight python' called like a Django templatetag and I get:&lt;/p&gt;
+&lt;p&gt;{% highlight python %}
+name = 'Daniel Greenfeld'
+for letter in name.split():&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;./posts/tried-out-jekyll.rst&lt;/tt&gt;, line 25)&lt;/p&gt;
+Unexpected indentation.&lt;/div&gt;
+&lt;blockquote&gt;
+print(letter)&lt;/blockquote&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;./posts/tried-out-jekyll.rst&lt;/tt&gt;, line 26)&lt;/p&gt;
+Block quote ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+&lt;p&gt;This issue alone sums up why I don't do more blog posts with code.&lt;/p&gt;
+&lt;p&gt;## I don't want to maintain my own blog site&lt;/p&gt;
+&lt;p&gt;A couple times I rolled out a blog on a site I stood up, but didn't really feel like maintaining a site. I want someone else to do it. When I write, I want someone else to worry about the details. I want to focus on writing and nothing else.&lt;/p&gt;
+&lt;p&gt;## I want to be able to write without connection&lt;/p&gt;
+&lt;p&gt;I need an internet connection to get my blogger posts to format right. With Jekyll, I can just type away.&lt;/p&gt;
+&lt;p&gt;## Ability to publish via git&lt;/p&gt;
+&lt;p&gt;My [pydanny-event-notes](&lt;a class="reference external" href="https://pydanny-event-notes.rtfd.org"&gt;https://pydanny-event-notes.rtfd.org&lt;/a&gt;) has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require an some amount of manual correction. Jekyll, and it's alternatives,let me just write.&lt;/p&gt;
+</summary></entry></feed>
