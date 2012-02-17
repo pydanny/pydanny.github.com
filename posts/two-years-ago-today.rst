@@ -12,6 +12,8 @@ It was the first time I met Audrey_. I remember every detail of how she looked a
 
 Life has been pretty much awesome ever since.
 
+That day was special because it was the day I met the love of my life.
+
 .. _PyCon: http://us.pycon.org
 .. _Audrey: http://audreymroy.com
 .. _Barbara: http://djangrrl.com/

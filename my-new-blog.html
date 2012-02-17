@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Two years ago today</title>
+        <title>My new blog</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
         <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
@@ -37,22 +37,22 @@
                 
                 
                 
-                    <li class="active"><a href="./category/audrey.html">audrey</a></li>
+                    <li ><a href="./category/audrey.html">audrey</a></li>
                 
-                    <li ><a href="./category/blog.html">blog</a></li>
+                    <li class="active"><a href="./category/blog.html">blog</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
                 
 <section id="content" class="body">    
 <article>
-        <header> <h1 class="entry-title"><a href="two-years-ago-today.html"
-        rel="bookmark" title="Permalink to Two years ago today">Two years ago today</a></h1> 
+        <header> <h1 class="entry-title"><a href="my-new-blog.html"
+        rel="bookmark" title="Permalink to My new blog">My new blog</a></h1> 
 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pydanny">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
  </header>
         <div class="entry-content">
         <footer class="post-info">
-        <abbr class="published" title="2012-02-17T09:20:00">
+        <abbr class="published" title="2012-02-17T00:30:00">
                 Fri 17 February 2012
         </abbr>
 
@@ -61,15 +61,22 @@
                 By <a class="url fn" href="#">Daniel Greenfeld</a>
         </address>
         
-<p>In <a href="./category/audrey.html">audrey</a>. </p>
-<p>tags: <a href="./tag/pycon.html">pycon</a><a href="./tag/audrey.html">audrey</a></p>
+<p>In <a href="./category/blog.html">blog</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/blog.html">blog</a></p>
 
 
 </footer><!-- /.post-info -->
-        <p>The <a class="reference external" href="http://us.pycon.org">PyCon</a> tutorial on Django in Depth was ending. I had been sitting next to my friend <a class="reference external" href="http://djangrrl.com/">Barbara</a> and we got up to go when I heard a feminine voice ask: &quot;Are you <a class="reference external" href="https://twitter.com/bshaurette">bshaurette</a>?&quot; I turned and it was like I got punched in the gut.</p>
-<p>It was the first time I met <a class="reference external" href="http://audreymroy.com">Audrey</a>. I remember every detail of how she looked at that moment. The clothes she was wearing, the part in her hair, that her eyes met mine, and that they didn't turn away. I was immediately captivating, but fortunately remembered to act like a gentleman. I tossed in a casual invitation to her to join us for lunch, which I pulled off even though my heart was pounding. Thankfully she accepted.</p>
-<p>Life has been pretty much awesome ever since.</p>
-<p>That day was special because it was the day I met the love of my life.</p>
+        <p>What I did to get it running:</p>
+<pre class="literal-block">
+pip install pelican
+git clone git://github.com/pydanny/pydanny.github.com.git
+</pre>
+<p>How I push up entries and pages and themes:</p>
+<pre class="literal-block">
+pelican . -o . -s settings.py
+git commit -am &quot;blogging here&quot;
+git push
+</pre>
 
         </div><!-- /.entry-content -->
         
