@@ -10,8 +10,8 @@ pelican . -o . -s settings.py
 git commit -am &amp;quot;blogging here&amp;quot;
 git push
 &lt;/pre&gt;
-</summary><category term="python"></category><category term="blog"></category></entry><entry><title>Tried out Jekyll</title><link href="https://pydanny.github.com/tried-out-jekyll.html" rel="alternate"></link><updated>2012-02-09T10:20:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-09:/tried-out-jekyll.html/</id><summary type="html">&lt;div class="section" id="why-move-my-blog"&gt;
-&lt;h2&gt;Why move my blog?&lt;/h2&gt;
+</summary><category term="python"></category><category term="blog"></category></entry><entry><title>Tried out Jekyll</title><link href="https://pydanny.github.com/tried-out-jekyll.html" rel="alternate"></link><updated>2012-02-09T10:20:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-09:/tried-out-jekyll.html/</id><summary type="html">&lt;div class="section" id="why-jekyll"&gt;
+&lt;h2&gt;Why Jekyll?&lt;/h2&gt;
 &lt;p&gt;I've had issues with Blogger for some time.  After my fiancee, Audrey Roy, moved her blog to &lt;a class="reference external" href="https://github.com/mojombo/jekyll"&gt;https://github.com/mojombo/jekyll&lt;/a&gt;, I was impressed enough to give it a try.&lt;/p&gt;
 &lt;p&gt;Why did it impress me?&lt;/p&gt;
 &lt;/div&gt;
@@ -34,6 +34,11 @@ git push
 &lt;/div&gt;
 &lt;div class="section" id="ability-to-publish-via-git"&gt;
 &lt;h2&gt;Ability to publish via git&lt;/h2&gt;
-&lt;p&gt;My &lt;a class="reference external" href="https://pydanny-event-notes.rtfd.org"&gt;https://pydanny-event-notes.rtfd.org&lt;/a&gt; has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require an some amount of manual correction. Jekyll, and it's alternatives,let me just write.&lt;/p&gt;
+&lt;p&gt;My &lt;a class="reference external" href="http://pydanny-event-notes.rtfd.org"&gt;http://pydanny-event-notes.rtfd.org&lt;/a&gt; has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require an some amount of manual correction. Jekyll, and it's alternatives,let me just write.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why-not-jekyll"&gt;
+&lt;h2&gt;Why not Jekyll?&lt;/h2&gt;
+&lt;p&gt;Jekyll is written in &lt;a class="reference external" href="http://ruby-lang.org"&gt;ruby&lt;/a&gt;. Nothing against ruby, but I can't trivially work in that language the way I can in Python. It's good to eat your own dogfood.&lt;/p&gt;
+&lt;p&gt;So I started looking at &lt;a class="reference external" href="http://hyde.github.com/"&gt;hyde&lt;/a&gt;, &lt;a class="reference external" href="http://blogofile.com/"&gt;blogofile&lt;/a&gt;, and &lt;a class="reference external" href="http://pelican.readthedocs.org/"&gt;pelican&lt;/a&gt; as alternatives. More on that later.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="ruby"></category><category term="blog"></category></entry></feed>

@@ -6,7 +6,7 @@ Tried out Jekyll
 :tags: ruby, blog
 :category: blog
 
-Why move my blog?
+Why Jekyll?
 =================
 
 I've had issues with Blogger for some time.  After my fiancee, Audrey Roy, moved her blog to https://github.com/mojombo/jekyll, I was impressed enough to give it a try.
@@ -40,4 +40,16 @@ I need an internet connection to get my blogger posts to format right. With Jeky
 Ability to publish via git
 ===========================
 
-My https://pydanny-event-notes.rtfd.org has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require an some amount of manual correction. Jekyll, and it's alternatives,let me just write.
+My http://pydanny-event-notes.rtfd.org has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require an some amount of manual correction. Jekyll, and it's alternatives,let me just write.
+
+Why not Jekyll?
+=====================
+
+Jekyll is written in ruby_. Nothing against ruby, but I can't trivially work in that language the way I can in Python. It's good to eat your own dogfood.
+
+So I started looking at hyde_, blogofile_, and pelican_ as alternatives. More on that later.
+
+.. _ruby: http://ruby-lang.org
+.. _hyde: http://hyde.github.com/
+.. _blogofile: http://blogofile.com/
+.. _pelican: http://pelican.readthedocs.org/
