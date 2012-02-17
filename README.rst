@@ -1,11 +1,15 @@
-========
-My Blog
-========
+================
+README
+================
 
-What I do to get it running::
+:date: 2012-02-17 00:30
+:tags: ruby, blog
+:category: blog
+
+What I did to get it running::
 
     pip install pelican
-    git clone 
+    git clone git://github.com/pydanny/pydanny.github.com.git
 
 How I push up entries and pages and themes::
     
