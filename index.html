@@ -1,222 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>pydanny</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
-        
+	<meta charset="utf-8">
+	<title>pydanny</title>
+	<meta name="description" content="">
+	<meta name="author" content="Daniel Greenfeld">
 
-        
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="./theme/html5.js"></script>
+	<![endif]-->
 
-        <!--[if IE]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-        <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
-                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
-
-        <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
-
+	<!-- Le styles -->
+	<link href="./theme/bootstrap.min.css" rel="stylesheet">
+	<link href="./theme/local.css" rel="stylesheet">
+	<link href="./theme/pygments.css" rel="stylesheet">
+	
+	
 </head>
+<body>
+	
+	
+<a href="https://github.com/pydanny"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
 
-<body id="index" class="home">
+	<div class="topbar">
+	  <div class="topbar-inner">
+		<div class="container-fluid">
+		  <a class="brand" href="./index.html">pydanny</a>
+			<ul class="nav">
+				
+				
+					
+				
+				
+					<li ><a href="./category/audrey.html">audrey</a></li>
+				
+					<li ><a href="./category/blog.html">blog</a></li>
+				
+					<li ><a href="./category/django.html">django</a></li>
+				
+			</ul>
+			<p class="pull-right"><a href="./archives.html">[archives]</a> <a href="./tags.html">[tags]</a></p>
+		</div>
+	  </div>
+	</div>
 
-<a href="https://github.com/pydanny">
-
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
-
-</a>
-
-        <header id="banner" class="body">
-                <h1><a href=".">pydanny </a></h1>
-                <nav><ul>
-                
-                
-                
-                
-                
-                    <li ><a href="./category/audrey.html">audrey</a></li>
-                
-                    <li ><a href="./category/blog.html">blog</a></li>
-                
-                    <li ><a href="./category/django.html">django</a></li>
-                
-                </ul></nav>
-        </header><!-- /#banner -->
-                
-
-            
-
-        
-        
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="./django-uni-form-end-of-life.html">django-uni-form end of life</a></h1> 
-                    <footer class="post-info">
-        <abbr class="published" title="2012-02-18T01:00:00">
-                Sat 18 February 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href="#">Daniel Greenfeld</a>
-        </address>
-        
-<p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/django.html">django</a><a href="./tag/python.html">python</a></p>
-
-
-</footer><!-- /.post-info --><p>I started on django-uni-form in January 2009. In order to use <a class="reference external" href="http://pinaxproject.com">Pinax</a> on an internal social network for <a class="reference external" href="http://www.nasa.gov">NASA</a> HQ, we had to render all content, including forms, <a class="reference external" href="http://django-uni-form.readthedocs.org/en/latest/concepts.html#section-508">Section 508</a> compliant. Rather than rewrite the html for all 50+ forms that existed in the  Pinax 0.5.x framework at that time, I decided to minimize my work and automate things. <a class="reference external" href="http://jtauber.com">James Tauber</a> gave guidance and insight, my co-workers were supportive, and <a class="reference external" href="http://enn.io">Jannis Leidel</a> suggested the Uni-form library. The name <strong>Django Uni-Form</strong> was obvious, and lo the project was named.</p>
-<p>Looking at the old, extremely deprecated <a class="reference external" href="http://code.google.com/p/django-uni-form/">Google Code site for django-uni-form</a>, I see that the first commit happened on January 7th, 2009. That was for version 0.1, with some core code that was literally a merger between the Django form example on how to integrate divs into forms and the simplest template tag I could figure out.</p>
-<p>The python code in uni_form/templatetags/uni_form.py:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">Template</span>
-<span class="kn">from</span> <span class="nn">django.template.loader</span> <span class="kn">import</span> <span class="n">get_template</span>
-<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">template</span>
+	<div class="container-fluid">	
+	  <div class="sidebar">
+		<div class="well">
+			<h3>Blogroll</h3>
+			<ul>
+				
+			</ul>
+			<div class="social">
+			<h3>Social</h3>
+			<ul>
+				
+			</ul>
+			</div>
+		</div>
+	  </div>
+	  <div class="content">
+			<div class="page-header"><h1> pydanny </h1></div>
+			
 
 
-<span class="n">register</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">Library</span><span class="p">()</span>
 
-<span class="nd">@register.filter</span>
-<span class="k">def</span> <span class="nf">as_uni_form</span><span class="p">(</span><span class="n">form</span><span class="p">):</span>
-    <span class="n">template</span> <span class="o">=</span> <span class="n">get_template</span><span class="p">(</span><span class="s">&#39;templates/uni_form.html&#39;</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">Context</span><span class="p">({</span><span class="s">&#39;form&#39;</span><span class="p">:</span><span class="n">form</span><span class="p">})</span>
+<div class='article'>
+	<h2>django-uni-form end of life</h2>
+	<div class="well small">Permalink: <a class="more" href="./django-uni-form-end-of-life.html">2012-02-18 01:00:00</a>
+by <a class="url fn" href="./author/Daniel Greenfeld.html">Daniel Greenfeld</a>
+in <a href="./category/django.html">django</a>
+tags: <a href="./tag/django.html">django</a> <a href="./tag/python.html">python</a> </div>
+	<div class="summary"><p>I started on django-uni-form in January 2009. In order to use <a class="reference external" href="http://pinaxproject.com">Pinax</a> on an internal social network for <a class="reference external" href="http://www.nasa.gov">NASA</a> HQ, we had to render all content, including forms, <a class="reference external" href="http://django-uni-form.readthedocs.org/en/latest/concepts.html#section-508">Section 508</a> compliant. Rather than rewrite the html for all 50+ forms that existed in the  Pinax 0.5.x framework at ...</p> <a class="btn primary xsmall" href="./django-uni-form-end-of-life.html">more…</a>
+	</div>
+</div>	
 
-    <span class="k">return</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</pre></div>
-<p>The template tag code was nearly exactly copy/pasted from the starter <a class="reference external" href="https://docs.djangoproject.com/en/1.0/topics/forms/#looping-over-the-form-s-fields">Django docs on forms</a>:</p>
-<div class="highlight"><pre><span class="cp">{%</span> <span class="k">for</span> <span class="nv">field</span> <span class="k">in</span> <span class="nv">form</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">    &lt;div class=&quot;ctrlHolder </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">field.errors</span> <span class="cp">%}</span><span class="x">error</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x">&quot;&gt;</span>
-<span class="x">        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">error</span> <span class="k">in</span> <span class="nv">field.errors</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">            &lt;p class=&quot;errorField&quot;&gt;</span>
-<span class="x">                &lt;strong&gt;</span><span class="cp">{{</span> <span class="nv">error</span> <span class="cp">}}</span><span class="x">&lt;/strong&gt;</span>
-<span class="x">            &lt;/p&gt;</span>
-<span class="x">        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">        </span><span class="cp">{{</span> <span class="nv">field.label_tag</span> <span class="cp">}}</span><span class="x"></span>
-<span class="x">        </span><span class="cp">{{</span> <span class="nv">field</span> <span class="cp">}}</span><span class="x"></span>
-<span class="x">        </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">field.help_text</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">        &lt;p class=&quot;formHint&quot;&gt;</span>
-<span class="x">            </span><span class="cp">{{</span> <span class="nv">field.help_text</span> <span class="cp">}}</span><span class="x"></span>
-<span class="x">        &lt;/p&gt;</span>
-<span class="x">        </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<div class='article'>
+	<h2>Two years ago today</h2>
+	<div class="well small">Permalink: <a class="more" href="./two-years-ago-today.html">2012-02-17 09:20:00</a>
+by <a class="url fn" href="./author/Daniel Greenfeld.html">Daniel Greenfeld</a>
+in <a href="./category/audrey.html">audrey</a>
+tags: <a href="./tag/pycon.html">pycon</a> <a href="./tag/audrey.html">audrey</a> </div>
+	<div class="summary"><p>The <a class="reference external" href="http://us.pycon.org">PyCon</a> tutorial on Django in Depth was ending. I had been sitting next to my friend <a class="reference external" href="http://djangrrl.com/">Barbara</a> and we got up to go when I heard a feminine voice ask: &quot;Are you <a class="reference external" href="https://twitter.com/bshaurette">bshaurette</a>?&quot; I turned and it was like I got punched in the gut.</p>
+<p>It was the first ...</p> <a class="btn primary xsmall" href="./two-years-ago-today.html">more…</a>
+	</div>
+</div>	
 
-<span class="x">    &lt;/div&gt;</span>
-<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
-</pre></div>
-<p>Using it was trivial, you just wrote out:</p>
-<div class="highlight"><pre><span class="cp">{%</span> <span class="k">load</span> <span class="nv">uni_form</span> <span class="cp">%}</span><span class="x"></span>
-
-<span class="x">&lt;form&gt;</span>
-<span class="x">    </span><span class="cp">{{</span> <span class="nv">form</span><span class="o">|</span><span class="nf">as_uni_form</span> <span class="cp">}}</span><span class="x"></span>
-<span class="x">&lt;/form&gt;</span>
-</pre></div>
-<div class="section" id="days-of-django-uni-form">
-<h2>Days of django-uni-form</h2>
-<p>Leading up to <cite>PyCon</cite> 2009 James Tauber suggested some things that lead to the <a class="reference external" href="http://django-uni-form.readthedocs.org/en/latest/concepts.html#form-helpers">FormHelpers</a>, and we hammered out the API on IRC. We knew it crossed the rigid lines between Model-View-Template, but sometimes it's advantageous to break a few rules and abstractions in order to get better things down the road</p>
-<p>At PyCon 2009 with the mentoring of Jannis, James, and <a class="reference external" href="http://twitter.com/brosner">Brian Rosner</a>, I moved the project from google code to <a class="reference external" href="https://github.com/pydanny/django-uni-form">Github</a>. Jannis released it on <a class="reference external" href="http://pypi.python.org/pypi/">PyPI</a> and I followed the pattern he showed me for two years. Yeah, I learned tons under those duys.</p>
-<p>After PyCon 2009 a pull request with the <a class="reference external" href="http://django-uni-form.readthedocs.org/en/latest/helpers.html#layouts">Layout</a> helper was provided. It took some work to make it pass all the tests and use cases, but the end result was definition of form layout in the Python. This broke the rigid battle lines of Model-View-Template and left purists screaming in agony, but it certainly made working with forms in Django trivially easy.</p>
-<p>Lots of people started to use the project across projects like Pinax and organizations like NASA, <a class="reference external" href="http://pbs.org">PBS</a>, Discovery Channel, various newspapers and many others. Lots of pull requests came in and the features grew.</p>
-<p>In 2010, <a class="reference external" href="http://twitter.com/arowla">Alice Rowland</a> submitted the first <a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a> docs, and it was her work that really helped get me started on doing lots of Sphinx work.</p>
-<p>And, all the way into 2011, pull requests for Django Form Sets started to come rolling in, and almost none were of acceptable quality. They never came with documentation, tests, and almost always broke existing tests really hard. Since I'm not a huge fan of Django FormSets, I didn't want to put in a ton of effort making them work. I believe one of them was pretty good, but life was crazy busy at the time and I let it slide. Apologies to whoever it was gave me a working FormSet pull request with documentation, tests, and working code.</p>
-<p>Long periods were going by without new versions. I admit I often slow about accepting pull requests. Life was busy and reviewing the incoming code took a lot of time. Browser cross-checking, running tests, and more was really time consuming. I tried to get others to become co-leads on the project, but invariably they didn't have time to do it. Note: If someone asks you to co-lead something, respond in 24 hours.</p>
-</div>
-<div class="section" id="enter-miguel-araujo">
-<h2>Enter Miguel Araujo</h2>
-<p>After PyCon 2011, when there was some unpleasant stress in my life, I woke up cranky one morning and mouthed off on twitter to this guy who asked me to accept a pull request on django-uni-form. This guy tweeted back to me saying I ought to be nicer since I had a library people liked.</p>
-<p>He was right.</p>
-<p>I apologized to the guy (<a class="reference external" href="http://twitter.com/maraujop">Miguel Araujo</a>) and remembered my manners. Over the next couple of months we chatted via Twitter and Github's messaging system. He was smart, trustworthy, and passionate about everything he did. I knew I had found my co-lead. He responded promptly and I gave him commit rights.</p>
-<p>Working together (with him doing the vast majority of the work), we moved the project into new releases. The architecture and design changed, driven by discussions we had together. The code was cleaned up, gnarly bits in there to support old versions of Python and Django kicked out, and the documentation revised. The project had new life!</p>
-<p>The only blip I saw with Miguel is my own fault of sometimes being too nice as a project leader when it comes to accepting pull requests. <a class="reference external" href="http://django-uni-form.readthedocs.org/en/latest/contributing.html#how-to-get-your-pull-request-accepted">I believe pull requests should be really atomic</a> - for one thing and one thing only with support tests and documentation. Otherwise it becomes nigh impossible to incorporate them and these days I reject multi-purpose pull requests.  One pull request in particular took a huge amount of debate and discussion to work in. I think after that Miguel is much better at being upfront at the beginning about rejecting pull requests with giant scopes.</p>
-<p>During all this I asked Miguel to take over the project, he accepted, and <a class="reference external" href="http://pydanny.blogspot.com/2011/06/announcing-django-uni-form-080-beta.html">I even blogged my announcement his role as project leader</a>. Miguel is indeed very nice and after that fact he asked me to remain on board as co-lead.</p>
-<p>We finally met in September of 2011 and co-presented on <a class="reference external" href="http://www.slideshare.net/pydanny/advanced-django-forms-usage">Advanced Django Form Usage at DjangoCon 2011</a>. The deepest technical material we presented was authored by Miguel. During our research he uncovered at least one bug in Django and got an ancient bug closed. It was a great experience and I hope he'll co-present with me in the future.</p>
-</div>
-<div class="section" id="django-uni-form-is-dead-long-live-django-crispy-forms">
-<h2>django-uni-form is dead, long live django-crispy-forms</h2>
-<p>The upside of django-uni-form is that it grew in features organically thanks to my own needs and general community effort. The downside of django-uni-form is that it grew in features organically thanks to my own needs and general community effort. In any long running project there is cruft and weird patterns that start to hurt after a while. django-uni-form was no different.</p>
-<p>So I'm making this absolutely official as of now. <strong>django-uni-form is at it's end of life</strong>. It's done and kaput. No more pull requests will be accepted and the issue tracker will be turned off shortly. Just so no one is mistaken:</p>
-<blockquote>
-<strong>django-uni-form is deprecated. Use django-crispy-forms</strong></blockquote>
-<p>Miguel asked if he could start the project anew, under a different name. We both had been uncomfortable with the name <em>django-uni-form</em> for some time, especially since it had almost nothing to do with Uni-form anymore. In fact, I often using template overrides to avoid the Uni-form HTML layout - the most common alternative being <a class="reference external" href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>.</p>
-<p>We tossed around names for the project, but all of them were stupid, especially mine. We are both huge fans and users of <a class="reference external" href="https://github.com/brutasse/django-floppyforms">django-floppyforms</a> (HTML5 form widget app), so my fiancee, <a class="reference external" href="http://audreymroy.com">Audrey Roy</a>, suggested django-crispy-forms. And lo, the project was named.</p>
-<p>Right now <a class="reference external" href="http://django-crispy-forms">django-crispy-forms</a> has an improved API, better performance, and supports both Twitter bootstrap forms 2.0 and UniForm. Adding new form layouts will be easier, and feature controls will be better.</p>
-<p>What you should be using now is <a class="reference external" href="http://django-crispy-forms">django-crispy-forms</a>. Don't worry about changing over as there are <a class="reference external" href="http://django-crispy-forms.readthedocs.org/en/d-0/migration.html">migration instructions</a> on the <a class="reference external" href="http://django-crispy-forms.readthedocs.org/">excellent documentation</a>.</p>
-<p>Try it. You'll like it. :-)</p>
-</div>
-<p>There are <a href="./django-uni-form-end-of-life.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                        <ol id="posts-list" class="hfeed">
-            
-        
-        
-        
-        
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href="./two-years-ago-today.html" rel="bookmark" title="Permalink to Two years ago today">Two years ago today</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-02-17T09:20:00">
-                Fri 17 February 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href="#">Daniel Greenfeld</a>
-        </address>
-        
-<p>In <a href="./category/audrey.html">audrey</a>. </p>
-<p>tags: <a href="./tag/pycon.html">pycon</a><a href="./tag/audrey.html">audrey</a></p>
-
-
-</footer><!-- /.post-info -->
-                <p>The <a class="reference external" href="http://us.pycon.org">PyCon</a> tutorial on Django in Depth was ending. I had been sitting next to my friend <a class="reference external" href="http://djangrrl.com/">Barbara</a> and we got up to go when I heard a feminine voice ask: &quot;Are you <a class="reference external" href="https://twitter.com/bshaurette">bshaurette</a>?&quot; I turned and it was like I got punched in the gut.</p>
-<p>It was the first ...</p>
-                <a class="readmore" href="./two-years-ago-today.html">read more</a>
-                <p>There are <a href="./two-years-ago-today.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-        
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href="./my-new-blog.html" rel="bookmark" title="Permalink to My new blog">My new blog</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-02-17T00:30:00">
-                Fri 17 February 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href="#">Daniel Greenfeld</a>
-        </address>
-        
-<p>In <a href="./category/blog.html">blog</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/blog.html">blog</a></p>
-
-
-</footer><!-- /.post-info -->
-                <p>What I did to get it running:</p>
+<div class='article'>
+	<h2>My new blog</h2>
+	<div class="well small">Permalink: <a class="more" href="./my-new-blog.html">2012-02-17 00:30:00</a>
+by <a class="url fn" href="./author/Daniel Greenfeld.html">Daniel Greenfeld</a>
+in <a href="./category/blog.html">blog</a>
+tags: <a href="./tag/python.html">python</a> <a href="./tag/blog.html">blog</a> </div>
+	<div class="summary"><p>What I did to get it running:</p>
 <pre class="literal-block">
 pip install pelican
 git clone git://github.com/pydanny/pydanny.github.com.git
@@ -227,92 +104,38 @@ pelican . -o . -s settings.py
 git commit -am &quot;blogging here&quot;
 git push
 </pre>
+ <a class="btn primary xsmall" href="./my-new-blog.html">more…</a>
+	</div>
+</div>	
 
-                <a class="readmore" href="./my-new-blog.html">read more</a>
-                <p>There are <a href="./my-new-blog.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-        
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href="./tried-out-jekyll.html" rel="bookmark" title="Permalink to Tried out Jekyll">Tried out Jekyll</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-02-09T10:20:00">
-                Thu 09 February 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href="#">Daniel Greenfeld</a>
-        </address>
-        
-<p>In <a href="./category/blog.html">blog</a>. </p>
-<p>tags: <a href="./tag/ruby.html">ruby</a><a href="./tag/blog.html">blog</a></p>
-
-
-</footer><!-- /.post-info -->
-                <div class="section" id="why-jekyll">
+<div class='article'>
+	<h2>Tried out Jekyll</h2>
+	<div class="well small">Permalink: <a class="more" href="./tried-out-jekyll.html">2012-02-09 10:20:00</a>
+by <a class="url fn" href="./author/Daniel Greenfeld.html">Daniel Greenfeld</a>
+in <a href="./category/blog.html">blog</a>
+tags: <a href="./tag/ruby.html">ruby</a> <a href="./tag/blog.html">blog</a> </div>
+	<div class="summary"><div class="section" id="why-jekyll">
 <h2>Why Jekyll?</h2>
 <p>I've had issues with Blogger for some time.  After my fiancee, Audrey Roy, moved her blog to <a class="reference external" href="https://github.com/mojombo/jekyll">https://github.com/mojombo/jekyll</a>, I was impressed enough to give it a try.</p>
 <p>Why did it impress me?</p>
 </div>
 <div class="section" id="code-highlighting-made-easy">
 <h2>Code highlighting made easy</h2>
-<p>I don't have to hand-craft HTML ...</p></div>
-                <a class="readmore" href="./tried-out-jekyll.html">read more</a>
-                <p>There are <a href="./tried-out-jekyll.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-            <p class="paginator">
-    
-    Page 1 / 1
-    
-</p>
-        
-
-    
-    </ol><!-- /#posts-list -->
-    </section><!-- /#content -->
-
-
-
-        <section id="extras" class="body">
-        
-        
-        
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://smashingmagazine.com">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+<p>I don't have to hand-craft HTML ...</p></div> <a class="btn primary xsmall" href="./tried-out-jekyll.html">more…</a>
+	</div>
+</div>	
 
 
 
 
-<script type="text/javascript">
-    var disqus_shortname = 'pydanny';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 
+
+		<footer>
+		  <p> Powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a>, theme based on <a href="http://twitter.github.com/bootstrap/">Bootstrap, from Twitter</a>.</p>
+		  <p>&copy; Daniel Greenfeld 2011</p>
+		</footer>
+	  </div>
+   
+	</div>
 </body>
 </html>
