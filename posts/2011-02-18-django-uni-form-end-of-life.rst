@@ -137,6 +137,6 @@ Try it. You'll like it. :-)
 .. _`Twitter Bootstrap`: http://twitter.github.com/bootstrap/
 .. _`django-floppyforms`: https://github.com/brutasse/django-floppyforms
 .. _`Audrey Roy`: http://audreymroy.com
-.. _`django-crispy-forms`: http://django-crispy-forms
+.. _`django-crispy-forms`: https://github.com/maraujop/django-crispy-forms
 .. _`migration instructions`: http://django-crispy-forms.readthedocs.org/en/d-0/migration.html
 .. _`excellent documentation`: http://django-crispy-forms.readthedocs.org/
