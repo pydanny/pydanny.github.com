@@ -81,12 +81,30 @@
 pip install pelican
 git clone git://github.com/pydanny/pydanny.github.com.git
 </pre>
+<p>My settings.py file:</p>
+<div class="highlight"><pre><span class="n">AUTHOR</span> <span class="o">=</span> <span class="s">&#39;Daniel Greenfeld&#39;</span>
+<span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s">&#39;pydanny&#39;</span>
+<span class="n">GITHUB_URL</span> <span class="o">=</span> <span class="s">&#39;https://github.com/pydanny&#39;</span>
+<span class="n">GOOGLE_ANALYTICS</span><span class="o">=</span><span class="s">&#39;UA-18066389-2&#39;</span>
+<span class="n">SITEURL</span> <span class="o">=</span> <span class="s">&#39;http://pydanny.github.com&#39;</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">&#39;pydanny&#39;</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;twitter&#39;</span><span class="p">,</span> <span class="s">&#39;http://twitter.com/pydanny&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s">&#39;github&#39;</span><span class="p">,</span> <span class="s">&#39;https://github.com/pydanny&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s">&#39;facebook&#39;</span><span class="p">,</span> <span class="s">&#39;http://www.facebook.com/daniel.greenfeld&#39;</span><span class="p">),)</span>
+<span class="n">TAG_FEED</span> <span class="o">=</span> <span class="s">&#39;feeds/</span><span class="si">%s</span><span class="s">.atom.xml&#39;</span>
+<span class="n">THEME</span><span class="o">=</span><span class="s">&#39;notmyidea&#39;</span>
+<span class="n">TWITTER_USERNAME</span> <span class="o">=</span> <span class="s">&#39;pydanny&#39;</span>
+</pre></div>
 <p>How I push up entries and pages and themes:</p>
 <pre class="literal-block">
 pelican . -o . -s settings.py
 git commit -am &quot;blogging here&quot;
 git push
 </pre>
+<div class="section" id="results">
+<h2>Results!</h2>
+<p><a class="reference external" href="http://pydanny.github.com">http://pydanny.github.com</a></p>
+</div>
 <p>There are <a href=".././my-new-blog.html#disqus_thread">comments</a>.</p>
                 </article>
                 
@@ -156,6 +174,22 @@ git push
         <section id="extras" class="body">
         
         
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href=".././feeds/all.atom.xml" rel="alternate">atom feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/pydanny">twitter</a></li>
+                        
+                            <li><a href="https://github.com/pydanny">github</a></li>
+                        
+                            <li><a href="http://www.facebook.com/daniel.greenfeld">facebook</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
         
         </section><!-- /#extras -->
 

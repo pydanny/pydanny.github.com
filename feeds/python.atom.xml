@@ -105,10 +105,28 @@
 pip install pelican
 git clone git://github.com/pydanny/pydanny.github.com.git
 &lt;/pre&gt;
+&lt;p&gt;My settings.py file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Daniel Greenfeld&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;pydanny&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;GITHUB_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;https://github.com/pydanny&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;GOOGLE_ANALYTICS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;UA-18066389-2&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://pydanny.github.com&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;pydanny&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;SOCIAL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;twitter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://twitter.com/pydanny&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;github&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;https://github.com/pydanny&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;facebook&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://www.facebook.com/daniel.greenfeld&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),)&lt;/span&gt;
+&lt;span class="n"&gt;TAG_FEED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;feeds/&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;.atom.xml&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;THEME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;notmyidea&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;TWITTER_USERNAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;pydanny&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;How I push up entries and pages and themes:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 pelican . -o . -s settings.py
 git commit -am &amp;quot;blogging here&amp;quot;
 git push
 &lt;/pre&gt;
+&lt;div class="section" id="results"&gt;
+&lt;h2&gt;Results!&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://pydanny.github.com"&gt;http://pydanny.github.com&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 </summary><category term="python"></category><category term="blog"></category></entry></feed>
