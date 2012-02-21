@@ -12,9 +12,7 @@ What I did to get it running::
     pip install pelican
     git clone git://github.com/pydanny/pydanny.github.com.git
 
-My settings.py file:
-
-.. code-block:: python
+My settings.py file::
 
     AUTHOR = 'Daniel Greenfeld'
     DISQUS_SITENAME = 'pydanny'
