@@ -18,7 +18,7 @@ Me and Audrey are driving up from Los Angeles. I've wanted to do this drive for 
 Thursday, March 8th
 ====================
 
-I'm moderating the Code Reuse panel of the Python Web Summit. Have you submitted a question yet?
+I'm moderating the Code Reuse panel of the Python Web Summit. `Have you submitted a question yet`_?
 
 In the evening we'll be helping assemble bags for the conference. That's always a blast.
 
@@ -82,3 +82,4 @@ Sprints! Nothing set in stone yet, but some ideas I've had include:
 .. _`Building A Python-Based Search Engine`: https://us.pycon.org/2012/schedule/presentation/66/
 .. _`Diversity in practice`: https://us.pycon.org/2012/schedule/presentation/168/
 .. _`there's still room for signups`: http://bit.ly/pycon-capoeira
+.. _`Have you submitted a question yet`: http://www.google.com/moderator/#15/e=1c9a94&t=1c9a94.43
