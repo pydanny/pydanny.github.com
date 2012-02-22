@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.github.com" rel="alternate"></link><link href="http://pydanny.github.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.github.com</id><updated>2012-02-20T09:20:00Z</updated><entry><title>Parsing MongoDB URI</title><link href="http://pydanny.github.com/parsing-mongodb-uri.html" rel="alternate"></link><updated>2012-02-20T09:20:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-20:/parsing-mongodb-uri.html/</id><summary type="html">&lt;p&gt;Rather than hard-code the configuration into a Python based settings file, when using a PaaS such as Heroku you want to pick up the MongoDB URI from the system settings. Here's what I do:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.github.com" rel="alternate"></link><link href="http://pydanny.github.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.github.com</id><updated>2012-02-21T01:00:00Z</updated><entry><title>Selected for PyCon StartUp Row</title><link href="http://pydanny.github.com/selected-for-pycon-startup-row.html" rel="alternate"></link><updated>2012-02-21T01:00:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-21:/selected-for-pycon-startup-row.html/</id><summary type="html">&lt;p&gt;Me and Audrey have been working hard on &lt;a class="reference external" href="http://consumernotebook.com"&gt;Consumer Notebook&lt;/a&gt;, a Python/Django based project. We submitted it to PyCon StartUp row and found out this morning we've been accepted. &lt;strong&gt;Hooray!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;From the &lt;a class="reference external" href="http://pycon.blogspot.com/2012/02/startup-row-winners-for-pycon-2012.html"&gt;PyCon StartUp Row winner's post&lt;/a&gt;, here is a little bit of what we're about:&lt;/p&gt;
+&lt;blockquote class="highlights"&gt;
+Have you tried researching products online recently? Search engines are gamed by scammy marketers. Product review sites overwhelm you with ads, have unreliable reviews, or dryly compare raw product specs. &lt;a class="reference external" href="http://consumernotebook.com"&gt;Consumer Notebook&lt;/a&gt; is working to solve this problem. It is like Yelp for products, with product comparison grids inspired by the founders' open-source work on &lt;a class="reference external" href="http://djangopackages.com"&gt;Django Packages&lt;/a&gt; and &lt;a class="reference external" href="http://opencomparison.org"&gt;Open Comparison&lt;/a&gt;.&lt;/blockquote&gt;
+&lt;p&gt;Just so you know, &lt;a class="reference external" href="http://us.pycon.org"&gt;PyCon&lt;/a&gt; in North America is the biggest gathering for the international Python community. The conference this year is in Santa Clara, California, and is sold-out at 1500+ attendees, but could have easily sold out several times that number.&lt;/p&gt;
+&lt;p&gt;We look forward to sharing the StartUp Row with friends like Transifex, Python Packages, and &lt;a class="reference external" href="http://www.weddinglovely.com/"&gt;Wedding Lovely&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Please check out &lt;a class="reference external" href="http://consumernotebook.com"&gt;Consumer Notebook&lt;/a&gt; right now and also visit our PyCon booth on Saturday, March 10th and we'll show you what we're doing.&lt;/p&gt;
+</summary><category term="python"></category><category term="pycon"></category><category term="audrey"></category><category term="consumernotebook"></category><category term="django"></category></entry><entry><title>Parsing MongoDB URI</title><link href="http://pydanny.github.com/parsing-mongodb-uri.html" rel="alternate"></link><updated>2012-02-20T09:20:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-20:/parsing-mongodb-uri.html/</id><summary type="html">&lt;p&gt;Rather than hard-code the configuration into a Python based settings file, when using a PaaS such as Heroku you want to pick up the MongoDB URI from the system settings. Here's what I do:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# get the dynamic elements from the MongoURI&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
@@ -106,19 +113,20 @@ pip install pelican
 git clone git://github.com/pydanny/pydanny.github.com.git
 &lt;/pre&gt;
 &lt;p&gt;My settings.py file:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Daniel Greenfeld&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;pydanny&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;GITHUB_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;https://github.com/pydanny&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;GOOGLE_ANALYTICS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;UA-18066389-2&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://pydanny.github.com&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;pydanny&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;SOCIAL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;twitter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://twitter.com/pydanny&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;github&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;https://github.com/pydanny&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;facebook&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://www.facebook.com/daniel.greenfeld&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),)&lt;/span&gt;
-&lt;span class="n"&gt;TAG_FEED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;feeds/&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;.atom.xml&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;THEME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;notmyidea&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;TWITTER_USERNAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;pydanny&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="literal-block"&gt;
+AUTHOR = 'Daniel Greenfeld'
+DISQUS_SITENAME = 'pydanny'
+GITHUB_URL = 'https://github.com/pydanny'
+GOOGLE_ANALYTICS='UA-18066389-2'
+SITEURL = 'http://pydanny.github.com'
+SITENAME = 'pydanny'
+SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
+          ('github', 'https://github.com/pydanny'),
+          ('facebook', 'http://www.facebook.com/daniel.greenfeld'),)
+TAG_FEED = 'feeds/%s.atom.xml'
+THEME='notmyidea'
+TWITTER_USERNAME = 'pydanny'
+&lt;/pre&gt;
 &lt;p&gt;How I push up entries and pages and themes:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 pelican . -o . -s settings.py

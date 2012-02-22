@@ -61,8 +61,53 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./parsing-mongodb-uri.html">Parsing MongoDB URI</a></h1> 
+                    <h1 class="entry-title"><a href="./selected-for-pycon-startup-row.html">Selected for PyCon StartUp Row</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-02-21T01:00:00">
+                Tue 21 February 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="#">Daniel Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/python.html">python</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/pycon.html">pycon</a><a href="./tag/audrey.html">audrey</a><a href="./tag/consumernotebook.html">consumernotebook</a><a href="./tag/django.html">django</a></p>
+
+
+</footer><!-- /.post-info --><p>Me and Audrey have been working hard on <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a>, a Python/Django based project. We submitted it to PyCon StartUp row and found out this morning we've been accepted. <strong>Hooray!</strong></p>
+<p>From the <a class="reference external" href="http://pycon.blogspot.com/2012/02/startup-row-winners-for-pycon-2012.html">PyCon StartUp Row winner's post</a>, here is a little bit of what we're about:</p>
+<blockquote class="highlights">
+Have you tried researching products online recently? Search engines are gamed by scammy marketers. Product review sites overwhelm you with ads, have unreliable reviews, or dryly compare raw product specs. <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a> is working to solve this problem. It is like Yelp for products, with product comparison grids inspired by the founders' open-source work on <a class="reference external" href="http://djangopackages.com">Django Packages</a> and <a class="reference external" href="http://opencomparison.org">Open Comparison</a>.</blockquote>
+<p>Just so you know, <a class="reference external" href="http://us.pycon.org">PyCon</a> in North America is the biggest gathering for the international Python community. The conference this year is in Santa Clara, California, and is sold-out at 1500+ attendees, but could have easily sold out several times that number.</p>
+<p>We look forward to sharing the StartUp Row with friends like Transifex, Python Packages, and <a class="reference external" href="http://www.weddinglovely.com/">Wedding Lovely</a>.</p>
+<p>Please check out <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a> right now and also visit our PyCon booth on Saturday, March 10th and we'll show you what we're doing.</p>
+<p>There are <a href="./selected-for-pycon-startup-row.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                        <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href="./parsing-mongodb-uri.html" rel="bookmark" title="Permalink to Parsing MongoDB URI">Parsing MongoDB URI</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-02-20T09:20:00">
                 Mon 20 February 2012
         </abbr>
@@ -76,43 +121,16 @@
 <p>tags: <a href="./tag/python.html">python</a><a href="./tag/mongodb.html">mongodb</a><a href="./tag/howto.html">howto</a></p>
 
 
-</footer><!-- /.post-info --><p>Rather than hard-code the configuration into a Python based settings file, when using a PaaS such as Heroku you want to pick up the MongoDB URI from the system settings. Here's what I do:</p>
+</footer><!-- /.post-info -->
+                <p>Rather than hard-code the configuration into a Python based settings file, when using a PaaS such as Heroku you want to pick up the MongoDB URI from the system settings. Here's what I do:</p>
 <div class="highlight"><pre><span class="c"># get the dynamic elements from the MongoURI</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
-<span class="n">r</span> <span class="o">=</span> <span class="s">r&#39;^mongodb\:\/\/(?P&lt;username&gt;[_\w]+):(?P&lt;password&gt;[\w]+)@(?P&lt;host&gt;[\.\w]+):(?P&lt;port&gt;\d+)/(?P&lt;database&gt;[_\w]+)$&#39;</span>
-<span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<span class="n">mongolab_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;MONGOLAB_URI&#39;</span><span class="p">]</span>
-<span class="n">match</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">mongolab_url</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span>
-
-<span class="c"># Save the data to settings</span>
-<span class="n">MONGO_HOST</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;host&#39;</span><span class="p">]</span>
-<span class="n">MONGO_PORT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;port&#39;</span><span class="p">])</span>
-<span class="n">MONGO_NAME</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;username&#39;</span><span class="p">]</span>
-<span class="n">MONGO_DATABASE</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;database&#39;</span><span class="p">]</span>
-<span class="n">MONGO_PASSWORD</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;password&#39;</span><span class="p">]</span>
-
-<span class="c"># Connect to MongoEngine</span>
-<span class="kn">from</span> <span class="nn">mongoengine</span> <span class="kn">import</span> <span class="n">connect</span> <span class="k">as</span> <span class="n">me_connect</span>
-<span class="n">me_connect</span><span class="p">(</span>
-    <span class="n">data</span><span class="p">[</span><span class="s">&#39;database&#39;</span><span class="p">],</span>
-    <span class="n">host</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;host&#39;</span><span class="p">],</span>
-    <span class="n">port</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;port&#39;</span><span class="p">]),</span>
-    <span class="n">username</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;username&#39;</span><span class="p">],</span>
-    <span class="n">password</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;password&#39;</span><span class="p">])</span>
-</pre></div>
-<p>There are <a href="./parsing-mongodb-uri.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                        <ol id="posts-list" class="hfeed">
-            
-        
+<span class="n">r</span> <span class="o">=</span> <span class="s">r&#39;^mongodb\:\/\/(?P ...</span></pre></div>
+                <a class="readmore" href="./parsing-mongodb-uri.html">read more</a>
+                <p>There are <a href="./parsing-mongodb-uri.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
@@ -214,14 +232,15 @@ pip install pelican
 git clone git://github.com/pydanny/pydanny.github.com.git
 </pre>
 <p>My settings.py file:</p>
-<div class="highlight"><pre><span class="n">AUTHOR</span> <span class="o">=</span> <span class="s">&#39;Daniel Greenfeld&#39;</span>
-<span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s">&#39;pydanny&#39;</span>
-<span class="n">GITHUB_URL</span> <span class="o">=</span> <span class="s">&#39;https://github.com/pydanny&#39;</span>
-<span class="n">GOOGLE_ANALYTICS</span><span class="o">=</span><span class="s">&#39;UA-18066389-2&#39;</span>
-<span class="n">SITEURL</span> <span class="o">=</span> <span class="s">&#39;http://pydanny.github.com&#39;</span>
-<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">&#39;pydanny&#39;</span>
-<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;twitter&#39;</span><span class="p">,</span> <span class="s">&#39;http://twitter.com/pydanny&#39;</span><span class="p">),</span>
-          <span class="p">(</span><span class="s">&#39;github ...</span></pre></div>
+<pre class="literal-block">
+AUTHOR = 'Daniel Greenfeld'
+DISQUS_SITENAME = 'pydanny'
+GITHUB_URL = 'https://github.com/pydanny'
+GOOGLE_ANALYTICS='UA-18066389-2'
+SITEURL = 'http://pydanny.github.com'
+SITENAME = 'pydanny'
+SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
+          ('github ...</pre>
                 <a class="readmore" href="./my-new-blog.html">read more</a>
                 <p>There are <a href="./my-new-blog.html#disqus_thread">comments</a>.</p>
                 </div><!-- /.entry-content -->
