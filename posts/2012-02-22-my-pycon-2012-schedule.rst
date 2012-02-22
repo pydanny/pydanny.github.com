@@ -10,7 +10,7 @@ Here I was thinking that this year's PyCon wasn't going to be so busy because I 
 
 Here's what I've already got in the works.
 
-Wednesday, March 8th
+Wednesday, March 7th
 ====================
 
 Me and Audrey are driving up from Los Angeles. I've wanted to do this drive for a while, so this is very exciting. We'll arrive in the evening and hopefully tag up with friends old and new.

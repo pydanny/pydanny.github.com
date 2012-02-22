@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.github.com" rel="alternate"></link><link href="http://pydanny.github.com/feeds/all.atom.xml" rel="self"></link><id>http://pydanny.github.com</id><updated>2012-02-22T09:00:00Z</updated><entry><title>My PyCon 2012 Schedule</title><link href="http://pydanny.github.com/my-pycon-2012-schedule.html" rel="alternate"></link><updated>2012-02-22T09:00:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-22:/my-pycon-2012-schedule.html/</id><summary type="html">&lt;p&gt;Here I was thinking that this year's PyCon wasn't going to be so busy because I didn't submit a talk or tutorial. Ha! What the heck was I thinking?&lt;/p&gt;
 &lt;p&gt;Here's what I've already got in the works.&lt;/p&gt;
-&lt;div class="section" id="wednesday-march-8th"&gt;
-&lt;h2&gt;Wednesday, March 8th&lt;/h2&gt;
+&lt;div class="section" id="wednesday-march-7th"&gt;
+&lt;h2&gt;Wednesday, March 7th&lt;/h2&gt;
 &lt;p&gt;Me and Audrey are driving up from Los Angeles. I've wanted to do this drive for a while, so this is very exciting. We'll arrive in the evening and hopefully tag up with friends old and new.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="thursday-march-8th"&gt;
 &lt;h2&gt;Thursday, March 8th&lt;/h2&gt;
-&lt;p&gt;I'm moderating the Code Reuse panel of the Python Web Summit. Have you submitted a question yet?&lt;/p&gt;
+&lt;p&gt;I'm moderating the Code Reuse panel of the Python Web Summit. &lt;a class="reference external" href="http://www.google.com/moderator/#15/e=1c9a94&amp;amp;t=1c9a94.43"&gt;Have you submitted a question yet&lt;/a&gt;?&lt;/p&gt;
 &lt;p&gt;In the evening we'll be helping assemble bags for the conference. That's always a blast.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="friday-march-9th"&gt;
