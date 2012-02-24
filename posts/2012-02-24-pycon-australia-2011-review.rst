@@ -82,7 +82,7 @@ The staff of the hotel were very nice and helpful. Unfortunately they were worki
 Sprints
 =======
 
-We talked with Richard Jones and he implemented OpenID on PyPI so things like http://opencomparison.org could support it. Personally, I would prefer OAUTH but I'll take whatever I can get. One goal at PyCon 2012 is to get that working as another authentication system. 
+We talked with Richard Jones about PyPI authentication issues, and he decided to go with OpenID. Personally, I would prefer OAUTH but I'll take whatever I can get. On the behalf of the community Mark Rees implemented OpenID on PyPI at the sprint so things like http://opencomparison.org can support the community better. One goal at PyCon 2012 is to get that working as another authentication system. 
 
 Otherwise I closed bugs and worked lintification of the project. Audrey and a couple Australian PyLadies, Elena Williams and Jenny Nguyen, worked some core Django documentation tickets. We didn't get as much done as we hoped thanks to an outside distraction, but the organization of the sprints was top-notch.
 
