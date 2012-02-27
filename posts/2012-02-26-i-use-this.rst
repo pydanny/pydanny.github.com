@@ -25,7 +25,7 @@ So without further ado, seven of my tools, specifically software.
 
 I continue to use it, even though it's unsupported, has weird whitespace issues, and people make fun of me. I don't mean the EMACS/Vim people, cause they mock everyone, I mean people using `Sublime Text 2`_, PyCharm_, and NotePad on Windows. I try to make a brave face of it and for the most part I succeed.
 
-Speaking of which, you know how you sometimes wish deep inside that the fairy tales of youth were actually true? Or that there was a zombie apocalypse and you got the chance to show off how all your eclectic skills and pursuits would make you a survival genius? Well, I feel that way about TextMates 2. Stark reality stares me in the face and yet I cling to hope.
+Speaking of which, you know how you sometimes wish deep inside that the fairy tales of youth were actually true? Or that there was a zombie apocalypse and you got the chance to show off how all your eclectic skills and pursuits would make you a survival genius? Well, I feel that way about TextMates 2 being released in my lifetime. Alas, stark reality stares me in the face; yet I cling to hope.
 
 Alright, sometimes I dabble in Sublime Text 2.  I've played with PyCharm. In 2010 I even worked on a project where use of PyDev_ was mandatory. When I touch servers it's EMACS, Vi, or even Nano. And yet to TextMate I always return. 
 
