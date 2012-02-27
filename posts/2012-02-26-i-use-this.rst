@@ -92,7 +92,7 @@ Yup, I eat my own dogfood. It lets me `build comparison grids`_ or look at what 
 Mac OS X
 ========
 
-I've started as an Apple user:
+I started as an Apple user:
 
 .. image:: http://farm8.staticflickr.com/7050/6933443849_51316a7cb7.jpg
    :name: Apple ][
