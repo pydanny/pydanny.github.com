@@ -71,7 +71,7 @@ When I first heard that Heroku had become yet-another-Python-PAAS, I shrugged. T
 
 After a coding contest in October over in Hollywood where `Randall Degges`_ served as sys admin for the project and tried out Heroku, I was impressed. Heroku provided a nice command-line interface and had an impressive feature set on it's own. A stand-out feature I noticed was the `add-ons`_, which are Heroku moderated third-party plug-ins for their service. Finally, it didn't hurt that Heroku has the staff to provide 24/7 coverage of their servers.
 
-We decided to give it a try and the results are that Consumer Notebook is hosted by Heroku. We're more than pleased, and I'll be blogging about the advantages of PaaS over doing-servers-yourself in a future article.
+We decided to give it a try and the results are that `Consumer Notebook`_ is hosted by Heroku. We're more than pleased, and I'll be blogging about the advantages of PaaS over doing-servers-yourself in a future article.
 
 ----
 
