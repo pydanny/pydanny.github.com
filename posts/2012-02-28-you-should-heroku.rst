@@ -168,5 +168,9 @@ In any case, things have changed. Deploying Python web apps is as trivial as dep
 
 For developers I see great times ahead.
 
-.. http://insidertips.consumernotebook.com/images/robot-300x281.png
+----
+
+`Discuss this post on Hacker News`_
+
+.. _`Discuss this post on Hacker News`: http://news.ycombinator.com/item?id=3643910
 .. _`host of really good competitors`: http://www.quora.com/What-is-the-Heroku-equivalent-for-Django-applications-Edit-Question-not-relevant-anymore-as-Heroku-now-supports-Django

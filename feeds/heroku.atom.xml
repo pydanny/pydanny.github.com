@@ -101,6 +101,7 @@
 &lt;p&gt;With the rise of devops we've seen a lot of developers across languages and frameworks dive into &lt;strong&gt;Chef&lt;/strong&gt; and &lt;strong&gt;Puppet&lt;/strong&gt;. It's been sadly amusing watching people muck around with these great tools to make the deployment of 1-2 servers 'easier', when the real benefit of those tools has been to do things at scale. Things like deployments of fifty servers at once or deployment abstractions for hundreds of people (my fancy talk for PaaS).&lt;/p&gt;
 &lt;p&gt;In any case, things have changed. Deploying Python web apps is as trivial as deploying PHP code.&lt;/p&gt;
 &lt;p&gt;For developers I see great times ahead.&lt;/p&gt;
-&lt;!-- http://insidertips.consumernotebook.com/images/robot-300x281.png --&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://news.ycombinator.com/item?id=3643910"&gt;Discuss this post on Hacker News&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="heroku"></category><category term="consumernotebook"></category><category term="mongodb"></category></entry></feed>
