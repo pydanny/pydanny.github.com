@@ -162,7 +162,7 @@ The Takeaway
 
 One of the problems Django and other Python web frameworks has had is the difficulty of deployment. I can't tell you how many projects I didn't do because of the thought of handling the sys admin side of things. Let's face it, one of the great ongoing successes for PHP is that deploying the majority of sites is trivial.
 
-With the rise of devops we've seen a lot of developers across languages and frameworks dive into **Chef** and **Puppet**. It's been sadly amusing watching people much around with these great tools to make the deployment of 1-2 servers 'easier', when the real benefit of those tools has been to do things at scale. Things like deployments of fifty servers at once or deployment abstractions for hundreds of people (my fancy talk for PaaS).
+With the rise of devops we've seen a lot of developers across languages and frameworks dive into **Chef** and **Puppet**. It's been sadly amusing watching people muck around with these great tools to make the deployment of 1-2 servers 'easier', when the real benefit of those tools has been to do things at scale. Things like deployments of fifty servers at once or deployment abstractions for hundreds of people (my fancy talk for PaaS).
 
 In any case, things have changed. Deploying Python web apps is as trivial as deploying PHP code. 
 
