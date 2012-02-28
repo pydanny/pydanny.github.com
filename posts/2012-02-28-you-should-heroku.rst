@@ -153,7 +153,7 @@ Right now we're seeing a 50% increase in visits every day. So if we ran our own 
 
     **$200 < 10 hours of us doing consulting work to bootstrap the project.**
 
-Until you hit a certain point, these days the real cost of servers is labor. If you're a developer and you think going with a cheap hosting provider is the way to go, think again. Think about the hours you're losing monkeying around with servers and databases instead of getting code done.
+Until you hit a certain point, these days the real cost of servers is labor. If you're a developer or small effort, and you think going with a cheap hosting provider is the way to go, think again. Think about the hours you're losing monkeying around with servers and databases instead of getting code done.
 
 Heroku saves us money.
 
