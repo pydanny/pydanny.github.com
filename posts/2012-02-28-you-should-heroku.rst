@@ -164,7 +164,7 @@ One of the problems Django and other Python web frameworks has had is the diffic
 
 With the rise of devops we've seen a lot of developers across languages and frameworks dive into **Chef** and **Puppet**. It's been sadly amusing watching people much around with these great tools to make the deployment of 1-2 servers 'easier', when the real benefit of those tools has been to do things at scale. Things like deployments of fifty servers at once or deployment abstractions for hundreds of people (my fancy talk for PaaS).
 
-In any case, things have changed. Deploying Python web apps is as trivial as deploying PHP code. It started with Google App Engine and `host of really good competitors`_.
+In any case, things have changed. Deploying Python web apps is as trivial as deploying PHP code. 
 
 For developers I see great times ahead.
 
