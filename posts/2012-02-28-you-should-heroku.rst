@@ -24,7 +24,7 @@ The Big Problem
 
 Sys admin is boring. I find it tedious and dull. Devops doesn't make it easier/faster, it just makes it possible to do it at a large scale. 
 
-Fortunately for me, my fiancee likes to the sys admin side of things. However, she's got serious programming skills in Python/Javascript, understands CSS, is an excellent illustrator, and has a good business skills to boot. Which means **I needed Audrey not to be doing sys admin**.
+Fortunately for me, my fiancee likes the sys admin side of things. However, she's got serious programming skills in Python/Javascript, understands CSS, is an excellent illustrator, and has good business skills to boot. Which means **I needed Audrey not to be doing sys admin**.
 
 Solution: Platform as a Service
 ===============================
