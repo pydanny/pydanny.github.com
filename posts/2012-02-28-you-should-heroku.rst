@@ -40,15 +40,15 @@ Why Heroku?
 
 We choose Heroku for a number of reasons:
 
-#. We competed in a Los Angeles area Hacking contest with `Randall Degges`_. He was responsible for the sys admin and went with Heroku. He got it up and it was out of the way for the competition. He spent his time coding, adding features, and fixing templates instead of tweaking nobs on something in the cloud. We saw other people not deliver products at the contest because of this issue.
+#. We competed in a Los Angeles area Hacking contest with `Randall Degges`_. He was responsible for the sys admin and went with Heroku. He got it up and it was out of the way for the competition. He spent his time coding, adding features, and fixing templates instead of tweaking knobs on something in the cloud. We saw other people not deliver products at the contest because of this issue.
 #. Heroku doesn't lock you in. If I wanted to, I could take all the pieces out in about 10 minutes, then go old school and host it myself on my own closet server.
-#. Heroku has very good PostGreSQL_ support. Our web framework is Django_, which has an ORM that works best with PostGreSQL.
+#. Heroku has very good PostgreSQL_ support. Our web framework is Django_, which has an ORM that works best with PostgreSQL.
 #. Heroku has staff. At least seventy of them. Odds are they would have people around 24/7 to deal with issues.
 #. The add-on system means they've got many other people adding great new features. Want MongoDB_? No problem! How about something to `handle video`_? You got it!
 #. Heroku scales up trivially. If we get an upswell of users, I just type ``heroku ps:scale web=50`` and I've got 50 web server things handling the load.
 #. When I think of Heroku I think of Puffer Fish. Which is awesome because Puffer Fish are awesome.
 
-.. _PostGreSQL: http://devcenter.heroku.com/categories/heroku-postgres
+.. _PostgreSQL: http://devcenter.heroku.com/categories/heroku-postgres
 .. _Django: http://djangoproject.com
 
 .. image:: http://farm6.staticflickr.com/5303/5776592544_fb15a2902a_m.jpg
@@ -124,7 +124,7 @@ What you don't see is anything about sys admin issues. That's because what could
     heroku addons:add ssl:piggyback
     git push heroku master
     heroku scale web=1
-    heroku addons:add heroku-postgresql:ronin
+    heroku addons:add heroku-PostgreSQL:ronin
     heroku pg:wait
     """
 
@@ -141,7 +141,7 @@ You can do Heroku for free. A lot of people do. More power to them.
 
 But let's face it, beyond a certain point, every PaaS, including Heroku, is going to be more expensive then getting your own EC2, Rackspace, Dreamhost, or Linode hosted server. For a fraction of the cost, you can provision a server, install all the bits, configure the database, http server, load balancers, and even write Chef/Puppet/Fabric scripts so you can do it repeatedly at scale. Cheap!
 
-So why pay more for Heroku? Why not just do it ourselves? For example, right now we're on dedicated PostGreSQL hosting which Heroku charges us $200/month. That's a lot, right? 
+So why pay more for Heroku? Why not just do it ourselves? For example, right now we're on dedicated PostgreSQL hosting which Heroku charges us $200/month. That's a lot, right? 
 
 .. pull-quote::
 
@@ -160,7 +160,7 @@ Heroku saves us money.
 The Takeaway
 ============
 
-One of the problems Django and other Python web frameworks has had is the difficulty of deployment. I can't tell you how many projects I didn't do because the thought of handling the sys admin side of things. Let's face it, one of the great ongoing successes for PHP is that deploying the majority of sites is trivial.
+One of the problems Django and other Python web frameworks has had is the difficulty of deployment. I can't tell you how many projects I didn't do because of the thought of handling the sys admin side of things. Let's face it, one of the great ongoing successes for PHP is that deploying the majority of sites is trivial.
 
 With the rise of devops we've seen a lot of developers across languages and frameworks dive into **Chef** and **Puppet**. It's been sadly amusing watching people much around with these great tools to make the deployment of 1-2 servers 'easier', when the real benefit of those tools has been to do things at scale. Things like deployments of fifty servers at once or deployment abstractions for hundreds of people (my fancy talk for PaaS).
 
