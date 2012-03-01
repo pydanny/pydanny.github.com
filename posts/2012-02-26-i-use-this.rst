@@ -19,9 +19,11 @@ So without further ado, seven of my tools, specifically software.
 `TextMate`_
 ============
 
-.. pull-quote::
+.. epigraph::
 
-    "My relationship with Textmate isn't healthy." -- Myself
+    "My relationship with Textmate isn't healthy." 
+    
+    -- Myself
 
 I continue to use it, even though it's unsupported, has weird whitespace issues, and people make fun of me. I don't mean the EMACS/Vim people, cause they mock everyone, I mean people using `Sublime Text 2`_, PyCharm_, and NotePad on Windows. I try to make a brave face of it and for the most part I succeed.
 
@@ -50,9 +52,11 @@ I never liked Powerpoint. I tried to use Google Presentations for years. Finally
 `Read the Docs`_
 ================
 
-.. pull-quote::
+.. epigraph::
 
-    "Wikis are where documentation goes to die." -- Jacob Kaplan-Moss
+    "Wikis are where documentation goes to die." 
+    
+    -- Jacob Kaplan-Moss
 
 I'm of the opinion that Python open source projects that don't have Sphinx documentation are not ready for production use. And if I have to decide between two projects that are close in capability and one of them isn't on Read the Docs, then you know which way I'll go.
 

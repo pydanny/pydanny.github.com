@@ -3,8 +3,10 @@
 &lt;p&gt;So without further ado, seven of my tools, specifically software.&lt;/p&gt;
 &lt;div class="section" id="textmate"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://consumernotebook.com/textmate-the-missing-editor-for-mac-os-x/4f4ad4e35a4305000d000000/"&gt;TextMate&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote class="pull-quote"&gt;
-&amp;quot;My relationship with Textmate isn't healthy.&amp;quot; -- Myself&lt;/blockquote&gt;
+&lt;blockquote class="epigraph"&gt;
+&lt;p&gt;&amp;quot;My relationship with Textmate isn't healthy.&amp;quot;&lt;/p&gt;
+&lt;p class="attribution"&gt;&amp;mdash;Myself&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;I continue to use it, even though it's unsupported, has weird whitespace issues, and people make fun of me. I don't mean the EMACS/Vim people, cause they mock everyone, I mean people using &lt;a class="reference external" href="http://consumernotebook.com/sublime-text/4f4ad53a5a4305000e000000/"&gt;Sublime Text 2&lt;/a&gt;, &lt;a class="reference external" href="http://consumernotebook.com/jetbrains-pycharm/4f4ad5b861e9e4000e000000/"&gt;PyCharm&lt;/a&gt;, and NotePad on Windows. I try to make a brave face of it and for the most part I succeed.&lt;/p&gt;
 &lt;p&gt;Speaking of which, you know how you sometimes wish deep inside that the fairy tales of youth were actually true? Or that there was a zombie apocalypse and you got the chance to show off how all your eclectic skills and pursuits would make you a survival genius? Well, I feel that way about TextMates 2 being released in my lifetime. Alas, stark reality stares me in the face; yet I cling to hope.&lt;/p&gt;
 &lt;p&gt;Alright, sometimes I dabble in Sublime Text 2.  I've played with PyCharm. In 2010 I even worked on a project where use of &lt;a class="reference external" href="http://consumernotebook.com/pydev/4f4ad5d55a4c6f000d000000/"&gt;PyDev&lt;/a&gt; was mandatory. When I touch servers it's EMACS, Vi, or even Nano. And yet to TextMate I always return.&lt;/p&gt;
@@ -18,8 +20,10 @@
 &lt;hr class="docutils" /&gt;
 &lt;div class="section" id="read-the-docs"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://rtfd.org"&gt;Read the Docs&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote class="pull-quote"&gt;
-&amp;quot;Wikis are where documentation goes to die.&amp;quot; -- Jacob Kaplan-Moss&lt;/blockquote&gt;
+&lt;blockquote class="epigraph"&gt;
+&lt;p&gt;&amp;quot;Wikis are where documentation goes to die.&amp;quot;&lt;/p&gt;
+&lt;p class="attribution"&gt;&amp;mdash;Jacob Kaplan-Moss&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;I'm of the opinion that Python open source projects that don't have Sphinx documentation are not ready for production use. And if I have to decide between two projects that are close in capability and one of them isn't on Read the Docs, then you know which way I'll go.&lt;/p&gt;
 &lt;p&gt;Why?&lt;/p&gt;
 &lt;p&gt;Because I want my documentation as up-to-date as possible. Wikis often fail in this, so do custom documentation solutions, and so does upload tarballs to a service. You should be using the same patterns for documentation as you do coding. Use Read the Docs.&lt;/p&gt;
