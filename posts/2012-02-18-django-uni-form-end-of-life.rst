@@ -66,7 +66,7 @@ Days of django-uni-form
 
 Leading up to `PyCon` 2009 James Tauber suggested some things that lead to the `FormHelpers`_, and we hammered out the API on IRC. We knew it crossed the rigid lines between Model-View-Template, but sometimes it's advantageous to break a few rules and abstractions in order to get better things down the road
 
-At PyCon 2009 with the mentoring of Jannis, James, and `Brian Rosner`_, I moved the project from google code to `Github`_. Jannis released it on `PyPI`_ and I followed the pattern he showed me for two years. Yeah, I learned tons under those duys.
+At PyCon 2009 with the mentoring of Jannis, James, and `Brian Rosner`_, I moved the project from google code to `Github`_. Jannis released it on `PyPI`_ and I followed the pattern he showed me for two years. Yeah, I learned tons under those guys.
 
 After PyCon 2009 a pull request with the `Layout`_ helper was provided. It took some work to make it pass all the tests and use cases, but the end result was definition of form layout in the Python. This broke the rigid battle lines of Model-View-Template and left purists screaming in agony, but it certainly made working with forms in Django trivially easy.
 
