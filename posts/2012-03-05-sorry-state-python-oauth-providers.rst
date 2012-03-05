@@ -108,7 +108,7 @@ For what it's worth, Idan Gazit has been working on something to help address th
 
 The PyCon US 2012 sprints start on March 12. I think as a community, we Pythonistas should band together and make things right. I think we'll have the brainpower and enough eyes on the problem to make serious headway on the issue, either by fixing existing solutions or creating new ones. Right now I've got interest from people to join in and help, including Idan Gazit, Audrey Roy, George Hickman, and others.
 
-W're willing to put in the time to make OAuth in Python better, how about you?
+We're willing to put in the time to make OAuth in Python better, how about you?
 
 .. image:: http://farm8.staticflickr.com/7201/6803475636_f34fb400eb_m.jpg
    :name: OAuth logo
