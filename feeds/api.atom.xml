@@ -38,14 +38,6 @@
 &lt;li&gt;We could not get it to work.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="velruse-pyramid"&gt;
-&lt;h3&gt;Velruse (Pyramid)&lt;/h3&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/bbangert/velruse"&gt;https://github.com/bbangert/velruse&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;OAuth version: everything&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Admits it's too early for use&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
 &lt;div class="section" id="lastuser-flask"&gt;
 &lt;h3&gt;lastuser (Flask)&lt;/h3&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/hasgeek/lastuser"&gt;https://github.com/hasgeek/lastuser&lt;/a&gt;&lt;/p&gt;
@@ -88,6 +80,11 @@
 &lt;p&gt;We're willing to put in the time to make OAuth in Python better, how about you?&lt;/p&gt;
 &lt;a class="reference external image-reference" href="http://oauth.net/"&gt;&lt;img alt="http://farm8.staticflickr.com/7201/6803475636_f34fb400eb_m.jpg" class="align-center" id="oauth-logo" src="http://farm8.staticflickr.com/7201/6803475636_f34fb400eb_m.jpg" /&gt;&lt;/a&gt;
 &lt;hr class="docutils" /&gt;
+&lt;div class="section" id="updates"&gt;
+&lt;h3&gt;Updates&lt;/h3&gt;
+&lt;p&gt;03/05/2012 - Removed Velruse from the list of providers as it's lead, Michael Merickel, clarified that it is not a provider.&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://news.ycombinator.com/item?id=3666853"&gt;Discuss this post on Hacker News&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="OAuth"></category><category term="api"></category><category term="Consumer-Notebook"></category></entry></feed>

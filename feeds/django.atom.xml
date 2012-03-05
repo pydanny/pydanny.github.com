@@ -38,14 +38,6 @@
 &lt;li&gt;We could not get it to work.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="velruse-pyramid"&gt;
-&lt;h3&gt;Velruse (Pyramid)&lt;/h3&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/bbangert/velruse"&gt;https://github.com/bbangert/velruse&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;OAuth version: everything&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Admits it's too early for use&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
 &lt;div class="section" id="lastuser-flask"&gt;
 &lt;h3&gt;lastuser (Flask)&lt;/h3&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/hasgeek/lastuser"&gt;https://github.com/hasgeek/lastuser&lt;/a&gt;&lt;/p&gt;
@@ -88,7 +80,12 @@
 &lt;p&gt;We're willing to put in the time to make OAuth in Python better, how about you?&lt;/p&gt;
 &lt;a class="reference external image-reference" href="http://oauth.net/"&gt;&lt;img alt="http://farm8.staticflickr.com/7201/6803475636_f34fb400eb_m.jpg" class="align-center" id="oauth-logo" src="http://farm8.staticflickr.com/7201/6803475636_f34fb400eb_m.jpg" /&gt;&lt;/a&gt;
 &lt;hr class="docutils" /&gt;
+&lt;div class="section" id="updates"&gt;
+&lt;h3&gt;Updates&lt;/h3&gt;
+&lt;p&gt;03/05/2012 - Removed Velruse from the list of providers as it's lead, Michael Merickel, clarified that it is not a provider.&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://news.ycombinator.com/item?id=3666853"&gt;Discuss this post on Hacker News&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="OAuth"></category><category term="api"></category><category term="Consumer-Notebook"></category></entry><entry><title>You should Heroku</title><link href="http://pydanny.github.com/you-should-heroku.html" rel="alternate"></link><updated>2012-02-28T12:45:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-28:/you-should-heroku.html/</id><summary type="html">&lt;p&gt;In mid-November me and my fiancee, &lt;a class="reference external" href="http://audreymroy.com"&gt;Audrey Roy&lt;/a&gt; began our startup. We had been frustrated with trying to do on-line product research and came up with an idea to take the lessons learned from &lt;a class="reference external" href="http://djangopackages.com"&gt;Django Packages&lt;/a&gt; / &lt;a class="reference external" href="http://opencomparison.org"&gt;Open Comparison&lt;/a&gt; and apply them to a commercial effort. The result has been &lt;a class="reference external" href="http://consumernotebook.com"&gt;Consumer Notebook&lt;/a&gt;, and it's been a steadily growing success.&lt;/p&gt;
 &lt;p&gt;We've been bootstrapping the project. That means supporting it with consulting and grinding away on it during our free time. That means 12-16 hour days of Python, Django, and Javascript coding, marketing, system administration, graphic design, communicating with users and vendors, and a thousand other tasks. Since we've had to explore new techniques for making things work on the backend and front end, that means we've needed to have a robust system that is trivial to deploy and certain to never go down. Which, of course, requires serious sys admin skills.&lt;/p&gt;

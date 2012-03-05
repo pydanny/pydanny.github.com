@@ -53,15 +53,6 @@ OAuth version: 1.0a
 * Doesn't work without serious hacking. Which means I have to worry if I'm breaking anything.
 * We could not get it to work.
 
-Velruse (Pyramid)
--------------------
-
-https://github.com/bbangert/velruse
-
-OAuth version: everything
-
-* Admits it's too early for use
-
 lastuser (Flask)
 -------------------
 
@@ -114,6 +105,13 @@ We're willing to put in the time to make OAuth in Python better, how about you?
    :name: OAuth logo
    :align: center
    :target: http://oauth.net/
+
+----
+
+Updates
+-------
+
+03/05/2012 - Removed Velruse from the list of providers as it's lead, Michael Merickel, clarified that it is not a provider.
 
 ----
 
