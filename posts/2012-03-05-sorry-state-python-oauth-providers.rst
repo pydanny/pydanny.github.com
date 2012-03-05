@@ -119,7 +119,7 @@ W're willing to put in the time to make OAuth in Python better, how about you?
 
 `Discuss this post on Hacker News`_
 
-.. _`Discuss this post on Hacker News`: http://pydanny.github.com/the-sorry-state-of-python-oauth-providers.html
+.. _`Discuss this post on Hacker News`: http://news.ycombinator.com/item?id=3666853
 
 
 .. _`Consumer Notebook`: http://consumernotebook.com
