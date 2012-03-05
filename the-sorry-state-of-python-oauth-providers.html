@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>pydanny - django</title>
+        <title>The sorry state of Python OAuth providers</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
-        <link href=".././feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
         
 
         
@@ -13,11 +13,11 @@
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
         <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie.css"/>
-                <script src=".././js/IE8.js" type="text/javascript"></script><![endif]-->
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
 
         <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie6.css"/><![endif]-->
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
 
 </head>
 
@@ -30,39 +30,38 @@
 </a>
 
         <header id="banner" class="body">
-                <h1><a href="../.">pydanny </a></h1>
+                <h1><a href=".">pydanny </a></h1>
                 <nav><ul>
                 
                 
                 
-                    <li><a href=".././pages/about.html">About</a></li>
+                    <li><a href="./pages/about.html">About</a></li>
                 
-                    <li><a href=".././pages/tools.html">Tools</a></li>
+                    <li><a href="./pages/tools.html">Tools</a></li>
                 
-                    <li><a href=".././pages/upcoming.html">Upcoming</a></li>
+                    <li><a href="./pages/upcoming.html">Upcoming</a></li>
                 
                 
                 
-                    <li ><a href=".././category/audrey.html">audrey</a></li>
+                    <li ><a href="./category/audrey.html">audrey</a></li>
                 
-                    <li ><a href=".././category/blog.html">blog</a></li>
+                    <li ><a href="./category/blog.html">blog</a></li>
                 
-                    <li ><a href=".././category/django.html">django</a></li>
+                    <li ><a href="./category/django.html">django</a></li>
                 
-                    <li ><a href=".././category/python.html">python</a></li>
+                    <li class="active"><a href="./category/python.html">python</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
                 
-
-            
-
-        
-        
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href=".././the-sorry-state-of-python-oauth-providers.html">The sorry state of Python OAuth providers</a></h1> 
-                    <footer class="post-info">
+<section id="content" class="body">    
+<article>
+        <header> <h1 class="entry-title"><a href="the-sorry-state-of-python-oauth-providers.html"
+        rel="bookmark" title="Permalink to The sorry state of Python OAuth providers">The sorry state of Python OAuth providers</a></h1> 
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pydanny">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ </header>
+        <div class="entry-content">
+        <footer class="post-info">
         <abbr class="published" title="2012-03-05T07:30:00">
                 Mon 05 March 2012
         </abbr>
@@ -72,11 +71,12 @@
                 By <a class="url fn" href="#">Daniel Greenfeld</a>
         </address>
         
-<p>In <a href=".././category/python.html">python</a>. </p>
-<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/OAuth.html">OAuth</a><a href=".././tag/api.html">api</a><a href=".././tag/Consumer-Notebook.html">Consumer-Notebook</a></p>
+<p>In <a href="./category/python.html">python</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/OAuth.html">OAuth</a><a href="./tag/api.html">api</a><a href="./tag/Consumer-Notebook.html">Consumer-Notebook</a></p>
 
 
-</footer><!-- /.post-info --><p>This is one of those challenging posts to write. The people whose projects I'm going to describe have put in a lot of dedicated, hard work to overcome a challenging subject. Writing an OAuth consumer is a hard problem and writing an OAuth provider is an even harder problem. The efforts put in by the authors of these projects has been nothing short of incredible. The problem, however, is that the existing projects are not usable as-is, and need the support of the community in order to improve.</p>
+</footer><!-- /.post-info -->
+        <p>This is one of those challenging posts to write. The people whose projects I'm going to describe have put in a lot of dedicated, hard work to overcome a challenging subject. Writing an OAuth consumer is a hard problem and writing an OAuth provider is an even harder problem. The efforts put in by the authors of these projects has been nothing short of incredible. The problem, however, is that the existing projects are not usable as-is, and need the support of the community in order to improve.</p>
 <p>The terrible thing is that this is a solved problem within our community. Python based projects are successfully implementing OAuth providers, and often using internally hacked versions of the efforts I'm about to describe. However, they aren't giving this back to the community. It might be that they want to protect their competitive edge, but I'm going to be nice and say that it's because their too busy to find time to send pull requests back.</p>
 <p>In any case, let me present our use case. For <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a> we want an <a class="reference external" href="http://api.consumernotebook.com">API</a>. We want to be able to track usernames, passwords, and the application using our <a class="reference external" href="http://api.consumernotebook.com">API</a> - which is the OAuth use case. Much as BasicAuth or DigestAuth is the easier way to go in terms of implementation, OAuth was designed for our use case: allowing third-party developers to build apps using our API without having to store credentials. In fact, it's a critical security issue: Twitter dealt with malicious &quot;Twitter apps&quot; stealing usernames and passwords before they switched to OAuth. As an API provider, being an OAuth provider might be more challenging, but it's the responsible thing to do.</p>
 <div class="section" id="existing-oauth-providers">
@@ -165,168 +165,25 @@
 <p>W're willing to put in the time to make OAuth in Python better, how about you?</p>
 <a class="reference external image-reference" href="http://oauth.net/"><img alt="http://farm8.staticflickr.com/7201/6803475636_f34fb400eb_m.jpg" class="align-center" id="oauth-logo" src="http://farm8.staticflickr.com/7201/6803475636_f34fb400eb_m.jpg" /></a>
 </div>
-<p>There are <a href=".././the-sorry-state-of-python-oauth-providers.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                        <ol id="posts-list" class="hfeed">
-            
+
+        </div><!-- /.entry-content -->
         
-        
-        
+        <div class="comments">
+        <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "the-sorry-state-of-python-oauth-providers.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://pydanny.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
         
 
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href=".././you-should-heroku.html" rel="bookmark" title="Permalink to You should Heroku">You should Heroku</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-02-28T12:45:00">
-                Tue 28 February 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href="#">Daniel Greenfeld</a>
-        </address>
-        
-<p>In <a href=".././category/python.html">python</a>. </p>
-<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/heroku.html">heroku</a><a href=".././tag/consumernotebook.html">consumernotebook</a><a href=".././tag/mongodb.html">mongodb</a></p>
-
-
-</footer><!-- /.post-info -->
-                <p>In mid-November me and my fiancee, <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> began our startup. We had been frustrated with trying to do on-line product research and came up with an idea to take the lessons learned from <a class="reference external" href="http://djangopackages.com">Django Packages</a> / <a class="reference external" href="http://opencomparison.org">Open Comparison</a> and apply them to a commercial effort. The result has been <a class="reference external" href="http://consumernotebook.com">Consumer ...</a></p>
-                <a class="readmore" href=".././you-should-heroku.html">read more</a>
-                <p>There are <a href=".././you-should-heroku.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-        
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href=".././my-pycon-2012-schedule.html" rel="bookmark" title="Permalink to My PyCon 2012 Schedule">My PyCon 2012 Schedule</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-02-22T09:00:00">
-                Wed 22 February 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href="#">Daniel Greenfeld</a>
-        </address>
-        
-<p>In <a href=".././category/python.html">python</a>. </p>
-<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/pycon.html">pycon</a><a href=".././tag/consumernotebook.html">consumernotebook</a><a href=".././tag/django.html">django</a></p>
-
-
-</footer><!-- /.post-info -->
-                <p>Here I was thinking that this year's PyCon wasn't going to be so busy because I didn't submit a talk or tutorial. Ha! What the heck was I thinking?</p>
-<p>Here's what I've already got in the works.</p>
-<div class="section" id="wednesday-march-7th">
-<h2>Wednesday, March 7th</h2>
-<p>Me and Audrey are driving ...</p></div>
-                <a class="readmore" href=".././my-pycon-2012-schedule.html">read more</a>
-                <p>There are <a href=".././my-pycon-2012-schedule.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-        
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href=".././selected-for-pycon-startup-row.html" rel="bookmark" title="Permalink to Selected for PyCon StartUp Row">Selected for PyCon StartUp Row</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-02-21T01:00:00">
-                Tue 21 February 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href="#">Daniel Greenfeld</a>
-        </address>
-        
-<p>In <a href=".././category/python.html">python</a>. </p>
-<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/pycon.html">pycon</a><a href=".././tag/audrey.html">audrey</a><a href=".././tag/consumernotebook.html">consumernotebook</a><a href=".././tag/django.html">django</a></p>
-
-
-</footer><!-- /.post-info -->
-                <p>Me and Audrey have been working hard on <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a>, a Python/Django based project. We submitted it to PyCon StartUp row and found out this morning we've been accepted. <strong>Hooray!</strong></p>
-<p>From the <a class="reference external" href="http://pycon.blogspot.com/2012/02/startup-row-winners-for-pycon-2012.html">PyCon StartUp Row winner's post</a>, here is a little bit of what we're about ...</p>
-                <a class="readmore" href=".././selected-for-pycon-startup-row.html">read more</a>
-                <p>There are <a href=".././selected-for-pycon-startup-row.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-        
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href=".././django-uni-form-end-of-life.html" rel="bookmark" title="Permalink to django-uni-form end of life">django-uni-form end of life</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-02-18T01:00:00">
-                Sat 18 February 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href="#">Daniel Greenfeld</a>
-        </address>
-        
-<p>In <a href=".././category/django.html">django</a>. </p>
-<p>tags: <a href=".././tag/django.html">django</a><a href=".././tag/python.html">python</a></p>
-
-
-</footer><!-- /.post-info -->
-                <p>I started on django-uni-form in January 2009. In order to use <a class="reference external" href="http://pinaxproject.com">Pinax</a> on an internal social network for <a class="reference external" href="http://www.nasa.gov">NASA</a> HQ, we had to render all content, including forms, <a class="reference external" href="http://django-uni-form.readthedocs.org/en/latest/concepts.html#section-508">Section 508</a> compliant. Rather than rewrite the html for all 50+ forms that existed in the  Pinax 0.5.x framework at ...</p>
-                <a class="readmore" href=".././django-uni-form-end-of-life.html">read more</a>
-                <p>There are <a href=".././django-uni-form-end-of-life.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-            <p class="paginator">
-    
-    Page 1 / 1
-    
-</p>
-        
-
-    
-    </ol><!-- /#posts-list -->
-    </section><!-- /#content -->
-
-
+</article>
+</section>
 
         <section id="extras" class="body">
         
@@ -335,7 +192,7 @@
                 <div class="social">
                         <h2>social</h2>
                         <ul>
-                            <li><a href=".././feeds/all.atom.xml" rel="alternate">atom feed</a></li>
+                            <li><a href="./feeds/all.atom.xml" rel="alternate">atom feed</a></li>
                             
 
                         
