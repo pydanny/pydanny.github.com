@@ -87,5 +87,7 @@
 &lt;p&gt;The PyCon US 2012 sprints start on March 12. I think as a community, we Pythonistas should band together and make things right. I think we'll have the brainpower and enough eyes on the problem to make serious headway on the issue, either by fixing existing solutions or creating new ones. Right now I've got interest from people to join in and help, including Idan Gazit, Audrey Roy, George Hickman, and others.&lt;/p&gt;
 &lt;p&gt;W're willing to put in the time to make OAuth in Python better, how about you?&lt;/p&gt;
 &lt;a class="reference external image-reference" href="http://oauth.net/"&gt;&lt;img alt="http://farm8.staticflickr.com/7201/6803475636_f34fb400eb_m.jpg" class="align-center" id="oauth-logo" src="http://farm8.staticflickr.com/7201/6803475636_f34fb400eb_m.jpg" /&gt;&lt;/a&gt;
+&lt;hr class="docutils" /&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://pydanny.github.com/the-sorry-state-of-python-oauth-providers.html"&gt;Discuss this post on Hacker News&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="OAuth"></category><category term="api"></category><category term="Consumer-Notebook"></category></entry></feed>

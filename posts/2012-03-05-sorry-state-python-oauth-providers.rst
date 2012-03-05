@@ -115,6 +115,12 @@ W're willing to put in the time to make OAuth in Python better, how about you?
    :align: center
    :target: http://oauth.net/
 
+----
+
+`Discuss this post on Hacker News`_
+
+.. _`Discuss this post on Hacker News`: http://pydanny.github.com/the-sorry-state-of-python-oauth-providers.html
+
 
 .. _`Consumer Notebook`: http://consumernotebook.com
 .. _API: http://api.consumernotebook.com
