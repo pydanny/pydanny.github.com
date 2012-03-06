@@ -44,7 +44,7 @@ OAuth version: 1.0
 django-oauth-plus (Django)
 ---------------------------
 
-http://code.larlet.fr/django-OAuth/wiki/Home
+http://code.larlet.fr/django-oauth-plus
 
 OAuth version: 1.0a
 
