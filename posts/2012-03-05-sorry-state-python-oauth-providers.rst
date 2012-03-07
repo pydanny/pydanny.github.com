@@ -101,6 +101,10 @@ The PyCon US 2012 sprints start on March 12. I think as a community, we Pythonis
 
 We're willing to put in the time to make OAuth in Python better, how about you?
 
+Join us at the PyCon US sprints either in person or on-line. `Details of the sprint are near the bottom of this PyCon Sprint page`_.
+
+.. _`Details of the sprint are near the bottom of this PyCon Sprint page`: https://us.pycon.org/2012/community/sprints/projects/
+
 .. image:: http://farm8.staticflickr.com/7201/6803475636_f34fb400eb_m.jpg
    :name: OAuth logo
    :align: center
@@ -112,6 +116,7 @@ Updates
 -------
 
 03/05/2012 - Removed Velruse from the list of providers as it's lead, Michael Merickel, clarified that it is not a provider.
+03/06/2012 - Added a link to the PyCon OAuth sprints.
 
 ----
 
