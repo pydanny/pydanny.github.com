@@ -7,6 +7,7 @@ Upcoming
 There are blog posts that I've got in the works but haven't been posted yet:
 
 * Choosing a blog engine
+* Lakshman Prasad's python-rest
 * Originate Ballmer-peak-a-thon
 * Pelican configuration
 * PyCon New Zealand 2011 Review
