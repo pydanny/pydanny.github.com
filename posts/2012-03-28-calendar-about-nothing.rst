@@ -25,6 +25,11 @@ Going for a longer streak
 
 We'll see what happens now. I just feel happy that I've captured the moment and made my mark on the board. I invite you to do the same.
 
+.. image:: http://farm7.staticflickr.com/6216/7024690837_0974c93f63_o.png
+   :name: My Place on Calendar About Nothing
+   :align: center
+   :target: http://www.flickr.com/photos/pydanny/7024690837/in/photostream/
+
 .. _`Calendar About Nothing`: http://calendaraboutnothing.com/
 .. _`article`: http://lifehacker.com/281626/jerry-seinfelds-productivity-secret?tag=softwaremotivation
 .. _Github: http://github.com
