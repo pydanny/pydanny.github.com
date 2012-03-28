@@ -6,7 +6,7 @@ Calendar About Nothing
 :tags: python, django
 :category: python
 
-On October 16th, 2011, which was one hundred and sixty-four days before today I resolved to get myself onto the Longest Streak list of `Calendar About Nothing`_. Today, with this blog post, I've managed to do just that - get on the Longest Streaks.
+On October 16th, 2011, which was one hundred and sixty-four days before I published this post, I resolved to get myself onto the Longest Streak list of `Calendar About Nothing`_. Today, with this blog post, I've managed to do just that - get on the Longest Streaks.
 
 Calendar About Nothing tracks your open project commits on Github_. It tallies your total number of days, records your longest streak, and lets you compare yourself against other committers. The idea comes from an article_ where Jerry Seinfeld says his secret to productivity is to get something done every day, because if you skip one day then skipping another day is easier.
 
