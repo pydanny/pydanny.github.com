@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>A Pelican Blog</title><link href="../." rel="alternate"></link><link href=".././feeds/yeah.atom.xml" rel="self"></link><id>../.</id><updated>2012-02-16T10:20:00Z</updated><entry><title>My super title</title><link href=".././my-super-title.html" rel="alternate"></link><updated>2012-02-16T10:20:00Z</updated><author><name>John Doe</name></author><id>tag:None,2012-02-16:.././my-super-title.html/</id><summary type="html"></summary><category term="python"></category></entry><entry><title>My first blog post</title><link href=".././my-first-blog-post.html" rel="alternate"></link><updated>2012-02-15T10:20:00Z</updated><author><name>John Doe</name></author><id>tag:None,2012-02-15:.././my-first-blog-post.html/</id><summary type="html">&lt;p&gt;I love her&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;I love her&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-</summary><category term="python"></category></entry></feed>
