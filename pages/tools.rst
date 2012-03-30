@@ -7,21 +7,27 @@ Tools
 Frameworks
 ==========
 
-* Django
+* Django_
 * JQuery
+
+.. _Django: http://djangoproject.com
 
 Programming Languages
 =====================
 
 * JavaScript
-* Python
+* Python_
+
+.. _Python: http://python.org
 
 Services
 ==========
 
-* Consumer Notebook
+* `Consumer Notebook`_
 * gmail
 * Heroku
+
+.. _`Consumer Notebook`: http://consumernotebook.com
 
 Software
 ========
