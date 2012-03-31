@@ -4,20 +4,26 @@ Tools
 
 :date: 2012-02-19 01:33
 
+My blog post, "`I use this`_", explains my reasoning for using some these tools.
+
+.. _`I use this`: http://pydanny.com/i-use-this.html
+
 Frameworks
 ==========
 
 * Django_
-* JQuery
+* JQuery_
 
 .. _Django: http://djangoproject.com
+.. _JQuery: http://jquery.com/
 
 Programming Languages
 =====================
 
-* JavaScript
+* JavaScript_
 * Python_
 
+.. _JavaScript: http://en.wikipedia.org/wiki/JavaScript
 .. _Python: http://python.org
 
 Services
@@ -25,9 +31,10 @@ Services
 
 * `Consumer Notebook`_
 * gmail
-* Heroku
+* Heroku_
 
 .. _`Consumer Notebook`: http://consumernotebook.com
+.. _Heroku: Heroku
 
 Software
 ========
