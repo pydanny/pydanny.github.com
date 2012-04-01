@@ -17,6 +17,17 @@ Frameworks
 .. _Django: http://djangoproject.com
 .. _JQuery: http://jquery.com/
 
+References
+==========
+
+* api.jquery.com
+* `docs.djangoproject.com`_
+* Stack Overflow
+* Wikipedia_
+
+.. _`docs.djangoproject.com`: https://docs.djangoproject.com
+.. _`Wikipedia`: http://www.wikipedia.org/
+
 Programming Languages
 =====================
 
