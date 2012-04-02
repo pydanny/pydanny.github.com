@@ -22,10 +22,12 @@ References
 
 * api.jquery.com
 * `docs.djangoproject.com`_
+* jqapi_
 * Stack Overflow
 * Wikipedia_
 
 .. _`docs.djangoproject.com`: https://docs.djangoproject.com
+.. _jqapi: http://jqapi.com/
 .. _`Wikipedia`: http://www.wikipedia.org/
 
 Programming Languages
