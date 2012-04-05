@@ -61,8 +61,91 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././my-new-blog.html">My new blog</a></h1> 
+                    <h1 class="entry-title"><a href=".././choosing-a-new-python-based-blog-engine.html">Choosing a new python based blog engine</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-04-05T12:00:00">
+                Thu 05 April 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="#">Daniel Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/blog.html">blog</a>. </p>
+<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/blog.html">blog</a></p>
+
+
+</footer><!-- /.post-info --><div class="section" id="why-a-new-blog-engine">
+<h2>Why a new blog engine?</h2>
+<p>On my <a class="reference external" href="http://pydanny.blogspot.com/">old blog</a>, I had been having issues with Blogger for some time.  The WYSIWYG text editor was annoying in that it produced wonky HTML, so I had to hand craft the posts. Which meant I often wrote the HTML formatted copy in a text editor and then copy/pasted it into the browser. A few times this blew up and I really wished I had version controlled back ups. Adding code examples was problematic, even with a stylesheet helpfully provided by Google. Finally, some of the changes to the blog engine itself was worrying me, so I started looking for alternatives.</p>
+<p>After my fiancee, Audrey Roy, moved her <a class="reference external" href="http://audreymroy.com">blog</a> to <a class="reference external" href="https://github.com/mojombo/jekyll">https://github.com/mojombo/jekyll</a>, the static file hosting seemed so awesome I was impressed enough to <a class="reference external" href="http://pydanny.com/tried-out-jekyll.html">give Jekyll a try</a>. Why did Jekyll and static file hosting interest me so much?</p>
+<div class="section" id="i-don-t-want-to-maintain-my-own-server">
+<h3>I don't want to maintain my own server</h3>
+<p>A couple times I rolled out a blog on a site I stood up, but didn't really feel like maintaining a site. I want someone else to do it. When I write, I want someone else to worry about the details. I want to focus on writing and nothing else.</p>
+<p>Well... almost nothing else. You'll understand shortly.</p>
+</div>
+<div class="section" id="i-want-to-be-able-to-write-without-connection">
+<h3>I want to be able to write without connection</h3>
+<p>With blogger, I needed an internet connection to get my blog posts to format correctly. With Jekyll, I can just type away.</p>
+</div>
+<div class="section" id="i-want-to-publish-via-git">
+<h3>I want to publish via git</h3>
+<p>My <a class="reference external" href="http://pydanny-event-notes.rtfd.org">http://pydanny-event-notes.rtfd.org</a> has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require some amount of manual correction. Jekyll, and it's alternatives, let me just write.</p>
+</div>
+</div>
+<div class="section" id="jekyll-wasn-t-for-me">
+<h2>Jekyll wasn't for me</h2>
+<p>I found Jekyll to be good and much more fun than Blogger, but not good enough. To sum up:</p>
+<ul class="simple">
+<li>I prefer RestructuredText over Markup.</li>
+<li>I don't know enough Ruby to easily customize things. I don't feel like diving into Ruby just to learn how to make modifications.</li>
+<li>The template engine was like Smarty/Django/Jinja2, but not as much fun. Debugging errors was very problematic. Which was a problem when I started to play with modifying the theme.</li>
+</ul>
+<p>On the two and third bullets, you might wonder why I would care about the underlying engine if all I wanted to do was write. Well, I'm well aware of the fact that I change opinions now and then.  :-)</p>
+<p>It was after trying out Jekyll that I started looking for <a class="reference external" href="http://python.org">Python</a> based static file blog systems. The choices that seemed appropriate were:</p>
+</div>
+<div class="section" id="blogofile">
+<h2><a class="reference external" href="http://www.blogofile.com/">blogofile</a></h2>
+<p>This is probably the most mature, most common Python static file generator around. It looks really awesome, and everyone who uses it swears by it. Alas, it's powered by <a class="reference external" href="http://www.makotemplates.org/">Mako</a> templates, which is... um... <a class="reference external" href="http://pydanny.blogspot.com/2010/12/stupid-template-languages.html">not my friend</a> (apologies to <a class="reference external" href="http://techspot.zzzeek.org/2010/12/04/in-response-to-stupid-template-languages/">Mike Bayer</a>). What I really wanted was something with templates powered by <a class="reference external" href="http://www.pocoo.org/projects/jinja2/">Jinja2</a>.</p>
+</div>
+<div class="section" id="hyde">
+<h2><a class="reference external" href="http://hyde.github.com/">hyde</a></h2>
+<p>Hyde claims to have started as Jekyll's evil Python twin. On the surface it looks awesome. Where it fails is documentation. There are lots of wonderful features that appear to exist, but follow the links to those features and you find yourself on placeholder pages.</p>
+<p>In theory, I could have just looked at the hyde code and figured out stuff myself. Maybe even document out the holes.</p>
+<p>In practice, all I want to do is write blog posts. It's one thing to customize things to suit your needs, it's another thing to make things work. Or document a tool. Color me lazy if you will, but when it comes to blogging, that's just how I am.</p>
+<p>I think in the near future, once fully documented, Hyde is going to be AWESOME. For now? Well, I wanted another option.</p>
+</div>
+<div class="section" id="pelican">
+<h2><a class="reference external" href="http://pelican.readthedocs.org/">pelican</a></h2>
+<p>I was immediately hooked. Python powered engine with Jinja2 templates with <strong>complete documentation</strong>. In fact, every time I asked the author for help, he resignedly pointed me at the documentation. How cool is that?</p>
+<p>At some point I'll use the <tt class="docutils literal">CSS</tt> setting to change the color of <tt class="docutils literal">pygments</tt> to something with white background and black text. For now I'm happy as things are now.</p>
+</div>
+<p>There are <a href=".././choosing-a-new-python-based-blog-engine.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                        <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././my-new-blog.html" rel="bookmark" title="Permalink to My new blog">My new blog</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-02-17T00:30:00">
                 Fri 17 February 2012
         </abbr>
@@ -76,7 +159,8 @@
 <p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/blog.html">blog</a></p>
 
 
-</footer><!-- /.post-info --><p>What I did to get it running:</p>
+</footer><!-- /.post-info -->
+                <p>What I did to get it running:</p>
 <pre class="literal-block">
 pip install pelican
 git clone git://github.com/pydanny/pydanny.github.com.git
@@ -90,33 +174,11 @@ GOOGLE_ANALYTICS='UA-18066389-2'
 SITEURL = 'http://pydanny.github.com'
 SITENAME = 'pydanny'
 SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
-          ('github', 'https://github.com/pydanny'),
-          ('facebook', 'http://www.facebook.com/daniel.greenfeld'),)
-TAG_FEED = 'feeds/%s.atom.xml'
-THEME='notmyidea'
-TWITTER_USERNAME = 'pydanny'
-</pre>
-<p>How I push up entries and pages and themes:</p>
-<pre class="literal-block">
-pelican . -o . -s settings.py
-git commit -am &quot;blogging here&quot;
-git push
-</pre>
-<div class="section" id="results">
-<h2>Results!</h2>
-<p><a class="reference external" href="http://pydanny.github.com">http://pydanny.github.com</a></p>
-</div>
-<p>There are <a href=".././my-new-blog.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                        <ol id="posts-list" class="hfeed">
-            
-        
+          ('github ...</pre>
+                <a class="readmore" href=".././my-new-blog.html">read more</a>
+                <p>There are <a href=".././my-new-blog.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

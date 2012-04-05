@@ -22,11 +22,13 @@ References
 
 * api.jquery.com
 * `docs.djangoproject.com`_
+* `Emoji Cheat Sheet`_
 * jqapi_
 * Stack Overflow
 * Wikipedia_
 
 .. _`docs.djangoproject.com`: https://docs.djangoproject.com
+.. _`Emoji Cheat Sheet`: http://www.emoji-cheat-sheet.com/
 .. _jqapi: http://jqapi.com/
 .. _`Wikipedia`: http://www.wikipedia.org/
 
