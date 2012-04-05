@@ -70,6 +70,12 @@ At some point I'll use the ``CSS`` setting to change the color of ``pygments`` t
    :name: PyCon Cartwheel with glass
    :align: center
    :target: http://www.flickr.com/photos/77704901@N05/6831339872/
+   
+   
+`Discuss this post on Hacker News`_
+
+   .. _`Discuss this post on Hacker News`: http://news.ycombinator.com/item?id=3804553
+   
 
 .. _`Mike Bayer`: http://techspot.zzzeek.org/2010/12/04/in-response-to-stupid-template-languages/
 .. _`not my friend`: http://pydanny.blogspot.com/2010/12/stupid-template-languages.html
