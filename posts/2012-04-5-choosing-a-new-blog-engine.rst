@@ -9,7 +9,7 @@ Choosing a new python based blog engine
 Why a new blog engine?
 ======================
 
-On my `old blog`_, I had been having issues with Blogger for some time.  The WYSIWYG text editor was annoying in that it produced wonky HTML, so I had to hand craft the posts. Which meant I often wrote the HTML formatted copy in a text editor and then copy/pasted it into the browser. A few times this blew up and I really wished I had version controlled back ups. Adding code examples was problematic, even with a stylesheet helpfully provided by Google. Finally, some of the changes to the blog engine itself was worrying me, so I started looking for alternatives.
+On my `old blog`_, I had been having issues with Blogger for some time.  The WYSIWYG text editor was annoying in that it produced wonky HTML, so I had to hand craft the posts. Which meant I often wrote the HTML formatted copy in a text editor and then copy/pasted it into the browser. A few times this blew up and I really wished I had version controlled back ups. Adding code examples was problematic, even with a stylesheet helpfully provided by Google. Finally, some of the changes to the blog engine itself were beginning to worry me, so I started looking for alternatives.
 
 After my fiancee, Audrey Roy, moved her blog_ to `https://github.com/mojombo/jekyll`_, the static file hosting seemed so awesome I was impressed enough to `give Jekyll a try`_. Why did Jekyll and static file hosting interest me so much?
 
