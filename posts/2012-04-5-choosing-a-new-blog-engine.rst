@@ -39,7 +39,7 @@ I found Jekyll to be good and much more fun than Blogger, but not good enough. T
 * I don't know enough Ruby to easily customize things. I don't feel like diving into Ruby just to learn how to make modifications.
 * The template engine was like Smarty/Django/Jinja2, but not as much fun. Debugging errors was very problematic. Which was a problem when I started to play with modifying the theme.
 
-On the two and third bullets, you might wonder why I would care about the underlying engine if all I wanted to do was write. Well, I'm well aware of the fact that I change opinions now and then.  :-)
+On the second and third bullets, you might wonder why I would care about the underlying engine if all I wanted to do was write. Well, I'm well aware of the fact that I change opinions now and then.  :-)
 
 It was after trying out Jekyll that I started looking for Python_ based static file blog systems. The choices that seemed appropriate were:
 
