@@ -66,6 +66,11 @@ I was immediately hooked. Python powered engine with Jinja2 templates with **com
 
 At some point I'll use the ``CSS`` setting to change the color of ``pygments`` to something with white background and black text. For now I'm happy as things are now.
 
+.. image:: http://farm8.staticflickr.com/7043/6831339872_10d0c40171.jpg
+   :name: PyCon Cartwheel with glass
+   :align: center
+   :target: http://www.flickr.com/photos/77704901@N05/6831339872/
+
 .. _`Mike Bayer`: http://techspot.zzzeek.org/2010/12/04/in-response-to-stupid-template-languages/
 .. _`not my friend`: http://pydanny.blogspot.com/2010/12/stupid-template-languages.html
 .. _`give Jekyll a try`: http://pydanny.com/tried-out-jekyll.html
