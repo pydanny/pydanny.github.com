@@ -6,6 +6,7 @@ Choosing a new python based blog engine
 :tags: python, blog
 :category: blog
 
+
 Why a new blog engine?
 ======================
 
