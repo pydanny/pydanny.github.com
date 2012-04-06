@@ -11,7 +11,7 @@ Why a new blog engine?
 
 On my `old blog`_, I had been having issues with Blogger for some time.  The WYSIWYG text editor was annoying in that it produced wonky HTML, so I had to hand craft the posts. Which meant I often wrote the HTML formatted copy in a text editor and then copy/pasted it into the browser. A few times this blew up and I really wished I had version controlled back ups. Adding code examples was problematic, even with a stylesheet helpfully provided by Google. Finally, some of the changes to the blog engine itself were beginning to worry me, so I started looking for alternatives.
 
-After my fiancee, Audrey Roy, moved her blog_ to `https://github.com/mojombo/jekyll`_, the static file hosting seemed so awesome I was impressed enough to `give Jekyll a try`_. Why did Jekyll and static file hosting interest me so much?
+After my fiancee, Audrey Roy, converted her blog to `https://github.com/mojombo/jekyll`_ at it's new location of `audreymroy.com`_, the static file hosting seemed so awesome I was impressed enough to `give Jekyll a try`_. Why did Jekyll and static file hosting interest me so much?
 
 I don't want to maintain my own server
 -------------------------------------------
@@ -23,7 +23,7 @@ Well... almost nothing else. You'll understand shortly.
 I want to be able to write without connection
 -----------------------------------------------
 
-With blogger, I needed an internet connection to get my blog posts to format correctly. With Jekyll, I can just type away.
+With blogger, I needed an internet connection to get my blog posts to format correctly. With Jekyll and other static file systems, I can just type away.
 
 I want to publish via git
 ---------------------------
@@ -80,7 +80,7 @@ At some point I'll use the ``CSS`` setting to change the color of ``pygments`` t
 .. _`Mike Bayer`: http://techspot.zzzeek.org/2010/12/04/in-response-to-stupid-template-languages/
 .. _`not my friend`: http://pydanny.blogspot.com/2010/12/stupid-template-languages.html
 .. _`give Jekyll a try`: http://pydanny.com/tried-out-jekyll.html
-.. _blog: http://audreymroy.com
+.. _`audreymroy.com`: http://audreymroy.com
 .. _`https://github.com/mojombo/jekyll`: https://github.com/mojombo/jekyll
 .. _blogofile: http://www.blogofile.com/
 .. _Mako: http://www.makotemplates.org/

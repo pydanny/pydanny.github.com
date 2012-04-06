@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.github.com" rel="alternate"></link><link href="http://pydanny.github.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.github.com</id><updated>2012-04-05T12:00:00Z</updated><entry><title>Choosing a new python based blog engine</title><link href="http://pydanny.github.com/choosing-a-new-python-based-blog-engine.html" rel="alternate"></link><updated>2012-04-05T12:00:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-04-05:/choosing-a-new-python-based-blog-engine.html/</id><summary type="html">&lt;div class="section" id="why-a-new-blog-engine"&gt;
 &lt;h2&gt;Why a new blog engine?&lt;/h2&gt;
 &lt;p&gt;On my &lt;a class="reference external" href="http://pydanny.blogspot.com/"&gt;old blog&lt;/a&gt;, I had been having issues with Blogger for some time.  The WYSIWYG text editor was annoying in that it produced wonky HTML, so I had to hand craft the posts. Which meant I often wrote the HTML formatted copy in a text editor and then copy/pasted it into the browser. A few times this blew up and I really wished I had version controlled back ups. Adding code examples was problematic, even with a stylesheet helpfully provided by Google. Finally, some of the changes to the blog engine itself were beginning to worry me, so I started looking for alternatives.&lt;/p&gt;
-&lt;p&gt;After my fiancee, Audrey Roy, moved her &lt;a class="reference external" href="http://audreymroy.com"&gt;blog&lt;/a&gt; to &lt;a class="reference external" href="https://github.com/mojombo/jekyll"&gt;https://github.com/mojombo/jekyll&lt;/a&gt;, the static file hosting seemed so awesome I was impressed enough to &lt;a class="reference external" href="http://pydanny.com/tried-out-jekyll.html"&gt;give Jekyll a try&lt;/a&gt;. Why did Jekyll and static file hosting interest me so much?&lt;/p&gt;
+&lt;p&gt;After my fiancee, Audrey Roy, converted her blog to &lt;a class="reference external" href="https://github.com/mojombo/jekyll"&gt;https://github.com/mojombo/jekyll&lt;/a&gt; at it's new location of &lt;a class="reference external" href="http://audreymroy.com"&gt;audreymroy.com&lt;/a&gt;, the static file hosting seemed so awesome I was impressed enough to &lt;a class="reference external" href="http://pydanny.com/tried-out-jekyll.html"&gt;give Jekyll a try&lt;/a&gt;. Why did Jekyll and static file hosting interest me so much?&lt;/p&gt;
 &lt;div class="section" id="i-don-t-want-to-maintain-my-own-server"&gt;
 &lt;h3&gt;I don't want to maintain my own server&lt;/h3&gt;
 &lt;p&gt;A couple times I rolled out a blog on a site I stood up, but didn't really feel like maintaining a site. I want someone else to do it. When I write, I want someone else to worry about the details. I want to focus on writing and nothing else.&lt;/p&gt;
@@ -10,7 +10,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="i-want-to-be-able-to-write-without-connection"&gt;
 &lt;h3&gt;I want to be able to write without connection&lt;/h3&gt;
-&lt;p&gt;With blogger, I needed an internet connection to get my blog posts to format correctly. With Jekyll, I can just type away.&lt;/p&gt;
+&lt;p&gt;With blogger, I needed an internet connection to get my blog posts to format correctly. With Jekyll and other static file systems, I can just type away.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="i-want-to-publish-via-git"&gt;
 &lt;h3&gt;I want to publish via git&lt;/h3&gt;
