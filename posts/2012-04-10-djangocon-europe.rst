@@ -10,8 +10,9 @@ This year in June, the European edition of DjangoCon_ is going to be held in lov
 
 Needless to say, we're extremely excited. My `trip to Europe in 2007`_ was an amazingly fun and educational experience, and I can't wait to share a similar experience with Audrey. We can't wait to see all our old European friends, make new ones, and be dazzled by what Europe has to offer.
 
-Also, let's face it, the conference is going to be **incredible**. They've lined up some awesome venues, the food (cheese_, chocolate, muesli, etc) in Switzerland is world-renowned, the website looks fantastic, and they've got Jacob Kaplan-Moss to keynote. It looks so good I'm surprised there are any `sponsor slots left`_!
+Also, let's face it, the conference is going to be **incredible**. They've lined up some awesome venues, the food (cheese_, chocolate, muesli_, etc) in Switzerland is world-renowned, the website looks fantastic, and they've got Jacob Kaplan-Moss to keynote. It looks so good I'm surprised there are any `sponsor slots left`_!
 
+.. _muesli: http://en.wikipedia.org/wiki/Muesli
 .. _Zurich: https://en.wikipedia.org/wiki/Zurich
 .. _Switzerland: https://en.wikipedia.org/wiki/Switzerland
 .. _cheese: https://en.wikipedia.org/wiki/Raclette
