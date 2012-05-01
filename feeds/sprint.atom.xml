@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.github.com" rel="alternate"></link><link href="http://pydanny.github.com/feeds/sprint.atom.xml" rel="self"></link><id>http://pydanny.github.com</id><updated>2012-05-01T09:20:00Z</updated><entry><title>Los Angeles Open Source Sprint on May 12th!</title><link href="http://pydanny.github.com/los-angeles-open-source-sprint-on-may-12th.html" rel="alternate"></link><updated>2012-05-01T09:20:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-05-01:/los-angeles-open-source-sprint-on-may-12th.html/</id><summary type="html">&lt;a class="reference external image-reference" href="http://www.flickr.com/photos/pydanny/7132778527/"&gt;&lt;img alt="http://farm9.staticflickr.com/8022/7132778527_6e3b49b313_o.png" class="align-center" id="la-open-source-sprint-hosted-on-flickr" src="http://farm9.staticflickr.com/8022/7132778527_6e3b49b313_o.png" /&gt;&lt;/a&gt;
+&lt;p&gt;This is a day long coding event in Los Angeles for Open Source developers of all languages and skill levels to come and code like fiends. They'll be joined by dozens of either really smart coders or nice people like me. Sponsors are providing food, drinks, venue, and more!&lt;/p&gt;
+&lt;p&gt;RSVP at &lt;a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/62796642/"&gt;http://www.meetup.com/LA-Hackathons/events/62796642/&lt;/a&gt; before it fills up! It's free.&lt;/p&gt;
+&lt;p&gt;I'll be there to:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Organize the event with the assistance of the awesome Los Angeles technical community!&lt;/li&gt;
+&lt;li&gt;Code like a fiend. I want to work on django-mongonaut and could use some GraphViz and JavaScript help.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And now to open the floor to questions...&lt;/p&gt;
+&lt;div class="section" id="where-and-when"&gt;
+&lt;h2&gt;Where and when?&lt;/h2&gt;
+&lt;p&gt;Where:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Spire.io
+7257 Beverly Blvd #210
+Los Angeles, CA 90036
+&lt;/pre&gt;
+&lt;p&gt;When:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+May 12, 2012
+10 AM to 10 PM
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="is-this-like-a-hackathon"&gt;
+&lt;h2&gt;Is this like a Hackathon?&lt;/h2&gt;
+&lt;p&gt;Yup. See &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Hackathon#Sprints"&gt;http://en.wikipedia.org/wiki/Hackathon#Sprints&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="will-there-be-wifi"&gt;
+&lt;h2&gt;Will there be Wifi?&lt;/h2&gt;
+&lt;p&gt;Yes!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="i-m-just-starting-as-a-developer-should-i-come"&gt;
+&lt;h2&gt;I'm just starting as a developer, should I come?&lt;/h2&gt;
+&lt;p&gt;It depends.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;If you've never coded before&lt;/strong&gt;, this isn't the right place. Instead, you might consider one of the local coding workshops or classes. In fact, here's a good &lt;a class="reference external" href="http://www.meetup.com/Los-Angeles-Hack-Night/"&gt;bi-weekly hack night / study group&lt;/a&gt; for you.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;If you've done a tutorial or two&lt;/strong&gt;, sprints can be a great way to learn new skills or hone your technique by sitting alongside experienced developers who actually need your help. A lot of projects have what are called 'low hanging fruit', which are 'simpler' tasks saved for beginner developers to wet their teeth on. Things I've learned at events like these include Git, Mercurial, JQuery, and a hundred other things that have made me a better coder.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-if-i-don-t-have-a-project-of-my-own-to-bring-should-i-come"&gt;
+&lt;h2&gt;What if I don't have a project of my own to bring? Should I come?&lt;/h2&gt;
+&lt;p&gt;Heck yeah! There will be a number of projects around that you can join and contribute to in order to make the world a better place. There isn't a list up yet, but I'm hoping by Saturday there will be one.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-if-i-want-to-come-and-recruit-people"&gt;
+&lt;h2&gt;What if I want to come and recruit people?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Absolutely not&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This is not a job fair and we don't want unnecessary distractions.&lt;/p&gt;
+&lt;p&gt;On the other hand, if you want to help sponsor we'll happily mention you on the &lt;a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/62796642/"&gt;meetup.com&lt;/a&gt; description.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="are-there-going-to-be-any-presentations-or-lightning-talks"&gt;
+&lt;h2&gt;Are there going to be any presentations or lightning talks?&lt;/h2&gt;
+&lt;p&gt;No.&lt;/p&gt;
+&lt;p&gt;This is a sprint, not a conference or demonstration. We'll try and limit announcements and interruptions as much as possible, the only exception being for letting you know food has arrived.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-should-i-bring"&gt;
+&lt;h2&gt;What should I bring?&lt;/h2&gt;
+&lt;p&gt;Your own functioning laptop with power cord. Neither event organizers, the venue, or sponsors are providing equipment. We also encourage you to bring a power strip labeled with your name.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="i-m-sold-how-much-does-it-cost-and-where-do-i-register"&gt;
+&lt;h2&gt;I'm sold! How much does it cost and where do I register?&lt;/h2&gt;
+&lt;p&gt;The event costs you nothing and you RSVP at &lt;a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/62796642/"&gt;http://www.meetup.com/LA-Hackathons/events/62796642/&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="django"></category><category term="LA"></category><category term="sprint"></category><category term="hackathon"></category></entry></feed>
