@@ -4,7 +4,7 @@ Join us at DjangoCon Europe!
 
 :date: 2012-04-10 12:00
 :tags: python, django, djangocon, mongodb
-:category: django
+
 
 This year in June, the European edition of DjangoCon_ is going to be held in lovely Zurich_, Switzerland_. It is my great fortune and delight to announce that Audrey_ and I will be attending. Hooray!
 

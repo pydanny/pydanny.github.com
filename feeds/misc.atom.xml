@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="https://pydanny.github.com" rel="alternate"></link><link href="https://pydanny.github.com/feeds/misc.atom.xml" rel="self"></link><id>https://pydanny.github.com</id><updated>2012-02-17T00:28:44Z</updated><entry><title>My Blog</title><link href="https://pydanny.github.com/my-blog.html" rel="alternate"></link><updated>2012-02-17T00:28:44Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-17:/my-blog.html/</id><summary type="html">&lt;p&gt;What I do to get it running:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.github.com" rel="alternate"></link><link href="http://pydanny.github.com/feeds/misc.atom.xml" rel="self"></link><id>http://pydanny.github.com</id><updated>2012-02-17T00:30:00Z</updated><entry><title>My new blog</title><link href="http://pydanny.github.com/my-new-blog.html" rel="alternate"></link><updated>2012-02-17T00:30:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-17:/my-new-blog.html/</id><summary type="html">&lt;p&gt;What I did to get it running:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 pip install pelican
-git clone
+git clone git://github.com/pydanny/pydanny.github.com.git
+&lt;/pre&gt;
+&lt;p&gt;My settings.py file:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+AUTHOR = 'Daniel Greenfeld'
+DISQUS_SITENAME = 'pydanny'
+GITHUB_URL = 'https://github.com/pydanny'
+GOOGLE_ANALYTICS='UA-18066389-2'
+SITEURL = 'http://pydanny.github.com'
+SITENAME = 'pydanny'
+SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
+          ('github', 'https://github.com/pydanny'),
+          ('facebook', 'http://www.facebook.com/daniel.greenfeld'),)
+TAG_FEED = 'feeds/%s.atom.xml'
+THEME='notmyidea'
+TWITTER_USERNAME = 'pydanny'
 &lt;/pre&gt;
 &lt;p&gt;How I push up entries and pages and themes:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -10,4 +25,8 @@ pelican . -o . -s settings.py
 git commit -am &amp;quot;blogging here&amp;quot;
 git push
 &lt;/pre&gt;
-</summary></entry></feed>
+&lt;div class="section" id="results"&gt;
+&lt;h2&gt;Results!&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://pydanny.github.com"&gt;http://pydanny.github.com&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="blog"></category></entry></feed>

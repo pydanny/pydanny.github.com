@@ -4,7 +4,7 @@ django-uni-form end of life
 
 :date: 2012-02-18 01:00
 :tags: django, python
-:category: django
+
 
 I started on django-uni-form in January 2009. In order to use Pinax_ on an internal social network for NASA_ HQ, we had to render all content, including forms, `Section 508`_ compliant. Rather than rewrite the html for all 50+ forms that existed in the  Pinax 0.5.x framework at that time, I decided to minimize my work and automate things. `James Tauber`_ gave guidance and insight, my co-workers were supportive, and `Jannis Leidel`_ suggested the Uni-form library. The name **Django Uni-Form** was obvious, and lo the project was named.
 

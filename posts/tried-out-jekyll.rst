@@ -4,7 +4,7 @@ Tried out Jekyll
 
 :date: 2012-02-09 10:20
 :tags: ruby, blog
-:category: blog
+
 
 Why Jekyll?
 =================
