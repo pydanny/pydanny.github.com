@@ -4,7 +4,7 @@ Two years ago today
 
 :date: 2012-02-17 09:20
 :tags: pycon, audrey
-
+:category: audrey
 
 The PyCon_ tutorial on Django in Depth was ending. I had been sitting next to my friend Barbara_ and we got up to go when I heard a feminine voice ask: "Are you bshaurette_?" I turned and it was like I got punched in the gut.
 

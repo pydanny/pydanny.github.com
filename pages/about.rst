@@ -9,14 +9,14 @@ I work as a freelance Python and Django consultant out of Los Angeles, Californi
 Web Projects
 =============
 
- * `consumer.io`_ 
- * `Open Comparison`_
+ * `Consumer Notebook`_ 
+ * Open Comparison
  
     * Django Packages
     * Plone Packages
     * Pyramid Packages
     
- * `pydanny-event-notes`_
+ * pydanny-event-notes
  * `Silicon Beach Hackercast`_ 
  
 Software Projects
@@ -29,9 +29,7 @@ Software Projects
  * https://github.com/pydanny/django-wysiwyg
  * https://github.com/pydanny/that
 
-.. _`Open Comparison`: http://opencomparison.org
-.. _`consumer.io`: http://consumer.io
+.. _`Consumer Notebook`: http://consumernotebook.com
 .. _fiancee: http://audreymroy.com
 .. _Capoeira: http://valleycapoeira.com
 .. _`Silicon Beach Hackercast`: http://sbhackercast.com
-.. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org

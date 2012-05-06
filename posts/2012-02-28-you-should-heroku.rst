@@ -4,7 +4,7 @@ You should Heroku
 
 :date: 2012-02-28 12:45
 :tags: python, django, heroku, consumernotebook, mongodb
-
+:category: python
 
 In mid-November me and my fiancee, `Audrey Roy`_ began our startup. We had been frustrated with trying to do on-line product research and came up with an idea to take the lessons learned from `Django Packages`_ / `Open Comparison`_ and apply them to a commercial effort. The result has been `Consumer Notebook`_, and it's been a steadily growing success.
 

@@ -23,7 +23,7 @@
 
 <body id="index" class="home">
 
-<a href="https://github.com/pydanny/pydanny.github.com">
+<a href="https://github.com/pydanny">
 
 <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 
@@ -35,17 +35,11 @@
                 
                 
                 
-                    <li><a href=".././pages/about.html">About</a></li>
-                
-                    <li><a href=".././pages/tools.html">Tools</a></li>
-                
-                    <li><a href=".././pages/upcoming.html">Upcoming</a></li>
                 
                 
+                    <li ><a href=".././category/blog.html">blog</a></li>
                 
                     <li class="active"><a href=".././category/misc.html">misc</a></li>
-                
-                    <li ><a href=".././category/posts.html">posts</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
@@ -57,9 +51,9 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././my-new-blog.html">My new blog</a></h1> 
+                    <h1 class="entry-title"><a href=".././my-blog.html">My Blog</a></h1> 
                     <footer class="post-info">
-        <abbr class="published" title="2012-02-17T00:30:00">
+        <abbr class="published" title="2012-02-17T00:28:44">
                 Fri 17 February 2012
         </abbr>
 
@@ -69,28 +63,13 @@
         </address>
         
 <p>In <a href=".././category/misc.html">misc</a>. </p>
-<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/blog.html">blog</a></p>
 
 
-</footer><!-- /.post-info --><p>What I did to get it running:</p>
+
+</footer><!-- /.post-info --><p>What I do to get it running:</p>
 <pre class="literal-block">
 pip install pelican
-git clone git://github.com/pydanny/pydanny.github.com.git
-</pre>
-<p>My settings.py file:</p>
-<pre class="literal-block">
-AUTHOR = 'Daniel Greenfeld'
-DISQUS_SITENAME = 'pydanny'
-GITHUB_URL = 'https://github.com/pydanny'
-GOOGLE_ANALYTICS='UA-18066389-2'
-SITEURL = 'http://pydanny.github.com'
-SITENAME = 'pydanny'
-SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
-          ('github', 'https://github.com/pydanny'),
-          ('facebook', 'http://www.facebook.com/daniel.greenfeld'),)
-TAG_FEED = 'feeds/%s.atom.xml'
-THEME='notmyidea'
-TWITTER_USERNAME = 'pydanny'
+git clone
 </pre>
 <p>How I push up entries and pages and themes:</p>
 <pre class="literal-block">
@@ -98,11 +77,7 @@ pelican . -o . -s settings.py
 git commit -am &quot;blogging here&quot;
 git push
 </pre>
-<div class="section" id="results">
-<h2>Results!</h2>
-<p><a class="reference external" href="http://pydanny.github.com">http://pydanny.github.com</a></p>
-</div>
-<p>There are <a href=".././my-new-blog.html#disqus_thread">comments</a>.</p>
+
                 </article>
                 
                     <p class="paginator">
@@ -124,22 +99,6 @@ git push
         
         
         
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href=".././feeds/all.atom.xml" rel="alternate">atom feed</a></li>
-                            
-
-                        
-                            <li><a href="http://twitter.com/pydanny">twitter</a></li>
-                        
-                            <li><a href="https://github.com/pydanny">github</a></li>
-                        
-                            <li><a href="http://www.facebook.com/daniel.greenfeld">facebook</a></li>
-                        
-                        </ul>
-                </div><!-- /.social -->
-        
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">
@@ -151,27 +110,7 @@ git push
         </footer><!-- /#contentinfo -->
 
 
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-18066389-3");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
 
-
-
-<script type="text/javascript">
-    var disqus_shortname = 'pydanny';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 
 </body>
 </html>

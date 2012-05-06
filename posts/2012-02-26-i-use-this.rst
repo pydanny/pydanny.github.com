@@ -4,7 +4,7 @@ I use this
 
 :date: 2012-02-25 12:45
 :tags: python, tools
-
+:category: python
 
 I had been meaning to do this for some time, and even had a nascent page for it on this site already. I just noticed my old friend `Jessica Hammer`_ was featured on `usesthis.com`. Then I remembered `Kenneth Reitz`_ `blogged about his tools`_ not that long ago. Looks like it is my turn now.
 
