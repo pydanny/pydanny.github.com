@@ -4,7 +4,7 @@ Calendar About Nothing
 
 :date: 2012-03-28 11:30
 :tags: python, django
-:category: python
+:category: Python
 
 On October 16th, 2011, which was one hundred and sixty-four days before I published this post, I resolved to get myself onto the Longest Streak list of `Calendar About Nothing`_. Today, with this blog post, I've managed to do just that - get on the Longest Streaks.
 
