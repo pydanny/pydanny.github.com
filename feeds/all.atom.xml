@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.github.com" rel="alternate"></link><link href="http://pydanny.github.com/feeds/all.atom.xml" rel="self"></link><id>http://pydanny.github.com</id><updated>2012-05-09T08:00:00Z</updated><entry><title>Django Requirements for a project</title><link href="http://pydanny.github.com/django-requirements-for-a-project.html" rel="alternate"></link><updated>2012-05-09T08:00:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-05-09:/django-requirements-for-a-project.html/</id><summary type="html">&lt;p&gt;Today I'm starting a new project. I'm working as fast as I can and hope to launch on Friday. What are my package dependencies?&lt;/p&gt;
 &lt;div class="section" id="django-1-4"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/Django/1.4"&gt;Django==1.4&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Unlike my last quick project which was Flask, this effort really falls into Django's sweet spot. I need sessions, forms, templates, and models to do things in a pattern that falls into Django's sweet spot.&lt;/p&gt;
+&lt;p&gt;Unlike my last quick project which was &lt;a class="reference external" href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt;, this effort really falls into &lt;a class="reference external" href="http://djangoproject.com"&gt;Django&lt;/a&gt;'s sweet spot. I need sessions, forms, templates, and models to do things in an ideal Django pattern.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="psycopg2-2-4-5"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/psycopg2"&gt;psycopg2==2.4.5&lt;/a&gt;&lt;/h2&gt;

@@ -11,10 +11,11 @@ Today I'm starting a new project. I'm working as fast as I can and hope to launc
 `Django==1.4`_
 ==============
 
-Unlike my last quick project which was Flask_, this effort really falls into Django's sweet spot. I need sessions, forms, templates, and models to do things in an ideal Django pattern.
+Unlike my last quick project which was Flask_, this effort really falls into Django_'s sweet spot. I need sessions, forms, templates, and models to do things in an ideal Django pattern.
 
 .. _`Django==1.4`: http://pypi.python.org/pypi/Django/1.4
 .. _Flask: http://flask.pocoo.org/
+.. _Django: http://djangoproject.com
 
 `psycopg2==2.4.5`_
 ==================
