@@ -35,7 +35,7 @@ Because not using this tool is insane.
 `django-extensions==0.8`_
 ==========================
 
-Because I never want to write my own ``BaseTimeStampModel`` ever again. :-)
+Because amongst other things this library gives you, I never want to write my own ``TimeStampedModel`` ever again. :-)
 
 .. _`django-extensions==0.8`: http://pypi.python.org/pypi/django-extensions
 
