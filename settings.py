@@ -2,7 +2,7 @@ AUTHOR = 'Daniel Greenfeld'
 DISQUS_SITENAME = 'pydanny'
 GITHUB_URL = 'https://github.com/pydanny/pydanny.github.com'
 GOOGLE_ANALYTICS='UA-18066389-3'
-SITEURL = 'http://pydanny.github.com'
+SITEURL = 'http://pydanny.com'
 SITENAME = 'pydanny'
 SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
           ('github', 'https://github.com/pydanny'),
