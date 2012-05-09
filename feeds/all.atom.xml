@@ -6,7 +6,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="psycopg2-2-4-5"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/psycopg2"&gt;psycopg2==2.4.5&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;I need transactions and hard-type validation in the database, which means PostGreSQL. If I didn't need transactions or the hard-type validation I would consider MongoDB instead.&lt;/p&gt;
+&lt;p&gt;I need transactions and hard-type validation in the database, which means PostgreSQL. If I didn't need transactions or the hard-type validation I would consider MongoDB instead.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-debug-toolbar-0-9-4"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-debug-toolbar"&gt;django-debug-toolbar==0.9.4&lt;/a&gt;&lt;/h2&gt;

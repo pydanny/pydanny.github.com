@@ -20,7 +20,7 @@ Unlike my last quick project which was Flask_, this effort really falls into Dja
 `psycopg2==2.4.5`_
 ==================
 
-I need transactions and hard-type validation in the database, which means PostGreSQL. If I didn't need transactions or the hard-type validation I would consider MongoDB instead.
+I need transactions and hard-type validation in the database, which means PostgreSQL. If I didn't need transactions or the hard-type validation I would consider MongoDB instead.
 
 .. _`psycopg2==2.4.5`: http://pypi.python.org/pypi/psycopg2
 
