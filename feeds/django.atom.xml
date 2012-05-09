@@ -64,7 +64,7 @@ django-registration==0.8.0
 gunicorn==0.14.2
 psycopg2==2.4.5
 &lt;/pre&gt;
-&lt;p&gt;Once you have that, you install them thus:&lt;/p&gt;
+&lt;p&gt;Once you have that, you install them thus in your &lt;a class="reference external" href="http://pypi.python.org/pypi/virtualenv"&gt;virtualenv&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 pip install -r requirements.txt
 &lt;/pre&gt;

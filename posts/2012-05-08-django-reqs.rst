@@ -113,11 +113,13 @@ Create a ``requirements.txt`` file and install them as proper dependencies. The 
     gunicorn==0.14.2
     psycopg2==2.4.5
 
-Once you have that, you install them thus::
+Once you have that, you install them thus in your virtualenv_::
 
     pip install -r requirements.txt
 
 Now that I have all this, it's time to code!
+
+.. _virtualenv: http://pypi.python.org/pypi/virtualenv
 
 ----
 
