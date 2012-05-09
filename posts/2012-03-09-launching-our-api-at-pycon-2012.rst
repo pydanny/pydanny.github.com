@@ -4,7 +4,7 @@ Launching our API at PyCon 2012
 
 :date: 2012-03-09 07:30
 :tags: python, django, OAuth, api, Consumer-Notebook, pycon
-:category: Python
+:category: python
 
 A few months ago me and my fiancee, `Audrey Roy`_, launched our start up, `Consumer Notebook`_. It's a Python powered product comparison site that combines the best features of `Open Comparison`_, Yelp, Consumer Reports, and Pinterest. We've worked day and night to make it better, with countless members of the Python community using the site and giving us invaluable feedback.
 

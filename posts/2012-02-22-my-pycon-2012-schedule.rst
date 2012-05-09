@@ -4,7 +4,7 @@ My PyCon 2012 Schedule
 
 :date: 2012-02-22 09:00
 :tags: python, pycon, consumernotebook, django
-:category: Python
+:category: python
 
 Here I was thinking that this year's PyCon wasn't going to be so busy because I didn't submit a talk or tutorial. Ha! What the heck was I thinking?
 

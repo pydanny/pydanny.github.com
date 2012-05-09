@@ -4,7 +4,7 @@ The sorry state of Python OAuth providers
 
 :date: 2012-03-05 07:30
 :tags: python, django, OAuth, api, Consumer-Notebook
-:category: Python
+:category: python
 
 This is one of those challenging posts to write. The people whose projects I'm going to describe have put in a lot of dedicated, hard work to overcome a challenging subject. Writing an OAuth consumer is a hard problem and writing an OAuth provider is an even harder problem. The efforts put in by the authors of these projects has been nothing short of incredible. The problem, however, is that the existing projects are not usable as-is, and need the support of the community in order to improve.
 

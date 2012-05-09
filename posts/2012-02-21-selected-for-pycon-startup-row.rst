@@ -4,7 +4,7 @@ Selected for PyCon StartUp Row
 
 :date: 2012-02-21 01:00
 :tags: python, pycon, audrey, consumernotebook, django
-:category: Python
+:category: python
 
 Me and Audrey have been working hard on `Consumer Notebook`_, a Python/Django based project. We submitted it to PyCon StartUp row and found out this morning we've been accepted. **Hooray!**
 

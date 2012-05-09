@@ -4,7 +4,7 @@ PyCon Australia 2011 Review
 
 :date: 2012-02-24 12:45
 :tags: python, pycon, audrey, australia, review
-:category: Python
+:category: python
 
 In June of 2011 I had the good fortune of having my then girlfriend, Audrey Roy, now fiancee, `invited to present a keynote speech at PyCon Australia 2011`_. 
 

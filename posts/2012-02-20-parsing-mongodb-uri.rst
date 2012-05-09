@@ -4,7 +4,7 @@ Parsing MongoDB URI
 
 :date: 2012-02-20 09:20
 :tags: python, mongodb, howto
-:category: Python
+:category: python
 
 Rather than hard-code the configuration into a Python based settings file, when using a PaaS such as Heroku you want to pick up the MongoDB URI from the system settings. Here's what I do:
 

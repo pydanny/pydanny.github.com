@@ -4,7 +4,7 @@ Choosing a new python based blog engine
 
 :date: 2012-04-05 12:00
 :tags: python, blog
-:category: Blog
+:category: blog
 
 
 Why a new blog engine?

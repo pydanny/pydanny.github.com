@@ -4,7 +4,7 @@ My new blog
 
 :date: 2012-02-17 00:30
 :tags: python, blog
-:category: Blog
+:category: blog
 
 
 What I did to get it running::
