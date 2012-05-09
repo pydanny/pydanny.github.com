@@ -65,7 +65,7 @@ An excellent tool for making your forms HTML5-ish out of the box.
 `django-crispy-forms==1.1.3`_
 =============================
 
-The child of my own django-uni-forms, this will let me render forms super fast, and do layout customizations if I need them.
+The child of my own django-uni-forms, this will let me create forms using div-based controls super fast, and do layout customizations if I need them.
 
 .. _`django-crispy-forms==1.1.3`: http://pypi.python.org/pypi/django-crispy-forms
 
