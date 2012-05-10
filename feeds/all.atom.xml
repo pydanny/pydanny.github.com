@@ -80,7 +80,7 @@
 &lt;p&gt;The only reason for using django-piston for years has been that it supported OAuth, but django-tastypie now addresses that use case. I've used django-tastypie's basic OAuth class and rolled custom Authentication modules to support some extra OAuth flavors and found it wonderful.&lt;/p&gt;
 &lt;p&gt;Use django-tastypie or django-rest-framework instead. You'll be much, much happier for it.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;p&gt;blah&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://news.ycombinator.com/item?id=3954314"&gt;Discuss this on Hacker News&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="api"></category><category term="review"></category></entry><entry><title>Django Requirements for a project</title><link href="http://pydanny.com/django-requirements-for-a-project.html" rel="alternate"></link><updated>2012-05-09T08:00:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.com,2012-05-09:/django-requirements-for-a-project.html/</id><summary type="html">&lt;p&gt;Today I'm starting a new project. I'm working as fast as I can and hope to launch on Friday. What are my package dependencies?&lt;/p&gt;
 &lt;div class="section" id="django-1-4"&gt;

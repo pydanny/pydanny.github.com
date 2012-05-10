@@ -115,4 +115,6 @@ Use django-tastypie or django-rest-framework instead. You'll be much, much happi
 
 ----
 
-blah
+`Discuss this on Hacker News`_
+
+.. _`Discuss this on Hacker News`: http://news.ycombinator.com/item?id=3954314

@@ -80,7 +80,7 @@
 &lt;p&gt;The only reason for using django-piston for years has been that it supported OAuth, but django-tastypie now addresses that use case. I've used django-tastypie's basic OAuth class and rolled custom Authentication modules to support some extra OAuth flavors and found it wonderful.&lt;/p&gt;
 &lt;p&gt;Use django-tastypie or django-rest-framework instead. You'll be much, much happier for it.&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
-&lt;p&gt;blah&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://news.ycombinator.com/item?id=3954314"&gt;Discuss this on Hacker News&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="api"></category><category term="review"></category></entry><entry><title>PyCon Australia 2011 Review</title><link href="http://pydanny.com/pycon-australia-2011-review.html" rel="alternate"></link><updated>2012-02-24T12:45:00Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.com,2012-02-24:/pycon-australia-2011-review.html/</id><summary type="html">&lt;p&gt;In June of 2011 I had the good fortune of having my then girlfriend, Audrey Roy, now fiancee, &lt;a class="reference external" href="http://pydanny.blogspot.com/2011/06/im-going-to-pycon-australia.html"&gt;invited to present a keynote speech at PyCon Australia 2011&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I was terribly excited for her to get that invitation, and that excitement was compounded when they allowed me to present on &lt;a class="reference external" href="http://www.slideshare.net/pydanny/confessions-of-a-joe-developer`:"&gt;Confessions of Joe Developer&lt;/a&gt;.&lt;/p&gt;
