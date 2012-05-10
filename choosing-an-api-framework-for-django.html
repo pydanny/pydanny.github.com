@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>pydanny - review</title>
+        <title>Choosing an API framework for Django</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
-        <link href=".././feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
         
 
         
@@ -13,11 +13,11 @@
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
         <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie.css"/>
-                <script src=".././js/IE8.js" type="text/javascript"></script><![endif]-->
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
 
         <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie6.css"/><![endif]-->
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
 
 </head>
 
@@ -30,39 +30,38 @@
 </a>
 
         <header id="banner" class="body">
-                <h1><a href="../.">pydanny </a></h1>
+                <h1><a href=".">pydanny </a></h1>
                 <nav><ul>
                 
                 
                 
-                    <li><a href=".././pages/about.html">About</a></li>
+                    <li><a href="./pages/about.html">About</a></li>
                 
-                    <li><a href=".././pages/tools.html">Tools</a></li>
+                    <li><a href="./pages/tools.html">Tools</a></li>
                 
-                    <li><a href=".././pages/upcoming.html">Upcoming</a></li>
+                    <li><a href="./pages/upcoming.html">Upcoming</a></li>
                 
                 
                 
-                    <li ><a href=".././category/audrey.html">audrey</a></li>
+                    <li ><a href="./category/audrey.html">audrey</a></li>
                 
-                    <li ><a href=".././category/blog.html">blog</a></li>
+                    <li ><a href="./category/blog.html">blog</a></li>
                 
-                    <li ><a href=".././category/django.html">django</a></li>
+                    <li class="active"><a href="./category/django.html">django</a></li>
                 
-                    <li ><a href=".././category/python.html">python</a></li>
+                    <li ><a href="./category/python.html">python</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
                 
-
-            
-
-        
-        
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href=".././choosing-an-api-framework-for-django.html">Choosing an API framework for Django</a></h1> 
-                    <footer class="post-info">
+<section id="content" class="body">    
+<article>
+        <header> <h1 class="entry-title"><a href="choosing-an-api-framework-for-django.html"
+        rel="bookmark" title="Permalink to Choosing an API framework for Django">Choosing an API framework for Django</a></h1> 
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pydanny">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ </header>
+        <div class="entry-content">
+        <footer class="post-info">
         <abbr class="published" title="2012-05-10T08:00:00">
                 Thu 10 May 2012
         </abbr>
@@ -72,11 +71,12 @@
                 By <a class="url fn" href="#">Daniel Greenfeld</a>
         </address>
         
-<p>In <a href=".././category/django.html">django</a>. </p>
-<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/api.html">api</a><a href=".././tag/review.html">review</a></p>
+<p>In <a href="./category/django.html">django</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/api.html">api</a><a href="./tag/review.html">review</a></p>
 
 
-</footer><!-- /.post-info --><p>First off, out of the box, <a class="reference external" href="http://djangoproject.com">Django</a> lets you construct API responses with a little work. All you need to do is something like this:</p>
+</footer><!-- /.post-info -->
+        <p>First off, out of the box, <a class="reference external" href="http://djangoproject.com">Django</a> lets you construct API responses with a little work. All you need to do is something like this:</p>
 <div class="highlight"><pre><span class="c"># Copied from https://docs.djangoproject.com/en/1.4/topics/class-based-views/#more-than-just-html</span>
 <span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">http</span>
 <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">simplejson</span> <span class="k">as</span> <span class="n">json</span>
@@ -159,65 +159,25 @@
 <hr class="docutils" />
 <p>blah</p>
 </div>
-<p>There are <a href=".././choosing-an-api-framework-for-django.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                        <ol id="posts-list" class="hfeed">
-            
+
+        </div><!-- /.entry-content -->
         
-        
-        
+        <div class="comments">
+        <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "choosing-an-api-framework-for-django.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://pydanny.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
         
 
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href=".././pycon-australia-2011-review.html" rel="bookmark" title="Permalink to PyCon Australia 2011 Review">PyCon Australia 2011 Review</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-02-24T12:45:00">
-                Fri 24 February 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href="#">Daniel Greenfeld</a>
-        </address>
-        
-<p>In <a href=".././category/python.html">python</a>. </p>
-<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/pycon.html">pycon</a><a href=".././tag/audrey.html">audrey</a><a href=".././tag/australia.html">australia</a><a href=".././tag/review.html">review</a></p>
-
-
-</footer><!-- /.post-info -->
-                <p>In June of 2011 I had the good fortune of having my then girlfriend, Audrey Roy, now fiancee, <a class="reference external" href="http://pydanny.blogspot.com/2011/06/im-going-to-pycon-australia.html">invited to present a keynote speech at PyCon Australia 2011</a>.</p>
-<p>I was terribly excited for her to get that invitation, and that excitement was compounded when they allowed me to present on ...</p>
-                <a class="readmore" href=".././pycon-australia-2011-review.html">read more</a>
-                <p>There are <a href=".././pycon-australia-2011-review.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-            <p class="paginator">
-    
-    Page 1 / 1
-    
-</p>
-        
-
-    
-    </ol><!-- /#posts-list -->
-    </section><!-- /#content -->
-
-
+</article>
+</section>
 
         <section id="extras" class="body">
         
@@ -226,7 +186,7 @@
                 <div class="social">
                         <h2>social</h2>
                         <ul>
-                            <li><a href=".././feeds/all.atom.xml" rel="alternate">atom feed</a></li>
+                            <li><a href="./feeds/all.atom.xml" rel="alternate">atom feed</a></li>
                             
 
                         
