@@ -48,7 +48,7 @@ Once you get that `mixin`, use it in your views like so:
             context['objects'] = User.objects.values('first_name','last_name','is_active')
             return json.dumps(context)
 
-This works pretty well in a number of simple cases, but working in things like pagination, posting of data, metadata, API discovery, and other important things ends up being a bit more work. This is where the resource oriented API frameworks come in.
+This works pretty well in a number of simple cases, but doing things like pagination, posting of data, metadata, API discovery, and other important things ends up being a bit more work. This is where the resource oriented API frameworks come in.
 
 What makes a decent API Framework?
 ===================================
