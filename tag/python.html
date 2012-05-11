@@ -59,8 +59,56 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././choosing-an-api-framework-for-django.html">Choosing an API framework for Django</a></h1> 
+                    <h1 class="entry-title"><a href=".././css-hacking-to-make-my-code-samples-legible.html">CSS Hacking to make my code samples legible</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-05-11T08:30:00">
+                Fri 11 May 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/python.html">python</a>. </p>
+<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/css.html">css</a><a href=".././tag/usability.html">usability</a></p>
+
+
+</footer><!-- /.post-info --><p>I've been very happy with <a class="reference external" href="http://pelican.readthedocs.org/">Pelican</a> as a blog engine so far, and haven't even moved off the sample theme. There's just been one problem: Myself and others have had a lot of trouble reading the code snippets.</p>
+<p>I didn't have time to cook up a full Pelican theme, so instead I just hacked the local CSS files. What I did was a hack, and next week when I have time I'll do a proper Pelican theme.</p>
+<p>In the meantime, enjoy!</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+
+<span class="k">class</span> <span class="nc">Meal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">food_type</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Beef&#39;</span><span class="p">,</span> <span class="s">&#39;Fish&#39;</span><span class="p">,</span> <span class="s">&#39;Vegetarian&#39;</span><span class="p">,</span> <span class="s">&#39;Chicken&#39;</span><span class="p">]</span>
+        <span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">food_type</span><span class="p">)</span>
+</pre></div>
+<p>There are <a href=".././css-hacking-to-make-my-code-samples-legible.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                        <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././choosing-an-api-framework-for-django.html" rel="bookmark" title="Permalink to Choosing an API framework for Django">Choosing an API framework for Django</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-05-10T08:00:00">
                 Thu 10 May 2012
         </abbr>
@@ -74,100 +122,17 @@
 <p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/api.html">api</a><a href=".././tag/review.html">review</a></p>
 
 
-</footer><!-- /.post-info --><p>First off, out of the box, <a class="reference external" href="http://djangoproject.com">Django</a> lets you construct API responses with a little work. All you need to do is something like this:</p>
+</footer><!-- /.post-info -->
+                <p>First off, out of the box, <a class="reference external" href="http://djangoproject.com">Django</a> lets you construct API responses with a little work. All you need to do is something like this:</p>
 <div class="highlight"><pre><span class="c"># Copied from https://docs.djangoproject.com/en/1.4/topics/class-based-views/#more-than-just-html</span>
 <span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">http</span>
 <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">simplejson</span> <span class="k">as</span> <span class="n">json</span>
 
-<span class="k">class</span> <span class="nc">JSONResponseMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">render_to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-        <span class="s">&quot;Returns a JSON response containing &#39;context&#39; as payload&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_json_response</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_context_to_json</span><span class="p">(</span><span class="n">context</span><span class="p">))</span>
-
-    <span class="k">def</span> <span class="nf">get_json_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="o">**</span><span class="n">httpresponse_kwargs</span><span class="p">):</span>
-        <span class="s">&quot;Construct an `HttpResponse` object.&quot;</span>
-        <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">HttpResponse</span><span class="p">(</span><span class="n">content</span><span class="p">,</span>
-                                 <span class="n">content_type</span><span class="o">=</span><span class="s">&#39;application/json&#39;</span><span class="p">,</span>
-                                 <span class="o">**</span><span class="n">httpresponse_kwargs</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">convert_context_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-        <span class="s">&quot;Convert the context dictionary into a JSON object&quot;</span>
-        <span class="c"># Note: This is *EXTREMELY* naive; in reality, you&#39;ll need</span>
-        <span class="c"># to do much more complex handling to ensure that arbitrary</span>
-        <span class="c"># objects -- such as Django model instances or querysets</span>
-        <span class="c"># -- can be serialized as JSON.</span>
-        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-</pre></div>
-<p>Once you get that <cite>mixin</cite>, use it in your views like so:</p>
-<div class="highlight"><pre><span class="c"># modified from djangoproject.com sample code</span>
-<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">simplejson</span> <span class="k">as</span> <span class="n">json</span>
-
-<span class="k">class</span> <span class="nc">JSONDetailView</span><span class="p">(</span><span class="n">JSONResponseMixin</span><span class="p">,</span> <span class="n">MyCustomUserView</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">convert_context_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-
-        <span class="n">context</span><span class="p">[</span><span class="s">&#39;objects&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s">&#39;first_name&#39;</span><span class="p">,</span><span class="s">&#39;last_name&#39;</span><span class="p">,</span><span class="s">&#39;is_active&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-</pre></div>
-<p>This works pretty well in a number of simple cases, but doing things like pagination, posting of data, metadata, API discovery, and other important things ends up being a bit more work. This is where the resource oriented API frameworks come in.</p>
-<div class="section" id="what-makes-a-decent-api-framework">
-<h2>What makes a decent API Framework?</h2>
-<p>These features:</p>
-<ul class="simple">
-<li>pagination</li>
-<li>posting of data with validation</li>
-<li>Publishing of metadata along with querysets</li>
-<li>API discovery</li>
-<li>proper HTTP response handling</li>
-<li>caching</li>
-<li>serialization</li>
-<li>throttling</li>
-<li>permissions</li>
-<li>authentication</li>
-</ul>
-<p>Proper API frameworks also need:</p>
-<ul class="simple">
-<li>Really good test coverage of their code</li>
-<li>Decent performance</li>
-<li>Documentation</li>
-<li>An active community to advance and support the framework</li>
-</ul>
-<p>If you take these factors, at this time there are only two API frameworks worth using, <a class="reference external" href="http://django-tastypie.readthedocs.org/">django-tastypie</a> and <a class="reference external" href="http://django-rest-framework.org/">django-rest-framework</a>.</p>
-</div>
-<div class="section" id="which-one-is-better-django-tastypie-or-django-rest-framework">
-<h2>Which one is better? django-tastypie or django-rest-framework?</h2>
-<p>I say they are equal.</p>
-<p>You simply can't go wrong with either one. The authors and communities behind both of them are active, the code is solid and tested. And here are my specific thoughts about both of them:</p>
-</div>
-<div class="section" id="id1">
-<h2>django-tastypie</h2>
-<p>Using django-tastypie is like playing with pure Python while using the Django ORM. I find it very comfortable. Seems really fast too. The documentation is incredible, and I rarely have any problems figuring anything out. It also supports OAuth 1.0a out of the box, which is mighty awesome these days.</p>
-<p>In fact, I wrote a custom OAuth2 handler for django-tastypie I wrote for <a class="reference external" href="http://consumer.io">consumer.io</a> that I'm working to extract out for publication.</p>
-</div>
-<div class="section" id="id2">
-<h2>django-rest-framework</h2>
-<p>As it's based off Django 1.3 style Class Based Views (CBVs), it has a very familiar pattern. Actually, because of the quality of the documentation, I really prefer using django-rest-framework CBVs more than using Django's actual CBVs.</p>
-<p>Maybe I should make an HTML renderer for django-rest-framework? :-)</p>
-</div>
-<div class="section" id="but-what-about-django-piston">
-<h2>But what about django-piston?</h2>
-<p><strong>Don't use django-piston</strong>.</p>
-<p>I don't want to say anything negative, but let's face it: <strong>django-piston is dead</strong>. Besides a critical security release last year, nothing has been done for it in about 3 years. The documentation is weak, the code mostly untested, and the original author left and has gone on to to do some amazing things. It was amazing in it's time, but it's time has passed on and so should you.</p>
-<p>The only reason for using django-piston for years has been that it supported OAuth, but django-tastypie now addresses that use case. I've used django-tastypie's basic OAuth class and rolled custom Authentication modules to support some extra OAuth flavors and found it wonderful.</p>
-<p>Use django-tastypie or django-rest-framework instead. You'll be much, much happier for it.</p>
-<hr class="docutils" />
-<p><a class="reference external" href="http://news.ycombinator.com/item?id=3954314">Discuss this on Hacker News</a></p>
-</div>
-<p>There are <a href=".././choosing-an-api-framework-for-django.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                        <ol id="posts-list" class="hfeed">
-            
-        
+<span class="k">class</span> <span class="nc">JSONResponseMixin ...</span></pre></div>
+                <a class="readmore" href=".././choosing-an-api-framework-for-django.html">read more</a>
+                <p>There are <a href=".././choosing-an-api-framework-for-django.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>pydanny</title>
+        <title>CSS Hacking to make my code samples legible</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
         <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
@@ -47,74 +47,61 @@
                 
                     <li ><a href="./category/django.html">django</a></li>
                 
-                    <li ><a href="./category/python.html">python</a></li>
+                    <li class="active"><a href="./category/python.html">python</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
+                
+<section id="content" class="body">    
+<article>
+        <header> <h1 class="entry-title"><a href=""
+        rel="bookmark" title="Permalink to CSS Hacking to make my code samples legible">CSS Hacking to make my code samples legible</a></h1> 
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pydanny">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ </header>
+        <div class="entry-content">
+        <footer class="post-info">
+        <abbr class="published" title="2012-05-11T08:30:00">
+                Fri 11 May 2012
+        </abbr>
+
         
-<section id="content" class="body">
-<h1>Archives for pydanny</h1>
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/python.html">python</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/css.html">css</a><a href="./tag/usability.html">usability</a></p>
 
-<dl>
 
-    <dt>Thu 09 February 2012</dt>
-    <dd><a href='tried-out-jekyll.html'>Tried out Jekyll</a></dd>
+</footer><!-- /.post-info -->
+        <p>I've been very happy with <a class="reference external" href="http://pelican.readthedocs.org/">Pelican</a> as a blog engine so far, and haven't even moved off the sample theme. There's just been one problem: Myself and others have had a lot of trouble reading the code snippets.</p>
+<p>I didn't have time to cook up a full Pelican theme, so instead I just hacked the local CSS files. What I did was a hack, and next week when I have time I'll do a proper Pelican theme.</p>
+<p>In the meantime, enjoy!</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
 
-    <dt>Fri 17 February 2012</dt>
-    <dd><a href='my-new-blog.html'>My new blog</a></dd>
+<span class="k">class</span> <span class="nc">Meal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">food_type</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Beef&#39;</span><span class="p">,</span> <span class="s">&#39;Fish&#39;</span><span class="p">,</span> <span class="s">&#39;Vegetarian&#39;</span><span class="p">,</span> <span class="s">&#39;Chicken&#39;</span><span class="p">]</span>
+        <span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">food_type</span><span class="p">)</span>
+</pre></div>
 
-    <dt>Fri 17 February 2012</dt>
-    <dd><a href='two-years-ago-today.html'>Two years ago today</a></dd>
+        </div><!-- /.entry-content -->
+        
+        <div class="comments">
+        <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "css-hacking-to-make-my-code-samples-legible.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://pydanny.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
+        
 
-    <dt>Sat 18 February 2012</dt>
-    <dd><a href='django-uni-form-end-of-life.html'>django-uni-form end of life</a></dd>
-
-    <dt>Mon 20 February 2012</dt>
-    <dd><a href='parsing-mongodb-uri.html'>Parsing MongoDB URI</a></dd>
-
-    <dt>Tue 21 February 2012</dt>
-    <dd><a href='selected-for-pycon-startup-row.html'>Selected for PyCon StartUp Row</a></dd>
-
-    <dt>Wed 22 February 2012</dt>
-    <dd><a href='my-pycon-2012-schedule.html'>My PyCon 2012 Schedule</a></dd>
-
-    <dt>Fri 24 February 2012</dt>
-    <dd><a href='pycon-australia-2011-review.html'>PyCon Australia 2011 Review</a></dd>
-
-    <dt>Sat 25 February 2012</dt>
-    <dd><a href='i-use-this.html'>I use this</a></dd>
-
-    <dt>Tue 28 February 2012</dt>
-    <dd><a href='you-should-heroku.html'>You should Heroku</a></dd>
-
-    <dt>Mon 05 March 2012</dt>
-    <dd><a href='the-sorry-state-of-python-oauth-providers.html'>The sorry state of Python OAuth providers</a></dd>
-
-    <dt>Fri 09 March 2012</dt>
-    <dd><a href='launching-our-api-at-pycon-2012.html'>Launching our API at PyCon 2012</a></dd>
-
-    <dt>Wed 28 March 2012</dt>
-    <dd><a href='calendar-about-nothing.html'>Calendar About Nothing</a></dd>
-
-    <dt>Thu 05 April 2012</dt>
-    <dd><a href='choosing-a-new-python-based-blog-engine.html'>Choosing a new python based blog engine</a></dd>
-
-    <dt>Tue 10 April 2012</dt>
-    <dd><a href='join-us-at-djangocon-europe.html'>Join us at DjangoCon Europe!</a></dd>
-
-    <dt>Tue 01 May 2012</dt>
-    <dd><a href='los-angeles-open-source-sprint-on-may-12th.html'>Los Angeles Open Source Sprint on May 12th!</a></dd>
-
-    <dt>Wed 09 May 2012</dt>
-    <dd><a href='django-requirements-for-a-project.html'>Django Requirements for a project</a></dd>
-
-    <dt>Thu 10 May 2012</dt>
-    <dd><a href='choosing-an-api-framework-for-django.html'>Choosing an API framework for Django</a></dd>
-
-    <dt>Fri 11 May 2012</dt>
-    <dd><a href='css-hacking-to-make-my-code-samples-legible.html'>CSS Hacking to make my code samples legible</a></dd>
-
-</dl>
+</article>
 </section>
 
         <section id="extras" class="body">
