@@ -90,7 +90,7 @@ django-tastypie
 
 Using django-tastypie is like playing with pure Python while using the Django ORM. I find it very comfortable. Seems really fast too. The documentation is incredible, and I rarely have any problems figuring anything out. It also supports OAuth 1.0a out of the box, which is mighty awesome these days.
 
-In fact, I wrote a custom OAuth2 handler for django-tastypie I wrote for `consumer.io`_ that I'm working to extract out for publication.
+In fact, I wrote a custom OAuth2 handler for django-tastypie for `consumer.io`_ that I'm working to extract for publication.
 
 .. _`consumer.io`: http://consumer.io
 
@@ -107,7 +107,7 @@ But what about django-piston?
 
 **Don't use django-piston**.
 
-I don't want to say anything negative, but let's face it: **django-piston is dead**. Besides a critical security release last year, nothing has been done for it in about 3 years. The documentation is weak, the code mostly untested, and the original author left and has gone on to to do some amazing things. It was amazing in it's time, but it's time has passed on and so should you.
+I don't want to say anything negative, but let's face it: **django-piston is dead**. Besides a critical security release last year, nothing has been done for it in about 3 years. The documentation is weak, the code mostly untested, and the original author left. He has gone on to do some amazing things. Django-piston was amazing in its time, but its time has passed and so should you.
 
 The only reason for using django-piston for years has been that it supported OAuth, but django-tastypie now addresses that use case. I've used django-tastypie's basic OAuth class and rolled custom Authentication modules to support some extra OAuth flavors and found it wonderful.
 
