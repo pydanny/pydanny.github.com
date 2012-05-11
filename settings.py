@@ -1,4 +1,4 @@
-AUTHOR = 'Daniel Greenfeld'
+AUTHOR = 'Daniel-Greenfeld'
 DISQUS_SITENAME = 'pydanny'
 GITHUB_URL = 'https://github.com/pydanny/pydanny.github.com'
 GOOGLE_ANALYTICS='UA-18066389-3'
