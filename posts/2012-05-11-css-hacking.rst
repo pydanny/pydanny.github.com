@@ -10,7 +10,7 @@ I've been very happy with Pelican_ as a blog engine so far, and haven't even mov
 
 .. _Pelican: http://pelican.readthedocs.org/
 
-I didn't have time to cook up a full Pelican theme, so instead I just hacked the local CSS files. What I did was a hack, and next week when I have time I'll do a proper Pelican theme.
+I didn't have time to cook up a full Pelican theme, so instead I just hacked the local CSS files. The problem with this hack is that every time I regenerate the blog I have to copy the right CSS files into place. So next week when I have time I'll do a proper Pelican theme.
 
 In the meantime, enjoy!
 
