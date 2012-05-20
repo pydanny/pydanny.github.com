@@ -4,7 +4,7 @@
         <title>django-uni-form end of life</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny Atom Feed" />
         
 
         <!--[if IE]>
@@ -33,48 +33,53 @@
                 
                 
                 
-                    <li><a href="./pages/about.html">About</a></li>
+                    <li><a href="./about.html">About</a></li>
                 
-                    <li><a href="./pages/tools.html">Tools</a></li>
+                    <li><a href="./tools.html">Tools</a></li>
                 
-                    <li><a href="./pages/upcoming.html">Upcoming</a></li>
+                    <li><a href="./upcoming.html">Upcoming</a></li>
                 
                 
                 
-                    <li ><a href="./category/audrey.html">audrey</a></li>
+                    <li ><a href="./">audrey</a></li>
                 
-                    <li ><a href="./category/blog.html">blog</a></li>
+                    <li ><a href="./">blog</a></li>
                 
-                    <li class="active"><a href="./category/django.html">django</a></li>
+                    <li class="active"><a href="./">django</a></li>
                 
-                    <li ><a href="./category/python.html">python</a></li>
+                    <li ><a href="./">python</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
-                
-<section id="content" class="body">    
-<article>
-        <header> <h1 class="entry-title"><a href=""
-        rel="bookmark" title="Permalink to django-uni-form end of life">django-uni-form end of life</a></h1> 
+        
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="django-uni-form-end-of-life.html" rel="bookmark"
+           title="Permalink to django-uni-form end of life">django-uni-form end of life</a></h1>
+      
 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pydanny">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
- </header>
-        <div class="entry-content">
-        <footer class="post-info">
+
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
         <abbr class="published" title="2012-02-18T01:00:00">
                 Sat 18 February 2012
         </abbr>
 
         
         <address class="vcard author">
-                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+                By <a class="url fn" href="./">Daniel-Greenfeld</a>
         </address>
         
-<p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/django.html">django</a><a href="./tag/python.html">python</a></p>
+<p>In <a href="./">django</a>. </p>
+<p>tags: <a href="./">django</a><a href="./">python</a></p>
 
 
 </footer><!-- /.post-info -->
-        <p>I started on django-uni-form in January 2009. In order to use <a class="reference external" href="http://pinaxproject.com">Pinax</a> on an internal social network for <a class="reference external" href="http://www.nasa.gov">NASA</a> HQ, we had to render all content, including forms, <a class="reference external" href="http://django-uni-form.readthedocs.org/en/latest/concepts.html#section-508">Section 508</a> compliant. Rather than rewrite the html for all 50+ forms that existed in the  Pinax 0.5.x framework at that time, I decided to minimize my work and automate things. <a class="reference external" href="http://jtauber.com">James Tauber</a> gave guidance and insight, my co-workers were supportive, and <a class="reference external" href="http://enn.io">Jannis Leidel</a> suggested the Uni-form library. The name <strong>Django Uni-Form</strong> was obvious, and lo the project was named.</p>
+      <p>I started on django-uni-form in January 2009. In order to use <a class="reference external" href="http://pinaxproject.com">Pinax</a> on an internal social network for <a class="reference external" href="http://www.nasa.gov">NASA</a> HQ, we had to render all content, including forms, <a class="reference external" href="http://django-uni-form.readthedocs.org/en/latest/concepts.html#section-508">Section 508</a> compliant. Rather than rewrite the html for all 50+ forms that existed in the  Pinax 0.5.x framework at that time, I decided to minimize my work and automate things. <a class="reference external" href="http://jtauber.com">James Tauber</a> gave guidance and insight, my co-workers were supportive, and <a class="reference external" href="http://enn.io">Jannis Leidel</a> suggested the Uni-form library. The name <strong>Django Uni-Form</strong> was obvious, and lo the project was named.</p>
 <p>Looking at the old, extremely deprecated <a class="reference external" href="http://code.google.com/p/django-uni-form/">Google Code site for django-uni-form</a>, I see that the first commit happened on January 7th, 2009. That was for version 0.1, with some core code that was literally a merger between the Django form example on how to integrate divs into forms and the simplest template tag I could figure out.</p>
 <p>The python code in uni_form/templatetags/uni_form.py:</p>
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">Template</span>
@@ -150,23 +155,23 @@
 <p>Try it. You'll like it. :-)</p>
 </div>
 
-        </div><!-- /.entry-content -->
-        
-        <div class="comments">
-        <h2>Comments !</h2>
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-               var disqus_identifier = "django-uni-form-end-of-life.html";
-               (function() {
-               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-               dsq.src = 'http://pydanny.disqus.com/embed.js';
-               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>
-        </div>
-        
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "django-uni-form-end-of-life.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://pydanny.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
 
-</article>
+  </article>
 </section>
 
         <section id="extras" class="body">
@@ -175,7 +180,7 @@
                 <div class="social">
                         <h2>social</h2>
                         <ul>
-                            <li><a href="./feeds/all.atom.xml" rel="alternate">atom feed</a></li>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
                             
 
                         
@@ -192,7 +197,7 @@
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
                 </address><!-- /#about -->
 
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>

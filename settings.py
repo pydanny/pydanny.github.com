@@ -8,5 +8,5 @@ SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
           ('github', 'https://github.com/pydanny'),
           ('facebook', 'http://www.facebook.com/daniel.greenfeld'),)
 TAG_FEED = 'feeds/%s.atom.xml'
-THEME='notmyidea'
+THEME='duck'
 TWITTER_USERNAME = 'pydanny'

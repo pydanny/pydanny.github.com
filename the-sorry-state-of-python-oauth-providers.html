@@ -4,7 +4,7 @@
         <title>The sorry state of Python OAuth providers</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny Atom Feed" />
         
 
         <!--[if IE]>
@@ -33,48 +33,53 @@
                 
                 
                 
-                    <li><a href="./pages/about.html">About</a></li>
+                    <li><a href="./about.html">About</a></li>
                 
-                    <li><a href="./pages/tools.html">Tools</a></li>
+                    <li><a href="./tools.html">Tools</a></li>
                 
-                    <li><a href="./pages/upcoming.html">Upcoming</a></li>
+                    <li><a href="./upcoming.html">Upcoming</a></li>
                 
                 
                 
-                    <li ><a href="./category/audrey.html">audrey</a></li>
+                    <li ><a href="./">audrey</a></li>
                 
-                    <li ><a href="./category/blog.html">blog</a></li>
+                    <li ><a href="./">blog</a></li>
                 
-                    <li ><a href="./category/django.html">django</a></li>
+                    <li ><a href="./">django</a></li>
                 
-                    <li class="active"><a href="./category/python.html">python</a></li>
+                    <li class="active"><a href="./">python</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
-                
-<section id="content" class="body">    
-<article>
-        <header> <h1 class="entry-title"><a href=""
-        rel="bookmark" title="Permalink to The sorry state of Python OAuth providers">The sorry state of Python OAuth providers</a></h1> 
+        
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="the-sorry-state-of-python-oauth-providers.html" rel="bookmark"
+           title="Permalink to The sorry state of Python OAuth providers">The sorry state of Python OAuth providers</a></h1>
+      
 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pydanny">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
- </header>
-        <div class="entry-content">
-        <footer class="post-info">
+
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
         <abbr class="published" title="2012-03-05T07:30:00">
                 Mon 05 March 2012
         </abbr>
 
         
         <address class="vcard author">
-                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+                By <a class="url fn" href="./">Daniel-Greenfeld</a>
         </address>
         
-<p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/OAuth.html">OAuth</a><a href="./tag/api.html">api</a><a href="./tag/Consumer-Notebook.html">Consumer-Notebook</a></p>
+<p>In <a href="./">python</a>. </p>
+<p>tags: <a href="./">python</a><a href="./">django</a><a href="./">OAuth</a><a href="./">api</a><a href="./">Consumer-Notebook</a></p>
 
 
 </footer><!-- /.post-info -->
-        <p>This is one of those challenging posts to write. The people whose projects I'm going to describe have put in a lot of dedicated, hard work to overcome a challenging subject. Writing an OAuth consumer is a hard problem and writing an OAuth provider is an even harder problem. The efforts put in by the authors of these projects has been nothing short of incredible. The problem, however, is that the existing projects are not usable as-is, and need the support of the community in order to improve.</p>
+      <p>This is one of those challenging posts to write. The people whose projects I'm going to describe have put in a lot of dedicated, hard work to overcome a challenging subject. Writing an OAuth consumer is a hard problem and writing an OAuth provider is an even harder problem. The efforts put in by the authors of these projects has been nothing short of incredible. The problem, however, is that the existing projects are not usable as-is, and need the support of the community in order to improve.</p>
 <p>The terrible thing is that this is a solved problem within our community. Python based projects are successfully implementing OAuth providers, and often using internally hacked versions of the efforts I'm about to describe. However, they aren't giving this back to the community. It might be that they want to protect their competitive edge, but I'm going to be nice and say that it's because their too busy to find time to send pull requests back.</p>
 <p>In any case, let me present our use case. For <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a> we want an <a class="reference external" href="http://api.consumernotebook.com">API</a>. We want to be able to track usernames, passwords, and the application using our <a class="reference external" href="http://api.consumernotebook.com">API</a> - which is the OAuth use case. Much as BasicAuth or DigestAuth is the easier way to go in terms of implementation, OAuth was designed for our use case: allowing third-party developers to build apps using our API without having to store credentials. In fact, it's a critical security issue: Twitter dealt with malicious &quot;Twitter apps&quot; stealing usernames and passwords before they switched to OAuth. As an API provider, being an OAuth provider might be more challenging, but it's the responsible thing to do.</p>
 <div class="section" id="existing-oauth-providers">
@@ -165,23 +170,23 @@
 </div>
 </div>
 
-        </div><!-- /.entry-content -->
-        
-        <div class="comments">
-        <h2>Comments !</h2>
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-               var disqus_identifier = "the-sorry-state-of-python-oauth-providers.html";
-               (function() {
-               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-               dsq.src = 'http://pydanny.disqus.com/embed.js';
-               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>
-        </div>
-        
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "the-sorry-state-of-python-oauth-providers.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://pydanny.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
 
-</article>
+  </article>
 </section>
 
         <section id="extras" class="body">
@@ -190,7 +195,7 @@
                 <div class="social">
                         <h2>social</h2>
                         <ul>
-                            <li><a href="./feeds/all.atom.xml" rel="alternate">atom feed</a></li>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
                             
 
                         
@@ -207,7 +212,7 @@
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
                 </address><!-- /#about -->
 
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
