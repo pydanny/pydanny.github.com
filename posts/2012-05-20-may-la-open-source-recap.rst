@@ -39,7 +39,7 @@ There's going to be another Los Angeles open source event on July 15 at Originat
 
 RSVP here: http://www.meetup.com/LA-Hackathons/events/64542582/
 
-If you want to sponsor or volunteer, email me or audreyr (at) cartwheelweb.com. We go out of our way to ensure that sponsors and volunteers feel appreciated.
+If you want to sponsor or volunteer, email me at pydanny (at) cartwheelweb.com or audreyr (at) cartwheelweb.com. We go out of our way to ensure that sponsors and volunteers feel appreciated.
 
 .. image:: http://farm9.staticflickr.com/8003/7193961164_b26d27093d.jpg
    :name: Me and Audrey at the Open Source Sprint
