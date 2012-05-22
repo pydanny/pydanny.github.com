@@ -110,7 +110,5 @@ Want to learn more?
 
 If you live in the Los Angeles area and want to learn more about Django, everything from the basics to setting up a Content Management System or E-Commerce system, check out our Django (and Python_) training at `Cartwheel Academy`_.
 
-Discuss this on Hacker News: http://news.ycombinator.com/item?id=4008588
-
 .. _Python: http://python.org
 .. _`Cartwheel Academy`: https://academy.cartwheelweb.com
