@@ -59,8 +59,134 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./may-12th-2012-la-open-source-recap.html">May 12th, 2012 LA Open Source Recap</a></h1> 
+                    <h1 class="entry-title"><a href="./simple-django-email-form-using-cbv.html">Simple Django email form using CBV</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-05-22T09:30:00">
+                Tue 22 May 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./Daniel-Greenfeld">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/django.html">django</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/howto.html">howto</a></p>
+
+
+</footer><!-- /.post-info --><p>Here's a simple <tt class="docutils literal">FormView</tt> Class Based Views for <a class="reference external" href="http://djangoproject.com">Django</a>. Here is a sample of how to do one as a simple email form. There is no CAPTCHA in this example, that's the topic of a future blog post.</p>
+<p>This version requires the following packages <tt class="docutils literal">pip</tt> installed into your <tt class="docutils literal">virtualenv</tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">django-crispy-forms</span></tt> so we can do Python driven layouts.</li>
+<li><tt class="docutils literal"><span class="pre">django-floppyforms</span></tt> so we get HTML5 elements for free.</li>
+</ul>
+<p>They also need to be added to your list of INSTALLED_APPS:</p>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">+=</span> <span class="p">(</span>
+    <span class="s">&#39;crispy_forms&#39;</span><span class="p">,</span>
+    <span class="s">&#39;floppyforms&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+<p>In myapp.forms.py:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">crispy_forms.helper</span> <span class="kn">import</span> <span class="n">FormHelper</span>
+<span class="kn">from</span> <span class="nn">crispy_forms.layout</span> <span class="kn">import</span> <span class="n">Submit</span>
+<span class="kn">import</span> <span class="nn">floppyforms</span> <span class="kn">as</span> <span class="nn">forms</span>
+
+<span class="k">class</span> <span class="nc">ContactForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">subject</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">helper</span> <span class="o">=</span> <span class="n">FormHelper</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">helper</span><span class="o">.</span><span class="n">add_input</span><span class="p">(</span><span class="n">Submit</span><span class="p">(</span><span class="s">&#39;submit&#39;</span><span class="p">,</span> <span class="s">&#39;Submit&#39;</span><span class="p">))</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ContactForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+<p>In myapp.views.py:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">FormView</span>
+
+<span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">ContactForm</span>
+
+<span class="k">class</span> <span class="nc">ContactFormView</span><span class="p">(</span><span class="n">FormView</span><span class="p">):</span>
+
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">ContactForm</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&quot;myapp/email_form.html&quot;</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&#39;/email-sent/&#39;</span>
+
+    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;{name} / {email} said: &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">),</span>
+            <span class="n">email</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;email&#39;</span><span class="p">))</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;message&#39;</span><span class="p">))</span>
+        <span class="n">send_mail</span><span class="p">(</span>
+            <span class="n">subject</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;subject&#39;</span><span class="p">),</span>
+            <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span>
+            <span class="n">from_email</span><span class="o">=</span><span class="s">&#39;contact-form@myapp.com&#39;</span><span class="p">,</span>
+            <span class="n">recipient_list</span><span class="o">=</span><span class="p">[</span><span class="n">settings</span><span class="o">.</span><span class="n">LIST_OF_EMAIL_RECIPIENTS</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContactFormView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">form_valid</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
+</pre></div>
+<p>In templates/myapp/email_form.html:</p>
+<div class="highlight"><pre>{% extends &#39;base.html&#39; %}
+{% load crispy_forms_tags %}
+
+{% block title %}Send an email{% endblock %}
+
+{% block content %}
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;span6&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Send an email<span class="nt">&lt;/h1&gt;</span>
+            {% crispy form form.helper %}
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+{% endblock %}
+
+{% block extrajs %}
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;{{ STATIC_URL }}js/jquery-1.7.1.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#id_name&#39;</span><span class="p">).</span><span class="nx">focus</span><span class="p">()</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+{% endblock %}
+</pre></div>
+<div class="section" id="tomorrow-s-blog-post">
+<h2>Tomorrow's blog post</h2>
+<p>In tomorrow's post I'll show how to add CAPTCHA into your project to help reduce spam messages.</p>
+</div>
+<div class="section" id="want-to-learn-more">
+<h2>Want to learn more?</h2>
+<p>If you live in the Los Angeles area and want to learn more about Django, everything from the basics to setting up a Content Management System or E-Commerce system, check out our Django (and <a class="reference external" href="http://python.org">Python</a>) training at <a class="reference external" href="https://academy.cartwheelweb.com">Cartwheel Academy</a>.</p>
+</div>
+<p>There are <a href="./simple-django-email-form-using-cbv.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href="./may-12th-2012-la-open-source-recap.html" rel="bookmark" title="Permalink to May 12th, 2012 LA Open Source Recap">May 12th, 2012 LA Open Source Recap</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-05-21T09:30:00">
                 Mon 21 May 2012
         </abbr>
@@ -74,40 +200,16 @@
 <p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/los-angeles.html">los-angeles</a><a href="./tag/lahackathons.html">lahackathons</a></p>
 
 
-</footer><!-- /.post-info --><p>On May 12th, 2012, over 50 <a class="reference external" href="http://python.org">Python</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/C%2B%2B">C++</a>, <a class="reference external" href="http://www.ruby-lang.org/">Ruby</a>, <a class="reference external" href="http://www.php.net/">PHP</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, and <a class="reference external" href="http://nodejs.org/">Node.js</a> developers arrived to code on a variety of projects. It was awesome! Tons of open source projects saw contributions, and people across languages and frameworks worked together.</p>
+</footer><!-- /.post-info -->
+                <p>On May 12th, 2012, over 50 <a class="reference external" href="http://python.org">Python</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/C%2B%2B">C++</a>, <a class="reference external" href="http://www.ruby-lang.org/">Ruby</a>, <a class="reference external" href="http://www.php.net/">PHP</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, and <a class="reference external" href="http://nodejs.org/">Node.js</a> developers arrived to code on a variety of projects. It was awesome! Tons of open source projects saw contributions, and people across languages and frameworks worked together.</p>
 <a class="reference external image-reference" href="http://www.flickr.com/photos/59834630&#64;N07/7193954598/"><img alt="http://farm9.staticflickr.com/8007/7193954598_1b071cb5e4.jpg" class="align-center" id="may-12-open-source-sprint" src="http://farm9.staticflickr.com/8007/7193954598_1b071cb5e4.jpg" /></a>
 <div class="section" id="event-background">
 <h2>Event Background</h2>
-<p>Less then two weeks before May 12, a bunch of us Los Angeles area Python developers were hanging out and wishing we had a local sprint to attend that was just about developers working on open source projects. It was then that <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> and I, along with an army of hardworking volunteers, decided to stop wishing and make it happen on May 12th.</p>
-<p>We lined up a venue, contacted awesome sponsors <a class="reference external" href="http://spire.io">Spire.io</a>, <a class="reference external" href="http://heroku.com">Heroku</a>, <a class="reference external" href="https://github.com">Github</a>, <a class="reference external" href="http://cars.com">Cars.com</a>, and <a class="reference external" href="https://academy.cartwheelweb.com">Cartwheel Academy</a>. As we did that, we also invited people from the many Los Angeles programming communities in Los Angeles to join us. The result of everyone's hard work? <strong>We filled up all sixty spots in less than 96 hours!</strong></p>
-<p>Some of the projects worked on included:</p>
-<ul class="simple">
-<li>Salt Stack: <a class="reference external" href="https://github.com/saltstack/salt">https://github.com/saltstack/salt</a></li>
-<li>A node.js-powered streaming terminal, allowing for shared input at a terminal among several participants.</li>
-<li>A JavaScript powered astrolabe.</li>
-<li>Settlers of Catan analytics in JavaScript.</li>
-<li><a class="reference external" href="http://www.openframeworks.cc/">OpenFrameworks</a>, a cross-platform toolkit for creative coding in C++.</li>
-<li>My own time at the sprint was spent with Audrey Roy and <a class="reference external" href="http://rdegges.com">Randall Degges</a> on engineering cleanup and fixing bugs on <a class="reference external" href="https://github.com/opencomparison/opencomparison">OpenComparison</a>.</li>
-</ul>
-</div>
-<div class="section" id="more-open-source-sprinting-on-july-15">
-<h2>More open source sprinting on July 15</h2>
-<p>There's going to be another Los Angeles open source event on July 15 at <a class="reference external" href="http://originate.com/">Originate</a>. Instead of less then two weeks to plan, we have nearly two months - so it's going to be better!</p>
-<p>RSVP here: <a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/64542582/">http://www.meetup.com/LA-Hackathons/events/64542582/</a></p>
-<p>If you want to sponsor or volunteer, email me at pydanny (at) cartwheelweb.com or audreyr (at) cartwheelweb.com. We go out of our way to ensure that sponsors and volunteers feel appreciated.</p>
-<a class="reference external image-reference" href="http://www.flickr.com/photos/59834630&#64;N07/7193961164/"><img alt="http://farm9.staticflickr.com/8003/7193961164_b26d27093d.jpg" class="align-center" id="me-and-audrey-at-the-open-source-sprint" src="http://farm9.staticflickr.com/8003/7193961164_b26d27093d.jpg" /></a>
-</div>
-<p>There are <a href="./may-12th-2012-la-open-source-recap.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+<p>Less then two weeks before May 12 ...</p></div>
+                <a class="readmore" href="./may-12th-2012-la-open-source-recap.html">read more</a>
+                <p>There are <a href="./may-12th-2012-la-open-source-recap.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
