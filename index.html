@@ -59,7 +59,7 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./simple-django-email-form-using-cbv.html">Simple Django email form using CBV</a></h1> 
+                    <h1 class="entry-title"><a href="./django-class-based-view-email-form-with-captcha.html">Django Class Based View: email form with CAPTCHA</a></h1> 
                     <footer class="post-info">
         <abbr class="published" title="2012-05-22T09:30:00">
                 Tue 22 May 2012
@@ -74,20 +74,27 @@
 <p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/howto.html">howto</a></p>
 
 
-</footer><!-- /.post-info --><p>Here's a simple <tt class="docutils literal">FormView</tt> Class Based Views for <a class="reference external" href="http://djangoproject.com">Django</a>. Here is a sample of how to do one as a simple email form. There is no CAPTCHA in this example, that's the topic of a future blog post.</p>
-<p>This version requires the following packages <tt class="docutils literal">pip</tt> installed into your <tt class="docutils literal">virtualenv</tt>.</p>
+</footer><!-- /.post-info --><p><a class="reference external" href="http://pydanny.com/simple-django-email-form-using-cbv.html">Yesterday I showed how to implement a simple email form</a> for <a class="reference external" href="http://djangoproject.com">Django</a> using Class Based Views. Today I'm going to extend yesterday's work to use the excellent <a class="reference external" href="http://www.google.com/recaptcha">RECAPTCHA</a> service to help reduce spam content.</p>
+<p>This version requires <tt class="docutils literal">pip</tt> installing the following into your <tt class="docutils literal">virtualenv</tt>.</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">django-crispy-forms</span></tt> so we can do Python driven layouts.</li>
-<li><tt class="docutils literal"><span class="pre">django-floppyforms</span></tt> so we get HTML5 elements for free.</li>
+<li><tt class="docutils literal">pip install <span class="pre">django-crispy-forms</span></tt> so we can do Python driven layouts.</li>
+<li><tt class="docutils literal">pip install <span class="pre">django-floppyforms</span></tt> so we get HTML5 elements for free.</li>
+<li><tt class="docutils literal">pip install <span class="pre">django-recaptcha</span></tt> to do the RECAPTCHA work.</li>
 </ul>
-<p>They also need to be added to your list of INSTALLED_APPS:</p>
+<p>Don't forget to add the app to your INSTALLED_APPS in settings.py:</p>
 <div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">+=</span> <span class="p">(</span>
     <span class="s">&#39;crispy_forms&#39;</span><span class="p">,</span>
     <span class="s">&#39;floppyforms&#39;</span><span class="p">,</span>
+    <span class="s">&#39;captcha&#39;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
+<p>Generate your KEYs from the RECAPTCHA site and add them in settings.py:</p>
+<div class="highlight"><pre><span class="n">RECAPTCHA_PUBLIC_KEY</span> <span class="o">=</span> <span class="s">&#39;6LcVu9ESAAAAANVWwbM5-PLuLES94GQ2bIYmSNTG&#39;</span>
+<span class="n">RECAPTCHA_PRIVATE_KEY</span> <span class="o">=</span> <span class="s">&#39;6LcVu9ESAAAAAGxz7aEIACWRa3CVnXN3mFd-cajP&#39;</span>
+</pre></div>
 <p>In myapp.forms.py:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">crispy_forms.helper</span> <span class="kn">import</span> <span class="n">FormHelper</span>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">captcha.fields</span> <span class="kn">import</span> <span class="n">ReCaptchaField</span>  <span class="c"># Only import different from yesterday</span>
+<span class="kn">from</span> <span class="nn">crispy_forms.helper</span> <span class="kn">import</span> <span class="n">FormHelper</span>
 <span class="kn">from</span> <span class="nn">crispy_forms.layout</span> <span class="kn">import</span> <span class="n">Submit</span>
 <span class="kn">import</span> <span class="nn">floppyforms</span> <span class="kn">as</span> <span class="nn">forms</span>
 
@@ -97,6 +104,7 @@
     <span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">subject</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">message</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">)</span>
+    <span class="n">captcha</span> <span class="o">=</span> <span class="n">ReCaptchaField</span><span class="p">()</span>  <span class="c"># Only field different from yesterday</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">helper</span> <span class="o">=</span> <span class="n">FormHelper</span><span class="p">()</span>
@@ -104,7 +112,8 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">ContactForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 <p>In myapp.views.py:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<div class="highlight"><pre><span class="c"># Unchanged from yesterday. :-)</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
 <span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
 <span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">FormView</span>
 
@@ -130,7 +139,8 @@
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContactFormView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">form_valid</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
 </pre></div>
 <p>In templates/myapp/email_form.html:</p>
-<div class="highlight"><pre>{% extends &#39;base.html&#39; %}
+<div class="highlight"><pre>{# Also unchanged from yesterday. :-)  #}
+{% extends &#39;base.html&#39; %}
 {% load crispy_forms_tags %}
 
 {% block title %}Send an email{% endblock %}
@@ -153,15 +163,28 @@
 <span class="nt">&lt;/script&gt;</span>
 {% endblock %}
 </pre></div>
-<div class="section" id="tomorrow-s-blog-post">
-<h2>Tomorrow's blog post</h2>
-<p>In tomorrow's post I'll show how to add CAPTCHA into your project to help reduce spam messages.</p>
+<div class="section" id="what-i-did">
+<h2>What I did</h2>
+<ul class="simple">
+<li>Using <tt class="docutils literal">pip</tt> I installed three packages into my Python environment.</li>
+<li>Added those three packages into the INSTALLED_APPS setting.</li>
+<li>Set the RECAPTCHA keys for my site.</li>
+<li>Modified the <tt class="docutils literal">forms.py</tt> file from yesterday to include the RECAPTCHA field.</li>
+<li>Reduced spam content.</li>
+</ul>
+</div>
+<div class="section" id="what-i-could-do">
+<h2>What I could do</h2>
+<ul class="simple">
+<li>Pin the app versions for a particular release. This is what you should be doing in normal development and in production, but for a blog entry I'm avoiding it because release numbers become quickly dated.</li>
+<li>Rather than change the <tt class="docutils literal">ContactForm</tt> from yesterday, I could have extended it via inheritance.</li>
+</ul>
 </div>
 <div class="section" id="want-to-learn-more">
 <h2>Want to learn more?</h2>
 <p>If you live in the Los Angeles area and want to learn more about Django, everything from the basics to setting up a Content Management System or E-Commerce system, check out our Django (and <a class="reference external" href="http://python.org">Python</a>) training at <a class="reference external" href="https://academy.cartwheelweb.com">Cartwheel Academy</a>.</p>
 </div>
-<p>There are <a href="./simple-django-email-form-using-cbv.html#disqus_thread">comments</a>.</p>
+<p>There are <a href="./django-class-based-view-email-form-with-captcha.html#disqus_thread">comments</a>.</p>
                 </article>
                 
             </aside><!-- /#featured -->
@@ -172,6 +195,41 @@
                     <ol id="posts-list" class="hfeed">
             
         
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href="./simple-django-email-form-using-cbv.html" rel="bookmark" title="Permalink to Simple Django email form using CBV">Simple Django email form using CBV</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2012-05-22T09:30:00">
+                Tue 22 May 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./Daniel-Greenfeld">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/django.html">django</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/howto.html">howto</a></p>
+
+
+</footer><!-- /.post-info -->
+                <p>Here's a simple <tt class="docutils literal">FormView</tt> Class Based Views for <a class="reference external" href="http://djangoproject.com">Django</a>. Here is a sample of how to do one as a simple email form. There is no CAPTCHA in this example, that's the topic of a future blog post.</p>
+<p>This version requires the following packages <tt class="docutils literal">pip</tt> installed into your ...</p>
+                <a class="readmore" href="./simple-django-email-form-using-cbv.html">read more</a>
+                <p>There are <a href="./simple-django-email-form-using-cbv.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
