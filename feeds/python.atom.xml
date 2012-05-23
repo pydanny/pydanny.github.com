@@ -1,92 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-05-22T09:30:00Z</updated><entry><title>Simple Django email form using CBV</title><link href="http://pydanny.com/simple-django-email-form-using-cbv.html" rel="alternate"></link><updated>2012-05-22T09:30:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/simple-django-email-form-using-cbv.html</id><summary type="html">&lt;p&gt;Here's a simple &lt;tt class="docutils literal"&gt;FormView&lt;/tt&gt; Class Based Views for &lt;a class="reference external" href="http://djangoproject.com"&gt;Django&lt;/a&gt;. Here is a sample of how to do one as a simple email form. There is no CAPTCHA in this example, that's the topic of a future blog post.&lt;/p&gt;
-&lt;p&gt;This version requires the following packages &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt; installed into your &lt;tt class="docutils literal"&gt;virtualenv&lt;/tt&gt;.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;django-crispy-forms&lt;/span&gt;&lt;/tt&gt; so we can do Python driven layouts.&lt;/li&gt;
-&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;django-floppyforms&lt;/span&gt;&lt;/tt&gt; so we get HTML5 elements for free.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;They also need to be added to your list of INSTALLED_APPS:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;#39;crispy_forms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;#39;floppyforms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In myapp.forms.py:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;crispy_forms.helper&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FormHelper&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;crispy_forms.layout&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Submit&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;floppyforms&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;forms&lt;/span&gt;
-
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ContactForm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Form&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-
-    &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;EmailField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;subject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;widget&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Textarea&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;helper&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FormHelper&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;helper&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Submit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;submit&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Submit&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-        &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ContactForm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In myapp.views.py:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.conf&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;settings&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.core.mail&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;send_mail&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.views.generic&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FormView&lt;/span&gt;
-
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;myapp.forms&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ContactForm&lt;/span&gt;
-
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ContactFormView&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;FormView&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-
-    &lt;span class="n"&gt;form_class&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ContactForm&lt;/span&gt;
-    &lt;span class="n"&gt;template_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;myapp/email_form.html&amp;quot;&lt;/span&gt;
-    &lt;span class="n"&gt;success_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;/email-sent/&amp;#39;&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;form_valid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;{name} / {email} said: &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-            &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cleaned_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-            &lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cleaned_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-        &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s"&gt;{0}&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cleaned_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-        &lt;span class="n"&gt;send_mail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-            &lt;span class="n"&gt;subject&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cleaned_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;subject&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-            &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="n"&gt;from_email&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;contact-form@myapp.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="n"&gt;recipient_list&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LIST_OF_EMAIL_RECIPIENTS&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-        &lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ContactFormView&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;form_valid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In templates/myapp/email_form.html:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;{% extends &amp;#39;base.html&amp;#39; %}
-{% load crispy_forms_tags %}
-
-{% block title %}Send an email{% endblock %}
-
-{% block content %}
-    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;span6&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Send an email&lt;span class="nt"&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-            {% crispy form form.helper %}
-        &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-{% endblock %}
-
-{% block extrajs %}
-&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ STATIC_URL }}js/jquery-1.7.1.min.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#id_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;focus&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="p"&gt;});&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-{% endblock %}
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="tomorrow-s-blog-post"&gt;
-&lt;h2&gt;Tomorrow's blog post&lt;/h2&gt;
-&lt;p&gt;In tomorrow's post I'll show how to add CAPTCHA into your project to help reduce spam messages.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="want-to-learn-more"&gt;
-&lt;h2&gt;Want to learn more?&lt;/h2&gt;
-&lt;p&gt;If you live in the Los Angeles area and want to learn more about Django, everything from the basics to setting up a Content Management System or E-Commerce system, check out our Django (and &lt;a class="reference external" href="http://python.org"&gt;Python&lt;/a&gt;) training at &lt;a class="reference external" href="https://academy.cartwheelweb.com"&gt;Cartwheel Academy&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-</summary><category term="python"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Django Class Based View: email form with CAPTCHA</title><link href="http://pydanny.com/django-class-based-view-email-form-with-captcha.html" rel="alternate"></link><updated>2012-05-22T09:30:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/django-class-based-view-email-form-with-captcha.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://pydanny.com/simple-django-email-form-using-cbv.html"&gt;Yesterday I showed how to implement a simple email form&lt;/a&gt; for &lt;a class="reference external" href="http://djangoproject.com"&gt;Django&lt;/a&gt; using Class Based Views. Today I'm going to extend yesterday's work to use the excellent &lt;a class="reference external" href="http://www.google.com/recaptcha"&gt;RECAPTCHA&lt;/a&gt; service to help reduce spam content.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-05-23T09:30:00Z</updated><entry><title>Django Class Based View: email form with CAPTCHA</title><link href="http://pydanny.com/django-class-based-view-email-form-with-captcha.html" rel="alternate"></link><updated>2012-05-23T09:30:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/django-class-based-view-email-form-with-captcha.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://pydanny.com/simple-django-email-form-using-cbv.html"&gt;Yesterday I showed how to implement a simple email form&lt;/a&gt; for &lt;a class="reference external" href="http://djangoproject.com"&gt;Django&lt;/a&gt; using Class Based Views. Today I'm going to extend yesterday's work to use the excellent &lt;a class="reference external" href="http://www.google.com/recaptcha"&gt;RECAPTCHA&lt;/a&gt; service to help reduce spam content.&lt;/p&gt;
 &lt;p&gt;This version requires &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt; installing the following into your &lt;tt class="docutils literal"&gt;virtualenv&lt;/tt&gt;.&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;tt class="docutils literal"&gt;pip install &lt;span class="pre"&gt;django-crispy-forms&lt;/span&gt;&lt;/tt&gt; so we can do Python driven layouts.&lt;/li&gt;
@@ -191,6 +104,93 @@
 &lt;li&gt;Pin the app versions for a particular release. This is what you should be doing in normal development and in production, but for a blog entry I'm avoiding it because release numbers become quickly dated.&lt;/li&gt;
 &lt;li&gt;Rather than change the &lt;tt class="docutils literal"&gt;ContactForm&lt;/tt&gt; from yesterday, I could have extended it via inheritance.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="want-to-learn-more"&gt;
+&lt;h2&gt;Want to learn more?&lt;/h2&gt;
+&lt;p&gt;If you live in the Los Angeles area and want to learn more about Django, everything from the basics to setting up a Content Management System or E-Commerce system, check out our Django (and &lt;a class="reference external" href="http://python.org"&gt;Python&lt;/a&gt;) training at &lt;a class="reference external" href="https://academy.cartwheelweb.com"&gt;Cartwheel Academy&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Simple Django email form using CBV</title><link href="http://pydanny.com/simple-django-email-form-using-cbv.html" rel="alternate"></link><updated>2012-05-22T09:30:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/simple-django-email-form-using-cbv.html</id><summary type="html">&lt;p&gt;Here's a simple &lt;tt class="docutils literal"&gt;FormView&lt;/tt&gt; Class Based Views for &lt;a class="reference external" href="http://djangoproject.com"&gt;Django&lt;/a&gt;. Here is a sample of how to do one as a simple email form. There is no CAPTCHA in this example, that's the topic of a future blog post.&lt;/p&gt;
+&lt;p&gt;This version requires the following packages &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt; installed into your &lt;tt class="docutils literal"&gt;virtualenv&lt;/tt&gt;.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;django-crispy-forms&lt;/span&gt;&lt;/tt&gt; so we can do Python driven layouts.&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;django-floppyforms&lt;/span&gt;&lt;/tt&gt; so we get HTML5 elements for free.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;They also need to be added to your list of INSTALLED_APPS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;crispy_forms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;floppyforms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In myapp.forms.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;crispy_forms.helper&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FormHelper&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;crispy_forms.layout&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Submit&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;floppyforms&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;forms&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ContactForm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Form&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;EmailField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;subject&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;widget&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Textarea&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;helper&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FormHelper&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;helper&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Submit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;submit&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Submit&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ContactForm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In myapp.views.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.conf&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;settings&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.core.mail&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;send_mail&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.views.generic&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FormView&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;myapp.forms&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ContactForm&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ContactFormView&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;FormView&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="n"&gt;form_class&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ContactForm&lt;/span&gt;
+    &lt;span class="n"&gt;template_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;myapp/email_form.html&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;success_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;/email-sent/&amp;#39;&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;form_valid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;{name} / {email} said: &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cleaned_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+            &lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cleaned_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s"&gt;{0}&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cleaned_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;send_mail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="n"&gt;subject&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cleaned_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;subject&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+            &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="n"&gt;from_email&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;contact-form@myapp.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="n"&gt;recipient_list&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LIST_OF_EMAIL_RECIPIENTS&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+        &lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ContactFormView&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;form_valid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In templates/myapp/email_form.html:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;{% extends &amp;#39;base.html&amp;#39; %}
+{% load crispy_forms_tags %}
+
+{% block title %}Send an email{% endblock %}
+
+{% block content %}
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;row&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;span6&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Send an email&lt;span class="nt"&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+            {% crispy form form.helper %}
+        &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+{% endblock %}
+
+{% block extrajs %}
+&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ STATIC_URL }}js/jquery-1.7.1.min.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#id_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;focus&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+{% endblock %}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="tomorrow-s-blog-post"&gt;
+&lt;h2&gt;Tomorrow's blog post&lt;/h2&gt;
+&lt;p&gt;In tomorrow's post I'll show how to add CAPTCHA into your project to help reduce spam messages.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="want-to-learn-more"&gt;
 &lt;h2&gt;Want to learn more?&lt;/h2&gt;

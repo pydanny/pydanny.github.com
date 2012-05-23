@@ -2,7 +2,7 @@
 Django Class Based View: email form with CAPTCHA
 ================================================
 
-:date: 2012-05-22 09:30
+:date: 2012-05-23 09:30
 :tags: python, django, howto
 :category: django
 
