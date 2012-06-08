@@ -6,7 +6,7 @@ Announcing PyCon Philippines!
 :tags: python, django, philippines, pycon
 :category: python
 
-`PyCon Philippines`_, set to occur on **June 30** and http://ph.pycon.org, is the first Python programming conference held in the Philippines. PyCon is a volunteer run effort that brings together Python developers from a variety of backgrounds and skill levels into a friendly, cooperative environment in order to educate, inspire, and work together - building relationships that transcend the event and can turn into lifelong friendships or even very impressive business alliances.
+`PyCon Philippines 2012`_, set to occur on **June 30** and **July 1**, is the first Python programming conference held in the Philippines. PyCon is a volunteer run effort that brings together Python developers from a variety of backgrounds and skill levels into a friendly, cooperative environment in order to educate, inspire, and work together - building relationships that transcend the event and can turn into lifelong friendships or even very impressive business alliances.
 
 This event is possible due to the hard work and contributions of members of the Manila Python users group, the support of the Python Software Foundation, various members of the Python community, our gracious sponsors, and many others.
 
@@ -37,7 +37,7 @@ Your sponsorship would go a long way towards making PyCon Philippines 2012 a mem
 
 .. _`Audrey Roy`: http://audreymroy.com
 .. _Philippines: http://en.wikipedia.org/wiki/Philippines
-.. _`PyCon Philippines`: http://ph.pycon.org
+.. _`PyCon Philippines 2012`: http://ph.pycon.org
 .. _`sponsorship page`: http://ph.pycon.org/sponsor.html
 .. _`registration page`: http://ph.pycon.org/register.html
 .. _Python: http://python.org
