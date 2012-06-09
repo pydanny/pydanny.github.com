@@ -2,7 +2,7 @@
 Announcing PyCon Philippines!
 =============================
 
-:date: 2012-06-01 12:00:00
+:date: 2012-06-09 12:00:00
 :tags: python, django, philippines, pycon
 :category: python
 
