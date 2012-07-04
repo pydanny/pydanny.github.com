@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="https://pydanny.github.com" rel="alternate"></link><link href="https://pydanny.github.com/feeds/misc.atom.xml" rel="self"></link><id>https://pydanny.github.com</id><updated>2012-02-17T00:28:44Z</updated><entry><title>My Blog</title><link href="https://pydanny.github.com/my-blog.html" rel="alternate"></link><updated>2012-02-17T00:28:44Z</updated><author><name>Daniel Greenfeld</name></author><id>tag:pydanny.github.com,2012-02-17:/my-blog.html/</id><summary type="html">&lt;p&gt;What I do to get it running:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-pip install pelican
-git clone
-&lt;/pre&gt;
-&lt;p&gt;How I push up entries and pages and themes:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-pelican . -o . -s settings.py
-git commit -am &amp;quot;blogging here&amp;quot;
-git push
-&lt;/pre&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/misc.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-06-23T05:24:08Z</updated><entry><title></title><link href="http://pydanny.com/.html" rel="alternate"></link><updated>2012-06-23T05:24:08Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;hello I am free
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;one&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;two&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;three&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 </summary></entry></feed>
