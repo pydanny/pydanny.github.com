@@ -17,11 +17,11 @@ I can assure you that PyCon PH was an wonderful, amazing, humbling experience. I
 Arrival
 =======
 
-Frank Pohlmann, chairman of PyCon Philippines picked us up and drove us to the event. He had worked day and night getting the event ready, all the while running his company, working a job, and being a father to his lovely three year old daughter.
+Frank Pohlmann, chairman of PyCon Philippines picked us up and drove us to the event. He had worked day and night getting the event ready, all the while running his company, working a job, and being a father to his lovely 21 month old daughter.
 
 As we arrived at the venue, Audrey and I were met by our good friend, Filipino-American Bryan Veloso of Github, who was to provide the closing keynote. As soon as Bryan heard that there was going to be a PyCon in the Philippines he gave up his trip to Europython to be a speaker at PyCon PH.
 
-Inside the Institute of Electrical and Electronics Engineering, we were greeted Marie Ann Tan Pohlman, logistics co-chair and volunteer organizer. She had over a dozen volunteers getting ready for the oncoming flood of registrants.
+Inside the Institute of Electrical and Electronics Engineering, we were greeted Ann Tan-Pohlman, logistics co-chair and volunteer organizer. She had over a dozen volunteers getting ready for the oncoming flood of registrants.
 
 More on the herculean efforts of the organizers and volunteers of this event in a forthcoming blog post.
 
