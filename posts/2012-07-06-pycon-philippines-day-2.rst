@@ -122,7 +122,7 @@ Coming soon
 .. _`video from DjangoCon Europe`: http://klewel.com/conferences/djangocon-2012/index.php?talkID=31
 .. _`Django Software Foundation`: https://www.djangoproject.com/foundation
 .. _`Python Sprints`: http://pythonsprints.com/
-.. _`21 Cool Things You Can Do With Python`: http://www.slideshare.net/pydanny/python-worst-practices
+.. _`21 Cool Things You Can Do With Python`: http://www.slideshare.net/pydanny/intro-to-python-11186202
 .. _`Bryan Bibat`: https://twitter.com/bry_bibat
 .. _Frank: https://twitter.com/PliniusSecundus
 .. _Pohlmann: http://www.auberonsolutions.com/
