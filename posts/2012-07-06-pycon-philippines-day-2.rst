@@ -19,7 +19,7 @@ Unfortunately I don't normally take notes on lightning talks. I'm kicking myself
 * Getting into space using weather balloons by Frank Pohlmann
 * Ponystrap_ by `Audrey Roy`_ (`video from DjangoCon Europe`_)
 * Call for Tagalog_ and other `Philippine languages`_ translation of Django_ by Malcolm Tredinnick
-* The obligatory PyCon lighting talk on Vim by Bryan Bibat
+* The obligatory PyCon lighting talk on Vim by `Bryan Bibat`_
 * OpenERP_ by Frank_ Pohlmann_ and `Ann Tan-Pohlmann`_
 * A parody talk by `Sony Valdez`_
 
