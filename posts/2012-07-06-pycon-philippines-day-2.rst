@@ -15,7 +15,7 @@ Lightning Talks
 
 Unfortunately I don't normally take notes on lightning talks. I'm kicking myself now. **Really hard.** I'll try and relate some of the talks:
 
-* Import this and that_ a parody talk by Daniel Greenfeld (me). `Malcolm comment on it.`_
+* Import this and that_, a parody talk by Daniel Greenfeld (me). `Malcolm comment on it.`_
 * Getting into space using weather balloons by Frank Pohlmann
 * Ponystrap_ by `Audrey Roy`_ (`video from DjangoCon Europe`_)
 * Call for Tagalog_ and other `Philippine languages`_ translation of Django_ by Malcolm Tredinnick
