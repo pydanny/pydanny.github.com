@@ -59,8 +59,63 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./pycon-philippines-2012-day-2.html">PyCon Philippines 2012 Day 2</a></h1> 
+                    <h1 class="entry-title"><a href="./simple-http-basic-auth-wall.html">Simple HTTP Basic Auth Wall</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-07-09T12:00:00">
+                Mon 09 July 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/python.html">python</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/wsgi.html">wsgi</a></p>
+
+
+</footer><!-- /.post-info --><p>I have a client who wanted their entire unlaunched public content site quickly but temporarily blocked for a short period of time. He wanted a universal password so he could send the site to reviewers, done quickly, and nothing else. In a few days the site will launch, and even if someone got through the authentication, nothing bad will happen except for an early visitor. So we determined this was a job for a very simple <a class="reference external" href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic access authentication</a> implementation.</p>
+<p>I asked around and <a class="reference external" href="http://jacobian.org/">Jacob Kaplan-Moss</a> gave me this awesome snippet using <a class="reference external" href="http://pypi.python.org/pypi/barrel">barrel</a> that I pasted right into the bottom of the <a class="reference external" href="http://djangoproject.com">Django</a> 1.4-style application's <tt class="docutils literal">wsgi.py</tt> file.</p>
+<div class="highlight"><pre><span class="c"># Add to the bottom of your wsgi.py file</span>
+<span class="c"># Don&#39;t forget to add barrel to your requirements!</span>
+<span class="kn">from</span> <span class="nn">barrel</span> <span class="kn">import</span> <span class="n">cooper</span>
+
+<span class="n">REALM</span> <span class="o">=</span> <span class="s">&quot;PRIVATE&quot;</span>
+<span class="n">USERS</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;eggs&#39;</span><span class="p">)]</span>
+
+<span class="n">application</span> <span class="o">=</span> <span class="n">cooper</span><span class="o">.</span><span class="n">basicauth</span><span class="p">(</span><span class="n">users</span><span class="o">=</span><span class="n">USERS</span><span class="p">,</span> <span class="n">realm</span><span class="o">=</span><span class="n">REALM</span><span class="p">)(</span><span class="n">get_wsgi_application</span><span class="p">())</span>
+</pre></div>
+<p>This took all of 5 minutes to implement and launch. The result is that the first time you visit the site the login prompt appears. If you enter 'spam' and 'eggs' then you can see the site fine.</p>
+<p>It worked and the customer was happy.</p>
+<p>Will this block a concerted penetration attempt? Of course not. If the site has/had critical or identifying information it would be implemented with <a class="reference external" href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a>. Implementing a Django site with HTTPS is something I've done many times now, but this use case was 'do it fast, easy, and make it temporary'.</p>
+<p><strong>Moral of the story:</strong> Pay attention to your requirements.</p>
+<p><strong>Note :</strong> As this is just adding in some WSGI middleware, this should work without much modification in Flask, Pyramid, and other WSGI compliant web frameworks.</p>
+<p>There are <a href="./simple-http-basic-auth-wall.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href="./pycon-philippines-2012-day-2.html" rel="bookmark" title="Permalink to PyCon Philippines 2012 Day 2">PyCon Philippines 2012 Day 2</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-07-05T12:00:00">
                 Thu 05 July 2012
         </abbr>
@@ -74,87 +129,15 @@
 <p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/philippines.html">philippines</a><a href="./tag/pycon.html">pycon</a></p>
 
 
-</footer><!-- /.post-info --><p>The second day of <a class="reference external" href="http://ph.pycon.org">PyCon Philippines 2012</a> had a really good turnout. My unofficial estimate is that we had about 90% of the attendees from the first day attend (with the unfortunate exception of most of the faculty and students of <a class="reference external" href="http://www.13hq.com/">Agoo Computer College</a>).</p>
+</footer><!-- /.post-info -->
+                <p>The second day of <a class="reference external" href="http://ph.pycon.org">PyCon Philippines 2012</a> had a really good turnout. My unofficial estimate is that we had about 90% of the attendees from the first day attend (with the unfortunate exception of most of the faculty and students of <a class="reference external" href="http://www.13hq.com/">Agoo Computer College</a>).</p>
 <p>The day started with...</p>
 <div class="section" id="lightning-talks">
-<h2>Lightning Talks</h2>
-<p>Unfortunately I don't normally take notes on lightning talks. I'm kicking myself now. <strong>Really hard.</strong> I'll try and relate some of the talks:</p>
-<ul class="simple">
-<li>Import this and <a class="reference external" href="http://pypi.python.org/pypi/that">that</a>, a parody talk by Daniel Greenfeld (me). <a class="reference external" href="https://twitter.com/malcolmt/status/219244338029412352">Malcolm comment on it.</a></li>
-<li>Getting into space using weather balloons by Frank Pohlmann</li>
-<li><a class="reference external" href="https://github.com/audreyr/ponystrap">Ponystrap</a> by <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> (<a class="reference external" href="http://klewel.com/conferences/djangocon-2012/index.php?talkID=31">video from DjangoCon Europe</a>)</li>
-<li>Call for <a class="reference external" href="http://en.wikipedia.org/wiki/Tagalog">Tagalog</a> and other <a class="reference external" href="http://en.wikipedia.org/wiki/Philippine_languages">Philippine languages</a> translation of <a class="reference external" href="http://djangoproject.com">Django</a> by Malcolm Tredinnick</li>
-<li>The obligatory PyCon lighting talk on Vim by <a class="reference external" href="https://twitter.com/bry_bibat">Bryan Bibat</a></li>
-<li><a class="reference external" href="http://openerp.com/">OpenERP</a> by <a class="reference external" href="https://twitter.com/PliniusSecundus">Frank</a> <a class="reference external" href="http://www.auberonsolutions.com/">Pohlmann</a> and <a class="reference external" href="http://www.linkedin.com/pub/ann-tan-pohlmann/4/a30/233">Ann Tan-Pohlmann</a></li>
-<li>A parody talk by <a class="reference external" href="https://twitter.com/mrvaldez">Sony Valdez</a></li>
-</ul>
-<p>Then it was on to...</p>
-</div>
-<div class="section" id="sprints-and-tutorials">
-<h2>Sprints and Tutorials</h2>
-<blockquote class="epigraph">
-<p>Encouraged at #pyconph seeing so many people declaring themselves beginners and then diving in. Enthusiasm was a bit contagious.</p>
-<p class="attribution">&mdash;<a class="reference external" href="https://twitter.com/malcolmt">Malcolm Tredinnick</a> on <a class="reference external" href="https://twitter.com/malcolmt/status/219425413301157889">twitter</a></p>
-</blockquote>
-<p>Primary funding for the sprints came from the <a class="reference external" href="https://www.djangoproject.com/foundation">Django Software Foundation</a> and <a class="reference external" href="http://pythonsprints.com/">Python Sprints</a>. That funding went towards food, drinks, and various logistics for handling the estimated 200+ attendee turnout.  Things sprinted on:</p>
-<div class="section" id="id1">
-<h3>Django</h3>
-<p>Django had it's own dedicated and very full room (no more chairs could fit so I sat on the floor), with Malcolm Tredinnick leading the effort, with <a class="reference external" href="http://marconijr.com/">Marconi</a> <a class="reference external" href="https://twitter.com/marconimjr">Moreto</a> helping out. It turned into mostly an effort to get a lot of people kick-started in Django. What was very heartening was watching people race through the tutorials on their own, and then work on projects using the framework.</p>
-<p>I suspect next year the sprints will see a lot of submissions to Django core.</p>
-<p>I had hoped to continue my work on Class Based View documentation, but it was wisely pointed out that I should focus more on helping others get moving in Django and other projects.</p>
-</div>
-<div class="section" id="ansible">
-<h3>Ansible</h3>
-<p><a class="reference external" href="http://capsunlock.net">Rodney</a> <a class="reference external" href="https://github.com/cocoy">Quillo</a> led the sprint on the <a class="reference external" href="http://ansible.github.com/">Ansible</a> tool of which he is so fond. About seven people fond of engineering joined him. They seemed very productive and happy by day's end.</p>
-</div>
-<div class="section" id="pymongo">
-<h3>pymongo</h3>
-<p>A number of developers working on embedded devices gathered to work out an edge case issue with pymongo. I wish I knew more about their efforts, but I can tell you that this sort of very serious engineering effort is very common amongst professional Filipino developers. Because of geography, telecommunications and embedded devices are much more prevalent in the island nation.</p>
-</div>
-<div class="section" id="other-efforts">
-<h3>Other efforts</h3>
-<p>Again I'm kicking myself. There were a ton of other development going on and I didn't document any of it. Certainly I was busy here and there helping out, but this is the sort of thing you need to document at the moment. Next time I assure you I will be very diligent about recording the efforts of so many.</p>
-</div>
-<div class="section" id="tutorial-room">
-<h3>Tutorial Room</h3>
-<p>About half the people stayed in what I dubbed the tutorial room. This is where speakers took turns going over material we had brought to the conference. Attendees followed along, and the diligence and focus in the room was very impressive. The tutorials/talks included:</p>
-<ul class="simple">
-<li>Intro to Python using Turtle by Sony Valdez</li>
-<li>Introduction to git and github by Bryan Bibat</li>
-<li><a class="reference external" href="http://www.slideshare.net/pydanny/intro-to-python-11186202">21 Cool Things You Can Do With Python</a> by Daniel Greenfeld (me)</li>
-</ul>
-</div>
-</div>
-<div class="section" id="food-and-drinks">
-<h2>Food and drinks</h2>
-<p>I mean to mention that the breakfast, lunch, and snacks at PyCon Philippines 2012 were pretty good. The logistic chairs had decided rather than gamble on the usual sort of over-priced and not-so-good professional catering service that most conferences rely on to the dismay of... well... everyone, to go with local restaurants.</p>
-<p>For dinner people went out on their own. We were lucky enough to go to Pino in Quezon City both times. The Kare-Kareng Bagnet was really tasty.</p>
-</div>
-<div class="section" id="conference-end">
-<h2>Conference End</h2>
-<p>The conference chair, Frank Pohlmann, gave us a few well spoken words about how wonderful the event was to run and host. How gratifying it was to see the enthusiasm and dedication of the attendees, and how inspired he felt.</p>
-<p>Then we cheered him.</p>
-<p>After that it was a lot of pictures and goodbyes to many new friends. Which meant a lot of sad feelings about a great event coming to an end. I felt inspired and changed. I wasn't the same person going in as I was coming out. I'm more grateful for what I have, and deeply honored that I had this chance to bring PyCon to so many wonderful people.</p>
-<p>More thoughts on PyCon Philippines in a forthcoming blog post.</p>
-</div>
-<div class="section" id="coming-soon">
-<h2>Coming soon</h2>
-<ul class="simple">
-<li>The Story of PyCon Philippines</li>
-</ul>
-<a class="reference external image-reference" href="http://www.flickr.com/photos/pydanny/7516869028/"><img alt="http://farm8.staticflickr.com/7135/7516869028_ff24aaa027_z.jpg" class="align-left" id="standing-room-only" src="http://farm8.staticflickr.com/7135/7516869028_ff24aaa027_z.jpg" /></a>
-</div>
-<p>There are <a href="./pycon-philippines-2012-day-2.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+<h2>Lightning Talks ...</h2></div>
+                <a class="readmore" href="./pycon-philippines-2012-day-2.html">read more</a>
+                <p>There are <a href="./pycon-philippines-2012-day-2.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

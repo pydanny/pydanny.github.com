@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Simple HTTP Basic Auth Wall</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny Atom Feed" />
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+
+<a href="https://github.com/pydanny/pydanny.github.com">
+
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+
+</a>
+
+        <header id="banner" class="body">
+                <h1><a href=".">pydanny </a></h1>
+                <nav><ul>
+                
+                
+                
+                    <li><a href="./pages/about.html">About</a></li>
+                
+                    <li><a href="./pages/tools.html">Tools</a></li>
+                
+                    <li><a href="./pages/upcoming.html">Upcoming</a></li>
+                
+                
+                
+                    <li ><a href="./category/audrey.html">Audrey</a></li>
+                
+                    <li ><a href="./category/blog.html">Blog</a></li>
+                
+                    <li ><a href="./category/django.html">Django</a></li>
+                
+                    <li class="active"><a href="./category/python.html">Python</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+        
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="simple-http-basic-auth-wall.html" rel="bookmark"
+           title="Permalink to Simple HTTP Basic Auth Wall">Simple HTTP Basic Auth Wall</a></h1>
+      
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pydanny">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
+        <abbr class="published" title="2012-07-09T12:00:00">
+                Mon 09 July 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/python.html">python</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/wsgi.html">wsgi</a></p>
+
+
+</footer><!-- /.post-info -->
+      <p>I have a client who wanted their entire unlaunched public content site quickly but temporarily blocked for a short period of time. He wanted a universal password so he could send the site to reviewers, done quickly, and nothing else. In a few days the site will launch, and even if someone got through the authentication, nothing bad will happen except for an early visitor. So we determined this was a job for a very simple <a class="reference external" href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic access authentication</a> implementation.</p>
+<p>I asked around and <a class="reference external" href="http://jacobian.org/">Jacob Kaplan-Moss</a> gave me this awesome snippet using <a class="reference external" href="http://pypi.python.org/pypi/barrel">barrel</a> that I pasted right into the bottom of the <a class="reference external" href="http://djangoproject.com">Django</a> 1.4-style application's <tt class="docutils literal">wsgi.py</tt> file.</p>
+<div class="highlight"><pre><span class="c"># Add to the bottom of your wsgi.py file</span>
+<span class="c"># Don&#39;t forget to add barrel to your requirements!</span>
+<span class="kn">from</span> <span class="nn">barrel</span> <span class="kn">import</span> <span class="n">cooper</span>
+
+<span class="n">REALM</span> <span class="o">=</span> <span class="s">&quot;PRIVATE&quot;</span>
+<span class="n">USERS</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;eggs&#39;</span><span class="p">)]</span>
+
+<span class="n">application</span> <span class="o">=</span> <span class="n">cooper</span><span class="o">.</span><span class="n">basicauth</span><span class="p">(</span><span class="n">users</span><span class="o">=</span><span class="n">USERS</span><span class="p">,</span> <span class="n">realm</span><span class="o">=</span><span class="n">REALM</span><span class="p">)(</span><span class="n">get_wsgi_application</span><span class="p">())</span>
+</pre></div>
+<p>This took all of 5 minutes to implement and launch. The result is that the first time you visit the site the login prompt appears. If you enter 'spam' and 'eggs' then you can see the site fine.</p>
+<p>It worked and the customer was happy.</p>
+<p>Will this block a concerted penetration attempt? Of course not. If the site has/had critical or identifying information it would be implemented with <a class="reference external" href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a>. Implementing a Django site with HTTPS is something I've done many times now, but this use case was 'do it fast, easy, and make it temporary'.</p>
+<p><strong>Moral of the story:</strong> Pay attention to your requirements.</p>
+<p><strong>Note :</strong> As this is just adding in some WSGI middleware, this should work without much modification in Flask, Pyramid, and other WSGI compliant web frameworks.</p>
+
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "simple-http-basic-auth-wall.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://pydanny.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
+
+  </article>
+</section>
+
+        <section id="extras" class="body">
+        
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/pydanny">twitter</a></li>
+                        
+                            <li><a href="https://github.com/pydanny">github</a></li>
+                        
+                            <li><a href="http://www.facebook.com/daniel.greenfeld">facebook</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-18066389-3");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'pydanny';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>
