@@ -41,6 +41,7 @@
 &lt;h2&gt;Django Sprints&lt;/h2&gt;
 &lt;p&gt;My conservative estimate is that we had 12 people working on Django or Django related projects. That's at least 20% of attendees. Unfortunately, because I'm not a Django core developer, I wasn't reviewing commits; so I am not entirely sure what was being worked on. I do know that I wasn't the only person to commit to core Django.&lt;/p&gt;
 &lt;p&gt;As for me, I continued my efforts started at DjangoCon Europe to refactor the &lt;a class="reference external" href="https://docs.djangoproject.com/en/dev/topics/class-based-views/"&gt;Class&lt;/a&gt; &lt;a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/class-based-views/"&gt;Based&lt;/a&gt; &lt;a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/class-based-views/mixins/"&gt;Views&lt;/a&gt; documentation. I got in two pull requests and finally managed to badly teach myself how to use git rebase.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;note&lt;/strong&gt;: I want to make it exceedingly clear that I'm not the only one working the CBV doc refactor. I'm just one of the fold.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="socializing"&gt;
 &lt;h2&gt;Socializing&lt;/h2&gt;
