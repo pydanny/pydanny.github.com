@@ -6,7 +6,7 @@ July 15th, 2012 LA Open Source Recap
 :tags: python, django, php, la, clojure, perl, ruby, nodejs, meteor
 :category: python
 
-On July 15th, 2012, over 60 Python_, Django_, Ruby_, `Ruby on Rails`_, PHP_, JavaScript_, `Node.js`_, Perl_, and Clojure_ developers arrived to work on a variety of projects. We went from 10 AM to 10 PM, and there was much coding and learning done by all. There was a very powerful vibe shared by nearly everyone there, and it was great to see so many people from different personal and open source backgrounds working together and having a great time as a group.
+On July 15th, 2012, at the `July LA Hackathons Open Source event`_, over 60 Python_, Django_, Ruby_, `Ruby on Rails`_, PHP_, JavaScript_, `Node.js`_, Perl_, and Clojure_ developers arrived to work on a variety of projects. We went from 10 AM to 10 PM, and there was much coding and learning done by all. There was a very powerful vibe shared by nearly everyone there, and it was great to see so many people from different personal and open source backgrounds working together and having a great time as a group.
 
 .. _Python: http://python.org
 .. _Ruby: http://www.ruby-lang.org/
@@ -15,6 +15,7 @@ On July 15th, 2012, over 60 Python_, Django_, Ruby_, `Ruby on Rails`_, PHP_, Jav
 .. _PHP: http://www.php.net/
 .. _Perl: http://www.perl.org/
 .. _Clojure: http://clojure.org
+.. _`July LA Hackathons Open Source event`: http://www.meetup.com/LA-Hackathons/events/64542582/
 
 Filtering out distractions
 ===========================
