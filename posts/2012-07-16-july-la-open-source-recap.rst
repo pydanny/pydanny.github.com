@@ -75,7 +75,11 @@ Django Sprints
 
 My conservative estimate is that we had 12 people working on Django or Django related projects. That's at least 20% of attendees. Unfortunately, because I'm not a Django core developer, I wasn't reviewing commits; so I am not entirely sure what was being worked on. I do know that I wasn't the only person to commit to core Django.
 
-As for me, I continued my efforts started at DjangoCon Europe to refactor the Class Based Views documentation. I got in two pull requests and finally managed to badly teach myself how to use git rebase.
+As for me, I continued my efforts started at DjangoCon Europe to refactor the Class_ Based_ Views_ documentation. I got in two pull requests and finally managed to badly teach myself how to use git rebase.
+
+.. _Class: https://docs.djangoproject.com/en/dev/topics/class-based-views/
+.. _Based: https://docs.djangoproject.com/en/dev/ref/class-based-views/
+.. _Views: https://docs.djangoproject.com/en/dev/ref/class-based-views/mixins/
 
 Socializing
 =============
