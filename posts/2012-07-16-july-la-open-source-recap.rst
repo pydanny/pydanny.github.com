@@ -91,6 +91,7 @@ During meals we tried to keep people's hands off the keyboard. Specifically ever
 * An 8 year old attendee wrote his first 4 PHP programs!
 * sym_kat_ is invited to speak at the next London Perl Workshop.
 * Someone who started programming at the LPTHW_ class taught by Zed Shaw himself at `Cartwheel Web`_ HQ in 2011 now works at `Space X`_.
+*  Someone employed at SpaceX took Zed Shaw's LPTHW_ class taught by the man himself at `Cartwheel Web`_ HQ in 2011 got himself moved from the C# to the Python team. Go open source!
 
 .. _LPTHW: http://learnpythonthehardway.org/
 .. _`Cartwheel Web`: http://cartwheelweb.com
@@ -105,3 +106,5 @@ There were a few glitches, but nothing major. Most of those glitches stem from u
 For the most part, there was this electrifying energy that had people focused and working on what they wanted all day. Yet it wasn't all heads-down-coding, their was some good coder-to-coder discussion and fun. The result is at the end of the day people seemed refreshed and empowered, wanting another day as soon as possible. We hope to be able to catch this feeling at future events.
 
 Which means we're plotting the next event now. If you are interested in providing a venue or sponsoring the event, let me know at pydanny@cartwheelweb.com.
+
+**Update**: Corrected the details about the SpaceX guy.
