@@ -77,6 +77,8 @@ My conservative estimate is that we had 12 people working on Django or Django re
 
 As for me, I continued my efforts started at DjangoCon Europe to refactor the Class_ Based_ Views_ documentation. I got in two pull requests and finally managed to badly teach myself how to use git rebase.
 
+.. note:: I also want to make it exceedingly clear that I'm not the only one working the CBV doc refactor. I'm just one of the fold.
+
 .. _Class: https://docs.djangoproject.com/en/dev/topics/class-based-views/
 .. _Based: https://docs.djangoproject.com/en/dev/ref/class-based-views/
 .. _Views: https://docs.djangoproject.com/en/dev/ref/class-based-views/mixins/
