@@ -30,7 +30,7 @@ We also rolled in a couple other tricks I'm not going to write down. If you see 
 Sponsors
 ========
 
-We let attendees know which sponsors were interested in potential new hires, in this case, Originate and Cars.com. This sort of low-key technique helps us land sponsors but doesn't annoy attendees. Speaking of sponsors, here they are in alphabetical order:
+We let attendees know which sponsors were interested in potential new hires, in this case, Originate_ and `Cars.com`_. This sort of low-key technique helps us land sponsors but doesn't annoy attendees. Speaking of sponsors, here they are in alphabetical order:
 
 * `Cars.com`_
 * `Cartwheel Web`_
