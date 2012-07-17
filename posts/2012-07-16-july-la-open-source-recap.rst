@@ -82,7 +82,7 @@ Socializing
 
 During meals we tried to keep people's hands off the keyboard. Specifically everyone got a chance to state their name, toolset they were working with, and something interesting/embarrassing about themselves. Three of the more memorable ones:
 
-* An 8 year old attendee who wrote his first 4 PHP programs!
+* An 8 year old attendee wrote his first 4 PHP programs!
 * sym_kat_ is invited to speak at the next London Perl Workshop.
 * Someone who started programming at the LPTHW_ class taught by Zed Shaw himself at `Cartwheel Web`_ HQ in 2011 now works at `Space X`_.
 
