@@ -90,7 +90,6 @@ During meals we tried to keep people's hands off the keyboard. Specifically ever
 
 * An 8 year old attendee wrote his first 4 PHP programs!
 * sym_kat_ is invited to speak at the next London Perl Workshop.
-* Someone who started programming at the LPTHW_ class taught by Zed Shaw himself at `Cartwheel Web`_ HQ in 2011 now works at `Space X`_.
 *  Someone employed at SpaceX took Zed Shaw's LPTHW_ class taught by the man himself at `Cartwheel Web`_ HQ in 2011 got himself moved from the C# to the Python team. Go open source!
 
 .. _LPTHW: http://learnpythonthehardway.org/
