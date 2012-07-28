@@ -108,7 +108,7 @@
 <span class="k">class</span> <span class="nc">ProfileUpdateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">UpdateView</span><span class="p">):</span>
 
     <span class="n">form_class</span> <span class="o">=</span> <span class="n">ProfileForm</span>
-    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&quot;/my-profile/&quot;</span>  <span class="c"># You should be using reverse here</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&quot;/my-crazy-profile/&quot;</span>  <span class="c"># You should be using reverse here</span>
 
     <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>

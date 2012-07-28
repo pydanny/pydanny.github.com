@@ -51,7 +51,7 @@ Assuming a very simple profile Model and Form (which they weren't - but that's n
     class ProfileUpdateView(LoginRequiredMixin, UpdateView):
 
         form_class = ProfileForm
-        success_url = "/my-profile/"  # You should be using reverse here
+        success_url = "/my-crazy-profile/"  # You should be using reverse here
 
         def get_object(self):
             return Profile.objects.get(user=self.request.user)
