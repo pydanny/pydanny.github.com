@@ -59,8 +59,101 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././july-15th-2012-la-open-source-recap.html">July 15th, 2012 LA Open Source Recap</a></h1> 
+                    <h1 class="entry-title"><a href=".././django-update-view-without-slug-in-the-url.html">Django Update View without slug in the url</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-07-28T09:30:00">
+                Sat 28 July 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/django.html">django</a>. </p>
+<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/howto.html">howto</a></p>
+
+
+</footer><!-- /.post-info --><p>Today I wanted to use the Django Class Based View (CBV) UpdateView but without a slug identifier in the URL. For example, instead of <tt class="docutils literal">/profiles/pydanny/</tt> I would go to <tt class="docutils literal"><span class="pre">/my-crazy-profile/</span></tt>. Also, I need to force authentication.</p>
+<p>I've done this with Django functional views a few times times, but today I did it in Django. This is what I did:</p>
+<div class="section" id="added-django-braces-to-my-project">
+<h2>1. Added django-braces to my project</h2>
+<p><a class="reference external" href="https://twitter.com/tehjones">Kenneth Love</a> and <a class="reference external" href="https://twitter.com/tehjones">Chris Jones</a>' awesome <a class="reference external" href="https://github.com/brack3t/django-braces/">django-braces</a> package has some very handy mixins for working with Django CBVs. Kenneth and Chris really understand CBVs, specifically on how to extend them, and have provided a bunch of really useful utility methods in the django-braces library. Yeah, I could figure this stuff out on my own, but since those guys already did the hard work I might as well just lean on them.</p>
+<div class="highlight"><pre>pip install django-braces<span class="o">==</span>0.1.3
+</pre></div>
+<div class="highlight"><pre><span class="c"># settings.py</span>
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+<span class="o">...</span>
+<span class="s">&#39;braces&#39;</span><span class="p">,</span>
+<span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="wrote-the-view">
+<h2>2. Wrote the view</h2>
+<p>Assuming a very simple profile Model and Form (which they weren't - but that's not what this post is about), this is how I implemented the view:</p>
+<div class="highlight"><pre><span class="c"># profiles/views.py</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">UpdateView</span>
+
+<span class="kn">from</span> <span class="nn">braces.views</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>  <span class="c"># handles authentication</span>
+
+<span class="kn">from</span> <span class="nn">profiles.forms</span> <span class="kn">import</span> <span class="n">ProfileForm</span>
+<span class="kn">from</span> <span class="nn">profiles.models</span> <span class="kn">import</span> <span class="n">Profile</span>
+
+<span class="k">class</span> <span class="nc">ProfileUpdateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">UpdateView</span><span class="p">):</span>
+
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">ProfileForm</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&quot;/my-profile/&quot;</span>  <span class="c"># You should be using reverse here</span>
+
+    <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="wrote-the-urlconf">
+<h2>3. Wrote the URLconf</h2>
+<p>The URL pretty much wrote itself:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+
+<span class="kn">from</span> <span class="nn">profiles</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^my-crazy-profile/$&#39;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">ProfileUpdateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&#39;profile_update&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="closing-thoughts">
+<h2>Closing Thoughts</h2>
+<p>For a while, I've used django-braces for anything that involves CBVs. I can't imagine working on projects using CBVs without them. In fact, some of the mixins such as <tt class="docutils literal">LoginRequiredMixin</tt> are things that I could argue ought to be in core Django.</p>
+<p>This pattern really nails the sweet spot of Django CBVs. Thanks to the use of mixins and model forms, I get an amazing amount of stuff done in a 5 line CBV.</p>
+</div>
+<p>There are <a href=".././django-update-view-without-slug-in-the-url.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././july-15th-2012-la-open-source-recap.html" rel="bookmark" title="Permalink to July 15th, 2012 LA Open Source Recap">July 15th, 2012 LA Open Source Recap</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-07-16T18:00:00">
                 Mon 16 July 2012
         </abbr>
@@ -74,77 +167,12 @@
 <p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/php.html">php</a><a href=".././tag/la.html">la</a><a href=".././tag/clojure.html">clojure</a><a href=".././tag/perl.html">perl</a><a href=".././tag/ruby.html">ruby</a><a href=".././tag/nodejs.html">nodejs</a><a href=".././tag/meteor.html">meteor</a></p>
 
 
-</footer><!-- /.post-info --><p>On July 15th, 2012, at the <a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/64542582/">July LA Hackathons Open Source event</a>, over 60 <a class="reference external" href="http://python.org">Python</a>, <a class="reference external" href="http://djangoproject.com">Django</a>, <a class="reference external" href="http://www.ruby-lang.org/">Ruby</a>, <a class="reference external" href="http://rubyonrails.org/">Ruby on Rails</a>, <a class="reference external" href="http://www.php.net/">PHP</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a class="reference external" href="http://nodejs.org/">Node.js</a>, <a class="reference external" href="http://www.perl.org/">Perl</a>, and <a class="reference external" href="http://clojure.org">Clojure</a> developers arrived to work on a variety of projects. We went from 10 AM to 10 PM, and there was much coding and learning done by all. There was a very powerful vibe shared by nearly everyone there, and it was great to see so many people from different personal and open source backgrounds working together and having a great time as a group.</p>
-<div class="section" id="filtering-out-distractions">
-<h2>Filtering out distractions</h2>
-<p>We made some changes to our proceedings for this event, entirely because last time with 'distractions' that caused some issues. In a nutshell, here is 50% of what we did:</p>
-<ol class="arabic simple">
-<li>A clear statement in the event description and follow up emails that this event was for developers and designers only.</li>
-<li>Laptops were an absolute requirement for entry into the event.</li>
-</ol>
-<p>We also rolled in a couple other tricks I'm not going to write down. If you see me in person, ask away. The results were near perfect, and we won't hesitate to use these techniques again.</p>
-</div>
-<div class="section" id="sponsors">
-<h2>Sponsors</h2>
-<p>We let attendees know which sponsors were interested in potential new hires, in this case, <a class="reference external" href="http://originatelabs.com">Originate</a> and <a class="reference external" href="http://cars.com">Cars.com</a>. This sort of low-key technique helps us land sponsors but doesn't annoy attendees. Speaking of sponsors, here they are in alphabetical order:</p>
-<ul class="simple">
-<li><a class="reference external" href="http://cars.com">Cars.com</a></li>
-<li><a class="reference external" href="http://cartwheelweb.com">Cartwheel Web</a></li>
-<li><a class="reference external" href="http://heroku.com">Heroku</a></li>
-<li><a class="reference external" href="http://originatelabs.com">Originate</a></li>
-</ul>
-</div>
-<div class="section" id="code-projects-worked-on">
-<h2>Code/Projects worked on</h2>
-<p>Next time I'm going to be a lot more careful about getting down the details of what people did. Maybe a signup sheet or an online form? Heck, sounds like a great quick project for next time!</p>
-<ul class="simple">
-<li><a class="reference external" href="http://djangoproject.com">Django</a> (see below for details)</li>
-<li><a class="reference external" href="http://tglines.github.com/dynasaur/">Dynasaur</a> (Node.js/DynamoDB ORM)</li>
-<li><a class="reference external" href="https://github.com/saltstack/salt">Salt Stack</a></li>
-<li><a class="reference external" href="https://github.com/philfree/meteordraw">meteordraw</a></li>
-<li><a class="reference external" href="https://github.com/harph/pyit">pyit</a></li>
-<li><a class="reference external" href="http://rubyonrails.org/">Ruby on Rails</a></li>
-<li><a class="reference external" href="https://github.com/symkat/DBIx-Config">DBIx::Config</a></li>
-<li>Clojure Tutorials</li>
-<li><a class="reference external" href="https://github.com/andrewvc/engulf">engulf</a> (Clojure load testing tool that got 2 more tests)</li>
-<li>HTML5</li>
-<li>PHP</li>
-<li>Lots more!</li>
-</ul>
-</div>
-<div class="section" id="django-sprints">
-<h2>Django Sprints</h2>
-<p>My conservative estimate is that we had 12 people working on Django or Django related projects. That's at least 20% of attendees. Unfortunately, because I'm not a Django core developer, I wasn't reviewing commits; so I am not entirely sure what was being worked on. I do know that I wasn't the only person to commit to core Django.</p>
-<p>As for me, I continued my efforts started at DjangoCon Europe to refactor the <a class="reference external" href="https://docs.djangoproject.com/en/dev/topics/class-based-views/">Class</a> <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/class-based-views/">Based</a> <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/class-based-views/mixins/">Views</a> documentation. I got in two pull requests and finally managed to badly teach myself how to use git rebase.</p>
-<p><strong>note</strong>: I want to make it exceedingly clear that I'm not the only one working the CBV doc refactor. I'm just one of the fold.</p>
-</div>
-<div class="section" id="socializing">
-<h2>Socializing</h2>
-<p>During meals we tried to keep people's hands off the keyboard. Specifically everyone got a chance to state their name, toolset they were working with, and something interesting/embarrassing about themselves. Three of the more memorable ones:</p>
-<ul class="simple">
-<li>An 8 year old attendee wrote his first 4 PHP programs!</li>
-<li><a class="reference external" href="http://twitter.com/sym_kat">sym_kat</a> is invited to speak at the next London Perl Workshop.</li>
-<li>Someone employed at SpaceX took Zed Shaw's <a class="reference external" href="http://learnpythonthehardway.org/">LPTHW</a> class taught by the man himself at <a class="reference external" href="http://cartwheelweb.com">Cartwheel Web</a> HQ in 2011 got himself moved from the C# to the Python team. Go open source!</li>
-</ul>
-</div>
-<div class="section" id="closing-thoughts">
-<h2>Closing thoughts</h2>
-<p>There were a few glitches, but nothing major. Most of those glitches stem from us coming off two months of helping organize multiple events while traveling literally around the world. I think things would have been better if I had delegated more to the right people.</p>
-<p>For the most part, there was this electrifying energy that had people focused and working on what they wanted all day. Yet it wasn't all heads-down-coding, their was some good coder-to-coder discussion and fun. The result is at the end of the day people seemed refreshed and empowered, wanting another day as soon as possible. We hope to be able to catch this feeling at future events.</p>
-<p>Which means we're plotting the next event now. If you are interested in providing a venue or sponsoring the event, let me know at <a class="reference external" href="mailto:pydanny&#64;cartwheelweb.com">pydanny&#64;cartwheelweb.com</a>.</p>
-<p><strong>Update</strong>: Corrected the details about the SpaceX guy.</p>
-</div>
-<p>There are <a href=".././july-15th-2012-la-open-source-recap.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>On July 15th, 2012, at the <a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/64542582/">July LA Hackathons Open Source event</a>, over 60 <a class="reference external" href="http://python.org">Python</a>, <a class="reference external" href="http://djangoproject.com">Django</a>, <a class="reference external" href="http://www.ruby-lang.org/">Ruby</a>, <a class="reference external" href="http://rubyonrails.org/">Ruby on Rails</a>, <a class="reference external" href="http://www.php.net/">PHP</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a class="reference external" href="http://nodejs.org/">Node.js</a>, <a class="reference external" href="http://www.perl.org/">Perl</a>, and <a class="reference external" href="http://clojure.org">Clojure</a> developers arrived to work on a variety of projects. We went from 10 AM to 10 PM, and there was much coding and ...</p>
+                <a class="readmore" href=".././july-15th-2012-la-open-source-recap.html">read more</a>
+                <p>There are <a href=".././july-15th-2012-la-open-source-recap.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

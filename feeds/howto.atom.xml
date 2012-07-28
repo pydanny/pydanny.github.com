@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/howto.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-05-23T09:30:00Z</updated><entry><title>Django Class Based View: email form with CAPTCHA</title><link href="http://pydanny.com/django-class-based-view-email-form-with-captcha.html" rel="alternate"></link><updated>2012-05-23T09:30:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/django-class-based-view-email-form-with-captcha.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://pydanny.com/simple-django-email-form-using-cbv.html"&gt;Yesterday I showed how to implement a simple email form&lt;/a&gt; for &lt;a class="reference external" href="http://djangoproject.com"&gt;Django&lt;/a&gt; using Class Based Views. Today I'm going to extend yesterday's work to use the excellent &lt;a class="reference external" href="http://www.google.com/recaptcha"&gt;RECAPTCHA&lt;/a&gt; service to help reduce spam content.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/howto.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-07-28T09:30:00Z</updated><entry><title>Django Update View without slug in the url</title><link href="http://pydanny.com/django-update-view-without-slug-in-the-url.html" rel="alternate"></link><updated>2012-07-28T09:30:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/django-update-view-without-slug-in-the-url.html</id><summary type="html">&lt;p&gt;Today I wanted to use the Django Class Based View (CBV) UpdateView but without a slug identifier in the URL. For example, instead of &lt;tt class="docutils literal"&gt;/profiles/pydanny/&lt;/tt&gt; I would go to &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;/my-crazy-profile/&lt;/span&gt;&lt;/tt&gt;. Also, I need to force authentication.&lt;/p&gt;
+&lt;p&gt;I've done this with Django functional views a few times times, but today I did it in Django. This is what I did:&lt;/p&gt;
+&lt;div class="section" id="added-django-braces-to-my-project"&gt;
+&lt;h2&gt;1. Added django-braces to my project&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://twitter.com/tehjones"&gt;Kenneth Love&lt;/a&gt; and &lt;a class="reference external" href="https://twitter.com/tehjones"&gt;Chris Jones&lt;/a&gt;' awesome &lt;a class="reference external" href="https://github.com/brack3t/django-braces/"&gt;django-braces&lt;/a&gt; package has some very handy mixins for working with Django CBVs. Kenneth and Chris really understand CBVs, specifically on how to extend them, and have provided a bunch of really useful utility methods in the django-braces library. Yeah, I could figure this stuff out on my own, but since those guys already did the hard work I might as well just lean on them.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install django-braces&lt;span class="o"&gt;==&lt;/span&gt;0.1.3
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# settings.py&lt;/span&gt;
+&lt;span class="n"&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="s"&gt;&amp;#39;braces&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="wrote-the-view"&gt;
+&lt;h2&gt;2. Wrote the view&lt;/h2&gt;
+&lt;p&gt;Assuming a very simple profile Model and Form (which they weren't - but that's not what this post is about), this is how I implemented the view:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# profiles/views.py&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.views.generic&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;UpdateView&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;braces.views&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LoginRequiredMixin&lt;/span&gt;  &lt;span class="c"&gt;# handles authentication&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;profiles.forms&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ProfileForm&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;profiles.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Profile&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ProfileUpdateView&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LoginRequiredMixin&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UpdateView&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="n"&gt;form_class&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ProfileForm&lt;/span&gt;
+    &lt;span class="n"&gt;success_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/my-profile/&amp;quot;&lt;/span&gt;  &lt;span class="c"&gt;# You should be using reverse here&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_object&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Profile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="wrote-the-urlconf"&gt;
+&lt;h2&gt;3. Wrote the URLconf&lt;/h2&gt;
+&lt;p&gt;The URL pretty much wrote itself:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.conf.urls.defaults&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;patterns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;profiles&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;views&lt;/span&gt;
+
+&lt;span class="n"&gt;urlpatterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;patterns&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;regex&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;r&amp;#39;^my-crazy-profile/$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;views&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ProfileUpdateView&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_view&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+        &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;profile_update&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="closing-thoughts"&gt;
+&lt;h2&gt;Closing Thoughts&lt;/h2&gt;
+&lt;p&gt;For a while, I've used django-braces for anything that involves CBVs. I can't imagine working on projects using CBVs without them. In fact, some of the mixins such as &lt;tt class="docutils literal"&gt;LoginRequiredMixin&lt;/tt&gt; are things that I could argue ought to be in core Django.&lt;/p&gt;
+&lt;p&gt;This pattern really nails the sweet spot of Django CBVs. Thanks to the use of mixins and model forms, I get an amazing amount of stuff done in a 5 line CBV.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Django Class Based View: email form with CAPTCHA</title><link href="http://pydanny.com/django-class-based-view-email-form-with-captcha.html" rel="alternate"></link><updated>2012-05-23T09:30:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/django-class-based-view-email-form-with-captcha.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://pydanny.com/simple-django-email-form-using-cbv.html"&gt;Yesterday I showed how to implement a simple email form&lt;/a&gt; for &lt;a class="reference external" href="http://djangoproject.com"&gt;Django&lt;/a&gt; using Class Based Views. Today I'm going to extend yesterday's work to use the excellent &lt;a class="reference external" href="http://www.google.com/recaptcha"&gt;RECAPTCHA&lt;/a&gt; service to help reduce spam content.&lt;/p&gt;
 &lt;p&gt;This version requires &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt; installing the following into your &lt;tt class="docutils literal"&gt;virtualenv&lt;/tt&gt;.&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;tt class="docutils literal"&gt;pip install &lt;span class="pre"&gt;django-crispy-forms&lt;/span&gt;&lt;/tt&gt; so we can do Python driven layouts.&lt;/li&gt;
