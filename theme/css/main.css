@@ -364,13 +364,11 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 	#posts-list .hentry {padding-left: 10px; position: relative;}
 	
 	#posts-list footer {
-		left: 10px;
-		position: relative;
-        float: left;
-		top: 0.5em;
-		width: 190px;
+	    display: inline;
+            float: left;
+            overflow: hidden;
+            width: 190px;
 	}
-	
 	/* About the Author */
 	#about-author {
 		background: #f9f9f9;
