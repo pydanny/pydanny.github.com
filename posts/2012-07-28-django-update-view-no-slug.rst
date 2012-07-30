@@ -16,7 +16,7 @@ I've done this with Django functional views a few times times, but today I did i
 `Kenneth Love`_ and `Chris Jones`_' awesome `django-braces`_ package has some very handy mixins for working with Django CBVs. Kenneth and Chris really understand CBVs, specifically on how to extend them, and have provided a bunch of really useful utility methods in the django-braces library. Yeah, I could figure this stuff out on my own, but since those guys already did the hard work I might as well just lean on them. 
 
 .. _`django-braces`: https://github.com/brack3t/django-braces/
-.. _`Kenneth Love`: https://twitter.com/tehjones
+.. _`Kenneth Love`: https://twitter.com/kennethlove
 .. _`Chris Jones`: https://twitter.com/tehjones
 
 
