@@ -59,8 +59,137 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././django-update-view-without-slug-in-the-url.html">Django Update View without slug in the url</a></h1> 
+                    <h1 class="entry-title"><a href=".././attaching-custom-exceptions-to-functions-and-classes.html">Attaching custom exceptions to functions and classes</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-08-02T09:30:00">
+                Thu 02 August 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/python.html">python</a>. </p>
+<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/functions.html">functions</a><a href=".././tag/howto.html">howto</a><a href=".././tag/django.html">django</a></p>
+
+
+</footer><!-- /.post-info --><p>Having too many custom exceptions on a project can be a pain, but a few choices ones are really nice. The problem is that in complex libraries having to import both functions and exceptions becomes a drag. To mitigate having to remember to import custom exceptions, this is a handy pattern you can use in a project and can be done on both functions and classes.</p>
+<div class="section" id="attaching-a-custom-exception-to-a-function">
+<h2>Attaching a custom exception to a function</h2>
+<p>This works because <a class="reference external" href="http://python.org">Python</a> functions are first-class objects. They can be passed around as things, and in this case, have things assigned to them.</p>
+<div class="highlight"><pre><span class="c"># logic.py</span>
+<span class="k">class</span> <span class="nc">DoesNotCompute</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Easy to understand naming conventions work best! &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">this_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; This function only works on numbers.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="n">x</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">DoesNotCompute</span>
+
+<span class="c"># Assign DoesNotCompute exception to this_function</span>
+<span class="n">this_function</span><span class="o">.</span><span class="n">DoesNotCompute</span> <span class="o">=</span> <span class="n">DoesNotCompute</span>
+</pre></div>
+<p>Now I can import the function, and it won't just through <tt class="docutils literal">DoesNotCompute</tt> exceptions, it will also carry the function along with the import:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">logic</span> <span class="kn">import</span> <span class="n">this_function</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="mi">3125</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
+<span class="mf">869.8739233809259</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="s">&#39;will throw an error.&#39;</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s">&quot;logic.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">10</span><span class="p">,</span> <span class="ow">in</span> <span class="n">this_function</span>
+    <span class="k">raise</span> <span class="n">DoesNotCompute</span>
+<span class="n">DoesNotCompute</span>
+</pre></div>
+<p>Alright, that doesn't seem like much, but let's add in some exception handling:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">this_function</span><span class="p">(</span><span class="s">&#39;is an example&#39;</span><span class="p">)</span>
+<span class="o">...</span> <span class="k">except</span> <span class="n">this_function</span><span class="o">.</span><span class="n">DoesNotCompute</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;See what attaching custom exceptions to functions can do?&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="n">See</span> <span class="n">what</span> <span class="n">attaching</span> <span class="n">custom</span> <span class="n">exceptions</span> <span class="n">to</span> <span class="n">functions</span> <span class="n">can</span> <span class="n">do</span><span class="err">?</span>
+</pre></div>
+</div>
+<div class="section" id="attaching-the-custom-exception-to-a-class">
+<h2>Attaching the custom exception to a class</h2>
+<p>All we have to do is enhance our existing <cite>logic.py</cite> file by adding <tt class="docutils literal">ThisClass</tt>:</p>
+<div class="highlight"><pre><span class="c"># logic.py</span>
+<span class="k">class</span> <span class="nc">DoesNotCompute</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Easy to understand naming conventions work best! &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="c"># removed the function example for clarity</span>
+
+<span class="k">class</span> <span class="nc">ThisClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c"># Since the DoesNotCompute exception exists, let&#39;s just assign it</span>
+    <span class="c"># as an attribute of ThisClass</span>
+    <span class="n">DoesNotCompute</span> <span class="o">=</span> <span class="n">DoesNotCompute</span>
+
+    <span class="k">def</span> <span class="nf">this_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; This method only works on numbers.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="n">x</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DoesNotCompute</span>
+</pre></div>
+<p>Now to demonstrate in the shell (Python REPL for the semantic purists):</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">t</span> <span class="kn">import</span> <span class="n">ThisClass</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span> <span class="o">=</span> <span class="n">ThisClass</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="mf">3.3</span><span class="p">)</span>
+<span class="mf">51.415729444066585</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="s">&#39;Jack Diederach warned against custom exceptions&#39;</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s">&quot;t.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">24</span><span class="p">,</span> <span class="ow">in</span> <span class="n">this_method</span>
+    <span class="k">raise</span> <span class="n">DoesNotCompute</span>
+<span class="n">DoesNotCompute</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="s">&#39;I need to write a follow-up on my OAuth post&#39;</span><span class="p">)</span>
+<span class="o">...</span> <span class="k">except</span> <span class="n">ThisClass</span><span class="o">.</span><span class="n">DoesNotCompute</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;Waiting to see how the OAuth stuff pans out&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="n">Waiting</span> <span class="n">to</span> <span class="n">see</span> <span class="n">how</span> <span class="n">the</span> <span class="n">OAuth</span> <span class="n">stuff</span> <span class="n">pans</span> <span class="n">out</span>
+</pre></div>
+</div>
+<div class="section" id="admonition-don-t-go-crazy">
+<h2>Admonition: Don't go crazy</h2>
+<p>Rather than use this trick all over the place, considering using it in a few places to powerful effect. For example, <a class="reference external" href="http://djangoproject.com">Django</a> uses it only in a few places, and publicly only on <tt class="docutils literal">MyModelClass.DoesNotExist</tt> and <tt class="docutils literal">MyModelClass.MultipleObjectsReturned</tt>. By limiting Django's use of this technique, Django libraries are that much easier to comprehend. In this case, less complexity means more.</p>
+<p>I say this because this pattern lends itself to creating custom exceptions to the point of effectively replacing Python's stock exceptions with your own. This  makes for harder-to-maintain and harder-to-learn projects.</p>
+<p>Not that I've ever done that. Ahem.</p>
+</div>
+<p>There are <a href=".././attaching-custom-exceptions-to-functions-and-classes.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././django-update-view-without-slug-in-the-url.html" rel="bookmark" title="Permalink to Django Update View without slug in the url">Django Update View without slug in the url</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-07-28T09:30:00">
                 Sat 28 July 2012
         </abbr>
@@ -74,71 +203,13 @@
 <p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/howto.html">howto</a></p>
 
 
-</footer><!-- /.post-info --><p>Today I wanted to use the Django Class Based View (CBV) UpdateView but without a slug identifier in the URL. For example, instead of <tt class="docutils literal">/profiles/pydanny/</tt> I would go to <tt class="docutils literal"><span class="pre">/my-crazy-profile/</span></tt>. Also, I needed to force authentication.</p>
-<p>I've done this with Django functional views a few times times, but today I did it in Django. This is what I did:</p>
-<div class="section" id="added-django-braces-to-my-project">
-<h2>1. Added django-braces to my project</h2>
-<p><a class="reference external" href="https://twitter.com/kennethlove">Kenneth Love</a> and <a class="reference external" href="https://twitter.com/tehjones">Chris Jones</a>' awesome <a class="reference external" href="https://github.com/brack3t/django-braces/">django-braces</a> package has some very handy mixins for working with Django CBVs. Kenneth and Chris really understand CBVs, specifically on how to extend them, and have provided a bunch of really useful utility methods in the django-braces library. Yeah, I could figure this stuff out on my own, but since those guys already did the hard work I might as well just lean on them.</p>
-<div class="highlight"><pre>pip install django-braces<span class="o">==</span>0.1.3
-</pre></div>
-<div class="highlight"><pre><span class="c"># settings.py</span>
-<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
-<span class="o">...</span>
-<span class="s">&#39;braces&#39;</span><span class="p">,</span>
-<span class="o">...</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="wrote-the-view">
-<h2>2. Wrote the view</h2>
-<p>Assuming a very simple profile Model and Form (which they weren't - but that's not what this post is about), this is how I implemented the view:</p>
-<div class="highlight"><pre><span class="c"># profiles/views.py</span>
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">UpdateView</span>
-
-<span class="kn">from</span> <span class="nn">braces.views</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>  <span class="c"># handles authentication</span>
-
-<span class="kn">from</span> <span class="nn">profiles.forms</span> <span class="kn">import</span> <span class="n">ProfileForm</span>
-<span class="kn">from</span> <span class="nn">profiles.models</span> <span class="kn">import</span> <span class="n">Profile</span>
-
-<span class="k">class</span> <span class="nc">ProfileUpdateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">UpdateView</span><span class="p">):</span>
-
-    <span class="n">form_class</span> <span class="o">=</span> <span class="n">ProfileForm</span>
-    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&quot;/my-crazy-profile/&quot;</span>  <span class="c"># You should be using reverse here</span>
-
-    <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="wrote-the-urlconf">
-<h2>3. Wrote the URLconf</h2>
-<p>The URL pretty much wrote itself:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
-
-<span class="kn">from</span> <span class="nn">profiles</span> <span class="kn">import</span> <span class="n">views</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^my-crazy-profile/$&#39;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">ProfileUpdateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&#39;profile_update&#39;</span><span class="p">),</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="closing-thoughts">
-<h2>Closing Thoughts</h2>
-<p>For a while, I've used django-braces for anything that involves CBVs. I can't imagine working on projects using CBVs without them. In fact, some of the mixins such as <tt class="docutils literal">LoginRequiredMixin</tt> are things that I could argue ought to be in core Django.</p>
-<p>This pattern really nails the sweet spot of Django CBVs. Thanks to the use of mixins and model forms, I get an amazing amount of stuff done in a 5 line CBV.</p>
-</div>
-<p>There are <a href=".././django-update-view-without-slug-in-the-url.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>Today I wanted to use the Django Class Based View (CBV) UpdateView but without a slug identifier in the URL. For example, instead of <tt class="docutils literal">/profiles/pydanny/</tt> I would go to <tt class="docutils literal"><span class="pre">/my-crazy-profile/</span></tt>. Also, I needed to force authentication.</p>
+<p>I've done this with Django functional views a few times times, but ...</p>
+                <a class="readmore" href=".././django-update-view-without-slug-in-the-url.html">read more</a>
+                <p>There are <a href=".././django-update-view-without-slug-in-the-url.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

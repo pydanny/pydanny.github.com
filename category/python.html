@@ -59,8 +59,137 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././july-15th-2012-la-open-source-recap.html">July 15th, 2012 LA Open Source Recap</a></h1> 
+                    <h1 class="entry-title"><a href=".././attaching-custom-exceptions-to-functions-and-classes.html">Attaching custom exceptions to functions and classes</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-08-02T09:30:00">
+                Thu 02 August 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/python.html">python</a>. </p>
+<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/functions.html">functions</a><a href=".././tag/howto.html">howto</a><a href=".././tag/django.html">django</a></p>
+
+
+</footer><!-- /.post-info --><p>Having too many custom exceptions on a project can be a pain, but a few choices ones are really nice. The problem is that in complex libraries having to import both functions and exceptions becomes a drag. To mitigate having to remember to import custom exceptions, this is a handy pattern you can use in a project and can be done on both functions and classes.</p>
+<div class="section" id="attaching-a-custom-exception-to-a-function">
+<h2>Attaching a custom exception to a function</h2>
+<p>This works because <a class="reference external" href="http://python.org">Python</a> functions are first-class objects. They can be passed around as things, and in this case, have things assigned to them.</p>
+<div class="highlight"><pre><span class="c"># logic.py</span>
+<span class="k">class</span> <span class="nc">DoesNotCompute</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Easy to understand naming conventions work best! &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">this_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; This function only works on numbers.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="n">x</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">DoesNotCompute</span>
+
+<span class="c"># Assign DoesNotCompute exception to this_function</span>
+<span class="n">this_function</span><span class="o">.</span><span class="n">DoesNotCompute</span> <span class="o">=</span> <span class="n">DoesNotCompute</span>
+</pre></div>
+<p>Now I can import the function, and it won't just through <tt class="docutils literal">DoesNotCompute</tt> exceptions, it will also carry the function along with the import:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">logic</span> <span class="kn">import</span> <span class="n">this_function</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="mi">3125</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
+<span class="mf">869.8739233809259</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="s">&#39;will throw an error.&#39;</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s">&quot;logic.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">10</span><span class="p">,</span> <span class="ow">in</span> <span class="n">this_function</span>
+    <span class="k">raise</span> <span class="n">DoesNotCompute</span>
+<span class="n">DoesNotCompute</span>
+</pre></div>
+<p>Alright, that doesn't seem like much, but let's add in some exception handling:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">this_function</span><span class="p">(</span><span class="s">&#39;is an example&#39;</span><span class="p">)</span>
+<span class="o">...</span> <span class="k">except</span> <span class="n">this_function</span><span class="o">.</span><span class="n">DoesNotCompute</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;See what attaching custom exceptions to functions can do?&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="n">See</span> <span class="n">what</span> <span class="n">attaching</span> <span class="n">custom</span> <span class="n">exceptions</span> <span class="n">to</span> <span class="n">functions</span> <span class="n">can</span> <span class="n">do</span><span class="err">?</span>
+</pre></div>
+</div>
+<div class="section" id="attaching-the-custom-exception-to-a-class">
+<h2>Attaching the custom exception to a class</h2>
+<p>All we have to do is enhance our existing <cite>logic.py</cite> file by adding <tt class="docutils literal">ThisClass</tt>:</p>
+<div class="highlight"><pre><span class="c"># logic.py</span>
+<span class="k">class</span> <span class="nc">DoesNotCompute</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Easy to understand naming conventions work best! &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="c"># removed the function example for clarity</span>
+
+<span class="k">class</span> <span class="nc">ThisClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c"># Since the DoesNotCompute exception exists, let&#39;s just assign it</span>
+    <span class="c"># as an attribute of ThisClass</span>
+    <span class="n">DoesNotCompute</span> <span class="o">=</span> <span class="n">DoesNotCompute</span>
+
+    <span class="k">def</span> <span class="nf">this_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; This method only works on numbers.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="n">x</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DoesNotCompute</span>
+</pre></div>
+<p>Now to demonstrate in the shell (Python REPL for the semantic purists):</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">t</span> <span class="kn">import</span> <span class="n">ThisClass</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span> <span class="o">=</span> <span class="n">ThisClass</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="mf">3.3</span><span class="p">)</span>
+<span class="mf">51.415729444066585</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="s">&#39;Jack Diederach warned against custom exceptions&#39;</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s">&quot;t.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">24</span><span class="p">,</span> <span class="ow">in</span> <span class="n">this_method</span>
+    <span class="k">raise</span> <span class="n">DoesNotCompute</span>
+<span class="n">DoesNotCompute</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="s">&#39;I need to write a follow-up on my OAuth post&#39;</span><span class="p">)</span>
+<span class="o">...</span> <span class="k">except</span> <span class="n">ThisClass</span><span class="o">.</span><span class="n">DoesNotCompute</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;Waiting to see how the OAuth stuff pans out&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="n">Waiting</span> <span class="n">to</span> <span class="n">see</span> <span class="n">how</span> <span class="n">the</span> <span class="n">OAuth</span> <span class="n">stuff</span> <span class="n">pans</span> <span class="n">out</span>
+</pre></div>
+</div>
+<div class="section" id="admonition-don-t-go-crazy">
+<h2>Admonition: Don't go crazy</h2>
+<p>Rather than use this trick all over the place, considering using it in a few places to powerful effect. For example, <a class="reference external" href="http://djangoproject.com">Django</a> uses it only in a few places, and publicly only on <tt class="docutils literal">MyModelClass.DoesNotExist</tt> and <tt class="docutils literal">MyModelClass.MultipleObjectsReturned</tt>. By limiting Django's use of this technique, Django libraries are that much easier to comprehend. In this case, less complexity means more.</p>
+<p>I say this because this pattern lends itself to creating custom exceptions to the point of effectively replacing Python's stock exceptions with your own. This  makes for harder-to-maintain and harder-to-learn projects.</p>
+<p>Not that I've ever done that. Ahem.</p>
+</div>
+<p>There are <a href=".././attaching-custom-exceptions-to-functions-and-classes.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././july-15th-2012-la-open-source-recap.html" rel="bookmark" title="Permalink to July 15th, 2012 LA Open Source Recap">July 15th, 2012 LA Open Source Recap</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-07-16T18:00:00">
                 Mon 16 July 2012
         </abbr>
@@ -74,77 +203,12 @@
 <p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/php.html">php</a><a href=".././tag/la.html">la</a><a href=".././tag/clojure.html">clojure</a><a href=".././tag/perl.html">perl</a><a href=".././tag/ruby.html">ruby</a><a href=".././tag/nodejs.html">nodejs</a><a href=".././tag/meteor.html">meteor</a></p>
 
 
-</footer><!-- /.post-info --><p>On July 15th, 2012, at the <a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/64542582/">July LA Hackathons Open Source event</a>, over 60 <a class="reference external" href="http://python.org">Python</a>, <a class="reference external" href="http://djangoproject.com">Django</a>, <a class="reference external" href="http://www.ruby-lang.org/">Ruby</a>, <a class="reference external" href="http://rubyonrails.org/">Ruby on Rails</a>, <a class="reference external" href="http://www.php.net/">PHP</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a class="reference external" href="http://nodejs.org/">Node.js</a>, <a class="reference external" href="http://www.perl.org/">Perl</a>, and <a class="reference external" href="http://clojure.org">Clojure</a> developers arrived to work on a variety of projects. We went from 10 AM to 10 PM, and there was much coding and learning done by all. There was a very powerful vibe shared by nearly everyone there, and it was great to see so many people from different personal and open source backgrounds working together and having a great time as a group.</p>
-<div class="section" id="filtering-out-distractions">
-<h2>Filtering out distractions</h2>
-<p>We made some changes to our proceedings for this event, entirely because last time with 'distractions' that caused some issues. In a nutshell, here is 50% of what we did:</p>
-<ol class="arabic simple">
-<li>A clear statement in the event description and follow up emails that this event was for developers and designers only.</li>
-<li>Laptops were an absolute requirement for entry into the event.</li>
-</ol>
-<p>We also rolled in a couple other tricks I'm not going to write down. If you see me in person, ask away. The results were near perfect, and we won't hesitate to use these techniques again.</p>
-</div>
-<div class="section" id="sponsors">
-<h2>Sponsors</h2>
-<p>We let attendees know which sponsors were interested in potential new hires, in this case, <a class="reference external" href="http://originatelabs.com">Originate</a> and <a class="reference external" href="http://cars.com">Cars.com</a>. This sort of low-key technique helps us land sponsors but doesn't annoy attendees. Speaking of sponsors, here they are in alphabetical order:</p>
-<ul class="simple">
-<li><a class="reference external" href="http://cars.com">Cars.com</a></li>
-<li><a class="reference external" href="http://cartwheelweb.com">Cartwheel Web</a></li>
-<li><a class="reference external" href="http://heroku.com">Heroku</a></li>
-<li><a class="reference external" href="http://originatelabs.com">Originate</a></li>
-</ul>
-</div>
-<div class="section" id="code-projects-worked-on">
-<h2>Code/Projects worked on</h2>
-<p>Next time I'm going to be a lot more careful about getting down the details of what people did. Maybe a signup sheet or an online form? Heck, sounds like a great quick project for next time!</p>
-<ul class="simple">
-<li><a class="reference external" href="http://djangoproject.com">Django</a> (see below for details)</li>
-<li><a class="reference external" href="http://tglines.github.com/dynasaur/">Dynasaur</a> (Node.js/DynamoDB ORM)</li>
-<li><a class="reference external" href="https://github.com/saltstack/salt">Salt Stack</a></li>
-<li><a class="reference external" href="https://github.com/philfree/meteordraw">meteordraw</a></li>
-<li><a class="reference external" href="https://github.com/harph/pyit">pyit</a></li>
-<li><a class="reference external" href="http://rubyonrails.org/">Ruby on Rails</a></li>
-<li><a class="reference external" href="https://github.com/symkat/DBIx-Config">DBIx::Config</a></li>
-<li>Clojure Tutorials</li>
-<li><a class="reference external" href="https://github.com/andrewvc/engulf">engulf</a> (Clojure load testing tool that got 2 more tests)</li>
-<li>HTML5</li>
-<li>PHP</li>
-<li>Lots more!</li>
-</ul>
-</div>
-<div class="section" id="django-sprints">
-<h2>Django Sprints</h2>
-<p>My conservative estimate is that we had 12 people working on Django or Django related projects. That's at least 20% of attendees. Unfortunately, because I'm not a Django core developer, I wasn't reviewing commits; so I am not entirely sure what was being worked on. I do know that I wasn't the only person to commit to core Django.</p>
-<p>As for me, I continued my efforts started at DjangoCon Europe to refactor the <a class="reference external" href="https://docs.djangoproject.com/en/dev/topics/class-based-views/">Class</a> <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/class-based-views/">Based</a> <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/class-based-views/mixins/">Views</a> documentation. I got in two pull requests and finally managed to badly teach myself how to use git rebase.</p>
-<p><strong>note</strong>: I want to make it exceedingly clear that I'm not the only one working the CBV doc refactor. I'm just one of the fold.</p>
-</div>
-<div class="section" id="socializing">
-<h2>Socializing</h2>
-<p>During meals we tried to keep people's hands off the keyboard. Specifically everyone got a chance to state their name, toolset they were working with, and something interesting/embarrassing about themselves. Three of the more memorable ones:</p>
-<ul class="simple">
-<li>An 8 year old attendee wrote his first 4 PHP programs!</li>
-<li><a class="reference external" href="http://twitter.com/sym_kat">sym_kat</a> is invited to speak at the next London Perl Workshop.</li>
-<li>Someone employed at SpaceX took Zed Shaw's <a class="reference external" href="http://learnpythonthehardway.org/">LPTHW</a> class taught by the man himself at <a class="reference external" href="http://cartwheelweb.com">Cartwheel Web</a> HQ in 2011 got himself moved from the C# to the Python team. Go open source!</li>
-</ul>
-</div>
-<div class="section" id="closing-thoughts">
-<h2>Closing thoughts</h2>
-<p>There were a few glitches, but nothing major. Most of those glitches stem from us coming off two months of helping organize multiple events while traveling literally around the world. I think things would have been better if I had delegated more to the right people.</p>
-<p>For the most part, there was this electrifying energy that had people focused and working on what they wanted all day. Yet it wasn't all heads-down-coding, their was some good coder-to-coder discussion and fun. The result is at the end of the day people seemed refreshed and empowered, wanting another day as soon as possible. We hope to be able to catch this feeling at future events.</p>
-<p>Which means we're plotting the next event now. If you are interested in providing a venue or sponsoring the event, let me know at <a class="reference external" href="mailto:pydanny&#64;cartwheelweb.com">pydanny&#64;cartwheelweb.com</a>.</p>
-<p><strong>Update</strong>: Corrected the details about the SpaceX guy.</p>
-</div>
-<p>There are <a href=".././july-15th-2012-la-open-source-recap.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>On July 15th, 2012, at the <a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/64542582/">July LA Hackathons Open Source event</a>, over 60 <a class="reference external" href="http://python.org">Python</a>, <a class="reference external" href="http://djangoproject.com">Django</a>, <a class="reference external" href="http://www.ruby-lang.org/">Ruby</a>, <a class="reference external" href="http://rubyonrails.org/">Ruby on Rails</a>, <a class="reference external" href="http://www.php.net/">PHP</a>, <a class="reference external" href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a class="reference external" href="http://nodejs.org/">Node.js</a>, <a class="reference external" href="http://www.perl.org/">Perl</a>, and <a class="reference external" href="http://clojure.org">Clojure</a> developers arrived to work on a variety of projects. We went from 10 AM to 10 PM, and there was much coding and ...</p>
+                <a class="readmore" href=".././july-15th-2012-la-open-source-recap.html">read more</a>
+                <p>There are <a href=".././july-15th-2012-la-open-source-recap.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
