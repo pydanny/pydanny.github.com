@@ -97,7 +97,7 @@ Now to demonstrate in the shell (Python REPL for the semantic purists):
     >>> this_class.this_method('Jack Diederich warned against custom exceptions')
     Traceback (most recent call last):
       File "<input>", line 1, in <module>
-      File "t.py", line 24, in this_method
+      File "logic.py", line 24, in this_method
         raise DoesNotCompute
     DoesNotCompute
     >>> try:
