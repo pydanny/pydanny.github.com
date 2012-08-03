@@ -59,8 +59,50 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././django-update-view-without-slug-in-the-url.html">Django Update View without slug in the url</a></h1> 
+                    <h1 class="entry-title"><a href=".././deadline-for-djangocon-financial-aid-requests-is-tomorrow.html">Deadline for DjangoCon Financial Aid requests is tomorrow!</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-08-02T21:30:00">
+                Thu 02 August 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/django.html">django</a>. </p>
+<p>tags: <a href=".././tag/django.html">django</a><a href=".././tag/djangocon.html">djangocon</a><a href=".././tag/pyladies.html">pyladies</a><a href=".././tag/dsf.html">dsf</a></p>
+
+
+</footer><!-- /.post-info --><p>For 2012, <a class="reference external" href="http://www.djangocon.us/">DjangoCon US</a> has moved to Washington, DC, and everyone is invited! If you need financial support to get there, the <a class="reference external" href="https://www.djangoproject.com/foundation/">Django Software Foundation</a> and <a class="reference external" href="http://pyladies.com/">PyLadies</a> have paired with a number of forward thinking sponsors to help get you there. All genders are eligible for assistance, so don't hesitate to submit your application.</p>
+<p>The deadline for financial aid requests is tomorrow, Friday, August 3rd by 11:59pm Eastern Time.</p>
+<p><a class="reference external" href="https://docs.google.com/spreadsheet/viewform?formkey=dDc1X2hrUGJVRGdEWnRjTklxR2tSNFE6MQ#gid=0">Apply while you still have time!</a></p>
+<p>There are <a href=".././deadline-for-djangocon-financial-aid-requests-is-tomorrow.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././django-update-view-without-slug-in-the-url.html" rel="bookmark" title="Permalink to Django Update View without slug in the url">Django Update View without slug in the url</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-07-28T09:30:00">
                 Sat 28 July 2012
         </abbr>
@@ -74,71 +116,13 @@
 <p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/howto.html">howto</a></p>
 
 
-</footer><!-- /.post-info --><p>Today I wanted to use the Django Class Based View (CBV) UpdateView but without a slug identifier in the URL. For example, instead of <tt class="docutils literal">/profiles/pydanny/</tt> I would go to <tt class="docutils literal"><span class="pre">/my-crazy-profile/</span></tt>. Also, I needed to force authentication.</p>
-<p>I've done this with Django functional views a few times times, but today I did it in Django. This is what I did:</p>
-<div class="section" id="added-django-braces-to-my-project">
-<h2>1. Added django-braces to my project</h2>
-<p><a class="reference external" href="https://twitter.com/kennethlove">Kenneth Love</a> and <a class="reference external" href="https://twitter.com/tehjones">Chris Jones</a>' awesome <a class="reference external" href="https://github.com/brack3t/django-braces/">django-braces</a> package has some very handy mixins for working with Django CBVs. Kenneth and Chris really understand CBVs, specifically on how to extend them, and have provided a bunch of really useful utility methods in the django-braces library. Yeah, I could figure this stuff out on my own, but since those guys already did the hard work I might as well just lean on them.</p>
-<div class="highlight"><pre>pip install django-braces<span class="o">==</span>0.1.3
-</pre></div>
-<div class="highlight"><pre><span class="c"># settings.py</span>
-<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
-<span class="o">...</span>
-<span class="s">&#39;braces&#39;</span><span class="p">,</span>
-<span class="o">...</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="wrote-the-view">
-<h2>2. Wrote the view</h2>
-<p>Assuming a very simple profile Model and Form (which they weren't - but that's not what this post is about), this is how I implemented the view:</p>
-<div class="highlight"><pre><span class="c"># profiles/views.py</span>
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">UpdateView</span>
-
-<span class="kn">from</span> <span class="nn">braces.views</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>  <span class="c"># handles authentication</span>
-
-<span class="kn">from</span> <span class="nn">profiles.forms</span> <span class="kn">import</span> <span class="n">ProfileForm</span>
-<span class="kn">from</span> <span class="nn">profiles.models</span> <span class="kn">import</span> <span class="n">Profile</span>
-
-<span class="k">class</span> <span class="nc">ProfileUpdateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">UpdateView</span><span class="p">):</span>
-
-    <span class="n">form_class</span> <span class="o">=</span> <span class="n">ProfileForm</span>
-    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&quot;/my-crazy-profile/&quot;</span>  <span class="c"># You should be using reverse here</span>
-
-    <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="wrote-the-urlconf">
-<h2>3. Wrote the URLconf</h2>
-<p>The URL pretty much wrote itself:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
-
-<span class="kn">from</span> <span class="nn">profiles</span> <span class="kn">import</span> <span class="n">views</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^my-crazy-profile/$&#39;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">ProfileUpdateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&#39;profile_update&#39;</span><span class="p">),</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="closing-thoughts">
-<h2>Closing Thoughts</h2>
-<p>For a while, I've used django-braces for anything that involves CBVs. I can't imagine working on projects using CBVs without them. In fact, some of the mixins such as <tt class="docutils literal">LoginRequiredMixin</tt> are things that I could argue ought to be in core Django.</p>
-<p>This pattern really nails the sweet spot of Django CBVs. Thanks to the use of mixins and model forms, I get an amazing amount of stuff done in a 5 line CBV.</p>
-</div>
-<p>There are <a href=".././django-update-view-without-slug-in-the-url.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>Today I wanted to use the Django Class Based View (CBV) UpdateView but without a slug identifier in the URL. For example, instead of <tt class="docutils literal">/profiles/pydanny/</tt> I would go to <tt class="docutils literal"><span class="pre">/my-crazy-profile/</span></tt>. Also, I needed to force authentication.</p>
+<p>I've done this with Django functional views a few times times, but ...</p>
+                <a class="readmore" href=".././django-update-view-without-slug-in-the-url.html">read more</a>
+                <p>There are <a href=".././django-update-view-without-slug-in-the-url.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
