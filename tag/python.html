@@ -59,8 +59,59 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././attaching-custom-exceptions-to-functions-and-classes.html">Attaching custom exceptions to functions and classes</a></h1> 
+                    <h1 class="entry-title"><a href=".././curiosity-has-landed.html">Curiosity has landed!</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-08-06T08:00:00">
+                Mon 06 August 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/blog.html">blog</a>. </p>
+<p>tags: <a href=".././tag/nasa.html">nasa</a><a href=".././tag/science.html">science</a><a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a></p>
+
+
+</footer><!-- /.post-info --><p>I'm terribly proud of what was accomplished last night: A car-sized robot weighing a whopping 8,580 pounds (3,893 kg) was landed on Mars. It's packed with scientific packages which will expand our knowledge of Mars, and has the power to use them for at least 14 years.</p>
+<p>Simply put, this is an incredible step forward.</p>
+<a class="reference external image-reference" href="http://en.wikipedia.org/wiki/File:Mars_Science_Laboratory_Curiosity_rover.jpg"><img alt="http://upload.wikimedia.org/wikipedia/en/thumb/a/a9/Mars_Science_Laboratory_Curiosity_rover.jpg/800px-Mars_Science_Laboratory_Curiosity_rover.jpg" class="align-center" id="jpl-staff-celebrating-the-landing-of-msl-curiosity" src="http://upload.wikimedia.org/wikipedia/en/thumb/a/a9/Mars_Science_Laboratory_Curiosity_rover.jpg/800px-Mars_Science_Laboratory_Curiosity_rover.jpg" /></a>
+<p>As an American, I'm proud that our nation is capable of putting together such amazing feats of engineering and science. People from a diverse arrangement of backgrounds and origins came together to make something incredible happen.</p>
+<p>As a human being, I'm proud that we have yet again proven that we are still capable of working together to make amazing things happen.</p>
+<p>As someone who grew up in the 1970s, and someone who is proud to have worked at <a class="reference external" href="http://www.nasa.gov">NASA</a> for over 5 years, this is my American dream.</p>
+<div class="section" id="going-forward">
+<h2>Going Forward</h2>
+<p>Curiosity is about to do amazing things and will tell a story to us that we'll never forget.</p>
+<p>Alas, NASA is a terribly easy target for politicians. It's budget has shrank to a small fraction of the it's early 1970s high, and it remains a target to this day. While the politicians congratulate the JPL team on one hand, they are also cutting the JPL budget in a short-sighted attempt to make themselves look good. History will not be kind to such politicians.</p>
+<p>The answers to our questions and our problems will be found in the heavens. Let's increase NASA funding and populate the world with miracles of science.</p>
+</div>
+<p>There are <a href=".././curiosity-has-landed.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././attaching-custom-exceptions-to-functions-and-classes.html" rel="bookmark" title="Permalink to Attaching custom exceptions to functions and classes">Attaching custom exceptions to functions and classes</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-08-02T09:30:00">
                 Thu 02 August 2012
         </abbr>
@@ -74,107 +125,12 @@
 <p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/functions.html">functions</a><a href=".././tag/howto.html">howto</a><a href=".././tag/django.html">django</a></p>
 
 
-</footer><!-- /.post-info --><p>Having too many custom exceptions on a project can be a pain, but a few choices ones are really nice. The problem is that in complex libraries having to import both functions and exceptions becomes a drag. To mitigate having to remember to import custom exceptions, this is a handy pattern you can use in a project and can be done on both functions and classes.</p>
-<div class="section" id="attaching-a-custom-exception-to-a-function">
-<h2>Attaching a custom exception to a function</h2>
-<p>This works because <a class="reference external" href="http://python.org">Python</a> functions are first-class objects. They can be passed around as things, and in this case, have things assigned to them.</p>
-<div class="highlight"><pre><span class="c"># logic.py</span>
-<span class="k">class</span> <span class="nc">DoesNotCompute</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Easy to understand naming conventions work best! &quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span> <span class="nf">this_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; This function only works on numbers.&quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="n">x</span>
-    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">DoesNotCompute</span>
-
-<span class="c"># Assign DoesNotCompute exception to this_function</span>
-<span class="n">this_function</span><span class="o">.</span><span class="n">DoesNotCompute</span> <span class="o">=</span> <span class="n">DoesNotCompute</span>
-</pre></div>
-<p>Now I can import the function, and it won't just through <tt class="docutils literal">DoesNotCompute</tt> exceptions, it will also carry the function along with the import:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">logic</span> <span class="kn">import</span> <span class="n">this_function</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="mi">3125</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
-<span class="mf">869.8739233809259</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="s">&#39;will throw an error.&#39;</span><span class="p">)</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-  <span class="n">File</span> <span class="s">&quot;logic.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">10</span><span class="p">,</span> <span class="ow">in</span> <span class="n">this_function</span>
-    <span class="k">raise</span> <span class="n">DoesNotCompute</span>
-<span class="n">DoesNotCompute</span>
-</pre></div>
-<p>Alright, that doesn't seem like much, but let's add in some exception handling:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
-<span class="o">...</span>     <span class="n">this_function</span><span class="p">(</span><span class="s">&#39;is an example&#39;</span><span class="p">)</span>
-<span class="o">...</span> <span class="k">except</span> <span class="n">this_function</span><span class="o">.</span><span class="n">DoesNotCompute</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;See what attaching custom exceptions to functions can do?&#39;</span><span class="p">)</span>
-<span class="o">...</span>
-<span class="o">...</span>
-<span class="n">See</span> <span class="n">what</span> <span class="n">attaching</span> <span class="n">custom</span> <span class="n">exceptions</span> <span class="n">to</span> <span class="n">functions</span> <span class="n">can</span> <span class="n">do</span><span class="err">?</span>
-</pre></div>
-</div>
-<div class="section" id="attaching-the-custom-exception-to-a-class">
-<h2>Attaching the custom exception to a class</h2>
-<p>All we have to do is enhance our existing <cite>logic.py</cite> file by adding <tt class="docutils literal">ThisClass</tt>:</p>
-<div class="highlight"><pre><span class="c"># logic.py</span>
-<span class="k">class</span> <span class="nc">DoesNotCompute</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Easy to understand naming conventions work best! &quot;&quot;&quot;</span>
-    <span class="k">pass</span>
-
-<span class="c"># removed the function example for clarity</span>
-
-<span class="k">class</span> <span class="nc">ThisClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="c"># Since the DoesNotCompute exception exists, let&#39;s just assign it</span>
-    <span class="c"># as an attribute of ThisClass</span>
-    <span class="n">DoesNotCompute</span> <span class="o">=</span> <span class="n">DoesNotCompute</span>
-
-    <span class="k">def</span> <span class="nf">this_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; This method only works on numbers.&quot;&quot;&quot;</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="n">x</span>
-        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">DoesNotCompute</span>
-</pre></div>
-<p>Now to demonstrate in the shell (Python REPL for the semantic purists):</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">t</span> <span class="kn">import</span> <span class="n">ThisClass</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span> <span class="o">=</span> <span class="n">ThisClass</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="mf">3.3</span><span class="p">)</span>
-<span class="mf">51.415729444066585</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="s">&#39;Jack Diederich warned against custom exceptions&#39;</span><span class="p">)</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-  <span class="n">File</span> <span class="s">&quot;logic.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">24</span><span class="p">,</span> <span class="ow">in</span> <span class="n">this_method</span>
-    <span class="k">raise</span> <span class="n">DoesNotCompute</span>
-<span class="n">DoesNotCompute</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
-<span class="o">...</span>     <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="s">&#39;I need to write a follow-up on my OAuth post&#39;</span><span class="p">)</span>
-<span class="o">...</span> <span class="k">except</span> <span class="n">ThisClass</span><span class="o">.</span><span class="n">DoesNotCompute</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;Waiting to see how the OAuth stuff pans out&#39;</span><span class="p">)</span>
-<span class="o">...</span>
-<span class="o">...</span>
-<span class="n">Waiting</span> <span class="n">to</span> <span class="n">see</span> <span class="n">how</span> <span class="n">the</span> <span class="n">OAuth</span> <span class="n">stuff</span> <span class="n">pans</span> <span class="n">out</span>
-</pre></div>
-</div>
-<div class="section" id="admonition-don-t-go-crazy">
-<h2>Admonition: Don't go crazy</h2>
-<p>Rather than use this trick all over the place, considering using it in a few places to powerful effect. For example, <a class="reference external" href="http://djangoproject.com">Django</a> uses it only in a few places, and publicly only on <tt class="docutils literal">MyModelClass.DoesNotExist</tt> and <tt class="docutils literal">MyModelClass.MultipleObjectsReturned</tt>. By limiting Django's use of this technique, Django libraries are that much easier to comprehend. In this case, less complexity means more.</p>
-<p>I say this because this pattern lends itself to creating custom exceptions to the point of effectively replacing Python's stock exceptions with your own. This  makes for harder-to-maintain and harder-to-learn projects.</p>
-<p>Not that I've ever done that. Ahem.</p>
-</div>
-<p>There are <a href=".././attaching-custom-exceptions-to-functions-and-classes.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>Having too many custom exceptions on a project can be a pain, but a few choices ones are really nice. The problem is that in complex libraries having to import both functions and exceptions becomes a drag. To mitigate having to remember to import custom exceptions, this is a handy ...</p>
+                <a class="readmore" href=".././attaching-custom-exceptions-to-functions-and-classes.html">read more</a>
+                <p>There are <a href=".././attaching-custom-exceptions-to-functions-and-classes.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
