@@ -6,12 +6,12 @@ Curiosity has landed!
 :tags: nasa, science, python, django
 :category: blog
 
-I'm terribly proud of what was accomplished last night: A car-sized robot weighing a whopping 8,580 pounds (3,893 kg) was landed on Mars. It's packed with scientific packages which will expand our knowledge of Mars, and has the power to use them for at least 14 years.
+I'm terribly proud of what was accomplished last night: A car-sized robot weighing a whopping 8,580 pounds (3,893 kg) was landed on Mars. It is packed with scientific packages that will expand our knowledge of Mars, and has the power to use them for at least 14 years.
 
 Simply put, this is an incredible step forward.
 
 .. image:: http://upload.wikimedia.org/wikipedia/en/thumb/a/a9/Mars_Science_Laboratory_Curiosity_rover.jpg/800px-Mars_Science_Laboratory_Curiosity_rover.jpg
-   :name: JPL staff celebrating the landing of MSL Curiosity
+   :name: Artist impression of Curiosity on Mars.
    :align: center
    :target: http://en.wikipedia.org/wiki/File:Mars_Science_Laboratory_Curiosity_rover.jpg
 
