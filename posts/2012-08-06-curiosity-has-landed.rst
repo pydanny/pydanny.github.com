@@ -10,7 +10,7 @@ I'm terribly proud of what was accomplished last night: A car-sized robot weighi
 
 Simply put, this is an incredible step forward.
 
-.. image:: http://upload.wikimedia.org/wikipedia/en/thumb/a/a9/Mars_Science_Laboratory_Curiosity_rover.jpg/800px-Mars_Science_Laboratory_Curiosity_rover.jpg
+.. image:: http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Mars_Science_Laboratory_Curiosity_rover.jpg/800px-Mars_Science_Laboratory_Curiosity_rover.jpg
    :name: Artist impression of Curiosity on Mars.
    :align: center
    :target: http://en.wikipedia.org/wiki/File:Mars_Science_Laboratory_Curiosity_rover.jpg
