@@ -95,7 +95,7 @@ For starters, a production-usable OAuth provider should meet certain standards:
 
 This is my specification. If your project for any Python framework matches it, I'll list it on a forthcoming website that also covers Python based OAuth consumers. 
 
-For what it's worth, Idan Gazit has been working on something to help address the problem, specifically https://github.com/idangazit/oauthlib. It also is intended to cover the Python OAuth consumption issue I didn't cover in this article.  It and related efforts need a lot of work, so...
+For what it's worth, Idan Gazit has been working on something to help address the problem, specifically https://github.com/idan/oauthlib. It also is intended to cover the Python OAuth consumption issue I didn't cover in this article.  It and related efforts need a lot of work, so...
 
 The PyCon US 2012 sprints start on March 12. I think as a community, we Pythonistas should band together and make things right. I think we'll have the brainpower and enough eyes on the problem to make serious headway on the issue, either by fixing existing solutions or creating new ones. Right now I've got interest from people to join in and help, including Idan Gazit, Audrey Roy, George Hickman, and others.
 

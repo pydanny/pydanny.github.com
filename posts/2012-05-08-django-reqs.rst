@@ -3,7 +3,7 @@ Django Requirements for a project
 =================================
 
 :date: 2012-05-09 08:00
-:tags: python, django
+:tags: python, django, setup
 :category: django
 
 Today I'm starting a new project. I'm working as fast as I can and hope to launch on Friday. What are my package dependencies?

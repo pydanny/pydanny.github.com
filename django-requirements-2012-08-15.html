@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Django Requirements for a project</title>
+        <title>Django Requirements 2012-08-15</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
         <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny Atom Feed" />
@@ -56,8 +56,8 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="django-requirements-for-a-project.html" rel="bookmark"
-           title="Permalink to Django Requirements for a project">Django Requirements for a project</a></h1>
+        <a href="django-requirements-2012-08-15.html" rel="bookmark"
+           title="Permalink to Django Requirements 2012-08-15">Django Requirements 2012-08-15</a></h1>
       
 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pydanny">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
@@ -65,8 +65,8 @@
 
     <div class="entry-content">
       <footer class="post-info">
-        <abbr class="published" title="2012-05-09T08:00:00">
-                Wed 09 May 2012
+        <abbr class="published" title="2012-08-15T18:00:00">
+                Wed 15 August 2012
         </abbr>
 
         
@@ -75,72 +75,107 @@
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/setup.html">setup</a></p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/djangodash.html">djangodash</a><a href="./tag/setup.html">setup</a></p>
 
 
 </footer><!-- /.post-info -->
-      <p>Today I'm starting a new project. I'm working as fast as I can and hope to launch on Friday. What are my package dependencies?</p>
-<div class="section" id="django-1-4">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/Django/1.4">Django==1.4</a></h2>
-<p>Unlike my last quick project which was <a class="reference external" href="http://flask.pocoo.org/">Flask</a>, this effort really falls into <a class="reference external" href="http://djangoproject.com">Django</a>'s sweet spot. I need sessions, forms, templates, and models to do things in an ideal Django pattern.</p>
+      <p>A little over three months ago <a class="reference external" href="http://pydanny.com/django-requirements-for-a-project.html">I blogged about my preferred requirements</a> list.
+It's now nearly the eve of <a class="reference external" href="http://djangodash.com">Django Dash</a>, and I feel it's time to update the list.
+I'm going to bump the versions on some of the existing packages and add some new ones to the list.</p>
+<div class="section" id="new-packages">
+<h2>New Packages</h2>
+<div class="section" id="django-braces-0-1-3">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-braces/0.1.3">django-braces==0.1.3</a></h3>
+<p>Want to use Django Class Based Views but unhappy with the missing components like <tt class="docutils literal">LoginRequiredMixin</tt>, <tt class="docutils literal">SelectRelatedMixin</tt>, and even <tt class="docutils literal">StaffuserRequiredMixin</tt>? Not to worry, as this library will make Django CBVs <strong>134% easier to use</strong>.</p>
+</div>
+<div class="section" id="django-secure-0-1-2">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-secure/0.1.2">django-secure==0.1.2</a></h3>
+<p>Django is rather secure, but there is a checklist of things that the security experts want you to do.
+Save yourself forgetting something and use this library to do all those little things.</p>
+</div>
+<div class="section" id="django-profiletools-0-1-3">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-profiletools/0.1.3">django-profiletools==0.1.3</a></h3>
+<p>Have you ever used the django-debug-toolbar and noticed that you did that same <tt class="docutils literal">request.user.get_profile()</tt> call
+a dozen times? Ever want to just call that once? This library, by yours truly, resolves the issue. It loads the user's
+profile object once, and then passes it down the request chain.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="existing-packages">
+<h2>Existing Packages</h2>
+<div class="section" id="django-1-4-1">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/Django/1.4.1">Django==1.4.1</a></h3>
+<p>If you need sessions, forms, templates, and relational database models, then I can argue you've got the ideal <a class="reference external" href="http://djangoproject.com">Django</a> project.
+Make certain you are running the latest Django version (1.4.1). If you have any reason to stick to the Django 1.3 series, I advise
+bumping it up to Django 1.3.2.</p>
 </div>
 <div class="section" id="psycopg2-2-4-5">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/psycopg2">psycopg2==2.4.5</a></h2>
-<p>I need transactions and hard-type validation in the database, which means PostgreSQL. If I didn't need transactions or the hard-type validation I would consider MongoDB instead.</p>
+<h3><a class="reference external" href="http://pypi.python.org/pypi/psycopg2">psycopg2==2.4.5</a></h3>
+<p>This is the database connector to PostgreSQL, which is what you should be using. Django is known for playing 'nicer'
+with PostgreSQL than say... MySQL.</p>
 </div>
 <div class="section" id="django-debug-toolbar-0-9-4">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/django-debug-toolbar">django-debug-toolbar==0.9.4</a></h2>
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-debug-toolbar">django-debug-toolbar==0.9.4</a></h3>
 <p>Because not using this tool is insane.</p>
 </div>
 <div class="section" id="django-extensions-0-8">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/django-extensions">django-extensions==0.8</a></h2>
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-extensions">django-extensions==0.8</a></h3>
 <p>Because amongst other things this library gives you, I never want to write my own <tt class="docutils literal">TimeStampedModel</tt> ever again. :-)</p>
 </div>
 <div class="section" id="south-0-7-5">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/South">South==0.7.5</a></h2>
+<h3><a class="reference external" href="http://pypi.python.org/pypi/South">South==0.7.5</a></h3>
 <p>Django gives you the freedom to migrate data in the way you want. The way I want to do it is via South.</p>
 </div>
 <div class="section" id="django-registration-0-8-0">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/django-registration">django-registration==0.8.0</a></h2>
-<p>Normally <a class="reference external" href="http://pypi.python.org/pypi/django-social-auth">django-social-auth</a> is my go-to tool for registration, but in this case I need simple username/password registration. This is a very solid tool, but you do have to make your own templates or find someone's fork that has a copy of templates that match.</p>
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-registration">django-registration==0.8.0</a></h3>
+<p>The common go-to tool for non-Social registration.</p>
+<p>This is a very solid tool, but you do have to make your own templates or find someone's fork that has a copy of templates that match.</p>
 </div>
-<div class="section" id="django-floppyforms-0-4-7">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/django-floppyforms">django-floppyforms==0.4.7</a></h2>
-<p>An excellent tool for making your forms HTML5-ish out of the box.</p>
+<div class="section" id="django-social-auth-0-7-4">
+<h3><a class="reference internal" href="#django-social-auth-0-7-4">django-social-auth== 0.7.4</a></h3>
+<p>Want to authenticate via Twitter, Facebook, or GitHub? Then use this django-social-auth.</p>
 </div>
-<div class="section" id="django-crispy-forms-1-1-3">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/django-crispy-forms">django-crispy-forms==1.1.3</a></h2>
+<div class="section" id="django-floppyforms-1-0">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-floppyforms">django-floppyforms==1.0</a></h3>
+<p>An excellent tool for making your forms HTML5-ish out of the box. It allows full control of form rendering in the templates.</p>
+</div>
+<div class="section" id="django-crispy-forms-1-1-4">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-crispy-forms">django-crispy-forms==1.1.4</a></h3>
 <p>The child of my own django-uni-forms, this will let me create forms using div-based controls super fast, and do layout customizations if I need them.</p>
 </div>
 <div class="section" id="django-heroku-postgresify-0-2">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/django-heroku-postgresify">django-heroku-postgresify==0.2</a></h2>
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-heroku-postgresify">django-heroku-postgresify==0.2</a></h3>
 <p>This tool makes getting the PostGreSQL settings out of Heroku trivial.</p>
 </div>
-<div class="section" id="django-heroku-memcacheify-0-1">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/django-heroku-memcacheify">django-heroku-memcacheify==0.1</a></h2>
+<div class="section" id="django-heroku-memcacheify-0-3">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-heroku-memcacheify">django-heroku-memcacheify==0.3</a></h3>
 <p>This tool makes getting the memcache settings for Heroku trivial.</p>
 </div>
-<div class="section" id="gunicorn-0-14-2">
-<h2><a class="reference external" href="http://pypi.python.org/pypi/gunicorn">gunicorn==0.14.2</a></h2>
-<p>All the cool kids who play in devops swear by Gunicorn. I use it because Heroku seems to recommend it for Django deployments.</p>
+<div class="section" id="gunicorn-0-14-6">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/gunicorn">gunicorn==0.14.6</a></h3>
+<p>All the cool kids who play in devops swear by Gunicorn.</p>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="installing-the-above-packages">
 <h2>Installing the above packages</h2>
-<p>Never copy/paste these libraries directly into your projects. If you do that, you'll end up hating yourself later as your local instances become unmaintained forks of the real project. Also, unless you are really careful in your copy/pasting, you'll be in violation of various open source licenses. Odds are the FOSS police aren't going to find you, but I can assure you that when you bring in one of the authors of these packages to help you fix a problem he/she is going to be mighty annoyed at the lack of attribution.</p>
-<p>Do it the right way: do proper Python dependency management.</p>
+<p>Never copy/paste these libraries directly into your projects. Do it the right way: <strong>use proper Python dependency management</strong>.</p>
 <p>Create a <tt class="docutils literal">requirements.txt</tt> file and install them as proper dependencies. The file should contain the following text:</p>
 <pre class="literal-block">
-Django==1.4
+Django==1.4.1
 South==0.7.5
-django-crispy-forms==1.1.3
+django-braces==0.1.3
+django-crispy-forms==1.1.4
 django-debug-toolbar==0.9.4
 django-extensions==0.8
-django-floppyforms==0.4.7
+django-floppyforms==1.0
 django-registration==0.8.0
-django-heroku-memcacheify==0.1
+django-social-auth==0.7.4
+django-heroku-memcacheify==0.3
 django-heroku-postgresify==0.2
+django-profiletools==0.1.3
 django-registration==0.8.0
+django-secure==0.1.2
 gunicorn==0.14.2
 psycopg2==2.4.5
 </pre>
@@ -149,8 +184,6 @@ psycopg2==2.4.5
 pip install -r requirements.txt
 </pre>
 <p>Now that I have all this, it's time to code!</p>
-<hr class="docutils" />
-<a class="reference external image-reference" href="http://www.flickr.com/photos/pydanny/4358842735/"><img alt="http://farm5.staticflickr.com/4027/4358842735_38991c0944.jpg" class="align-center" id="blizzard-of-2010" src="http://farm5.staticflickr.com/4027/4358842735_38991c0944.jpg" /></a>
 </div>
 
     </div><!-- /.entry-content -->
@@ -159,7 +192,7 @@ pip install -r requirements.txt
       <h2>Comments !</h2>
       <div id="disqus_thread"></div>
       <script type="text/javascript">
-        var disqus_identifier = "django-requirements-for-a-project.html";
+        var disqus_identifier = "django-requirements-2012-08-15.html";
         (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://pydanny.disqus.com/embed.js';

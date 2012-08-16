@@ -1,5 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/django.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-08-06T08:00:00Z</updated><entry><title>Curiosity has landed!</title><link href="http://pydanny.com/curiosity-has-landed.html" rel="alternate"></link><updated>2012-08-06T08:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/curiosity-has-landed.html</id><summary type="html">&lt;p&gt;I'm terribly proud of what was accomplished last night: A car-sized robot weighing a whopping 8,580 pounds (3,893 kg) was landed on Mars. It is packed with scientific packages that will expand our knowledge of Mars, and has the power to use them for at least 14 years.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/django.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-08-15T18:00:00Z</updated><entry><title>Django Requirements 2012-08-15</title><link href="http://pydanny.com/django-requirements-2012-08-15.html" rel="alternate"></link><updated>2012-08-15T18:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/django-requirements-2012-08-15.html</id><summary type="html">&lt;p&gt;A little over three months ago &lt;a class="reference external" href="http://pydanny.com/django-requirements-for-a-project.html"&gt;I blogged about my preferred requirements&lt;/a&gt; list.
+It's now nearly the eve of &lt;a class="reference external" href="http://djangodash.com"&gt;Django Dash&lt;/a&gt;, and I feel it's time to update the list.
+I'm going to bump the versions on some of the existing packages and add some new ones to the list.&lt;/p&gt;
+&lt;div class="section" id="new-packages"&gt;
+&lt;h2&gt;New Packages&lt;/h2&gt;
+&lt;div class="section" id="django-braces-0-1-3"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-braces/0.1.3"&gt;django-braces==0.1.3&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Want to use Django Class Based Views but unhappy with the missing components like &lt;tt class="docutils literal"&gt;LoginRequiredMixin&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;SelectRelatedMixin&lt;/tt&gt;, and even &lt;tt class="docutils literal"&gt;StaffuserRequiredMixin&lt;/tt&gt;? Not to worry, as this library will make Django CBVs &lt;strong&gt;134% easier to use&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="django-secure-0-1-2"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-secure/0.1.2"&gt;django-secure==0.1.2&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Django is rather secure, but there is a checklist of things that the security experts want you to do.
+Save yourself forgetting something and use this library to do all those little things.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="django-profiletools-0-1-3"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-profiletools/0.1.3"&gt;django-profiletools==0.1.3&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Have you ever used the django-debug-toolbar and noticed that you did that same &lt;tt class="docutils literal"&gt;request.user.get_profile()&lt;/tt&gt; call
+a dozen times? Ever want to just call that once? This library, by yours truly, resolves the issue. It loads the user's
+profile object once, and then passes it down the request chain.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="existing-packages"&gt;
+&lt;h2&gt;Existing Packages&lt;/h2&gt;
+&lt;div class="section" id="django-1-4-1"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/Django/1.4.1"&gt;Django==1.4.1&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If you need sessions, forms, templates, and relational database models, then I can argue you've got the ideal &lt;a class="reference external" href="http://djangoproject.com"&gt;Django&lt;/a&gt; project.
+Make certain you are running the latest Django version (1.4.1). If you have any reason to stick to the Django 1.3 series, I advise
+bumping it up to Django 1.3.2.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="psycopg2-2-4-5"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/psycopg2"&gt;psycopg2==2.4.5&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is the database connector to PostgreSQL, which is what you should be using. Django is known for playing 'nicer'
+with PostgreSQL than say... MySQL.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="django-debug-toolbar-0-9-4"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-debug-toolbar"&gt;django-debug-toolbar==0.9.4&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Because not using this tool is insane.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="django-extensions-0-8"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-extensions"&gt;django-extensions==0.8&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Because amongst other things this library gives you, I never want to write my own &lt;tt class="docutils literal"&gt;TimeStampedModel&lt;/tt&gt; ever again. :-)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="south-0-7-5"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/South"&gt;South==0.7.5&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Django gives you the freedom to migrate data in the way you want. The way I want to do it is via South.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="django-registration-0-8-0"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-registration"&gt;django-registration==0.8.0&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The common go-to tool for non-Social registration.&lt;/p&gt;
+&lt;p&gt;This is a very solid tool, but you do have to make your own templates or find someone's fork that has a copy of templates that match.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="django-social-auth-0-7-4"&gt;
+&lt;h3&gt;&lt;a class="reference internal" href="#django-social-auth-0-7-4"&gt;django-social-auth== 0.7.4&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Want to authenticate via Twitter, Facebook, or GitHub? Then use this django-social-auth.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="django-floppyforms-1-0"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-floppyforms"&gt;django-floppyforms==1.0&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;An excellent tool for making your forms HTML5-ish out of the box. It allows full control of form rendering in the templates.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="django-crispy-forms-1-1-4"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-crispy-forms"&gt;django-crispy-forms==1.1.4&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The child of my own django-uni-forms, this will let me create forms using div-based controls super fast, and do layout customizations if I need them.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="django-heroku-postgresify-0-2"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-heroku-postgresify"&gt;django-heroku-postgresify==0.2&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This tool makes getting the PostGreSQL settings out of Heroku trivial.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="django-heroku-memcacheify-0-3"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-heroku-memcacheify"&gt;django-heroku-memcacheify==0.3&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This tool makes getting the memcache settings for Heroku trivial.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="gunicorn-0-14-6"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/gunicorn"&gt;gunicorn==0.14.6&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;All the cool kids who play in devops swear by Gunicorn.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr class="docutils" /&gt;
+&lt;div class="section" id="installing-the-above-packages"&gt;
+&lt;h2&gt;Installing the above packages&lt;/h2&gt;
+&lt;p&gt;Never copy/paste these libraries directly into your projects. Do it the right way: &lt;strong&gt;use proper Python dependency management&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Create a &lt;tt class="docutils literal"&gt;requirements.txt&lt;/tt&gt; file and install them as proper dependencies. The file should contain the following text:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Django==1.4.1
+South==0.7.5
+django-braces==0.1.3
+django-crispy-forms==1.1.4
+django-debug-toolbar==0.9.4
+django-extensions==0.8
+django-floppyforms==1.0
+django-registration==0.8.0
+django-social-auth==0.7.4
+django-heroku-memcacheify==0.3
+django-heroku-postgresify==0.2
+django-profiletools==0.1.3
+django-registration==0.8.0
+django-secure==0.1.2
+gunicorn==0.14.2
+psycopg2==2.4.5
+&lt;/pre&gt;
+&lt;p&gt;Once you have that, you install them thus in your &lt;a class="reference external" href="http://pypi.python.org/pypi/virtualenv"&gt;virtualenv&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install -r requirements.txt
+&lt;/pre&gt;
+&lt;p&gt;Now that I have all this, it's time to code!&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="django"></category><category term="djangodash"></category><category term="setup"></category></entry><entry><title>Curiosity has landed!</title><link href="http://pydanny.com/curiosity-has-landed.html" rel="alternate"></link><updated>2012-08-06T08:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/curiosity-has-landed.html</id><summary type="html">&lt;p&gt;I'm terribly proud of what was accomplished last night: A car-sized robot weighing a whopping 8,580 pounds (3,893 kg) was landed on Mars. It is packed with scientific packages that will expand our knowledge of Mars, and has the power to use them for at least 14 years.&lt;/p&gt;
 &lt;p&gt;Simply put, this is an incredible step forward.&lt;/p&gt;
 &lt;a class="reference external image-reference" href="http://en.wikipedia.org/wiki/File:Mars_Science_Laboratory_Curiosity_rover.jpg"&gt;&lt;img alt="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Mars_Science_Laboratory_Curiosity_rover.jpg/800px-Mars_Science_Laboratory_Curiosity_rover.jpg" class="align-center" id="artist-impression-of-curiosity-on-mars" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Mars_Science_Laboratory_Curiosity_rover.jpg/800px-Mars_Science_Laboratory_Curiosity_rover.jpg" /&gt;&lt;/a&gt;
 &lt;p&gt;As an American, I'm proud that our nation is capable of putting together such amazing feats of engineering and science. People from a diverse arrangement of backgrounds and origins came together to make something incredible happen.&lt;/p&gt;
@@ -896,7 +1002,7 @@ pip install -r requirements.txt
 &lt;hr class="docutils" /&gt;
 &lt;a class="reference external image-reference" href="http://www.flickr.com/photos/pydanny/4358842735/"&gt;&lt;img alt="http://farm5.staticflickr.com/4027/4358842735_38991c0944.jpg" class="align-center" id="blizzard-of-2010" src="http://farm5.staticflickr.com/4027/4358842735_38991c0944.jpg" /&gt;&lt;/a&gt;
 &lt;/div&gt;
-</summary><category term="python"></category><category term="django"></category></entry><entry><title>Los Angeles Open Source Sprint on May 12th!</title><link href="http://pydanny.com/los-angeles-open-source-sprint-on-may-12th.html" rel="alternate"></link><updated>2012-05-01T09:20:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/los-angeles-open-source-sprint-on-may-12th.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://www.flickr.com/photos/pydanny/7132778527/"&gt;&lt;img alt="http://farm9.staticflickr.com/8022/7132778527_6e3b49b313_o.png" class="align-center" id="la-open-source-sprint-hosted-on-flickr" src="http://farm9.staticflickr.com/8022/7132778527_6e3b49b313_o.png" /&gt;&lt;/a&gt;
+</summary><category term="python"></category><category term="django"></category><category term="setup"></category></entry><entry><title>Los Angeles Open Source Sprint on May 12th!</title><link href="http://pydanny.com/los-angeles-open-source-sprint-on-may-12th.html" rel="alternate"></link><updated>2012-05-01T09:20:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/los-angeles-open-source-sprint-on-may-12th.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://www.flickr.com/photos/pydanny/7132778527/"&gt;&lt;img alt="http://farm9.staticflickr.com/8022/7132778527_6e3b49b313_o.png" class="align-center" id="la-open-source-sprint-hosted-on-flickr" src="http://farm9.staticflickr.com/8022/7132778527_6e3b49b313_o.png" /&gt;&lt;/a&gt;
 &lt;p&gt;This is a day long coding event in Los Angeles for Open Source developers of all languages and skill levels to come and code like fiends. They'll be joined by dozens of either really smart coders or nice people like me. Sponsors are providing food, drinks, venue, and more!&lt;/p&gt;
 &lt;p&gt;RSVP at &lt;a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/62796642/"&gt;http://www.meetup.com/LA-Hackathons/events/62796642/&lt;/a&gt; before it fills up! It's free.&lt;/p&gt;
 &lt;p&gt;I'll be there to:&lt;/p&gt;
@@ -1105,7 +1211,7 @@ What to bring if you are participating: Workout clothes, water bottle
 &lt;li&gt;Test coverage &amp;gt; 80%&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This is my specification. If your project for any Python framework matches it, I'll list it on a forthcoming website that also covers Python based OAuth consumers.&lt;/p&gt;
-&lt;p&gt;For what it's worth, Idan Gazit has been working on something to help address the problem, specifically &lt;a class="reference external" href="https://github.com/idangazit/oauthlib"&gt;https://github.com/idangazit/oauthlib&lt;/a&gt;. It also is intended to cover the Python OAuth consumption issue I didn't cover in this article.  It and related efforts need a lot of work, so...&lt;/p&gt;
+&lt;p&gt;For what it's worth, Idan Gazit has been working on something to help address the problem, specifically &lt;a class="reference external" href="https://github.com/idan/oauthlib"&gt;https://github.com/idan/oauthlib&lt;/a&gt;. It also is intended to cover the Python OAuth consumption issue I didn't cover in this article.  It and related efforts need a lot of work, so...&lt;/p&gt;
 &lt;p&gt;The PyCon US 2012 sprints start on March 12. I think as a community, we Pythonistas should band together and make things right. I think we'll have the brainpower and enough eyes on the problem to make serious headway on the issue, either by fixing existing solutions or creating new ones. Right now I've got interest from people to join in and help, including Idan Gazit, Audrey Roy, George Hickman, and others.&lt;/p&gt;
 &lt;p&gt;We're willing to put in the time to make OAuth in Python better, how about you?&lt;/p&gt;
 &lt;p&gt;Join us at the PyCon US sprints either in person or on-line. &lt;a class="reference external" href="https://us.pycon.org/2012/community/sprints/projects/"&gt;Details of the sprint are near the bottom of this PyCon Sprint page&lt;/a&gt;.&lt;/p&gt;

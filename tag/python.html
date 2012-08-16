@@ -59,8 +59,153 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././curiosity-has-landed.html">Curiosity has landed!</a></h1> 
+                    <h1 class="entry-title"><a href=".././django-requirements-2012-08-15.html">Django Requirements 2012-08-15</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-08-15T18:00:00">
+                Wed 15 August 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/django.html">django</a>. </p>
+<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/djangodash.html">djangodash</a><a href=".././tag/setup.html">setup</a></p>
+
+
+</footer><!-- /.post-info --><p>A little over three months ago <a class="reference external" href="http://pydanny.com/django-requirements-for-a-project.html">I blogged about my preferred requirements</a> list.
+It's now nearly the eve of <a class="reference external" href="http://djangodash.com">Django Dash</a>, and I feel it's time to update the list.
+I'm going to bump the versions on some of the existing packages and add some new ones to the list.</p>
+<div class="section" id="new-packages">
+<h2>New Packages</h2>
+<div class="section" id="django-braces-0-1-3">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-braces/0.1.3">django-braces==0.1.3</a></h3>
+<p>Want to use Django Class Based Views but unhappy with the missing components like <tt class="docutils literal">LoginRequiredMixin</tt>, <tt class="docutils literal">SelectRelatedMixin</tt>, and even <tt class="docutils literal">StaffuserRequiredMixin</tt>? Not to worry, as this library will make Django CBVs <strong>134% easier to use</strong>.</p>
+</div>
+<div class="section" id="django-secure-0-1-2">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-secure/0.1.2">django-secure==0.1.2</a></h3>
+<p>Django is rather secure, but there is a checklist of things that the security experts want you to do.
+Save yourself forgetting something and use this library to do all those little things.</p>
+</div>
+<div class="section" id="django-profiletools-0-1-3">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-profiletools/0.1.3">django-profiletools==0.1.3</a></h3>
+<p>Have you ever used the django-debug-toolbar and noticed that you did that same <tt class="docutils literal">request.user.get_profile()</tt> call
+a dozen times? Ever want to just call that once? This library, by yours truly, resolves the issue. It loads the user's
+profile object once, and then passes it down the request chain.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="existing-packages">
+<h2>Existing Packages</h2>
+<div class="section" id="django-1-4-1">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/Django/1.4.1">Django==1.4.1</a></h3>
+<p>If you need sessions, forms, templates, and relational database models, then I can argue you've got the ideal <a class="reference external" href="http://djangoproject.com">Django</a> project.
+Make certain you are running the latest Django version (1.4.1). If you have any reason to stick to the Django 1.3 series, I advise
+bumping it up to Django 1.3.2.</p>
+</div>
+<div class="section" id="psycopg2-2-4-5">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/psycopg2">psycopg2==2.4.5</a></h3>
+<p>This is the database connector to PostgreSQL, which is what you should be using. Django is known for playing 'nicer'
+with PostgreSQL than say... MySQL.</p>
+</div>
+<div class="section" id="django-debug-toolbar-0-9-4">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-debug-toolbar">django-debug-toolbar==0.9.4</a></h3>
+<p>Because not using this tool is insane.</p>
+</div>
+<div class="section" id="django-extensions-0-8">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-extensions">django-extensions==0.8</a></h3>
+<p>Because amongst other things this library gives you, I never want to write my own <tt class="docutils literal">TimeStampedModel</tt> ever again. :-)</p>
+</div>
+<div class="section" id="south-0-7-5">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/South">South==0.7.5</a></h3>
+<p>Django gives you the freedom to migrate data in the way you want. The way I want to do it is via South.</p>
+</div>
+<div class="section" id="django-registration-0-8-0">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-registration">django-registration==0.8.0</a></h3>
+<p>The common go-to tool for non-Social registration.</p>
+<p>This is a very solid tool, but you do have to make your own templates or find someone's fork that has a copy of templates that match.</p>
+</div>
+<div class="section" id="django-social-auth-0-7-4">
+<h3><a class="reference internal" href="#django-social-auth-0-7-4">django-social-auth== 0.7.4</a></h3>
+<p>Want to authenticate via Twitter, Facebook, or GitHub? Then use this django-social-auth.</p>
+</div>
+<div class="section" id="django-floppyforms-1-0">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-floppyforms">django-floppyforms==1.0</a></h3>
+<p>An excellent tool for making your forms HTML5-ish out of the box. It allows full control of form rendering in the templates.</p>
+</div>
+<div class="section" id="django-crispy-forms-1-1-4">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-crispy-forms">django-crispy-forms==1.1.4</a></h3>
+<p>The child of my own django-uni-forms, this will let me create forms using div-based controls super fast, and do layout customizations if I need them.</p>
+</div>
+<div class="section" id="django-heroku-postgresify-0-2">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-heroku-postgresify">django-heroku-postgresify==0.2</a></h3>
+<p>This tool makes getting the PostGreSQL settings out of Heroku trivial.</p>
+</div>
+<div class="section" id="django-heroku-memcacheify-0-3">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/django-heroku-memcacheify">django-heroku-memcacheify==0.3</a></h3>
+<p>This tool makes getting the memcache settings for Heroku trivial.</p>
+</div>
+<div class="section" id="gunicorn-0-14-6">
+<h3><a class="reference external" href="http://pypi.python.org/pypi/gunicorn">gunicorn==0.14.6</a></h3>
+<p>All the cool kids who play in devops swear by Gunicorn.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="installing-the-above-packages">
+<h2>Installing the above packages</h2>
+<p>Never copy/paste these libraries directly into your projects. Do it the right way: <strong>use proper Python dependency management</strong>.</p>
+<p>Create a <tt class="docutils literal">requirements.txt</tt> file and install them as proper dependencies. The file should contain the following text:</p>
+<pre class="literal-block">
+Django==1.4.1
+South==0.7.5
+django-braces==0.1.3
+django-crispy-forms==1.1.4
+django-debug-toolbar==0.9.4
+django-extensions==0.8
+django-floppyforms==1.0
+django-registration==0.8.0
+django-social-auth==0.7.4
+django-heroku-memcacheify==0.3
+django-heroku-postgresify==0.2
+django-profiletools==0.1.3
+django-registration==0.8.0
+django-secure==0.1.2
+gunicorn==0.14.2
+psycopg2==2.4.5
+</pre>
+<p>Once you have that, you install them thus in your <a class="reference external" href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>:</p>
+<pre class="literal-block">
+pip install -r requirements.txt
+</pre>
+<p>Now that I have all this, it's time to code!</p>
+</div>
+<p>There are <a href=".././django-requirements-2012-08-15.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././curiosity-has-landed.html" rel="bookmark" title="Permalink to Curiosity has landed!">Curiosity has landed!</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-08-06T08:00:00">
                 Mon 06 August 2012
         </abbr>
@@ -74,29 +219,12 @@
 <p>tags: <a href=".././tag/nasa.html">nasa</a><a href=".././tag/science.html">science</a><a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a></p>
 
 
-</footer><!-- /.post-info --><p>I'm terribly proud of what was accomplished last night: A car-sized robot weighing a whopping 8,580 pounds (3,893 kg) was landed on Mars. It is packed with scientific packages that will expand our knowledge of Mars, and has the power to use them for at least 14 years.</p>
-<p>Simply put, this is an incredible step forward.</p>
-<a class="reference external image-reference" href="http://en.wikipedia.org/wiki/File:Mars_Science_Laboratory_Curiosity_rover.jpg"><img alt="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Mars_Science_Laboratory_Curiosity_rover.jpg/800px-Mars_Science_Laboratory_Curiosity_rover.jpg" class="align-center" id="artist-impression-of-curiosity-on-mars" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Mars_Science_Laboratory_Curiosity_rover.jpg/800px-Mars_Science_Laboratory_Curiosity_rover.jpg" /></a>
-<p>As an American, I'm proud that our nation is capable of putting together such amazing feats of engineering and science. People from a diverse arrangement of backgrounds and origins came together to make something incredible happen.</p>
-<p>As a human being, I'm proud that we have yet again proven that we are still capable of working together to make amazing things happen.</p>
-<p>As someone who grew up in the 1970s, and someone who is proud to have worked at <a class="reference external" href="http://www.nasa.gov">NASA</a> for over 5 years, this is my American dream.</p>
-<div class="section" id="going-forward">
-<h2>Going Forward</h2>
-<p>Curiosity is about to do amazing things and will tell a story to us that we'll never forget.</p>
-<p>Alas, NASA is a terribly easy target for politicians. It's budget has shrank to a small fraction of the it's early 1970s high, and it remains a target to this day. While the politicians congratulate the JPL team on one hand, they are also cutting the JPL budget in a short-sighted attempt to make themselves look good. History will not be kind to such politicians.</p>
-<p>The answers to our questions and our problems will be found in the heavens. Let's increase NASA funding and populate the world with miracles of science.</p>
-</div>
-<p>There are <a href=".././curiosity-has-landed.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>I'm terribly proud of what was accomplished last night: A car-sized robot weighing a whopping 8,580 pounds (3,893 kg) was landed on Mars. It is packed with scientific packages that will expand our knowledge of Mars, and has the power to use them for at least 14 ...</p>
+                <a class="readmore" href=".././curiosity-has-landed.html">read more</a>
+                <p>There are <a href=".././curiosity-has-landed.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
@@ -590,7 +718,7 @@
         </address>
         
 <p>In <a href=".././category/django.html">django</a>. </p>
-<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a></p>
+<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/setup.html">setup</a></p>
 
 
 </footer><!-- /.post-info -->
