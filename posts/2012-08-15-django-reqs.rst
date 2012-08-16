@@ -81,12 +81,12 @@ Because amongst other things this library gives you, I never want to write my ow
 
 .. _`django-extensions==0.8`: http://pypi.python.org/pypi/django-extensions
 
-`South==0.7.5`_
+`South==0.7.6`_
 ------------------
 
 Django gives you the freedom to migrate data in the way you want. The way I want to do it is via South.
 
-.. _`South==0.7.5`: http://pypi.python.org/pypi/South
+.. _`South==0.7.6`: http://pypi.python.org/pypi/South
 
 `django-registration==0.8.0`_
 ------------------------------------
