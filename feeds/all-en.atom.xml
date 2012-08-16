@@ -5,16 +5,16 @@ I'm going to bump the versions on some of the existing packages and add some new
 &lt;div class="section" id="new-packages"&gt;
 &lt;h2&gt;New Packages&lt;/h2&gt;
 &lt;div class="section" id="django-braces-0-1-3"&gt;
-&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-braces/0.1.3"&gt;django-braces==0.1.3&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-braces/"&gt;django-braces==0.1.3&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Want to use Django Class Based Views but unhappy with the missing components like &lt;tt class="docutils literal"&gt;LoginRequiredMixin&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;SelectRelatedMixin&lt;/tt&gt;, and even &lt;tt class="docutils literal"&gt;StaffuserRequiredMixin&lt;/tt&gt;? Not to worry, as this library will make Django CBVs &lt;strong&gt;134% easier to use&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-secure-0-1-2"&gt;
-&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-secure/0.1.2"&gt;django-secure==0.1.2&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-secure/"&gt;django-secure==0.1.2&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Django is rather secure, but there is a checklist of things that the security experts want you to do.
 Save yourself forgetting something and use this library to do all those little things.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-profiletools-0-1-3"&gt;
-&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-profiletools/0.1.3"&gt;django-profiletools==0.1.3&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-profiletools/"&gt;django-profiletools==0.1.3&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Have you ever used the django-debug-toolbar and noticed that you did that same &lt;tt class="docutils literal"&gt;request.user.get_profile()&lt;/tt&gt; call
 a dozen times? Ever want to just call that once? This library, by yours truly, resolves the issue. It loads the user's
 profile object once, and then passes it down the request chain.&lt;/p&gt;
@@ -52,8 +52,8 @@ with PostgreSQL than say... MySQL.&lt;/p&gt;
 &lt;p&gt;This is a very solid tool, but you do have to make your own templates or find someone's fork that has a copy of templates that match.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-social-auth-0-7-4"&gt;
-&lt;h3&gt;&lt;a class="reference internal" href="#django-social-auth-0-7-4"&gt;django-social-auth== 0.7.4&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Want to authenticate via Twitter, Facebook, or GitHub? Then use this django-social-auth.&lt;/p&gt;
+&lt;h3&gt;django-social-auth== 0.7.4&lt;/h3&gt;
+&lt;p&gt;Want to authenticate via Twitter, Facebook, or GitHub? Then use this very useful package.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-floppyforms-1-0"&gt;
 &lt;h3&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-floppyforms"&gt;django-floppyforms==1.0&lt;/a&gt;&lt;/h3&gt;

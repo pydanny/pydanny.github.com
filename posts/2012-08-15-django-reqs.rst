@@ -21,8 +21,7 @@ New Packages
 
 Want to use Django Class Based Views but unhappy with the missing components like ``LoginRequiredMixin``, ``SelectRelatedMixin``, and even ``StaffuserRequiredMixin``? Not to worry, as this library will make Django CBVs **134% easier to use**.
 
-.. _`django-braces==0.1.3`: http://pypi.python.org/pypi/django-braces/0.1.3
-
+.. _`django-braces==0.1.3`: http://pypi.python.org/pypi/django-braces/
 
 `django-secure==0.1.2`_
 ------------------------
@@ -30,7 +29,7 @@ Want to use Django Class Based Views but unhappy with the missing components lik
 Django is rather secure, but there is a checklist of things that the security experts want you to do.
 Save yourself forgetting something and use this library to do all those little things.
 
-.. _`django-secure==0.1.2`: http://pypi.python.org/pypi/django-secure/0.1.2
+.. _`django-secure==0.1.2`: http://pypi.python.org/pypi/django-secure/
 
 
 `django-profiletools==0.1.3`_
@@ -40,7 +39,7 @@ Have you ever used the django-debug-toolbar and noticed that you did that same `
 a dozen times? Ever want to just call that once? This library, by yours truly, resolves the issue. It loads the user's
 profile object once, and then passes it down the request chain.
 
-.. _`django-profiletools==0.1.3`: http://pypi.python.org/pypi/django-profiletools/0.1.3
+.. _`django-profiletools==0.1.3`: http://pypi.python.org/pypi/django-profiletools/
 
 ----
 
@@ -98,12 +97,10 @@ This is a very solid tool, but you do have to make your own templates or find so
 
 .. _`django-registration==0.8.0`: http://pypi.python.org/pypi/django-registration
 
-`django-social-auth== 0.7.4`_
+django-social-auth== 0.7.4
 ------------------------------------
 
-Want to authenticate via Twitter, Facebook, or GitHub? Then use this django-social-auth.
-
-.. _`django-social-auth==0.7.4`: http://pypi.python.org/pypi/django-social-auth
+Want to authenticate via Twitter, Facebook, or GitHub? Then use this very useful package.
 
 `django-floppyforms==1.0`_
 ------------------------------------
