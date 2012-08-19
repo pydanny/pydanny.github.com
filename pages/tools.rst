@@ -21,9 +21,11 @@ References
 ==========
 
 * api.jquery.com
+* http://caniuse.com/
 * `docs.djangoproject.com`_
 * `Emoji Cheat Sheet`_
 * jqapi_
+* QuirksMode.org
 * Stack Overflow
 * Wikipedia_
 
