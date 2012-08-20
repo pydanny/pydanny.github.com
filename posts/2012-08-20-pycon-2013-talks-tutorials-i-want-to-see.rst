@@ -6,9 +6,10 @@ PyCon 2013 Talks/Tutorials I want to see
 :tags: python, pycon, meme
 :category: python
 
-Jesse Noller proposed a meme, "`PyCon 2013`_ **talks/tutorials I'd like to see**". Here is my meme submission:
+This morning, `Jesse Noller`_, the chair of PyCon US, suggested a meme, "`PyCon 2013`_ **talks/tutorials I'd like to see**". Here is my meme submission:
 
 .. _`PyCon 2013`: https://us.pycon.org/2013
+.. _`Jesse Noller`: http://jessenoller.com/
 
 
 1. Python Obfuscation Contest
