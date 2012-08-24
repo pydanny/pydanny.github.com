@@ -12,7 +12,10 @@ Hi, I'm Daniel Greenfeld. You might know me from my blog_. I'm here to talk to y
 
 Last year there were hundreds of talks were submitted for just a very few speaking slots. **Unpaid volunteers** labored for hours before and after their normal jobs reviewing and debating which talks were to get in. The volume of talks combined with simple reviewer fatigue means that earlier submitted talks got more attention. 
 
+This year, following the pattern of previous years, we're going to have 25% more talk submissions.
+
 Please don't leave your poor talk or tutorial out in the cold.
+===============================================================
 
 **Submit early.**
 
