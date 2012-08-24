@@ -6,7 +6,7 @@ A Public Service Message to the Python Community
 :tags: python, pycon, django
 :category: python
 
-Hi, I'm Daniel Greenfeld. You might know me from this blog_. I'm here to talk to you about a very import subject: **Submitting your talk early to PyCon US.**
+Hi, I'm Daniel Greenfeld. You might know me from my blog_. I'm here to talk to you about a very import subject: **Submitting your talk early to PyCon US.**
 
 .. _blog: http://pydanny.com
 
