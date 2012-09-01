@@ -59,8 +59,160 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./a-public-service-message-to-the-python-community.html">A Public Service Message to the Python Community</a></h1> 
+                    <h1 class="entry-title"><a href="./python-dictionary-as-a-class.html">Python dictionary as a class</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-09-01T01:00:00">
+                Sat 01 September 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/python.html">python</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/howto.html">howto</a></p>
+
+
+</footer><!-- /.post-info --><p>A long time ago, circa 1999, when I was working in a certain procedural language I found a library that added objects to the language. It did so by playing interesting tricks with key/value <cite>structures</cite>, which in <a class="reference external" href="http://python.org">Python</a> are called <cite>dictionaries</cite>. In 2005, as a new Python user, I read something about how objects in Python are essentially dictionaries with <a class="reference external" href="http://en.wikipedia.org/wiki/Syntactic_sugar">syntactical sugar</a>.</p>
+<p>Well, today while driving from Los Angeles to San Francisco, I started to try and figure out how to replicate object or class-like behavior using Python dictionaries. In this exercise, I wanted to code out the following:</p>
+<blockquote>
+<ul class="simple">
+<li>methods with ability to write to self/this/whatever</li>
+<li>inheritance</li>
+</ul>
+</blockquote>
+<p>The result isn't something I would use in production code, but it was fun to write. Without further ado...</p>
+<div class="section" id="i-present-the-newclass-function">
+<h2>I present the 'newclass' function!</h2>
+<p>What <tt class="docutils literal">newclass</tt> does is simple:</p>
+<blockquote>
+<ul class="simple">
+<li>Document implementation of inheritance.</li>
+<li>Include a simple <tt class="docutils literal">set</tt> method for setting attribute values to self/this/whatever.</li>
+</ul>
+</blockquote>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">newclass</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Use kwargs.update() method to handle inheritance &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Sets key/value to the kwargs.</span>
+<span class="sd">            Replicates self/this clumsily</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;set&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span>
+    <span class="k">return</span> <span class="n">kwargs</span>
+</pre></div>
+<p>Now that you've seen the code, let's try it out.</p>
+<div class="section" id="demonstration-methods-with-ability-to-write-to-self-this-whatever">
+<h3>Demonstration: Methods with ability to write to self/this/whatever</h3>
+<p>Instantiating a <tt class="docutils literal">newclass</tt> 'object' is straight-forward. See below:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">person</span> <span class="o">=</span> <span class="n">newclass</span><span class="p">(</span>
+<span class="o">...</span>     <span class="n">name</span><span class="o">=</span><span class="s">&quot;Danny&quot;</span><span class="p">,</span>
+<span class="o">...</span>     <span class="n">mental_age</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span class="o">...</span> <span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+<span class="p">{</span><span class="s">&#39;mental_age&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;set&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="nb">set</span> <span class="n">at</span> <span class="mh">0x10bc902a8</span><span class="o">&gt;</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Danny&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">person</span><span class="p">[</span><span class="s">&#39;set&#39;</span><span class="p">](</span><span class="s">&quot;languages&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;Python&#39;</span><span class="p">,</span> <span class="s">&#39;JavaScript&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+<span class="p">{</span><span class="s">&#39;languages&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;Python&#39;</span><span class="p">,</span> <span class="s">&#39;JavaScript&#39;</span><span class="p">],</span> <span class="s">&#39;mental_age&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;set&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="nb">set</span> <span class="n">at</span> <span class="mh">0x10bc902a8</span><span class="o">&gt;</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Danny&#39;</span><span class="p">}</span>
+</pre></div>
+<p>Setting a value to an attribute can be done via the <tt class="docutils literal">set</tt> method is not pretty, but it works. Yes, you can shortcut <tt class="docutils literal">set</tt>, but I wanted to see if it worked. That it's working is important because since <tt class="docutils literal">set</tt> works, it means we can create much more complicated methods that touch on many parts of the newclass object context.</p>
+<p>Just like a normal Python <tt class="docutils literal">class</tt> and <tt class="docutils literal">method</tt>.</p>
+</div>
+<div class="section" id="demonstration-inheritance">
+<h3>Demonstration: Inheritance</h3>
+<p>Here I show how to use the <tt class="docutils literal">dict.update()</tt> method to display inheritance. I'll demonstrate via the use of the Animal/Cat/Dog example.</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">Mammal</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; The animal base class &quot;&quot;&quot;</span>
+
+    <span class="c"># dict.update handles the role of inheritance</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">newclass</span><span class="p">())</span>
+
+    <span class="c"># Mammals have 4 legs</span>
+    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;legs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+
+    <span class="c"># Using lambda cause I&#39;m lazy.</span>
+    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="bp">NotImplemented</span>
+    <span class="k">return</span> <span class="n">kwargs</span>
+
+<span class="k">def</span> <span class="nf">Cat</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="c"># dict.update handles the role of inheritance</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Mammal</span><span class="p">())</span>
+
+    <span class="c"># Make a sound</span>
+    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;Meow&quot;</span>
+    <span class="k">return</span> <span class="n">kwargs</span>
+
+<span class="k">def</span> <span class="nf">Dog</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="c"># dict.update handles the role of inheritance</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Animal</span><span class="p">())</span> <span class="c"># dict.update handles the role of inheritance</span>
+
+    <span class="c"># Make a sound</span>
+    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;Bark&quot;</span>
+    <span class="k">return</span> <span class="n">kwargs</span>
+</pre></div>
+<p>Alright, we have our code. What happens when we try it out?</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="c"># first we try just the Mammal</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mammal</span> <span class="o">=</span> <span class="n">Mammal</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">mammal</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]())</span>
+<span class="bp">NotImplemented</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">mammal</span><span class="p">[</span><span class="s">&#39;legs&#39;</span><span class="p">])</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c"># Now the Cat</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">cat</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]())</span>
+<span class="n">Meow</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">cat</span><span class="p">[</span><span class="s">&#39;legs&#39;</span><span class="p">])</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c"># Finally the dog</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">dog</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]())</span>
+<span class="n">Bark</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">dog</span><span class="p">[</span><span class="s">&#39;legs&#39;</span><span class="p">])</span>
+<span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion</h2>
+<p>Compared to normal Python classes the syntax is a little bit on the ugly side. Yet this works and was fun to write.</p>
+<p>Some questions...</p>
+<ul class="simple">
+<li>Should I change the name of the internal context variable from <tt class="docutils literal">kwargs</tt> to <tt class="docutils literal">self</tt>?</li>
+<li>How fast is <tt class="docutils literal">newclass</tt> compared to the standard Python <tt class="docutils literal">class</tt> system?</li>
+<li>What happens if you use <tt class="docutils literal">newclass</tt> in a complex project?</li>
+<li>Shouldn't I implement some way to track inheritance chains? Wouldn't it be nice to know the parent of an object?</li>
+</ul>
+</div>
+<p>There are <a href="./python-dictionary-as-a-class.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href="./a-public-service-message-to-the-python-community.html" rel="bookmark" title="Permalink to A Public Service Message to the Python Community">A Public Service Message to the Python Community</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-08-20T14:00:00">
                 Mon 20 August 2012
         </abbr>
@@ -74,33 +226,13 @@
 <p>tags: <a href="./tag/python.html">python</a><a href="./tag/pycon.html">pycon</a><a href="./tag/django.html">django</a></p>
 
 
-</footer><!-- /.post-info --><p>Hi, I'm Daniel Greenfeld. You might know me from my <a class="reference external" href="http://pydanny.com">blog</a>. I'm here to talk to you about a very import subject: <strong>Submitting your talk early to PyCon US.</strong></p>
-<p>Last year there were hundreds of talks were submitted for just a very few speaking slots. <strong>Unpaid volunteers</strong> labored for hours before and after their normal jobs reviewing and debating which talks were to get in. The volume of talks combined with simple reviewer fatigue means that earlier submitted talks got more attention.</p>
-<p>This year, following the pattern of previous years, we're going to have 25% more talk submissions.</p>
-<div class="section" id="please-don-t-leave-your-poor-talk-or-tutorial-out-in-the-cold">
-<h2>Please don't leave your poor talk or tutorial out in the cold.</h2>
-<p><strong>Submit early.</strong></p>
-<p>Help us fix the problem in one of two ways:</p>
-<ol class="arabic simple">
-<li><a class="reference external" href="https://us.pycon.org/2013/speaking/cfp">Submit your talk as early as possible</a>.</li>
-<li><a class="reference external" href="http://pycon.blogspot.com/2012/07/i-want-you-for-pycon-program-commitee.html">Help review PyCon US talks</a>.</li>
-</ol>
-</div>
-<div class="section" id="production-notes-for-this-service-message">
-<h2>Production notes for this service message</h2>
-<p>I've always wanted to do one of those TV public service messages done by B or C grade actors. As a D-grade blogger I thought I might be a pretty good match for the role. :-)</p>
-</div>
-<p>There are <a href="./a-public-service-message-to-the-python-community.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>Hi, I'm Daniel Greenfeld. You might know me from my <a class="reference external" href="http://pydanny.com">blog</a>. I'm here to talk to you about a very import subject: <strong>Submitting your talk early to PyCon US.</strong></p>
+<p>Last year there were hundreds of talks were submitted for just a very few speaking slots. <strong>Unpaid volunteers</strong> labored ...</p>
+                <a class="readmore" href="./a-public-service-message-to-the-python-community.html">read more</a>
+                <p>There are <a href="./a-public-service-message-to-the-python-community.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

@@ -1,5 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/howto.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-08-02T09:30:00Z</updated><entry><title>Attaching custom exceptions to functions and classes</title><link href="http://pydanny.com/attaching-custom-exceptions-to-functions-and-classes.html" rel="alternate"></link><updated>2012-08-02T09:30:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/attaching-custom-exceptions-to-functions-and-classes.html</id><summary type="html">&lt;p&gt;Having too many custom exceptions on a project can be a pain, but a few choices ones are really nice. The problem is that in complex libraries having to import both functions and exceptions becomes a drag. To mitigate having to remember to import custom exceptions, this is a handy pattern you can use in a project and can be done on both functions and classes.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/howto.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-09-01T01:00:00Z</updated><entry><title>Python dictionary as a class</title><link href="http://pydanny.com/python-dictionary-as-a-class.html" rel="alternate"></link><updated>2012-09-01T01:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/python-dictionary-as-a-class.html</id><summary type="html">&lt;p&gt;A long time ago, circa 1999, when I was working in a certain procedural language I found a library that added objects to the language. It did so by playing interesting tricks with key/value &lt;cite&gt;structures&lt;/cite&gt;, which in &lt;a class="reference external" href="http://python.org"&gt;Python&lt;/a&gt; are called &lt;cite&gt;dictionaries&lt;/cite&gt;. In 2005, as a new Python user, I read something about how objects in Python are essentially dictionaries with &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Syntactic_sugar"&gt;syntactical sugar&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Well, today while driving from Los Angeles to San Francisco, I started to try and figure out how to replicate object or class-like behavior using Python dictionaries. In this exercise, I wanted to code out the following:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;methods with ability to write to self/this/whatever&lt;/li&gt;
+&lt;li&gt;inheritance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The result isn't something I would use in production code, but it was fun to write. Without further ado...&lt;/p&gt;
+&lt;div class="section" id="i-present-the-newclass-function"&gt;
+&lt;h2&gt;I present the 'newclass' function!&lt;/h2&gt;
+&lt;p&gt;What &lt;tt class="docutils literal"&gt;newclass&lt;/tt&gt; does is simple:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Document implementation of inheritance.&lt;/li&gt;
+&lt;li&gt;Include a simple &lt;tt class="docutils literal"&gt;set&lt;/tt&gt; method for setting attribute values to self/this/whatever.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;newclass&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot; Use kwargs.update() method to handle inheritance &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot; Sets key/value to the kwargs.&lt;/span&gt;
+&lt;span class="sd"&gt;            Replicates self/this clumsily&lt;/span&gt;
+&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+    &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;set&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;set&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now that you've seen the code, let's try it out.&lt;/p&gt;
+&lt;div class="section" id="demonstration-methods-with-ability-to-write-to-self-this-whatever"&gt;
+&lt;h3&gt;Demonstration: Methods with ability to write to self/this/whatever&lt;/h3&gt;
+&lt;p&gt;Instantiating a &lt;tt class="docutils literal"&gt;newclass&lt;/tt&gt; 'object' is straight-forward. See below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;person&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;newclass&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Danny&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="n"&gt;mental_age&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;mental_age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;set&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x10bc902a8&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Danny&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;set&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;languages&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Python&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;JavaScript&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;languages&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Python&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;JavaScript&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mental_age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;set&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x10bc902a8&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Danny&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Setting a value to an attribute can be done via the &lt;tt class="docutils literal"&gt;set&lt;/tt&gt; method is not pretty, but it works. Yes, you can shortcut &lt;tt class="docutils literal"&gt;set&lt;/tt&gt;, but I wanted to see if it worked. That it's working is important because since &lt;tt class="docutils literal"&gt;set&lt;/tt&gt; works, it means we can create much more complicated methods that touch on many parts of the newclass object context.&lt;/p&gt;
+&lt;p&gt;Just like a normal Python &lt;tt class="docutils literal"&gt;class&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;method&lt;/tt&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="demonstration-inheritance"&gt;
+&lt;h3&gt;Demonstration: Inheritance&lt;/h3&gt;
+&lt;p&gt;Here I show how to use the &lt;tt class="docutils literal"&gt;dict.update()&lt;/tt&gt; method to display inheritance. I'll demonstrate via the use of the Animal/Cat/Dog example.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;Mammal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot; The animal base class &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# dict.update handles the role of inheritance&lt;/span&gt;
+    &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;newclass&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Mammals have 4 legs&lt;/span&gt;
+    &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;legs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Using lambda cause I&amp;#39;m lazy.&lt;/span&gt;
+    &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;say&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;NotImplemented&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;Cat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="c"&gt;# dict.update handles the role of inheritance&lt;/span&gt;
+    &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Mammal&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Make a sound&lt;/span&gt;
+    &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;say&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Meow&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;Dog&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="c"&gt;# dict.update handles the role of inheritance&lt;/span&gt;
+    &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Animal&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="c"&gt;# dict.update handles the role of inheritance&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Make a sound&lt;/span&gt;
+    &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;say&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Bark&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Alright, we have our code. What happens when we try it out?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="c"&gt;# first we try just the Mammal&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;mammal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Mammal&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mammal&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;say&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]())&lt;/span&gt;
+&lt;span class="bp"&gt;NotImplemented&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mammal&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;legs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="c"&gt;# Now the Cat&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Cat&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;say&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]())&lt;/span&gt;
+&lt;span class="n"&gt;Meow&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;legs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="c"&gt;# Finally the dog&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;dog&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Dog&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dog&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;say&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]())&lt;/span&gt;
+&lt;span class="n"&gt;Bark&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dog&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;legs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Compared to normal Python classes the syntax is a little bit on the ugly side. Yet this works and was fun to write.&lt;/p&gt;
+&lt;p&gt;Some questions...&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Should I change the name of the internal context variable from &lt;tt class="docutils literal"&gt;kwargs&lt;/tt&gt; to &lt;tt class="docutils literal"&gt;self&lt;/tt&gt;?&lt;/li&gt;
+&lt;li&gt;How fast is &lt;tt class="docutils literal"&gt;newclass&lt;/tt&gt; compared to the standard Python &lt;tt class="docutils literal"&gt;class&lt;/tt&gt; system?&lt;/li&gt;
+&lt;li&gt;What happens if you use &lt;tt class="docutils literal"&gt;newclass&lt;/tt&gt; in a complex project?&lt;/li&gt;
+&lt;li&gt;Shouldn't I implement some way to track inheritance chains? Wouldn't it be nice to know the parent of an object?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="howto"></category></entry><entry><title>Attaching custom exceptions to functions and classes</title><link href="http://pydanny.com/attaching-custom-exceptions-to-functions-and-classes.html" rel="alternate"></link><updated>2012-08-02T09:30:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/attaching-custom-exceptions-to-functions-and-classes.html</id><summary type="html">&lt;p&gt;Having too many custom exceptions on a project can be a pain, but a few choices ones are really nice. The problem is that in complex libraries having to import both functions and exceptions becomes a drag. To mitigate having to remember to import custom exceptions, this is a handy pattern you can use in a project and can be done on both functions and classes.&lt;/p&gt;
 &lt;div class="section" id="attaching-a-custom-exception-to-a-function"&gt;
 &lt;h2&gt;Attaching a custom exception to a function&lt;/h2&gt;
 &lt;p&gt;This works because &lt;a class="reference external" href="http://python.org"&gt;Python&lt;/a&gt; functions are first-class objects. They can be passed around as things, and in this case, have things assigned to them.&lt;/p&gt;
