@@ -127,7 +127,7 @@ Alright, we have our code. What happens when we try it out?
 Conclusion
 ==========
 
-Compared to normal Python classes the syntax is a little bit on the ugly side. Yet this works and was fun to write.
+Compared to normal Python classes the syntax is a little bit on the ugly side. Yet this works and as I said earlier, it was fun to write.
 
 Some questions...
 
