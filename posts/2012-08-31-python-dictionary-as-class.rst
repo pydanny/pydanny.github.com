@@ -66,12 +66,12 @@ Just like a normal Python ``class`` and ``method``.
 Demonstration: Inheritance
 ----------------------------
 
-Here I show how to use the ``dict.update()`` method to display inheritance. I'll demonstrate via the use of the Animal/Cat/Dog example.
+Here I show how to use the ``dict.update()`` method to display inheritance. I'll demonstrate via the use of the Mammal/Cat/Dog example.
 
 .. code-block:: python
 
     def Mammal(**kwargs):
-        """ The animal base class """
+        """ The mammal base class """
     
         # dict.update handles the role of inheritance
         kwargs.update(newclass()) 
@@ -95,7 +95,7 @@ Here I show how to use the ``dict.update()`` method to display inheritance. I'll
     def Dog(**kwargs):
 
         # dict.update handles the role of inheritance
-        kwargs.update(Animal()) # dict.update handles the role of inheritance
+        kwargs.update(Mammal()) # dict.update handles the role of inheritance
     
         # Make a sound
         kwargs['say'] = lambda: "Bark"
