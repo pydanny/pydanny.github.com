@@ -74,7 +74,7 @@
 <p>tags: <a href="./tag/python.html">python</a><a href="./tag/howto.html">howto</a></p>
 
 
-</footer><!-- /.post-info --><p>A long time ago, circa 1999, when I was working in a certain procedural language I found a library that added objects to the language. It did so by playing interesting tricks with key/value <cite>structures</cite>, which in <a class="reference external" href="http://python.org">Python</a> are called <cite>dictionaries</cite>. In 2005, as a new Python user, I read something about how objects in Python are essentially dictionaries with <a class="reference external" href="http://en.wikipedia.org/wiki/Syntactic_sugar">syntactical sugar</a>.</p>
+</footer><!-- /.post-info --><p>A long time ago, circa 1999, when I was working in a certain procedural language I found a library that added objects to the language. It did so by playing interesting tricks with key/value structures, which in <a class="reference external" href="http://python.org">Python</a> are called <cite>dictionaries</cite>. In 2005, as a new Python user, I read something about how objects in Python are essentially dictionaries with <a class="reference external" href="http://en.wikipedia.org/wiki/Syntactic_sugar">syntactical sugar</a>.</p>
 <p>Well, today while driving from Los Angeles to San Francisco, I started to try and figure out how to replicate object or class-like behavior using Python dictionaries. In this exercise, I wanted to code out the following:</p>
 <blockquote>
 <ul class="simple">
@@ -122,9 +122,9 @@
 </div>
 <div class="section" id="demonstration-inheritance">
 <h3>Demonstration: Inheritance</h3>
-<p>Here I show how to use the <tt class="docutils literal">dict.update()</tt> method to display inheritance. I'll demonstrate via the use of the Animal/Cat/Dog example.</p>
+<p>Here I show how to use the <tt class="docutils literal">dict.update()</tt> method to display inheritance. I'll demonstrate via the use of the Mammal/Cat/Dog example.</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">Mammal</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; The animal base class &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot; The mammal base class &quot;&quot;&quot;</span>
 
     <span class="c"># dict.update handles the role of inheritance</span>
     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">newclass</span><span class="p">())</span>
@@ -148,7 +148,7 @@
 <span class="k">def</span> <span class="nf">Dog</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
     <span class="c"># dict.update handles the role of inheritance</span>
-    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Animal</span><span class="p">())</span> <span class="c"># dict.update handles the role of inheritance</span>
+    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Mammal</span><span class="p">())</span> <span class="c"># dict.update handles the role of inheritance</span>
 
     <span class="c"># Make a sound</span>
     <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;Bark&quot;</span>
@@ -178,7 +178,7 @@
 </div>
 <div class="section" id="conclusion">
 <h2>Conclusion</h2>
-<p>Compared to normal Python classes the syntax is a little bit on the ugly side. Yet this works and was fun to write.</p>
+<p>Compared to normal Python classes the syntax is a little bit on the ugly side. Yet this works and as I said earlier, it was fun to write.</p>
 <p>Some questions...</p>
 <ul class="simple">
 <li>Should I change the name of the internal context variable from <tt class="docutils literal">kwargs</tt> to <tt class="docutils literal">self</tt>?</li>
