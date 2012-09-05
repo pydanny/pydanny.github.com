@@ -6,7 +6,7 @@ Thoughts on my stack
 :tags: python, django, tools
 :category: python
 
-I'm an open source developer. I use Python, Django, PosgreSQL, JQuery, MongoDB, Memcached, and Redis. I push production code to Linux servers.
+I'm an open source developer. I use Python, Django, PostgreSQL, JQuery, MongoDB, Memcached, and Redis. I push production code to Linux servers.
 
 And yet:
 
