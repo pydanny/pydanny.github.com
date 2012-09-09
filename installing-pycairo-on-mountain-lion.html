@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Installing Pycairo on Mountain Lion</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny Atom Feed" />
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+
+<a href="https://github.com/pydanny/pydanny.github.com">
+
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+
+</a>
+
+        <header id="banner" class="body">
+                <h1><a href=".">pydanny </a></h1>
+                <nav><ul>
+                
+                
+                
+                    <li><a href="./pages/about.html">About</a></li>
+                
+                    <li><a href="./pages/tools.html">Tools</a></li>
+                
+                    <li><a href="./pages/upcoming.html">Upcoming</a></li>
+                
+                
+                
+                    <li ><a href="./category/audrey.html">Audrey</a></li>
+                
+                    <li ><a href="./category/blog.html">Blog</a></li>
+                
+                    <li ><a href="./category/django.html">Django</a></li>
+                
+                    <li class="active"><a href="./category/python.html">Python</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+        
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="installing-pycairo-on-mountain-lion.html" rel="bookmark"
+           title="Permalink to Installing Pycairo on Mountain Lion">Installing Pycairo on Mountain Lion</a></h1>
+      
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pydanny">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
+        <abbr class="published" title="2012-09-04T10:30:00">
+                Tue 04 September 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/python.html">python</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/tools.html">tools</a><a href="./tag/howto.html">howto</a><a href="./tag/setup.html">setup</a></p>
+
+
+</footer><!-- /.post-info -->
+      <p><a class="reference external" href="http://cairographics.org/pycairo/">Pycairo</a> is the binding for the <a class="reference external" href="http://cairographics.org/">cairo graphics library</a>. It's also not something you can get running with a simple <tt class="docutils literal">pip install py2cairo</tt>. After many hours of working the search engines and dancing to the configure/make/make install melody, I figured out an answer that worked for me.</p>
+<div class="section" id="step-1-install-gcc">
+<h2>Step 1 - Install GCC</h2>
+<p>If you don't have it yet, go get <a class="reference external" href="https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg">https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg</a> and install it. It's 200 MB so make sure you have a fast connection and/or a good place to wait.</p>
+</div>
+<div class="section" id="step-2-install-homebrew">
+<h2>Step 2 - Install Homebrew</h2>
+<p>I use Homebrew instead of Macports. If you don't have it yet, paste this in a terminal prompt:</p>
+<div class="highlight"><pre>ruby &lt;<span class="o">(</span>curl -fsSkL raw.github.com/mxcl/homebrew/go<span class="o">)</span>
+</pre></div>
+</div>
+<div class="section" id="step-3-install-cairo">
+<h2>Step 3 - Install Cairo</h2>
+<p>In your terminal prompt, type the following:</p>
+<div class="highlight"><pre><span class="nv">$ </span>brew install cairo --use-clang
+</pre></div>
+<p>You'll get some messages about <cite>LDFLAGS</cite> and <cite>CPPFLAGS</cite> in build variables, but that's only important if you skip Homebrew and build your own software later that interacts with <strong>cairo</strong>.</p>
+</div>
+<div class="section" id="step-4-install-pycairo-itself">
+<h2>Step 4 - Install Pycairo itself</h2>
+<p>The nasty little trick to this is to remember that <strong>Pycairo</strong> is packaged on it's site and other places as <strong>py2cairo</strong>. When they get around to releasing version 3 of Pycairo, I'm going to beg and plead that they follow an obvious naming system for their bundles. I know this is done in other communities, but it's frustrating and a real barrier for getting into a project.</p>
+<p>In case, in your terminal prompt, type the following:</p>
+<div class="highlight"><pre><span class="nv">$ </span>brew install py2cairo
+</pre></div>
+<p>If you are using a non-Homebrew installed Python like I do, you have to set the PYTHONPATH to find pycairo.  Set your PYTHONPATH in your <cite>.bashrc/.profile/.whatever</cite> to the following:</p>
+<div class="highlight"><pre><span class="nv">PYTHONPATH</span><span class="o">=</span>/usr/local/lib/python2.7/site-packages:<span class="nv">$PYTHONPATH</span>.
+</pre></div>
+<p>Yes, it's the system Python, but for now I'm okay with it. If someone has an easy recipe for alternative Python installations, I would love to link to it.</p>
+</div>
+
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "installing-pycairo-on-mountain-lion.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://pydanny.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
+
+  </article>
+</section>
+
+        <section id="extras" class="body">
+        
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/pydanny">twitter</a></li>
+                        
+                            <li><a href="https://github.com/pydanny">github</a></li>
+                        
+                            <li><a href="http://www.facebook.com/daniel.greenfeld">facebook</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-18066389-3");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'pydanny';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>

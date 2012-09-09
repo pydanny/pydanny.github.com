@@ -59,8 +59,76 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./thoughts-on-my-stack.html">Thoughts on my stack</a></h1> 
+                    <h1 class="entry-title"><a href="./installing-pycairo-on-mountain-lion.html">Installing Pycairo on Mountain Lion</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-09-04T10:30:00">
+                Tue 04 September 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/python.html">python</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/tools.html">tools</a><a href="./tag/howto.html">howto</a><a href="./tag/setup.html">setup</a></p>
+
+
+</footer><!-- /.post-info --><p><a class="reference external" href="http://cairographics.org/pycairo/">Pycairo</a> is the binding for the <a class="reference external" href="http://cairographics.org/">cairo graphics library</a>. It's also not something you can get running with a simple <tt class="docutils literal">pip install py2cairo</tt>. After many hours of working the search engines and dancing to the configure/make/make install melody, I figured out an answer that worked for me.</p>
+<div class="section" id="step-1-install-gcc">
+<h2>Step 1 - Install GCC</h2>
+<p>If you don't have it yet, go get <a class="reference external" href="https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg">https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg</a> and install it. It's 200 MB so make sure you have a fast connection and/or a good place to wait.</p>
+</div>
+<div class="section" id="step-2-install-homebrew">
+<h2>Step 2 - Install Homebrew</h2>
+<p>I use Homebrew instead of Macports. If you don't have it yet, paste this in a terminal prompt:</p>
+<div class="highlight"><pre>ruby &lt;<span class="o">(</span>curl -fsSkL raw.github.com/mxcl/homebrew/go<span class="o">)</span>
+</pre></div>
+</div>
+<div class="section" id="step-3-install-cairo">
+<h2>Step 3 - Install Cairo</h2>
+<p>In your terminal prompt, type the following:</p>
+<div class="highlight"><pre><span class="nv">$ </span>brew install cairo --use-clang
+</pre></div>
+<p>You'll get some messages about <cite>LDFLAGS</cite> and <cite>CPPFLAGS</cite> in build variables, but that's only important if you skip Homebrew and build your own software later that interacts with <strong>cairo</strong>.</p>
+</div>
+<div class="section" id="step-4-install-pycairo-itself">
+<h2>Step 4 - Install Pycairo itself</h2>
+<p>The nasty little trick to this is to remember that <strong>Pycairo</strong> is packaged on it's site and other places as <strong>py2cairo</strong>. When they get around to releasing version 3 of Pycairo, I'm going to beg and plead that they follow an obvious naming system for their bundles. I know this is done in other communities, but it's frustrating and a real barrier for getting into a project.</p>
+<p>In case, in your terminal prompt, type the following:</p>
+<div class="highlight"><pre><span class="nv">$ </span>brew install py2cairo
+</pre></div>
+<p>If you are using a non-Homebrew installed Python like I do, you have to set the PYTHONPATH to find pycairo.  Set your PYTHONPATH in your <cite>.bashrc/.profile/.whatever</cite> to the following:</p>
+<div class="highlight"><pre><span class="nv">PYTHONPATH</span><span class="o">=</span>/usr/local/lib/python2.7/site-packages:<span class="nv">$PYTHONPATH</span>.
+</pre></div>
+<p>Yes, it's the system Python, but for now I'm okay with it. If someone has an easy recipe for alternative Python installations, I would love to link to it.</p>
+</div>
+<p>There are <a href="./installing-pycairo-on-mountain-lion.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href="./thoughts-on-my-stack.html" rel="bookmark" title="Permalink to Thoughts on my stack">Thoughts on my stack</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-09-04T10:30:00">
                 Tue 04 September 2012
         </abbr>
@@ -74,27 +142,18 @@
 <p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/tools.html">tools</a></p>
 
 
-</footer><!-- /.post-info --><p>I'm an open source developer. I use Python, Django, PostgreSQL, JQuery, MongoDB, Memcached, and Redis. I push production code to Linux servers.</p>
+</footer><!-- /.post-info -->
+                <p>I'm an open source developer. I use Python, Django, PostgreSQL, JQuery, MongoDB, Memcached, and Redis. I push production code to Linux servers.</p>
 <p>And yet:</p>
 <ul class="simple">
 <li>My laptop runs Apple's Mac OS X.</li>
 <li>My primary editor is Sublime Text.</li>
 <li>My production servers are provided mostly by Heroku.</li>
-<li>All my sites are hosted on Amazon EC2.</li>
-</ul>
-<p>I've got nothing against Apple, Heroku, or Amazon, but their tools are not open source.</p>
-<p>And that's food for thought.</p>
-<p>There are <a href="./thoughts-on-my-stack.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+<li>All my sites ...</li></ul>
+                <a class="readmore" href="./thoughts-on-my-stack.html">read more</a>
+                <p>There are <a href="./thoughts-on-my-stack.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
