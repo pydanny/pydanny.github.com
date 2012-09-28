@@ -56,7 +56,7 @@ The PyCon talk/tutorial reviewers love to see new people present. While experien
 Good luck!
 ==========
 
-PyCon 2013 is going to be bigger and better than any previous year. That's because we pull together as a community to run an amazing event that is known to jumpstart careers and cause amazing life changes. We can do this without you, so hurry up on your `PyCon US 2013 submissions`_!
+PyCon 2013 is going to be bigger and better than any previous year. That's because we pull together as a community to run an amazing event that is known to jumpstart careers and cause amazing life changes. We can't do this without you, so hurry up on your `PyCon US 2013 submissions`_!
 
 
 .. _`financial aid program`: https://docs.google.com/spreadsheet/viewform?fromEmail=true&formkey=dGt4Z0dsY052VERJem4xUUFVQW9uQVE6MQ
