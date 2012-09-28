@@ -46,7 +46,7 @@ I had this problem as well! Then I looked at the `Suggested Tutorial Topics`_ an
 
 Submit the talk anyway before the talk and in fields you aren't ready to fill in, simply put '**TBD**'. Then over the course of the next few days replace TBD with real material. Don't wait too long though to fix those TBDs, no more than a week!
 
-6. I'm a beginner/nobody in the community, is there any chance my proposal will get accepted.
+6. I'm a beginner/nobody in the community, is there any chance my proposal will get accepted?
 ---------------------------------------------------------------------------------------------
 
 **Absolutely!**
