@@ -70,8 +70,8 @@ There were some lovely dinners and hang-outs. It was incredible putting faces to
 
 **Result: Good**
 
-Accomodations
-=============
+Accommodations
+==============
 
 There was no official conference hotel so we stayed at World Hotel - in easy walking distance of the conference center. It wasn't cheap, but I've learned from painful experience that when you travel to a conference, you want to spend your time at the conference, not going to-and-from a cheap hotel five miles away.
 
