@@ -10,7 +10,7 @@ The PyCon US 2013 `call for papers (CFP)`_ ends tomorrow, September 28th, 2012. 
 
 .. _`call for papers (CFP)`: https://us.pycon.org/2013/speaking/cfp/
 
-On the tutorial side of things, **we especially need more Intro to Python level efforts**. That means getting beginners up to speed on basic Python techniques, so they can then exploit the other tutorials, conference, and sprints to their full advantage.
+On the 3 hour tutorial side of things, **we especially need more Intro to Python level submission**. That means getting beginners up to speed on basic Python techniques, so they can then exploit the other tutorials, conference, and sprints to their full advantage.
 
 Now onto some questions...
 ==========================
