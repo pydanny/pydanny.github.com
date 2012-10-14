@@ -92,7 +92,9 @@ In addition, we're considering future events that mix in business into our effor
 What about sponsorship?
 =======================
 
-In return for sponsorship we mention you on the official event description, and provide many other perks including mention in social media. In fact, our attendees are well-noted for their feverish support of sponsors. Developer-only open source events are rare in Los Angeles, so attendees are incredibly grateful to those who make the event possible/
+In return for sponsorship we mention your organization or person on the official event description, and provide many other perks including mention in social media. 
+
+In fact, our attendees are well-noted for their feverish support of sponsors. Developer-only open source events are rare in Los Angeles, so attendees are incredibly grateful to those who make the event possible.
 
 If interested, please contact us at sponsors@laopensource.org.
 
