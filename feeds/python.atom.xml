@@ -1,5 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-10-14T14:00:00Z</updated><entry><title>Los Angeles Open Source Sprint on Nov 4th!</title><link href="http://pydanny.com/los-angeles-open-source-sprint-on-nov-4th.html" rel="alternate"></link><updated>2012-10-14T14:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/los-angeles-open-source-sprint-on-nov-4th.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://www.meetup.com/LA-Hackathons/events/85658952/"&gt;&lt;img alt="https://s3.amazonaws.com/pydanny/la_hackathons.jpeg" class="align-left" id="la-open-source-sprint-5" src="https://s3.amazonaws.com/pydanny/la_hackathons.jpeg" /&gt;&lt;/a&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-10-16T22:00:00Z</updated><entry><title>Django GetOrCreateView</title><link href="http://pydanny.com/django-getorcreateview.html" rel="alternate"></link><updated>2012-10-16T22:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/django-getorcreateview.html</id><summary type="html">&lt;p&gt;Today I decided to use the Django class based view (CBV) CreateView, but I wanted to avoid duplications and submit to the view from the front page of a site. The reason was for a simple newsletter signup form.  This is what I cooked up and should work for Django 1.3, 1.4, and the forthcoming 1.5 release. Here is what I did:&lt;/p&gt;
+&lt;div class="section" id="installed-dependencies"&gt;
+&lt;h2&gt;1. Installed dependencies&lt;/h2&gt;
+&lt;p&gt;This version requires the following package to be &lt;cite&gt;pip&lt;/cite&gt; installed into your &lt;cite&gt;virtualenv&lt;/cite&gt;.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/django-extensions/django-extensions"&gt;django-extensions&lt;/a&gt; so we can have easy timestamps on models.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This also needs to be added to your list of INSTALLED_APPS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;django_extensions&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="defined-the-model"&gt;
+&lt;h2&gt;2. Defined the model&lt;/h2&gt;
+&lt;p&gt;The model is really simple, and inherits from &lt;cite&gt;TimeStampedModel&lt;/cite&gt; so we know when people signed up:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django_extensions.db.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TimeStampedModel&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;NewsLetterSignup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TimeStampedModel&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;EmailField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Email&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__unicode__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="wrote-the-view"&gt;
+&lt;h2&gt;3. Wrote the view&lt;/h2&gt;
+&lt;p&gt;Here's the somewhat challenging part that forced me to dive into Django's source code. Even with the documentation work we've done over the past few months, it's clear we've got a long way to go.&lt;/p&gt;
+&lt;p&gt;Because of that source code diving, for this blog post I really did my best to document why I did things in the &lt;cite&gt;NewsLetterSignupView.form_valid()&lt;/cite&gt; method.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.http&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;HttpResponseRedirect&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.views.generic&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;CreateView&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NewsLetterSignup&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;NewsLetterSignupView&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CreateView&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot; Signs up users to a newsletter &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;NewsLetterSignup&lt;/span&gt;
+    &lt;span class="n"&gt;success_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;/newsletter-signed-up/&amp;#39;&lt;/span&gt;  &lt;span class="c"&gt;# replace with reverse&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;form_valid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;        If the form is valid, save the associated model.&lt;/span&gt;
+&lt;span class="sd"&gt;            (django.views.generic.edit.ModelFormMixin)&lt;/span&gt;
+&lt;span class="sd"&gt;        If the form is valid, redirect to the supplied URL.&lt;/span&gt;
+&lt;span class="sd"&gt;            (django.views.generic.edit.FormMixin)&lt;/span&gt;
+&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+        &lt;span class="c"&gt;# Get the email from the form.cleaned_data dictionary&lt;/span&gt;
+        &lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cleaned_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;email&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c"&gt;# Get or create the signup. We don&amp;#39;t need to do anything with the&lt;/span&gt;
+        &lt;span class="c"&gt;#   model instance or created boolean so we don&amp;#39;t set them.&lt;/span&gt;
+        &lt;span class="n"&gt;NewsLetterSignup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_or_create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c"&gt;# Don&amp;#39;t use super() to inherit as it will do a form.save()&lt;/span&gt;
+        &lt;span class="c"&gt;# You could call the FormMixin&amp;#39;s form_valid() method but I think&lt;/span&gt;
+        &lt;span class="c"&gt;#   using a HttpResponseRedirect() much more explicit.&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;HttpResponseRedirect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;success_url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="wired-it-together"&gt;
+&lt;h2&gt;4. Wired it together&lt;/h2&gt;
+&lt;p&gt;In urls.py:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.conf.urls&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;patterns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.views.generic&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TemplateView&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;.views&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;NewsLetterSignupView&lt;/span&gt;
+
+&lt;span class="n"&gt;urlpatterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;patterns&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;regex&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;r&amp;#39;^newsletter-signed-up/$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;TemplateView&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_view&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="n"&gt;template_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;pages/newsletter_signed_up.html&amp;quot;&lt;/span&gt;
+        &lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;newsletter_signedup&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;regex&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;r&amp;#39;^newsletter-signup/$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;view&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;NewsLetterSignupView&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_view&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+        &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;news_letter_signup&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="closing-thoughts"&gt;
+&lt;h2&gt;Closing thoughts&lt;/h2&gt;
+&lt;p&gt;First off, you'll notice I didn't include the &lt;cite&gt;pages/newsletter_signed_up.html&lt;/cite&gt; because for this case it's too trivial.&lt;/p&gt;
+&lt;p&gt;Second, this is one of those very clear cases where a functional view would have been so much easier compared to the effort I spent writing this as a class based view. The line count would have been about the same, but the mental bandwidth involved in figuring this would have been a fraction of the effort I spent.&lt;/p&gt;
+&lt;p&gt;Third, this is probably better served with an implementation &lt;cite&gt;django.views.generic.FormView&lt;/cite&gt;. Oh well...&lt;/p&gt;
+&lt;p&gt;Fourth, I want to see a configurable version of this in the next release of &lt;a class="reference external" href="https://github.com/brack3t/django-braces/"&gt;django-braces&lt;/a&gt;. ;-)&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Los Angeles Open Source Sprint on Nov 4th!</title><link href="http://pydanny.com/los-angeles-open-source-sprint-on-nov-4th.html" rel="alternate"></link><updated>2012-10-14T14:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/los-angeles-open-source-sprint-on-nov-4th.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://www.meetup.com/LA-Hackathons/events/85658952/"&gt;&lt;img alt="https://s3.amazonaws.com/pydanny/la_hackathons.jpeg" class="align-left" id="la-open-source-sprint-5" src="https://s3.amazonaws.com/pydanny/la_hackathons.jpeg" /&gt;&lt;/a&gt;
 &lt;p&gt;Yet again, myself, Audrey Roy, and a small but elite cadre of volunteers are feverishly at work putting together another Los Angeles open source event. Our &lt;a class="reference external" href="http://pydanny.com/july-15th-2012-la-open-source-recap.html"&gt;last effort went smashingly well&lt;/a&gt;, and like any good engineer, we're ready to scale up - this time to 150 attendees!&lt;/p&gt;
 &lt;p&gt;LA Open Source #5 is a day long coding event for Open Source developers of all languages and skill levels to come and code like fiends. They'll be joined by dozens of either really smart coders or nice people like me. Sponsors are providing food, drinks, venue, and more!&lt;/p&gt;
 &lt;p&gt;RSVP at &lt;a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/85658952/"&gt;http://www.meetup.com/LA-Hackathons/events/85658952/&lt;/a&gt;&lt;/p&gt;

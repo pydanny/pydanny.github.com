@@ -59,8 +59,140 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./los-angeles-open-source-sprint-on-nov-4th.html">Los Angeles Open Source Sprint on Nov 4th!</a></h1> 
+                    <h1 class="entry-title"><a href="./django-getorcreateview.html">Django GetOrCreateView</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-10-16T22:00:00">
+                Tue 16 October 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/django.html">django</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/howto.html">howto</a></p>
+
+
+</footer><!-- /.post-info --><p>Today I decided to use the Django class based view (CBV) CreateView, but I wanted to avoid duplications and submit to the view from the front page of a site. The reason was for a simple newsletter signup form.  This is what I cooked up and should work for Django 1.3, 1.4, and the forthcoming 1.5 release. Here is what I did:</p>
+<div class="section" id="installed-dependencies">
+<h2>1. Installed dependencies</h2>
+<p>This version requires the following package to be <cite>pip</cite> installed into your <cite>virtualenv</cite>.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/django-extensions/django-extensions">django-extensions</a> so we can have easy timestamps on models.</li>
+</ul>
+<p>This also needs to be added to your list of INSTALLED_APPS:</p>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">+=</span> <span class="p">(</span>
+    <span class="s">&#39;django_extensions&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="defined-the-model">
+<h2>2. Defined the model</h2>
+<p>The model is really simple, and inherits from <cite>TimeStampedModel</cite> so we know when people signed up:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="kn">from</span> <span class="nn">django_extensions.db.models</span> <span class="kn">import</span> <span class="n">TimeStampedModel</span>
+
+<span class="k">class</span> <span class="nc">NewsLetterSignup</span><span class="p">(</span><span class="n">TimeStampedModel</span><span class="p">):</span>
+
+    <span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="s">&quot;Email&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span>
+</pre></div>
+</div>
+<div class="section" id="wrote-the-view">
+<h2>3. Wrote the view</h2>
+<p>Here's the somewhat challenging part that forced me to dive into Django's source code. Even with the documentation work we've done over the past few months, it's clear we've got a long way to go.</p>
+<p>Because of that source code diving, for this blog post I really did my best to document why I did things in the <cite>NewsLetterSignupView.form_valid()</cite> method.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">CreateView</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">NewsLetterSignup</span>
+
+<span class="k">class</span> <span class="nc">NewsLetterSignupView</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Signs up users to a newsletter &quot;&quot;&quot;</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">NewsLetterSignup</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&#39;/newsletter-signed-up/&#39;</span>  <span class="c"># replace with reverse</span>
+
+    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If the form is valid, save the associated model.</span>
+<span class="sd">            (django.views.generic.edit.ModelFormMixin)</span>
+<span class="sd">        If the form is valid, redirect to the supplied URL.</span>
+<span class="sd">            (django.views.generic.edit.FormMixin)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c"># Get the email from the form.cleaned_data dictionary</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="c"># Get or create the signup. We don&#39;t need to do anything with the</span>
+        <span class="c">#   model instance or created boolean so we don&#39;t set them.</span>
+        <span class="n">NewsLetterSignup</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+
+        <span class="c"># Don&#39;t use super() to inherit as it will do a form.save()</span>
+        <span class="c"># You could call the FormMixin&#39;s form_valid() method but I think</span>
+        <span class="c">#   using a HttpResponseRedirect() much more explicit.</span>
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">success_url</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="wired-it-together">
+<h2>4. Wired it together</h2>
+<p>In urls.py:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+
+<span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="n">NewsLetterSignupView</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^newsletter-signed-up/$&#39;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">TemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
+            <span class="n">template_name</span><span class="o">=</span><span class="s">&quot;pages/newsletter_signed_up.html&quot;</span>
+        <span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&#39;newsletter_signedup&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^newsletter-signup/$&#39;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">NewsLetterSignupView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&#39;news_letter_signup&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="closing-thoughts">
+<h2>Closing thoughts</h2>
+<p>First off, you'll notice I didn't include the <cite>pages/newsletter_signed_up.html</cite> because for this case it's too trivial.</p>
+<p>Second, this is one of those very clear cases where a functional view would have been so much easier compared to the effort I spent writing this as a class based view. The line count would have been about the same, but the mental bandwidth involved in figuring this would have been a fraction of the effort I spent.</p>
+<p>Third, this is probably better served with an implementation <cite>django.views.generic.FormView</cite>. Oh well...</p>
+<p>Fourth, I want to see a configurable version of this in the next release of <a class="reference external" href="https://github.com/brack3t/django-braces/">django-braces</a>. ;-)</p>
+</div>
+<p>There are <a href="./django-getorcreateview.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href="./los-angeles-open-source-sprint-on-nov-4th.html" rel="bookmark" title="Permalink to Los Angeles Open Source Sprint on Nov 4th!">Los Angeles Open Source Sprint on Nov 4th!</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-10-14T14:00:00">
                 Sun 14 October 2012
         </abbr>
@@ -74,93 +206,14 @@
 <p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/LA.html">LA</a><a href="./tag/sprint.html">sprint</a><a href="./tag/hackathon.html">hackathon</a><a href="./tag/nodejs.html">nodejs</a><a href="./tag/ruby.html">ruby</a><a href="./tag/rails.html">rails</a><a href="./tag/clojure.html">clojure</a><a href="./tag/php.html">php</a></p>
 
 
-</footer><!-- /.post-info --><a class="reference external image-reference" href="http://www.meetup.com/LA-Hackathons/events/85658952/"><img alt="https://s3.amazonaws.com/pydanny/la_hackathons.jpeg" class="align-left" id="la-open-source-sprint-5" src="https://s3.amazonaws.com/pydanny/la_hackathons.jpeg" /></a>
+</footer><!-- /.post-info -->
+                <a class="reference external image-reference" href="http://www.meetup.com/LA-Hackathons/events/85658952/"><img alt="https://s3.amazonaws.com/pydanny/la_hackathons.jpeg" class="align-left" id="la-open-source-sprint-5" src="https://s3.amazonaws.com/pydanny/la_hackathons.jpeg" /></a>
 <p>Yet again, myself, Audrey Roy, and a small but elite cadre of volunteers are feverishly at work putting together another Los Angeles open source event. Our <a class="reference external" href="http://pydanny.com/july-15th-2012-la-open-source-recap.html">last effort went smashingly well</a>, and like any good engineer, we're ready to scale up - this time to 150 attendees!</p>
-<p>LA Open Source #5 is a day long coding event for Open Source developers of all languages and skill levels to come and code like fiends. They'll be joined by dozens of either really smart coders or nice people like me. Sponsors are providing food, drinks, venue, and more!</p>
-<p>RSVP at <a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/85658952/">http://www.meetup.com/LA-Hackathons/events/85658952/</a></p>
-<p>I'll be there to:</p>
-<ul class="simple">
-<li>Co-lead the event with the assistance of the awesome Los Angeles technical community!</li>
-<li>Code like a fiend. I plan to work on core <a class="reference external" href="http://djangoproject.com">Django</a>. Maybe some ember.js stuff too.</li>
-</ul>
-<p>And now to open the floor to questions...</p>
-<div class="section" id="when-and-where">
-<h2>When and where?</h2>
-<p>Where:</p>
-<pre class="literal-block">
-Cross Campus (crosscamp.us)
-820 Broadway
-Santa Monica, CA
-</pre>
-<p>When:</p>
-<pre class="literal-block">
-November 4th, 2012
-10 AM to 9 PM
-</pre>
-</div>
-<div class="section" id="is-this-like-a-hackathon">
-<h2>Is this like a Hackathon?</h2>
-<p>Yup. See <a class="reference external" href="http://en.wikipedia.org/wiki/Hackathon#Sprints">http://en.wikipedia.org/wiki/Hackathon#Sprints</a></p>
-</div>
-<div class="section" id="what-if-i-don-t-have-a-project-of-my-own-to-bring-should-i-come">
-<h2>What if I don't have a project of my own to bring? Should I come?</h2>
-<p>Heck yeah! There will be a number of projects around that you can join and contribute to in order to make the world a better place. The current list of projects include things like:</p>
-<ul class="simple">
-<li>Django - in fact, this time we've got at least one core Django developer!</li>
-<li>Node.js</li>
-<li>Python</li>
-<li>Rails</li>
-<li>Ruby</li>
-<li>Pyramid</li>
-<li>Salt Stack</li>
-<li>Clojure</li>
-<li>PHP</li>
-</ul>
-</div>
-<div class="section" id="i-m-just-starting-as-a-developer-should-i-come">
-<h2>I'm just starting as a developer, should I come?</h2>
-<p>It depends.</p>
-<p><strong>If you've never coded before</strong>, this isn't the right place. Instead, you might consider one of the local coding workshops or classes. In fact, here's a good <a class="reference external" href="http://www.meetup.com/Los-Angeles-Hack-Night/">bi-weekly hack night / study group</a> for you.</p>
-<p><strong>If you've done a tutorial or two</strong>, sprints can be a great way to learn new skills or hone your technique by sitting alongside experienced developers who actually need your help. A lot of projects have what are called 'low hanging fruit', which are 'simpler' tasks saved for beginner developers to wet their teeth on. Things I've learned at events like these include Git, Mercurial, JQuery, and a hundred other things that have made me a better coder.</p>
-</div>
-<div class="section" id="can-i-come-and-do-one-of-the-following">
-<h2>Can I come and do one of the following:</h2>
-<ul class="simple">
-<li>Recruit.</li>
-<li>Get people to work on my private project.</li>
-<li>Get people to work on my start-up idea.</li>
-</ul>
-<p><strong>No.</strong></p>
-<p>This is not a job fair or way to get free developers services, and we don't want unnecessary distractions.</p>
-<p>On the other hand, if you want to help sponsor we mention you on the official event description, in social media and many other perks. Please contact us at <a class="reference external" href="mailto:sponsors&#64;laopensource.org">sponsors&#64;laopensource.org</a>.</p>
-<p>In addition, we're considering future events that mix in business into our efforts. If you're interested in that sort of thing then stay tuned for more announcements.</p>
-</div>
-<div class="section" id="what-about-sponsorship">
-<h2>What about sponsorship?</h2>
-<p>In return for sponsorship we mention your organization or person on the official event description, and provide many other perks including mention in social media.</p>
-<p>In fact, our attendees are well-noted for their feverish support of sponsors. Developer-only open source events are rare in Los Angeles, so attendees are incredibly grateful to those who make the event possible.</p>
-<p>If interested, please contact us at <a class="reference external" href="mailto:sponsors&#64;laopensource.org">sponsors&#64;laopensource.org</a>.</p>
-</div>
-<div class="section" id="what-do-i-need-to-bring">
-<h2>What do I need to bring?</h2>
-<p>Your own functioning laptop with power cord. Neither event organizers, the venue, or sponsors are providing equipment. We also encourage you to bring a power strip labeled with your name.</p>
-</div>
-<div class="section" id="i-m-sold-how-much-does-it-cost-and-where-do-i-register">
-<h2>I'm sold! How much does it cost and where do I register?</h2>
-<p>The event is $10, covers food and drink for the day, and you can RSVP by clicking on the image below</p>
-<a class="reference external image-reference" href="http://www.meetup.com/LA-Hackathons/events/85658952/"><img alt="https://s3.amazonaws.com/pydanny/open_source_sprint.png" class="align-left" id="la-open-source-sprints-logo" src="https://s3.amazonaws.com/pydanny/open_source_sprint.png" /></a>
-</div>
-<p>There are <a href="./los-angeles-open-source-sprint-on-nov-4th.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+<p>LA Open Source ...</p>
+                <a class="readmore" href="./los-angeles-open-source-sprint-on-nov-4th.html">read more</a>
+                <p>There are <a href="./los-angeles-open-source-sprint-on-nov-4th.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

@@ -59,8 +59,140 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././installing-pycairo-on-mountain-lion.html">Installing Pycairo on Mountain Lion</a></h1> 
+                    <h1 class="entry-title"><a href=".././django-getorcreateview.html">Django GetOrCreateView</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-10-16T22:00:00">
+                Tue 16 October 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/django.html">django</a>. </p>
+<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/howto.html">howto</a></p>
+
+
+</footer><!-- /.post-info --><p>Today I decided to use the Django class based view (CBV) CreateView, but I wanted to avoid duplications and submit to the view from the front page of a site. The reason was for a simple newsletter signup form.  This is what I cooked up and should work for Django 1.3, 1.4, and the forthcoming 1.5 release. Here is what I did:</p>
+<div class="section" id="installed-dependencies">
+<h2>1. Installed dependencies</h2>
+<p>This version requires the following package to be <cite>pip</cite> installed into your <cite>virtualenv</cite>.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/django-extensions/django-extensions">django-extensions</a> so we can have easy timestamps on models.</li>
+</ul>
+<p>This also needs to be added to your list of INSTALLED_APPS:</p>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">+=</span> <span class="p">(</span>
+    <span class="s">&#39;django_extensions&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="defined-the-model">
+<h2>2. Defined the model</h2>
+<p>The model is really simple, and inherits from <cite>TimeStampedModel</cite> so we know when people signed up:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="kn">from</span> <span class="nn">django_extensions.db.models</span> <span class="kn">import</span> <span class="n">TimeStampedModel</span>
+
+<span class="k">class</span> <span class="nc">NewsLetterSignup</span><span class="p">(</span><span class="n">TimeStampedModel</span><span class="p">):</span>
+
+    <span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="s">&quot;Email&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span>
+</pre></div>
+</div>
+<div class="section" id="wrote-the-view">
+<h2>3. Wrote the view</h2>
+<p>Here's the somewhat challenging part that forced me to dive into Django's source code. Even with the documentation work we've done over the past few months, it's clear we've got a long way to go.</p>
+<p>Because of that source code diving, for this blog post I really did my best to document why I did things in the <cite>NewsLetterSignupView.form_valid()</cite> method.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">CreateView</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">NewsLetterSignup</span>
+
+<span class="k">class</span> <span class="nc">NewsLetterSignupView</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Signs up users to a newsletter &quot;&quot;&quot;</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">NewsLetterSignup</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&#39;/newsletter-signed-up/&#39;</span>  <span class="c"># replace with reverse</span>
+
+    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If the form is valid, save the associated model.</span>
+<span class="sd">            (django.views.generic.edit.ModelFormMixin)</span>
+<span class="sd">        If the form is valid, redirect to the supplied URL.</span>
+<span class="sd">            (django.views.generic.edit.FormMixin)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c"># Get the email from the form.cleaned_data dictionary</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="c"># Get or create the signup. We don&#39;t need to do anything with the</span>
+        <span class="c">#   model instance or created boolean so we don&#39;t set them.</span>
+        <span class="n">NewsLetterSignup</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+
+        <span class="c"># Don&#39;t use super() to inherit as it will do a form.save()</span>
+        <span class="c"># You could call the FormMixin&#39;s form_valid() method but I think</span>
+        <span class="c">#   using a HttpResponseRedirect() much more explicit.</span>
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">success_url</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="wired-it-together">
+<h2>4. Wired it together</h2>
+<p>In urls.py:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+
+<span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="n">NewsLetterSignupView</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^newsletter-signed-up/$&#39;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">TemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
+            <span class="n">template_name</span><span class="o">=</span><span class="s">&quot;pages/newsletter_signed_up.html&quot;</span>
+        <span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&#39;newsletter_signedup&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^newsletter-signup/$&#39;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">NewsLetterSignupView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&#39;news_letter_signup&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="closing-thoughts">
+<h2>Closing thoughts</h2>
+<p>First off, you'll notice I didn't include the <cite>pages/newsletter_signed_up.html</cite> because for this case it's too trivial.</p>
+<p>Second, this is one of those very clear cases where a functional view would have been so much easier compared to the effort I spent writing this as a class based view. The line count would have been about the same, but the mental bandwidth involved in figuring this would have been a fraction of the effort I spent.</p>
+<p>Third, this is probably better served with an implementation <cite>django.views.generic.FormView</cite>. Oh well...</p>
+<p>Fourth, I want to see a configurable version of this in the next release of <a class="reference external" href="https://github.com/brack3t/django-braces/">django-braces</a>. ;-)</p>
+</div>
+<p>There are <a href=".././django-getorcreateview.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././installing-pycairo-on-mountain-lion.html" rel="bookmark" title="Permalink to Installing Pycairo on Mountain Lion">Installing Pycairo on Mountain Lion</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-09-04T10:30:00">
                 Tue 04 September 2012
         </abbr>
@@ -74,46 +206,12 @@
 <p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/tools.html">tools</a><a href=".././tag/howto.html">howto</a><a href=".././tag/setup.html">setup</a></p>
 
 
-</footer><!-- /.post-info --><p><a class="reference external" href="http://cairographics.org/pycairo/">Pycairo</a> is the binding for the <a class="reference external" href="http://cairographics.org/">cairo graphics library</a>. It's also not something you can get running with a simple <tt class="docutils literal">pip install py2cairo</tt>. After many hours of working the search engines and dancing to the configure/make/make install melody, I figured out an answer that worked for me.</p>
-<div class="section" id="step-1-install-gcc">
-<h2>Step 1 - Install GCC</h2>
-<p>If you don't have it yet, go get <a class="reference external" href="https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg">https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg</a> and install it. It's 200 MB so make sure you have a fast connection and/or a good place to wait.</p>
-</div>
-<div class="section" id="step-2-install-homebrew">
-<h2>Step 2 - Install Homebrew</h2>
-<p>I use Homebrew instead of Macports. If you don't have it yet, paste this in a terminal prompt:</p>
-<div class="highlight"><pre>ruby &lt;<span class="o">(</span>curl -fsSkL raw.github.com/mxcl/homebrew/go<span class="o">)</span>
-</pre></div>
-</div>
-<div class="section" id="step-3-install-cairo">
-<h2>Step 3 - Install Cairo</h2>
-<p>In your terminal prompt, type the following:</p>
-<div class="highlight"><pre><span class="nv">$ </span>brew install cairo --use-clang
-</pre></div>
-<p>You'll get some messages about <cite>LDFLAGS</cite> and <cite>CPPFLAGS</cite> in build variables, but that's only important if you skip Homebrew and build your own software later that interacts with <strong>cairo</strong>.</p>
-</div>
-<div class="section" id="step-4-install-pycairo-itself">
-<h2>Step 4 - Install Pycairo itself</h2>
-<p>The nasty little trick to this is to remember that <strong>Pycairo</strong> is packaged on it's site and other places as <strong>py2cairo</strong>. When they get around to releasing version 3 of Pycairo, I'm going to beg and plead that they follow an obvious naming system for their bundles. I know this is done in other communities, but it's frustrating and a real barrier for getting into a project.</p>
-<p>In case, in your terminal prompt, type the following:</p>
-<div class="highlight"><pre><span class="nv">$ </span>brew install py2cairo
-</pre></div>
-<p>If you are using a non-Homebrew installed Python like I do, you have to set the PYTHONPATH to find pycairo.  Set your PYTHONPATH in your <cite>.bashrc/.profile/.whatever</cite> to the following:</p>
-<div class="highlight"><pre><span class="nv">PYTHONPATH</span><span class="o">=</span>/usr/local/lib/python2.7/site-packages:<span class="nv">$PYTHONPATH</span>.
-</pre></div>
-<p>Yes, it's the system Python, but for now I'm okay with it. If someone has an easy recipe for alternative Python installations, I would love to link to it.</p>
-</div>
-<p>There are <a href=".././installing-pycairo-on-mountain-lion.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p><a class="reference external" href="http://cairographics.org/pycairo/">Pycairo</a> is the binding for the <a class="reference external" href="http://cairographics.org/">cairo graphics library</a>. It's also not something you can get running with a simple <tt class="docutils literal">pip install py2cairo</tt>. After many hours of working the search engines and dancing to the configure/make/make install melody, I figured out an answer that worked for me ...</p>
+                <a class="readmore" href=".././installing-pycairo-on-mountain-lion.html">read more</a>
+                <p>There are <a href=".././installing-pycairo-on-mountain-lion.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

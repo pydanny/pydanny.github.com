@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Django GetOrCreateView</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny Atom Feed" />
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+
+<a href="https://github.com/pydanny/pydanny.github.com">
+
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+
+</a>
+
+        <header id="banner" class="body">
+                <h1><a href=".">pydanny </a></h1>
+                <nav><ul>
+                
+                
+                
+                    <li><a href="./pages/about.html">About</a></li>
+                
+                    <li><a href="./pages/tools.html">Tools</a></li>
+                
+                    <li><a href="./pages/upcoming.html">Upcoming</a></li>
+                
+                
+                
+                    <li ><a href="./category/audrey.html">Audrey</a></li>
+                
+                    <li ><a href="./category/blog.html">Blog</a></li>
+                
+                    <li class="active"><a href="./category/django.html">Django</a></li>
+                
+                    <li ><a href="./category/python.html">Python</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+        
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="django-getorcreateview.html" rel="bookmark"
+           title="Permalink to Django GetOrCreateView">Django GetOrCreateView</a></h1>
+      
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="pydanny">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
+        <abbr class="published" title="2012-10-16T22:00:00">
+                Tue 16 October 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/django.html">django</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/howto.html">howto</a></p>
+
+
+</footer><!-- /.post-info -->
+      <p>Today I decided to use the Django class based view (CBV) CreateView, but I wanted to avoid duplications and submit to the view from the front page of a site. The reason was for a simple newsletter signup form.  This is what I cooked up and should work for Django 1.3, 1.4, and the forthcoming 1.5 release. Here is what I did:</p>
+<div class="section" id="installed-dependencies">
+<h2>1. Installed dependencies</h2>
+<p>This version requires the following package to be <cite>pip</cite> installed into your <cite>virtualenv</cite>.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/django-extensions/django-extensions">django-extensions</a> so we can have easy timestamps on models.</li>
+</ul>
+<p>This also needs to be added to your list of INSTALLED_APPS:</p>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">+=</span> <span class="p">(</span>
+    <span class="s">&#39;django_extensions&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="defined-the-model">
+<h2>2. Defined the model</h2>
+<p>The model is really simple, and inherits from <cite>TimeStampedModel</cite> so we know when people signed up:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="kn">from</span> <span class="nn">django_extensions.db.models</span> <span class="kn">import</span> <span class="n">TimeStampedModel</span>
+
+<span class="k">class</span> <span class="nc">NewsLetterSignup</span><span class="p">(</span><span class="n">TimeStampedModel</span><span class="p">):</span>
+
+    <span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="s">&quot;Email&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span>
+</pre></div>
+</div>
+<div class="section" id="wrote-the-view">
+<h2>3. Wrote the view</h2>
+<p>Here's the somewhat challenging part that forced me to dive into Django's source code. Even with the documentation work we've done over the past few months, it's clear we've got a long way to go.</p>
+<p>Because of that source code diving, for this blog post I really did my best to document why I did things in the <cite>NewsLetterSignupView.form_valid()</cite> method.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">CreateView</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">NewsLetterSignup</span>
+
+<span class="k">class</span> <span class="nc">NewsLetterSignupView</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Signs up users to a newsletter &quot;&quot;&quot;</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">NewsLetterSignup</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&#39;/newsletter-signed-up/&#39;</span>  <span class="c"># replace with reverse</span>
+
+    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If the form is valid, save the associated model.</span>
+<span class="sd">            (django.views.generic.edit.ModelFormMixin)</span>
+<span class="sd">        If the form is valid, redirect to the supplied URL.</span>
+<span class="sd">            (django.views.generic.edit.FormMixin)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c"># Get the email from the form.cleaned_data dictionary</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="c"># Get or create the signup. We don&#39;t need to do anything with the</span>
+        <span class="c">#   model instance or created boolean so we don&#39;t set them.</span>
+        <span class="n">NewsLetterSignup</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+
+        <span class="c"># Don&#39;t use super() to inherit as it will do a form.save()</span>
+        <span class="c"># You could call the FormMixin&#39;s form_valid() method but I think</span>
+        <span class="c">#   using a HttpResponseRedirect() much more explicit.</span>
+        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">success_url</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="wired-it-together">
+<h2>4. Wired it together</h2>
+<p>In urls.py:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
+
+<span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="n">NewsLetterSignupView</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^newsletter-signed-up/$&#39;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">TemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
+            <span class="n">template_name</span><span class="o">=</span><span class="s">&quot;pages/newsletter_signed_up.html&quot;</span>
+        <span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&#39;newsletter_signedup&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^newsletter-signup/$&#39;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">NewsLetterSignupView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&#39;news_letter_signup&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="closing-thoughts">
+<h2>Closing thoughts</h2>
+<p>First off, you'll notice I didn't include the <cite>pages/newsletter_signed_up.html</cite> because for this case it's too trivial.</p>
+<p>Second, this is one of those very clear cases where a functional view would have been so much easier compared to the effort I spent writing this as a class based view. The line count would have been about the same, but the mental bandwidth involved in figuring this would have been a fraction of the effort I spent.</p>
+<p>Third, this is probably better served with an implementation <cite>django.views.generic.FormView</cite>. Oh well...</p>
+<p>Fourth, I want to see a configurable version of this in the next release of <a class="reference external" href="https://github.com/brack3t/django-braces/">django-braces</a>. ;-)</p>
+</div>
+
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "django-getorcreateview.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://pydanny.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
+
+  </article>
+</section>
+
+        <section id="extras" class="body">
+        
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/pydanny">twitter</a></li>
+                        
+                            <li><a href="https://github.com/pydanny">github</a></li>
+                        
+                            <li><a href="http://www.facebook.com/daniel.greenfeld">facebook</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-18066389-3");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'pydanny';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>
