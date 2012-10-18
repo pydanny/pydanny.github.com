@@ -15,4 +15,4 @@
 &lt;p&gt;Will this block a concerted penetration attempt? Of course not. If the site has/had critical or identifying information it would be implemented with &lt;a class="reference external" href="https://en.wikipedia.org/wiki/HTTPS"&gt;HTTPS&lt;/a&gt;. Implementing a Django site with HTTPS is something I've done many times now, but this use case was 'do it fast, easy, and make it temporary'.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Moral of the story:&lt;/strong&gt; Pay attention to your requirements.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt; As this is just adding in some WSGI middleware, this should work without much modification in Flask, Pyramid, and other WSGI compliant web frameworks.&lt;/p&gt;
-</summary><category term="python"></category><category term="django"></category><category term="wsgi"></category></entry></feed>
+</summary><category term="python"></category><category term="django"></category><category term="wsgi"></category><category term="howto"></category></entry></feed>
