@@ -66,7 +66,7 @@ In myapp.views.py:
                 email=form.cleaned_data.get('email'))
             message += "\n\n{0}".format(form.cleaned_data.get('message'))
             send_mail(
-                subject=form.cleaned_data.get('subject'),
+                subject=form.cleaned_data.get('subject').strip(),
                 message=message,
                 from_email='contact-form@myapp.com',
                 recipient_list=[settings.LIST_OF_EMAIL_RECIPIENTS],
