@@ -3,7 +3,7 @@ Simple Django email form using CBV
 ====================================
 
 :date: 2012-05-22 09:30
-:tags: python, django, howto
+:tags: python, django, howto, django-CBVs
 :category: django
 
 Here's a simple ``FormView`` Class Based Views for Django_. Here is a sample of how to do one as a simple email form. There is no CAPTCHA in this example, that's the topic of a future blog post.

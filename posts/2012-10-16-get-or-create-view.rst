@@ -3,7 +3,7 @@ Django GetOrCreateView
 ======================
 
 :date: 2012-10-16 22:00
-:tags: python, django, howto
+:tags: python, django, howto, django-CBVs
 :category: django
 
 Today I decided to use the Django class based view (CBV) CreateView, but I wanted to avoid duplications and submit to the view from the front page of a site. The reason was I needed a simple newsletter signup form.  This is what I cooked up and should work for Django 1.3, 1.4, and the forthcoming 1.5 release. Here is what I did:

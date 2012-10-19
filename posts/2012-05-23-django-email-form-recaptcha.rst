@@ -3,7 +3,7 @@ Django Class Based View: email form with CAPTCHA
 ================================================
 
 :date: 2012-05-23 09:30
-:tags: python, django, howto
+:tags: python, django, howto, django-CBVs
 :category: django
 
 `Yesterday I showed how to implement a simple email form`_ for Django_ using Class Based Views. Today I'm going to extend yesterday's work to use the excellent RECAPTCHA_ service to help reduce spam content.
