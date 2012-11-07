@@ -9,7 +9,7 @@ I work as a freelance Python and Django consultant out of Los Angeles, Californi
 Commercial Web Projects
 ========================
 
- * `Cartwheel Academy`_: Ongoing Python/Django instruction in the Los Angeles area.
+ * `moveHero`_: The only instant moving quote comparison that gives you estimates without demanding email and phone numbers.
  * `consumer.io`_: Reviewing and comparing products.
 
 Open Source Web Projects
@@ -42,5 +42,5 @@ Software Projects
 .. _`Django Packages`: http://djangopackages.com
 .. _`Pyramid Packages`: http://pyramid.opencomparison.org
 .. _`Plone Packages`: http://plone.opencomparison.org
-.. _`Cartwheel Academy`: https://academy.cartwheelweb.com
 .. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
+.. _`moveHero`: http://movehero.io
