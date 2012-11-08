@@ -4,7 +4,7 @@ About
 
 :date: 2012-02-19 01:33
 
-I work as a freelance Python and Django consultant out of Los Angeles, California, United States, North America. I love to read, hang out with my fiancee_, and play at Capoeira_. I am a total Space and NASA Geek.
+I'm the principal of `Cartwheel Web`_, which does Python, Django, and JavaScript out of Los Angeles, California. I love to read, hang out with my fiancee_, and play at Capoeira_. I am a total Space and NASA Geek.
 
 Commercial Web Projects
 ========================
@@ -45,3 +45,4 @@ Software Projects
 .. _`Plone Packages`: http://plone.opencomparison.org
 .. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
 .. _`moveHero`: http://movehero.io
+.. _`Cartwheel Web`: http://cartwheelweb.com
