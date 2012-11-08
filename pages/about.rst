@@ -22,7 +22,6 @@ Open Source Web Projects
     * `Pyramid Packages`_
     
  * `pydanny-event-notes`_
- * `Silicon Beach Hackercast`_ 
  
 Software Projects
 ==================
