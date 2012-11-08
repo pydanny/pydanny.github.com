@@ -32,6 +32,13 @@ December 2012
 
     Visiting
 
+January 2013
+=============
+
+* 1/18 San Fernando Valley Startup Weekend
+
+    * Competing
+
 February 2013
 ==============
 
