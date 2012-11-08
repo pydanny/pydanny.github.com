@@ -28,10 +28,10 @@ Software Projects
 
  * https://github.com/django/django (contributor)
  * https://github.com/pydanny/django-mongonaut (lead)
- * https://github.com/pydanny/django-party-pack (lead)
  * https://github.com/maraujop/django-crispy-forms (co-lead)
  * https://github.com/pydanny/django-uni-form (lead)
  * https://github.com/pydanny/django-wysiwyg (lead)
+ * https://github.com/pydanny/django-party-pack (lead)
  * https://github.com/pydanny/that (lead)
 
 .. _`consumer.io`: http://consumer.io
