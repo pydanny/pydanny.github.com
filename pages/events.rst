@@ -20,7 +20,7 @@ November 2012
 December 2012
 ==============
 
-* 12/1 AngelHacK Los Angeles
+* 12/1 AngelHack Los Angeles
 
     Competing
     
