@@ -45,3 +45,8 @@ March 2013
 * 3/13: PyCon US
 
     Attending, perhaps speaking
+    
+TODO
+====
+
+Incorporate http://lanyrd.com/services/badges/
