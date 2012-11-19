@@ -6,17 +6,6 @@ Events
 
 I attend events and speak at some of them. 
 
-November 2012
-=============
-
-* 11/9 Silicon Beach Fest
-
-    Attending
-    
-* 11/15 S.E.T Awards
-
-    Attending
-
 December 2012
 ==============
 
