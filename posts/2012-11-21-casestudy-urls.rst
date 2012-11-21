@@ -8,7 +8,7 @@ Case Study: URL Design for petcheatsheets.com
 
 **Backstory:** On Saturday, November 17, 2012 `Audrey Roy`_ and I decided to participate in the Petcentric_ hackathon, a Los Angeles area Pet-themed product/coding contest held at Amplify_. We arrived a bit late, but armed with Audrey's idea of creating a pet based reference sheet for owners, pet sitters, vets, and anyone else needing a card with data on pets, we got to work. About eight hours later we toggled a DNS switch and `petcheatsheets.com`_ was live.
 
-**Edit:** Pet Cheatsheet's owner's pet information is private, because it includes emergency contact information that often includes phone numbers, email addresses, and even physical addresses of family members and friends. So that was also a consideration in implementation
+**Update:** Pet Cheatsheet's owner's pet information is private, because it includes emergency contact information that often includes phone numbers, email addresses, and even physical addresses of family members and friends. So that was also a consideration in implementation
 
 URL Design Thoughts
 ===================
