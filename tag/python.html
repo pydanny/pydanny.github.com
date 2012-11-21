@@ -59,8 +59,169 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././django-getorcreateview.html">Django GetOrCreateView</a></h1> 
+                    <h1 class="entry-title"><a href=".././case-study-url-design-for-petcheatsheetscom.html">Case Study: URL Design for petcheatsheets.com</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-11-21T22:00:00">
+                Wed 21 November 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/django.html">django</a>. </p>
+<p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/howto.html">howto</a><a href=".././tag/casestudy.html">casestudy</a><a href=".././tag/hackathon.html">hackathon</a></p>
+
+
+</footer><!-- /.post-info --><p><strong>Backstory:</strong> On Saturday, November 17, 2012 <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> and I decided to participate in the <a class="reference external" href="https://twitter.com/petcentric">Petcentric</a> hackathon, a Los Angeles area Pet-themed product/coding contest held at <a class="reference external" href="http://www.amplify.la/">Amplify</a>. We arrived a bit late, but armed with Audrey's idea of creating a pet based reference sheet for owners, pet sitters, vets, and anyone else needing a card with data on pets, we got to work. About eight hours later we toggled a DNS switch and <a class="reference external" href="https://www.petcheatsheets.com">petcheatsheets.com</a> was live.</p>
+<div class="section" id="url-design-thoughts">
+<h2>URL Design Thoughts</h2>
+<p>During development, one of the things I considered carefully was URL design of the primary feature, which was pets. The obvious choice was to go with a design that identified owners with pets:</p>
+<pre class="literal-block">
+/&lt;owner_username&gt;/&lt;pet_name&gt;/
+</pre>
+<p>However, upon reflection, this didn't sit well with me. What if a pet changed owners? Identifying a pet with a particular owner in the URL meant that if we ever added a 'transfer ownership' feature, there would be extra work. Also, if we ever implemented a sharing feature, changing URLs on a pet going to the same veterinarian their whole life might make the veterinarian's list of pets and their URLs invalid.</p>
+<p>With that in mind, I decided to go with an identifier and pet name, where the pet name was actually not used in the lookup:</p>
+<pre class="literal-block">
+/&lt;pet_id&gt;/&lt;pet_name:not_required&gt;/
+</pre>
+<p>One more thing, rather than just use the <strong>pet</strong> table's primary key as <tt class="docutils literal">&lt;pet_id&gt;</tt> I decided to go with base36 (0-9 and a-z) encoding. It's not unlike what URL shortening services do, and if we gained any traction, it makes recitation of a pet's URL easier. So the final result was actually:</p>
+<pre class="literal-block">
+/&lt;pet_id:base_36_encoded&gt;/&lt;pet_name:not_required&gt;/
+</pre>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation</h2>
+<p>Here's a simplified view of the final implementation, starting with the model:</p>
+<div class="highlight"><pre><span class="c"># pets/models.py</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+
+<span class="k">class</span> <span class="nc">Pet</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Pet&#39;s name&quot;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">identifier</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;identifier&quot;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">db_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="c"># More fields...</span>
+</pre></div>
+<p>Then the form:</p>
+<div class="highlight"><pre><span class="c"># pets/forms.py</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+
+<span class="kn">from</span> <span class="nn">pets.models</span> <span class="kn">import</span> <span class="n">Pet</span>
+
+<span class="k">class</span> <span class="nc">PetForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="p">)</span> <span class="c"># more fields</span>
+</pre></div>
+<p>With model and form, we build the views:</p>
+<div class="highlight"><pre><span class="c"># pets/views.py</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">CreateView</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">,</span> <span class="n">UpdateView</span>
+
+<span class="kn">from</span> <span class="nn">braces.views</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>
+
+<span class="kn">from</span> <span class="nn">pets.forms</span> <span class="kn">import</span> <span class="n">PetForm</span>
+
+<span class="k">class</span> <span class="nc">PetCreateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">CreateView</span><span class="p">):</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">PetForm</span>
+
+    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
+        <span class="n">pet</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">pet</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="n">base36</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">pet</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span>
+        <span class="n">pet</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span>
+        <span class="c"># Save again - it&#39;s not taking THAT many server cycles AND we needed</span>
+        <span class="c">#    the pet.pk in advance to generate the pet.identifier</span>
+        <span class="n">pet</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">PetCreateView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">form_valid</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">GetPetMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Any view that needs to get a Pet object can use this Mixin &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">pet</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Pet</span><span class="p">,</span> <span class="n">identifier</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;identifier&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">pet</span><span class="o">.</span><span class="n">owner</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
+            <span class="c"># Rather than a &#39;forbidden&#39; result, we want to show a &#39;Pet Not</span>
+            <span class="c">#    Found&#39; page so we can educate site users.</span>
+            <span class="k">raise</span> <span class="n">Http404</span>
+        <span class="k">return</span> <span class="n">pet</span>
+
+<span class="k">class</span> <span class="nc">PetDetailView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">GetPetMixin</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">PetUpdateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">GetPetMixin</span><span class="p">,</span> <span class="n">UpdateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">PetForm</span>
+
+<span class="k">class</span> <span class="nc">PetPDFView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">GetPetMixin</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
+
+    <span class="c"># snip: lots of code for rendering the PDFs.</span>
+</pre></div>
+<p>Then we wire up the views into the urls:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+
+<span class="kn">from</span> <span class="nn">pets</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span>
+
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^build-cheatsheet/$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">PetCreateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;pet_create&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^update/(?P&lt;identifier&gt;[\w\d]+)/(?P&lt;slug&gt;[\w\d\-\_]+)/$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">PetUpdateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;pet_update&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^(?P&lt;identifier&gt;[\w\d]+)/(?P&lt;slug&gt;[\w\d\-\_]+)/$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">PetDetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;pet_detail&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="c"># snip: a lot of other views</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="result">
+<h2>Result</h2>
+<p>In the image below you can see how Marko's URL has his own unique identifier, along with his name. I can change the name in the URL or even in the database, but so long as I don't modify the identifying part of the URL (<tt class="docutils literal">1m</tt>), his information always shows up.</p>
+<a class="reference external image-reference" href="http://petcheatsheets.com"><img alt="petcheatsheets-url-example.png" class="img-polaroid align-center" id="pet-cheatsheets-url-example" src="../static/petcheatsheets-url-example.png" /></a>
+</div>
+<p>There are <a href=".././case-study-url-design-for-petcheatsheetscom.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././django-getorcreateview.html" rel="bookmark" title="Permalink to Django GetOrCreateView">Django GetOrCreateView</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-10-16T22:00:00">
                 Tue 16 October 2012
         </abbr>
@@ -74,110 +235,12 @@
 <p>tags: <a href=".././tag/python.html">python</a><a href=".././tag/django.html">django</a><a href=".././tag/howto.html">howto</a><a href=".././tag/django-CBVs.html">django-CBVs</a></p>
 
 
-</footer><!-- /.post-info --><p>Today I decided to use the Django class based view (CBV) CreateView, but I wanted to avoid duplications and submit to the view from the front page of a site. The reason was I needed a simple newsletter signup form.  This is what I cooked up and should work for Django 1.3, 1.4, and the forthcoming 1.5 release. Here is what I did:</p>
-<div class="section" id="installed-dependencies">
-<h2>1. Installed dependencies</h2>
-<p>This version requires the following package to be <cite>pip</cite> installed into your <cite>virtualenv</cite>.</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/django-extensions/django-extensions">django-extensions</a> so we can have easy timestamps on models.</li>
-</ul>
-<p>This also needs to be added to your list of INSTALLED_APPS:</p>
-<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">+=</span> <span class="p">(</span>
-    <span class="s">&#39;django_extensions&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="defined-the-model">
-<h2>2. Defined the model</h2>
-<p>The model is really simple, and inherits from <cite>TimeStampedModel</cite> so we know when people signed up:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-
-<span class="kn">from</span> <span class="nn">django_extensions.db.models</span> <span class="kn">import</span> <span class="n">TimeStampedModel</span>
-
-<span class="k">class</span> <span class="nc">NewsLetterSignup</span><span class="p">(</span><span class="n">TimeStampedModel</span><span class="p">):</span>
-
-    <span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="s">&quot;Email&quot;</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span>
-</pre></div>
-</div>
-<div class="section" id="wrote-the-view">
-<h2>3. Wrote the view</h2>
-<p>Here's the somewhat challenging part that forced me to dive into Django's source code. Even with the documentation work we've done over the past few months, it's clear we've got a long way to go.</p>
-<p>Because of that source code diving, for this blog post I really did my best to document why I did things in the <cite>NewsLetterSignupView.form_valid()</cite> method.</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">CreateView</span>
-
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">NewsLetterSignup</span>
-
-<span class="k">class</span> <span class="nc">NewsLetterSignupView</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Signs up users to a newsletter &quot;&quot;&quot;</span>
-
-    <span class="n">model</span> <span class="o">=</span> <span class="n">NewsLetterSignup</span>
-    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&#39;/newsletter-signed-up/&#39;</span>  <span class="c"># replace with reverse</span>
-
-    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        If the form is valid, save the associated model.</span>
-<span class="sd">            (django.views.generic.edit.ModelFormMixin)</span>
-<span class="sd">        If the form is valid, redirect to the supplied URL.</span>
-<span class="sd">            (django.views.generic.edit.FormMixin)</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="c"># Get the email from the form.cleaned_data dictionary</span>
-        <span class="n">email</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
-
-        <span class="c"># Get or create the signup. We don&#39;t need to do anything with the</span>
-        <span class="c">#   model instance or created boolean so we don&#39;t set them.</span>
-        <span class="n">NewsLetterSignup</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
-
-        <span class="c"># Don&#39;t use super() to inherit as it will do a form.save()</span>
-        <span class="c"># You could call the FormMixin&#39;s form_valid() method but I think</span>
-        <span class="c">#   using a HttpResponseRedirect() much more explicit.</span>
-        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">success_url</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="wired-it-together">
-<h2>4. Wired it together</h2>
-<p>In urls.py:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
-
-<span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="n">NewsLetterSignupView</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^newsletter-signed-up/$&#39;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">TemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
-            <span class="n">template_name</span><span class="o">=</span><span class="s">&quot;pages/newsletter_signed_up.html&quot;</span>
-        <span class="p">),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&#39;newsletter_signedup&#39;</span><span class="p">,</span>
-    <span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^newsletter-signup/$&#39;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">NewsLetterSignupView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&#39;news_letter_signup&#39;</span><span class="p">,</span>
-    <span class="p">),</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="closing-thoughts">
-<h2>Closing thoughts</h2>
-<p>First off, you'll notice I didn't include the <cite>pages/newsletter_signed_up.html</cite> because for this case it's too trivial.</p>
-<p>Second, this is one of those very clear cases where a functional view would have been so much easier compared to the effort I spent writing this as a class based view. The line count would have been about the same, but the mental bandwidth involved in figuring this would have been a fraction of the effort I spent.</p>
-<p>Third, this is probably better served with an implementation <cite>django.views.generic.FormView</cite>. Oh well...</p>
-<p>Fourth, I want to see a configurable version of this in the next release of <a class="reference external" href="https://github.com/brack3t/django-braces/">django-braces</a>. ;-)</p>
-</div>
-<p>There are <a href=".././django-getorcreateview.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>Today I decided to use the Django class based view (CBV) CreateView, but I wanted to avoid duplications and submit to the view from the front page of a site. The reason was I needed a simple newsletter signup form.  This is what I cooked up and should work for ...</p>
+                <a class="readmore" href=".././django-getorcreateview.html">read more</a>
+                <p>There are <a href=".././django-getorcreateview.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
