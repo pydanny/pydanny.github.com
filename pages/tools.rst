@@ -46,12 +46,14 @@ Programming Languages
 Services
 ==========
 
-* `Consumer Notebook`_
 * gmail
 * Heroku_
+* `Pet Cheatsheets`_
+* `moveHero`_
 
-.. _`Consumer Notebook`: http://consumernotebook.com
 .. _Heroku: Heroku
+.. _`Pet Cheatsheets`: http://petcheatsheets.com
+.. _`moveHero`: http://movehero.io
 
 Software
 ========

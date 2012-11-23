@@ -9,8 +9,8 @@ I'm the principal of `Cartwheel Web`_, which does Python, Django, and JavaScript
 Commercial Web Projects
 ========================
 
- * `moveHero`_: The only instant moving quote comparison on the planet that gives you estimates without demanding email and phone numbers.
- * `consumer.io`_: Reviewing and comparing products.
+ * `Pet Cheatsheets`_: Create handy pet cheatsheets. Build custom 1-page reference sheets for your pets in minutes. Filled with custom art by `Audrey Roy`_.
+ * `moveHero`_: Free, anonymous moving estimates. Try it out!.
 
 Open Source Web Projects
 ========================
@@ -34,7 +34,9 @@ Software Projects
  * https://github.com/pydanny/django-party-pack (lead)
  * https://github.com/pydanny/that (lead)
 
+.. _`Pet Cheatsheets`: http://petcheatsheets.com
 .. _`consumer.io`: http://consumer.io
+.. _`Audrey Roy`: http://audreymroy.com
 .. _fiancee: http://audreymroy.com
 .. _Capoeira: http://valleycapoeira.com
 .. _`Silicon Beach Hackercast`: http://sbhackercast.com
