@@ -20,6 +20,7 @@ Frameworks
 References
 ==========
 
+* http://pydanny-event-notes.rtfd.org
 * http://api.jquery.com
 * http://caniuse.com/
 * `docs.djangoproject.com`_
