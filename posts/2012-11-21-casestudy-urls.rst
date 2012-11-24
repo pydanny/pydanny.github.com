@@ -66,6 +66,7 @@ With model and form, we build the views:
 
     # pets/views.py
     from django.shortcuts import get_object_or_404
+    from django.utils.baseconv import base36
     from django.views.generic import CreateView, DetailView, UpdateView
 
     from braces.views import LoginRequiredMixin

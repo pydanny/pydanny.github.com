@@ -115,6 +115,7 @@
 <p>With model and form, we build the views:</p>
 <div class="highlight"><pre><span class="c"># pets/views.py</span>
 <span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span>
+<span class="kn">from</span> <span class="nn">django.utils.baseconv</span> <span class="kn">import</span> <span class="n">base36</span>
 <span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">CreateView</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">,</span> <span class="n">UpdateView</span>
 
 <span class="kn">from</span> <span class="nn">braces.views</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>
