@@ -53,10 +53,10 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./case-study-url-design-for-petcheatsheetscom.html">Case Study: URL Design for petcheatsheets.com</a></h1> 
+                    <h1 class="entry-title"><a href="./thoughts-on-ranting.html">Thoughts on ranting</a></h1> 
                     <footer class="post-info">
-        <abbr class="published" title="2012-11-21T22:00:00">
-                Wed 21 November 2012
+        <abbr class="published" title="2012-11-26T16:00:00">
+                Mon 26 November 2012
         </abbr>
 
         
@@ -64,141 +64,22 @@
                 By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
         </address>
         
-<p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/howto.html">howto</a><a href="./tag/casestudy.html">casestudy</a><a href="./tag/hackathon.html">hackathon</a></p>
+<p>In <a href="./category/blog.html">blog</a>. </p>
+<p>tags: <a href="./tag/blog.html">blog</a> <a href="./tag/rant.html">rant</a> <a href="./tag/family.html">family</a> <a href="./tag/friends.html">friends</a> </p>
 
 
-</footer><!-- /.post-info --><p><strong>Backstory:</strong> On Saturday, November 17, 2012 <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> and I decided to participate in the <a class="reference external" href="https://twitter.com/petcentric">Petcentric</a> hackathon, a Los Angeles area Pet-themed product/coding contest held at <a class="reference external" href="http://www.amplify.la/">Amplify</a>. We arrived a bit late, but armed with Audrey's idea of creating a pet based reference sheet for owners, pet sitters, vets, and anyone else needing a card with data on pets, we got to work. About eight hours later we toggled a DNS switch and <a class="reference external" href="https://www.petcheatsheets.com">petcheatsheets.com</a> was live.</p>
-<p><strong>Update:</strong> Pet Cheatsheet's owner's pet information is private, because it includes emergency contact information that often includes phone numbers, email addresses, and even physical addresses of family members and friends. Maintaining the privacy of pets and their owners was also a consideration in implementation.</p>
-<div class="section" id="url-design-thoughts">
-<h2>URL Design Thoughts</h2>
-<p>During development, one of the things I considered carefully was URL design of the primary feature, which was pets. The obvious choice was to go with a design that identified owners with pets:</p>
-<pre class="literal-block">
-/&lt;owner_username&gt;/&lt;pet_name&gt;/
-</pre>
-<p>However, upon reflection, this didn't sit well with me. What if a pet changed owners? Identifying a pet with a particular owner in the URL meant that if we ever added a 'transfer ownership' feature, there would be extra work. Also, if we ever implemented a sharing feature, changing URLs on a pet going to the same veterinarian their whole life might make the veterinarian's list of pets and their URLs invalid.</p>
-<p>With that in mind, I decided to go with an identifier and pet name, where the pet name was actually not used in the lookup:</p>
-<pre class="literal-block">
-/&lt;pet_id&gt;/&lt;pet_name:not_required&gt;/
-</pre>
-<p>One more thing, rather than just use the <strong>pet</strong> table's primary key as <tt class="docutils literal">&lt;pet_id&gt;</tt> I decided to go with base36 (0-9 and a-z) encoding. It's not unlike what URL shortening services do, and if we gained any traction, it makes recitation of a pet's URL easier. So the final result was actually:</p>
-<pre class="literal-block">
-/&lt;pet_id:base_36_encoded&gt;/&lt;pet_name:not_required&gt;/
-</pre>
-</div>
-<div class="section" id="implementation">
-<h2>Implementation</h2>
-<p>Here's a simplified view of the final implementation, starting with the model:</p>
-<div class="highlight"><pre><span class="c"># pets/models.py</span>
-<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
-
-<span class="k">class</span> <span class="nc">Pet</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-
-    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Pet&#39;s name&quot;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-    <span class="n">identifier</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;identifier&quot;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-        <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">db_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="c"># More fields...</span>
-</pre></div>
-<p>Then the form:</p>
-<div class="highlight"><pre><span class="c"># pets/forms.py</span>
-<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
-
-<span class="kn">from</span> <span class="nn">pets.models</span> <span class="kn">import</span> <span class="n">Pet</span>
-
-<span class="k">class</span> <span class="nc">PetForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
-
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
-        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="p">)</span> <span class="c"># more fields</span>
-</pre></div>
-<p>With model and form, we build the views:</p>
-<div class="highlight"><pre><span class="c"># pets/views.py</span>
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span>
-<span class="kn">from</span> <span class="nn">django.utils.baseconv</span> <span class="kn">import</span> <span class="n">base36</span>
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">CreateView</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">,</span> <span class="n">UpdateView</span>
-
-<span class="kn">from</span> <span class="nn">braces.views</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>
-
-<span class="kn">from</span> <span class="nn">pets.forms</span> <span class="kn">import</span> <span class="n">PetForm</span>
-
-<span class="k">class</span> <span class="nc">PetCreateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">CreateView</span><span class="p">):</span>
-
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
-    <span class="n">form_class</span> <span class="o">=</span> <span class="n">PetForm</span>
-
-    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
-        <span class="n">pet</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-        <span class="n">pet</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="n">base36</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">pet</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span>
-        <span class="n">pet</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span>
-        <span class="c"># Save again - it&#39;s not taking THAT many server cycles AND we needed</span>
-        <span class="c">#    the pet.pk in advance to generate the pet.identifier</span>
-        <span class="n">pet</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">PetCreateView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">form_valid</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">GetPetMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Any view that needs to get a Pet object can use this Mixin</span>
-
-<span class="sd">        Pet Cheatsheet&#39;s owner&#39;s pet information is private, because it</span>
-<span class="sd">            includes emergency contact information that often includes phone</span>
-<span class="sd">            numbers, email addresses, and even physical addresses of family</span>
-<span class="sd">            members and friends.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">pet</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Pet</span><span class="p">,</span> <span class="n">identifier</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;identifier&#39;</span><span class="p">])</span>
-
-        <span class="k">if</span> <span class="n">pet</span><span class="o">.</span><span class="n">owner</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
-            <span class="c"># Rather than a &#39;forbidden&#39; result, we want to show a &#39;Pet Not</span>
-            <span class="c">#    Found&#39; page so we can educate site users.</span>
-            <span class="k">raise</span> <span class="n">Http404</span>
-        <span class="k">return</span> <span class="n">pet</span>
-
-<span class="k">class</span> <span class="nc">PetDetailView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">GetPetMixin</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">class</span> <span class="nc">PetUpdateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">GetPetMixin</span><span class="p">,</span> <span class="n">UpdateView</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
-    <span class="n">form_class</span> <span class="o">=</span> <span class="n">PetForm</span>
-
-<span class="k">class</span> <span class="nc">PetPDFView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">GetPetMixin</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
-
-    <span class="c"># snip: lots of code for rendering the PDFs.</span>
-</pre></div>
-<p>Then we wire up the views into the urls:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
-
-<span class="kn">from</span> <span class="nn">pets</span> <span class="kn">import</span> <span class="n">views</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span>
-
-    <span class="n">url</span><span class="p">(</span>
-        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^build-cheatsheet/$&quot;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">PetCreateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&quot;pet_create&quot;</span><span class="p">,</span>
-    <span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span>
-        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^update/(?P&lt;identifier&gt;[\w\d]+)/(?P&lt;slug&gt;[\w\d\-\_]+)/$&quot;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">PetUpdateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&quot;pet_update&quot;</span><span class="p">,</span>
-    <span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span>
-        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^(?P&lt;identifier&gt;[\w\d]+)/(?P&lt;slug&gt;[\w\d\-\_]+)/$&quot;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">PetDetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&quot;pet_detail&quot;</span><span class="p">,</span>
-    <span class="p">),</span>
-    <span class="c"># snip: a lot of other views</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="result">
-<h2>Result</h2>
-<p>In the image below you can see how Marko's URL has his own unique identifier, along with his name. I can change the name in the URL or even in the database, but so long as I don't modify the identifying part of the URL (<tt class="docutils literal">1m</tt>), his information always shows up.</p>
-<a class="reference external image-reference" href="http://petcheatsheets.com"><img alt="petcheatsheets-url-example.png" class="img-polaroid align-center" id="pet-cheatsheets-url-example" src="static/petcheatsheets-url-example.png" /></a>
-</div>
-<p>There are <a href="./case-study-url-design-for-petcheatsheetscom.html#disqus_thread">comments</a>.</p>
+</footer><!-- /.post-info --><p>I'll admit it, I love a good rant. I respect those who can give rants well. I would list the ones I really like, but I'm not sure I want to deal with the arguments that would follow. ;-)</p>
+<p>Of course, as much as I like to read or listen to them, I also like to give them. As of 11/26/2012 there are 2 on this <a class="reference external" href="http://pydanny.com/tag/rant.html">blog</a> and 26 on my <a class="reference external" href="http://pydanny.blogspot.com/search/label/rant">old blog</a>.</p>
+<p>Unfortunately, I have a problem in giving rants. It ties with this unfortunate trait I possess where if I let myself get angry I say things that destroy relationships. No, I'm not giving examples, but there you are.</p>
+<p>So when I do rant, I try to never do so in anger. Especially when it's the written word. Instead, I try to do so under one of the following conditions:</p>
+<ul class="simple">
+<li>I need to be a whimsical mood.</li>
+<li>OR I need to be willing to submit a solution.</li>
+<li>OR I need to be willing to accept a solution, even if it means work.</li>
+<li>OR I need to be willing to create a solution.</li>
+<li>OR the object of the rant must be an easy target to flame.</li>
+</ul>
+<p>There are <a href="./thoughts-on-ranting.html#disqus_thread">comments</a>.</p>
                 </article>
                 
             </aside><!-- /#featured -->
@@ -209,6 +90,40 @@
                     <ol id="posts-list" class="hfeed">
             
         
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href="./case-study-url-design-for-petcheatsheetscom.html" rel="bookmark" title="Permalink to Case Study: URL Design for petcheatsheets.com">Case Study: URL Design for petcheatsheets.com</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2012-11-21T22:00:00">
+                Wed 21 November 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/django.html">django</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/howto.html">howto</a> <a href="./tag/casestudy.html">casestudy</a> <a href="./tag/hackathon.html">hackathon</a> </p>
+
+
+</footer><!-- /.post-info -->
+                <p><strong>Backstory:</strong> On Saturday, November 17, 2012 <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> and I decided to participate in the <a class="reference external" href="https://twitter.com/petcentric">Petcentric</a> hackathon, a Los Angeles area Pet-themed product/coding contest held at <a class="reference external" href="http://www.amplify.la/">Amplify</a>. We arrived a bit late, but armed with Audrey's idea of creating a pet based reference sheet for owners, pet sitters ...</p>
+                <a class="readmore" href="./case-study-url-design-for-petcheatsheetscom.html">read more</a>
+                <p>There are <a href="./case-study-url-design-for-petcheatsheetscom.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         
@@ -234,7 +149,7 @@
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/howto.html">howto</a><a href="./tag/django-CBVs.html">django-CBVs</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/howto.html">howto</a> <a href="./tag/django-CBVs.html">django-CBVs</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -268,7 +183,7 @@
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/LA.html">LA</a><a href="./tag/sprint.html">sprint</a><a href="./tag/hackathon.html">hackathon</a><a href="./tag/nodejs.html">nodejs</a><a href="./tag/ruby.html">ruby</a><a href="./tag/rails.html">rails</a><a href="./tag/clojure.html">clojure</a><a href="./tag/php.html">php</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/LA.html">LA</a> <a href="./tag/sprint.html">sprint</a> <a href="./tag/hackathon.html">hackathon</a> <a href="./tag/nodejs.html">nodejs</a> <a href="./tag/ruby.html">ruby</a> <a href="./tag/rails.html">rails</a> <a href="./tag/clojure.html">clojure</a> <a href="./tag/php.html">php</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -304,7 +219,7 @@
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/pycon.html">pycon</a><a href="./tag/django.html">django</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/pycon.html">pycon</a> <a href="./tag/django.html">django</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -338,7 +253,7 @@
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/tools.html">tools</a><a href="./tag/howto.html">howto</a><a href="./tag/setup.html">setup</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/tools.html">tools</a> <a href="./tag/howto.html">howto</a> <a href="./tag/setup.html">setup</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -372,7 +287,7 @@
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/tools.html">tools</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/tools.html">tools</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -412,7 +327,7 @@
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/howto.html">howto</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/howto.html">howto</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -446,7 +361,7 @@
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/pycon.html">pycon</a><a href="./tag/django.html">django</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/pycon.html">pycon</a> <a href="./tag/django.html">django</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -481,7 +396,7 @@
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/pycon.html">pycon</a><a href="./tag/meme.html">meme</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/pycon.html">pycon</a> <a href="./tag/meme.html">meme</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -518,7 +433,7 @@
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/javascript.html">javascript</a><a href="./tag/vs.html">vs</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/javascript.html">javascript</a> <a href="./tag/vs.html">vs</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -558,7 +473,7 @@
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/djangodash.html">djangodash</a><a href="./tag/setup.html">setup</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/djangodash.html">djangodash</a> <a href="./tag/setup.html">setup</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -594,7 +509,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/blog.html">blog</a>. </p>
-<p>tags: <a href="./tag/nasa.html">nasa</a><a href="./tag/science.html">science</a><a href="./tag/python.html">python</a><a href="./tag/django.html">django</a></p>
+<p>tags: <a href="./tag/nasa.html">nasa</a> <a href="./tag/science.html">science</a> <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -628,7 +543,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/django.html">django</a><a href="./tag/djangocon.html">djangocon</a><a href="./tag/pyladies.html">pyladies</a><a href="./tag/dsf.html">dsf</a></p>
+<p>tags: <a href="./tag/django.html">django</a> <a href="./tag/djangocon.html">djangocon</a> <a href="./tag/pyladies.html">pyladies</a> <a href="./tag/dsf.html">dsf</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -662,7 +577,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/functions.html">functions</a><a href="./tag/howto.html">howto</a><a href="./tag/django.html">django</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/functions.html">functions</a> <a href="./tag/howto.html">howto</a> <a href="./tag/django.html">django</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -696,7 +611,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/howto.html">howto</a><a href="./tag/django-CBVs.html">django-CBVs</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/howto.html">howto</a> <a href="./tag/django-CBVs.html">django-CBVs</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -731,7 +646,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/php.html">php</a><a href="./tag/la.html">la</a><a href="./tag/clojure.html">clojure</a><a href="./tag/perl.html">perl</a><a href="./tag/ruby.html">ruby</a><a href="./tag/nodejs.html">nodejs</a><a href="./tag/meteor.html">meteor</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/php.html">php</a> <a href="./tag/la.html">la</a> <a href="./tag/clojure.html">clojure</a> <a href="./tag/perl.html">perl</a> <a href="./tag/ruby.html">ruby</a> <a href="./tag/nodejs.html">nodejs</a> <a href="./tag/meteor.html">meteor</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -765,7 +680,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/wsgi.html">wsgi</a><a href="./tag/howto.html">howto</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/wsgi.html">wsgi</a> <a href="./tag/howto.html">howto</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -799,7 +714,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/philippines.html">philippines</a><a href="./tag/pycon.html">pycon</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/philippines.html">philippines</a> <a href="./tag/pycon.html">pycon</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -836,7 +751,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/philippines.html">philippines</a><a href="./tag/pycon.html">pycon</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/philippines.html">philippines</a> <a href="./tag/pycon.html">pycon</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -871,7 +786,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/philippines.html">philippines</a><a href="./tag/pycon.html">pycon</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/philippines.html">philippines</a> <a href="./tag/pycon.html">pycon</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -905,7 +820,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/howto.html">howto</a><a href="./tag/django-CBVs.html">django-CBVs</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/howto.html">howto</a> <a href="./tag/django-CBVs.html">django-CBVs</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -942,7 +857,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/howto.html">howto</a><a href="./tag/django-CBVs.html">django-CBVs</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/howto.html">howto</a> <a href="./tag/django-CBVs.html">django-CBVs</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -977,7 +892,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/los-angeles.html">los-angeles</a><a href="./tag/lahackathons.html">lahackathons</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/los-angeles.html">los-angeles</a> <a href="./tag/lahackathons.html">lahackathons</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1015,7 +930,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/europe.html">europe</a><a href="./tag/djangocon.html">djangocon</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/europe.html">europe</a> <a href="./tag/djangocon.html">djangocon</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1056,7 +971,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/css.html">css</a><a href="./tag/usability.html">usability</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/css.html">css</a> <a href="./tag/usability.html">usability</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1091,7 +1006,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/api.html">api</a><a href="./tag/review.html">review</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/api.html">api</a> <a href="./tag/review.html">review</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1130,7 +1045,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/setup.html">setup</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/setup.html">setup</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1167,7 +1082,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/LA.html">LA</a><a href="./tag/sprint.html">sprint</a><a href="./tag/hackathon.html">hackathon</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/LA.html">LA</a> <a href="./tag/sprint.html">sprint</a> <a href="./tag/hackathon.html">hackathon</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1202,7 +1117,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/djangocon.html">djangocon</a><a href="./tag/mongodb.html">mongodb</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/djangocon.html">djangocon</a> <a href="./tag/mongodb.html">mongodb</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1237,7 +1152,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/blog.html">blog</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/blog.html">blog</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/blog.html">blog</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1273,7 +1188,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1308,7 +1223,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/OAuth.html">OAuth</a><a href="./tag/api.html">api</a><a href="./tag/Consumer-Notebook.html">Consumer-Notebook</a><a href="./tag/pycon.html">pycon</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/OAuth.html">OAuth</a> <a href="./tag/api.html">api</a> <a href="./tag/Consumer-Notebook.html">Consumer-Notebook</a> <a href="./tag/pycon.html">pycon</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1342,7 +1257,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/OAuth.html">OAuth</a><a href="./tag/api.html">api</a><a href="./tag/Consumer-Notebook.html">Consumer-Notebook</a><a href="./tag/rant.html">rant</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/OAuth.html">OAuth</a> <a href="./tag/api.html">api</a> <a href="./tag/Consumer-Notebook.html">Consumer-Notebook</a> <a href="./tag/rant.html">rant</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1376,7 +1291,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/django.html">django</a><a href="./tag/heroku.html">heroku</a><a href="./tag/consumernotebook.html">consumernotebook</a><a href="./tag/mongodb.html">mongodb</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/heroku.html">heroku</a> <a href="./tag/consumernotebook.html">consumernotebook</a> <a href="./tag/mongodb.html">mongodb</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1410,7 +1325,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/tools.html">tools</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/tools.html">tools</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1444,7 +1359,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/pycon.html">pycon</a><a href="./tag/audrey.html">audrey</a><a href="./tag/australia.html">australia</a><a href="./tag/review.html">review</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/pycon.html">pycon</a> <a href="./tag/audrey.html">audrey</a> <a href="./tag/australia.html">australia</a> <a href="./tag/review.html">review</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1479,7 +1394,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/pycon.html">pycon</a><a href="./tag/consumernotebook.html">consumernotebook</a><a href="./tag/django.html">django</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/pycon.html">pycon</a> <a href="./tag/consumernotebook.html">consumernotebook</a> <a href="./tag/django.html">django</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1517,7 +1432,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/pycon.html">pycon</a><a href="./tag/audrey.html">audrey</a><a href="./tag/consumernotebook.html">consumernotebook</a><a href="./tag/django.html">django</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/pycon.html">pycon</a> <a href="./tag/audrey.html">audrey</a> <a href="./tag/consumernotebook.html">consumernotebook</a> <a href="./tag/django.html">django</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1552,7 +1467,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/python.html">python</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/mongodb.html">mongodb</a><a href="./tag/howto.html">howto</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/mongodb.html">mongodb</a> <a href="./tag/howto.html">howto</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1590,7 +1505,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/django.html">django</a>. </p>
-<p>tags: <a href="./tag/django.html">django</a><a href="./tag/python.html">python</a></p>
+<p>tags: <a href="./tag/django.html">django</a> <a href="./tag/python.html">python</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1624,7 +1539,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/audrey.html">audrey</a>. </p>
-<p>tags: <a href="./tag/pycon.html">pycon</a><a href="./tag/audrey.html">audrey</a></p>
+<p>tags: <a href="./tag/pycon.html">pycon</a> <a href="./tag/audrey.html">audrey</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1659,7 +1574,7 @@ I'm going to bump the versions on some of the existing packages and add some new
         </address>
         
 <p>In <a href="./category/blog.html">blog</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/blog.html">blog</a></p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/blog.html">blog</a> </p>
 
 
 </footer><!-- /.post-info -->
@@ -1707,7 +1622,7 @@ SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
         </address>
         
 <p>In <a href="./category/blog.html">blog</a>. </p>
-<p>tags: <a href="./tag/ruby.html">ruby</a><a href="./tag/blog.html">blog</a></p>
+<p>tags: <a href="./tag/ruby.html">ruby</a> <a href="./tag/blog.html">blog</a> </p>
 
 
 </footer><!-- /.post-info -->
