@@ -91,8 +91,8 @@ Unfortunately, I keep seeing developers tinkering on the settings for Django CBV
     #       lookup time.
     class StuffDetailView(generic.DetailView):
         model = Stuff
-        template_name = "stuffage/stuffs.html" line of code
-        context_object_name = 'stuff'  # Unnecessary, why not go with the default 'object'?
+        template_name = "stuffage/stuffs.html"
+        context_object_name = 'stuff'
         
 **unfortunately tinkered stuffage/urls.py**
         
