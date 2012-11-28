@@ -53,8 +53,167 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./thoughts-on-ranting.html">Thoughts on ranting</a></h1> 
+                    <h1 class="entry-title"><a href="./stay-with-the-django-cbv-defaults.html">Stay with the Django CBV defaults!</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-11-27T16:00:00">
+                Tue 27 November 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href="./category/django.html">django</a>. </p>
+<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/rant.html">rant</a> <a href="./tag/django.html">django</a> <a href="./tag/python.html">python</a> <a href="./tag/howto.html">howto</a> </p>
+
+
+</footer><!-- /.post-info --><p>One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity.</p>
+<p>For example, here is a straight-forward Django model , <tt class="docutils literal">stuffage.models.Stuff</tt> that has a <tt class="docutils literal">get_absolute_url</tt> method:</p>
+<p><strong>stuffage/views.py</strong>:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
+
+<span class="kn">from</span> <span class="nn">stuffage.models</span> <span class="kn">import</span> <span class="n">Stuff</span>
+
+<span class="k">class</span> <span class="nc">StuffDetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
+
+<span class="k">class</span> <span class="nc">StuffListView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
+
+<span class="k">class</span> <span class="nc">StuffCreateView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">CreateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
+
+<span class="k">class</span> <span class="nc">StuffUpdateView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">UpdateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
+</pre></div>
+<p><strong>stuffage/urls.py</strong>:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">include</span>
+
+<span class="kn">from</span> <span class="nn">stuffage</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span>
+
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^create/$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffCreateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_create&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^update/(?P&lt;pk&gt;\d+)/$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffUpdateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_update&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^(?P&lt;pk&gt;\d+)/$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffDetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_detail&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+<p>These four CBVs will default to the following three templates without any action on my part:</p>
+<pre class="literal-block">
+stuffage/stuff_detail.html (StuffDetailView)
+stuffage/stuff_form.html (StuffCreateView, StuffUpdateView)
+stuffage/stuff_list.html (StuffListView)
+</pre>
+<p>So easy I use a simple script to render all this code!</p>
+<div class="section" id="what-about-doing-this-all-in-the-urls-py">
+<h2>What about doing this all in the urls.py?</h2>
+<p>Yes, I could do this all in the <cite>urls.py</cite>, but real Django code involves doing some logic in views, no matter how skinny you try to make said views. While I'm a huge proponent of logic in fat models, invariably I'm adding to the view context, or doing something else that requires tweaking of CBV settings.</p>
+</div>
+<div class="section" id="the-problem">
+<h2>The problem</h2>
+<p>One trait of developers is we like to <strong>tinker</strong>.</p>
+<p>Unfortunately, I keep seeing developers tinkering on the settings for Django CBVs without any reason besides tinkeringWhich means you get things like:</p>
+<p><strong>unfortunately tinkered stuffage/views.py</strong></p>
+<div class="highlight"><pre><span class="c"># 1. Using template_name means extra code and extra developer lookup time.</span>
+<span class="c"># 2. Changing the context_object_name means extra code  and extra developer</span>
+<span class="c">#       lookup time.</span>
+<span class="k">class</span> <span class="nc">StuffDetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&quot;stuffage/stuffs.html&quot;</span> <span class="n">line</span> <span class="n">of</span> <span class="n">code</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s">&#39;stuff&#39;</span>  <span class="c"># Unnecessary, why not go with the default &#39;object&#39;?</span>
+</pre></div>
+<p><strong>unfortunately tinkered stuffage/urls.py</strong></p>
+<div class="highlight"><pre><span class="c"># 1. Logic into your URLConf should be kept to a minimum</span>
+<span class="c"># 2. Unless you are using the same view more than once, specifying the</span>
+<span class="c">#       template_name here is a waste of code. And makes it harder to</span>
+<span class="c">#       understand the view.</span>
+<span class="n">url</span><span class="p">(</span>
+    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s">&quot;stuffage/stuffs.html&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+<span class="p">),</span>
+
+<span class="c"># No matter how fat your models get, you always end up extending all views,</span>
+<span class="c">#   so this will have to be moved into the formal views.py at some point. So</span>
+<span class="c">#   why not start with it in the views.py in the first place.</span>
+<span class="n">url</span><span class="p">(</span>
+    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="n">ListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">Stuff</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s">&quot;stuffage/stuffs.html&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+<span class="p">),</span>
+</pre></div>
+<p>Don't forget you can also tinker/tweak formats and slug/pk identifier defaults, and a ton of other things that are part of Django CBVs. While this gives you great power, if misused that power can cause grief in terms of code obfuscation and the need for additional testing.</p>
+<p>My opinion is that these defaults were meant as a standard for the CBV to operate, upon which developers familiar with the Django CBV API could extend and expand their code for minimal effort. Yes, you can tweak them to match your preferred patterns, but that's extra work. Work you shouldn't be doing if you can avoid it.</p>
+</div>
+<div class="section" id="my-advice">
+<h2>My Advice</h2>
+<p>Stick with the defaults and only modify behavior that actually needs to be modified. For example, if you want to show multiple versions of a ListView you might do something like:</p>
+<p><strong>stuffage/urls.py with a pydanny approved use of template_name</strong></p>
+<div class="highlight"><pre><span class="n">url</span><span class="p">(</span>
+    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+<span class="p">),</span>
+
+<span class="c"># Same view but with a template designed to show larger list items.</span>
+<span class="n">url</span><span class="p">(</span>
+    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^large/$&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s">&quot;stuffage/stuff_list_large.html&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list_large&quot;</span><span class="p">,</span>
+<span class="p">),</span>
+</pre></div>
+</div>
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>This is the pattern I follow when I build projects. I stick to the framework standard as much as possible. Since many systems rely on convention over configuration, this makes it easier and faster to develop projects, be it Django, Twisted, or some other tool.</p>
+<p>It's the work you can see in my <a class="reference external" href="http://petcheatsheets.com">recent</a> <a class="reference external" href="http://movehero.io">public</a> <a class="reference external" href="http://lacurrents.com">projects</a>, and what I want to port to long existing sites like <a class="reference external" href="http://djangopackages.com">Django Packages</a>.</p>
+</div>
+<p>There are <a href="./stay-with-the-django-cbv-defaults.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href="./thoughts-on-ranting.html" rel="bookmark" title="Permalink to Thoughts on ranting">Thoughts on ranting</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-11-26T16:00:00">
                 Mon 26 November 2012
         </abbr>
@@ -68,28 +227,13 @@
 <p>tags: <a href="./tag/blog.html">blog</a> <a href="./tag/rant.html">rant</a> <a href="./tag/family.html">family</a> <a href="./tag/friends.html">friends</a> </p>
 
 
-</footer><!-- /.post-info --><p>I'll admit it, I love a good rant. I respect those who can give rants well. I would list the ones I really like, but I'm not sure I want to deal with the arguments that would follow. ;-)</p>
-<p>Of course, as much as I like to read or listen to them, I also like to give them. As of 11/26/2012 there are 2 on this <a class="reference external" href="http://pydanny.com/tag/rant.html">blog</a> and 26 on my <a class="reference external" href="http://pydanny.blogspot.com/search/label/rant">old blog</a>.</p>
-<p>Unfortunately, I have a problem in giving rants. It ties with this unfortunate trait I possess where if I let myself get angry I say things that destroy relationships. No, I'm not giving examples, but there you are.</p>
-<p>So when I do rant, I try to never do so in anger. Especially when it's the written word. Instead, I try to do so under one of the following conditions:</p>
-<ul class="simple">
-<li>I need to be a whimsical mood.</li>
-<li>OR I need to be willing to submit a solution.</li>
-<li>OR I need to be willing to accept a solution, even if it means work.</li>
-<li>OR I need to be willing to create a solution.</li>
-<li>OR the object of the rant must be an easy target to flame.</li>
-</ul>
-<p>There are <a href="./thoughts-on-ranting.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>I'll admit it, I love a good rant. I respect those who can give rants well. I would list the ones I really like, but I'm not sure I want to deal with the arguments that would follow. ;-)</p>
+<p>Of course, as much as I like to read or ...</p>
+                <a class="readmore" href="./thoughts-on-ranting.html">read more</a>
+                <p>There are <a href="./thoughts-on-ranting.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

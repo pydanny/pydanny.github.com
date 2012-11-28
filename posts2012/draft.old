@@ -1,0 +1,77 @@
+======================================
+WYSIWYG friendly twitter embeds
+======================================
+
+:date: 2012-11-27 16:00
+:tags: python, django, howto
+:category: python
+
+Twitter allows you to `embed tweets`_ in your content, which is their implementation of the OEMBED format .In fact, if you inspect the details of a  tweet, you can just grab their HTML code and paste something like the following into a web page:
+
+.. code-block:: html
+
+    <blockquote class="twitter-tweet"><p>Open source as much as you can.</p>
+        &mdash; Daniel Greenfeld (@pydanny) 
+        <a href="https://twitter.com/pydanny/status/273567287922008064"
+        data-datetime="2012-11-27T23:21:38+00:00">November 27,
+        2012</a></blockquote>
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+The problem
+===========
+
+The downside with this approach is that end users trying to do this with WYSIWYG editors always complain. It's all too easy for them to break the tweet somehow.
+
+.. _`embed tweets`: https://dev.twitter.com/docs/embedded-tweets
+
+Fortunately, you can also grab Twitter links ( https://twitter.com/pydanny/status/273567287922008064) and shortcodes (`[tweet https://twitter.com/pydanny/status/273567287922008064]`) at the same place. You have the end user paste this into their content, and then with a handy Javascript/JQuery library you can have the client browser handling the OEMBED call. Which means somewhere in your content template you end up with code like:
+
+.. code-block:: javascript
+
+    // sample code taken from https://code.google.com/p/jquery-oembed/
+    $(document).ready(function() {
+        $("#container").oembed("https://twitter.com/pydanny/status/273567287922008064");
+    });
+
+This works great until you need to provide copies of the content via AJAX, RSS, or ATOM from a non-javascript system. In which case this approach fails.
+
+The answer that I've found for Python is simple, and relies on regular expressions and the python-requests library.
+
+.. code-block:: python
+
+    import re
+    import requests  # don't forget to "pip install requests"!
+    
+    URL = "https://api.twitter.com/1/statuses/oembed.json?id={0}"
+    SHORTCODE_REGEX = r"https://twitter.com/[\w_]+/status/(?P<pk>\d+)"
+    
+    def get_twitter_oembeds(text):
+        for pk in re.findall(SHORTCODE_REGEX, text):
+            url = URL.format(pk)
+            response = requests.get(url)
+            if response.status_code == 200:
+                tweet = response.json['html']
+                text = text.replace(shortcode, tweet)
+        return text
+        
+Works great!
+
+However, Twitter places very small throttling limits on how many times you can hit their API. They recommend you place the pulled data into your caching framework, but if you have a lot of content and your caching system goes down, then you are dealing with not just refilling of your cache, but also the Twitter API limits.
+
+My answer to this is to create a secondary content field whose role is to simply store the OEMBED-ed text. So in Django ORM terms (This will work fine in SQLAlchemy_) I create something like this:
+
+.. _SQLAlchemy: http://www.sqlalchemy.org/
+
+.. code-block:: python+django
+
+    class Article(models.Model):
+    
+        body = models.TextField()
+        final_body = models.TextField(null=True, blank=True)
+
+        def save(self, *args, **kwargs):
+            # Could have done this as a signal, but this is so much easier to
+            #   read, comprehend, and maintain.
+            if len(self.body):
+                self.final_body = get_twitter_oembeds(self.body)
+            super(Article, self).save(*args, **kwargs)
