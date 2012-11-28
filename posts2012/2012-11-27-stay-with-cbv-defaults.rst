@@ -8,7 +8,7 @@ Stay with the Django CBV defaults!
 
 One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity. 
 
-For example, here is a straight-forward Django model , ``stuffage.models.Stuff`` that has a ``get_absolute_url`` method:
+For example, here is an implementation of CBVs based on a straight-forward Django model , ``stuffage.models.Stuff``, that has a ``get_absolute_url`` method:
 
 **stuffage/views.py**:
 

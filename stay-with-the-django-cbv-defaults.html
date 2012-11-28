@@ -74,7 +74,7 @@
 
 </footer><!-- /.post-info -->
       <p>One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity.</p>
-<p>For example, here is a straight-forward Django model , <tt class="docutils literal">stuffage.models.Stuff</tt> that has a <tt class="docutils literal">get_absolute_url</tt> method:</p>
+<p>For example, here is an implementation of CBVs based on a straight-forward Django model , <tt class="docutils literal">stuffage.models.Stuff</tt>, that has a <tt class="docutils literal">get_absolute_url</tt> method:</p>
 <p><strong>stuffage/views.py</strong>:</p>
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
 
@@ -142,8 +142,8 @@ stuffage/stuff_list.html (StuffListView)
 <span class="c">#       lookup time.</span>
 <span class="k">class</span> <span class="nc">StuffDetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
-    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&quot;stuffage/stuffs.html&quot;</span> <span class="n">line</span> <span class="n">of</span> <span class="n">code</span>
-    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s">&#39;stuff&#39;</span>  <span class="c"># Unnecessary, why not go with the default &#39;object&#39;?</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&quot;stuffage/stuffs.html&quot;</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s">&#39;stuff&#39;</span>
 </pre></div>
 <p><strong>unfortunately tinkered stuffage/urls.py</strong></p>
 <div class="highlight"><pre><span class="c"># 1. Logic into your URLConf should be kept to a minimum</span>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-11-27T16:00:00Z</updated><entry><title>Stay with the Django CBV defaults!</title><link href="http://pydanny.com/stay-with-the-django-cbv-defaults.html" rel="alternate"></link><updated>2012-11-27T16:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/stay-with-the-django-cbv-defaults.html</id><summary type="html">&lt;p&gt;One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity.&lt;/p&gt;
-&lt;p&gt;For example, here is a straight-forward Django model , &lt;tt class="docutils literal"&gt;stuffage.models.Stuff&lt;/tt&gt; that has a &lt;tt class="docutils literal"&gt;get_absolute_url&lt;/tt&gt; method:&lt;/p&gt;
+&lt;p&gt;For example, here is an implementation of CBVs based on a straight-forward Django model , &lt;tt class="docutils literal"&gt;stuffage.models.Stuff&lt;/tt&gt;, that has a &lt;tt class="docutils literal"&gt;get_absolute_url&lt;/tt&gt; method:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;stuffage/views.py&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.views&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;generic&lt;/span&gt;
 
@@ -68,8 +68,8 @@ stuffage/stuff_list.html (StuffListView)
 &lt;span class="c"&gt;#       lookup time.&lt;/span&gt;
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;StuffDetailView&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;generic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DetailView&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Stuff&lt;/span&gt;
-    &lt;span class="n"&gt;template_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;stuffage/stuffs.html&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;
-    &lt;span class="n"&gt;context_object_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;stuff&amp;#39;&lt;/span&gt;  &lt;span class="c"&gt;# Unnecessary, why not go with the default &amp;#39;object&amp;#39;?&lt;/span&gt;
+    &lt;span class="n"&gt;template_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;stuffage/stuffs.html&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;context_object_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;stuff&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;unfortunately tinkered stuffage/urls.py&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# 1. Logic into your URLConf should be kept to a minimum&lt;/span&gt;
@@ -120,7 +120,7 @@ stuffage/stuff_list.html (StuffListView)
 &lt;p&gt;It's the work you can see in my &lt;a class="reference external" href="http://petcheatsheets.com"&gt;recent&lt;/a&gt; &lt;a class="reference external" href="http://movehero.io"&gt;public&lt;/a&gt; &lt;a class="reference external" href="http://lacurrents.com"&gt;projects&lt;/a&gt;, and what I want to port to long existing sites like &lt;a class="reference external" href="http://djangopackages.com"&gt;Django Packages&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="rant"></category><category term="django"></category><category term="python"></category><category term="howto"></category></entry><entry><title>Stay with the Django CBV defaults!</title><link href="http://pydanny.com/stay-with-the-django-cbv-defaults.html" rel="alternate"></link><updated>2012-11-27T16:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/stay-with-the-django-cbv-defaults.html</id><summary type="html">&lt;p&gt;One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity.&lt;/p&gt;
-&lt;p&gt;For example, here is a straight-forward Django model , &lt;tt class="docutils literal"&gt;stuffage.models.Stuff&lt;/tt&gt; that has a &lt;tt class="docutils literal"&gt;get_absolute_url&lt;/tt&gt; method:&lt;/p&gt;
+&lt;p&gt;For example, here is an implementation of CBVs based on a straight-forward Django model , &lt;tt class="docutils literal"&gt;stuffage.models.Stuff&lt;/tt&gt;, that has a &lt;tt class="docutils literal"&gt;get_absolute_url&lt;/tt&gt; method:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;stuffage/views.py&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.views&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;generic&lt;/span&gt;
 
@@ -188,8 +188,8 @@ stuffage/stuff_list.html (StuffListView)
 &lt;span class="c"&gt;#       lookup time.&lt;/span&gt;
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;StuffDetailView&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;generic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DetailView&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Stuff&lt;/span&gt;
-    &lt;span class="n"&gt;template_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;stuffage/stuffs.html&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;
-    &lt;span class="n"&gt;context_object_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;stuff&amp;#39;&lt;/span&gt;  &lt;span class="c"&gt;# Unnecessary, why not go with the default &amp;#39;object&amp;#39;?&lt;/span&gt;
+    &lt;span class="n"&gt;template_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;stuffage/stuffs.html&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;context_object_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;stuff&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;unfortunately tinkered stuffage/urls.py&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# 1. Logic into your URLConf should be kept to a minimum&lt;/span&gt;
