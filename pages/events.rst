@@ -45,7 +45,7 @@ December 2012
 
 * 12/14 Washington, DC
 
-    Visiting
+    Visiting on a VERY brief trip
 
 January 2013
 =============
