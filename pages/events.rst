@@ -34,7 +34,7 @@ December 2012
     
 * 12/8 `Price..less Show at Hive Gallery`_
 
-    Attending as my fiancee `Audrey Roy`_ open her first show in Los Angeles!
+    Attending as my fiancee `Audrey Roy`_ opens her first show in Los Angeles!
 
 .. _`Price..less Show at Hive Gallery`: http://lacurrents.com/articles/price-less-hive-gallery/
 .. _`Audrey Roy`: http://audreymroy
