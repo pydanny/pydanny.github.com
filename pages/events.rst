@@ -66,7 +66,7 @@ March 2013
 
 * 3/13: PyCon US
 
-    Attending, presenting a tutorial, perhaps speaking
+    Attending, perhaps speaking
 
 ----
     
