@@ -13,11 +13,37 @@ December 2012
 
     Competing
     
-* 12/8 Data Journalism Summit Los Angeles
+* 12/3 `Lean Startup Simulcast`_
 
-    Participating
+    Competing
+    
+.. _`Lean Startup Simulcast`: http://lean-startup-sfv.eventbrite.com/
 
-* 12/? Washington, DC
+* 12/6 `Tech Cocktail's Los Angeles Mixer & Startup Showcase`_
+
+    Presenting http://movehero.co as a featured startup!
+
+.. _`Tech Cocktail's Los Angeles Mixer & Startup Showcase`: http://lacurrents.com/articles/tech-cocktail-la-december-2012/
+    
+* 12/8 `Data Journalism Summit Los Angeles`_
+
+    Presenting and participating
+
+.. _`Data Journalism Summit Los Angeles`: http://lacurrents.com/articles/data-journalism-summit-a-twoday-hackathon/
+
+    
+* 12/8 `Price..less Show at Hive Gallery`_
+
+    Attending as my fiancee `Audrey Roy`_ open her first show in Los Angeles!
+
+.. _`Price..less Show at Hive Gallery`: http://lacurrents.com/articles/price-less-hive-gallery/
+.. _`Audrey Roy`: http://audreymroy
+
+* 12/11 SoCal Python December Meetup
+
+    Attending
+
+* 12/14 Washington, DC
 
     Visiting
 
@@ -40,7 +66,7 @@ March 2013
 
 * 3/13: PyCon US
 
-    Attending, perhaps speaking
+    Attending, presenting a tutorial, perhaps speaking
 
 ----
     
