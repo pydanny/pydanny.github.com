@@ -18,7 +18,7 @@ This tweet got retweeted a lot by developers. And system administrators. And dat
 Why did this resonate?
 =======================
 
-What I said in that tweet was not new - dozens if not hundreds of others have said it before and gotten many retweets. Heck, it's been written about in blogs and articles for years, either as a huge rant or often as an effort to politely educate others on how to set up a developer/operations/creative shop.
+What I said in that tweet was not new - dozens if not hundreds of others have tweeted similar thoughts before and gotten many retweets. Heck, it's been written about in blogs and articles for years, either as a huge rant or often as an effort to politely educate others on how to set up a developer/operations/creative shop.
 
 I think this is because developers/engineers/creatives (and good managers) know that even a tiny distraction to someone "in the zone" takes more than just the 3-5 minutes it takes for you to finish a question and get an answer. Plus, because you are trying to remember the pieces in your head, you won't be able to give this issue your full attention. Which causes a whole other set of issues.
 
