@@ -22,7 +22,7 @@ What I said in that tweet was not new - dozens if not hundreds of others have tw
 
 I think this is because developers/engineers/creatives (and good managers) know that even a tiny distraction to someone "in the zone" takes more than just the 3-5 minutes it takes for you to finish a question and get an answer. Plus, because you are trying to remember the pieces in your head, you won't be able to give this issue your full attention. Which causes a whole other set of issues.
 
-We know this. Good managers know this. 
+We know this. Good managers know this. Good companies live off of it.
 
 And yet this remains a huge problem for many of us because the distractions keep happening. Maybe it's because your manager doesn't understand this issue, or you have a team mate who can switch in-and-out of the zone with impunity. Or because you foolishly leave the chat/IRC/phone on and you get pinged.
 
