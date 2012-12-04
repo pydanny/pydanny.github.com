@@ -41,6 +41,8 @@ I know this sounds depressing, but I'm being realistic. Here's some reasons that
 
 * Your boss/co-workers/underlings/kids/pets/parents don't get it that you can't be interrupted.
 
+* As a freelancer, you can't be inaccessible to existing or potential clients. 
+
 No really, how do we fix it?
 =============================
 
