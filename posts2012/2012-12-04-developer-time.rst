@@ -16,8 +16,6 @@ As of the time of this posting it had been retweeted over 170 times, a personal 
 
     <blockquote class="twitter-tweet"><p>Developers should have 4-6 hours of uninterrupted activity each day. Each 3-5 minute interruption costs more than you can imagine.</p>&mdash; Daniel Greenfeld (@pydanny) <a href="https://twitter.com/pydanny/status/275680738773463040" data-datetime="2012-12-03T19:19:44+00:00">December 3, 2012</a></blockquote>
     <script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    
-
 
 Why did this tweet resonate with so many people?
 ================================================
