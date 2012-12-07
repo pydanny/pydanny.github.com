@@ -10,7 +10,7 @@ This blog post got started with a tweet.
 
 That tweet got retweeted a lot by developers. And system administrators. And database administrators. And any creative type. 
 
-As of the time of this posting it had been retweeted over 170 times, a personal best. Obviously I struck a chord that resonated with a lot of people.
+As of the time of this posting it had been retweeted over 170 times (update: over 500 times within 3 days after writing this post), a personal best. Obviously I struck a chord that resonated with a lot of people.
 
 .. raw:: html
 
