@@ -7,8 +7,8 @@
 &lt;li&gt;Rachel Estabrook&lt;/li&gt;
 &lt;li&gt;Carlos Hernandez&lt;/li&gt;
 &lt;li&gt;Scott Smith&lt;/li&gt;
-&lt;li&gt;&amp;lt;a href=&amp;quot;&lt;a class="reference external" href="http://latinocalifornia.com"&gt;http://latinocalifornia.com&lt;/a&gt;&amp;quot;&amp;gt;Agustin Duran&amp;lt;/a&amp;gt;&lt;/li&gt;
-&lt;li&gt;&amp;lt;a href=&amp;quot;&lt;a class="reference external" href="http://pydanny.com"&gt;http://pydanny.com&lt;/a&gt;&amp;quot;&amp;gt;Daniel Greenfeld&amp;lt;/a&amp;gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://latinocalifornia.com"&gt;Agustin Duran&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://pydanny.com"&gt;Daniel Greenfeld&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </summary><category term="hackathon"></category><category term="lahackthons"></category><category term="Los Angeles"></category></entry><entry><title>Case Study: URL Design for petcheatsheets.com</title><link href="http://pydanny.com/case-study-url-design-for-petcheatsheetscom.html" rel="alternate"></link><updated>2012-11-21T22:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/case-study-url-design-for-petcheatsheetscom.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Backstory:&lt;/strong&gt; On Saturday, November 17, 2012 &lt;a class="reference external" href="http://audreymroy.com"&gt;Audrey Roy&lt;/a&gt; and I decided to participate in the &lt;a class="reference external" href="https://twitter.com/petcentric"&gt;Petcentric&lt;/a&gt; hackathon, a Los Angeles area Pet-themed product/coding contest held at &lt;a class="reference external" href="http://www.amplify.la/"&gt;Amplify&lt;/a&gt;. We arrived a bit late, but armed with Audrey's idea of creating a pet based reference sheet for owners, pet sitters, vets, and anyone else needing a card with data on pets, we got to work. About eight hours later we toggled a DNS switch and &lt;a class="reference external" href="https://www.petcheatsheets.com"&gt;petcheatsheets.com&lt;/a&gt; was live.&lt;/p&gt;

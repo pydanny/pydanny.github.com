@@ -20,5 +20,8 @@ Credits
 * Rachel Estabrook
 * Carlos Hernandez
 * Scott Smith
-* <a href="http://latinocalifornia.com">Agustin Duran</a>
-* <a href="http://pydanny.com">Daniel Greenfeld</a>
+* `Agustin Duran`_
+* `Daniel Greenfeld`_
+
+.. _`Agustin Duran`: http://latinocalifornia.com
+.. _`Daniel Greenfeld`: http://pydanny.com
