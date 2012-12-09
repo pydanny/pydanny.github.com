@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/Los%20Angeles.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-12-09T15:00:00Z</updated><entry><title>LA Migration Hackathon Charts</title><link href="http://pydanny.com/la-migration-hackathon-charts.html" rel="alternate"></link><updated>2012-12-09T15:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/la-migration-hackathon-charts.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I'll be adding more to this shortly. This serves as a placeholder.&lt;/p&gt;
-&lt;p&gt;Our concept was to measure the effect of changing immigrant laws per state compared to income differences between regions. So far we implemented the income difference trends between states.&lt;/p&gt;
-&lt;iframe width="760" height="760" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=MAP&amp;amp;q=select+col0%3E%3E1+from+1Bl8lPwB3pVDbXlaS902K8yl_QNarQ2ogwXUaShA&amp;amp;h=false&amp;amp;lat=39.39259824852082&amp;amp;lng=-93.5076772155&amp;amp;z=4&amp;amp;t=1&amp;amp;l=col0%3E%3E1&amp;amp;y=2&amp;amp;tmplt=2"&gt;&lt;/iframe&gt;&lt;div class="section" id="credits"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/Los%20Angeles.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-12-09T15:00:00Z</updated><entry><title>LA Migration Hackathon Charts</title><link href="http://pydanny.com/la-migration-hackathon-charts.html" rel="alternate"></link><updated>2012-12-09T15:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/la-migration-hackathon-charts.html</id><summary type="html">&lt;p&gt;Our concept was to measure the effect of changing immigrant laws per state compared to income differences between regions. We present the following:&lt;/p&gt;
+&lt;div class="section" id="median-income-over-5-years-between-states"&gt;
+&lt;h2&gt;Median Income over 5 years between States&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; We will convert this to percentages this week. For now it is in (median income / 500).&lt;/p&gt;
+&lt;iframe width="760" height="760" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=MAP&amp;amp;q=select+col0%3E%3E1+from+1Bl8lPwB3pVDbXlaS902K8yl_QNarQ2ogwXUaShA&amp;amp;h=false&amp;amp;lat=39.39259824852082&amp;amp;lng=-93.5076772155&amp;amp;z=4&amp;amp;t=1&amp;amp;l=col0%3E%3E1&amp;amp;y=2&amp;amp;tmplt=2"&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;div class="section" id="deportation-numbers-per-state"&gt;
+&lt;h2&gt;Deportation Numbers per State&lt;/h2&gt;
+&lt;iframe width="760" height="760" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=MAP&amp;q=select+col0%3E%3E1+from+1jAhJfABP602AwQ4UcxWBf4E4NFP7Pvr3XzYhiTM&amp;h=false&amp;lat=42.70555953636265&amp;lng=-91.66197409050005&amp;z=4&amp;t=1&amp;l=col0%3E%3E1&amp;y=2&amp;tmplt=2"&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;div class="section" id="credits"&gt;
 &lt;h2&gt;Credits&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Rachel Estabrook&lt;/li&gt;
