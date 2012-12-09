@@ -17,8 +17,8 @@ Our concept was to measure the effect of changing immigrant laws per state compa
 Credits
 =========
 
-* Daniel Greenfeld
 * Rachel Estabrook
 * Carlos Hernandez
 * Scott Smith
-* Agustin Duran
+* <a href="http://latinocalifornia.com">Agustin Duran</a>
+* <a href="http://pydanny.com">Daniel Greenfeld</a>
