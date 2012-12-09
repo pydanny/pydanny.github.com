@@ -53,8 +53,64 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././case-study-url-design-for-petcheatsheetscom.html">Case Study: URL Design for petcheatsheets.com</a></h1> 
+                    <h1 class="entry-title"><a href=".././la-migration-hackathon-charts.html">LA Migration Hackathon Charts</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-12-09T15:00:00">
+                Sun 09 December 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/blog.html">blog</a>. </p>
+<p>Tags: <a href=".././tag/hackathon.html">hackathon</a> <a href=".././tag/lahackthons.html">lahackthons</a> <a href=".././tag/Los Angeles.html">Los Angeles</a> </p>
+
+
+<p>Sites: 
+    <a href="http://movehero.co">Move Hero</a>
+    <a href="http://petcheatsheets.com">Pet CheatSheets</a><br />
+    <a href="http://djangopackages.com">Django Packages</a>
+    <a href="http://cartwheelweb.com">Cartwheel Web</a>
+</footer><!-- /.post-info --><p><strong>Note:</strong> I'll be adding more to this shortly. This serves as a placeholder.</p>
+<p>Our concept was to measure the effect of changing immigrant laws per state compared to income differences between regions. So far we implemented the income difference trends between states.</p>
+<iframe width="760" height="760" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=MAP&amp;q=select+col0%3E%3E1+from+1Bl8lPwB3pVDbXlaS902K8yl_QNarQ2ogwXUaShA&amp;h=false&amp;lat=39.39259824852082&amp;lng=-93.5076772155&amp;z=4&amp;t=1&amp;l=col0%3E%3E1&amp;y=2&amp;tmplt=2"></iframe><div class="section" id="credits">
+<h2>Credits</h2>
+<ul class="simple">
+<li>Daniel Greenfeld</li>
+<li>Rachel Estabrook</li>
+<li>Carlos Hernandez</li>
+<li>Scott Smith</li>
+<li>Agustin Duran</li>
+</ul>
+</div>
+<p>There are <a href=".././la-migration-hackathon-charts.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././case-study-url-design-for-petcheatsheetscom.html" rel="bookmark" title="Permalink to Case Study: URL Design for petcheatsheets.com">Case Study: URL Design for petcheatsheets.com</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-11-21T22:00:00">
                 Wed 21 November 2012
         </abbr>
@@ -73,147 +129,12 @@
     <a href="http://petcheatsheets.com">Pet CheatSheets</a><br />
     <a href="http://djangopackages.com">Django Packages</a>
     <a href="http://cartwheelweb.com">Cartwheel Web</a>
-</footer><!-- /.post-info --><p><strong>Backstory:</strong> On Saturday, November 17, 2012 <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> and I decided to participate in the <a class="reference external" href="https://twitter.com/petcentric">Petcentric</a> hackathon, a Los Angeles area Pet-themed product/coding contest held at <a class="reference external" href="http://www.amplify.la/">Amplify</a>. We arrived a bit late, but armed with Audrey's idea of creating a pet based reference sheet for owners, pet sitters, vets, and anyone else needing a card with data on pets, we got to work. About eight hours later we toggled a DNS switch and <a class="reference external" href="https://www.petcheatsheets.com">petcheatsheets.com</a> was live.</p>
-<p><strong>Update:</strong> Pet Cheatsheet's owner's pet information is private, because it includes emergency contact information that often includes phone numbers, email addresses, and even physical addresses of family members and friends. Maintaining the privacy of pets and their owners was also a consideration in implementation.</p>
-<div class="section" id="url-design-thoughts">
-<h2>URL Design Thoughts</h2>
-<p>During development, one of the things I considered carefully was URL design of the primary feature, which was pets. The obvious choice was to go with a design that identified owners with pets:</p>
-<pre class="literal-block">
-/&lt;owner_username&gt;/&lt;pet_name&gt;/
-</pre>
-<p>However, upon reflection, this didn't sit well with me. What if a pet changed owners? Identifying a pet with a particular owner in the URL meant that if we ever added a 'transfer ownership' feature, there would be extra work. Also, if we ever implemented a sharing feature, changing URLs on a pet going to the same veterinarian their whole life might make the veterinarian's list of pets and their URLs invalid.</p>
-<p>With that in mind, I decided to go with an identifier and pet name, where the pet name was actually not used in the lookup:</p>
-<pre class="literal-block">
-/&lt;pet_id&gt;/&lt;pet_name:not_required&gt;/
-</pre>
-<p>One more thing, rather than just use the <strong>pet</strong> table's primary key as <tt class="docutils literal">&lt;pet_id&gt;</tt> I decided to go with base36 (0-9 and a-z) encoding. It's not unlike what URL shortening services do, and if we gained any traction, it makes recitation of a pet's URL easier. So the final result was actually:</p>
-<pre class="literal-block">
-/&lt;pet_id:base_36_encoded&gt;/&lt;pet_name:not_required&gt;/
-</pre>
-</div>
-<div class="section" id="implementation">
-<h2>Implementation</h2>
-<p>Here's a simplified view of the final implementation, starting with the model:</p>
-<div class="highlight"><pre><span class="c"># pets/models.py</span>
-<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
-
-<span class="k">class</span> <span class="nc">Pet</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-
-    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;Pet&#39;s name&quot;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-    <span class="n">identifier</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&quot;identifier&quot;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-        <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">db_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="c"># More fields...</span>
-</pre></div>
-<p>Then the form:</p>
-<div class="highlight"><pre><span class="c"># pets/forms.py</span>
-<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
-
-<span class="kn">from</span> <span class="nn">pets.models</span> <span class="kn">import</span> <span class="n">Pet</span>
-
-<span class="k">class</span> <span class="nc">PetForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
-
-    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
-        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="p">)</span> <span class="c"># more fields</span>
-</pre></div>
-<p>With model and form, we build the views:</p>
-<div class="highlight"><pre><span class="c"># pets/views.py</span>
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span>
-<span class="kn">from</span> <span class="nn">django.utils.baseconv</span> <span class="kn">import</span> <span class="n">base36</span>
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">CreateView</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">,</span> <span class="n">UpdateView</span>
-
-<span class="kn">from</span> <span class="nn">braces.views</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>
-
-<span class="kn">from</span> <span class="nn">pets.forms</span> <span class="kn">import</span> <span class="n">PetForm</span>
-
-<span class="k">class</span> <span class="nc">PetCreateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">CreateView</span><span class="p">):</span>
-
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
-    <span class="n">form_class</span> <span class="o">=</span> <span class="n">PetForm</span>
-
-    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
-        <span class="n">pet</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-        <span class="n">pet</span><span class="o">.</span><span class="n">identifier</span> <span class="o">=</span> <span class="n">base36</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">pet</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span>
-        <span class="n">pet</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span>
-        <span class="c"># Save again - it&#39;s not taking THAT many server cycles AND we needed</span>
-        <span class="c">#    the pet.pk in advance to generate the pet.identifier</span>
-        <span class="n">pet</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">PetCreateView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">form_valid</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">GetPetMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Any view that needs to get a Pet object can use this Mixin</span>
-
-<span class="sd">        Pet Cheatsheet&#39;s owner&#39;s pet information is private, because it</span>
-<span class="sd">            includes emergency contact information that often includes phone</span>
-<span class="sd">            numbers, email addresses, and even physical addresses of family</span>
-<span class="sd">            members and friends.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">pet</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Pet</span><span class="p">,</span> <span class="n">identifier</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;identifier&#39;</span><span class="p">])</span>
-
-        <span class="k">if</span> <span class="n">pet</span><span class="o">.</span><span class="n">owner</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
-            <span class="c"># Rather than a &#39;forbidden&#39; result, we want to show a &#39;Pet Not</span>
-            <span class="c">#    Found&#39; page so we can educate site users.</span>
-            <span class="k">raise</span> <span class="n">Http404</span>
-        <span class="k">return</span> <span class="n">pet</span>
-
-<span class="k">class</span> <span class="nc">PetDetailView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">GetPetMixin</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">class</span> <span class="nc">PetUpdateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">GetPetMixin</span><span class="p">,</span> <span class="n">UpdateView</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
-    <span class="n">form_class</span> <span class="o">=</span> <span class="n">PetForm</span>
-
-<span class="k">class</span> <span class="nc">PetPDFView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">GetPetMixin</span><span class="p">,</span> <span class="n">DetailView</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Pet</span>
-
-    <span class="c"># snip: lots of code for rendering the PDFs.</span>
-</pre></div>
-<p>Then we wire up the views into the urls:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
-
-<span class="kn">from</span> <span class="nn">pets</span> <span class="kn">import</span> <span class="n">views</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span>
-
-    <span class="n">url</span><span class="p">(</span>
-        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^build-cheatsheet/$&quot;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">PetCreateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&quot;pet_create&quot;</span><span class="p">,</span>
-    <span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span>
-        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^update/(?P&lt;identifier&gt;[\w\d]+)/(?P&lt;slug&gt;[\w\d\-\_]+)/$&quot;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">PetUpdateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&quot;pet_update&quot;</span><span class="p">,</span>
-    <span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span>
-        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^(?P&lt;identifier&gt;[\w\d]+)/(?P&lt;slug&gt;[\w\d\-\_]+)/$&quot;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">PetDetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&quot;pet_detail&quot;</span><span class="p">,</span>
-    <span class="p">),</span>
-    <span class="c"># snip: a lot of other views</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="result">
-<h2>Result</h2>
-<p>In the image below you can see how Marko's URL has his own unique identifier, along with his name. I can change the name in the URL or even in the database, but so long as I don't modify the identifying part of the URL (<tt class="docutils literal">1m</tt>), his information always shows up.</p>
-<a class="reference external image-reference" href="http://petcheatsheets.com"><img alt="petcheatsheets-url-example.png" class="img-polaroid align-center" id="pet-cheatsheets-url-example" src="../static/petcheatsheets-url-example.png" /></a>
-</div>
-<p>There are <a href=".././case-study-url-design-for-petcheatsheetscom.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p><strong>Backstory:</strong> On Saturday, November 17, 2012 <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> and I decided to participate in the <a class="reference external" href="https://twitter.com/petcentric">Petcentric</a> hackathon, a Los Angeles area Pet-themed product/coding contest held at <a class="reference external" href="http://www.amplify.la/">Amplify</a>. We arrived a bit late, but armed with Audrey's idea of creating a pet based reference sheet for owners, pet sitters ...</p>
+                <a class="readmore" href=".././case-study-url-design-for-petcheatsheetscom.html">read more</a>
+                <p>There are <a href=".././case-study-url-design-for-petcheatsheetscom.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/all.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-12-04T12:00:00Z</updated><entry><title>Developer Time</title><link href="http://pydanny.com/developer-time.html" rel="alternate"></link><updated>2012-12-04T12:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/developer-time.html</id><summary type="html">&lt;p&gt;This blog post got started with a tweet.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/all.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-12-09T15:00:00Z</updated><entry><title>LA Migration Hackathon Charts</title><link href="http://pydanny.com/la-migration-hackathon-charts.html" rel="alternate"></link><updated>2012-12-09T15:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/la-migration-hackathon-charts.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I'll be adding more to this shortly. This serves as a placeholder.&lt;/p&gt;
+&lt;p&gt;Our concept was to measure the effect of changing immigrant laws per state compared to income differences between regions. So far we implemented the income difference trends between states.&lt;/p&gt;
+&lt;iframe width="760" height="760" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=MAP&amp;amp;q=select+col0%3E%3E1+from+1Bl8lPwB3pVDbXlaS902K8yl_QNarQ2ogwXUaShA&amp;amp;h=false&amp;amp;lat=39.39259824852082&amp;amp;lng=-93.5076772155&amp;amp;z=4&amp;amp;t=1&amp;amp;l=col0%3E%3E1&amp;amp;y=2&amp;amp;tmplt=2"&gt;&lt;/iframe&gt;&lt;div class="section" id="credits"&gt;
+&lt;h2&gt;Credits&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Daniel Greenfeld&lt;/li&gt;
+&lt;li&gt;Rachel Estabrook&lt;/li&gt;
+&lt;li&gt;Carlos Hernandez&lt;/li&gt;
+&lt;li&gt;Scott Smith&lt;/li&gt;
+&lt;li&gt;Agustin Duran&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</summary><category term="hackathon"></category><category term="lahackthons"></category><category term="Los Angeles"></category></entry><entry><title>Developer Time</title><link href="http://pydanny.com/developer-time.html" rel="alternate"></link><updated>2012-12-04T12:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/developer-time.html</id><summary type="html">&lt;p&gt;This blog post got started with a tweet.&lt;/p&gt;
 &lt;p&gt;That tweet got retweeted a lot by developers. And system administrators. And database administrators. And any creative type.&lt;/p&gt;
 &lt;p&gt;As of December 7th, 2012, it had been retweeted over 500 times, a personal best. Obviously I struck a chord that resonated with a lot of people.&lt;/p&gt;
 &lt;blockquote class="twitter-tweet"&gt;&lt;p&gt;Developers should have 4-6 hours of uninterrupted activity each day. Each 3-5 minute interruption costs more than you can imagine.&lt;/p&gt;&amp;mdash; Daniel Greenfeld (@pydanny) &lt;a href="https://twitter.com/pydanny/status/275680738773463040" data-datetime="2012-12-03T19:19:44+00:00"&gt;December 3, 2012&lt;/a&gt;&lt;/blockquote&gt;
