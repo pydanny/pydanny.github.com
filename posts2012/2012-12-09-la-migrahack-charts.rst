@@ -8,8 +8,7 @@ Result of our LA Migration Hackathon submission
 
 Possible Causes of for Internal Migration of Undocumented People
 =================================================================
-
-Our concept was to measure the effect of changing immigrant laws per state compared to income differences between regions. We present the following:
+Our concept was to measure the effect of changing immigrant laws per state compared to income differences between regions. We present the following, which will be on it's own hosted site shortly:
 
 Median Income over 5 years between States
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
