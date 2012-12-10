@@ -25,14 +25,14 @@ Undocumented immigrants by state per year
 
 .. raw:: html
 
-    <iframe width="760" height="760" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=MAP&amp;q=select+col0%3E%3E1+from+1b96_5ZHL9DT0JcKVTBY5vbBbB_yMQ2B7Z8Cclog&amp;h=false&amp;lat=38.94970122997403&amp;lng=-97.59459127800005&amp;z=5&amp;t=1&amp;l=col0%3E%3E1&amp;y=2&amp;tmplt=2"></iframe>
+    <iframe width="760" height="760" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=MAP&amp;q=select+col0%3E%3E1+from+1b96_5ZHL9DT0JcKVTBY5vbBbB_yMQ2B7Z8Cclog&amp;h=false&amp;lat=38.94970122997403&amp;lng=-97.59459127800005&amp;z=4&amp;t=1&amp;l=col0%3E%3E1&amp;y=2&amp;tmplt=2"></iframe>
 
 Deportation Numbers per State
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
-    <iframe width="760" height="760" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=MAP&q=select+col0%3E%3E1+from+1jAhJfABP602AwQ4UcxWBf4E4NFP7Pvr3XzYhiTM&h=false&lat=42.70555953636265&lng=-91.66197409050005&z=4&t=1&l=col0%3E%3E1&y=2&tmplt=2"></iframe>
+    <iframe width="760" height="760" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=MAP&q=select+col0%3E%3E1+from+1jAhJfABP602AwQ4UcxWBf4E4NFP7Pvr3XzYhiTM&h=false&lat=39.39259824852082&amp;lng=-93.5076772155&z=4&t=1&l=col0%3E%3E1&y=2&tmplt=2"></iframe>
 
 
 
