@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/lahackthons.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-12-09T15:00:00Z</updated><entry><title>Result of our LA Migration Hackathon submission</title><link href="http://pydanny.com/result-of-our-la-migration-hackathon-submission.html" rel="alternate"></link><updated>2012-12-09T15:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/result-of-our-la-migration-hackathon-submission.html</id><summary type="html">&lt;div class="section" id="possible-causes-of-for-internal-migration-of-undocumented-people"&gt;
 &lt;h2&gt;Possible Causes of for Internal Migration of Undocumented People&lt;/h2&gt;
-&lt;p&gt;Our concept was to measure the effect of changing immigrant laws per state compared to income differences between regions. We present the following:&lt;/p&gt;
+&lt;p&gt;Our concept was to measure the effect of changing immigrant laws per state compared to income differences between regions. We present the following, which will be on it's own hosted site shortly:&lt;/p&gt;
 &lt;div class="section" id="median-income-over-5-years-between-states"&gt;
 &lt;h3&gt;Median Income over 5 years between States&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; We will convert this chart to percentages this week. For now it is in (median income / 500).&lt;/p&gt;
