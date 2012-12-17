@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/misc.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-06-23T05:24:08Z</updated><entry><title></title><link href="http://pydanny.com/.html" rel="alternate"></link><updated>2012-06-23T05:24:08Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;hello I am free
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;#39;one&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;#39;two&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="s"&gt;&amp;#39;three&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
-&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/misc.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-12-14T14:53:35Z</updated><entry><title></title><link href="http://pydanny.com/.html" rel="alternate"></link><updated>2012-12-14T14:53:35Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/.html</id><summary type="html"></summary></entry><entry><title></title><link href="http://pydanny.com/.html" rel="alternate"></link><updated>2012-12-12T15:58:47Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/.html</id><summary type="html">&lt;!-- djangobook documentation master file, created by
+sphinx-quickstart on Wed Dec 12 15:58:47 2012.
+You can adapt this file completely to your liking, but it should at least
+contain the root `toctree` directive. --&gt;
+&lt;div class="section" id="welcome-to-djangobook-s-documentation"&gt;
+&lt;h2&gt;Welcome to djangobook's documentation!&lt;/h2&gt;
+&lt;p&gt;Contents:&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;./index.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
+&lt;p&gt;Unknown directive type &amp;quot;toctree&amp;quot;.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+.. toctree::
+   :maxdepth: 2
+
+
+
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="indices-and-tables"&gt;
+&lt;h2&gt;Indices and tables&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;:ref:`genindex`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;./index.rst&lt;/tt&gt;, line 19); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role &amp;quot;ref&amp;quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a href="#id3"&gt;&lt;span class="problematic" id="id4"&gt;:ref:`modindex`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-message" id="id3"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;./index.rst&lt;/tt&gt;, line 20); &lt;em&gt;&lt;a href="#id4"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role &amp;quot;ref&amp;quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a href="#id5"&gt;&lt;span class="problematic" id="id6"&gt;:ref:`search`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="system-message" id="id5"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;./index.rst&lt;/tt&gt;, line 21); &lt;em&gt;&lt;a href="#id6"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Unknown interpreted text role &amp;quot;ref&amp;quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 </summary></entry></feed>
