@@ -53,8 +53,211 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././django-getorcreateview.html">Django GetOrCreateView</a></h1> 
+                    <h1 class="entry-title"><a href=".././stay-with-the-django-cbv-defaults.html">Stay with the Django CBV defaults!</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-11-27T16:00:00">
+                Tue 27 November 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/django.html">django</a>. </p>
+<p>Tags: <a href=".././tag/python.html">python</a> <a href=".././tag/rant.html">rant</a> <a href=".././tag/django.html">django</a> <a href=".././tag/python.html">python</a> <a href=".././tag/howto.html">howto</a> <a href=".././tag/django-CBVs.html">django-CBVs</a> </p>
+
+
+<p>Sites: 
+    <a href="http://movehero.co">Move Hero</a>
+    <a href="http://petcheatsheets.com">Pet CheatSheets</a><br />
+    <a href="http://djangopackages.com">Django Packages</a>
+    <a href="http://cartwheelweb.com">Cartwheel Web</a>
+</footer><!-- /.post-info --><p>One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity.</p>
+<p>For example, here is an implementation of CBVs based on a straight-forward Django model , <tt class="docutils literal">stuffage.models.Stuff</tt>, that has a <tt class="docutils literal">get_absolute_url</tt> method:</p>
+<p><strong>stuffage/views.py</strong>:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
+
+<span class="kn">from</span> <span class="nn">stuffage.models</span> <span class="kn">import</span> <span class="n">Stuff</span>
+
+<span class="k">class</span> <span class="nc">StuffDetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
+
+<span class="k">class</span> <span class="nc">StuffListView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
+
+<span class="k">class</span> <span class="nc">StuffCreateView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">CreateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
+
+<span class="k">class</span> <span class="nc">StuffUpdateView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">UpdateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
+</pre></div>
+<p><strong>stuffage/urls.py</strong>:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">include</span>
+
+<span class="kn">from</span> <span class="nn">stuffage</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span>
+
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^create/$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffCreateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_create&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^update/(?P&lt;pk&gt;\d+)/$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffUpdateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_update&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^(?P&lt;pk&gt;\d+)/$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffDetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_detail&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span>
+        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+        <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+<p>These four CBVs will default to the following three templates without any action on my part:</p>
+<pre class="literal-block">
+stuffage/stuff_detail.html (StuffDetailView)
+stuffage/stuff_form.html (StuffCreateView, StuffUpdateView)
+stuffage/stuff_list.html (StuffListView)
+</pre>
+<p>So easy I use a simple script to render all this code!</p>
+<div class="section" id="what-about-doing-this-all-in-the-urls-py">
+<h2>What about doing this all in the urls.py?</h2>
+<p>Yes, I could do this all in the <cite>urls.py</cite>, but real Django code involves doing some logic in views, no matter how skinny you try to make said views. While I'm a huge proponent of logic in fat models, invariably I'm adding to the view context, or doing something else that requires tweaking of CBV settings.</p>
+</div>
+<div class="section" id="the-problem">
+<h2>The problem</h2>
+<p>One trait of developers is we like to <strong>tinker</strong>.</p>
+<p>Unfortunately, I keep seeing developers tinkering on the settings for Django CBVs without any reason besides tinkeringWhich means you get things like:</p>
+<p><strong>unfortunately tinkered stuffage/views.py</strong></p>
+<div class="highlight"><pre><span class="c"># 1. Using template_name means extra code and extra developer lookup time.</span>
+<span class="c"># 2. Changing the context_object_name means extra code  and extra developer</span>
+<span class="c">#       lookup time.</span>
+<span class="k">class</span> <span class="nc">StuffDetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&quot;stuffage/stuffs.html&quot;</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s">&#39;stuff&#39;</span>
+</pre></div>
+<p><strong>unfortunately tinkered stuffage/urls.py</strong></p>
+<div class="highlight"><pre><span class="c"># 1. Logic into your URLConf should be kept to a minimum</span>
+<span class="c"># 2. Unless you are using the same view more than once, specifying the</span>
+<span class="c">#       template_name here is a waste of code. And makes it harder to</span>
+<span class="c">#       understand the view.</span>
+<span class="n">url</span><span class="p">(</span>
+    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s">&quot;stuffage/stuffs.html&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+<span class="p">),</span>
+
+<span class="c"># No matter how fat your models get, you always end up extending all views,</span>
+<span class="c">#   so this will have to be moved into the formal views.py at some point. So</span>
+<span class="c">#   why not start with it in the views.py in the first place.</span>
+<span class="n">url</span><span class="p">(</span>
+    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="n">ListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">Stuff</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s">&quot;stuffage/stuffs.html&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+<span class="p">),</span>
+</pre></div>
+<p>Don't forget you can also tinker/tweak formats and slug/pk identifier defaults, and a ton of other things that are part of Django CBVs. While this gives you great power, if misused that power can cause grief in terms of code obfuscation and the need for additional testing.</p>
+<p>My opinion is that these defaults were meant as a standard for the CBV to operate, upon which developers familiar with the Django CBV API could extend and expand their code for minimal effort. Yes, you can tweak them to match your preferred patterns, but that's extra work. Work you shouldn't be doing if you can avoid it.</p>
+</div>
+<div class="section" id="my-advice">
+<h2>My Advice</h2>
+<p>Stick with the defaults and only modify behavior that actually needs to be modified. For example, if you want to show multiple versions of a ListView you might do something like:</p>
+<p><strong>stuffage/urls.py with a pydanny approved use of template_name</strong></p>
+<div class="highlight"><pre><span class="n">url</span><span class="p">(</span>
+    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+<span class="p">),</span>
+
+<span class="c"># Same view but with a template designed to show larger list items.</span>
+<span class="n">url</span><span class="p">(</span>
+    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^large/$&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s">&quot;stuffage/stuff_list_large.html&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list_large&quot;</span><span class="p">,</span>
+<span class="p">),</span>
+</pre></div>
+</div>
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>This is the pattern I follow when I build projects. I stick to the framework standard as much as possible. Since many systems rely on convention over configuration, this makes it easier and faster to develop projects, be it Django, Twisted, or some other tool.</p>
+<p>It's the work you can see in my <a class="reference external" href="http://petcheatsheets.com">recent</a> <a class="reference external" href="http://movehero.io">public</a> <a class="reference external" href="http://lacurrents.com">projects</a>, and what I want to port to long existing sites like <a class="reference external" href="http://djangopackages.com">Django Packages</a>.</p>
+</div>
+<p>There are <a href=".././stay-with-the-django-cbv-defaults.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././case-study-url-design-for-petcheatsheetscom.html" rel="bookmark" title="Permalink to Case Study: URL Design for petcheatsheets.com">Case Study: URL Design for petcheatsheets.com</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2012-11-21T22:00:00">
+                Wed 21 November 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
+        </address>
+        
+<p>In <a href=".././category/django.html">django</a>. </p>
+<p>Tags: <a href=".././tag/python.html">python</a> <a href=".././tag/django.html">django</a> <a href=".././tag/howto.html">howto</a> <a href=".././tag/casestudy.html">casestudy</a> <a href=".././tag/hackathon.html">hackathon</a> <a href=".././tag/django-CBVs.html">django-CBVs</a> </p>
+
+
+<p>Sites: 
+    <a href="http://movehero.co">Move Hero</a>
+    <a href="http://petcheatsheets.com">Pet CheatSheets</a><br />
+    <a href="http://djangopackages.com">Django Packages</a>
+    <a href="http://cartwheelweb.com">Cartwheel Web</a>
+</footer><!-- /.post-info -->
+                <p><strong>Backstory:</strong> On Saturday, November 17, 2012 <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> and I decided to participate in the <a class="reference external" href="https://twitter.com/petcentric">Petcentric</a> hackathon, a Los Angeles area Pet-themed product/coding contest held at <a class="reference external" href="http://www.amplify.la/">Amplify</a>. We arrived a bit late, but armed with Audrey's idea of creating a pet based reference sheet for owners, pet sitters ...</p>
+                <a class="readmore" href=".././case-study-url-design-for-petcheatsheetscom.html">read more</a>
+                <p>There are <a href=".././case-study-url-design-for-petcheatsheetscom.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                        <h1><a href=".././django-getorcreateview.html" rel="bookmark" title="Permalink to Django GetOrCreateView">Django GetOrCreateView</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-10-16T22:00:00">
                 Tue 16 October 2012
         </abbr>
@@ -73,110 +276,12 @@
     <a href="http://petcheatsheets.com">Pet CheatSheets</a><br />
     <a href="http://djangopackages.com">Django Packages</a>
     <a href="http://cartwheelweb.com">Cartwheel Web</a>
-</footer><!-- /.post-info --><p>Today I decided to use the Django class based view (CBV) CreateView, but I wanted to avoid duplications and submit to the view from the front page of a site. The reason was I needed a simple newsletter signup form.  This is what I cooked up and should work for Django 1.3, 1.4, and the forthcoming 1.5 release. Here is what I did:</p>
-<div class="section" id="installed-dependencies">
-<h2>1. Installed dependencies</h2>
-<p>This version requires the following package to be <cite>pip</cite> installed into your <cite>virtualenv</cite>.</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/django-extensions/django-extensions">django-extensions</a> so we can have easy timestamps on models.</li>
-</ul>
-<p>This also needs to be added to your list of INSTALLED_APPS:</p>
-<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">+=</span> <span class="p">(</span>
-    <span class="s">&#39;django_extensions&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="defined-the-model">
-<h2>2. Defined the model</h2>
-<p>The model is really simple, and inherits from <cite>TimeStampedModel</cite> so we know when people signed up:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-
-<span class="kn">from</span> <span class="nn">django_extensions.db.models</span> <span class="kn">import</span> <span class="n">TimeStampedModel</span>
-
-<span class="k">class</span> <span class="nc">NewsLetterSignup</span><span class="p">(</span><span class="n">TimeStampedModel</span><span class="p">):</span>
-
-    <span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="s">&quot;Email&quot;</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span>
-</pre></div>
-</div>
-<div class="section" id="wrote-the-view">
-<h2>3. Wrote the view</h2>
-<p>Here's the somewhat challenging part that forced me to dive into Django's source code. Even with the documentation work we've done over the past few months, it's clear we've got a long way to go.</p>
-<p>Because of that source code diving, for this blog post I really did my best to document why I did things in the <cite>NewsLetterSignupView.form_valid()</cite> method.</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">CreateView</span>
-
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">NewsLetterSignup</span>
-
-<span class="k">class</span> <span class="nc">NewsLetterSignupView</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Signs up users to a newsletter &quot;&quot;&quot;</span>
-
-    <span class="n">model</span> <span class="o">=</span> <span class="n">NewsLetterSignup</span>
-    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&#39;/newsletter-signed-up/&#39;</span>  <span class="c"># replace with reverse</span>
-
-    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        If the form is valid, save the associated model.</span>
-<span class="sd">            (django.views.generic.edit.ModelFormMixin)</span>
-<span class="sd">        If the form is valid, redirect to the supplied URL.</span>
-<span class="sd">            (django.views.generic.edit.FormMixin)</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="c"># Get the email from the form.cleaned_data dictionary</span>
-        <span class="n">email</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
-
-        <span class="c"># Get or create the signup. We don&#39;t need to do anything with the</span>
-        <span class="c">#   model instance or created boolean so we don&#39;t set them.</span>
-        <span class="n">NewsLetterSignup</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
-
-        <span class="c"># Don&#39;t use super() to inherit as it will do a form.save()</span>
-        <span class="c"># You could call the FormMixin&#39;s form_valid() method but I think</span>
-        <span class="c">#   using a HttpResponseRedirect() much more explicit.</span>
-        <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">success_url</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="wired-it-together">
-<h2>4. Wired it together</h2>
-<p>In urls.py:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span>
-
-<span class="kn">from</span> <span class="nn">.views</span> <span class="kn">import</span> <span class="n">NewsLetterSignupView</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^newsletter-signed-up/$&#39;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">TemplateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
-            <span class="n">template_name</span><span class="o">=</span><span class="s">&quot;pages/newsletter_signed_up.html&quot;</span>
-        <span class="p">),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&#39;newsletter_signedup&#39;</span><span class="p">,</span>
-    <span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s">r&#39;^newsletter-signup/$&#39;</span><span class="p">,</span>
-        <span class="n">view</span><span class="o">=</span><span class="n">NewsLetterSignupView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&#39;news_letter_signup&#39;</span><span class="p">,</span>
-    <span class="p">),</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="closing-thoughts">
-<h2>Closing thoughts</h2>
-<p>First off, you'll notice I didn't include the <cite>pages/newsletter_signed_up.html</cite> because for this case it's too trivial.</p>
-<p>Second, this is one of those very clear cases where a functional view would have been so much easier compared to the effort I spent writing this as a class based view. The line count would have been about the same, but the mental bandwidth involved in figuring this would have been a fraction of the effort I spent.</p>
-<p>Third, this is probably better served with an implementation <cite>django.views.generic.FormView</cite>. Oh well...</p>
-<p>Fourth, I want to see a configurable version of this in the next release of <a class="reference external" href="https://github.com/brack3t/django-braces/">django-braces</a>. ;-)</p>
-</div>
-<p>There are <a href=".././django-getorcreateview.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>Today I decided to use the Django class based view (CBV) CreateView, but I wanted to avoid duplications and submit to the view from the front page of a site. The reason was I needed a simple newsletter signup form.  This is what I cooked up and should work for ...</p>
+                <a class="readmore" href=".././django-getorcreateview.html">read more</a>
+                <p>There are <a href=".././django-getorcreateview.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
         

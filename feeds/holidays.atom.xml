@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/meme.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-12-28T18:00:00Z</updated><entry><title>New Year's Python Meme 2012</title><link href="http://pydanny.com/new-years-python-meme-2012.html" rel="alternate"></link><updated>2012-12-28T18:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/new-years-python-meme-2012.html</id><summary type="html">&lt;p&gt;Tarek Ziade has a habit of ending the year with a Python-themed meme. I've matched his meme the times he previousstarted it, and as you can tell from the title of this blog post I'm matching him yet again.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/holidays.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-12-28T18:00:00Z</updated><entry><title>New Year's Python Meme 2012</title><link href="http://pydanny.com/new-years-python-meme-2012.html" rel="alternate"></link><updated>2012-12-28T18:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/new-years-python-meme-2012.html</id><summary type="html">&lt;p&gt;Tarek Ziade has a habit of ending the year with a Python-themed meme. I've matched his meme the times he previousstarted it, and as you can tell from the title of this blog post I'm matching him yet again.&lt;/p&gt;
 &lt;div class="section" id="whats-the-coolest-python-application-framework-or-library-you-have-discovered-in-2012"&gt;
 &lt;h2&gt;1. What’s the coolest Python application, framework or library you have discovered in 2012?&lt;/h2&gt;
 &lt;p&gt;This question took some thought. It was a toss-up between these three choices:&lt;/p&gt;
@@ -53,38 +53,4 @@
 &lt;li&gt;tweet it with the &lt;a class="reference external" href="https://twitter.com/search/realtime?q=%232012pythonmeme&amp;amp;src=typd"&gt;#2012pythonmeme&lt;/a&gt; hashtag&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</summary><category term="meme"></category><category term="python"></category><category term="django"></category><category term="holidays"></category></entry><entry><title>PyCon 2013 Talks/Tutorials I want to see</title><link href="http://pydanny.com/pycon-2013-talkstutorials-i-want-to-see.html" rel="alternate"></link><updated>2012-08-20T14:00:00Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/pycon-2013-talkstutorials-i-want-to-see.html</id><summary type="html">&lt;p&gt;This morning, &lt;a class="reference external" href="http://jessenoller.com/"&gt;Jesse Noller&lt;/a&gt;, the chair of PyCon US, suggested a meme, &amp;quot;&lt;a class="reference external" href="https://us.pycon.org/2013"&gt;PyCon 2013&lt;/a&gt; &lt;strong&gt;talks/tutorials I'd like to see&lt;/strong&gt;&amp;quot;. Here is my meme submission:&lt;/p&gt;
-&lt;div class="section" id="python-obfuscation-contest"&gt;
-&lt;h2&gt;1. Python Obfuscation Contest&lt;/h2&gt;
-&lt;p&gt;This &lt;strong&gt;certain-to-be-controversial talk idea&lt;/strong&gt; would be where the speaker would solicit Pythonistas to submit a single arcane &lt;a class="reference external" href="http://python.org"&gt;Python&lt;/a&gt; code module that would have to display the text of &amp;quot;&lt;em&gt;Although that way may not be obvious at first unless you're Dutch.&lt;/em&gt;&amp;quot; There would be a '&lt;em&gt;Expert&lt;/em&gt;' category which would forbid the eval/exec functions. The &amp;quot;&lt;em&gt;Anything Goes Category&lt;/em&gt;&amp;quot; would allow use of &lt;strong&gt;eval/exec&lt;/strong&gt;. The conference talk would be where the speaker announces the winners and comments on the brilliant insanity of submissions.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="python-in-space"&gt;
-&lt;h2&gt;2. Python in Space!!!!&lt;/h2&gt;
-&lt;p&gt;I want to hear any talk on how Python is used in space exploration or research. That includes NASA, SpaceX, ESA staffers or citizen scientists.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="template-language-shootout"&gt;
-&lt;h2&gt;3. Template Language Shootout&lt;/h2&gt;
-&lt;p&gt;I want a benchmark heavy talk on the raw speed of various Python template systems, complete with hard numbers and pretty charts. This isn't just a matter of speed, but also a measure of terseness and total usage. The test code will need to be made public so it can be vetted, debated, and expanded upon.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="python-3-from-scratch"&gt;
-&lt;h2&gt;4. Python 3 from scratch&lt;/h2&gt;
-&lt;p&gt;I want to see a talk that shows how by using Python 3 from the start, you content that you got a edge over Python 2.x. This case study should be as technical as possible and shouldn't have anything do with migrating from 2.x to 3.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="fun-and-games-with-numpy"&gt;
-&lt;h2&gt;5. Fun and games with NumPy&lt;/h2&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://numpy.scipy.org/"&gt;NumPy&lt;/a&gt; is an incredible library. It deserves a talk, specifically one where it is demonstrated to do something amazing. Maybe it's something scientific, maybe it's something crunching social data, maybe it's something I can't begin to imagine. Surprise and impress me!&lt;/p&gt;
-&lt;p&gt;There you go, my submission of 5 talks to the &amp;quot;&lt;a class="reference external" href="https://us.pycon.org/2013"&gt;PyCon 2013&lt;/a&gt; &lt;strong&gt;talks/tutorials I'd like to see&lt;/strong&gt;&amp;quot; meme. What do you want to see?&lt;/p&gt;
-&lt;hr class="docutils" /&gt;
-&lt;p&gt;And now it's time for...&lt;/p&gt;
-&lt;div class="section" id="a-public-service-message-to-the-python-community"&gt;
-&lt;h3&gt;A Public Service Message to the Python Community&lt;/h3&gt;
-&lt;p&gt;Hi, I'm Daniel Greenfeld. You might know me from my &lt;a class="reference external" href="http://pydanny.com"&gt;blog&lt;/a&gt;. I'm here to talk to you about a very import subject: &lt;strong&gt;Submit your talk early to PyCon US.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Last year there were hundreds of talks submitted for just a very few speaking slots. Unpaid volunteers labored for hours before and after their normal jobs reviewing and debating which talks were to get in. The volume of talks combined with simple reviewer fatigue means that earlier submitted talks get more attention.&lt;/p&gt;
-&lt;p&gt;Don't leave your poor talk or tutorial out in the cold. Help us fix the problem in one of two ways:&lt;/p&gt;
-&lt;ol class="arabic simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/speaking/cfp"&gt;Submit your talk as early as possible&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://pycon.blogspot.com/2012/07/i-want-you-for-pycon-program-commitee.html"&gt;Help review PyCon US talks&lt;/a&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</summary><category term="python"></category><category term="pycon"></category><category term="meme"></category></entry></feed>
+</summary><category term="meme"></category><category term="python"></category><category term="django"></category><category term="holidays"></category></entry></feed>
