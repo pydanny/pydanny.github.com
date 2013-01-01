@@ -32,7 +32,7 @@ I'm one of those people who not only likes to make New Year's Resolutions, I lik
 * See my old DC area friends such as Eric, Chris, Steve, Beth, Sarah, Daye, Renee, Kenneth, Leslie, Whitney, Dave, and many others.
 * Publish as least one book.
 
-**Addendum:**
+**Post NYE Addendum:**
 
 * Update my blog to Pelican 3.
 * Implement a custom theme design so my blog looks more unique. ;-)
