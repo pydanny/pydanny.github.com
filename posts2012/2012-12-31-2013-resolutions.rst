@@ -20,7 +20,7 @@ I'm one of those people who not only likes to make New Year's Resolutions, I lik
 * Take a fun class with Audrey.
 * Teach some Python or Django.
 * Build something real using Twisted as a critical component.
-* Take a high level Python class from the likes of Raymond Hettiger or David Beazly.
+* Take a high level Python class from the likes of Raymond Hettinger or David Beazley.
 * Commit to core Python
 * Visit my Son.
 * Upload all my outstanding pictures to Flickr!
@@ -31,3 +31,8 @@ I'm one of those people who not only likes to make New Year's Resolutions, I lik
 * Have a beer with Thomas, Andy, Andy, Tony, Garrick, Bernd, and the rest of Ye Aulde Gange.
 * See my old DC area friends such as Eric, Chris, Steve, Beth, Sarah, Daye, Renee, Kenneth, Leslie, Whitney, Dave, and many others.
 * Publish as least one book.
+
+**Addendum:**
+
+* Update my blog to Pelican 3.
+* Implement a custom theme design so my blog looks more unique. ;-)
