@@ -108,10 +108,9 @@ Create a ``requirements.txt`` file and install them as proper dependencies. The 
     django-debug-toolbar==0.9.4
     django-extensions==0.8
     django-floppyforms==0.4.7
-    django-registration==0.8.0
     django-heroku-memcacheify==0.1
     django-heroku-postgresify==0.2
-    django-registration==0.8.0    
+    django-registration==0.8.0
     gunicorn==0.14.2
     psycopg2==2.4.5
 
