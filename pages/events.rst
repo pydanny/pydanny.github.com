@@ -6,46 +6,6 @@ Events
 
 I attend events and speak at some of them. 
 
-December 2012
-==============
-
-* 12/1 AngelHack Los Angeles
-
-    Competing
-    
-* 12/3 `Lean Startup Simulcast`_
-
-    Competing
-    
-.. _`Lean Startup Simulcast`: http://lean-startup-sfv.eventbrite.com/
-
-* 12/6 `Tech Cocktail's Los Angeles Mixer & Startup Showcase`_
-
-    Presenting http://movehero.co as a featured startup!
-
-.. _`Tech Cocktail's Los Angeles Mixer & Startup Showcase`: http://lacurrents.com/articles/tech-cocktail-la-december-2012/
-    
-* 12/8 `Data Journalism Summit Los Angeles`_
-
-    Presenting and participating
-
-.. _`Data Journalism Summit Los Angeles`: http://lacurrents.com/articles/data-journalism-summit-a-twoday-hackathon/
-
-    
-* 12/8 `Price..less Show at Hive Gallery`_
-
-    Attending as my fiancee `Audrey Roy`_ opens her first show in Los Angeles!
-
-.. _`Price..less Show at Hive Gallery`: http://lacurrents.com/articles/price-less-hive-gallery/
-.. _`Audrey Roy`: http://audreymroy
-
-* 12/11 SoCal Python December Meetup
-
-    Attending
-
-* 12/14 Washington, DC
-
-    Visiting on a VERY brief trip
 
 January 2013
 =============
@@ -59,16 +19,18 @@ February 2013
 
 * 2/23: SCALE 11x
 
-    Attending, perhaps speaking
+    Attending
 
 March 2013
 ===========
 
 * 3/13: PyCon US
 
-    Attending, speaking_
+    * Speaking on `Advanced Django Forms Usage`_
+    * Teaching about `Wiring up Django Packages`_
     
-.. _speaking: https://us.pycon.org/2013/schedule/presentation/101/
+.. _`Advanced Django Forms Usage`: https://us.pycon.org/2013/schedule/presentation/101/
+.. _`Wiring up Django Packages`: https://us.pycon.org/2013/schedule/presentation/11/
 
 ----
     
