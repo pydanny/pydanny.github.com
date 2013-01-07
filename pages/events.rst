@@ -28,6 +28,7 @@ March 2013
 
     * Speaking on `Advanced Django Forms Usage`_
     * Teaching about `Wiring up Django Packages`_
+    * Organizing PyCon Capoeira
     
 .. _`Advanced Django Forms Usage`: https://us.pycon.org/2013/schedule/presentation/101/
 .. _`Wiring up Django Packages`: https://us.pycon.org/2013/schedule/presentation/11/
