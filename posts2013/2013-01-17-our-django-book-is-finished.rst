@@ -22,7 +22,7 @@ The result isn't a walk-through or tutorial, but a reference guide for anyone wi
 
 We tried to make the code copy/pastable, but we are constrained by the limits of PDF. While the code examples display nicely, *when pasting from Adobe Reader the leading white spaces vanish*. We apologize and ask if anyone knows how to address this issue to let us know at authors@2scoops.org.
 
-Even with an amazing cadre of technical reviewers, there is always the possibility of errors. We are going to be actively maintaing the book_, so if you find a mistake, let us know and we'll update it and send out an updated copy of the PDF to all buyers.
+Even with an amazing cadre of technical reviewers, there is always the possibility of errors. We are going to be actively maintaining the book_, so if you find a mistake, let us know and we'll update it and send out an updated copy of the PDF to all buyers.
 
 If you'd like to buy the book (or learn more about it), you can do so here: http://django.2scoops.org 
 
