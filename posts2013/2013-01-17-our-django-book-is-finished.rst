@@ -1,10 +1,11 @@
-===========================
-Our Django Book is Launched
-===========================
+============================
+Our Django Book has Launched
+============================
 
 :date: 2013-01-17 10:00
 :tags: twoscoops, resolutions, python, django, audrey, django-CBVs, heroku
 :category: book
+:slug: our-django-book-is-launched
 
 .. image:: https://s3.amazonaws.com/twoscoops/img/tsd-cover.png
    :name: Two Scoops of Django: Best Practices for Django 1.5
