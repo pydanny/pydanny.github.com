@@ -16,7 +16,7 @@ We (`Audrey Roy`_ and I) wrote a book_ on Django! It's called **Two Scoops of Dj
 
 Django, like any framework, has tips, tricks, and pitfalls that aren't documented in one place. Experienced developers know this stuff, but gleaning it off the Internet takes a lot of time. We decided to take everything we know and write it down. This book_ reflects a portion of what we documented, and if it does well we plan to follow it up with other references.
 
-If you've followed this blog or watched our talks you've know we've explained tons of Django and Python related examples. We enjoy using Django and Python to build stable, fast web applications quickly and efficiently. We've also worked  This is the book_ we would have wanted while learning the intricacies of our tools, and then kept it handy for reference.
+If you've followed this blog or watched our talks you've know we've explained tons of Django and Python related examples. We enjoy using Django and Python to build stable, fast web applications quickly and efficiently. This is the book_ we would have wanted while learning the intricacies of our tools, and then kept it handy for reference.
 
 In the book_ we cover everything from customizing the Django 1.5 User model, forms,  views, templates, security, bottleneck analysis and so much more. We tie in third-party packages from the Django and Python community. We discuss the positive patterns that allow for rapid development, and point out the anti-patterns that cause problems. 
 The result isn't a walk-through or tutorial, but a reference guide for anyone with at least a basic understanding of Django.
