@@ -44,4 +44,4 @@ Accomplished
 
 * Publish as least one book. See `Two Scoops of Django`_
 
-_`Two Scoops of Django`: http://django.2scoops.org/
+.. _`Two Scoops of Django`: http://django.2scoops.org/
