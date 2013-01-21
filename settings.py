@@ -7,6 +7,8 @@ SITENAME = 'pydanny'
 SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
           ('github', 'https://github.com/pydanny'),
           ('facebook', 'http://www.facebook.com/daniel.greenfeld'),)
-TAG_FEED = 'feeds/%s.atom.xml'
-THEME='duck'
+TAG_FEED_ATOM = 'feeds/%s.atom.xml'
+THEME='../pelican-themes/pydanny'
 TWITTER_USERNAME = 'pydanny'
+
+# pelican==2.8.1
