@@ -1,239 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <title>pydanny - OAuth</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny Atom Feed" />
-        
+  <head>
+    <meta charset="utf-8">
+    <title>pydanny - OAuth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel-Greenfeld">
 
-        <!--[if IE]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!-- Le styles -->
+    <link rel="stylesheet" href="../theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css" />
+    <link href="../theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="../theme/css/font-awesome.css" rel="stylesheet">
 
-        <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie.css"/>
-                <script src=".././js/IE8.js" type="text/javascript"></script><![endif]-->
+    <link href="../theme/css/pygments.css" rel="stylesheet">
 
-        <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie6.css"/><![endif]-->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-</head>
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="../theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../theme/images/apple-touch-icon-114x114.png">
 
-<body id="index" class="home">
-
-        <header id="banner" class="body">
-                <h1><a href="../.">pydanny </a></h1>
-                <nav><ul>
-                
-                
-                
-                    <li><a href=".././pages/about.html">About</a></li>
-                
-                    <li><a href=".././pages/events.html">Events</a></li>
-                
-                    <li><a href=".././pages/tools.html">Tools</a></li>
-                
-                
-                
-                    <li ><a href=".././category/audrey.html">Audrey</a></li>
-                
-                    <li ><a href=".././category/blog.html">Blog</a></li>
-                
-                    <li ><a href=".././category/book.html">Book</a></li>
-                
-                    <li ><a href=".././category/django.html">Django</a></li>
-                
-                    <li ><a href=".././category/python.html">Python</a></li>
-                
-                </ul></nav>
-        </header><!-- /#banner -->
-                
-
-            
-
-        
-        
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href=".././launching-our-api-at-pycon-2012.html">Launching our API at PyCon 2012</a></h1> 
-                    <footer class="post-info">
-        <abbr class="published" title="2012-03-09T07:30:00">
-                Fri 09 March 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
-        </address>
-        
-<p>In <a href=".././category/python.html">python</a>. </p>
-<p>Tags: <a href=".././tag/python.html">python</a> <a href=".././tag/django.html">django</a> <a href=".././tag/OAuth.html">OAuth</a> <a href=".././tag/api.html">api</a> <br /><a href=".././tag/Consumer-Notebook.html">Consumer-Notebook</a> <a href=".././tag/pycon.html">pycon</a> </p>
-
-
-<p>Sites: 
-    <a href="http://movehero.co">Move Hero</a>
-    <a href="http://petcheatsheets.com">Pet CheatSheets</a><br />
-    <a href="http://djangopackages.com">Django Packages</a>
-    <a href="http://cartwheelweb.com">Cartwheel Web</a>
-</footer><!-- /.post-info --><p>A few months ago me and my fiancee, <a class="reference external" href="http://audreymroy.com">Audrey Roy</a>, launched our start up, <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a>. It's a Python powered product comparison site that combines the best features of <a class="reference external" href="http://opencomparison.org">Open Comparison</a>, Yelp, Consumer Reports, and Pinterest. We've worked day and night to make it better, with countless members of the Python community using the site and giving us invaluable feedback.</p>
-<p>All of that brings us to <a class="reference external" href="http://us.pycon.org/2012/">PyCon</a>. We're not just here as attendees and participants, but also to promote our startup.  It used to be the cool thing to launch your startup at SXSW, but times have changed. Now it's the cool thing to launch at PyCon!</p>
-<p>Like Twilio, Twitter, Facebook, and Google, we've got an <a class="reference external" href="http://api.consumernotebook.com">API</a> we want developers to use. And as an upcoming startup, we've got to really be creative in how we gain your attention, so here is what we're doing for PyCon 2012:</p>
-<div class="section" id="demos-at-our-pycon-startup-row-booth">
-<h2>1. Demos at our <a class="reference external" href="https://us.pycon.org/2012/community/openspaces/capoeira/">PyCon Startup Row</a> booth.</h2>
-<p>Thanks PyCon!</p>
-<p>We've got a booth on Saturday. We've got banners and bright red track jackets. We're giving out handy API reference cards, as well as 10 different <a class="reference external" href="http://consumernotebook.com/lists/audreyr/list-of-oreo-cookie-flavors/">flavors of Oreo cookies</a> (see our site for a complete list of every Oreo cookie flavor, by the way).</p>
-<p>So stop on by, sign up for the BETA, have a cookie, and talk to us about our API. For that matter, feel free to talk to me or Audrey about the API any time you see us. We're wearing bright red jackets with '<strong>Ask me about our API</strong>' on our back.</p>
-<p>Speaking of the API, the next item on our plan is...</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="a-big-kickoff-api-contest">
-<h2>2. A big kickoff API contest.</h2>
-<p>We've put together the Consumer Notebook <a class="reference external" href="http://api.consumernotebook.com">API</a>, which lets you get product list
-and comparison data out of our site via a simple REST interface.</p>
-<p>We're kicking off our PyCon 2012 API launch with an <a class="reference external" href="http://developers.consumernotebook.com/contest.html">API contest</a>.</p>
-<p>You have from now until April 22 to find new and exciting ways to use our <a class="reference external" href="http://api.consumernotebook.com">API</a>. If you win we'll give you a Kindle Fire or equivalent gift certificate valid in your nation of origin.</p>
-<p><a class="reference external" href="http://developers.consumernotebook.com/contest.html">API Contest Details</a></p>
-<a class="reference external image-reference" href="http://www.flickr.com/photos/pydanny/6821231296/sizes/m/in/photostream/"><img alt="http://farm8.staticflickr.com/7189/6821231296_d0670e84b7_m.jpg" class="align-center" id="grid-of-python-books" src="http://farm8.staticflickr.com/7189/6821231296_d0670e84b7_m.jpg" /></a>
-</div>
-<hr class="docutils" />
-<div class="section" id="we-re-hosting-the-saturday-night-pycon-capoeira-open-space">
-<h2>3. We're hosting the Saturday night <a class="reference external" href="https://us.pycon.org/2012/community/openspaces/capoeira/">PyCon Capoeira Open Space</a></h2>
-<p>Want to see some awesome Capoeira moves? Want to learn some of the basics? Want to just have fun?</p>
-<p>We've hired professional Hollywood stuntman and Capoeira instructor to the stars, <a class="reference external" href="http://valleycapoeira.com/?page_id=7">Contra Mestre Xingu</a>, to come up from Los Angeles to lead this event. In addition to appearing in movies, videos, and commercials, he's got first hand experience with snakes. In his own words:</p>
-<blockquote class="epigraph">
-<p>Capoeira saved my life. What? How? Well it was a sunny afternoon, I was shooting a film in the Hollywood hills off Coldwater Canyon at a house. I was running back to set from the bathroom and out of nowhere a rattlesnake jumped up from the ground and tried to bite me. I quickly jumped out of the way and did a fast negative <a class="reference external" href="http://en.wikipedia.org/wiki/List_of_capoeira_techniques#Rol.C3.AA">rolé</a> away from the snake. Then I called the other people on set and we caught it. I really didn't think much of it afterwards until after the shoot. My friend told me the rattlesnake was a young one and I'm lucky I didn't get bitten.  When a younger rattler bites you, it usually unloads all of it's venom in you because it cannot control the amount it releases.</p>
-<p class="attribution">&mdash;Contra Mestre Xingu</p>
-</blockquote>
-<p>Over 30 people have signed up up for this event, including Python core developers.</p>
-<p>Details:</p>
-<pre class="literal-block">
-When: Saturday, 8pm - 10pm
-What to bring: Camera!
-What to bring if you are participating: Workout clothes, water bottle
-</pre>
-<a class="reference external image-reference" href="http://www.flickr.com/photos/pydanny/6821195620/sizes/s/in/photostream/"><img alt="http://farm8.staticflickr.com/7182/6821195620_2b7870a39c_m.jpg" class="align-center" id="location-of-the-pycon-capoeira-open-space-event" src="http://farm8.staticflickr.com/7182/6821195620_2b7870a39c_m.jpg" /></a>
-<p><strong>Location: The PyCon upstairs central open space</strong></p>
-<hr class="docutils" />
-<p>See you around!</p>
-</div>
-<p>There are <a href=".././launching-our-api-at-pycon-2012.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
-        
-        
-        
-            
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href=".././the-sorry-state-of-python-oauth-providers.html" rel="bookmark" title="Permalink to The sorry state of Python OAuth providers">The sorry state of Python OAuth providers</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-03-05T07:30:00">
-                Mon 05 March 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
-        </address>
-        
-<p>In <a href=".././category/python.html">python</a>. </p>
-<p>Tags: <a href=".././tag/python.html">python</a> <a href=".././tag/django.html">django</a> <a href=".././tag/OAuth.html">OAuth</a> <a href=".././tag/api.html">api</a> <br /><a href=".././tag/Consumer-Notebook.html">Consumer-Notebook</a> <a href=".././tag/rant.html">rant</a> </p>
-
-
-<p>Sites: 
-    <a href="http://movehero.co">Move Hero</a>
-    <a href="http://petcheatsheets.com">Pet CheatSheets</a><br />
-    <a href="http://djangopackages.com">Django Packages</a>
-    <a href="http://cartwheelweb.com">Cartwheel Web</a>
-</footer><!-- /.post-info -->
-                <p>This is one of those challenging posts to write. The people whose projects I'm going to describe have put in a lot of dedicated, hard work to overcome a challenging subject. Writing an OAuth consumer is a hard problem and writing an OAuth provider is an even harder problem ...</p>
-                <a class="readmore" href=".././the-sorry-state-of-python-oauth-providers.html">read more</a>
-                <p>There are <a href=".././the-sorry-state-of-python-oauth-providers.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-            <div class="pagination">
-<ul>
-
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
-
-
-
-    <li class="active"><a href=".././tag/OAuth.html">1</a></li>
-
-
-
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
-
-
-</ul>
-</div>
-        
-        
-            </ol><!-- /#posts-list -->
-            </section><!-- /#content -->
-        
+    <link href="../" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
     
+  </head>
 
+  <body>
 
-        <section id="extras" class="body">
+    <div class="pre-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h1 class="site-logo">
+              <a href="..">
+              <img src="../theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              </a>
+            </h1>
+          </div>
+          <div class="offset1 span5">
+            <p class="about-this-blog">
+              Hi, I'm Daniel Greenfeld, and welcome to my blog. I write about Python, Django, and much more.
+            </p>
+          </div>
+        </div>
+        <div class="pydanny-cartwheel"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+    <div class="navbar navbar-fixed-top" id="pydanny-navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href="..">Home</a></li>
+                <li><a href="../pages/about.html">About</a></li>
+                <li><a href="../pages/events.html">Events</a></li>
+                <li><a href="../pages/tools.html">Tools</a></li>
+                <li><a href="../category/audrey.html">Audrey</a></li>
+                <li><a href="../category/blog.html">Blog</a></li>
+                <li><a href="../category/book.html">Book</a></li>
+                <li><a href="../category/django.html">Django</a></li>
+                <li><a href="../category/python.html">Python</a></li>
+
+              <li><a href="../archives.html">Archives</a></li>
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+                            <div class="article">
+            <h1 class="article-title"><a href="../launching-our-api-at-pycon-2012.html">Launching our API at PyCon 2012</a></h1>
+            <p>
+                <em>Friday, March 09, 2012</em>
+                (<a href="../launching-our-api-at-pycon-2012.html" rel="bookmark" title="Permalink to Launching our API at PyCon 2012">permalink</a>)
+            </p>
+
+            <div class="summary"><p>A few months ago me and my fiancee, <a class="reference external" href="http://audreymroy.com">Audrey Roy</a>, launched our start up, <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a>. It's a Python powered product comparison site that combines the best features of <a class="reference external" href="http://opencomparison.org">Open Comparison</a>, Yelp, Consumer Reports, and Pinterest. We've worked day and night to make it better, with countless members ...</p>
+                    <a href="../launching-our-api-at-pycon-2012.html">Read more ...</a>
+            </div>
+        </div>
+        <hr />
+                <div class="article">
+            <h1 class="article-title"><a href="../the-sorry-state-of-python-oauth-providers.html">The sorry state of Python OAuth providers</a></h1>
+            <p>
+                <em>Monday, March 05, 2012</em>
+                (<a href="../the-sorry-state-of-python-oauth-providers.html" rel="bookmark" title="Permalink to The sorry state of Python OAuth providers">permalink</a>)
+            </p>
+
+            <div class="summary"><p>This is one of those challenging posts to write. The people whose projects I'm going to describe have put in a lot of dedicated, hard work to overcome a challenging subject. Writing an OAuth consumer is a hard problem and writing an OAuth provider is an even harder problem ...</p>
+                    <a href="../the-sorry-state-of-python-oauth-providers.html">Read more ...</a>
+            </div>
+        </div>
+        <hr />
         
-        
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-                            
+                </div><!--/span-->
 
-                        
-                            <li><a href="http://twitter.com/pydanny">twitter</a></li>
-                        
-                            <li><a href="https://github.com/pydanny">github</a></li>
-                        
-                            <li><a href="http://www.facebook.com/daniel.greenfeld">facebook</a></li>
-                        
-                        </ul>
-                </div><!-- /.social -->
-        
-        </section><!-- /#extras -->
+        <div class="offset1 span3 sidebar-nav" id="sidebar">
+            <ul class="nav nav-list">
+</ul>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+<h4>Two Scoops of Django</h4>
 
-        </footer><!-- /#contentinfo -->
+<p>The alpha release of <a href="http://django.2scoops.org">my new book</a> about Django best practices is now out as an ebook.</p>
+
+<a href="http://django.2scoops.org"><img class="two-scoops-cover-thumb" src="https://s3.amazonaws.com/twoscoops/img/tsd-cover.png" /></a>
+
+<p>Stay tuned for details about the print version.</p>
+
+<h4 class="nav-header">Follow Me</h4>
+    <p class="capitalize"><i class="icon-twitter-sign icon-large"></i> <a href="http://twitter.com/pydanny">twitter</a></p>
+    <p class="capitalize"><i class="icon-github-sign icon-large"></i> <a href="https://github.com/pydanny">github</a></p>
+    <p class="capitalize"><i class="icon-facebook-sign icon-large"></i> <a href="http://www.facebook.com/daniel.greenfeld">facebook</a></p>
+
+<h4>Subscribe To My Feed</h4>
+
+<p>
+While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
+
+<h4 class="nav-header">Tags</h4>
+<span class="tag-3">
+    <a href="../tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-1">
+    <a href="../tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-1">
+    <a href="../tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/django-cbvs.html">
+        django-CBVs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+
+<h4 class="nav-header">Twitter</h4>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 'auto',
+  height: 300,
+  theme: {
+	shell: {
+	  background: '#f5f5f5',
+	  color: '#000000'
+	},
+	tweets: {
+	  background: '#ffffff',
+	  color: '#000000',
+	  links: '#1a50a1'
+	}
+  },
+  features: {
+	scrollbar: false,
+	loop: false,
+	live: false,
+	behavior: 'all'
+  }
+}).render().setUser('pydanny').start();
+</script>
+
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>. Adapted from the <a href="https://github.com/getpelican/pelican-themes/tree/master/bootstrap2">Pelican Bootstrap2</a> theme by <a href="http://www.audreymroy.com">Audrey M. Roy</a>. Support my work by spreading the word about <a href="http://django.2scoops.org">Two Scoops of Django: Best Practices For Django 1.5</a>.
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.container-->
 
 
     <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-18066389-3");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
-
-
-
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
 <script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-18066389-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+        <script type="text/javascript">
     var disqus_shortname = 'pydanny';
     (function () {
         var s = document.createElement('script'); s.async = true;
@@ -243,5 +485,9 @@ What to bring if you are participating: Workout clothes, water bottle
     }());
 </script>
 
-</body>
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../theme/js/jquery-1.7.2.min.js"></script>
+    <script src="../theme/js/bootstrap.min.js"></script>
+  </body>
 </html>

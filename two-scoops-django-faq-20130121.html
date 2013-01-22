@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Two Scoops of Django FAQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel-Greenfeld">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css" />
+    <link href="./theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="./theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="./theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
+
+    <link href="./" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+    
+  </head>
+
+  <body>
+
+    <div class="pre-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h1 class="site-logo">
+              <a href=".">
+              <img src="./theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              </a>
+            </h1>
+          </div>
+          <div class="offset1 span5">
+            <p class="about-this-blog">
+              Hi, I'm Daniel Greenfeld, and welcome to my blog. I write about Python, Django, and much more.
+            </p>
+          </div>
+        </div>
+        <div class="pydanny-cartwheel"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+    <div class="navbar navbar-fixed-top" id="pydanny-navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href=".">Home</a></li>
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/events.html">Events</a></li>
+                <li><a href="./pages/tools.html">Tools</a></li>
+                <li><a href="./category/audrey.html">Audrey</a></li>
+                <li><a href="./category/blog.html">Blog</a></li>
+                <li><a href="./category/book.html">Book</a></li>
+                <li><a href="./category/django.html">Django</a></li>
+                <li><a href="./category/python.html">Python</a></li>
+
+              <li><a href="./archives.html">Archives</a></li>
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+            <section id="content">
+        <article>
+                <header>
+                        <h1 class="article-title">
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Two Scoops of Django FAQ">
+                                        Two Scoops of Django FAQ
+                                </a>
+                                <a href="http://twitter.com/share" class="twitter-share-button"
+   data-count="horizontal" data-via="pydanny">Tweet</a>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js">
+</script>
+                        </h1>
+                </header>
+
+                <p>
+                    <em>Monday, January 21, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to Two Scoops of Django FAQ">permalink</a>)
+                </p>
+
+                <div class="entry-content">
+                    <a class="reference external image-reference" href="http://django.2scoops.org/"><img alt="https://s3.amazonaws.com/pydanny/frontispiece.png" class="align-center" id="two-scoops-of-django" src="https://s3.amazonaws.com/pydanny/frontispiece.png" /></a>
+<p>The launch of the <a class="reference external" href="http://django.2scoops.org">Two Scoops of Django: Best Practices for Django 1.5</a> book has gone pretty well. The response has been almost entirely positive and sales have been pretty brisk. We've gotten a ton of great, constructive editorial feedback, which we're sorting through as we race towards the BETA release. Here are answers to the commonly asked questions:</p>
+<div class="section" id="when-can-i-buy-the-book-via-paypal">
+<h2>When can I buy the <a class="reference external" href="http://django.2scoops.org">book</a> via PayPal?</h2>
+<p>We will support PayPal in either the BETA or FINAL release of the book.</p>
+<p>In order to handle PayPal we need to find a reputable e-publisher that supports it that gives us similar rates, customer service, and product control (updates at any time, uploads of PDF, no surprise charges, etc) as <a class="reference external" href="http://gumroad.com">Gumroad</a>. If you know of an e-publisher who is willing to provide that same level of service, please let me know.</p>
+<p><strong>note:</strong> While we could certainly write our own publishing platform, that would delay work on the <a class="reference external" href="http://django.2scoops.org">book</a>. ;-)</p>
+</div>
+<div class="section" id="when-can-i-get-a-kindle-mobi-or-epub-version">
+<h2>When can I get a Kindle (mobi) or ePub version?</h2>
+<p>Our plan is to support those formats in either the BETA or FINAL releases. In fact, I really love my <a class="reference external" href="http://www.amazon.com/gp/product/B007HCCNJU/?ie=UTF8&amp;tag=cn-001-20">Kindle</a>. I can't wait to proof my own <a class="reference external" href="http://django.2scoops.org">book</a> on my favorite reading device.</p>
+</div>
+<div class="section" id="when-can-i-get-a-print-version">
+<h2>When can I get a print version?</h2>
+<p>We hope to have a print version in about 30 days. We need to ensure that the cover and layout actually looks nice, and that involves ordering copies from the LuLu, CreateSpace, whatever and reviewing them and making corrections. Then ordering again to make sure the corrections look okay. That simply takes a lot of time.</p>
+<p>We are hoping for a mid-February release. Also, keep in mind we aren't sure yet if we'll do a print version of anything but a FINAL release.</p>
+</div>
+<div class="section" id="when-are-the-beta-and-final-releases">
+<h2>When are the BETA and FINAL releases?</h2>
+<p>As soon as possible.</p>
+<p>We can't make promises, but at the latest, the FINAL <em>should</em> be done by the start of March so people have them in hand at PyCon US.</p>
+</div>
+<div class="section" id="is-this-book-going-to-get-updated">
+<h2>Is this book going to get updated?</h2>
+<p>Absolutely!</p>
+<p>In fact, we've already sent out three minor updates for grammar and spelling issues, and some bug fixes.  Even after the FINAL version comes out, we'll continue to update the book. One of the advantages of self-published books is we have control of content.</p>
+</div>
+<div class="section" id="how-much-work-went-into-the-book">
+<h2>How much work went into the <a class="reference external" href="http://django.2scoops.org">book</a>?</h2>
+<p><a class="reference external" href="http://audreymroy.com">Audrey</a> and I put in hundreds of hours writing and testing the content. We worked 12-16 hour days for weeks. It was madness, but a glorious madness. We became like hermits and toiled on the <a class="reference external" href="http://django.2scoops.org">book</a> while ignoring distractions like sleep, food and consistent exercise.</p>
+<p>Our amazing technical reviewers also worked very hard to provide us with critical commentary, advice and corrections.</p>
+</div>
+<div class="section" id="where-should-i-send-errata">
+<h2>Where should I send errata?</h2>
+<p>Please send errata to <a class="reference external" href="mailto:2scoops&#64;cartwheelweb.com">2scoops&#64;cartwheelweb.com</a>.</p>
+</div>
+<div class="section" id="are-you-going-to-pycon-us">
+<h2>Are you going to PyCon US?</h2>
+<p>Absolutely! Wouldn't miss <a class="reference external" href="https://us.pycon.org/2013/">PyCon US</a> for the world! <a class="reference external" href="http://audreymroy.com">Audrey</a> and I met and fell in love at PyCon US 2010! We'll be there for at least the second day of  tutorials, all the talks, and all the <a class="reference external" href="https://us.pycon.org/2013/community/sprints/">sprints</a>. I've even got a blog post coming that should serve as a guide for beginning Python and Django developers attending the event.</p>
+<p><em>Shameless Plug:</em> We're both speaking and giving a tutorial. Sign up for the tutorial or attend our talks!</p>
+<div class="section" id="wiring-up-django-packages-tutorial">
+<h3><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/11/">Wiring Up Django Packages</a> (Tutorial)</h3>
+<p>You just finished the Django tutorial. What do you do now? You wire in Django Packages! Django is part of an ecosphere of over 20,000 packages, which can be leveraged to great effect. This tutorial will teach the evaluation, use, and extension of third party Python and Django applications in your projects. This tutorial will be a lecture with a lot of detailed and annotated code examples. Instructors are <a class="reference external" href="http://audreymroy.com">Audrey Roy</a>, Daniel Greenfeld, and <a class="reference external" href="http://brack3t.com/">Kenneth Love</a> (of <a class="reference external" href="http://gettingstartedwithdjango.com/">Getting Started with Django</a> fame).</p>
+</div>
+<div class="section" id="advanced-django-forms-usage-talk">
+<h3><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/101/">Advanced Django Forms Usage</a>  (Talk)</h3>
+<p>Django forms are really powerful but there are edge cases, especially with class based views), that can cause a bit of anguish. This talk will go over how to handle many common solutions not currently described in the core documentation. It will also cover useful third-party libraries. Speaker is Daniel Greenfeld.</p>
+</div>
+<div class="section" id="using-python-to-generate-art-and-sound-talk">
+<h3><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/58/">Using Python To Generate Art And Sound</a> (Talk)</h3>
+<p>The trick to navigating the overwhelming Python audio/imaging landscape is understanding how the fundamentals work, using common data processing/visualization libraries, in-depth code samples, and simple math operations. I use the stdlib, NumPy, SciPy, Matplotlib, PIL, and PyCairo to create building blocks, which I then combine to demonstrate advanced sound and image generation techniques. Speaker is <a class="reference external" href="http://audreymroy.com">Audrey Roy</a>.</p>
+</div>
+</div>
+<div class="section" id="are-you-going-to-django-circus">
+<h2>Are you going to Django Circus?</h2>
+<p>We hope so. <a class="reference external" href="http://2013.djangocon.eu/">Django Circus</a>, a.k.a. DjangoCon Europe, is one of the important industry events for us and we're trying to figure out logistics.</p>
+<p>Our problem is that 2012 was a very hard year - the majority of our clients have not paid for the work that we did. Collecting is turning out to be extremely difficult, time consuming, and unpleasant. This is impacting everything we want to do in 2013.</p>
+</div>
+
+                    <div class="article-info">
+                            <footer class="post-info">
+
+
+Tags:
+	<a href="./tag/twoscoops.html"><em>twoscoops</em></a>
+	<a href="./tag/python.html"><em>python</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/audrey.html"><em>audrey</em></a>
+	<a href="./tag/pycon.html"><em>pycon</em></a>
+	<a href="./tag/djangocon.html"><em>djangocon</em></a>
+</footer><!-- /.post-info -->                    </div>
+                </div><!-- /.entry-content -->
+                                <hr/>
+                <div class="comments">
+                <h3>Comments</h3>
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                           var disqus_identifier = "two-scoops-django-faq-20130121.html";
+                           (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = 'http://pydanny.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] ||
+                                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+                          })();
+                        </script>
+                </div>
+                        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="offset1 span3 sidebar-nav" id="sidebar">
+            <ul class="nav nav-list">
+</ul>
+
+<h4>Two Scoops of Django</h4>
+
+<p>The alpha release of <a href="http://django.2scoops.org">my new book</a> about Django best practices is now out as an ebook.</p>
+
+<a href="http://django.2scoops.org"><img class="two-scoops-cover-thumb" src="https://s3.amazonaws.com/twoscoops/img/tsd-cover.png" /></a>
+
+<p>Stay tuned for details about the print version.</p>
+
+<h4 class="nav-header">Follow Me</h4>
+    <p class="capitalize"><i class="icon-twitter-sign icon-large"></i> <a href="http://twitter.com/pydanny">twitter</a></p>
+    <p class="capitalize"><i class="icon-github-sign icon-large"></i> <a href="https://github.com/pydanny">github</a></p>
+    <p class="capitalize"><i class="icon-facebook-sign icon-large"></i> <a href="http://www.facebook.com/daniel.greenfeld">facebook</a></p>
+
+<h4>Subscribe To My Feed</h4>
+
+<p>
+While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
+
+<h4 class="nav-header">Tags</h4>
+<span class="tag-3">
+    <a href="./tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/django-cbvs.html">
+        django-CBVs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+
+<h4 class="nav-header">Twitter</h4>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 'auto',
+  height: 300,
+  theme: {
+	shell: {
+	  background: '#f5f5f5',
+	  color: '#000000'
+	},
+	tweets: {
+	  background: '#ffffff',
+	  color: '#000000',
+	  links: '#1a50a1'
+	}
+  },
+  features: {
+	scrollbar: false,
+	loop: false,
+	live: false,
+	behavior: 'all'
+  }
+}).render().setUser('pydanny').start();
+</script>
+
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>. Adapted from the <a href="https://github.com/getpelican/pelican-themes/tree/master/bootstrap2">Pelican Bootstrap2</a> theme by <a href="http://www.audreymroy.com">Audrey M. Roy</a>. Support my work by spreading the word about <a href="http://django.2scoops.org">Two Scoops of Django: Best Practices For Django 1.5</a>.
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-18066389-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+        <script type="text/javascript">
+    var disqus_shortname = 'pydanny';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./theme/js/jquery-1.7.2.min.js"></script>
+    <script src="./theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

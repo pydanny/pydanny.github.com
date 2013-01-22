@@ -1,5 +1,5 @@
 ============================
-Our Django Book has Launched
+Our Django Book Has Launched
 ============================
 
 :date: 2013-01-17 10:00

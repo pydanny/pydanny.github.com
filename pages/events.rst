@@ -6,14 +6,6 @@ Events
 
 I attend events and speak at some of them. 
 
-
-January 2013
-=============
-
-* 1/18 San Fernando Valley Startup Weekend
-
-    * Competing
-
 February 2013
 ==============
 

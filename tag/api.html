@@ -1,320 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <title>pydanny - api</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny Atom Feed" />
-        
+  <head>
+    <meta charset="utf-8">
+    <title>pydanny - api</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel-Greenfeld">
 
-        <!--[if IE]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!-- Le styles -->
+    <link rel="stylesheet" href="../theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css" />
+    <link href="../theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="../theme/css/font-awesome.css" rel="stylesheet">
 
-        <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie.css"/>
-                <script src=".././js/IE8.js" type="text/javascript"></script><![endif]-->
+    <link href="../theme/css/pygments.css" rel="stylesheet">
 
-        <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie6.css"/><![endif]-->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-</head>
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="../theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../theme/images/apple-touch-icon-114x114.png">
 
-<body id="index" class="home">
+    <link href="../" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+    
+  </head>
 
-        <header id="banner" class="body">
-                <h1><a href="../.">pydanny </a></h1>
-                <nav><ul>
-                
-                
-                
-                    <li><a href=".././pages/about.html">About</a></li>
-                
-                    <li><a href=".././pages/events.html">Events</a></li>
-                
-                    <li><a href=".././pages/tools.html">Tools</a></li>
-                
-                
-                
-                    <li ><a href=".././category/audrey.html">Audrey</a></li>
-                
-                    <li ><a href=".././category/blog.html">Blog</a></li>
-                
-                    <li ><a href=".././category/book.html">Book</a></li>
-                
-                    <li ><a href=".././category/django.html">Django</a></li>
-                
-                    <li ><a href=".././category/python.html">Python</a></li>
-                
-                </ul></nav>
-        </header><!-- /#banner -->
-                
+  <body>
 
-            
+    <div class="pre-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h1 class="site-logo">
+              <a href="..">
+              <img src="../theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              </a>
+            </h1>
+          </div>
+          <div class="offset1 span5">
+            <p class="about-this-blog">
+              Hi, I'm Daniel Greenfeld, and welcome to my blog. I write about Python, Django, and much more.
+            </p>
+          </div>
+        </div>
+        <div class="pydanny-cartwheel"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+    <div class="navbar navbar-fixed-top" id="pydanny-navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href="..">Home</a></li>
+                <li><a href="../pages/about.html">About</a></li>
+                <li><a href="../pages/events.html">Events</a></li>
+                <li><a href="../pages/tools.html">Tools</a></li>
+                <li><a href="../category/audrey.html">Audrey</a></li>
+                <li><a href="../category/blog.html">Blog</a></li>
+                <li><a href="../category/book.html">Book</a></li>
+                <li><a href="../category/django.html">Django</a></li>
+                <li><a href="../category/python.html">Python</a></li>
 
-        
-        
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href=".././choosing-an-api-framework-for-django.html">Choosing an API framework for Django</a></h1> 
-                    <footer class="post-info">
-        <abbr class="published" title="2012-05-10T08:00:00">
-                Thu 10 May 2012
-        </abbr>
+              <li><a href="../archives.html">Archives</a></li>
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
-        
-        <address class="vcard author">
-                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
-        </address>
-        
-<p>In <a href=".././category/django.html">django</a>. </p>
-<p>Tags: <a href=".././tag/python.html">python</a> <a href=".././tag/django.html">django</a> <a href=".././tag/api.html">api</a> <a href=".././tag/review.html">review</a> <br /></p>
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+                            <div class="article">
+            <h1 class="article-title"><a href="../choosing-an-api-framework-for-django.html">Choosing an API framework for Django</a></h1>
+            <p>
+                <em>Thursday, May 10, 2012</em>
+                (<a href="../choosing-an-api-framework-for-django.html" rel="bookmark" title="Permalink to Choosing an API framework for Django">permalink</a>)
+            </p>
 
-
-<p>Sites: 
-    <a href="http://movehero.co">Move Hero</a>
-    <a href="http://petcheatsheets.com">Pet CheatSheets</a><br />
-    <a href="http://djangopackages.com">Django Packages</a>
-    <a href="http://cartwheelweb.com">Cartwheel Web</a>
-</footer><!-- /.post-info --><p>First off, out of the box, <a class="reference external" href="http://djangoproject.com">Django</a> lets you construct API responses with a little work. All you need to do is something like this:</p>
+            <div class="summary"><p>First off, out of the box, <a class="reference external" href="http://djangoproject.com">Django</a> lets you construct API responses with a little work. All you need to do is something like this:</p>
 <div class="highlight"><pre><span class="c"># Copied from https://docs.djangoproject.com/en/1.4/topics/class-based-views/#more-than-just-html</span>
 <span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">http</span>
 <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">simplejson</span> <span class="k">as</span> <span class="n">json</span>
 
-<span class="k">class</span> <span class="nc">JSONResponseMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">render_to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-        <span class="s">&quot;Returns a JSON response containing &#39;context&#39; as payload&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_json_response</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_context_to_json</span><span class="p">(</span><span class="n">context</span><span class="p">))</span>
+<span class="k">class</span> <span class="nc">JSONResponseMixin ...</span></pre></div>
+                    <a href="../choosing-an-api-framework-for-django.html">Read more ...</a>
+            </div>
+        </div>
+        <hr />
+                <div class="article">
+            <h1 class="article-title"><a href="../launching-our-api-at-pycon-2012.html">Launching our API at PyCon 2012</a></h1>
+            <p>
+                <em>Friday, March 09, 2012</em>
+                (<a href="../launching-our-api-at-pycon-2012.html" rel="bookmark" title="Permalink to Launching our API at PyCon 2012">permalink</a>)
+            </p>
 
-    <span class="k">def</span> <span class="nf">get_json_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="o">**</span><span class="n">httpresponse_kwargs</span><span class="p">):</span>
-        <span class="s">&quot;Construct an `HttpResponse` object.&quot;</span>
-        <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">HttpResponse</span><span class="p">(</span><span class="n">content</span><span class="p">,</span>
-                                 <span class="n">content_type</span><span class="o">=</span><span class="s">&#39;application/json&#39;</span><span class="p">,</span>
-                                 <span class="o">**</span><span class="n">httpresponse_kwargs</span><span class="p">)</span>
+            <div class="summary"><p>A few months ago me and my fiancee, <a class="reference external" href="http://audreymroy.com">Audrey Roy</a>, launched our start up, <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a>. It's a Python powered product comparison site that combines the best features of <a class="reference external" href="http://opencomparison.org">Open Comparison</a>, Yelp, Consumer Reports, and Pinterest. We've worked day and night to make it better, with countless members ...</p>
+                    <a href="../launching-our-api-at-pycon-2012.html">Read more ...</a>
+            </div>
+        </div>
+        <hr />
+                <div class="article">
+            <h1 class="article-title"><a href="../the-sorry-state-of-python-oauth-providers.html">The sorry state of Python OAuth providers</a></h1>
+            <p>
+                <em>Monday, March 05, 2012</em>
+                (<a href="../the-sorry-state-of-python-oauth-providers.html" rel="bookmark" title="Permalink to The sorry state of Python OAuth providers">permalink</a>)
+            </p>
 
-    <span class="k">def</span> <span class="nf">convert_context_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-        <span class="s">&quot;Convert the context dictionary into a JSON object&quot;</span>
-        <span class="c"># Note: This is *EXTREMELY* naive; in reality, you&#39;ll need</span>
-        <span class="c"># to do much more complex handling to ensure that arbitrary</span>
-        <span class="c"># objects -- such as Django model instances or querysets</span>
-        <span class="c"># -- can be serialized as JSON.</span>
-        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-</pre></div>
-<p>Once you get that <cite>mixin</cite>, use it in your views like so:</p>
-<div class="highlight"><pre><span class="c"># modified from djangoproject.com sample code</span>
-<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">simplejson</span> <span class="k">as</span> <span class="n">json</span>
+            <div class="summary"><p>This is one of those challenging posts to write. The people whose projects I'm going to describe have put in a lot of dedicated, hard work to overcome a challenging subject. Writing an OAuth consumer is a hard problem and writing an OAuth provider is an even harder problem ...</p>
+                    <a href="../the-sorry-state-of-python-oauth-providers.html">Read more ...</a>
+            </div>
+        </div>
+        <hr />
+        
+                </div><!--/span-->
 
-<span class="k">class</span> <span class="nc">JSONDetailView</span><span class="p">(</span><span class="n">JSONResponseMixin</span><span class="p">,</span> <span class="n">MyCustomUserView</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">convert_context_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-
-        <span class="n">context</span><span class="p">[</span><span class="s">&#39;objects&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s">&#39;first_name&#39;</span><span class="p">,</span><span class="s">&#39;last_name&#39;</span><span class="p">,</span><span class="s">&#39;is_active&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-</pre></div>
-<p>This works pretty well in a number of simple cases, but doing things like pagination, posting of data, metadata, API discovery, and other important things ends up being a bit more work. This is where the resource oriented API frameworks come in.</p>
-<div class="section" id="what-makes-a-decent-api-framework">
-<h2>What makes a decent API Framework?</h2>
-<p>These features:</p>
-<ul class="simple">
-<li>pagination</li>
-<li>posting of data with validation</li>
-<li>Publishing of metadata along with querysets</li>
-<li>API discovery</li>
-<li>proper HTTP response handling</li>
-<li>caching</li>
-<li>serialization</li>
-<li>throttling</li>
-<li>permissions</li>
-<li>authentication</li>
+        <div class="offset1 span3 sidebar-nav" id="sidebar">
+            <ul class="nav nav-list">
 </ul>
-<p>Proper API frameworks also need:</p>
-<ul class="simple">
-<li>Really good test coverage of their code</li>
-<li>Decent performance</li>
-<li>Documentation</li>
-<li>An active community to advance and support the framework</li>
-</ul>
-<p>If you take these factors, at this time there are only two API frameworks worth using, <a class="reference external" href="http://django-tastypie.readthedocs.org/">django-tastypie</a> and <a class="reference external" href="http://django-rest-framework.org/">django-rest-framework</a>.</p>
-</div>
-<div class="section" id="which-one-is-better-django-tastypie-or-django-rest-framework">
-<h2>Which one is better? django-tastypie or django-rest-framework?</h2>
-<p>I say they are equal.</p>
-<p>You simply can't go wrong with either one. The authors and communities behind both of them are active, the code is solid and tested. And here are my specific thoughts about both of them:</p>
-</div>
-<div class="section" id="id1">
-<h2>django-tastypie</h2>
-<p>Using django-tastypie is like playing with pure Python while using the Django ORM. I find it very comfortable. Seems really fast too. The documentation is incredible, and I rarely have any problems figuring anything out. It also supports OAuth 1.0a out of the box, which is mighty awesome these days.</p>
-<p>In fact, I wrote a custom OAuth2 handler for django-tastypie for <a class="reference external" href="http://consumer.io">consumer.io</a> that I'm working to extract for publication.</p>
-</div>
-<div class="section" id="id2">
-<h2>django-rest-framework</h2>
-<p>As it's based off Django 1.3 style Class Based Views (CBVs), it has a very familiar pattern. Actually, because of the quality of the documentation, I really prefer using django-rest-framework CBVs more than using Django's actual CBVs.</p>
-<p>Maybe I should make an HTML renderer for django-rest-framework? :-)</p>
-</div>
-<div class="section" id="but-what-about-django-piston">
-<h2>But what about django-piston?</h2>
-<p><strong>Don't use django-piston</strong>.</p>
-<p>I don't want to say anything negative, but let's face it: <strong>django-piston is dead</strong>. Besides a critical security release last year, nothing has been done for it in about 3 years. The documentation is weak, the code mostly untested, and the original author left. He has gone on to do some amazing things. Django-piston was amazing in its time, but its time has passed and so should you.</p>
-<p>The only reason for using django-piston for years has been that it supported OAuth, but django-tastypie now addresses that use case. I've used django-tastypie's basic OAuth class and rolled custom Authentication modules to support some extra OAuth flavors and found it wonderful.</p>
-<p>Use django-tastypie or django-rest-framework instead. You'll be much, much happier for it.</p>
-<hr class="docutils" />
-<p><a class="reference external" href="http://news.ycombinator.com/item?id=3954314">Discuss this on Hacker News</a></p>
-</div>
-<p>There are <a href=".././choosing-an-api-framework-for-django.html#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
-        
-        
-        
-            
 
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href=".././launching-our-api-at-pycon-2012.html" rel="bookmark" title="Permalink to Launching our API at PyCon 2012">Launching our API at PyCon 2012</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-03-09T07:30:00">
-                Fri 09 March 2012
-        </abbr>
+<h4>Two Scoops of Django</h4>
 
-        
-        <address class="vcard author">
-                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
-        </address>
-        
-<p>In <a href=".././category/python.html">python</a>. </p>
-<p>Tags: <a href=".././tag/python.html">python</a> <a href=".././tag/django.html">django</a> <a href=".././tag/OAuth.html">OAuth</a> <a href=".././tag/api.html">api</a> <br /><a href=".././tag/Consumer-Notebook.html">Consumer-Notebook</a> <a href=".././tag/pycon.html">pycon</a> </p>
+<p>The alpha release of <a href="http://django.2scoops.org">my new book</a> about Django best practices is now out as an ebook.</p>
 
+<a href="http://django.2scoops.org"><img class="two-scoops-cover-thumb" src="https://s3.amazonaws.com/twoscoops/img/tsd-cover.png" /></a>
 
-<p>Sites: 
-    <a href="http://movehero.co">Move Hero</a>
-    <a href="http://petcheatsheets.com">Pet CheatSheets</a><br />
-    <a href="http://djangopackages.com">Django Packages</a>
-    <a href="http://cartwheelweb.com">Cartwheel Web</a>
-</footer><!-- /.post-info -->
-                <p>A few months ago me and my fiancee, <a class="reference external" href="http://audreymroy.com">Audrey Roy</a>, launched our start up, <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a>. It's a Python powered product comparison site that combines the best features of <a class="reference external" href="http://opencomparison.org">Open Comparison</a>, Yelp, Consumer Reports, and Pinterest. We've worked day and night to make it better, with countless members ...</p>
-                <a class="readmore" href=".././launching-our-api-at-pycon-2012.html">read more</a>
-                <p>There are <a href=".././launching-our-api-at-pycon-2012.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-        
-            
+<p>Stay tuned for details about the print version.</p>
 
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                        <h1><a href=".././the-sorry-state-of-python-oauth-providers.html" rel="bookmark" title="Permalink to The sorry state of Python OAuth providers">The sorry state of Python OAuth providers</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-03-05T07:30:00">
-                Mon 05 March 2012
-        </abbr>
+<h4 class="nav-header">Follow Me</h4>
+    <p class="capitalize"><i class="icon-twitter-sign icon-large"></i> <a href="http://twitter.com/pydanny">twitter</a></p>
+    <p class="capitalize"><i class="icon-github-sign icon-large"></i> <a href="https://github.com/pydanny">github</a></p>
+    <p class="capitalize"><i class="icon-facebook-sign icon-large"></i> <a href="http://www.facebook.com/daniel.greenfeld">facebook</a></p>
 
-        
-        <address class="vcard author">
-                By <a class="url fn" href=".././author/Daniel-Greenfeld.html">Daniel-Greenfeld</a>
-        </address>
-        
-<p>In <a href=".././category/python.html">python</a>. </p>
-<p>Tags: <a href=".././tag/python.html">python</a> <a href=".././tag/django.html">django</a> <a href=".././tag/OAuth.html">OAuth</a> <a href=".././tag/api.html">api</a> <br /><a href=".././tag/Consumer-Notebook.html">Consumer-Notebook</a> <a href=".././tag/rant.html">rant</a> </p>
+<h4>Subscribe To My Feed</h4>
 
+<p>
+While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
 
-<p>Sites: 
-    <a href="http://movehero.co">Move Hero</a>
-    <a href="http://petcheatsheets.com">Pet CheatSheets</a><br />
-    <a href="http://djangopackages.com">Django Packages</a>
-    <a href="http://cartwheelweb.com">Cartwheel Web</a>
-</footer><!-- /.post-info -->
-                <p>This is one of those challenging posts to write. The people whose projects I'm going to describe have put in a lot of dedicated, hard work to overcome a challenging subject. Writing an OAuth consumer is a hard problem and writing an OAuth provider is an even harder problem ...</p>
-                <a class="readmore" href=".././the-sorry-state-of-python-oauth-providers.html">read more</a>
-                <p>There are <a href=".././the-sorry-state-of-python-oauth-providers.html#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-            <div class="pagination">
-<ul>
+<h4 class="nav-header">Tags</h4>
+<span class="tag-3">
+    <a href="../tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-1">
+    <a href="../tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-1">
+    <a href="../tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/django-cbvs.html">
+        django-CBVs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
 
-    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+<h4 class="nav-header">Twitter</h4>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 'auto',
+  height: 300,
+  theme: {
+	shell: {
+	  background: '#f5f5f5',
+	  color: '#000000'
+	},
+	tweets: {
+	  background: '#ffffff',
+	  color: '#000000',
+	  links: '#1a50a1'
+	}
+  },
+  features: {
+	scrollbar: false,
+	loop: false,
+	live: false,
+	behavior: 'all'
+  }
+}).render().setUser('pydanny').start();
+</script>
 
+        </div><!--/.well -->
 
+      </div><!--/row-->
 
-    <li class="active"><a href=".././tag/api.html">1</a></li>
+      <hr>
 
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>. Adapted from the <a href="https://github.com/getpelican/pelican-themes/tree/master/bootstrap2">Pelican Bootstrap2</a> theme by <a href="http://www.audreymroy.com">Audrey M. Roy</a>. Support my work by spreading the word about <a href="http://django.2scoops.org">Two Scoops of Django: Best Practices For Django 1.5</a>.
+        </address><!-- /#about -->
+      </footer>
 
-
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
-
-
-</ul>
-</div>
-        
-        
-            </ol><!-- /#posts-list -->
-            </section><!-- /#content -->
-        
-    
-
-
-        <section id="extras" class="body">
-        
-        
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-                            
-
-                        
-                            <li><a href="http://twitter.com/pydanny">twitter</a></li>
-                        
-                            <li><a href="https://github.com/pydanny">github</a></li>
-                        
-                            <li><a href="http://www.facebook.com/daniel.greenfeld">facebook</a></li>
-                        
-                        </ul>
-                </div><!-- /.social -->
-        
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-        </footer><!-- /#contentinfo -->
+    </div><!--/.container-->
 
 
     <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-18066389-3");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
-
-
-
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
 <script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-18066389-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+        <script type="text/javascript">
     var disqus_shortname = 'pydanny';
     (function () {
         var s = document.createElement('script'); s.async = true;
@@ -324,5 +502,9 @@
     }());
 </script>
 
-</body>
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../theme/js/jquery-1.7.2.min.js"></script>
+    <script src="../theme/js/bootstrap.min.js"></script>
+  </body>
 </html>

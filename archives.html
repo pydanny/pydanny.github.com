@@ -1,256 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <title>pydanny</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny Atom Feed" />
-        
+  <head>
+    <meta charset="utf-8">
+    <title>pydanny</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel-Greenfeld">
 
-        <!--[if IE]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css" />
+    <link href="./theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="./theme/css/font-awesome.css" rel="stylesheet">
 
-        <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
-                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+    <link href="./theme/css/pygments.css" rel="stylesheet">
 
-        <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-</head>
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="./theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
 
-<body id="index" class="home">
+    <link href="./" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+    
+  </head>
 
-        <header id="banner" class="body">
-                <h1><a href=".">pydanny </a></h1>
-                <nav><ul>
-                
-                
-                
-                    <li><a href="./pages/about.html">About</a></li>
-                
-                    <li><a href="./pages/events.html">Events</a></li>
-                
-                    <li><a href="./pages/tools.html">Tools</a></li>
-                
-                
-                
-                    <li ><a href="./category/audrey.html">Audrey</a></li>
-                
-                    <li ><a href="./category/blog.html">Blog</a></li>
-                
-                    <li ><a href="./category/book.html">Book</a></li>
-                
-                    <li ><a href="./category/django.html">Django</a></li>
-                
-                    <li ><a href="./category/python.html">Python</a></li>
-                
-                </ul></nav>
-        </header><!-- /#banner -->
-        
-<section id="content" class="body">
+  <body>
+
+    <div class="pre-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h1 class="site-logo">
+              <a href=".">
+              <img src="./theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              </a>
+            </h1>
+          </div>
+          <div class="offset1 span5">
+            <p class="about-this-blog">
+              Hi, I'm Daniel Greenfeld, and welcome to my blog. I write about Python, Django, and much more.
+            </p>
+          </div>
+        </div>
+        <div class="pydanny-cartwheel"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+    <div class="navbar navbar-fixed-top" id="pydanny-navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href=".">Home</a></li>
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/events.html">Events</a></li>
+                <li><a href="./pages/tools.html">Tools</a></li>
+                <li><a href="./category/audrey.html">Audrey</a></li>
+                <li><a href="./category/blog.html">Blog</a></li>
+                <li><a href="./category/book.html">Book</a></li>
+                <li><a href="./category/django.html">Django</a></li>
+                <li><a href="./category/python.html">Python</a></li>
+
+              <li><a href="./archives.html">Archives</a></li>
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+            <section id="content">
 <h1>Archives for pydanny</h1>
 
 <dl>
-
-    <dt>Thu 09 February 2012</dt>
-    <dd><a href="./tried-out-jekyll.html">Tried out Jekyll</a></dd>
-
-    <dt>Fri 17 February 2012</dt>
-    <dd><a href="./my-new-blog.html">My new blog</a></dd>
-
-    <dt>Fri 17 February 2012</dt>
-    <dd><a href="./two-years-ago-today.html">Two years ago today</a></dd>
-
-    <dt>Sat 18 February 2012</dt>
-    <dd><a href="./django-uni-form-end-of-life.html">django-uni-form end of life</a></dd>
-
-    <dt>Mon 20 February 2012</dt>
-    <dd><a href="./parsing-mongodb-uri.html">Parsing MongoDB URI</a></dd>
-
-    <dt>Tue 21 February 2012</dt>
-    <dd><a href="./selected-for-pycon-startup-row.html">Selected for PyCon StartUp Row</a></dd>
-
-    <dt>Wed 22 February 2012</dt>
-    <dd><a href="./my-pycon-2012-schedule.html">My PyCon 2012 Schedule</a></dd>
-
-    <dt>Fri 24 February 2012</dt>
-    <dd><a href="./pycon-australia-2011-review.html">PyCon Australia 2011 Review</a></dd>
-
-    <dt>Sat 25 February 2012</dt>
-    <dd><a href="./i-use-this.html">I use this</a></dd>
-
-    <dt>Tue 28 February 2012</dt>
-    <dd><a href="./you-should-heroku.html">You should Heroku</a></dd>
-
-    <dt>Mon 05 March 2012</dt>
-    <dd><a href="./the-sorry-state-of-python-oauth-providers.html">The sorry state of Python OAuth providers</a></dd>
-
-    <dt>Fri 09 March 2012</dt>
-    <dd><a href="./launching-our-api-at-pycon-2012.html">Launching our API at PyCon 2012</a></dd>
-
-    <dt>Wed 28 March 2012</dt>
-    <dd><a href="./calendar-about-nothing.html">Calendar About Nothing</a></dd>
-
-    <dt>Thu 05 April 2012</dt>
-    <dd><a href="./choosing-a-new-python-based-blog-engine.html">Choosing a new python based blog engine</a></dd>
-
-    <dt>Tue 10 April 2012</dt>
-    <dd><a href="./join-us-at-djangocon-europe.html">Join us at DjangoCon Europe!</a></dd>
-
-    <dt>Tue 01 May 2012</dt>
-    <dd><a href="./los-angeles-open-source-sprint-on-may-12th.html">Los Angeles Open Source Sprint on May 12th!</a></dd>
-
-    <dt>Wed 09 May 2012</dt>
-    <dd><a href="./django-requirements-for-a-project.html">Django Requirements for a project</a></dd>
-
-    <dt>Thu 10 May 2012</dt>
-    <dd><a href="./choosing-an-api-framework-for-django.html">Choosing an API framework for Django</a></dd>
-
-    <dt>Fri 11 May 2012</dt>
-    <dd><a href="./css-hacking-to-make-my-code-samples-legible.html">CSS Hacking to make my code samples legible</a></dd>
-
-    <dt>Mon 14 May 2012</dt>
-    <dd><a href="./10-reasons-to-go-to-djangocon-europe.html">10 reasons to go to DjangoCon Europe</a></dd>
-
-    <dt>Mon 21 May 2012</dt>
-    <dd><a href="./may-12th-2012-la-open-source-recap.html">May 12th, 2012 LA Open Source Recap</a></dd>
-
-    <dt>Tue 22 May 2012</dt>
-    <dd><a href="./simple-django-email-form-using-cbv.html">Simple Django email form using CBV</a></dd>
-
-    <dt>Wed 23 May 2012</dt>
-    <dd><a href="./django-class-based-view-email-form-with-captcha.html">Django Class Based View: email form with CAPTCHA</a></dd>
-
-    <dt>Sat 09 June 2012</dt>
-    <dd><a href="./announcing-pycon-philippines.html">Announcing PyCon Philippines!</a></dd>
-
-    <dt>Tue 03 July 2012</dt>
-    <dd><a href="./pycon-philippines-2012-day-1.html">PyCon Philippines 2012 Day 1</a></dd>
-
-    <dt>Thu 05 July 2012</dt>
-    <dd><a href="./pycon-philippines-2012-day-2.html">PyCon Philippines 2012 Day 2</a></dd>
-
-    <dt>Mon 09 July 2012</dt>
-    <dd><a href="./simple-http-basic-auth-wall.html">Simple HTTP Basic Auth Wall</a></dd>
-
-    <dt>Mon 16 July 2012</dt>
-    <dd><a href="./july-15th-2012-la-open-source-recap.html">July 15th, 2012 LA Open Source Recap</a></dd>
-
-    <dt>Sat 28 July 2012</dt>
-    <dd><a href="./django-update-view-without-slug-in-the-url.html">Django Update View without slug in the url</a></dd>
-
-    <dt>Thu 02 August 2012</dt>
-    <dd><a href="./attaching-custom-exceptions-to-functions-and-classes.html">Attaching custom exceptions to functions and classes</a></dd>
-
-    <dt>Thu 02 August 2012</dt>
-    <dd><a href="./deadline-for-djangocon-financial-aid-requests-is-tomorrow.html">Deadline for DjangoCon Financial Aid requests is tomorrow!</a></dd>
-
-    <dt>Mon 06 August 2012</dt>
-    <dd><a href="./curiosity-has-landed.html">Curiosity has landed!</a></dd>
-
-    <dt>Wed 15 August 2012</dt>
-    <dd><a href="./django-requirements-2012-08-15.html">Django Requirements 2012-08-15</a></dd>
-
-    <dt>Sun 19 August 2012</dt>
-    <dd><a href="./python-dictionary-vs-javascript-object-dynamic-keys.html">Python dictionary vs JavaScript object: Dynamic Keys</a></dd>
-
-    <dt>Mon 20 August 2012</dt>
-    <dd><a href="./a-public-service-message-to-the-python-community.html">A Public Service Message to the Python Community</a></dd>
-
-    <dt>Mon 20 August 2012</dt>
-    <dd><a href="./pycon-2013-talkstutorials-i-want-to-see.html">PyCon 2013 Talks/Tutorials I want to see</a></dd>
-
-    <dt>Sat 01 September 2012</dt>
-    <dd><a href="./python-dictionary-as-a-class.html">Python dictionary as a class</a></dd>
-
-    <dt>Tue 04 September 2012</dt>
-    <dd><a href="./installing-pycairo-on-mountain-lion.html">Installing Pycairo on Mountain Lion</a></dd>
-
-    <dt>Tue 04 September 2012</dt>
-    <dd><a href="./thoughts-on-my-stack.html">Thoughts on my stack</a></dd>
-
-    <dt>Thu 27 September 2012</dt>
-    <dd><a href="./we-need-more-pycon-us-2013-submissions.html">We need more PyCon US 2013 submissions!</a></dd>
-
-    <dt>Sun 14 October 2012</dt>
-    <dd><a href="./los-angeles-open-source-sprint-on-nov-4th.html">Los Angeles Open Source Sprint on Nov 4th!</a></dd>
-
-    <dt>Tue 16 October 2012</dt>
-    <dd><a href="./django-getorcreateview.html">Django GetOrCreateView</a></dd>
-
-    <dt>Wed 21 November 2012</dt>
-    <dd><a href="./case-study-url-design-for-petcheatsheetscom.html">Case Study: URL Design for petcheatsheets.com</a></dd>
-
-    <dt>Mon 26 November 2012</dt>
-    <dd><a href="./thoughts-on-ranting.html">Thoughts on ranting</a></dd>
-
-    <dt>Tue 27 November 2012</dt>
-    <dd><a href="./stay-with-the-django-cbv-defaults.html">Stay with the Django CBV defaults!</a></dd>
-
-    <dt>Tue 04 December 2012</dt>
-    <dd><a href="./developer-time.html">Developer Time</a></dd>
-
-    <dt>Sun 09 December 2012</dt>
-    <dd><a href="./result-of-our-la-migration-hackathon-submission.html">Result of our LA Migration Hackathon submission</a></dd>
-
-    <dt>Fri 28 December 2012</dt>
-    <dd><a href="./new-years-python-meme-2012.html">New Year's Python Meme 2012</a></dd>
-
-    <dt>Sun 30 December 2012</dt>
-    <dd><a href="./2012-resolution-summary.html">2012 resolution summary</a></dd>
-
-    <dt>Mon 31 December 2012</dt>
-    <dd><a href="./new-years-resolutions-for-2013.html">New Year's Resolutions for 2013</a></dd>
-
-    <dt>Thu 17 January 2013</dt>
-    <dd><a href="./our-django-book-is-launched.html">Our Django Book has Launched</a></dd>
-
+	<dt>Monday, January 21, 2013</dt>
+	<dd><a href='two-scoops-django-faq-20130121.html'>Two Scoops of Django FAQ</a></dd>
+	<dt>Thursday, January 17, 2013</dt>
+	<dd><a href='our-django-book-is-launched.html'>Our Django Book Has Launched</a></dd>
+	<dt>Monday, December 31, 2012</dt>
+	<dd><a href='new-years-resolutions-for-2013.html'>New Year's Resolutions for 2013</a></dd>
+	<dt>Sunday, December 30, 2012</dt>
+	<dd><a href='2012-resolution-summary.html'>2012 resolution summary</a></dd>
+	<dt>Friday, December 28, 2012</dt>
+	<dd><a href='new-years-python-meme-2012.html'>New Year's Python Meme 2012</a></dd>
+	<dt>Sunday, December 09, 2012</dt>
+	<dd><a href='result-of-our-la-migration-hackathon-submission.html'>Result of our LA Migration Hackathon submission</a></dd>
+	<dt>Tuesday, December 04, 2012</dt>
+	<dd><a href='developer-time.html'>Developer Time</a></dd>
+	<dt>Tuesday, November 27, 2012</dt>
+	<dd><a href='stay-with-the-django-cbv-defaults.html'>Stay with the Django CBV defaults!</a></dd>
+	<dt>Monday, November 26, 2012</dt>
+	<dd><a href='thoughts-on-ranting.html'>Thoughts on ranting</a></dd>
+	<dt>Wednesday, November 21, 2012</dt>
+	<dd><a href='case-study-url-design-for-petcheatsheetscom.html'>Case Study: URL Design for petcheatsheets.com</a></dd>
+	<dt>Tuesday, October 16, 2012</dt>
+	<dd><a href='django-getorcreateview.html'>Django GetOrCreateView</a></dd>
+	<dt>Sunday, October 14, 2012</dt>
+	<dd><a href='los-angeles-open-source-sprint-on-nov-4th.html'>Los Angeles Open Source Sprint on Nov 4th!</a></dd>
+	<dt>Thursday, September 27, 2012</dt>
+	<dd><a href='we-need-more-pycon-us-2013-submissions.html'>We need more PyCon US 2013 submissions!</a></dd>
+	<dt>Tuesday, September 04, 2012</dt>
+	<dd><a href='installing-pycairo-on-mountain-lion.html'>Installing Pycairo on Mountain Lion</a></dd>
+	<dt>Tuesday, September 04, 2012</dt>
+	<dd><a href='thoughts-on-my-stack.html'>Thoughts on my stack</a></dd>
+	<dt>Saturday, September 01, 2012</dt>
+	<dd><a href='python-dictionary-as-a-class.html'>Python dictionary as a class</a></dd>
+	<dt>Monday, August 20, 2012</dt>
+	<dd><a href='a-public-service-message-to-the-python-community.html'>A Public Service Message to the Python Community</a></dd>
+	<dt>Monday, August 20, 2012</dt>
+	<dd><a href='pycon-2013-talkstutorials-i-want-to-see.html'>PyCon 2013 Talks/Tutorials I want to see</a></dd>
+	<dt>Sunday, August 19, 2012</dt>
+	<dd><a href='python-dictionary-vs-javascript-object-dynamic-keys.html'>Python dictionary vs JavaScript object: Dynamic Keys</a></dd>
+	<dt>Wednesday, August 15, 2012</dt>
+	<dd><a href='django-requirements-2012-08-15.html'>Django Requirements 2012-08-15</a></dd>
+	<dt>Monday, August 06, 2012</dt>
+	<dd><a href='curiosity-has-landed.html'>Curiosity has landed!</a></dd>
+	<dt>Thursday, August 02, 2012</dt>
+	<dd><a href='deadline-for-djangocon-financial-aid-requests-is-tomorrow.html'>Deadline for DjangoCon Financial Aid requests is tomorrow!</a></dd>
+	<dt>Thursday, August 02, 2012</dt>
+	<dd><a href='attaching-custom-exceptions-to-functions-and-classes.html'>Attaching custom exceptions to functions and classes</a></dd>
+	<dt>Saturday, July 28, 2012</dt>
+	<dd><a href='django-update-view-without-slug-in-the-url.html'>Django Update View without slug in the url</a></dd>
+	<dt>Monday, July 16, 2012</dt>
+	<dd><a href='july-15th-2012-la-open-source-recap.html'>July 15th, 2012 LA Open Source Recap</a></dd>
+	<dt>Monday, July 09, 2012</dt>
+	<dd><a href='simple-http-basic-auth-wall.html'>Simple HTTP Basic Auth Wall</a></dd>
+	<dt>Thursday, July 05, 2012</dt>
+	<dd><a href='pycon-philippines-2012-day-2.html'>PyCon Philippines 2012 Day 2</a></dd>
+	<dt>Tuesday, July 03, 2012</dt>
+	<dd><a href='pycon-philippines-2012-day-1.html'>PyCon Philippines 2012 Day 1</a></dd>
+	<dt>Saturday, June 09, 2012</dt>
+	<dd><a href='announcing-pycon-philippines.html'>Announcing PyCon Philippines!</a></dd>
+	<dt>Wednesday, May 23, 2012</dt>
+	<dd><a href='django-class-based-view-email-form-with-captcha.html'>Django Class Based View: email form with CAPTCHA</a></dd>
+	<dt>Tuesday, May 22, 2012</dt>
+	<dd><a href='simple-django-email-form-using-cbv.html'>Simple Django email form using CBV</a></dd>
+	<dt>Monday, May 21, 2012</dt>
+	<dd><a href='may-12th-2012-la-open-source-recap.html'>May 12th, 2012 LA Open Source Recap</a></dd>
+	<dt>Monday, May 14, 2012</dt>
+	<dd><a href='10-reasons-to-go-to-djangocon-europe.html'>10 reasons to go to DjangoCon Europe</a></dd>
+	<dt>Friday, May 11, 2012</dt>
+	<dd><a href='css-hacking-to-make-my-code-samples-legible.html'>CSS Hacking to make my code samples legible</a></dd>
+	<dt>Thursday, May 10, 2012</dt>
+	<dd><a href='choosing-an-api-framework-for-django.html'>Choosing an API framework for Django</a></dd>
+	<dt>Wednesday, May 09, 2012</dt>
+	<dd><a href='django-requirements-for-a-project.html'>Django Requirements for a project</a></dd>
+	<dt>Tuesday, May 01, 2012</dt>
+	<dd><a href='los-angeles-open-source-sprint-on-may-12th.html'>Los Angeles Open Source Sprint on May 12th!</a></dd>
+	<dt>Tuesday, April 10, 2012</dt>
+	<dd><a href='join-us-at-djangocon-europe.html'>Join us at DjangoCon Europe!</a></dd>
+	<dt>Thursday, April 05, 2012</dt>
+	<dd><a href='choosing-a-new-python-based-blog-engine.html'>Choosing a new python based blog engine</a></dd>
+	<dt>Wednesday, March 28, 2012</dt>
+	<dd><a href='calendar-about-nothing.html'>Calendar About Nothing</a></dd>
+	<dt>Friday, March 09, 2012</dt>
+	<dd><a href='launching-our-api-at-pycon-2012.html'>Launching our API at PyCon 2012</a></dd>
+	<dt>Monday, March 05, 2012</dt>
+	<dd><a href='the-sorry-state-of-python-oauth-providers.html'>The sorry state of Python OAuth providers</a></dd>
+	<dt>Tuesday, February 28, 2012</dt>
+	<dd><a href='you-should-heroku.html'>You should Heroku</a></dd>
+	<dt>Saturday, February 25, 2012</dt>
+	<dd><a href='i-use-this.html'>I use this</a></dd>
+	<dt>Friday, February 24, 2012</dt>
+	<dd><a href='pycon-australia-2011-review.html'>PyCon Australia 2011 Review</a></dd>
+	<dt>Wednesday, February 22, 2012</dt>
+	<dd><a href='my-pycon-2012-schedule.html'>My PyCon 2012 Schedule</a></dd>
+	<dt>Tuesday, February 21, 2012</dt>
+	<dd><a href='selected-for-pycon-startup-row.html'>Selected for PyCon StartUp Row</a></dd>
+	<dt>Monday, February 20, 2012</dt>
+	<dd><a href='parsing-mongodb-uri.html'>Parsing MongoDB URI</a></dd>
+	<dt>Saturday, February 18, 2012</dt>
+	<dd><a href='django-uni-form-end-of-life.html'>django-uni-form end of life</a></dd>
+	<dt>Friday, February 17, 2012</dt>
+	<dd><a href='two-years-ago-today.html'>Two years ago today</a></dd>
+	<dt>Friday, February 17, 2012</dt>
+	<dd><a href='my-new-blog.html'>My new blog</a></dd>
+	<dt>Thursday, February 09, 2012</dt>
+	<dd><a href='tried-out-jekyll.html'>Tried out Jekyll</a></dd>
 </dl>
 </section>
+        </div><!--/span-->
 
-        <section id="extras" class="body">
-        
-        
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-                            
+        <div class="offset1 span3 sidebar-nav" id="sidebar">
+            <ul class="nav nav-list">
+</ul>
 
-                        
-                            <li><a href="http://twitter.com/pydanny">twitter</a></li>
-                        
-                            <li><a href="https://github.com/pydanny">github</a></li>
-                        
-                            <li><a href="http://www.facebook.com/daniel.greenfeld">facebook</a></li>
-                        
-                        </ul>
-                </div><!-- /.social -->
-        
-        </section><!-- /#extras -->
+<h4>Two Scoops of Django</h4>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+<p>The alpha release of <a href="http://django.2scoops.org">my new book</a> about Django best practices is now out as an ebook.</p>
 
-        </footer><!-- /#contentinfo -->
+<a href="http://django.2scoops.org"><img class="two-scoops-cover-thumb" src="https://s3.amazonaws.com/twoscoops/img/tsd-cover.png" /></a>
+
+<p>Stay tuned for details about the print version.</p>
+
+<h4 class="nav-header">Follow Me</h4>
+    <p class="capitalize"><i class="icon-twitter-sign icon-large"></i> <a href="http://twitter.com/pydanny">twitter</a></p>
+    <p class="capitalize"><i class="icon-github-sign icon-large"></i> <a href="https://github.com/pydanny">github</a></p>
+    <p class="capitalize"><i class="icon-facebook-sign icon-large"></i> <a href="http://www.facebook.com/daniel.greenfeld">facebook</a></p>
+
+<h4>Subscribe To My Feed</h4>
+
+<p>
+While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
+
+<h4 class="nav-header">Tags</h4>
+<span class="tag-3">
+    <a href="./tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/django-cbvs.html">
+        django-CBVs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+
+<h4 class="nav-header">Twitter</h4>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 'auto',
+  height: 300,
+  theme: {
+	shell: {
+	  background: '#f5f5f5',
+	  color: '#000000'
+	},
+	tweets: {
+	  background: '#ffffff',
+	  color: '#000000',
+	  links: '#1a50a1'
+	}
+  },
+  features: {
+	scrollbar: false,
+	loop: false,
+	live: false,
+	behavior: 'all'
+  }
+}).render().setUser('pydanny').start();
+</script>
+
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>. Adapted from the <a href="https://github.com/getpelican/pelican-themes/tree/master/bootstrap2">Pelican Bootstrap2</a> theme by <a href="http://www.audreymroy.com">Audrey M. Roy</a>. Support my work by spreading the word about <a href="http://django.2scoops.org">Two Scoops of Django: Best Practices For Django 1.5</a>.
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.container-->
 
 
     <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-18066389-3");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
-
-
-
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
 <script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-18066389-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+        <script type="text/javascript">
     var disqus_shortname = 'pydanny';
     (function () {
         var s = document.createElement('script'); s.async = true;
@@ -260,5 +570,9 @@
     }());
 </script>
 
-</body>
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./theme/js/jquery-1.7.2.min.js"></script>
+    <script src="./theme/js/bootstrap.min.js"></script>
+  </body>
 </html>
