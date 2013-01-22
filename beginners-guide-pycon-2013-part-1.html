@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Installing Pycairo on Mountain Lion</title>
+    <title>Beginner's Guide to PyCon 2013 Part I</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Installing Pycairo on Mountain Lion">
-                                        Installing Pycairo on Mountain Lion
+                                        title="Permalink to Beginner's Guide to PyCon 2013 Part I">
+                                        Beginner's Guide to PyCon 2013 Part I
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,39 +100,64 @@
                 </header>
 
                 <p>
-                    <em>Tuesday, September 04, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to Installing Pycairo on Mountain Lion">permalink</a>)
+                    <em>Tuesday, January 22, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to Beginner's Guide to PyCon 2013 Part I">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p><a class="reference external" href="http://cairographics.org/pycairo/">Pycairo</a> is the binding for the <a class="reference external" href="http://cairographics.org/">cairo graphics library</a>. It's also not something you can get running with a simple <tt class="docutils literal">pip install py2cairo</tt>. After many hours of working the search engines and dancing to the configure/make/make install melody, I figured out an answer that worked for me.</p>
-<div class="section" id="step-1-install-gcc">
-<h2>Step 1 - Install GCC</h2>
-<p>If you don't have it yet, go get <a class="reference external" href="https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg">https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg</a> and install it. It's 200 MB so make sure you have a fast connection and/or a good place to wait.</p>
+                    <p>New to Python and thinking about going to the upcoming <a class="reference external" href="https://us.pycon.org/2013/">PyCon US</a> for the first time? You know, that big <a class="reference external" href="http://python.org">Python</a> conference taking place near San Francisco in March?</p>
+<p>Or perhaps you signed up already and are getting worried about being overwhelmed by hundreds of tutorials, talks, and activities?</p>
+<p>No worries! This multi-part guide will aid you in getting the most out of attending one of the best technical conferences on the planet. I'm going to share how to get through the whole event in good shape and cover some incredible beginner friendly events.</p>
+<div class="section" id="the-basics">
+<h2>The Basics</h2>
+<p>First off, <a class="reference external" href="https://us.pycon.org/2013/registration/register/">register</a> already! PyCon US sold out last year around this time. Don't be left out in the cold. Buy your ticket now before it's too late!</p>
+<p>Now that you've got that done, keep in mind that Python has two days of <a class="reference external" href="https://us.pycon.org/2013/schedule/tutorials/">tutorials</a>, three days of <a class="reference external" href="https://us.pycon.org/2013/schedule/talks/">talks</a>, and four days of <a class="reference external" href="https://us.pycon.org/2013/community/sprints/">sprints</a>. <strong>Nine days of Python!</strong> The trick is to not get exhausted or sick. Therefore, do the following every day of the conference:</p>
+<ol class="arabic simple">
+<li>Take at least one shower. Please.</li>
+<li>Eat at least two good meals. Make a point of sitting with different people at each meal and introducing yourself. Make new friends!</li>
+<li>Get at least three hours of sleep. More if possible because your brain is going to go into learning overdrive.</li>
+</ol>
+<p>In addition, PyCon US also has a <a class="reference external" href="https://us.pycon.org/2013/about/code-of-conduct/">code of conduct</a>. I like to sum it up as, &quot;Act professionally.&quot; Whether or not you agree with codes of conduct for conferences, PyCon US has one and it will be enforced.</p>
+<p>Alright, enough basics, let's get onto tutorials!</p>
 </div>
-<div class="section" id="step-2-install-homebrew">
-<h2>Step 2 - Install Homebrew</h2>
-<p>I use Homebrew instead of Macports. If you don't have it yet, paste this in a terminal prompt:</p>
-<div class="highlight"><pre>ruby &lt;<span class="o">(</span>curl -fsSkL raw.github.com/mxcl/homebrew/go<span class="o">)</span>
-</pre></div>
+<div class="section" id="tutorials">
+<h2>Tutorials</h2>
+<p>Tutorials take place on March 13th and 14th. They each cost $150 but are well worth the price. The following are the talks I believe are best suited for beginners.</p>
+<div class="section" id="wednesday-morning">
+<h3>Wednesday Morning</h3>
+<ol class="arabic simple">
+<li>For novice programmers start with Jessica McKellar's <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/1/">A hands-on introduction to Python for beginning programmers</a>. I can vouch that the instructor is amazing, and will jumpstart you on the road to being a Python developer.</li>
+<li>Are you an experienced developer new to Python? I suggest <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/8/">Going from web pages to web apps with Python</a> by Asheesh Loroia and Karen Rustad. In 2009 I took a class by Asheesh and was impressed by his energy, enthusiasm, and depth of knowledge.</li>
+<li>Want to learn Python web that isn't Django? Try out Paul Everitt's <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/12/">Pyramid for Humans</a> class.</li>
+</ol>
 </div>
-<div class="section" id="step-3-install-cairo">
-<h2>Step 3 - Install Cairo</h2>
-<p>In your terminal prompt, type the following:</p>
-<div class="highlight"><pre><span class="nv">$ </span>brew install cairo --use-clang
-</pre></div>
-<p>You'll get some messages about <cite>LDFLAGS</cite> and <cite>CPPFLAGS</cite> in build variables, but that's only important if you skip Homebrew and build your own software later that interacts with <strong>cairo</strong>.</p>
+<div class="section" id="wednesday-afternoon">
+<h3>Wednesday Afternoon</h3>
+<ol class="arabic simple">
+<li>You simply can't go wrong with David Beazley's <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/2/">Learn Python Through Public Data Hacking</a>. He's an amazing instructor and delivered a PyCon keynote last year.</li>
+<li>If you're interested in the web, check out Nathan Yergler's <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/9/">Effective Django</a>. I can assure you that he knows his Django material and is going to deliver a great experience.</li>
+</ol>
 </div>
-<div class="section" id="step-4-install-pycairo-itself">
-<h2>Step 4 - Install Pycairo itself</h2>
-<p>The nasty little trick to this is to remember that <strong>Pycairo</strong> is packaged on it's site and other places as <strong>py2cairo</strong>. When they get around to releasing version 3 of Pycairo, I'm going to beg and plead that they follow an obvious naming system for their bundles. I know this is done in other communities, but it's frustrating and a real barrier for getting into a project.</p>
-<p>In case, in your terminal prompt, type the following:</p>
-<div class="highlight"><pre><span class="nv">$ </span>brew install py2cairo
-</pre></div>
-<p>If you are using a non-Homebrew installed Python like I do, you have to set the PYTHONPATH to find pycairo.  Set your PYTHONPATH in your <cite>.bashrc/.profile/.whatever</cite> to the following:</p>
-<div class="highlight"><pre><span class="nv">PYTHONPATH</span><span class="o">=</span>/usr/local/lib/python2.7/site-packages:<span class="nv">$PYTHONPATH</span>.
-</pre></div>
-<p>Yes, it's the system Python, but for now I'm okay with it. If someone has an easy recipe for alternative Python installations, I would love to link to it.</p>
+<div class="section" id="thursday-morning">
+<h3>Thursday Morning</h3>
+<ol class="arabic simple">
+<li>If you're new to Python, you need to learn the Python environment. This means version control, PyPI, test automation, and more. Matt Harrison covers this in <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/3/">Scripting: from Hard-drive to Github to PyPI</a></li>
+<li>Getting back to the web, <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/10/">Fully Test-Driven Web Development with Django and Selenium</a> is another run through the Django tutorial, but done from the test driven perspective.</li>
+<li>A fascinating tutorial offered at this time is <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/30/">A Gentle Introduction to Computer Vision</a>. It's a great way to learn how Python is used in many creative and unexpected ways.</li>
+</ol>
+</div>
+<div class="section" id="thursday-afternoon">
+<h3>Thursday Afternoon</h3>
+<ol class="arabic simple">
+<li>Jessica McKellar returns to instruct on how to give back to the community with <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/4/">Contribute with me! Getting started with open source development</a>.</li>
+<li>Want to learn how to program games? Look no further than Richard Jones' <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/19/">Introduction to PyGame</a>. He's taught this class for years, and I can't say enough good things about him.</li>
+<li><strong>Shameless Plug:</strong> My talk is not meant for beginning Django developers, but I'm listing it anyway. It's my blog, right? In any case, along with <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> and <a class="reference external" href="http://gettingstartedwithdjango.com/">Kenneth Love</a>, we're presenting <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/11/">Wiring Up Django Packages</a>.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="part-ii">
+<h2>Part II</h2>
+<p>Stay tuned for the upcoming <strong>Beginner's Guide to PyCon 2013 Part II</strong> where I'll cover the talks best suited for beginning developers!</p>
 </div>
 
                     <div class="article-info">
@@ -141,9 +166,9 @@
 
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/tools.html"><em>tools</em></a>
-	<a href="./tag/howto.html"><em>howto</em></a>
-	<a href="./tag/setup.html"><em>setup</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/audrey.html"><em>audrey</em></a>
+	<a href="./tag/pycon.html"><em>pycon</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -151,7 +176,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "installing-pycairo-on-mountain-lion.html";
+                           var disqus_identifier = "beginners-guide-pycon-2013-part-1.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
