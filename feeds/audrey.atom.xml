@@ -5,6 +5,7 @@
 &lt;h2&gt;When can I buy the &lt;a class="reference external" href="http://django.2scoops.org"&gt;book&lt;/a&gt; via PayPal?&lt;/h2&gt;
 &lt;p&gt;We will support PayPal in either the BETA or FINAL release of the book.&lt;/p&gt;
 &lt;p&gt;In order to handle PayPal we need to find a reputable e-publisher that supports it that gives us similar rates, customer service, and product control (updates at any time, uploads of PDF, no surprise charges, etc) as &lt;a class="reference external" href="http://gumroad.com"&gt;Gumroad&lt;/a&gt;. If you know of an e-publisher who is willing to provide that same level of service, please let me know.&lt;/p&gt;
+&lt;p&gt;For the record, we aren't leaving &lt;a class="reference external" href="http://gumroad.com"&gt;Gumroad&lt;/a&gt;. We just want to support developers and students who don't have credit cards.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;note:&lt;/strong&gt; While we could certainly write our own publishing platform, that would delay work on the &lt;a class="reference external" href="http://django.2scoops.org"&gt;book&lt;/a&gt;. ;-)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="when-can-i-get-a-kindle-mobi-or-epub-version"&gt;

@@ -24,6 +24,8 @@ We will support PayPal in either the BETA or FINAL release of the book.
 
 In order to handle PayPal we need to find a reputable e-publisher that supports it that gives us similar rates, customer service, and product control (updates at any time, uploads of PDF, no surprise charges, etc) as Gumroad_. If you know of an e-publisher who is willing to provide that same level of service, please let me know.
 
+For the record, we aren't leaving Gumroad_. We just want to support developers and students who don't have credit cards.
+
 **note:** While we could certainly write our own publishing platform, that would delay work on the book_. ;-)
 
 When can I get a Kindle (mobi) or ePub version?

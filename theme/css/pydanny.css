@@ -68,7 +68,8 @@ article img, .article img {
     padding: 13px 10px 10px;
     font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 500;
+    letter-spacing: 0.7px;
     color: #ffffff;
     text-decoration: none;
 }
