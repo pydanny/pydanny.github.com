@@ -13,7 +13,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="when-can-i-get-a-print-version"&gt;
 &lt;h2&gt;When can I get a print version?&lt;/h2&gt;
-&lt;p&gt;We hope to have a print version in about 30 days. We need to ensure that the cover and layout actually looks nice, and that involves ordering copies from the LuLu, CreateSpace, whatever and reviewing them and making corrections. Then ordering again to make sure the corrections look okay. That simply takes a lot of time.&lt;/p&gt;
+&lt;p&gt;We hope to have a print version in about 30 days. We need to ensure that the cover and layout actually looks nice, and that involves ordering copies from the Lulu, CreateSpace, whatever and reviewing them and making corrections. Then ordering again to make sure the corrections look okay. That simply takes a lot of time.&lt;/p&gt;
 &lt;p&gt;We are hoping for a mid-February release. Also, keep in mind we aren't sure yet if we'll do a print version of anything but a FINAL release.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="when-are-the-beta-and-final-releases"&gt;
@@ -56,6 +56,11 @@
 &lt;h2&gt;Are you going to Django Circus?&lt;/h2&gt;
 &lt;p&gt;We hope so. &lt;a class="reference external" href="http://2013.djangocon.eu/"&gt;Django Circus&lt;/a&gt;, a.k.a. DjangoCon Europe, is one of the important industry events for us and we're trying to figure out logistics.&lt;/p&gt;
 &lt;p&gt;Our problem is that 2012 was a very hard year - the majority of our clients have not paid for the work that we did. Collecting is turning out to be extremely difficult, time consuming, and unpleasant. This is impacting everything we want to do in 2013.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-does-the-alpha-work"&gt;
+&lt;h2&gt;How does the ALPHA work?&lt;/h2&gt;
+&lt;p&gt;The ALPHA is a preview version that we are selling at an introductory price of $12. When you purchase the ALPHA, you get access to the BETA and FINAL versions when they are released.&lt;/p&gt;
+&lt;p&gt;In case you're wondering, we are planning to increase the price of the &lt;a class="reference external" href="http://django.2scoops.org"&gt;book&lt;/a&gt; when we release the BETA and FINAL versions.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="twoscoops"></category><category term="python"></category><category term="django"></category><category term="audrey"></category><category term="pycon"></category><category term="djangocon"></category></entry><entry><title>We need more PyCon US 2013 submissions!</title><link href="http://pydanny.com/we-need-more-pycon-us-2013-submissions.html" rel="alternate"></link><updated>2012-09-27T18:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2012-09-27:we-need-more-pycon-us-2013-submissions.html</id><summary type="html">&lt;p&gt;The PyCon US 2013 &lt;a class="reference external" href="https://us.pycon.org/2013/speaking/cfp/"&gt;call for papers (CFP)&lt;/a&gt; ends tomorrow, September 28th, 2012. We need more talk and tutorial submissions. Talks are 30 or 45 minute efforts in front of the PyCon audience and are recorded for posterity. Tutorials are three hours long and are given to attendees who have paid an additional fee in order to slurp in knowledge from the masters.&lt;/p&gt;
 &lt;p&gt;On the 3 hour tutorial side of things, &lt;strong&gt;we especially need more Intro to Python level submission&lt;/strong&gt;. That means getting beginners up to speed on basic Python techniques, so they can then exploit the other tutorials, conference, and sprints to their full advantage.&lt;/p&gt;

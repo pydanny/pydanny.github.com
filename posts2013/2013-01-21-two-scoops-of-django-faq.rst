@@ -36,7 +36,7 @@ Our plan is to support those formats in either the BETA or FINAL releases. In fa
 When can I get a print version?
 ===============================
 
-We hope to have a print version in about 30 days. We need to ensure that the cover and layout actually looks nice, and that involves ordering copies from the LuLu, CreateSpace, whatever and reviewing them and making corrections. Then ordering again to make sure the corrections look okay. That simply takes a lot of time.
+We hope to have a print version in about 30 days. We need to ensure that the cover and layout actually looks nice, and that involves ordering copies from the Lulu, CreateSpace, whatever and reviewing them and making corrections. Then ordering again to make sure the corrections look okay. That simply takes a lot of time.
 
 We are hoping for a mid-February release. Also, keep in mind we aren't sure yet if we'll do a print version of anything but a FINAL release.
 
@@ -97,6 +97,12 @@ We hope so. `Django Circus`_, a.k.a. DjangoCon Europe, is one of the important i
 
 Our problem is that 2012 was a very hard year - the majority of our clients have not paid for the work that we did. Collecting is turning out to be extremely difficult, time consuming, and unpleasant. This is impacting everything we want to do in 2013.
 
+How does the ALPHA work?
+========================
+
+The ALPHA is a preview version that we are selling at an introductory price of $12. When you purchase the ALPHA, you get access to the BETA and FINAL versions when they are released.
+
+In case you're wondering, we are planning to increase the price of the book_ when we release the BETA and FINAL versions.
 
 .. _`Django Circus`: http://2013.djangocon.eu/
 .. _`Advanced Django Forms Usage`: https://us.pycon.org/2013/schedule/presentation/101/
