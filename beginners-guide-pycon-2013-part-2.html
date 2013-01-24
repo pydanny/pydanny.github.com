@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Beginner's Guide to PyCon 2013 Part II</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel-Greenfeld">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css" />
+    <link href="./theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="./theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="./theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
+
+    <link href="./" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+    
+  </head>
+
+  <body>
+
+    <div class="pre-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h1 class="site-logo">
+              <a href=".">
+              <img src="./theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              </a>
+            </h1>
+          </div>
+          <div class="offset1 span5">
+            <p class="about-this-blog">
+              Hi, I'm Daniel Greenfeld, and welcome to my blog. I write about Python, Django, and much more.
+            </p>
+          </div>
+        </div>
+        <div class="pydanny-cartwheel"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+    <div class="navbar navbar-fixed-top" id="pydanny-navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href=".">Home</a></li>
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/events.html">Events</a></li>
+                <li><a href="./pages/tools.html">Tools</a></li>
+                <li><a href="./category/audrey.html">Audrey</a></li>
+                <li><a href="./category/blog.html">Blog</a></li>
+                <li><a href="./category/book.html">Book</a></li>
+                <li><a href="./category/django.html">Django</a></li>
+                <li><a href="./category/python.html">Python</a></li>
+
+              <li><a href="./archives.html">Archives</a></li>
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+            <section id="content">
+        <article>
+                <header>
+                        <h1 class="article-title">
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Beginner's Guide to PyCon 2013 Part II">
+                                        Beginner's Guide to PyCon 2013 Part II
+                                </a>
+                                <a href="http://twitter.com/share" class="twitter-share-button"
+   data-count="horizontal" data-via="pydanny">Tweet</a>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js">
+</script>
+                        </h1>
+                </header>
+
+                <p>
+                    <em>Wednesday, January 23, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to Beginner's Guide to PyCon 2013 Part II">permalink</a>)
+                </p>
+
+                <div class="entry-content">
+                    <p>This is Part II in a series of blog posts about <a class="reference external" href="https://us.pycon.org/2013/">PyCon US 2013</a>. The goal is to provide a handy reference guide for first time attendees of the world's largest <a class="reference external" href="http://python.org">Python</a> conference. <a class="reference external" href="http://pydanny.com/beginners-guide-pycon-2013-part-1.html">Part I</a> was mostly about <a class="reference external" href="https://us.pycon.org/2013/schedule/tutorials/">tutorials</a>, today will be about registration and the first day of talks.</p>
+<div class="section" id="registration">
+<h2>Registration</h2>
+<p>If you haven't done so yet, please <a class="reference external" href="https://us.pycon.org/2013/registration/register/">register</a> now. Last year PyCon sold out way in advance, and hundreds missed the event. Which is a shame, because the conference is awesome!</p>
+<p>Keep in mind that the money you spend on registration will go towards a very good thing. You see, after the costs for running PyCon are subtracted, the rest will go to the non-profit Python Software Foundation (<a class="reference external" href="http://python.org/psf/">PSF</a>). In addition to supporting the Python language itself, the PSF provides financial aid and grants for aspiring developers around the world. Which means the money you spend registering for PyCon will literally change people's lives.</p>
+<p>Alright, on to the first day of talks!</p>
+</div>
+<div class="section" id="talks">
+<h2>Talks</h2>
+<p>At PyCon, talks are either 30 or 45 long. They represent the best and brightest in both old hands in the community and rising starts. Some quick guidelines:</p>
+<ul class="simple">
+<li><strong>Vote with your feet.</strong> If you don't like a talk, at PyCon you are encouraged to get up and attend another talk.</li>
+<li><strong>Ask Questions!</strong> If the speaker leaves time for it questions at the end, <a class="reference external" href="http://cecinestpasun.com/entries/i-can-haz-question-or-five/">go and ask</a>!</li>
+<li><strong>Don't heckle.</strong> It's nerve wracking going up in front of hundreds of people live and tens of thousands on streaming video. Heckling is <strong>never</strong> funny and it's a good way to lose friends and make enemies. Unless the speaker asks for commentary during the talk, wait until the end and then ask your questions.</li>
+</ul>
+<p>Alright, that out of the way, let's take a look at what Friday has to offer us.</p>
+<div class="section" id="friday-morning">
+<h3>Friday Morning</h3>
+<p>The registration desk opens at 7:00 AM. Breakfast begins at 8:00 AM. From 9:00 AM to 10:20 AM is the welcome and initial keynote speeches. PyCon keynotes aren't boring - they are crazy fun. Say hi if you see me!</p>
+<p>In selecting these talks, I've tried to focus on the more technical ones.</p>
+<div class="section" id="am-talks">
+<h4>10:50 AM talks</h4>
+<ul class="simple">
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/35/">How to Except When You're Excepting</a> (Esther Nam) - One of the rising stars of the community, Esther works for a group that demands 100% test coverage. She's going to cover the fundamentals of writing tests and why tests are a good thing.</li>
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/50/">How the Internet works</a> (Jessica McKellar) - Want to know how the internet actually works? Jessica McKellar (also giving two tutorials and a keynote speech) will use Python to help you understand what's really going on.</li>
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/116/">Gittip: Inspiring Generosity</a> (Chad Whitacre) - Gittip is an open source Python platform for sustaining open source development via small, anonymous donations. This is a technical case-study about the story of community.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h4>11:30 AM talks</h4>
+<ul class="simple">
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/135/">Scrapy: it GETs the web</a> (Asheesh Laroia) - In 2009 I took a web scraping tutorial by the author. He impressed me with his energy and knowledge. While technically this is an <strong>intermediate</strong> talk, I know everyone will get something out of this talk</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h4>12:10 AM talks</h4>
+<ul class="simple">
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/39/">API Design for Library Authors</a> (Chris McDonough) - Well designed APIs are critical for how other developers interact with your code. Chris is one of the talents in the community when it comes to creating easy-to-use but extremely powerful tools. I'm delighted he's made this an introductory talk.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="friday-lunch">
+<h3>Friday Lunch</h3>
+<p>Quick notes:</p>
+<ol class="arabic simple">
+<li>Don't forget to keep your PyCon registration badge or they won't let you into the lunch room!</li>
+<li>When you registered, you specified your meal preferences. Please stick to them. If you don't, you may cause people with dietary needs to go hungry.</li>
+</ol>
+</div>
+<div class="section" id="friday-afternoon">
+<h3>Friday Afternoon</h3>
+<p>Got lunch? Time for more talks!</p>
+<div class="section" id="pm-talks">
+<h4>1:40 PM talks</h4>
+<ul class="simple">
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/58/">Using Python To Generate Art And Sound</a> (Audrey Roy) - This is an <strong>intermediate</strong> talk, but myself and those who have seen it can assure you it's a very good talk. Audrey demonstrates how to use Python tools like NumPy, SciPy, and PIL to make lovely things.</li>
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/54/">You can be a speaker at PyCon!</a> (Anna Ravenscroft, Lynn Root) - PyCon loves new blood. Get some pointers on how to get your talks ready for submission next year!</li>
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/117/">Python 3.3: Trust Me, It's Better than 2.7</a> (Brett Cannon) - The world of Python is heading towards Python 3. Want to know why? Attend this talk!</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h4>1:55 PM talks</h4>
+<ul class="simple">
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/40/">Twisted Logic</a> (Ashwini Oruganti) - Twisted is a mature, stable asynchronous framework written in Python that's been around for over a decade. New to the framework, the presenter explains why you shouldn't be scared of Twisted.</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h4>2:35 PM talks</h4>
+<p>This slot is going to be hard because all three beginner talks are things you don't want to miss!</p>
+<ul class="simple">
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/76/">Loop like a native: while, for, iterators, generators</a> (Ned Batchelder) - One of the really awesome features of Python is that you can write custom looping classes. Factor in generators and you'll be amazed by one of Python's most powerful features.</li>
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/112/">Visualizing Github, Part I: Data to Information</a> (Dana Bauer, Idan Gazit) - How can you go wrong with visualizing GitHub data using Python?</li>
+<li><a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/145/">Encapsulation with descriptors</a> (Luciano Ramalho) - Python has no private fields, but the property decorator lets you replace public attributes with getters and setters without breaking client code. It's amazing what Python can do when you delve into it's subtleties!</li>
+</ul>
+</div>
+</div>
+</div>
+
+                    <div class="article-info">
+                            <footer class="post-info">
+
+
+Tags:
+	<a href="./tag/python.html"><em>python</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/audrey.html"><em>audrey</em></a>
+	<a href="./tag/pycon.html"><em>pycon</em></a>
+</footer><!-- /.post-info -->                    </div>
+                </div><!-- /.entry-content -->
+                                <hr/>
+                <div class="comments">
+                <h3>Comments</h3>
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                           var disqus_identifier = "beginners-guide-pycon-2013-part-2.html";
+                           (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = 'http://pydanny.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] ||
+                                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+                          })();
+                        </script>
+                </div>
+                        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="offset1 span3 sidebar-nav" id="sidebar">
+            <ul class="nav nav-list">
+</ul>
+
+<h4>Two Scoops of Django</h4>
+
+<p>The alpha release of <a href="http://django.2scoops.org">my new book</a> about Django best practices is now out as an ebook.</p>
+
+<a href="http://django.2scoops.org"><img class="two-scoops-cover-thumb" src="https://s3.amazonaws.com/twoscoops/img/tsd-cover.png" /></a>
+
+<p>Stay tuned for details about the print version.</p>
+
+<h4 class="nav-header">Follow Me</h4>
+    <p class="capitalize"><i class="icon-twitter-sign icon-large"></i> <a href="http://twitter.com/pydanny">twitter</a></p>
+    <p class="capitalize"><i class="icon-github-sign icon-large"></i> <a href="https://github.com/pydanny">github</a></p>
+    <p class="capitalize"><i class="icon-facebook-sign icon-large"></i> <a href="http://www.facebook.com/daniel.greenfeld">facebook</a></p>
+
+<h4>Subscribe To My Feed</h4>
+
+<p>
+While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
+
+<h4 class="nav-header">Tags</h4>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/django-cbvs.html">
+        django-CBVs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/meme.html">
+        meme
+    </a>
+</span>
+
+<h4 class="nav-header">Twitter</h4>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 'auto',
+  height: 300,
+  theme: {
+	shell: {
+	  background: '#f5f5f5',
+	  color: '#000000'
+	},
+	tweets: {
+	  background: '#ffffff',
+	  color: '#000000',
+	  links: '#1a50a1'
+	}
+  },
+  features: {
+	scrollbar: false,
+	loop: false,
+	live: false,
+	behavior: 'all'
+  }
+}).render().setUser('pydanny').start();
+</script>
+
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>. Adapted from the <a href="https://github.com/getpelican/pelican-themes/tree/master/bootstrap2">Pelican Bootstrap2</a> theme by <a href="http://www.audreymroy.com">Audrey M. Roy</a>. Support my work by spreading the word about <a href="http://django.2scoops.org">Two Scoops of Django: Best Practices For Django 1.5</a>.
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-18066389-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+        <script type="text/javascript">
+    var disqus_shortname = 'pydanny';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./theme/js/jquery-1.7.2.min.js"></script>
+    <script src="./theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
