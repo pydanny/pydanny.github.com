@@ -21,7 +21,7 @@ Alright, on to the talks!
 Talk Attendance Guidelines
 ==========================
 
-At PyCon, talks are either 30 or 45 long. They represent the best and brightest in both old hands in the community and rising starts. Some quick guidelines:
+At PyCon, talks are either 30 or 45 long. They represent the best and brightest in both old hands in the community and rising stars. Some quick guidelines:
 
 * **Ask Questions!** If the speaker leaves time for questions at the end, `go and ask`_!
 * **Shut the Laptop and Turn Off the Device.** It's disconcerting to give a speech to hundreds of people staring at their portable electronics and not responding to your banter. Unless you are using electronics to actively take notes on the talk, consider turning them off to look at the speaker.
