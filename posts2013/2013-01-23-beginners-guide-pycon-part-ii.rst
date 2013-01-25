@@ -120,7 +120,7 @@ This slot is going to be hard because all three beginner talks are things you do
 4:15 PM talks
 ~~~~~~~~~~~~~~
 
-* `Transforming Code into Beautiful, Idiomatic Python`_ (Raymond Hettinger) - This is the talk that's going to bring down the house, because Raymond covers the basics in such a way that even the most advanced developers picks up new tricks. This talk will be standing room only, filled with beginners to the most senior developers on the planet. Get to this one early or you'll miss it!
+* `Transforming Code into Beautiful, Idiomatic Python`_ (Raymond Hettinger) - This is the talk that's going to bring down the house, because Raymond covers the basics in such a way that even the most advanced developers pick up new tricks. This talk will be standing room only, filled with beginners to the most senior developers on the planet. Get to this one early or you'll miss it!
 * `Deploy your Python app in 5 min with a PaaS`_ (Nate Aune) - Long time presenter Nate Aune doesn't just explain and demonstrate various Platforms as a Service, he also gives tips on evaluating which one is best for your needs. For someone getting into the Python web this talk is an invaluable service.
 
 .. _`Transforming Code into Beautiful, Idiomatic Python`: https://us.pycon.org/2013/schedule/presentation/126/
