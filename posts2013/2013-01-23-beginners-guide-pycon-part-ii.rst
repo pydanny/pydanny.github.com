@@ -3,40 +3,40 @@ Beginner's Guide to PyCon 2013 Part II
 ======================================
 
 :date: 2013-01-23 16:00
-:tags: python, django, audrey, pycon
+:tags: python, django, audrey, pycon, pycon-2013-guide
 :category: python
 :slug: beginners-guide-pycon-2013-part-2
-:status: draft
 
-This is Part II in a series of blog posts about `PyCon US 2013`_. The goal is to provide a handy reference guide for first time attendees of the world's largest Python_ conference. `Part I`_ was mostly about tutorials_, today will be about registration and the first day of talks.
+This is Part II in a series of blog posts about `PyCon US 2013`_. The goal is to provide a handy reference guide for first time attendees of the world's largest Python_ conference. `Part I`_ was mostly about tutorials_, this post will be about registration and the first day of talks.
 
 Registration
 ============
 
 If you haven't done so yet, please register_ now. Last year PyCon sold out way in advance, and hundreds missed the event. Which is a shame, because the conference is awesome!
 
-Keep in mind that the money you spend on registration will go towards a very good thing. You see, after the costs for running PyCon are subtracted, the rest will go to the non-profit Python Software Foundation (PSF_). In addition to supporting the Python language itself, the PSF provides financial aid and grants for aspiring developers around the world. Which means the money you spend registering for PyCon will literally change people's lives.
+Keep in mind that the money you spend on registration will go towards a very good thing. You see, after the costs for running PyCon are subtracted, the rest will go to the non-profit Python Software Foundation (PSF_). In addition to supporting the Python language itself, the PSF provides financial aid and grants for aspiring developers around the world. Which means the money you spend registering for PyCon will literally change people's lives. This isn't an idle exaggeration, this outreach has made a difference for you, me, and arguably the world. I would love to say more, but that's an article for another day...
 
-Alright, on to the first day of talks!
+Alright, on to the talks!
 
-Talks
-=====
+Talk Attendance Guidelines
+==========================
 
 At PyCon, talks are either 30 or 45 long. They represent the best and brightest in both old hands in the community and rising starts. Some quick guidelines:
 
-* **Vote with your feet.** If you don't like a talk, at PyCon you are encouraged to get up and attend another talk.
-* **Ask Questions!** If the speaker leaves time for it questions at the end, `go and ask`_! 
-* **Shut the Laptop.**
-* **Don't heckle.** It's nerve wracking going up in front of hundreds of people live and tens of thousands on streaming video. Heckling is **never** funny and it's a good way to lose friends and make enemies. Unless the speaker asks for commentary during the talk, wait until the end and then ask your questions.
+* **Ask Questions!** If the speaker leaves time for questions at the end, `go and ask`_!
+* **Shut the Laptop and Turn Off the Device.** It's disconcerting to give a speech to hundreds of people staring at their portable electronics and not responding to your banter. Unless you are using electronics to actively take notes on the talk, consider turning them off to look at the speaker.
+* **Vote with Your Feet.** If you don't like a talk, at PyCon you are encouraged to get up and attend another talk.
+* **Don't Heckle.** It's nerve wracking going up in front of hundreds of people live and tens of thousands on streaming video. Heckling is **never** funny and it's a good way to lose friends and make enemies. Unless the speaker asks for commentary during the talk, wait until the end and then ask your questions. If you don't like a talk, you always have the option to **"Vote with Your Feet".**
 
 .. _`go and ask`: http://cecinestpasun.com/entries/i-can-haz-question-or-five/
 
-Alright, that out of the way, let's take a look at what Friday has to offer us.
+Alright, that out of the way, let's take a look at what Friday, March 15th, has to offer in terms of beginner friendly talks...
+
 
 Friday Morning
 ---------------
 
-The registration desk opens at 7:00 AM. Breakfast begins at 8:00 AM. From 9:00 AM to 10:20 AM is the welcome and initial keynote speeches. PyCon keynotes aren't boring - they are crazy fun. Say hi if you see me!
+The registration desk opens at 7:00 AM. Breakfast begins at 8:00 AM. From 9:00 AM to 10:20 AM is the welcome and initial keynote speeches. PyCon keynotes aren't boring - **they are crazy awesome!** Say hi if you see me!
 
 In selecting these talks, I've tried to focus on the more technical ones.
 
@@ -71,8 +71,8 @@ Friday Lunch
 
 Quick notes:
 
-1. Don't forget to keep your PyCon registration badge or they won't let you into the lunch room!
-2. When you registered, you specified your meal preferences. Please stick to them. If you don't, you may cause people with dietary needs to go hungry.
+1. Don't forget to keep your PyCon meal tickets you got when you registered in the morning or they won't let you into the lunch room!
+2. Sit down to people you don't know and introduce yourself. Every time I do this I don't just get to meet interesting people, I get to meet **amazing** people. PyCon is full of brilliant minds and you'll never get to know any of them unless you try.
 
 Friday Afternoon
 -----------------
@@ -91,7 +91,7 @@ Got lunch? Time for more talks!
 .. _`You can be a speaker at PyCon!`: https://us.pycon.org/2013/schedule/presentation/54/
 
 
-1:55 PM talks
+1:55 PM talk
 ~~~~~~~~~~~~~
 
 * `Twisted Logic`_ (Ashwini Oruganti) - Twisted is a mature, stable asynchronous framework written in Python that's been around for over a decade. New to the framework, the presenter explains why you shouldn't be scared of Twisted.
@@ -111,7 +111,50 @@ This slot is going to be hard because all three beginner talks are things you do
 .. _`Visualizing Github, Part I: Data to Information`: https://us.pycon.org/2013/schedule/presentation/112/
 .. _`Encapsulation with descriptors`: https://us.pycon.org/2013/schedule/presentation/145/
 
+3:15 PM talk
+~~~~~~~~~~~~~
 
+* `Music Theory and Performance Analysis with Sebastian and Czerny`_ (James Tauber) - An amazing speaker talking about one of his favorite subjects, this will be a great beginner talk. James mentored me in my early days of Django and JQuery, and I only have good things to say about him.
+
+.. _`Music Theory and Performance Analysis with Sebastian and Czerny`: https://us.pycon.org/2013/schedule/presentation/136/
+
+4:15 PM talks
+~~~~~~~~~~~~~~
+
+* `Transforming Code into Beautiful, Idiomatic Python`_ (Raymond Hettinger) - This is the talk that's going to bring down the house, because Raymond covers the basics in such a way that even the most advanced developers picks up new tricks. This talk will be standing room only, filled with beginners to the most senior developers on the planet. Get to this one early or you'll miss it!
+* `Deploy your Python app in 5 min with a PaaS`_ (Nate Aune) - Long time presenter Nate Aune doesn't just explain and demonstrate various Platforms as a Service, he also gives tips on evaluating which one is best for your needs. For someone getting into the Python web this talk is an invaluable service.
+
+.. _`Transforming Code into Beautiful, Idiomatic Python`: https://us.pycon.org/2013/schedule/presentation/126/
+.. _`Deploy your Python app in 5 min with a PaaS`: https://us.pycon.org/2013/schedule/presentation/118/
+
+
+4:30 talk
+~~~~~~~~~~~
+
+* `If You Code, You Should Write`_ (Brian Jones) - Python has an amazing culture of documentation. We believe it's our civic duty to document our work on private and public projects. Brian explains why this is so and how to get across the concepts of your work in the best way possible.
+
+.. _`If You Code, You Should Write`: https://us.pycon.org/2013/schedule/presentation/124/
+
+5:10 talks
+~~~~~~~~~~
+
+* `SimpleCV - Computer Vision using Python`_ (Katherine Scott) - This is a crash course on computer vision using the amazing ipython notebook along with NumPy and SciPy. 
+* `Planning and Tending the Garden: The Future of Early Childhood Python Education`_ (Kurt Grandis) - After his PyCon talk last year about using Python to fend off squirrels, Kurt suddenly found himself in the world of kid's education. This talk goes over the current state of the art for kids learning programming in Python and other tools.
+* `Write the Docs`_ (James Bennett) - Have you heard of a certain well-documented web framework called 'Django'? James Bennett is one of the people responsible for it's amazingly high documentation standard. In this talk he's going to coach on how to write prose that inspires and invigorates people to use your tools.
+
+.. _`SimpleCV - Computer Vision using Python`: https://us.pycon.org/2013/schedule/presentation/65/
+.. _`Planning and Tending the Garden: The Future of Early Childhood Python Education`: https://us.pycon.org/2013/schedule/presentation/96/
+.. _`Write the Docs`: https://us.pycon.org/2013/schedule/presentation/113/
+
+Evening Activities
+==================
+
+On friday night the social scene will kick into high gear. There will be dinners, parties, Starcraft II contests, and hopefully the second year of PyCon Capoeira. As these become more definite I'll adding them to this post!
+
+Part III
+========
+
+Stay tuned for Part III of this series where I cover the first day of talks best suited for new Python developers!
 
 .. _`PyCon US 2013`: https://us.pycon.org/2013/
 .. _Python: http://python.org

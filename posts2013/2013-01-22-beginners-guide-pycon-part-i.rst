@@ -3,7 +3,7 @@ Beginner's Guide to PyCon 2013 Part I
 =====================================
 
 :date: 2013-01-22 16:00
-:tags: python, django, audrey, pycon
+:tags: python, django, audrey, pycon, pycon-2013-guide
 :category: python
 :slug: beginners-guide-pycon-2013-part-1
 
@@ -77,7 +77,9 @@ Thursday Afternoon
 Part II
 =======
 
-Stay tuned for the upcoming **Beginner's Guide to PyCon 2013 Part II** where I'll cover the talks best suited for beginning developers!
+Check out `Beginner's Guide to PyCon 2013 Part II`_ where I cover the first day of talks best suited for new Python developers!
+
+.. _`Beginner's Guide to PyCon 2013 Part II`: http://pydanny.com/beginners-guide-pycon-2013-part-2.html
 
 .. _`code of conduct`: https://us.pycon.org/2013/about/code-of-conduct/
 .. _tutorials: https://us.pycon.org/2013/schedule/tutorials/
