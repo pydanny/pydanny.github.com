@@ -25,8 +25,7 @@ At PyCon, talks are either 30 or 45 long. They represent the best and brightest 
 
 * **Ask Questions!** If the speaker leaves time for questions at the end, `go and ask`_!
 * **Shut the Laptop and Turn Off the Device.** It's disconcerting to give a speech to hundreds of people staring at their portable electronics and not responding to your banter. Unless you are using electronics to actively take notes on the talk, consider turning them off to look at the speaker.
-* **Vote with Your Feet.** If you don't like a talk, at PyCon you are encouraged to get up and attend another talk.
-* **Don't Heckle.** It's nerve wracking going up in front of hundreds of people live and tens of thousands on streaming video. Heckling is **never** funny and it's a good way to lose friends and make enemies. Unless the speaker asks for commentary during the talk, wait until the end and then ask your questions. If you don't like a talk, you always have the option to **"Vote with Your Feet".**
+* **Don't Heckle.** It's nerve wracking going up in front of hundreds of people live and tens of thousands on streaming video. Heckling is **never** funny and it's a good way to lose friends and make enemies. Unless the speaker asks for commentary during the talk, wait until the end and then ask your questions. 
 
 .. _`go and ask`: http://cecinestpasun.com/entries/i-can-haz-question-or-five/
 
