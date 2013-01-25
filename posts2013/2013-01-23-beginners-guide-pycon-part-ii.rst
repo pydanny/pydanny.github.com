@@ -153,7 +153,7 @@ On friday night the social scene will kick into high gear. There will be dinners
 Part III
 ========
 
-Stay tuned for Part III of this series where I cover the first day of talks best suited for new Python developers!
+Stay tuned for Part III of this series where I cover the second day of talks best suited for new Python developers!
 
 .. _`PyCon US 2013`: https://us.pycon.org/2013/
 .. _Python: http://python.org
