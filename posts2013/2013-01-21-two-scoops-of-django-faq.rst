@@ -66,7 +66,7 @@ Our amazing technical reviewers also worked very hard to provide us with critica
 Where should I send errata?
 ===========================
 
-Please send errata to 2scoops@cartwheelweb.com.
+Please send errata to 2scoops@cartwheelweb.com. The first person who reports an issue or makes a suggestion that we adopt will receive credit in the book. If not in the changelog, then in the dialogue of the book itself.
 
 Are you going to PyCon US?
 ==========================
