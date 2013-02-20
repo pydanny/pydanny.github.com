@@ -3,7 +3,7 @@ Stay with the Django CBV defaults!
 ==================================
 
 :date: 2012-11-27 16:00
-:tags: python, rant, django, python, howto, django-CBVs
+:tags: python, rant, django, python, howto, class-based-views
 :category: django
 
 One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity. 

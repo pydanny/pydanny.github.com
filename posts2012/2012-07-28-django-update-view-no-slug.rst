@@ -3,7 +3,7 @@ Django Update View without slug in the url
 ==========================================
 
 :date: 2012-07-28 09:30
-:tags: python, django, howto, django-CBVs
+:tags: python, django, howto, class-based-views
 :category: django
 
 Today I wanted to use the Django Class Based View (CBV) UpdateView but without a slug identifier in the URL. For example, instead of ``/profiles/pydanny/`` I would go to ``/my-crazy-profile/``. Also, I needed to force authentication.

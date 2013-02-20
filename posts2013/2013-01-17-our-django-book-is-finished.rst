@@ -3,7 +3,7 @@ Our Django Book Has Launched
 ============================
 
 :date: 2013-01-17 10:00
-:tags: twoscoops, resolutions, python, django, audrey, django-CBVs, heroku, dotcloud, gondor
+:tags: twoscoops, resolutions, python, django, audrey, class-based-views, heroku, dotcloud, gondor
 :category: book
 :slug: our-django-book-is-launched
 
