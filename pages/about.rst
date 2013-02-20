@@ -20,7 +20,7 @@ I co-wrote a book_:
 
 Django, like any framework, has tips, tricks, and pitfalls that aren't documented in one place. Experienced developers know this stuff, but gleaning it off the Internet takes a lot of time. We decided to take everything we know and write it down. This book_ reflects a portion of what we documented, and if it does well we plan to follow it up with other references.
 
-Open Source Web Projects
+Web Projects
 ========================
 
 * `Open Comparison`_
@@ -30,26 +30,26 @@ Open Source Web Projects
    * `Pyramid Packages`_
 
 * `pydanny-event-notes`_
+* `Pet Cheatsheets`_
 
 Software Projects
 ==================
 
+* https://github.com/opencomparison/opencomparison (lead)
 * https://github.com/django/django (contributor)
+* https://github.com/pydanny/django-shortener (lead)
 * https://github.com/pydanny/django-mongonaut (lead)
 * https://github.com/maraujop/django-crispy-forms (co-lead)
 * https://github.com/pydanny/django-wysiwyg (lead)
 * https://github.com/pydanny/that (lead)
 
-Commercial Web Projects
-========================
+Donations
+=========
 
-Here are a few projects I've done some work on:
-
-* `Pet Cheatsheets`_: Create handy pet cheatsheets. Build custom 1-page reference sheets for your pets in minutes. Filled with custom art by `Audrey Roy`_.
-* `moveHero`_: Free, anonymous moving estimates. Try it out!.
-* `LA Currents`_: News for Los Angeles
+Donations to my open source work are greatly appreciated and help me dedicate more time and energy into the Python and Django community. If you want to help me produce more open source work, please take a moment to contribute to me on gittip_.
 
 
+.. _gittip: https://www.gittip.com/pydanny/
 .. _`Pet Cheatsheets`: http://petcheatsheets.com
 .. _`consumer.io`: http://consumer.io
 .. _`Audrey Roy`: http://audreymroy.com
@@ -61,7 +61,5 @@ Here are a few projects I've done some work on:
 .. _`Pyramid Packages`: http://pyramid.opencomparison.org
 .. _`Plone Packages`: http://plone.opencomparison.org
 .. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
-.. _`moveHero`: http://movehero.io
 .. _`Cartwheel Web`: http://cartwheelweb.com
-.. _`LA Currents`: http://lacurrents.com
 .. _`book`: http://django.2scoops.org
