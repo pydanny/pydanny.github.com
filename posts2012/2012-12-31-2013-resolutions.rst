@@ -34,14 +34,12 @@ Resolution
 * Have a beer with Thomas, Andy, Andy, Tony, Garrick, Bernd, and the rest of Ye Aulde Gange.
 * See my old DC area friends such as Eric, Chris, Steve, Beth, Sarah, Daye, Renee, Kenneth, Leslie, Whitney, Dave, and many others.
 
-**Post NYE Addendum:**
-
-* Update my blog to Pelican 3.
-* Implement a custom theme design so my blog looks more unique. ;-)
-
 Accomplished
 ============
 
 * Publish as least one book. See `Two Scoops of Django`_
+* Update my blog to Pelican 3.
+* Implement a custom theme design so my blog looks more unique. ;-)
+
 
 .. _`Two Scoops of Django`: http://django.2scoops.org/
