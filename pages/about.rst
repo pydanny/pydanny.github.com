@@ -6,20 +6,6 @@ About
 
 I'm the principal of `Cartwheel Web`_, which does Python, Django, and JavaScript out of Los Angeles, California. I love to read, write, hang out with my fiancee_, and play at Capoeira_. I am a total Space and NASA Geek.
 
-Book
-=====
-
-I co-wrote a book_:
-
-.. image:: https://s3.amazonaws.com/twoscoops/img/tsd-cover.png
-   :name: Two Scoops of Django: Best Practices for Django 1.5
-   :align: center
-   :target: http://django.2scoops.org/
-
-
-
-Django, like any framework, has tips, tricks, and pitfalls that aren't documented in one place. Experienced developers know this stuff, but gleaning it off the Internet takes a lot of time. We decided to take everything we know and write it down. This book_ reflects a portion of what we documented, and if it does well we plan to follow it up with other references.
-
 Web Projects
 ========================
 
@@ -63,3 +49,17 @@ Donations to my open source work are greatly appreciated and help me dedicate mo
 .. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
 .. _`Cartwheel Web`: http://cartwheelweb.com
 .. _`book`: http://django.2scoops.org
+
+Book
+=====
+
+I co-wrote a book_:
+
+.. image:: https://s3.amazonaws.com/twoscoops/img/tsd-cover.png
+   :name: Two Scoops of Django: Best Practices for Django 1.5
+   :align: center
+   :target: http://django.2scoops.org/
+
+
+
+Django, like any framework, has tips, tricks, and pitfalls that aren't documented in one place. Experienced developers know this stuff, but gleaning it off the Internet takes a lot of time. We decided to take everything we know and write it down. This book_ reflects a portion of what we documented, and if it does well we plan to follow it up with other references.
