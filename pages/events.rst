@@ -8,13 +8,23 @@ I attend events and speak at some of them.
 
 February 2013
 ==============
+    
+* 2/28 `SoCal Python February Meetup`_
 
-* 2/23: SCALE 11x
-
-    Attending
+    * Organizing
+    * Speaking
+    
+.. _`SoCal Python February Meetup`: http://www.meetup.com/socalpython/events/103525582/
 
 March 2013
 ===========
+
+* 3/4 `SoCal Python March Hack Night`_
+
+    * Organizing
+    * Hacking
+    
+.. _`SoCal Python March Hack Night`: http://www.meetup.com/socalpython/events/103525742/
 
 * 3/13: PyCon US
 
