@@ -64,10 +64,10 @@ Is this book good for beginners?
 
 The response from beginning Django developers reading it has been **unbelievably, overwhelmingly positive**. This is the book we wanted to have when we learned Django, and we're honored by the response the book has received.
 
-Since the book isn't a tutorial, we ask that before beginners purchase it, they learn_ `the fundamentals of Python`_ and take the `official Django tutorial`_.
+Since the book isn't a tutorial, we ask that before beginners purchase it, they `learn the fundamentals of`_ `Python`_ and take the `official Django tutorial`_.
 
-.. _learn: http://www.amazon.com/Learn-Python-Hard-Way-Introduction/dp/0321884914/?ie=UTF8&tag=cn-001-20
-.. _`the fundamentals of Python`: http://learnpythonthehardway.org/
+.. _Python: http://www.amazon.com/Learn-Python-Hard-Way-Introduction/dp/0321884914/?ie=UTF8&tag=cn-001-20
+.. _`learn the fundamentals of`: http://learnpythonthehardway.org/
 .. _`official Django tutorial`: http://learnpythonthehardway.org/
 
 When beginners find sections of the book above their head, they do what everyone does when reading a technical reference: skip over challenging sections until they have enough grounding to understand.
@@ -108,6 +108,8 @@ That said, at PyCon, we will be selling a limited set of the printed **beta**. W
 .. raw:: html
 
     <a name="tutorial"></a>
+    <a name="pycon"></a>
+    <a name="wiring-up-django-packages"></a>
 
 Tutorial? PyCon? Are you going?
 ==================================
@@ -125,7 +127,11 @@ When is the book's final release?
 
 The final release won't occur until after PyCon. 
 
-Our plan for the final release is to focus on errata, alternative electronic formats, and the print edition.
+Our plan for the final release of Two Scoops of Django: Best Practices for Django 1.5 is to focus on errata, alternative electronic formats, and the print version.
+
+.. raw:: html
+
+    <a name="bulk"></a>
 
 Can we purchase the book in bulk?
 =================================
@@ -141,16 +147,16 @@ Can I buy the book via PayPal?
 
 No. I'll answer why in a blog post next week.
 
-We're considering other non-credit card options to handle payment, but chances are they won't be implemented until after PyCon.
+We're considering other non-credit card options to handle payment.
 
 .. raw:: html
 
     <a name="errata"></a>
 
-Where should I send errata?
-===========================
+Where should I send errata or suggestions?
+===========================================
 
-Please send errata to 2scoops@cartwheelweb.com. The first person who reports an issue or makes a suggestion that we adopt will receive credit in the book. If not in the changelog, then in the dialogue of the book itself.
+Please send errata to 2scoops@cartwheelweb.com. We try to respond personally to every request.
 
 
 
