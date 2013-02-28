@@ -32,7 +32,6 @@ What is different about the beta release?
 * Added so many more code samples that even with the new example numbering system we lost count.
 * Speaking of code examples, most of the code samples in the book are loaded directly out of fully tested projects.
 * Incorporated the feedback of dozens of readers. Thank you so much for your contributions!
-* More illustrations!
 * Addressing the complaint that we don't charge enough, we raised the price by two dollars, from US$12 to US14.
 
 .. raw:: html
