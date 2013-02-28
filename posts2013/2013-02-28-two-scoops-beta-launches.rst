@@ -1,6 +1,6 @@
-========================
-Two Scoops Beta Released
-========================
+======================================
+Two Scoops of Django 1.5 Beta Released
+======================================
 
 :date: 2013-02-28 15:00
 :tags: twoscoops, python, django, audrey, pycon
