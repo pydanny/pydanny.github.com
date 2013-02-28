@@ -1,5 +1,5 @@
 ========================
-We Are Not Using PayPal
+DRAFT
 ========================
 
 :date: 2013-03-03 10:00
@@ -7,6 +7,7 @@ We Are Not Using PayPal
 :category: book
 :slug: we-are-not-using-paypal
 :status: draft
+
 
 Last month `Audrey Roy`_ and I launched a book_ about Django called `Two Scoops of Django: Best Practices for Django 1.5`_. We sold it without using PayPal because we were worried about having our account frozen. That turned out to be a very wise move.
 

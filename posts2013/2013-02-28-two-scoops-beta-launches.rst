@@ -20,7 +20,7 @@ After thirty three days of hard work, `Audrey Roy`_ and I are proud to announce 
 What is different about the beta release?
 =========================================
 
-* Added 50+ pages of new content while reducing the file size from 5.1 MB to 1.3 MB.
+* Added 50+ pages of new content while reducing the file size from 5.1 MB to 1.5 MB.
 * Added list of tables, list of figures, and index.
 * Dramatically improved the chapters on security, testing, logging, admin, and many more.
 * Add so many more code examples we lost count.
