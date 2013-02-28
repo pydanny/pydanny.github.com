@@ -109,7 +109,7 @@ That said, at PyCon, we will be selling a limited set of the printed **beta**. W
 
     <a name="tutorial"></a>
 
-`Tutorial? PyCon? Are you going?
+Tutorial? PyCon? Are you going?
 ==================================
 
 Yes! We're going to be at PyCon next month!  We're giving the `Wiring Up Django Packages`_ tutorial, and `Kenneth Love`_ (of `Getting Started with Django`_ fame) is part of our team. 
