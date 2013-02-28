@@ -7,7 +7,7 @@ Two Scoops of Django 1.5 Beta Released
 :category: book
 :slug: two-scoops-beta-released
 
-.. image:: https://s3.amazonaws.com/twoscoops/img/tsd-cover.png
+.. image:: https://s3.amazonaws.com/twoscoops/img/tsd-cover-beta.png
    :name: Two Scoops of Django
    :align: center
    :target: http://django.2scoops.org/
