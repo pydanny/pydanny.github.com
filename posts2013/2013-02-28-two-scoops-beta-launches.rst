@@ -66,7 +66,7 @@ Since the book isn't a tutorial, we ask that before beginners purchase it, they 
 
 .. _Python: http://www.amazon.com/Learn-Python-Hard-Way-Introduction/dp/0321884914/?ie=UTF8&tag=cn-001-20
 .. _`learn the fundamentals of`: http://learnpythonthehardway.org/
-.. _`official Django tutorial`: http://learnpythonthehardway.org/
+.. _`official Django tutorial`: https://docs.djangoproject.com/en/1.5/intro/tutorial01/
 
 When beginners find sections of the book above their head, they do what everyone does when reading a technical reference: skip over challenging sections until they have enough grounding to understand.
 
