@@ -7,16 +7,16 @@ Two Scoops of Django 1.5 Beta Released
 :category: book
 :slug: two-scoops-beta-released
 
-.. image:: https://s3.amazonaws.com/twoscoops/img/tsd-cover-beta.png
-   :name: Two Scoops of Django
-   :align: center
-   :target: http://django.2scoops.org/
-
 After thirty four days of hard work, `Audrey Roy`_ and I are proud to announce that we've released the **beta** of `Two Scoops of Django: Best Practices for Django 1.5`_. It's been a monumental effort, a labor of love, and we hope you find our efforts worthy. You can buy it right now in e-book (PDF) form on the website: http://django.2scoops.org
 
 Two Scoops of Django: Best Practices for Django 1.5 is a compilation of best practices for the Django framework. Like any framework, Django has tips, tricks, and pitfalls that aren't documented in one place. Experienced developers know this stuff, but gleaning it off the Internet takes a lot of time. We decided to take everything we know and write it down. 
 
 We stand of the shoulders of giants: We received advice from Django experts including a BDFL, Django core developers, and subject matter experts from around the world. Reader contributions from advanced and beginning developers have also shaped the book, and we can't thank enough those who gave us their insights.
+
+.. image:: https://s3.amazonaws.com/twoscoops/img/tsd-cover-beta.png
+   :name: Two Scoops of Django
+   :align: center
+   :target: http://django.2scoops.org/
 
 .. raw:: html
 
