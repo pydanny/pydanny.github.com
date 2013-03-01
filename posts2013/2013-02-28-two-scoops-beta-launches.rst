@@ -149,6 +149,15 @@ We're considering other non-credit card options to handle payment.
 
 .. raw:: html
 
+    <a name="known-issue-warning"></a>
+
+Known Issue Warning
+===========================================
+
+We've received a report about the PDF not opening on an Android tablet, and one about chapter/box titles not appearing in the Evince PDF reader. Please be aware before you buy; we apologize and are working to get a fix out ASAP.
+
+.. raw:: html
+
     <a name="errata"></a>
 
 Where should I send errata or suggestions?

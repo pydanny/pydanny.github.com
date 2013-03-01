@@ -67,6 +67,10 @@
 &lt;h2&gt;Can I buy the book via PayPal?&lt;/h2&gt;
 &lt;p&gt;No. I'll answer why in a blog post next week.&lt;/p&gt;
 &lt;p&gt;We're considering other non-credit card options to handle payment.&lt;/p&gt;
+&lt;a name="known-issue-warning"&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="section" id="known-issue-warning"&gt;
+&lt;h2&gt;Known Issue Warning&lt;/h2&gt;
+&lt;p&gt;We've received a report about the PDF not opening on an Android tablet, and one about chapter/box titles not appearing in the Evince PDF reader. Please be aware before you buy; we apologize and are working to get a fix out ASAP.&lt;/p&gt;
 &lt;a name="errata"&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;div class="section" id="where-should-i-send-errata-or-suggestions"&gt;
 &lt;h2&gt;Where should I send errata or suggestions?&lt;/h2&gt;
