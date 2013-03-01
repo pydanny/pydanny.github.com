@@ -152,9 +152,9 @@ We're considering other non-credit card options to handle payment.
     <a name="known-issue-warning"></a>
 
 Known Issue Warning
-===========================================
+===================
 
-We've received a report about the PDF not opening on an Android tablet, and one about chapter/box titles not appearing in the Evince PDF reader. Please be aware before you buy; we apologize and are working to get a fix out ASAP.
+On Android, if you try to open the PDF directly from the Gumroad download, you might get a "Cannot open file" error; however, if you navigate to the download location on your phone/tablet with a file browser (e.g. Samsung's "My Files"), you should be able to open the file from there. Gumroad is currently investigating the issue.
 
 .. raw:: html
 
