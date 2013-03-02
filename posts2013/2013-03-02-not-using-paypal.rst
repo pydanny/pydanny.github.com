@@ -93,6 +93,8 @@ This issue made me very angry. To help me calm down in order to write this artic
 
 If you are into Django, Python, or programming in general, check out the book I co-authored at https://django.2scoops.org/!
 
+----
+
 .. _`this book`: http://www.amazon.com/gp/product/0807012394/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0807012394&linkCode=as2&tag=cn-001-20
 
 
