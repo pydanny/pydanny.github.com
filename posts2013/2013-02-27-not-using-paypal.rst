@@ -6,7 +6,6 @@ We are not using PayPal
 :tags: twoscoops, python, django, paypal, rant
 :category: book
 :slug: we-are-not-using-paypal
-:status: draft
 
 
 In January `Audrey Roy`_ and I launched a book_ about Django called `Two Scoops of Django: Best Practices for Django 1.5`_. We decided to not use PayPal. Here's why:
@@ -15,7 +14,7 @@ In January `Audrey Roy`_ and I launched a book_ about Django called `Two Scoops 
 Open Source Events Get Burned By PayPal
 =======================================
 
-PayPal has a long, sordid history of freezing the accounts of Python related conferences and events around the world. In fact, this article was born out of the fact `DjangoCon Europe 2013 has it's PayPal account frozen`_. In the past, `DjangoCon Europe 2012`_, Plone Conferences 2008, 2011, and at least one PyCon Australia dealt with the same PayPal problem (DjangoCon 2013 was forewarned and took measures to protect itself). We also have unconfirmed reports of other Python and Django events also running into problems with PayPal freezing accounts. Going with just confirmed conferences having issues with PayPal, this is a combined total of assets in excess of over US$100,000 dollars.
+PayPal has a long, sordid history of freezing the accounts of Python related conferences and events around the world. In fact, this article was born out of the fact `DjangoCon Europe 2013 had it's PayPal account frozen`_. In the past, `DjangoCon Europe 2012`_, Plone Conferences 2008, 2011, and at least one PyCon Australia dealt with the same PayPal problem (DjangoCon 2013 was forewarned and took measures to protect itself). We also have unconfirmed reports of other Python and Django events also running into problems with PayPal freezing accounts. Going with just confirmed conferences having issues with PayPal, this is a combined total of assets in excess of over US$100,000 dollars.
 
 It's not just a Python issue either, it's an issue that `strikes other open source languages and tools`_. It's at the point now where `conference organizers don't trust PayPal`_ and make a point telling each other to use alternative payment gateways.
 
@@ -96,7 +95,7 @@ If this makes you angry as it did me, take a deep breath and step back. I've fou
 
 
 
-.. _`DjangoCon Europe 2013 has it's PayPal account frozen`: http://blog.djangocircus.com/post/43806402173/back-on-track
+.. _`DjangoCon Europe 2013 had it's PayPal account frozen`: http://blog.djangocircus.com/post/43806402173/back-on-track
 .. _`DjangoCon Europe 2012`: http://2012.djangocon.eu/
 
 
