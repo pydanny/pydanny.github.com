@@ -101,8 +101,6 @@ When can I get a print version?
 
 After a lot of consideration, we've decided to hold off on the print version of the book until what we call the final_ release, which won't be released until after `PyCon US`_. We're very finicky and don't want buyers of the print version to have an unfinished book.
 
-That said, at PyCon, we will be selling a limited set of the printed **beta**. We've yet to determine a price, but they'll be sold as first-come, first-serve, and students of our PyCon tutorial_ have first right of sale.
-
 .. raw:: html
 
     <a name="tutorial"></a>
