@@ -147,11 +147,18 @@ We're considering other non-credit card options to handle payment.
 
 .. raw:: html
 
-    <a name="known-issue-warning"></a>
+    <a name="known-issue-warnings"></a>
 
-Known Issue Warning
-===================
+Known Issue Warnings
+====================
 
+Copy/Paste
+----------
+
+We just discovered the beta has issues with copy/paste. Essentially, the build process is turning the code examples into an image type of object, which explains the strange characters. We're working on it, but aren't sure how long the fix will take. 
+
+Android
+---------
 On Android, if you try to open the PDF directly from the Gumroad download, you might get a "Cannot open file" error; however, if you navigate to the download location on your phone/tablet with a file browser (e.g. Samsung's "My Files"), you should be able to open the file from there. Gumroad is currently investigating the issue.
 
 .. raw:: html
