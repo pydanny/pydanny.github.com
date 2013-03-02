@@ -63,8 +63,9 @@ There was a day when Microsoft had what seemed to be an unassailable lock on the
 
 PayPal is on the same path of self-destruction. The've gone from the `scrappy company`_ helping people grow their business to the monolithic overlord that kills businesses and well-meaning events.
 
-PayPal's demise won't happen this year, or the next, but every time they damage their customer base and the developer community it's another nail in the coffin. I submit that unless PayPal changes it's ways, within 5 years PayPal will be a shadow of it's former self as the army of growing competitors such as Stripe_, `Balanced Payments`_, and Payoneer_ expands their availability and options around the world.
+PayPal's demise won't happen this year, or the next, but every time they damage their customer base and the developer community it's another nail in the coffin. I submit that unless PayPal changes it's ways, within 5 years PayPal will be a shadow of it's former self as the army of growing competitors such as Stripe_, `Balanced Payments`_, wepay_, and Payoneer_ expands their availability and options around the world.
 
+.. _wepay: https://www.wepay.com/
 .. _Payoneer: https://www.payoneer.com/
 .. _`Balanced Payments`: https://www.balancedpayments.com/
 
