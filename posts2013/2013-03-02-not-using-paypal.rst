@@ -89,7 +89,7 @@ I believe that PayPal needs to revise how it's anti-fraud division communicates 
 Note
 ========
 
-If this makes you angry as it did me, take a deep breath and step back. I've found `this book`_ useful in getting back on track and staying productive.
+If this makes you angry as it did me, take a deep breath and step back. I've found `this book`_ recommended by my friend Randall Degges useful in getting back on track and staying productive.
 
 .. _`this book`: http://www.amazon.com/gp/product/0807012394/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0807012394&linkCode=as2&tag=cn-001-20
 
