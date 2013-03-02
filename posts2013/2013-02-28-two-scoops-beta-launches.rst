@@ -141,9 +141,11 @@ We're working on a program to provide organizations the capability to purchase m
 Can I buy the book via PayPal?
 =================================
 
-No. I'll answer why in a blog post next week.
+No. I've answered in full here_.
 
 We're considering other non-credit card options to handle payment.
+
+.. _here: http://pydanny.com/we-are-not-using-paypal.html
 
 .. raw:: html
 
