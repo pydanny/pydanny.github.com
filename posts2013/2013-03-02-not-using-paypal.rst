@@ -86,7 +86,7 @@ PayPal has it's developer evangelists, community managers, and marketing departm
 
 I believe that PayPal needs to revise how it's anti-fraud division communicates with people who have frozen accounts. They need to change the adversarial pose they take with their own customers to one that is collaborative. 
 
-Note
+
 ========
 
 This issue made me very angry. To help me calm down in order to write this article I found `this book`_ recommended by my friend Randall Degges.
