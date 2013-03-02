@@ -155,7 +155,7 @@ Known Issue Warnings
 Copy/Paste
 ----------
 
-There are problems with copy/pasting of code from the PDF. The new PDF build process is turning the code examples into some sort of image type of object, which explains the strange characters. We're working on it, but aren't sure how long the fix will take. 
+There are problems with copy/pasting of code from the PDF. The new build process is turning the code examples into some sort of image type of object, which explains the strange characters. We're working on it, but aren't sure how long the fix will take. 
 
 Android
 ---------

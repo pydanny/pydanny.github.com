@@ -71,7 +71,7 @@
 &lt;h2&gt;Known Issue Warnings&lt;/h2&gt;
 &lt;div class="section" id="copy-paste"&gt;
 &lt;h3&gt;Copy/Paste&lt;/h3&gt;
-&lt;p&gt;There are problems with copy/pasting of code from the PDF. The new PDF build process is turning the code examples into some sort of image type of object, which explains the strange characters. We're working on it, but aren't sure how long the fix will take.&lt;/p&gt;
+&lt;p&gt;There are problems with copy/pasting of code from the PDF. The new build process is turning the code examples into some sort of image type of object, which explains the strange characters. We're working on it, but aren't sure how long the fix will take.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="android"&gt;
 &lt;h3&gt;Android&lt;/h3&gt;
