@@ -44,7 +44,7 @@ Ask any lawyer and they'll basically say against PayPal you have no options. Pay
 
 In talking to authors and entrepreneurs, we've just heard (and read) too many horror stories. For merchants of non-fungible goods such as digital goods like the e-book I co-authored, PayPal seems even less trustworthy. 
 
-Which means using PayPal places us at an unacceptable risk. We simply don't have the deep pockets to deal with PayPal freezing our funds for sales lost from a more reliable distribution system such as Stripe_ that powers our sales through _Gumroad.
+Which means using PayPal places us at an unacceptable risk. We simply don't have the deep pockets to deal with PayPal freezing our funds for sales lost from a more reliable distribution system such as Stripe_ that powers our sales through Gumroad_.
 
 .. _Stripe: https://stripe.com
 .. _Gumroad: https://gumroad.com
