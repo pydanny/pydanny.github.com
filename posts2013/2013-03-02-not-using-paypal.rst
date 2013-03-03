@@ -40,7 +40,7 @@ The software represented by these conferences drives the modern e-commerce world
 Legal recourse against PayPal is folly
 =======================================
 
-Ask any lawyer and they'll basically say against PayPal you have no options. PayPal has an army of lawyers and in most places isn't a bank, meaning your course of action is constrained from the beginning by your agreeing to PayPal's Terms of Service (TOS). Also, in the United States, their TOS prevents you from joining a class action lawsuit against them. Whether or not that TOS clause is enforceable in court, the fact that it's in their TOS greatly reduces any faith I might have had in them because it paints a picture of a company hostile to my needs.
+Ask any lawyer and they'll basically say against PayPal you have no options. PayPal has an army of lawyers and in most places isn't a bank, meaning your course of action is constrained from the beginning by your agreeing to PayPal's Terms of Service (TOS). Also, in the United States, their TOS prevents you from joining a class action lawsuit against them. Whether or not that TOS clause is enforceable in court, the fact that it is in their TOS greatly reduces any faith I might have had in them because it paints a picture of a company hostile to my needs.
 
 In talking to authors and entrepreneurs, we've just heard (and read) too many horror stories. For merchants of non-fungible goods such as digital goods like the e-book I co-authored, PayPal seems even less trustworthy. 
 
@@ -49,21 +49,21 @@ Which means using PayPal places us at an unacceptable risk. We simply don't have
 .. _Stripe: https://stripe.com
 .. _Gumroad: https://gumroad.com
 
-It's Wrong to Use PayPal
-=========================
+It is Wrong to Use PayPal
+==========================
 
-Considering PayPal's unacceptable behavior in regards to the open source community I love and merchants who try to work in their system, I feel it's wrong to support PayPal. Audrey agrees, and so our policy of not using PayPal to sell the book is set.
+Considering PayPal's unacceptable behavior in regards to the open source community I love and merchants who try to work in their system, I feel it is wrong to support PayPal. Audrey agrees, and so our policy of not using PayPal to sell the book is set.
 
 .. _Amazon: https://amazon.com
 
 PayPal is at Risk
 ===================
 
-There was a day when Microsoft had what seemed to be an unassailable lock on the commercial software world. On many levels, Microsoft is a shadow of it's former self, and I contend it wasn't just Apple's competition. Instead, Microsoft's contempt for their own customers and the developer community hurt them just as much.
+There was a day when Microsoft had what seemed to be an unassailable lock on the commercial software world. On many levels, Microsoft is a shadow of its former self, and I contend it wasn't just Apple's competition. Instead, Microsoft's contempt for their own customers and the developer community hurt them just as much.
 
 PayPal is on the same path of self-destruction. The've gone from the `scrappy company`_ helping people grow their business to the monolithic overlord that kills businesses and well-meaning events.
 
-PayPal's demise won't happen this year, or the next, but every time they damage their customer base and the developer community it's another nail in the coffin. I submit that unless PayPal changes it's ways, within 5 years PayPal will be a shadow of it's former self as the army of growing competitors such as Stripe_, `Balanced Payments`_, wepay_, and Payoneer_ expands their availability and options around the world.
+PayPal's demise won't happen this year, or the next, but every time they damage their customer base and the developer community it's another nail in the coffin. I submit that unless PayPal changes its ways, within 5 years PayPal will be a shadow of its former self as the army of growing competitors such as Stripe_, `Balanced Payments`_, wepay_, and Payoneer_ expands their availability and options around the world.
 
 .. _wepay: https://www.wepay.com/
 .. _Payoneer: https://www.payoneer.com/
@@ -83,9 +83,9 @@ PayPal does have to worry about ticket sales for bogus events, since that  separ
 What PayPal Can Do for Small Business
 =====================================
 
-PayPal has it's developer evangelists, community managers, and marketing departments working hard. However, at the end of the day, if you treat your customers with disrespect and a lack of trust, none of that matters. Bad press and market forces will see their revenues drop as customers will migrate to solutions that are more trustworthy and less antagonistic.
+PayPal has its developer evangelists, community managers, and marketing departments working hard. However, at the end of the day, if you treat your customers with disrespect and a lack of trust, none of that matters. Bad press and market forces will see their revenues drop as customers will migrate to solutions that are more trustworthy and less antagonistic.
 
-I believe that PayPal needs to revise how it's anti-fraud division communicates with people who have frozen accounts. They need to change the adversarial pose they take with their own customers to one that is collaborative. 
+I believe that PayPal needs to revise how its anti-fraud division communicates with people who have frozen accounts. They need to change the adversarial pose they take with their own customers to one that is collaborative. 
 
 Note
 ========
