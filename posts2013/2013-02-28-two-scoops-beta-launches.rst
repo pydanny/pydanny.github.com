@@ -46,6 +46,15 @@ What does buying the beta get me?
 
 .. raw:: html
 
+    <a name="alternative-formats"></a>
+
+Why aren't there Kindle or ePub versions yet?
+===============================================
+
+We want to support more formats, but won't do it poorly. It's going to take us at least several days to render the book in an alternative format that looks good. Since we both have multiple presentations at the upcoming `PyCon US`_, we simply don't have time to get it done.
+
+.. raw:: html
+
     <a name="alpha-buyers"></a>
 
 If I bought the alpha do I have to buy the beta?

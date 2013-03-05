@@ -71,6 +71,10 @@
 &lt;li&gt;Access to the Kindle and ePub formats when we release the final.&lt;/li&gt;
 &lt;li&gt;Access to final release of the book.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;a name="alternative-formats"&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="section" id="why-aren-t-there-kindle-or-epub-versions-yet"&gt;
+&lt;h2&gt;Why aren't there Kindle or ePub versions yet?&lt;/h2&gt;
+&lt;p&gt;We want to support more formats, but won't do it poorly. It's going to take us at least several days to render the book in an alternative format that looks good. Since we both have multiple presentations at the upcoming &lt;a class="reference external" href="https://us.pycon.org/2013/"&gt;PyCon US&lt;/a&gt;, we simply don't have time to get it done.&lt;/p&gt;
 &lt;a name="alpha-buyers"&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;div class="section" id="if-i-bought-the-alpha-do-i-have-to-buy-the-beta"&gt;
 &lt;h2&gt;If I bought the alpha do I have to buy the beta?&lt;/h2&gt;
