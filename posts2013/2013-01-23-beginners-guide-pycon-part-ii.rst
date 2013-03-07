@@ -104,7 +104,7 @@ Got lunch? Time for more talks!
 This slot is going to be hard because all three beginner talks are things you don't want to miss!
 
 * `Loop like a native: while, for, iterators, generators`_ (Ned Batchelder) - One of the really awesome features of Python is that you can write custom looping classes. Factor in generators and you'll be amazed by one of Python's most powerful features. 
-* `Visualizing Github, Part I: Data to Information`_ (Dana Bauer, Idan Gazit) - How can you go wrong with visualizing GitHub data using Python?
+* `Visualizing Github, Part I: Data to Information`_ (Dana Bauer, Idan Gazit) - How can you go wrong with visualizing GitHub data using Python? This first part of the talk is on gathering and processing of data.
 * `Encapsulation with descriptors`_ (Luciano Ramalho) - Python has no private fields, but the property decorator lets you replace public attributes with getters and setters without breaking client code. It's amazing what Python can do when you delve into it's subtleties!
 
 .. _`Loop like a native: while, for, iterators, generators`: https://us.pycon.org/2013/schedule/presentation/76/
@@ -115,6 +115,9 @@ This slot is going to be hard because all three beginner talks are things you do
 ~~~~~~~~~~~~~
 
 * `Music Theory and Performance Analysis with Sebastian and Czerny`_ (James Tauber) - An amazing speaker talking about one of his favorite subjects, this will be a great beginner talk. James mentored me in my early days of Django and JQuery, and I only have good things to say about him.
+* `Visualizing Github, Part II: Information to Meaning`_ (Idan Gazit, Dana Bauer) - How can you go wrong with visualizing GitHub data using Python? This second part of the talk is on visualizing the data into something meaningful.
+
+.. _`Visualizing Github, Part II: Information to Meaning`: https://us.pycon.org/2013/schedule/presentation/108/
 
 .. _`Music Theory and Performance Analysis with Sebastian and Czerny`: https://us.pycon.org/2013/schedule/presentation/136/
 

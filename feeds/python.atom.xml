@@ -207,7 +207,7 @@
 &lt;p&gt;This slot is going to be hard because all three beginner talks are things you don't want to miss!&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/76/"&gt;Loop like a native: while, for, iterators, generators&lt;/a&gt; (Ned Batchelder) - One of the really awesome features of Python is that you can write custom looping classes. Factor in generators and you'll be amazed by one of Python's most powerful features.&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/112/"&gt;Visualizing Github, Part I: Data to Information&lt;/a&gt; (Dana Bauer, Idan Gazit) - How can you go wrong with visualizing GitHub data using Python?&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/112/"&gt;Visualizing Github, Part I: Data to Information&lt;/a&gt; (Dana Bauer, Idan Gazit) - How can you go wrong with visualizing GitHub data using Python? This first part of the talk is on gathering and processing of data.&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/145/"&gt;Encapsulation with descriptors&lt;/a&gt; (Luciano Ramalho) - Python has no private fields, but the property decorator lets you replace public attributes with getters and setters without breaking client code. It's amazing what Python can do when you delve into it's subtleties!&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -215,6 +215,7 @@
 &lt;h4&gt;3:15 PM talk&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/136/"&gt;Music Theory and Performance Analysis with Sebastian and Czerny&lt;/a&gt; (James Tauber) - An amazing speaker talking about one of his favorite subjects, this will be a great beginner talk. James mentored me in my early days of Django and JQuery, and I only have good things to say about him.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/108/"&gt;Visualizing Github, Part II: Information to Meaning&lt;/a&gt; (Idan Gazit, Dana Bauer) - How can you go wrong with visualizing GitHub data using Python? This second part of the talk is on visualizing the data into something meaningful.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
