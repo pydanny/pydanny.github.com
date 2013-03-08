@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Simple Django email form using CBV</title>
+    <title>PyCon Tutorial: Wiring Up Django Packages</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Simple Django email form using CBV">
-                                        Simple Django email form using CBV
+                                        title="Permalink to PyCon Tutorial: Wiring Up Django Packages">
+                                        PyCon Tutorial: Wiring Up Django Packages
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,97 +100,61 @@
                 </header>
 
                 <p>
-                    <em>Tuesday, May 22, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to Simple Django email form using CBV">permalink</a>)
+                    <em>Friday, March 08, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to PyCon Tutorial: Wiring Up Django Packages">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>Here's a simple <tt class="docutils literal">FormView</tt> Class Based Views for <a class="reference external" href="http://djangoproject.com">Django</a>. Here is a sample of how to do one as a simple email form. There is no CAPTCHA in this example, that's the topic of a future blog post.</p>
-<p>This version requires the following packages <tt class="docutils literal">pip</tt> installed into your <tt class="docutils literal">virtualenv</tt>.</p>
+                    <div class="section" id="you-just-finished-the-django-tutorial-what-now">
+<h2>You just finished the <a class="reference external" href="https://docs.djangoproject.com/en/1.5/intro/tutorial01/">Django tutorial</a>. What now?</h2>
+<p>You learn how to Wire Up Django Packages!</p>
+<p>This is a 3+ hour <a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/11/">PyCon tutorial</a> on March 14th at 1:20pm, in Santa Clara California at <a class="reference internal" href="#pycon">PyCon</a> US.</p>
+<p>In alphabetical order, the instructors:</p>
+<blockquote>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">django-crispy-forms</span></tt> so we can do Python driven layouts.</li>
-<li><tt class="docutils literal"><span class="pre">django-floppyforms</span></tt> so we get HTML5 elements for free.</li>
+<li><a class="reference external" href="http://audreymroy.com/">Audrey Roy</a></li>
+<li>Daniel Greenfeld (myself)</li>
+<li><a class="reference external" href="http://gettingstartedwithdjango.com/">Kenneth Love</a></li>
 </ul>
-<p>They also need to be added to your list of INSTALLED_APPS:</p>
-<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">+=</span> <span class="p">(</span>
-    <span class="s">&#39;crispy_forms&#39;</span><span class="p">,</span>
-    <span class="s">&#39;floppyforms&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-</pre></div>
-<p>In myapp.forms.py:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">crispy_forms.helper</span> <span class="kn">import</span> <span class="n">FormHelper</span>
-<span class="kn">from</span> <span class="nn">crispy_forms.layout</span> <span class="kn">import</span> <span class="n">Submit</span>
-<span class="kn">import</span> <span class="nn">floppyforms</span> <span class="kn">as</span> <span class="nn">forms</span>
-
-<span class="k">class</span> <span class="nc">ContactForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
-
-    <span class="n">name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">subject</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">helper</span> <span class="o">=</span> <span class="n">FormHelper</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">helper</span><span class="o">.</span><span class="n">add_input</span><span class="p">(</span><span class="n">Submit</span><span class="p">(</span><span class="s">&#39;submit&#39;</span><span class="p">,</span> <span class="s">&#39;Submit&#39;</span><span class="p">))</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ContactForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</pre></div>
-<p>In myapp.views.py:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
-<span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">FormView</span>
-
-<span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">ContactForm</span>
-
-<span class="k">class</span> <span class="nc">ContactFormView</span><span class="p">(</span><span class="n">FormView</span><span class="p">):</span>
-
-    <span class="n">form_class</span> <span class="o">=</span> <span class="n">ContactForm</span>
-    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&quot;myapp/email_form.html&quot;</span>
-    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&#39;/email-sent/&#39;</span>
-
-    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;{name} / {email} said: &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">),</span>
-            <span class="n">email</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;email&#39;</span><span class="p">))</span>
-        <span class="n">message</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;message&#39;</span><span class="p">))</span>
-        <span class="n">send_mail</span><span class="p">(</span>
-            <span class="n">subject</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;subject&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
-            <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span>
-            <span class="n">from_email</span><span class="o">=</span><span class="s">&#39;contact-form@myapp.com&#39;</span><span class="p">,</span>
-            <span class="n">recipient_list</span><span class="o">=</span><span class="p">[</span><span class="n">settings</span><span class="o">.</span><span class="n">LIST_OF_EMAIL_RECIPIENTS</span><span class="p">],</span>
-        <span class="p">)</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContactFormView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">form_valid</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
-</pre></div>
-<p>In templates/myapp/email_form.html:</p>
-<div class="highlight"><pre>{% extends &#39;base.html&#39; %}
-{% load crispy_forms_tags %}
-
-{% block title %}Send an email{% endblock %}
-
-{% block content %}
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;span6&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;h1&gt;</span>Send an email<span class="nt">&lt;/h1&gt;</span>
-            {% crispy form form.helper %}
-        <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-{% endblock %}
-
-{% block extrajs %}
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;{{ STATIC_URL }}js/jquery-1.7.1.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#id_name&#39;</span><span class="p">).</span><span class="nx">focus</span><span class="p">()</span>
-<span class="p">});</span>
-<span class="nt">&lt;/script&gt;</span>
-{% endblock %}
-</pre></div>
-<div class="section" id="tomorrow-s-blog-post">
-<h2>Tomorrow's blog post</h2>
-<p>In tomorrow's post I'll show how to add CAPTCHA into your project to help reduce spam messages.</p>
+</blockquote>
 </div>
-<div class="section" id="want-to-learn-more">
-<h2>Want to learn more?</h2>
-<p>If you live in the Los Angeles area and want to learn more about Django, everything from the basics to setting up a Content Management System or E-Commerce system, check out our Django (and <a class="reference external" href="http://python.org">Python</a>) training at <a class="reference external" href="https://academy.cartwheelweb.com">Cartwheel Academy</a>.</p>
+<div class="section" id="tutorial-description">
+<h2>Tutorial Description</h2>
+<p>Django is part of an ecosphere of over 20,000 packages, which can be leveraged to great effect. This tutorial will teach the evaluation, use, and extension of third party Python and Django applications in your projects. This tutorial will be a lecture with a lot of detailed and annotated code examples.</p>
+<p id="pycon">This tutorial does much more than instruct on how to wire in third party packages, it also instructs on Django/Python best practices such as PEP-8, loose coupling, good database design, clarity of concept, and workable patterns.</p>
+<p>Material covered:</p>
+<ul class="simple">
+<li>Evaluating packages using Django Packages, PyPI, Read the Docs, and other sources.</li>
+<li>Must-include packages for every project</li>
+<li>Class-based Views</li>
+<li>Forms</li>
+<li>Models</li>
+<li>Caching</li>
+<li>Comments</li>
+<li>Templates</li>
+<li>Admin</li>
+</ul>
+</div>
+<div class="section" id="format">
+<h2>Format</h2>
+<p>This will be lecture with detailed and annotated code examples. Attendees will have a chance per section to ask questions and submit alternative packages of their own.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>Practical or professional experience with Django is recommended, but the material covered will be useful to anyone familiar with Python who has completed the Django tutorial.</p>
+<p>If you are a new Python developer, we suggest in addition to our course you sign up for some of the introductory Python tutorials taught at PyCon next week. If that is not possible or you wish reinforcement, please dive into one of the following resources before you attend:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://learnpythonthehardway.org/">http://learnpythonthehardway.org/</a></li>
+<li><a class="reference external" href="http://www.amazon.com/Treading-Python-Volume-1-ebook/dp/B00639H0AK/ref=sr_1_4?s=digital-text&amp;ie=UTF8&amp;qid=1362769305&amp;sr=1-4&amp;keywords=matt+harrison&amp;tag=cn-001-20">Treading on Python</a></li>
+<li><a class="reference external" href="http://www.amazon.com/Think-Python-Allen-B-Downey/dp/144933072X/ref=sr_1_1?ie=UTF8&amp;qid=1362768936&amp;sr=8-1&amp;keywords=think+in+python&amp;tag=cn-001-20">Think in Python</a></li>
+<li><a class="reference external" href="http://www.amazon.com/Python-Kids-Playful-Introduction-Programming/dp/1593274076/ref=sr_1_8?s=books&amp;ie=UTF8&amp;qid=1362769005&amp;sr=1-8&amp;keywords=python+programming&amp;tag=cn-001-20">Python for Kids</a> (meant for kids but good for beginning developers of all ages)</li>
+</ul>
+</div>
+<div class="section" id="registration">
+<h2>Registration</h2>
+<p>Space is filling up quickly, hurry up and register!</p>
+<p>Registration for this event is $150 and occurs at  <a class="reference external" href="https://us.pycon.org/2013/registration/register/">https://us.pycon.org/2013/registration/register/</a>.</p>
+<p>Note: Registration for the conference part of PyCon is closed, but tutorials are still open.</p>
 </div>
 
                     <div class="article-info">
@@ -200,8 +164,7 @@
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
 	<a href="./tag/django.html"><em>django</em></a>
-	<a href="./tag/howto.html"><em>howto</em></a>
-	<a href="./tag/class-based-views.html"><em>class-based-views</em></a>
+	<a href="./tag/pycon.html"><em>pycon</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -209,7 +172,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "simple-django-email-form-using-cbv.html";
+                           var disqus_identifier = "wiring-up-django-packages-pycon2013.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
