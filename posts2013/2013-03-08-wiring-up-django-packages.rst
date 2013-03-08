@@ -49,7 +49,7 @@ Material covered:
 Format
 =======
 
-This will be lecture with detailed and annotated code examples. Attendees will have a chance per section to ask questions and submit alternative packages of their own.
+This will be a lecture with detailed and annotated code examples. Attendees will have a chance per section to ask questions and submit alternative packages of their own.
 
 Prerequisites
 ==============
