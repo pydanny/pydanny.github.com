@@ -142,7 +142,7 @@ Evening Activities
 
 Saturday night will be the evening of a huge number of fantastic fun. Two items of note (more to come):
 
-* `The PyCon Charity Auction`_ (6:30 PM+) - Along with Disney Animation Studios and other contributors, Audrey and I are submitting a preview copy of the upcoming print edition of `Two Scoops of Django: Best Practices for Django 1.5`_!
+* `The PyCon Charity Auction`_ (6:30 PM+) - Along with Disney Animation Studios and many others, Audrey and I are contributing! In fact, we're submitting a one of a kind, preview copy of the upcoming print edition of `Two Scoops of Django: Best Practices for Django 1.5`_!
 * The famously unrecorded Testing in Python Birds of a Feathers event.
 
 Part IV
