@@ -76,6 +76,13 @@ Thursday Afternoon
 
 3. **Shameless Plug:** My talk is not meant for beginning Django developers, but I'm listing it anyway. It's my blog, right? In any case, along with `Audrey Roy`_ and `Kenneth Love`_, we're presenting `Wiring Up Django Packages`_. 
 
+Evening Activities
+===================
+
+* `Opening Reception`_
+
+.. _`Opening Reception`: https://us.pycon.org/2013/events/reception/
+
 Part II
 =======
 

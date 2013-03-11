@@ -152,7 +152,7 @@ This slot is going to be hard because all three beginner talks are things you do
 Evening Activities
 ==================
 
-On friday night the social scene will kick into high gear. There will be dinners, parties, Starcraft II contests, and hopefully the second year of PyCon Capoeira. As these become more definite I'll adding them to this post!
+On friday night the social scene will kick into high gear. There will be dinners, parties, Starcraft II contests, and much more. As these become more definite I'll adding them to this post!
 
 Part III
 ========
