@@ -74,7 +74,9 @@ Thursday Afternoon
 
 2. Want to learn how to program games? Look no further than Richard Jones' `Introduction to PyGame`_. He's taught this class for years, and I can't say enough good things about him.
 
-3. **Shameless Plug:** My talk is not meant for beginning Django developers, but I'm listing it anyway. It's my blog, right? In any case, along with `Audrey Roy`_ and `Kenneth Love`_, we're presenting `Wiring Up Django Packages`_. 
+3. This talk is not meant for beginning Django developers, but it's useful anyway. `Kenneth Love`_ and `Jacob Kaplan-Moss`_ are presenting `Wiring Up Django Packages`_. 
+
+.. _`Jacob Kaplan-Moss`: http://jacobian.org
 
 Evening Activities
 ===================

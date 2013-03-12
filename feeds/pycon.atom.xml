@@ -52,7 +52,6 @@
 &lt;h3&gt;1:55 PM talks&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/122/"&gt;Teaching with the IPython Notebook&lt;/a&gt; (Matt Davis) - The IPython Notebook is an unbelievably incredible tool. Imagine a Python shell that allows you to embed images and graphs right into the REPL. Designed by and for scientists, the IPython Notebook is useful for developers of all levels. You have to see it in action to believe it!&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/101/"&gt;Advanced Django Forms Usage&lt;/a&gt; (Daniel Greenfeld) - This isn't a beginner talk, but it's my talk! Indeed, I'm shamelessly plugging my intermediate level talk on what you can do with Django forms.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
@@ -263,7 +262,7 @@
 &lt;p&gt;Alright, that out of the way, let's take a look at what Friday, March 15th, has to offer in terms of beginner friendly talks...&lt;/p&gt;
 &lt;div class="section" id="friday-morning"&gt;
 &lt;h3&gt;Friday Morning&lt;/h3&gt;
-&lt;p&gt;The registration desk opens at 7:00 AM. Breakfast begins at 8:00 AM. From 9:00 AM to 10:20 AM is the welcome and initial keynote speeches. PyCon keynotes aren't boring - &lt;strong&gt;they are crazy awesome!&lt;/strong&gt; Say hi if you see me!&lt;/p&gt;
+&lt;p&gt;The registration desk opens at 7:00 AM. Breakfast begins at 8:00 AM. From 9:00 AM to 10:20 AM is the welcome and initial keynote speeches. PyCon keynotes aren't boring - &lt;strong&gt;they are crazy awesome!&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;In selecting these talks, I've tried to focus on the more technical ones.&lt;/p&gt;
 &lt;div class="section" id="am-talks"&gt;
 &lt;h4&gt;10:50 AM talks&lt;/h4&gt;
@@ -300,7 +299,6 @@
 &lt;div class="section" id="pm-talks"&gt;
 &lt;h4&gt;1:40 PM talks&lt;/h4&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/58/"&gt;Using Python To Generate Art And Sound&lt;/a&gt; (Audrey Roy) - This is an &lt;strong&gt;intermediate&lt;/strong&gt; talk, but myself and those who have seen it can assure you it's a very good talk. Audrey demonstrates how to use Python tools like NumPy, SciPy, and PIL to make lovely things. You probably already know that Audrey and I wrote a Django book together, but you probably don't know that she wrote a &lt;a class="reference external" href="http://www.amazon.com/Very-Magical-Caterpillar-Tale-Butterfly/dp/1453714081/?ie=UTF8&amp;amp;tag=cn-001-20"&gt;book about  caterpillars&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/54/"&gt;You can be a speaker at PyCon!&lt;/a&gt; (Anna Ravenscroft, Lynn Root) - PyCon loves new blood. Get some pointers on how to get your talks ready for submission next year!&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/117/"&gt;Python 3.3: Trust Me, It's Better than 2.7&lt;/a&gt; (Brett Cannon) - The world of Python is heading towards Python 3. Want to know why? Attend this talk!&lt;/li&gt;
 &lt;/ul&gt;
@@ -352,7 +350,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="evening-activities"&gt;
 &lt;h2&gt;Evening Activities&lt;/h2&gt;
-&lt;p&gt;On friday night the social scene will kick into high gear. There will be dinners, parties, Starcraft II contests, and much more. As these become more definite I'll adding them to this post!&lt;/p&gt;
+&lt;p&gt;On friday night the social scene will kick into high gear. There will be dinners, parties, Starcraft II contests, and much more.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="part-iii"&gt;
 &lt;h2&gt;Part III&lt;/h2&gt;
@@ -406,7 +404,7 @@
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;Jessica McKellar returns to instruct on how to give back to the community with &lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/4/"&gt;Contribute with me! Getting started with open source development&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Want to learn how to program games? Look no further than Richard Jones' &lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/19/"&gt;Introduction to PyGame&lt;/a&gt;. He's taught this class for years, and I can't say enough good things about him.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Shameless Plug:&lt;/strong&gt; My talk is not meant for beginning Django developers, but I'm listing it anyway. It's my blog, right? In any case, along with &lt;a class="reference external" href="http://audreymroy.com"&gt;Audrey Roy&lt;/a&gt; and &lt;a class="reference external" href="http://gettingstartedwithdjango.com/"&gt;Kenneth Love&lt;/a&gt;, we're presenting &lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/11/"&gt;Wiring Up Django Packages&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;This talk is not meant for beginning Django developers, but it's useful anyway. &lt;a class="reference external" href="http://gettingstartedwithdjango.com/"&gt;Kenneth Love&lt;/a&gt; and &lt;a class="reference external" href="http://jacobian.org"&gt;Jacob Kaplan-Moss&lt;/a&gt; are presenting &lt;a class="reference external" href="https://us.pycon.org/2013/schedule/presentation/11/"&gt;Wiring Up Django Packages&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;

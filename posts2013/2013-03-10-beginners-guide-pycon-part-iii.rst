@@ -40,7 +40,6 @@ Then get ready as noted Python experts and proven speakers Jessica McKellar and 
 11:30 AM talks
 ~~~~~~~~~~~~~~~~
 
-
 * `Who’s there? - Home Automation with Arduino/RaspberryPi`_ (Rupa Dachere) - Automate your home with Python! Learn how to use a Arduino or RaspberryPi to notify you by SMS that packages have arrived.
 * `Copyright and You`_ (Frank Siler) - Using and writing open source software involves a basic understanding of licensing and understanding of copyright law. The presenter, a licensed attorney, will cover the fundamentals needed to work safely in the open source world.
 * `Scaling community diversity outreach`_ (Asheesh Laroia, Jessica McKellar, Dana Bauer, Daniel Choi) - Leaders of community groups around the USA will explain how they get people of all backgrounds not just coding, but helping each other in order to grow the diversity of the technical community. 
@@ -85,10 +84,8 @@ Saturday Afternoon
 ~~~~~~~~~~~~~~~~
 
 * `Teaching with the IPython Notebook`_ (Matt Davis) - The IPython Notebook is an unbelievably incredible tool. Imagine a Python shell that allows you to embed images and graphs right into the REPL. Designed by and for scientists, the IPython Notebook is useful for developers of all levels. You have to see it in action to believe it!
-* `Advanced Django Forms Usage`_ (Daniel Greenfeld) - This isn't a beginner talk, but it's my talk! Indeed, I'm shamelessly plugging my intermediate level talk on what you can do with Django forms. 
 
 .. _`Teaching with the IPython Notebook`: https://us.pycon.org/2013/schedule/presentation/122/
-.. _`Advanced Django Forms Usage`: https://us.pycon.org/2013/schedule/presentation/101/
 
 2:35 PM talks
 ~~~~~~~~~~~~~~

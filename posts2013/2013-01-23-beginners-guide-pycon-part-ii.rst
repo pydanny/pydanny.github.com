@@ -35,7 +35,7 @@ Alright, that out of the way, let's take a look at what Friday, March 15th, has 
 Friday Morning
 ---------------
 
-The registration desk opens at 7:00 AM. Breakfast begins at 8:00 AM. From 9:00 AM to 10:20 AM is the welcome and initial keynote speeches. PyCon keynotes aren't boring - **they are crazy awesome!** Say hi if you see me!
+The registration desk opens at 7:00 AM. Breakfast begins at 8:00 AM. From 9:00 AM to 10:20 AM is the welcome and initial keynote speeches. PyCon keynotes aren't boring - **they are crazy awesome!**.
 
 In selecting these talks, I've tried to focus on the more technical ones.
 
@@ -81,7 +81,6 @@ Got lunch? Time for more talks!
 1:40 PM talks
 ~~~~~~~~~~~~~
 
-* `Using Python To Generate Art And Sound`_ (Audrey Roy) - This is an **intermediate** talk, but myself and those who have seen it can assure you it's a very good talk. Audrey demonstrates how to use Python tools like NumPy, SciPy, and PIL to make lovely things. You probably already know that Audrey and I wrote a Django book together, but you probably don't know that she wrote a `book about  caterpillars`_.
 * `You can be a speaker at PyCon!`_ (Anna Ravenscroft, Lynn Root) - PyCon loves new blood. Get some pointers on how to get your talks ready for submission next year!
 * `Python 3.3: Trust Me, It's Better than 2.7`_ (Brett Cannon) - The world of Python is heading towards Python 3. Want to know why? Attend this talk!
 
@@ -152,7 +151,7 @@ This slot is going to be hard because all three beginner talks are things you do
 Evening Activities
 ==================
 
-On friday night the social scene will kick into high gear. There will be dinners, parties, Starcraft II contests, and much more. As these become more definite I'll adding them to this post!
+On friday night the social scene will kick into high gear. There will be dinners, parties, Starcraft II contests, and much more.
 
 Part III
 ========
