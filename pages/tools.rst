@@ -50,11 +50,9 @@ Services
 * gmail
 * Heroku_
 * `Pet Cheatsheets`_
-* `moveHero`_
 
 .. _Heroku: Heroku
 .. _`Pet Cheatsheets`: http://petcheatsheets.com
-.. _`moveHero`: http://movehero.io
 
 Software
 ========
