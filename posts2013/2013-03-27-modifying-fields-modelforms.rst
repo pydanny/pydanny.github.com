@@ -74,6 +74,8 @@ The code example below illuminates where I purposefully/gleefully placed an erro
 
 Bugs like this happen either because developers are human and make mistakes, or because the model evolves over time and the forms are left behind. This is a serious maintenance issue, and one that will bite you or the developers who end up maintaining code you've written.
 
+Can you spot the second bug? ;-)
+
 How do we fix this?
 
 A Better Way
