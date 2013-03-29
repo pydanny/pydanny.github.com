@@ -145,7 +145,7 @@ This is all fine and good, but what does it mean for developers trying to solve 
     True
     >>> good_form.errors
     {}
-    >>> bad_form = MyForm({"title": "Two Scoops of Django"})
+    >>> bad_form = MyForm()
     >>> bad_form.is_valid()
     False
     >>> bad_form.errors
