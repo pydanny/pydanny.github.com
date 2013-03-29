@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Core Concepts of Django Forms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel-Greenfeld">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css" />
+    <link href="./theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="./theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="./theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
+
+    <link href="./" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+    
+  </head>
+
+  <body>
+
+    <div class="pre-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h1 class="site-logo">
+              <a href=".">
+              <img src="./theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              </a>
+            </h1>
+          </div>
+          <div class="offset1 span5">
+            <p class="about-this-blog">
+              Hi, I'm Daniel Greenfeld, and welcome to my blog. I write about Python, Django, and much more.
+            </p>
+          </div>
+        </div>
+        <div class="pydanny-cartwheel"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+    <div class="navbar navbar-fixed-top" id="pydanny-navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href=".">Home</a></li>
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/events.html">Events</a></li>
+                <li><a href="./pages/tools.html">Tools</a></li>
+                <li><a href="./category/audrey.html">Audrey</a></li>
+                <li><a href="./category/blog.html">Blog</a></li>
+                <li><a href="./category/book.html">Book</a></li>
+                <li><a href="./category/django.html">Django</a></li>
+                <li><a href="./category/python.html">Python</a></li>
+
+              <li><a href="./archives.html">Archives</a></li>
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+            <section id="content">
+        <article>
+                <header>
+                        <h1 class="article-title">
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Core Concepts of Django Forms">
+                                        Core Concepts of Django Forms
+                                </a>
+                                <a href="http://twitter.com/share" class="twitter-share-button"
+   data-count="horizontal" data-via="pydanny">Tweet</a>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js">
+</script>
+                        </h1>
+                </header>
+
+                <p>
+                    <em>Friday, March 29, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to Core Concepts of Django Forms">permalink</a>)
+                </p>
+
+                <div class="entry-content">
+                    <p>In my opinion, the concepts behind Django's non-model forms can be listed in just three (3) bullets:</p>
+<ul class="simple">
+<li>Forms render HTML.</li>
+<li>Forms are &quot;just&quot; Python constructs.</li>
+<li>Forms validate dictionaries (Python's Key/Value structure).</li>
+</ul>
+<p>Let's dig in!</p>
+<div class="section" id="forms-render-html">
+<h2>Forms render HTML.</h2>
+<p>If I construct a Django form:</p>
+<div class="highlight"><pre><span class="c"># myapp/forms.py</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+
+<span class="k">class</span> <span class="nc">MyForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+<p>I can render it in a template, or for better clarity in this post, the Python REPL:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">MyForm</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">MyForm</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyForm</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1016c6990</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;&lt;</span><span class="n">th</span><span class="o">&gt;&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s">&quot;id_title&quot;</span><span class="o">&gt;</span><span class="n">Title</span><span class="p">:</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">id</span><span class="o">=</span><span class="s">&quot;id_title&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="o">/&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
+</pre></div>
+<p>You can even see this done with initial values in the Django docs: <a class="reference external" href="https://docs.djangoproject.com/en/1.5/ref/forms/api/#django.forms.Form.initial">https://docs.djangoproject.com/en/1.5/ref/forms/api/#django.forms.Form.initial</a></p>
+</div>
+<div class="section" id="forms-are-just-python-constructs">
+<h2>Forms are &quot;just&quot; Python constructs.</h2>
+<p>I believe it was <a class="reference external" href="https://twitter.com/alex_gaynor">Alex</a> <a class="reference external" href="http://alexgaynor.net/">Gaynor</a> who said back in 2008 that Django forms were &quot;just&quot; Python constructs. He's right:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">MyForm</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c"># class</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MyForm</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">myapp</span><span class="o">.</span><span class="n">forms</span><span class="o">.</span><span class="n">MyForm</span><span class="s">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c"># object</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">form</span> <span class="o">=</span> <span class="n">MyForm</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">form</span>
+<span class="o">&lt;</span><span class="n">myapp</span><span class="o">.</span><span class="n">forms</span><span class="o">.</span><span class="n">MyForm</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1023f1450</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c"># iterable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">form</span><span class="p">]</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">django</span><span class="o">.</span><span class="n">forms</span><span class="o">.</span><span class="n">forms</span><span class="o">.</span><span class="n">BoundField</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x102495990</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">form</span><span class="o">.</span><span class="n">fields</span><span class="p">]</span>
+<span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c"># dictionary-like</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">form</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">]</span>
+<span class="o">&lt;</span><span class="n">django</span><span class="o">.</span><span class="n">forms</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">CharField</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1024a17d0</span><span class="o">&gt;</span>
+</pre></div>
+<p>Understanding the structure of Django forms is really useful. This structure is what allows the modification mechanism that I described in my <a class="reference external" href="http://pydanny.com/overloading-form-fields.html">previous post</a>.</p>
+<p>We don't have to stop in just the <tt class="docutils literal">forms.py</tt> module. You can also modify forms in views (either the classic <tt class="docutils literal">views.py</tt> module or in whatever API library you might be using):</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">FormView</span>
+
+<span class="k">class</span> <span class="nc">MyFormView</span><span class="p">(</span><span class="n">FormView</span><span class="p">):</span>
+
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">MyForm</span>
+
+    <span class="k">def</span> <span class="nf">get_form</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form_class</span><span class="p">):</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">form_class</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">get_form_kwargs</span><span class="p">())</span>
+        <span class="n">form</span><span class="p">[</span><span class="s">&#39;favorite_icecream&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span>
+            <span class="n">label</span><span class="o">=</span><span class="s">&quot;What is your favorite flavor from this list?&quot;</span><span class="p">,</span>
+            <span class="n">choices</span><span class="o">=</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;Chocolate&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Vanilla&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;Berry&quot;</span><span class="p">)),</span>
+            <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">RadioSelect</span><span class="p">,</span>
+            <span class="n">required</span><span class="o">=</span><span class="bp">True</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
+        <span class="c"># Get user&#39;s favorite ice cream.</span>
+        <span class="c"># You can do anything you want with it</span>
+        <span class="n">favorite_icecream</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="p">[</span><span class="s">&#39;favorite_icecream&#39;</span><span class="p">]</span>
+
+        <span class="c"># return the anticipated redirect</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">&quot;home&quot;</span><span class="p">)</span>
+</pre></div>
+<p>As you can see, with an understanding of basic Python types and some experience with Django forms you can become very creative in applications of forms. Please keep in mind that the devil is in the details, and overly creative use of forms (or anything) is a road you should carefully tread. It's always good to remember that simplicity is best and that the goal isn't to just write code, but to write maintainable code.</p>
+</div>
+<div class="section" id="forms-validate-dictionaries">
+<h2>Forms validate dictionaries.</h2>
+<p>One of the primary functions of any HTTP-friendly form libraries is validating dictionary-like data objects. HTTP query strings are key/value structures and in order to avoid corruption in the persistence layer of any project, regardless of framework or language, validation needs to occur.</p>
+<p>During it's request/response cycle Django converts <tt class="docutils literal">HTTP POST</tt> (and <tt class="docutils literal">HTTP GET</tt>) objects into something called a <tt class="docutils literal">QueryDict</tt>, which is an merely an extended Django dictionary. See the comments in the code example below for proof:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.http.request</span> <span class="kn">import</span> <span class="n">QueryDict</span>
+<span class="kn">from</span> <span class="nn">django.utils.datastructures</span> <span class="kn">import</span> <span class="n">MultiValueDict</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__main__</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">my_form_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+
+    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+        <span class="c"># logs True because request.POST is an instance of QueryDict</span>
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">QueryDict</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+        <span class="c"># logs True because QueryDict is a dictionary</span>
+        <span class="nb">issubclass</span><span class="p">(</span><span class="n">QueryDict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">()</span>
+</pre></div>
+<p>This is all fine and good, but what does it mean for developers trying to solve problems? Well, it means that Django forms serve quite handily as a means for validation of dictionaries:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">MyForm</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">good_form</span> <span class="o">=</span> <span class="n">MyForm</span><span class="p">({</span><span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;Two Scoops of Django&quot;</span><span class="p">})</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">good_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">good_form</span><span class="o">.</span><span class="n">errors</span>
+<span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bad_form</span> <span class="o">=</span> <span class="n">MyForm</span><span class="p">({</span><span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;Two Scoops of Django&quot;</span><span class="p">})</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bad_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bad_form</span><span class="o">.</span><span class="n">errors</span>
+<span class="p">{</span><span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">u&#39;This field is required.&#39;</span><span class="p">]}</span>
+</pre></div>
+<p>The power of this can't be understated. In fact, I'll be exploring this particular facet of Django forms more in at least one upcoming blog post.</p>
+</div>
+<div class="section" id="epilogue">
+<h2>Epilogue</h2>
+<p>ModelForms adds at least three more bullets...</p>
+<ul class="simple">
+<li>ModelForms render Model fields as HTML</li>
+<li>ModelForms automatically choose validators based off of Model field definitions.</li>
+<li>ModelForms save dictionaries to SQL tables.</li>
+</ul>
+<p>... and I'll be touching on them in the future.</p>
+<p>Today's book pre-order is David Beazley and Brian Jones' highly anticipated Python 3 friendly <a class="reference external" href="http://www.amazon.com/gp/product/1449340377/?ie=UTF8&amp;tag=cn-001-20">Python Cookbook, 3rd Edition</a></p>
+</div>
+
+                    <div class="article-info">
+                            <footer class="post-info">
+
+
+Tags:
+	<a href="./tag/python.html"><em>python</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/forms.html"><em>forms</em></a>
+	<a href="./tag/class-based-views.html"><em>class-based-views</em></a>
+</footer><!-- /.post-info -->                    </div>
+                </div><!-- /.entry-content -->
+                                <hr/>
+                <div class="comments">
+                <h3>Comments</h3>
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                           var disqus_identifier = "core-concepts-django-forms.html";
+                           (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = 'http://pydanny.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] ||
+                                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+                          })();
+                        </script>
+                </div>
+                        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="offset1 span3 sidebar-nav" id="sidebar">
+            <ul class="nav nav-list">
+</ul>
+
+<h4>Two Scoops of Django</h4>
+
+<p>The beta release of <a href="http://django.2scoops.org">my new book</a> about Django best practices is now out as an ebook.</p>
+
+<a href="http://django.2scoops.org"><img class="two-scoops-cover-thumb" src="https://s3.amazonaws.com/twoscoops/img/tsd-cover-beta.png" /></a>
+
+<p>Stay tuned for details about the print version.</p>
+
+<h4 class="nav-header">Follow Me</h4>
+    <p class="capitalize"><i class="icon-twitter-sign icon-large"></i> <a href="http://twitter.com/pydanny">twitter</a></p>
+    <p class="capitalize"><i class="icon-github-sign icon-large"></i> <a href="https://github.com/pydanny">github</a></p>
+    <p class="capitalize"><i class="icon-facebook-sign icon-large"></i> <a href="http://www.facebook.com/daniel.greenfeld">facebook</a></p>
+
+<h4>Subscribe To My Feed</h4>
+
+<p>
+While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
+
+<h4 class="nav-header">Tags</h4>
+<span class="tag-3">
+    <a href="./tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/pycon.html">
+        pycon
+    </a>
+</span>
+
+<h4 class="nav-header">Twitter</h4>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 'auto',
+  height: 300,
+  theme: {
+	shell: {
+	  background: '#f5f5f5',
+	  color: '#000000'
+	},
+	tweets: {
+	  background: '#ffffff',
+	  color: '#000000',
+	  links: '#1a50a1'
+	}
+  },
+  features: {
+	scrollbar: false,
+	loop: false,
+	live: false,
+	behavior: 'all'
+  }
+}).render().setUser('pydanny').start();
+</script>
+
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">Content Copyright © 2013 Daniel Greenfeld. 
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>. Adapted from the <a href="https://github.com/getpelican/pelican-themes/tree/master/bootstrap2">Pelican Bootstrap2</a> theme by <a href="http://www.audreymroy.com">Audrey M. Roy</a>. Support my work by spreading the word about <a href="http://django.2scoops.org">Two Scoops of Django: Best Practices For Django 1.5</a>.
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-18066389-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+        <script type="text/javascript">
+    var disqus_shortname = 'pydanny';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./theme/js/jquery-1.7.2.min.js"></script>
+    <script src="./theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
