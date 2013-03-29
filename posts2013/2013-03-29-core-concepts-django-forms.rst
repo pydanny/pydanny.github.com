@@ -164,6 +164,3 @@ ModelForms adds at least three more bullets...
 
 ... and I'll be touching on them in the future.
 
-Today's book pre-order is David Beazley and Brian Jones' highly anticipated Python 3 friendly `Python Cookbook, 3rd Edition`_
-
-.. _`Python Cookbook, 3rd Edition`: http://www.amazon.com/gp/product/1449340377/?ie=UTF8&tag=cn-001-20

@@ -125,7 +125,6 @@
 &lt;li&gt;ModelForms save dictionaries to SQL tables.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;... and I'll be touching on them in the future.&lt;/p&gt;
-&lt;p&gt;Today's book pre-order is David Beazley and Brian Jones' highly anticipated Python 3 friendly &lt;a class="reference external" href="http://www.amazon.com/gp/product/1449340377/?ie=UTF8&amp;amp;tag=cn-001-20"&gt;Python Cookbook, 3rd Edition&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="forms"></category><category term="class-based-views"></category></entry><entry><title>Overloading Django Form Fields</title><link href="http://pydanny.com/overloading-form-fields.html" rel="alternate"></link><updated>2013-03-27T09:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-03-27:overloading-form-fields.html</id><summary type="html">&lt;p&gt;One of the patterns we get positive feedback for mentioning in our &lt;a class="reference external" href="https://django.2scoops.org/"&gt;book&lt;/a&gt; is &lt;strong&gt;overloading form fields&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The problem this pattern handles is the use case of when we have a model with a field(s) that allows for blank values, how do we force users to enter values?&lt;/p&gt;
