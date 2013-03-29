@@ -86,7 +86,7 @@ We don't have to stop in just the ``forms.py`` module. You can also modify forms
         
         def get_form(self, form_class):
             form = form_class(**self.get_form_kwargs())
-            form['favorite_icecream'] = forms.ChoiceField(
+            form.fields['favorite_icecream'] = forms.ChoiceField(
                 label="What is your favorite flavor from this list?",
                 choices=((0, "Chocolate"), (1, "Vanilla"), (2, "Berry")),
                 widget=forms.RadioSelect,
