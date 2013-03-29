@@ -92,6 +92,7 @@ We don't have to stop in just the ``forms.py`` module. You can also modify forms
                 widget=forms.RadioSelect,
                 required=True
             )
+            return form
         
         def form_valid(self, form):
             # Get user's favorite ice cream.
