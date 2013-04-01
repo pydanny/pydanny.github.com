@@ -2,11 +2,10 @@
 Fixing Python's String class
 =============================
 
-:date: 2013-4-01 09:00
+:date: 2013-4-01 00:01
 :tags: python
 :category: python
 :slug: fixing-pythons-string-class
-:status: draft
 
 Ever wonder why Python's ``str`` or ``unicode`` types lack obvious length methods? Yes, we can get the length via the special ``__len__()`` method, but instead as Python developers we get the so-called 'luxury' of discovering length via the Python's built-in ``len()`` function. So instead of calling the length of objects the way Rubyists or Javascripters do...
 
@@ -36,7 +35,7 @@ Ever wonder why Python's ``str`` or ``unicode`` types lack obvious length method
     >>> s.__len__()  # This is what len() calls to get the length
     13
 
-I'm sure Python luminaries like Guido Van Rossum and Raymond Hettiger can explain why Python works this way. Their opinions are probably full of logic, history, and grand reasoning.
+I'm sure Python luminaries like Guido Van Rossum, Alex Gaynor, David Beazley, and Raymond Hettiger can explain why Python works this way. Their opinions are probably full of logic, history, and grand reasoning.
 
 None of that applies to this blog post.
 
@@ -121,7 +120,7 @@ Conquering with the String Class
 
 So far I've carefully changed the Python ecosystem with my brilliant addition to the language. What if I want to get stupidly dangerous? What if I want to allow developers the **dangerous capability to alter the returned length of a String**? Fortunately for me, and unfortunately for anyone who uses this code on a real project, I know how to be this stupidly dangerous. 
 
-I've cooked up the ``ConqueringString`` class:
+I've present to you the ``ConqueringString`` class:
 
 .. code-block:: python
 
@@ -186,10 +185,16 @@ Does it work?
         print(s[5:10]) # slicing still works!
         print(s.upper()) # other methods still work!
 
-Run it and see. Or grab it off PyPI with ``pip install stringtheory``
+Run it and see. Or grab it off PyPI with ``pip install stringtheory``.
 
 Summary
 =========
 
-And yes, we can do this with lists, tuples, dictionaries, and everything else.
+Don't forget ``pip install stringtheory``!
 
+We can implement this power using Python lists, tuples, dictionaries, and everything else we can imagine. Let's do it!
+
+Resources:
+
+* http://github.com/pydanny/stringtheory
+* https://pypi.python.org/pypi/stringtheory
