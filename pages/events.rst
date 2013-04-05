@@ -4,10 +4,7 @@ Events
 
 :date: 2013-03-27 07:00
 
-I attend events and speak at some of them. 
-    
-Past Events
-============
+Here are events at which I've spoken at:
 
 .. raw:: html
 
