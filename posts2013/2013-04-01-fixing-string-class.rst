@@ -3,7 +3,7 @@ Fixing Python's String class
 =============================
 
 :date: 2013-4-01 00:01
-:tags: python
+:tags: python, joke
 :category: python
 :slug: fixing-pythons-string-class
 
