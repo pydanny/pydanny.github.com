@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/all-en.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-04-01T00:01:00-07:00</updated><entry><title>Fixing Python's String class</title><link href="http://pydanny.com/fixing-pythons-string-class.html" rel="alternate"></link><updated>2013-04-01T00:01:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-01:fixing-pythons-string-class.html</id><summary type="html">&lt;p&gt;Ever wonder why Python's &lt;tt class="docutils literal"&gt;str&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;unicode&lt;/tt&gt; types lack obvious length methods? Yes, we can get the length via the special &lt;tt class="docutils literal"&gt;__len__()&lt;/tt&gt; method, but instead as Python developers we get the so-called 'luxury' of discovering length via the Python's built-in &lt;tt class="docutils literal"&gt;len()&lt;/tt&gt; function. So instead of calling the length of objects the way Rubyists or Javascripters do...&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/all-en.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-04-10T09:00:00-07:00</updated><entry><title>Annotated History of My Most Used Shell Commands</title><link href="http://pydanny.com/20130410-history-of-my-most-used-shell-commands.html" rel="alternate"></link><updated>2013-04-10T09:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-10:20130410-history-of-my-most-used-shell-commands.html</id><summary type="html">&lt;p&gt;An oldie, but a goodie. This time, though, I annotate it with reasons as to why things are used so much. Anything after a &lt;tt class="docutils literal"&gt;#&lt;/tt&gt; is an annotation:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ history | awk '{a[$2]++ } END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}'|sort -rn |head -n 20
+166 git     # I am a software developer.
+138 make    # Building the book takes 5 to 8 commands depending on format.
+68 touch    # Readying the book for kindle requires adding a lot of new files.
+51 python   # I am a Python developer and often use the shell.
+21 open     # Opening PDFs and Mobi to see how the book build works.
+12 rm       # I hate bad files.
+10 cd       # Intrigued that this isn't higher.
+9 kindled/kindlegen # Converting the book to .mobi format.
+7 heroku    # Support for clients.
+6 vim       # Sometimes I use it to keep my street cred up.
+5 bpython   # I like this shell.
+3 source    # Activating virtualenv without virtualenvwrapper. Long story...
+3 cp        # Files need to be copied, rught?
+3 gondor    # More client support.
+2 import    # I have no idea.
+1 wget      # Fetching files from the internets.
+1 pip       # More client support.
+1 ls        # How is this not higher?
+1 ssh       # Some projects are not on PaaS.
+&lt;/pre&gt;
+&lt;p&gt;Interesting how much of my very recent shell experience is focused on the &lt;a class="reference external" href="https://django.2scoops.org/"&gt;book&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Speaking of books, today's reading is Jeff Knupp's &lt;a class="reference external" href="http://www.amazon.com/Writing-Idiomatic-Python-3-3-ebook/dp/B00B5VXMRG/ref=tmm_kin_title_0?ie=UTF8&amp;amp;qid=1365610132&amp;amp;sr=8-1&amp;amp;tag=cn-001-20"&gt;Writing Idiomatic Python 3.3&lt;/a&gt;&lt;/p&gt;
+</summary><category term="python"></category><category term="twoscoops"></category><category term="book"></category></entry><entry><title>Fixing Python's String class</title><link href="http://pydanny.com/fixing-pythons-string-class.html" rel="alternate"></link><updated>2013-04-01T00:01:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-01:fixing-pythons-string-class.html</id><summary type="html">&lt;p&gt;Ever wonder why Python's &lt;tt class="docutils literal"&gt;str&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;unicode&lt;/tt&gt; types lack obvious length methods? Yes, we can get the length via the special &lt;tt class="docutils literal"&gt;__len__()&lt;/tt&gt; method, but instead as Python developers we get the so-called 'luxury' of discovering length via the Python's built-in &lt;tt class="docutils literal"&gt;len()&lt;/tt&gt; function. So instead of calling the length of objects the way Rubyists or Javascripters do...&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="c1"&gt;# ruby&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello, World!&amp;quot;&lt;/span&gt;
 &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello, World!&amp;quot;&lt;/span&gt;
@@ -162,7 +187,7 @@
 &lt;p&gt;This was my 2013 &lt;a class="reference external" href="http://pydanny.com/fixing-pythons-string-class.html#april-fool-s-joke"&gt;April Fool's Joke&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;However, the code was a lot of fun to write and after Mike Bayer's comment about &lt;tt class="docutils literal"&gt;__new__&lt;/tt&gt; and a number of serious questions that people emailed me yesterday, I plan to follow this post with some more discussion on how to expand on native types in Python.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Core Concepts of Django Forms</title><link href="http://pydanny.com/core-concepts-django-forms.html" rel="alternate"></link><updated>2013-03-29T11:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-03-29:core-concepts-django-forms.html</id><summary type="html">&lt;p&gt;In my opinion, the concepts behind Django's non-model forms can be listed in just three (3) bullets:&lt;/p&gt;
+</summary><category term="python"></category><category term="joke"></category></entry><entry><title>Core Concepts of Django Forms</title><link href="http://pydanny.com/core-concepts-django-forms.html" rel="alternate"></link><updated>2013-03-29T11:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-03-29:core-concepts-django-forms.html</id><summary type="html">&lt;p&gt;In my opinion, the concepts behind Django's non-model forms can be listed in just three (3) bullets:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Forms render HTML.&lt;/li&gt;
 &lt;li&gt;Forms are &amp;quot;just&amp;quot; Python constructs.&lt;/li&gt;
