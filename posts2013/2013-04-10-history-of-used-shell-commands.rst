@@ -7,7 +7,7 @@ Annotated History of My Most Used Shell Commands
 :category: python
 :slug: 20130410-history-of-my-most-used-shell-commands
 
-An oldie, but a goodie. This timeI annotate it with reasons as to why things are used so much. If you blog, post your own! 
+An oldie, but a goodie. This time I annotate it with reasons as to why things are used so much. If you blog, post your own! 
 
 For reference, anything after a "#" is an annotation. ::
 
