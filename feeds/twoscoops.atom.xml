@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/twoscoops.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-04-10T09:00:00-07:00</updated><entry><title>Annotated History of My Most Used Shell Commands</title><link href="http://pydanny.com/20130410-history-of-my-most-used-shell-commands.html" rel="alternate"></link><updated>2013-04-10T09:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-10:20130410-history-of-my-most-used-shell-commands.html</id><summary type="html">&lt;p&gt;An oldie, but a goodie. This time, though, I annotate it with reasons as to why things are used so much. Anything after a &lt;tt class="docutils literal"&gt;#&lt;/tt&gt; is an annotation:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/twoscoops.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-04-10T09:00:00-07:00</updated><entry><title>Annotated History of My Most Used Shell Commands</title><link href="http://pydanny.com/20130410-history-of-my-most-used-shell-commands.html" rel="alternate"></link><updated>2013-04-10T09:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-10:20130410-history-of-my-most-used-shell-commands.html</id><summary type="html">&lt;p&gt;An oldie, but a goodie. This time, though, I annotate it with reasons as to why things are used so much. Anything after a &lt;tt class="docutils literal"&gt;#&lt;/tt&gt; is an annotation. If you blog, post your own!:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 $ history | awk '{a[$2]++ } END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}'|sort -rn |head -n 20
 166 git     # I am a software developer.
@@ -14,7 +14,7 @@ $ history | awk '{a[$2]++ } END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}
 6 vim       # Sometimes I use it to keep my street cred up.
 5 bpython   # I like this shell.
 3 source    # Activating virtualenv without virtualenvwrapper. Long story...
-3 cp        # Files need to be copied, rught?
+3 cp        # Files need to be copied, right?
 3 gondor    # More client support.
 2 import    # I have no idea.
 1 wget      # Fetching files from the internets.
