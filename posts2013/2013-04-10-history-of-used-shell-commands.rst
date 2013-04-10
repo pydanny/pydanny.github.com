@@ -7,7 +7,7 @@ Annotated History of My Most Used Shell Commands
 :category: python
 :slug: 20130410-history-of-my-most-used-shell-commands
 
-An oldie, but a goodie. This timeI annotate it with reasons as to why things are used so much. Anything after a "#" is an annotation. If you blog, post your own!::
+An oldie, but a goodie. This timeI annotate it with reasons as to why things are used so much. If you blog, post your own! For reference, anything after a "#" is an annotation. ::
 
     $ history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}'|sort -rn |head -n 20
     166 git     # I am a software developer.
