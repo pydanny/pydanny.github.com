@@ -1,5 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/django.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-03-29T11:00:00-07:00</updated><entry><title>Core Concepts of Django Forms</title><link href="http://pydanny.com/core-concepts-django-forms.html" rel="alternate"></link><updated>2013-03-29T11:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-03-29:core-concepts-django-forms.html</id><summary type="html">&lt;p&gt;In my opinion, the concepts behind Django's non-model forms can be listed in just three (3) bullets:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/django.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-04-15T09:00:00-07:00</updated><entry><title>Generating NCX files with Python</title><link href="http://pydanny.com/generating-ncx-files-with-python.html" rel="alternate"></link><updated>2013-04-15T09:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-15:generating-ncx-files-with-python.html</id><summary type="html">&lt;p&gt;With the help of fellow Python developer Matt Harrison's &lt;a class="reference external" href="http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=la_B0077BQLH6_1_2?ie=UTF8&amp;amp;qid=1366041987&amp;amp;sr=1-2&amp;amp;tag=cn-001-20"&gt;Ebook Formatting: KF8, Mobi &amp;amp; EPUB&lt;/a&gt;, we managed to create pretty decent looking Kindle and ePub versions of &lt;a class="reference external" href="http://django.2scoops.org/"&gt;Two Scoops of Django&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;One of many things we did was focus on providing an excellent table of contents. Of course we provided one inside the content of the book, but much like the PDF version we also provided one that various ebook readers can display in sidebars or drop down menus. Unfortunately, building this navigation isn't well documented (except for Matt's book), and I've yet to see any good ways to generate it via code.&lt;/p&gt;
+&lt;p&gt;Which is why I present the following code. It looks at the HTML that KindleGen and ePub generators demand and pulls from it a chapter-based table of contents. Then constructs a .ncx file, which is what ebook readers use to generate the sidebar/dropdown table of contents.&lt;/p&gt;
+&lt;p&gt;Our requirements:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Jinja2
+Django
+BeautifulSoup4
+&lt;/pre&gt;
+&lt;p&gt;And now the code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.utils.text&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;jinja2&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;
+
+&lt;span class="n"&gt;TEMPLATE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;!DOCTYPE ncx PUBLIC &amp;quot;-//NISO//DTD ncx 2005-1//EN&amp;quot; &amp;quot;http://www.daisy.org/z3986/2005/ncx-2005-1.dtd&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;ncx xmlns=&amp;quot;http://www.daisy.org/z3986/2005/ncx/&amp;quot; version=&amp;quot;2005-1&amp;quot; xml:lang=&amp;quot;en&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+
+&lt;span class="s"&gt;&amp;lt;!-- The content of dtb:uid must be exactly the same as the uuid specified in the OPF file. --&amp;gt;&lt;/span&gt;
+
+&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:uid&amp;quot; content=&amp;quot;urn:uuid:BLAH-BLAH-BLAH&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:depth&amp;quot; content=&amp;quot;1&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:totalPageCount&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:maxPageNumber&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+&lt;span class="s"&gt;&amp;lt;docTitle&amp;gt;&amp;lt;text&amp;gt;Two Scoops of Django: Best Practices for Django 1.5&amp;lt;/text&amp;gt;&amp;lt;/docTitle&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Greenfeld, Daniel&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Roy, Audrey&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;navMap&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% f&lt;/span&gt;&lt;span class="s"&gt;or chapter in chapters %}&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;navPoint id=&amp;quot;{{ chapter.slug }}&amp;quot; playOrder=&amp;quot;{{ loop.index }}&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;navLabel&amp;gt;&amp;lt;text&amp;gt;{{ chapter.string.strip() }}&amp;lt;/text&amp;gt;&amp;lt;/navLabel&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;content src=&amp;quot;{{ chapter.href }}&amp;quot; /&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% e&lt;/span&gt;&lt;span class="s"&gt;ndfor %}&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/navMap&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/ncx&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Grab the base file for review&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c"&gt;# load the text into a bs4 object&lt;/span&gt;
+    &lt;span class="n"&gt;soup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# grab the nav element&lt;/span&gt;
+    &lt;span class="n"&gt;nav&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;soup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# loop through the TOC for chapters.&lt;/span&gt;
+    &lt;span class="c"&gt;# Sections/Subsections can&amp;#39;t be displayed, so don&amp;#39;t worry about them&lt;/span&gt;
+    &lt;span class="c"&gt;# li.chapter is how we constructed our TOC. Your mileage may vary.&lt;/span&gt;
+    &lt;span class="n"&gt;chapters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;nav&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;li&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;chapter&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;href&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+            &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="n"&gt;slug&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Render the template&lt;/span&gt;
+    &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TEMPLATE&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# convert to ASCII&lt;/span&gt;
+    &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ascii&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;xmlcharrefreplace&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Save to the toc.ncx&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;toc.ncx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;book.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There is more to adding a table of contents then just this simple module. You also have to construct the .opf file, which is another undocumented mess that I'll blog about.&lt;/p&gt;
+</summary><category term="python"></category><category term="twoscoops"></category><category term="book"></category><category term="django"></category></entry><entry><title>Core Concepts of Django Forms</title><link href="http://pydanny.com/core-concepts-django-forms.html" rel="alternate"></link><updated>2013-03-29T11:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-03-29:core-concepts-django-forms.html</id><summary type="html">&lt;p&gt;In my opinion, the concepts behind Django's non-model forms can be listed in just three (3) bullets:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Forms render HTML.&lt;/li&gt;
 &lt;li&gt;Forms are &amp;quot;just&amp;quot; Python constructs.&lt;/li&gt;
