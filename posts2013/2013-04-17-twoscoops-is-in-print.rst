@@ -15,7 +15,11 @@ Note: As of April 17th it's only available in the US. However, it's in the queue
 
 .. _`Django Circus`: http://djangocircus.com/
 
-While it's been an amazing journey, it's also been a long hard road. Starting with a late night dinner with Randall Degges, his incredible wife Samantha, and Sean Bradley, to spending hours upon hours writing and revising, to taking painfully honest critiques from mentors, to alpha launch, then rewriting the book followed by the beta launch. It wasn't easy, but the growing volume of positive feedback and suggestions from readers kept us going.
+While it's been an amazing journey, it's also been a long hard road. Starting with a late night dinner with `Randall Degges`_, his wife Samantha_, and `Sean Bradley`_, to spending hours upon hours writing and revising, to taking painfully honest critiques from mentors, to alpha launch, then rewriting the book followed by the beta launch. It wasn't easy, but the growing volume of positive feedback and suggestions from readers kept us going.
+
+.. _`Randall Degges`: http://rdegges.com
+.. _Samantha: http://hardlyfunny.com
+.. _`Sean Bradley`: https://bravoflix.com/
 
 Between the Alpha and Beta releases we switched over to LaTeX. Audrey taught it to me in February, and I'm proud to say I've progressed from absolute neophyte to beginner. We chose it because of it's fine-grained control over layout for the PDF and print versions. Creating the Kindle and ePub versions from LaTeX was harder thanks to using LaTeX, but everything's automated now so making updates is easy. Future editions of this book (1.6, 1.7, etc) or other technical books I hope to write will continue to be in LaTeX, but if I publish fiction I'll probably go with RestructuredText.
 
