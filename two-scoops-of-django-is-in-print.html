@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Python dictionary as a class</title>
+    <title>Two Scoops of Django is in print!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Python dictionary as a class">
-                                        Python dictionary as a class
+                                        title="Permalink to Two Scoops of Django is in print!">
+                                        Two Scoops of Django is in print!
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,124 +100,19 @@
                 </header>
 
                 <p>
-                    <em>Saturday, September 01, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to Python dictionary as a class">permalink</a>)
+                    <em>Wednesday, April 17, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to Two Scoops of Django is in print!">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>A long time ago, circa 1999, when I was working in a certain procedural language I found a library that added objects to the language. It did so by playing interesting tricks with key/value structures, which in <a class="reference external" href="http://python.org">Python</a> are called <cite>dictionaries</cite>. In 2005, as a new Python user, I read something about how objects in Python are essentially dictionaries with <a class="reference external" href="http://en.wikipedia.org/wiki/Syntactic_sugar">syntactical sugar</a>.</p>
-<p>Well, today while driving from Los Angeles to San Francisco, I started to try and figure out how to replicate object or class-like behavior using Python dictionaries. In this exercise, I wanted to code out the following:</p>
-<blockquote>
-<ul class="simple">
-<li>methods with ability to write to self/this/whatever</li>
-<li>inheritance</li>
-</ul>
-</blockquote>
-<p>The result isn't something I would use in production code, but it was fun to write. Without further ado...</p>
-<div class="section" id="i-present-the-newclass-function">
-<h2>I present the 'newclass' function!</h2>
-<p>What <tt class="docutils literal">newclass</tt> does is simple:</p>
-<blockquote>
-<ul class="simple">
-<li>Document implementation of inheritance.</li>
-<li>Include a simple <tt class="docutils literal">set</tt> method for setting attribute values to self/this/whatever.</li>
-</ul>
-</blockquote>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">newclass</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Use kwargs.update() method to handle inheritance &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Sets key/value to the kwargs.</span>
-<span class="sd">            Replicates self/this clumsily</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;set&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span>
-    <span class="k">return</span> <span class="n">kwargs</span>
-</pre></div>
-<p>Now that you've seen the code, let's try it out.</p>
-<div class="section" id="demonstration-methods-with-ability-to-write-to-self-this-whatever">
-<h3>Demonstration: Methods with ability to write to self/this/whatever</h3>
-<p>Instantiating a <tt class="docutils literal">newclass</tt> 'object' is straight-forward. See below:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">person</span> <span class="o">=</span> <span class="n">newclass</span><span class="p">(</span>
-<span class="o">...</span>     <span class="n">name</span><span class="o">=</span><span class="s">&quot;Danny&quot;</span><span class="p">,</span>
-<span class="o">...</span>     <span class="n">mental_age</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-<span class="o">...</span> <span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
-<span class="p">{</span><span class="s">&#39;mental_age&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;set&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="nb">set</span> <span class="n">at</span> <span class="mh">0x10bc902a8</span><span class="o">&gt;</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Danny&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">person</span><span class="p">[</span><span class="s">&#39;set&#39;</span><span class="p">](</span><span class="s">&quot;languages&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;Python&#39;</span><span class="p">,</span> <span class="s">&#39;JavaScript&#39;</span><span class="p">])</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
-<span class="p">{</span><span class="s">&#39;languages&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;Python&#39;</span><span class="p">,</span> <span class="s">&#39;JavaScript&#39;</span><span class="p">],</span> <span class="s">&#39;mental_age&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;set&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="nb">set</span> <span class="n">at</span> <span class="mh">0x10bc902a8</span><span class="o">&gt;</span><span class="p">,</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Danny&#39;</span><span class="p">}</span>
-</pre></div>
-<p>Setting a value to an attribute can be done via the <tt class="docutils literal">set</tt> method is not pretty, but it works. Yes, you can shortcut <tt class="docutils literal">set</tt>, but I wanted to see if it worked. That it's working is important because since <tt class="docutils literal">set</tt> works, it means we can create much more complicated methods that touch on many parts of the newclass object context.</p>
-<p>Just like a normal Python <tt class="docutils literal">class</tt> and <tt class="docutils literal">method</tt>.</p>
-</div>
-<div class="section" id="demonstration-inheritance">
-<h3>Demonstration: Inheritance</h3>
-<p>Here I show how to use the <tt class="docutils literal">dict.update()</tt> method to display inheritance. I'll demonstrate via the use of the Mammal/Cat/Dog example.</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">Mammal</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; The mammal base class &quot;&quot;&quot;</span>
-
-    <span class="c"># dict.update handles the role of inheritance</span>
-    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">newclass</span><span class="p">())</span>
-
-    <span class="c"># Mammals have 4 legs</span>
-    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;legs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
-
-    <span class="c"># Using lambda cause I&#39;m lazy.</span>
-    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="bp">NotImplemented</span>
-    <span class="k">return</span> <span class="n">kwargs</span>
-
-<span class="k">def</span> <span class="nf">Cat</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-
-    <span class="c"># dict.update handles the role of inheritance</span>
-    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Mammal</span><span class="p">())</span>
-
-    <span class="c"># Make a sound</span>
-    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;Meow&quot;</span>
-    <span class="k">return</span> <span class="n">kwargs</span>
-
-<span class="k">def</span> <span class="nf">Dog</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-
-    <span class="c"># dict.update handles the role of inheritance</span>
-    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Mammal</span><span class="p">())</span> <span class="c"># dict.update handles the role of inheritance</span>
-
-    <span class="c"># Make a sound</span>
-    <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;Bark&quot;</span>
-    <span class="k">return</span> <span class="n">kwargs</span>
-</pre></div>
-<p>Alright, we have our code. What happens when we try it out?</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="c"># first we try just the Mammal</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">mammal</span> <span class="o">=</span> <span class="n">Mammal</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">mammal</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]())</span>
-<span class="bp">NotImplemented</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">mammal</span><span class="p">[</span><span class="s">&#39;legs&#39;</span><span class="p">])</span>
-<span class="mi">4</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="c"># Now the Cat</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">cat</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]())</span>
-<span class="n">Meow</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">cat</span><span class="p">[</span><span class="s">&#39;legs&#39;</span><span class="p">])</span>
-<span class="mi">4</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="c"># Finally the dog</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">dog</span><span class="p">[</span><span class="s">&#39;say&#39;</span><span class="p">]())</span>
-<span class="n">Bark</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">dog</span><span class="p">[</span><span class="s">&#39;legs&#39;</span><span class="p">])</span>
-<span class="mi">4</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="conclusion">
-<h2>Conclusion</h2>
-<p>Compared to normal Python classes the syntax is a little bit on the ugly side. Yet this works and as I said earlier, it was fun to write.</p>
-<p>Some questions...</p>
-<ul class="simple">
-<li>Should I change the name of the internal context variable from <tt class="docutils literal">kwargs</tt> to <tt class="docutils literal">self</tt>?</li>
-<li>How fast is <tt class="docutils literal">newclass</tt> compared to the standard Python <tt class="docutils literal">class</tt> system?</li>
-<li>What happens if you use <tt class="docutils literal">newclass</tt> in a complex project?</li>
-<li>Shouldn't I implement some way to track inheritance chains? Wouldn't it be nice to know the parent of an object?</li>
-</ul>
-</div>
+                    <p>Since I was a child I wanted to be a published author. I've dreamt of people reading my book. While one could say that dream was fulfilled when we launched the e-book version in January, it's not the same as seeing the printed copy. Today I got to see my dream come true, a printed <a class="reference external" href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&amp;qid=1366166104&amp;sr=8-2&amp;tag=cn-001-20">book</a> is out there with my name on it.</p>
+<p>Also, I have a confession to make. When it comes to technical books, I really prefer the print version. For me, nothing beats being able to flip through pages of a hardcopy next to a keyboard, or simply reading while I'm on a bus, train, or plane. So this adds to my excitement when I get to say that the book that <a class="reference external" href="http://audreymroy.com/">Audrey Roy</a> and I wrote together is in <a class="reference external" href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&amp;qid=1366166104&amp;sr=8-2&amp;tag=cn-001-20">print</a>.</p>
+<p>Note: As of April 17th it's only available in the US. However, it's in the queue for being available for Amazon Europe. Enough people are asking that we are also looking into getting it bulk shipped to <a class="reference external" href="http://djangocircus.com/">Django Circus</a>.</p>
+<p>While it's been an amazing journey, it's also been a long hard road. Starting with a late night dinner with Randall Degges, his incredible wife Samantha, and Sean Bradley, to spending hours upon hours writing and revising, to taking painfully honest critiques from mentors, to alpha launch, then rewriting the book followed by the beta launch. It wasn't easy, but the growing volume of positive feedback and suggestions from readers kept us going.</p>
+<p>Between the Alpha and Beta releases we switched over to LaTeX. Audrey taught it to me in February, and I'm proud to say I've progressed from absolute neophyte to beginner. We chose it because of it's fine-grained control over layout for the PDF and print versions. Creating the Kindle and ePub versions from LaTeX was harder thanks to using LaTeX, but everything's automated now so making updates is easy. Future editions of this book (1.6, 1.7, etc) or other technical books I hope to write will continue to be in LaTeX, but if I publish fiction I'll probably go with RestructuredText.</p>
+<p>While working on the final version we were greatly saddened by the death of Malcolm Tredennick, to whom the book is dedicated. We miss him terribly. I've tried to write about Malcolm's volume of his contribution to the book, but it's still too hard. For now, let's just say that he gave and taught us so much and asked us for nothing in return, which is why we decided to give free copies of the PDF edition of the <a class="reference external" href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&amp;qid=1366166104&amp;sr=8-2&amp;tag=cn-001-20">book</a> to developers in need.</p>
+<p>In fact, if you are a developer in need, and can't afford a copy, drop us a note at <a class="reference external" href="mailto:2scoops&#64;cartwheelweb.com">2scoops&#64;cartwheelweb.com</a> explaining your situation. Our quick rule of thumb is that if you can afford to buy games for your favorite device, then you can afford to buy our book.</p>
+<p>What now? Well, we aren't certain. We're maintaining a couple client projects but aren't taking on new ones. We've got a couple projects we're working on and I'm talking employment with a couple companies who do good things for the community.</p>
 
                     <div class="article-info">
                             <footer class="post-info">
@@ -225,7 +120,9 @@
 
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/howto.html"><em>howto</em></a>
+	<a href="./tag/twoscoops.html"><em>twoscoops</em></a>
+	<a href="./tag/book.html"><em>book</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -233,7 +130,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "python-dictionary-as-a-class.html";
+                           var disqus_identifier = "two-scoops-of-django-is-in-print.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
