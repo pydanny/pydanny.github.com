@@ -3,7 +3,7 @@ Off to Europe!
 ==============
 
 :date: 2013-4-20 09:00
-:tags: europe, travel
+:tags: europe, travel, django, djangocon
 :category: blog
 :slug: off-to-europe
 
