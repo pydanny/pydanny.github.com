@@ -30,3 +30,5 @@ When do we go back? Well, we plan to stay for at least two months. Even if we go
 We could have talked ourselves out of going. We nearly did. However, even with our workload this is the chance of a lifetime.
 
 Finally, for the next two weeks I'll only be able to access the internet for a few minutes per day. Please expect my responses to emails and tweets to be slower than normal.
+
+**Update:** In the middle of all of this, I was invited to keynote Django Circus: http://blog.djangocircus.com/post/48439600279/meet-daniel-greenfeld
