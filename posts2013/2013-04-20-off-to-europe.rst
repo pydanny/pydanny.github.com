@@ -15,7 +15,7 @@ A few weeks Audrey_ and I decided to move. While looking at possible rentals or 
 
 **o_O**
 
-Then, we discovered an amazing travel deal. It combined a very cheap red-eye flight from Los Angeles to Fort Lauderdale, and a slow trans-atlantic ship from Port Miami to Barcelona, about as much as a cheap hotel but with free food! If we avoid alcohol and any extra fees, it's actually really cheap. Being mostly disconnected from the internet would mean we could really focus on a couple of critical projects. If only we had a business justification for going to Europe...
+Then, we discovered an amazing travel deal. It combined a very cheap red-eye flight from Los Angeles to Fort Lauderdale, and a slow trans-atlantic ship from Port Miami to Barcelona, about as much as a cheap hotel but with free food! If we avoid alcohol and any extra fees, it's actually extremely inexpensive. Being mostly disconnected from the internet would mean we could really focus on a couple of critical projects. If only we had a business justification for going to Europe...
 
 **It just so happens that we have business in Europe.**
 
