@@ -21,7 +21,7 @@ Then, we discovered an amazing travel deal. It combined a very cheap red-eye fli
 
 Our plan is to spend a few months in Europe before returning back to the USA. We'll work hard on the ship, work hard when we arrive, and just get stuff done. It's not a vacation, but it is Europe, and there is such a thing as weekends. 
 
-We'll be spending a few days in early May in Barcelona, then making our way to Poland for several weeks. Yes, we're attending `Django Circus`_, plus I want to investigate some family roots. After Poland, we're thinking either France, Italy, Hungary, England, Belgium, and more. We'll see where the winds and affordable AirBNB places take us.
+We'll be spending a few days in early May in Barcelona, then making our way to Poland for several weeks. Yes, we're attending `Django Circus`_, plus I want to investigate some family roots. After Poland, we're thinking either France, Italy, Hungary, England, Belgium, Scotland, Ireland, and other options. We'll see where the winds and affordable AirBNB places take us.
 
 When do we go back? Well, we plan to stay for at least two months. Even if we go back to the USA, we would have at least been in Europe for May and June. How cool is that?
 
