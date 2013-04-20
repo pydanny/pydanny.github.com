@@ -27,4 +27,6 @@ When do we go back? Well, we plan to stay for at least two months. Even if we go
 
 .. _`Django Circus`: http://djangocircus.com
 
-One more thing, we could have talked ourselves out of going. We nearly did. However, even with our workload this is the chance of a lifetime.
+We could have talked ourselves out of going. We nearly did. However, even with our workload this is the chance of a lifetime.
+
+Finally, for the next two weeks I'll only be able to access the internet for a few minutes per day. Please expect my responses to emails and tweets to be slower than normal.
