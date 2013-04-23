@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Los Angeles Open Source Sprint on Nov 4th!</title>
+    <title>Filepicker.io and South</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Los Angeles Open Source Sprint on Nov 4th!">
-                                        Los Angeles Open Source Sprint on Nov 4th!
+                                        title="Permalink to Filepicker.io and South">
+                                        Filepicker.io and South
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,103 +100,72 @@
                 </header>
 
                 <p>
-                    <em>Sunday, October 14, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to Los Angeles Open Source Sprint on Nov 4th!">permalink</a>)
+                    <em>Tuesday, April 23, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to Filepicker.io and South">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <a class="reference external image-reference" href="http://www.meetup.com/LA-Hackathons/events/85658952/"><img alt="https://s3.amazonaws.com/pydanny/la_hackathons.jpeg" class="align-left" id="la-open-source-sprint-5" src="https://s3.amazonaws.com/pydanny/la_hackathons.jpeg" /></a>
-<p>Yet again, myself, Audrey Roy, and a small but elite cadre of volunteers are feverishly at work putting together another Los Angeles open source event. Our <a class="reference external" href="http://pydanny.com/july-15th-2012-la-open-source-recap.html">last effort went smashingly well</a>, and like any good engineer, we're ready to scale up - this time to 150 attendees!</p>
-<p>LA Open Source #5 is a day long coding event for Open Source developers of all languages and skill levels to come and code like fiends. They'll be joined by dozens of either really smart coders or nice people like me. Sponsors are providing food, drinks, venue, and more!</p>
-<p>RSVP at <a class="reference external" href="http://www.meetup.com/LA-Hackathons/events/85658952/">http://www.meetup.com/LA-Hackathons/events/85658952/</a></p>
-<p>I'll be there to:</p>
-<ul class="simple">
-<li>Co-lead the event with the assistance of the awesome Los Angeles technical community!</li>
-<li>Code like a fiend. I plan to work on core <a class="reference external" href="http://djangoproject.com">Django</a>. Maybe some ember.js stuff too.</li>
-</ul>
-<p>And now to open the floor to questions...</p>
-<div class="section" id="when-and-where">
-<h2>When and where?</h2>
-<p>Where:</p>
+                    <p>I've heard good things about filepicker.io, which is a service that makes file uploading a much better experience. Unfortunately, the Django package for filepicker.io doesn't work with South. When I try to create a migration using the filepicker.io field using code like the following...</p>
+<div class="highlight"><pre><span class="c"># products/models.py</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django_filepicker.models</span> <span class="kn">import</span> <span class="n">FPFileField</span>
+
+<span class="k">class</span> <span class="nc">Product</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="n">FPFileField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s">&#39;uploads&#39;</span><span class="p">)</span>
+</pre></div>
+<p>...when I try to run the command:</p>
 <pre class="literal-block">
-Cross Campus (crosscamp.us)
-820 Broadway
-Santa Monica, CA
+(tsd)$ python manage.py schemamigration products --initial
 </pre>
-<p>When:</p>
+<p>It results in this unpleasant looking response:</p>
 <pre class="literal-block">
-November 4th, 2012
-10 AM to 9 PM
+(tsd)$ python manage.py schemamigration products --initial
+Creating migrations directory at '/Users/danielgreenfeld/code/tsp/tsp/products/migrations'...
+Creating __init__.py in '/Users/danielgreenfeld/code/tsp/tsp/products/migrations'...
+ ! Cannot freeze field 'products.product.fpfile'
+ ! (this field has class django_filepicker.models.FPFileField)
+ ! Cannot freeze field 'products.release.fpfile'
+ ! (this field has class django_filepicker.models.FPFileField)
+
+ ! South cannot introspect some fields; this is probably because they are custom
+ ! fields. If they worked in 0.6 or below, this is because we have removed the
+ ! models parser (it often broke things).
+ ! To fix this, read http://south.aeracode.org/wiki/MyFieldsDontWork
 </pre>
-</div>
-<div class="section" id="is-this-like-a-hackathon">
-<h2>Is this like a Hackathon?</h2>
-<p>Yup. See <a class="reference external" href="http://en.wikipedia.org/wiki/Hackathon#Sprints">http://en.wikipedia.org/wiki/Hackathon#Sprints</a></p>
-</div>
-<div class="section" id="what-if-i-don-t-have-a-project-of-my-own-to-bring-should-i-come">
-<h2>What if I don't have a project of my own to bring? Should I come?</h2>
-<p>Heck yeah! There will be a number of projects around that you can join and contribute to in order to make the world a better place. The current list of projects include things like:</p>
-<ul class="simple">
-<li>Django - in fact, this time we've got at least one core Django developer!</li>
-<li>Node.js</li>
-<li>Python</li>
-<li>Rails</li>
-<li>Ruby</li>
-<li>Pyramid</li>
-<li>Salt Stack</li>
-<li>Clojure</li>
-<li>PHP</li>
-</ul>
-</div>
-<div class="section" id="i-m-just-starting-as-a-developer-should-i-come">
-<h2>I'm just starting as a developer, should I come?</h2>
-<p>It depends.</p>
-<p><strong>If you've never coded before</strong>, this isn't the right place. Instead, you might consider one of the local coding workshops or classes. In fact, here's a good <a class="reference external" href="http://www.meetup.com/Los-Angeles-Hack-Night/">bi-weekly hack night / study group</a> for you.</p>
-<p><strong>If you've done a tutorial or two</strong>, sprints can be a great way to learn new skills or hone your technique by sitting alongside experienced developers who actually need your help. A lot of projects have what are called 'low hanging fruit', which are 'simpler' tasks saved for beginner developers to wet their teeth on. Things I've learned at events like these include Git, Mercurial, JQuery, and a hundred other things that have made me a better coder.</p>
-</div>
-<div class="section" id="can-i-come-and-do-one-of-the-following">
-<h2>Can I come and do one of the following:</h2>
-<ul class="simple">
-<li>Recruit.</li>
-<li>Get people to work on my private project.</li>
-<li>Get people to work on my start-up idea.</li>
-</ul>
-<p><strong>No.</strong></p>
-<p>This is not a job fair or way to get free developers services, and we don't want unnecessary distractions.</p>
-<p>On the other hand, if you want to help sponsor we mention you on the official event description, in social media and many other perks. Please contact us at <a class="reference external" href="mailto:sponsors&#64;laopensource.org">sponsors&#64;laopensource.org</a>.</p>
-<p>In addition, we're considering future events that mix in business into our efforts. If you're interested in that sort of thing then stay tuned for more announcements.</p>
-</div>
-<div class="section" id="what-about-sponsorship">
-<h2>What about sponsorship?</h2>
-<p>In return for sponsorship we mention your organization or person on the official event description, and provide many other perks including mention in social media.</p>
-<p>In fact, our attendees are well-noted for their feverish support of sponsors. Developer-only open source events are rare in Los Angeles, so attendees are incredibly grateful to those who make the event possible.</p>
-<p>If interested, please contact us at <a class="reference external" href="mailto:sponsors&#64;laopensource.org">sponsors&#64;laopensource.org</a>.</p>
-</div>
-<div class="section" id="what-do-i-need-to-bring">
-<h2>What do I need to bring?</h2>
-<p>Your own functioning laptop with power cord. Neither event organizers, the venue, or sponsors are providing equipment. We also encourage you to bring a power strip labeled with your name.</p>
-</div>
-<div class="section" id="i-m-sold-how-much-does-it-cost-and-where-do-i-register">
-<h2>I'm sold! How much does it cost and where do I register?</h2>
-<p>The event is $10, covers food and drink for the day, and you can RSVP by clicking on the image below</p>
-<a class="reference external image-reference" href="http://www.meetup.com/LA-Hackathons/events/85658952/"><img alt="https://s3.amazonaws.com/pydanny/open_source_sprint.png" class="align-left" id="la-open-source-sprints-logo" src="https://s3.amazonaws.com/pydanny/open_source_sprint.png" /></a>
-</div>
+<p>The last line in the error report is important. I'll repeat it to illustrate it more clearly:</p>
+<pre class="literal-block">
+! To fix this, read http://south.aeracode.org/wiki/MyFieldsDontWork
+</pre>
+<p>Experience working on other projects has taught me I can simply add two lines of code to <tt class="docutils literal">products/models.py</tt> and everything should just work:</p>
+<div class="highlight"><pre><span class="c"># South migration rules for the FPFileField field</span>
+<span class="kn">from</span> <span class="nn">south.modelsinspector</span> <span class="kn">import</span> <span class="n">add_introspection_rules</span>
+<span class="n">add_introspection_rules</span><span class="p">([],</span> <span class="p">[</span><span class="s">&quot;django_filepicker\.models\.FPFileField&quot;</span><span class="p">])</span>
+</pre></div>
+<p>In case it's not clear, here's my new <tt class="docutils literal">products/models.py</tt> file:</p>
+<div class="highlight"><pre><span class="c"># products/models.py</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django_filepicker.models</span> <span class="kn">import</span> <span class="n">FPFileField</span>
+
+<span class="c"># South migration rules for the FPFileField field</span>
+<span class="kn">from</span> <span class="nn">south.modelsinspector</span> <span class="kn">import</span> <span class="n">add_introspection_rules</span>
+<span class="n">add_introspection_rules</span><span class="p">([],</span> <span class="p">[</span><span class="s">&quot;django_filepicker\.models\.FPFileField&quot;</span><span class="p">])</span>
+
+<span class="k">class</span> <span class="nc">Product</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="n">FPFileField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s">&#39;uploads&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Now I can create South migrations and they'll just work.</p>
+<p>Unfortunately, the problem is that for any model where I need to use filepicker's FPFileField I need to add those two lines of code. I don't like this approach, since it violates <strong>Don't Repeat Yourself</strong> (DRY).</p>
+<p>At some point I'll demonstrate how to fix this violation of DRY with an easy fix. In fact, I plan submit that fix as a pull request to django-filepicker.</p>
 
                     <div class="article-info">
                             <footer class="post-info">
 
 
 Tags:
-	<a href="./tag/python.html"><em>python</em></a>
 	<a href="./tag/django.html"><em>django</em></a>
-	<a href="./tag/la.html"><em>LA</em></a>
-	<a href="./tag/sprint.html"><em>sprint</em></a>
-	<a href="./tag/hackathon.html"><em>hackathon</em></a>
-	<a href="./tag/nodejs.html"><em>nodejs</em></a>
-	<a href="./tag/ruby.html"><em>ruby</em></a>
-	<a href="./tag/rails.html"><em>rails</em></a>
-	<a href="./tag/clojure.html"><em>clojure</em></a>
-	<a href="./tag/php.html"><em>php</em></a>
+	<a href="./tag/.html"><em></em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -204,7 +173,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "los-angeles-open-source-sprint-on-nov-4th.html";
+                           var disqus_identifier = "filepicker-and-south.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
