@@ -31,7 +31,7 @@ Some of the original alpha material was written in rough draft form as RST since
 
 For the most part, Google Documents was great in the early stages. The real-time collaborative nature was handy, but the gem was the comment system. It gave us the ability to have line-by-line written dialogues with our technical reviewers. However, Google Documents makes it nigh-impossible to use WYSIWYG editor styles, add in better print fonts, forced us to cut-and-paste code examples, and finally the PDF export system was flakey on our massive document.
 
-Our original thought was to convert the Google Document output to PDF and then modify it with Adobe InDesign. Upon trying it, we found it had a lackluster user interface that had a steep learning curve and was prohibitively expensive ($550-$700). Our friend and reviewer, Kenneth Love of `Getting Started with Django`_ fame, offered to do the conversion work, but we wanted to be able to update our work at will. Awesome as Kevin might be, we couldn't expect him to drop what he was doing to update the final output of our work whenever we wanted.
+Our original thought was to convert the Google Document output to PDF and then modify it with Adobe InDesign. Upon trying it, we found it had a lackluster user interface that had a steep learning curve and was prohibitively expensive ($550-$700). Our friend and reviewer, Kenneth Love of `Getting Started with Django`_ fame, offered to do the conversion work, but we wanted to be able to update our work at will. Awesome as Kenneth might be, we couldn't expect him to drop what he was doing to update the final output of our work whenever we wanted.
 
 .. _`Getting Started with Django`: http://gettingstartedwithdjango.com
 
