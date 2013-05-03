@@ -4,7 +4,7 @@ Generating NCX files with Python
 
 :date: 2013-4-15 09:00
 :tags: python, twoscoops, book, django
-:category: python
+:category: book
 :slug: generating-ncx-files-with-python
 
 With the help of fellow Python developer Matt Harrison's excellent `Ebook Formatting: KF8, Mobi & EPUB`_, we managed to create pretty decent looking Kindle and ePub versions of `Two Scoops of Django`_. 

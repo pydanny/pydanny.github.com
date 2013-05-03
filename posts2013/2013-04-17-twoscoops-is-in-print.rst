@@ -4,7 +4,7 @@ Two Scoops of Django is in print!
 
 :date: 2013-4-17 09:00
 :tags: python, twoscoops, book, django
-:category: django
+:category: book
 :slug: two-scoops-of-django-is-in-print
 
 Since I was a child I wanted to be a published author. I've dreamt of people reading my book. While one could say that dream was fulfilled when we launched the e-book version in January, it's not the same as seeing the printed copy. Today I got to see my dream come true, a printed book_ is out there with my name on it.

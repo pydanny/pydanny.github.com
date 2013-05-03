@@ -3,7 +3,7 @@ Filepicker.io and South
 ============================
 
 :date: 2013-4-23 10:00
-:tags: django, 
+:tags: django, python, filepicker
 :category: django
 :slug: filepicker-and-south
 
