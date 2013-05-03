@@ -51,11 +51,11 @@ So while I handled the corrections and feedback from thousands, Audrey built the
     \subsection{Model Inheritance in Practice: The TimeStampedModel}
     It's very common in Django projects to include a \inlinecode{created} and \inlinecode{modified} timestamp field on all your models. We could manually add those fields to each and every model, but that's a lot of work and adds the risk of human error. A better solution is to write a \inlinecode{TimeStampedModel} \index{TimeStampedModel} to do the work for us:
 
-    \goodcodefile{chapter_06/myapp/timestampedmodel.py}
+    \goodcodefile{chapter_06/myapp/core/timestampedmodel.py}
 
     Take careful note of the very last two lines in the example, which turn our example into an abstract base class: \index{abstract base classes}
 
-    \goodcodefile{06_class_meta.py}
+    \goodcodefile{chapter_06/myapp/core/class_meta.py}
 
     By defining \inlinecode{TimeStampedModel} as an abstract base class \index{abstract base classes} when we define a new class that inherits from it, Django doesn't create a \inlinecode{model\_utils.time\_stamped\_model} table when syncdb is run.
 
@@ -88,7 +88,8 @@ While I worked on the mobile editions, Audrey focused on the print version and a
 
 On April 10th we launched the final in PDF, Kindle, and ePub form. The PDF weighs in at 2.7 MB, and the Kindle file is a bit heaver. At some point we'll do the work to reduce file size, but for now we're working on other things.
 
-A week later we announced the launch of the `print version of the book`_. People seem to really like the design and feel of the physical book, and we've even had requests for t-shirts. 
+A week later we announced the launch of the `print version of the book`_. People seem to really like the design and feel of the physical book, and we've even had requests for t-shirts.
+
 
 .. _`print version of the book`: http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&qid=1366166104&sr=8-2&tag=cn-001-20
 
