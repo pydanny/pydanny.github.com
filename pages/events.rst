@@ -2,9 +2,20 @@
 Events
 ===========
 
-:date: 2013-03-27 07:00
+:date: 2013-05-07 04:00
 
-Here are events at which I've spoken at:
+Upcoming Events
+================
+
+DjangoCon Europe / Django Circus
+---------------------------------
+
+I'm giving the keynote. Wish me luck!
+
+http://djangocircus.com/talks/#Talk35
+
+Previous Events
+================
 
 .. raw:: html
 
