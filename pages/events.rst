@@ -4,8 +4,8 @@ Events
 
 :date: 2013-05-07 04:00
 
-Upcoming Events
-================
+Upcoming
+========
 
 DjangoCon Europe / Django Circus
 ---------------------------------
@@ -14,8 +14,10 @@ I'm giving the keynote. Wish me luck!
 
 http://djangocircus.com/talks/#Talk35
 
-Previous Events
-================
+----
+
+Previous
+========
 
 .. raw:: html
 
