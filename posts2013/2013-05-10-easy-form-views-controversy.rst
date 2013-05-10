@@ -83,9 +83,9 @@ Going forward, I prefer to use Django's class-based views or `Django Rest Framew
 
 What I'm not going to do is rush to change existing views on existing projects.  That's because personally I've yet to run into an actual problem with using this pattern. As they say, "*If it ain't broke, don't fix it.*" While I'm not saying my code isn't broken, I'm also aware that 'fixing' things that aren't reporting errors is a dangerous path to tread.
 
+Today's reading is AngularJS_ by Brad Green and Shyam Seshadri.
 
-
-
+.. _AngularJS: http://www.amazon.com/AngularJS-ebook/dp/B00C9MYA7G/ref=zg_bs_3600_6?tag=cn-001-20
 
 .. _gists: https://gist.github.com
 .. _`Django Rest Framework`: http://djangorestframework.com
