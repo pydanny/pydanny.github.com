@@ -105,8 +105,7 @@
                 </p>
 
                 <div class="entry-content">
-                    <p>This isn't a controversy 'per se', except perhaps in the feverish depths of my brain.</p>
-<p>In the summer of 2010 <a class="reference external" href="http://twitter.com/fwiles">Frank Wiles</a> of <a class="reference external" href="http://revsys.com">Revsys</a> exposed me to what I later called the &quot;<strong>Easy Form Views</strong>&quot; pattern when creating Django form function views. I used this technique in a variety of places, including <a class="reference external" href="https://www.djangopackages.com">Django Packages</a> and the documentation for django-uni-form (which is rebooted as <a class="reference external" href="https://github.com/maraujop/django-crispy-forms">django-crispy-forms</a>). At DjangoCon 2011 <a class="reference external" href="http://tothinkornottothink.com/">Miguel Araujo</a> and I opened our <a class="reference external" href="http://lanyrd.com/2011/djangocon-us/shbrd/">Advanced Django Forms Usage</a> talk at DjangoCon 2011 with this technique. It’s a pattern that reduces the complexity of using forms in Django function-based views by flattening the form handling code.</p>
+                    <p>In the summer of 2010 <a class="reference external" href="http://twitter.com/fwiles">Frank Wiles</a> of <a class="reference external" href="http://revsys.com">Revsys</a> exposed me to what I later called the &quot;<strong>Easy Form Views</strong>&quot; pattern when creating Django form function views. I used this technique in a variety of places, including <a class="reference external" href="https://www.djangopackages.com">Django Packages</a> and the documentation for django-uni-form (which is rebooted as <a class="reference external" href="https://github.com/maraujop/django-crispy-forms">django-crispy-forms</a>). At DjangoCon 2011 <a class="reference external" href="http://tothinkornottothink.com/">Miguel Araujo</a> and I opened our <a class="reference external" href="http://lanyrd.com/2011/djangocon-us/shbrd/">Advanced Django Forms Usage</a> talk at DjangoCon 2011 with this technique. It’s a pattern that reduces the complexity of using forms in Django function-based views by flattening the form handling code.</p>
 <div class="section" id="how-the-easy-form-views-pattern-works">
 <h2>How the Easy Form Views pattern works</h2>
 <p>Normally, function-based views in Django that handle form processing look something like this:</p>
@@ -147,6 +146,7 @@
 <p class="attribution">&mdash;by <a class="reference external" href="http://cecinestpasun.com/">Russell Keith-Magee</a> (paraphrased)</p>
 </blockquote>
 <p>The problem he is talking about is data besides <tt class="docutils literal"><span class="pre">multipart/form-data</span></tt> or <tt class="docutils literal"><span class="pre">application/x-www-form-urlencoded</span></tt> would still end up in the <tt class="docutils literal">request.POST</tt> dictionary-like attribute.</p>
+<p>Where is the controversy? Well, I didn't write a retraction until now. Arguably I should have done it earlier. However, since I never ran into the edge case, I didn't see the need. Yet when it comes down to it, the &quot;Easy Forms&quot; approach has an implicit assumption about the incoming object, which in Python terms is not a good thing.</p>
 </div>
 <div class="section" id="getting-bit-by-the-easy-form-views-method">
 <h2>Getting bit by the Easy Form Views method</h2>
@@ -158,6 +158,8 @@
 <h2>Conclusion</h2>
 <p>Going forward, I prefer to use Django's class-based views or <a class="reference external" href="http://djangorestframework.com">Django Rest Framework</a> which make the issue of this pattern moot. When I do dip into function-based views handling classic HTML forms, I'm leery of using this pattern anymore. Yes, it is an edge case, but to inaccurately paraphrase Russell, &quot;edge cases are where you get bit&quot;.</p>
 <p>What I'm not going to do is rush to change existing views on existing projects.  That's because personally I've yet to run into an actual problem with using this pattern. As they say, &quot;<em>If it ain't broke, don't fix it.</em>&quot; While I'm not saying my code isn't broken, I'm also aware that 'fixing' things that aren't reporting errors is a dangerous path to tread.</p>
+<p>Also, next time I get called on something by a person I respect, I'll respond more quickly. Nearly two years is too long a wait.</p>
+<p><strong>Update:</strong> Changed some of the text to be more succinct and took out the leading sentence.</p>
 </div>
 
                     <div class="article-info">
@@ -211,14 +213,314 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
 </p>
 
 <h4 class="nav-header">Tags</h4>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/resolutions.html">
+        resolutions
+    </a>
+</span>
 <span class="tag-3">
     <a href="./tag/forms.html">
         forms
     </a>
 </span>
 <span class="tag-3">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
     <a href="./tag/la.html">
-        LA
+        la
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/filepicker.html">
+        filepicker
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
     </a>
 </span>
 <span class="tag-4">
@@ -229,306 +531,6 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
 <span class="tag-2">
     <a href="./tag/audrey.html">
         audrey
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/book.html">
-        book
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/tools.html">
-        tools
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        los-angeles
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/class-based-views.html">
-        class-based-views
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/europe.html">
-        europe
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/api.html">
-        api
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dotcloud.html">
-        dotcloud
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/meteor.html">
-        meteor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/perl.html">
-        perl
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/science.html">
-        science
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/howto.html">
-        howto
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/twoscoops.html">
-        twoscoops
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/philippines.html">
-        philippines
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/rant.html">
-        rant
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/nasa.html">
-        nasa
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumernotebook.html">
-        consumernotebook
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/setup.html">
-        setup
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/sprint.html">
-        sprint
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/review.html">
-        review
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/mongodb.html">
-        mongodb
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/djangocon.html">
-        djangocon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/family.html">
-        family
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/django.html">
-        django
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/joke.html">
-        joke
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackthons.html">
-        lahackthons
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/ruby.html">
-        ruby
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/hackathon.html">
-        hackathon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
-        Consumer-Notebook
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/oauth.html">
-        OAuth
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/resolutions.html">
-        resolutions
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/pyladies.html">
-        pyladies
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nodejs.html">
-        nodejs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/heroku.html">
-        heroku
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/filepicker.html">
-        filepicker
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/travel.html">
-        travel
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/friends.html">
-        friends
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/capoeira.html">
-        capoeira
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackathons.html">
-        lahackathons
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/australia.html">
-        australia
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/casestudy.html">
-        casestudy
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/usability.html">
-        usability
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/meme.html">
-        meme
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        Los Angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/wsgi.html">
-        wsgi
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dsf.html">
-        dsf
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/python.html">
-        python
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/php.html">
-        php
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/blog.html">
-        blog
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/rails.html">
-        rails
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/gondor.html">
-        gondor
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/pycon.html">
-        pycon
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/paypal.html">
-        paypal
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/la.html">
-        la
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/holidays.html">
-        holidays
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/css.html">
-        css
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
-        pycon-2013-guide
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/djangodash.html">
-        djangodash
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/vs.html">
-        vs
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/functions.html">
-        functions
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/clojure.html">
-        clojure
     </a>
 </span>
 

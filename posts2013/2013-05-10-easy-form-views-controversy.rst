@@ -6,8 +6,6 @@ The Easy Form Views Pattern Controversy
 :tags: python, django, howto
 :category: django
 
-This isn't a controversy 'per se', except perhaps in the feverish depths of my brain.
-
 In the summer of 2010 `Frank Wiles`_ of Revsys_ exposed me to what I later called the "**Easy Form Views**" pattern when creating Django form function views. I used this technique in a variety of places, including `Django Packages`_ and the documentation for django-uni-form (which is rebooted as `django-crispy-forms`_). At DjangoCon 2011 `Miguel Araujo`_ and I opened our `Advanced Django Forms Usage`_ talk at DjangoCon 2011 with this technique. It’s a pattern that reduces the complexity of using forms in Django function-based views by flattening the form handling code. 
 
 .. _`Django Packages`: https://www.djangopackages.com
@@ -67,6 +65,8 @@ Before you jump to convert all your function based forms to this pattern, consid
 
 The problem he is talking about is data besides ``multipart/form-data`` or ``application/x-www-form-urlencoded`` would still end up in the ``request.POST`` dictionary-like attribute.
 
+Where is the controversy? Well, I didn't write a retraction until now. Arguably I should have done it earlier. However, since I never ran into the edge case, I didn't see the need. Yet when it comes down to it, the "Easy Forms" approach has an implicit assumption about the incoming object, which in Python terms is not a good thing.
+
 Getting bit by the Easy Form Views method
 ====================================================
 
@@ -82,6 +82,10 @@ Conclusion
 Going forward, I prefer to use Django's class-based views or `Django Rest Framework`_ which make the issue of this pattern moot. When I do dip into function-based views handling classic HTML forms, I'm leery of using this pattern anymore. Yes, it is an edge case, but to inaccurately paraphrase Russell, "edge cases are where you get bit".
 
 What I'm not going to do is rush to change existing views on existing projects.  That's because personally I've yet to run into an actual problem with using this pattern. As they say, "*If it ain't broke, don't fix it.*" While I'm not saying my code isn't broken, I'm also aware that 'fixing' things that aren't reporting errors is a dangerous path to tread.
+
+Also, next time I get called on something by a person I respect, I'll respond more quickly. Nearly two years is too long a wait.
+
+**Update:** Changed some of the text to be more succinct and took out the leading sentence.
 
 .. _gists: https://gist.github.com
 .. _`Django Rest Framework`: http://djangorestframework.com
