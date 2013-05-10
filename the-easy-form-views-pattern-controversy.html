@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>10 reasons to go to DjangoCon Europe</title>
+    <title>The Easy Form Views Pattern Controversy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to 10 reasons to go to DjangoCon Europe">
-                                        10 reasons to go to DjangoCon Europe
+                                        title="Permalink to The Easy Form Views Pattern Controversy">
+                                        The Easy Form Views Pattern Controversy
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,60 +100,64 @@
                 </header>
 
                 <p>
-                    <em>Monday, May 14, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to 10 reasons to go to DjangoCon Europe">permalink</a>)
+                    <em>Friday, May 10, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to The Easy Form Views Pattern Controversy">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>You should go to <a class="reference external" href="http://djangocon.eu">DjangoCon Europe</a> in lovely <a class="reference external" href="https://en.wikipedia.org/wiki/Zurich">Zurich</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Switzerland">Switzerland</a>. Here are 10 reasons why:</p>
-<div class="section" id="chocolate">
-<h2>1. <strong>Chocolate</strong></h2>
-<p>So much of what we like about chocolate comes from Switzerland. For example, Milk Chocolate was invented in Switzerland.</p>
+                    <p>This isn't a controversy 'per se', except perhaps in the feverish depths of my brain.</p>
+<p>In the summer of 2010 <a class="reference external" href="http://twitter.com/fwiles">Frank Wiles</a> of <a class="reference external" href="http://revsys.com">Revsys</a> exposed me to what I later called the &quot;<strong>Easy Form Views</strong>&quot; pattern when creating Django form function views. I used this technique in a variety of places, including <a class="reference external" href="https://www.djangopackages.com">Django Packages</a> and the documentation for django-uni-form (which is rebooted as <a class="reference external" href="https://github.com/maraujop/django-crispy-forms">django-crispy-forms</a>). At DjangoCon 2011 <a class="reference external" href="http://tothinkornottothink.com/">Miguel Araujo</a> and I opened our <a class="reference external" href="http://lanyrd.com/2011/djangocon-us/shbrd/">Advanced Django Forms Usage</a> talk at DjangoCon 2011 with this technique. It’s a pattern that reduces the complexity of using forms in Django function-based views by flattening the form handling code.</p>
+<div class="section" id="how-the-easy-form-views-pattern-works">
+<h2>How the Easy Form Views pattern works</h2>
+<p>Normally, function-based views in Django that handle form processing look something like this:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">template_name</span><span class="o">=</span><span class="s">&quot;my_app/my_form.html&quot;</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">MyForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">do_x</span><span class="p">()</span> <span class="c"># custom logic here</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">&#39;home&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">MyForm</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">template_name</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+<p>In contrast, the Easy Form Views pattern works like this:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">template_name</span><span class="o">=</span><span class="s">&quot;my_app/my_form.html&quot;</span><span class="p">):</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">MyForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="ow">or</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+        <span class="n">do_x</span><span class="p">()</span> <span class="c"># custom logic here</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">&#39;home&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">template_name</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+<p>The way this works is that the <tt class="docutils literal">django.http.HttpRequest</tt> object has a POST attribute that defaults to an empty dictionary-like object, even if the request’s method is equal to &quot;GET&quot;. Since we know that <cite>request.POST</cite> exists in every Django view, and os at least as an empty dictionary-like object, we can skip the <tt class="docutils literal">request.method == 'POST'</tt> by doing a simple boolean check on the <tt class="docutils literal">request.POST</tt> dictionary.</p>
+<p>In other words:</p>
+<ul class="simple">
+<li>If <tt class="docutils literal">request.POST</tt> dictionary evaluates as <tt class="docutils literal">True</tt>, then instantiate the form bound with <tt class="docutils literal">request.POST</tt>.</li>
+<li>If <tt class="docutils literal">the request.POST</tt> dictionary evaluates as <tt class="docutils literal">False</tt>, then instantiate an unbound form.</li>
+</ul>
+<p>Great! Faster to write and shallower code! What could possibly be wrong with that?</p>
 </div>
-<div class="section" id="keynote-speaker-jacob-kaplan-moss">
-<h2>2. <strong>Keynote speaker: Jacob Kaplan-Moss</strong></h2>
-<p>Always a great speaker and fun to be around, he's one of the BDFL's of <a class="reference external" href="http://djangoproject.com">Django</a>.</p>
+<div class="section" id="the-controversy">
+<h2>The Controversy</h2>
+<p>Before you jump to convert all your function based forms to this pattern, consider the following argument raised against it by a good friend:</p>
+<blockquote class="epigraph">
+<p>This one of those things where &quot;empty dictionary and null both evaluate as false&quot; can bite you.</p>
+<p>There's a difference between &quot;There is no POST data&quot;, and &quot;This wasn't a POST&quot;.</p>
+<p class="attribution">&mdash;by <a class="reference external" href="http://cecinestpasun.com/">Russell Keith-Magee</a> (paraphrased)</p>
+</blockquote>
+<p>The problem he is talking about is data besides <tt class="docutils literal"><span class="pre">multipart/form-data</span></tt> or <tt class="docutils literal"><span class="pre">application/x-www-form-urlencoded</span></tt> would still end up in the <tt class="docutils literal">request.POST</tt> dictionary-like attribute.</p>
 </div>
-<div class="section" id="cheese">
-<h2>3. <strong>Cheese</strong></h2>
-<p>I grew up thinking that Swiss Cheese was just about holes. It's so much more. I can't wait to try fresh European cheese made by master craftsmen from the freshest ingredients.</p>
+<div class="section" id="getting-bit-by-the-easy-form-views-method">
+<h2>Getting bit by the Easy Form Views method</h2>
+<p>Here's how it happens:</p>
+<p><strong>Before Django 1.5</strong> HTTP methods such as DELETE or PUT would see their data placed into Django's <tt class="docutils literal">request.POST</tt> attribute. The form would fail, but it might not be clear to the developer or user why. HTTP GET and POST methods work as expected.</p>
+<p><strong>For Django 1.5 (and later)</strong> if a non-POST comes in then the form fails because request.POST is empty. HTTP GET and POST methods also work as expected.</p>
 </div>
-<div class="section" id="keynote-speaker-jessica-mckellar">
-<h2>4. <strong>Keynote speaker: Jessica McKellar</strong></h2>
-<p>In a word, Jessica is <strong>incredible</strong>. She's a Twisted core developer, PSF board member, part of the trio responsible for the gigantic Boston Python User Group's massive size explosion, and a talented speaker. She's used her incredible talents and skills to increase diversity in the community and generally help other people.</p>
-</div>
-<div class="section" id="breakfast">
-<h2>5. <strong>Breakfast</strong></h2>
-<p>Muesli was invented in Switzerland. I love Muesli. I was floored by how much better it was in New Zealand. I can't wait to try it in it's homeland.</p>
-</div>
-<div class="section" id="web-site">
-<h2>6. <strong>Web Site</strong></h2>
-<p>The DjangoCon Europe site is crazy. I mean, look at all those animations!</p>
-</div>
-<div class="section" id="talks">
-<h2>7. <strong>Talks</strong></h2>
-<p>This is a single track event with proven speakers like Zachary Voase and Andrew Godwin, yet balances that with bringing in new blood to spice things up. And dare I say <a class="reference external" href="http://2012.djangocon.eu/schedule/round-pegs-and-square-holes/">I'm giving a technical talk</a> with <a class="reference external" href="http://audreymroy.com/">Audrey Roy</a>? ;-)</p>
-</div>
-<div class="section" id="mountains">
-<h2>8. <strong>Mountains</strong></h2>
-<p>With all the incredible food, you would think you would gain umpteen kilograms. Fortunately there are mountains all around to climb and hike.</p>
-</div>
-<div class="section" id="sprints">
-<h2>9. <strong>Sprints</strong></h2>
-<p>Want to sprint on Django itself? Look no further because there will be Django core developers around! There will also be notable <a class="reference external" href="http://python.org">Python</a> developers like <a class="reference external" href="http://kennethreitz.com/">Kenneth Reitz</a> and others around working hard on a lot of different projects. It's going to intense and fun!</p>
-</div>
-<div class="section" id="castles">
-<h2>10. <strong>Castles</strong></h2>
-<p>Living in the USA, we just don't have anything like castles. DjangoCon Europe will be near a <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_castles_and_fortresses_in_Switzerland#Zurich">small horde of stone fortifications</a>. Which means if the Zombie Apocalypse happens during the conference, we'll have many secure places to go. They also make lovely tourist destinations. :-)</p>
-</div>
-<div class="section" id="what-are-you-waiting-for">
-<h2>What are you waiting for?</h2>
-<p>DjangoCon Europe has a cap on attendance. Tickets for Python events have been selling out, not just for PyCon US. Don't miss out!</p>
-</div>
-<div class="section" id="it-s-all-about-me">
-<h2>It's all about me</h2>
-<p>Yup.</p>
-<p>Call me selfish but I want you there because I haven't haven't met all our European friends yet in person. Hope to see you next month in Zurich!</p>
+<div class="section" id="conclusion">
+<h2>Conclusion</h2>
+<p>Going forward, I prefer to use Django's class-based views of Django Rest Framework which make the issue of this pattern moot. When I do dip into function-based views handling classic HTML forms, I'm leery of using this pattern anymore. Yes, it is an edge case, but to inaccurately paraphrase Russell, &quot;edge cases are where you get bit&quot;.</p>
+<p>What I'm not going to do is rush to change existing views on existing projects.  That's because personally I've yet to run into an actual problem with using this pattern. As they say, &quot;<em>If it ain't broke, don't fix it.</em>&quot; While I'm not saying my code isn't broken, I'm also aware that 'fixing' things that aren't reporting errors is a dangerous path to tread.</p>
 </div>
 
                     <div class="article-info">
@@ -163,8 +167,7 @@
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
 	<a href="./tag/django.html"><em>django</em></a>
-	<a href="./tag/europe.html"><em>europe</em></a>
-	<a href="./tag/djangocon.html"><em>djangocon</em></a>
+	<a href="./tag/howto.html"><em>howto</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -172,7 +175,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "10-reasons-to-go-to-djangocon-europe.html";
+                           var disqus_identifier = "the-easy-form-views-pattern-controversy.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
