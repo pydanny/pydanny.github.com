@@ -79,7 +79,7 @@ Here's how it happens:
 Conclusion
 ==========
 
-Going forward, I prefer to use Django's class-based views of Django Rest Framework which make the issue of this pattern moot. When I do dip into function-based views handling classic HTML forms, I'm leery of using this pattern anymore. Yes, it is an edge case, but to inaccurately paraphrase Russell, "edge cases are where you get bit".
+Going forward, I prefer to use Django's class-based views or `Django Rest Framework`_ which make the issue of this pattern moot. When I do dip into function-based views handling classic HTML forms, I'm leery of using this pattern anymore. Yes, it is an edge case, but to inaccurately paraphrase Russell, "edge cases are where you get bit".
 
 What I'm not going to do is rush to change existing views on existing projects.  That's because personally I've yet to run into an actual problem with using this pattern. As they say, "*If it ain't broke, don't fix it.*" While I'm not saying my code isn't broken, I'm also aware that 'fixing' things that aren't reporting errors is a dangerous path to tread.
 
@@ -88,7 +88,7 @@ What I'm not going to do is rush to change existing views on existing projects. 
 
 
 .. _gists: https://gist.github.com
-
+.. _`Django Rest Framework`: http://djangorestframework.com
 .. _`Frank Wiles`: http://twitter.com/fwiles
 .. _Revsys: http://revsys.com
 .. _`Miguel Araujo`: http://tothinkornottothink.com/
