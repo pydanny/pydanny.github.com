@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Core Concepts of Django ModelForms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel-Greenfeld">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css" />
+    <link href="./theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="./theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="./theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
+
+    <link href="./" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+    
+  </head>
+
+  <body>
+
+    <div class="pre-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h1 class="site-logo">
+              <a href=".">
+              <img src="./theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              </a>
+            </h1>
+          </div>
+          <div class="offset1 span5">
+            <p class="about-this-blog">
+              Hi, I'm Daniel Greenfeld, and welcome to my blog. I write about Python, Django, and much more.
+            </p>
+          </div>
+        </div>
+        <div class="pydanny-cartwheel"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+    <div class="navbar navbar-fixed-top" id="pydanny-navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href=".">Home</a></li>
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/events.html">Events</a></li>
+                <li><a href="./pages/tools.html">Tools</a></li>
+                <li><a href="./category/audrey.html">Audrey</a></li>
+                <li><a href="./category/blog.html">Blog</a></li>
+                <li><a href="./category/book.html">Book</a></li>
+                <li><a href="./category/django.html">Django</a></li>
+                <li><a href="./category/python.html">Python</a></li>
+
+              <li><a href="./archives.html">Archives</a></li>
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+            <section id="content">
+        <article>
+                <header>
+                        <h1 class="article-title">
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Core Concepts of Django ModelForms">
+                                        Core Concepts of Django ModelForms
+                                </a>
+                                <a href="http://twitter.com/share" class="twitter-share-button"
+   data-count="horizontal" data-via="pydanny">Tweet</a>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js">
+</script>
+                        </h1>
+                </header>
+
+                <p>
+                    <em>Thursday, June 13, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to Core Concepts of Django ModelForms">permalink</a>)
+                </p>
+
+                <div class="entry-content">
+                    <p>In my opinion, the concepts behind Django's model forms can be listed in just six (6) bullets. The bullets I've marked in <strong>bold</strong> at the top are the topic of this blog post, while the two of these that were <a class="reference external" href="http://pydanny.com/core-concepts-django-forms.html">covered in a previous blog post on Django forms</a> are at bottom of my list.</p>
+<ul class="simple">
+<li><strong>ModelForms render Model fields as HTML.</strong></li>
+<li><strong>ModelForms select validators based off of Model field definitions.</strong></li>
+<li><strong>ModelForms don't have to display/change all available fields.</strong></li>
+<li><strong>ModelForms save dictionaries to SQL tables.</strong></li>
+<li>Forms are &quot;just&quot; Python constructs. (covered previous)</li>
+<li>Forms validate Python dictionaries. (covered previous)</li>
+</ul>
+<div class="section" id="modelforms-render-model-fields-as-html">
+<h2>ModelForms render Model fields as HTML.</h2>
+<p>If I create a Django model:</p>
+<div class="highlight"><pre><span class="c"># myapp/models.py</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+<p>Then attach it to a ModelForm:</p>
+<div class="highlight"><pre><span class="c"># myapp/forms.py</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+
+<span class="k">class</span> <span class="nc">MyModelForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span>
+</pre></div>
+<p>I can render it in a template, or for better clarity in this post, the Python REPL:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">MyModelForm</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mf</span> <span class="o">=</span> <span class="n">MyModelForm</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mf</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyForm</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1023c8bd0</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">mf</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;&lt;</span><span class="n">th</span><span class="o">&gt;&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s">&quot;id_title&quot;</span><span class="o">&gt;</span><span class="n">Title</span><span class="p">:</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="nb">input</span> <span class="nb">id</span><span class="o">=</span><span class="s">&quot;id_title&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span> <span class="n">maxlength</span><span class="o">=</span><span class="s">&quot;100&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="o">/&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="modelforms-select-validators-based-off-of-model-field-definitions">
+<h2>ModelForms select validators based off of Model field definitions.</h2>
+<p>One of the nice things about Django is that its forms library protects your models. It does this by assigning one or more of Django's many built-in validators to the form fields it generates, and using them to check incoming data. Let's dive in:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">MyModelForm</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mf</span> <span class="o">=</span> <span class="n">MyModelForm</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mf</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyForm</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1023c8bd0</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mf</span><span class="o">.</span><span class="n">fields</span>
+<span class="p">{</span><span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">django</span><span class="o">.</span><span class="n">forms</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">CharField</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x102474bd0</span><span class="o">&gt;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">field</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">field</span><span class="o">.</span><span class="n">max_length</span>
+<span class="mi">100</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">field</span><span class="o">.</span><span class="n">validators</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">django</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">validators</span><span class="o">.</span><span class="n">MaxLengthValidator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x102403b10</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+<p>Each individual field contains a list of validators  (in this case, just one validator) supplied by Django and any ModelForm customizations that might have been done.</p>
+<p>If you want to add more validators to a ModelForm (perhaps we want our title field to require at least 20 characters) one way to do it is by overriding the field definition in the ModelForm class's <tt class="docutils literal">__init__</tt> method. That's a mouthful, so I'll just demonstrate in code:</p>
+<div class="highlight"><pre><span class="c"># myapp/forms.py</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">django.core.validators</span> <span class="kn">import</span> <span class="n">MinLengthValidator</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+
+<span class="k">class</span> <span class="nc">MyModelForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MyModelForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init_</span><span class="o">.</span><span class="n">_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min_length</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">validators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MinLengthValidator</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span>
+</pre></div>
+<p>If we stop/start the shell, we now see some new elements added to the form object:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="c"># Don&#39;t forget to stop/start the Django shell!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">MyModelForm</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mf</span> <span class="o">=</span> <span class="n">MyModelForm</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mf</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyForm</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1023c8bd0</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mf</span><span class="o">.</span><span class="n">fields</span>
+<span class="p">{</span><span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">django</span><span class="o">.</span><span class="n">forms</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">CharField</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1023ee810</span><span class="o">&gt;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">field</span> <span class="o">=</span> <span class="n">mf</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">field</span><span class="o">.</span><span class="n">max_length</span>
+<span class="mi">100</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">field</span><span class="o">.</span><span class="n">min_length</span>
+<span class="mi">20</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">field</span><span class="o">.</span><span class="n">validators</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">django</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">validators</span><span class="o">.</span><span class="n">MaxLengthValidator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10240c7d0</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">django</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">validators</span><span class="o">.</span><span class="n">MinLengthValidator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1023eef90</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+<p>Now we have two validators for the field!</p>
+<p>There are other ways to override the title field validators. The easiest but not necessarily the best way is to replicate the ModelForm definition of the field in the form like so:</p>
+<div class="highlight"><pre><span class="c"># myapp/forms.py</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+
+<span class="k">class</span> <span class="nc">MyModelForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span>
+</pre></div>
+<p>I don't like this technique. This makes it so we are defining the title field in two places, once in the model and once in the form. I go into more of the details and problems of this approach in my previous blog post at <a class="reference external" href="http://pydanny.com/overloading-form-fields.html">Overloading Django Form Fields</a>.</p>
+</div>
+<div class="section" id="modelforms-don-t-have-to-display-change-all-available-fields">
+<h2>ModelForms don't have to display/change all available fields.</h2>
+<p>Before we dive into this section, let's increase our model to have two fields as shown below:</p>
+<div class="highlight"><pre><span class="c"># myapp/models.py</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">slug</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">SlugField</span><span class="p">()</span>
+</pre></div>
+<p>Let's say that we don't want to allow users the ability to change slugs on existing content, otherwise URLs will be broken. In this case, we rely on the <tt class="docutils literal">fields</tt> attribute of <tt class="docutils literal">ModelForm.Meta</tt> to make it so we only display what we want to display:</p>
+<div class="highlight"><pre><span class="c"># myapp/forms.py</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+
+<span class="k">class</span> <span class="nc">MyModelForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;title&#39;</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+<p>Easy!</p>
+<div class="section" id="but-what-about-modelform-meta-excludes">
+<h3>But what about ModelForm.Meta.excludes?</h3>
+<p>We advocate strongly against using <tt class="docutils literal">ModelForm.Meta.excludes</tt>.</p>
+<p>In fact, when we were writing <a class="reference external" href="https://django.2scoops.org">Two Scoops of Django</a> the majority of our technical reviewers as well as our security reviewer fervently insisted that we advocate against it's use. We provide numerous warnings about it's usage, and go in-depth as to why in <em>section 21.12</em>. For reference, Django's own documentation is now including a rather mild warning (no warning box) on the subject at <a class="reference external" href="https://docs.djangoproject.com/en/dev/topics/forms/modelforms/#modelforms-selecting-fields">Selecting the fields to use</a>. I might try and get that addressed in the next few days...</p>
+<p>In any case, the problem with <tt class="docutils literal">ModelForm.Meta.excludes</tt> is similar to but worse than duplicating field functionality. It means that changes to models (new fields for example) will display in associated forms <strong>unless</strong> you remember to modify the associated forms. Since a single model can have multiple forms, and we developers forget or leave projects, you can understanding what sort of security nightmare this can cause.</p>
+<p>Do yourself a favor and stay away from <tt class="docutils literal">ModelForm.Meta.excludes</tt>.</p>
+</div>
+</div>
+<div class="section" id="modelforms-save-dictionaries-to-sql-tables">
+<h2>ModelForms save dictionaries to SQL tables</h2>
+<p>In my <a class="reference external" href="http://pydanny.com/core-concepts-django-forms.html">previous post of Django forms</a> I covered <em>forms validate dictionaries</em>. Well, ModelForms do the same thing AND give us the power to save that validated dictionary to SQL tables. We don't even need to involve web pages!</p>
+<p>This is really useful because it means that we can take data from any source, be it user input from the web, JSON data fetched from an API, and even CSVs generated from Excel reports and transform that into data that resides in SQL.</p>
+<p>Let's go over using our ModelForm with title/slug fields used with all those methods. In our samples (web page, json, csv), we'll use generating a timestamp to demonstrate how we can modify the model data before it's saved, and we'll base all three examples off the model and ModelForm combination listed below.</p>
+<div class="highlight"><pre><span class="c"># myapp/models.py</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+
+<span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">()</span>
+</pre></div>
+<div class="highlight"><pre><span class="c"># myapp/forms.py</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">Forms</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+
+
+<span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;title&#39;</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+<p>And now to our three examples!</p>
+<div class="section" id="example-1-web-page">
+<h3>Example #1 Web Page</h3>
+<p>This should look pretty familiar to many Django developers. it's the traditional Django view pattern of processing simple model forms.</p>
+<div class="highlight"><pre><span class="c"># myapp/views.py</span>
+<span class="kn">from</span> <span class="nn">django.core.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">MyModelForm</span>
+
+
+<span class="k">def</span> <span class="nf">add_model</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">MyModelForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+
+            <span class="c"># commit=False means the form doesn&#39;t save at this time.</span>
+            <span class="c"># commit defaults to True which means it normally saves.</span>
+            <span class="n">model_instance</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="n">model_instance</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="n">model_instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">&#39;victory&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">MyModelForm</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;my_template.html&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="section" id="example-2-api-json">
+<h3>Example #2 API/JSON</h3>
+<p>In this example, we're validating the output of a RESTful API before letting it touch our database. It's critical that such APIs are not allowed to touch our systems without proper validation - don't make my mistakes! Also, even internally within a project it's really important to validate all data coming from different databases. And Django makes it easy!</p>
+<div class="highlight"><pre><span class="c"># myapp/api/reitz.py</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>  <span class="c"># You are using requests-python, right?</span>
+
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">MyModelForm</span>
+
+
+<span class="k">class</span> <span class="nc">ReitzApiException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">fetch_reitz_data</span><span class="p">(</span><span class="n">target_url</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">target_url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="s">&quot;200&quot;</span><span class="p">:</span>
+
+        <span class="c"># generate the form from the response</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">MyModelForm</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">model_instance</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="n">model_instance</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="n">model_instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">model_instance</span>
+
+        <span class="c"># Simplistic exception handling</span>
+        <span class="k">raise</span> <span class="n">ReitzApiException</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">errors</span><span class="p">)</span>
+
+    <span class="c"># Simplistic exception handling</span>
+    <span class="k">raise</span> <span class="n">ReitzApiException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="example-3-csv-import">
+<h3>Example #3 CSV Import</h3>
+<p>I'll admit my mistake again: I've written my own validation tools to handle data coming from CSVs and Excel documents into Django projects. My validation scripts always seem fragile, and they are. What I'm doing going forward is I'm leaning on form libraries to do the hard work of validating data and saving it to models.</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">MyModelForm</span>
+
+
+<span class="k">def</span> <span class="nf">import_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">records_added</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c"># Generate a dict per row, with the first CSV row being the keys.</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&quot;,&quot;</span><span class="p">):</span>
+
+        <span class="c"># Bind the row data to the MyModelForm</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">MyModelForm</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">model_instance</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="n">model_instance</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="n">model_instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">records_added</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">errors</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">records_added</span><span class="p">,</span> <span class="n">errors</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="closing-thoughts">
+<h2>Closing Thoughts</h2>
+<p>I can think of three things:</p>
+<p><strong>Forget the HTML</strong>: For nearly every sort of occasion where new data is coming into your system, form libraries save you from doing extra work and cover your behind.  While my experience is with Django forms, there are many form libraries out there. The patterns explored in this post are certainly available in other web frameworks (see <a class="reference external" href="http://flask.pocoo.org/snippets/category/forms/">http://flask.pocoo.org/snippets/category/forms/</a> for proof).</p>
+<p><strong>HTML Rendering Issues</strong>: No form library is going to do everything, and because of evolving standards, decent HTML rendering is a pain for form library authors. For example, Django's default form HTML rendering remains stuck in 2005 because if they had kept up with modern trends of HTML form layout we would have many different flavors of forms in Django core (a testing nightmare). Which means, as a developer, it's important when using a new form library to learn how to override the default form HTML rendering.</p>
+<p><strong>What about AJAX?</strong>: Whoops! Does this mean I have to write another blog post? Not at all. In Django, AJAX is just another view, either function- or class-based. The secret is to validate the incoming data the same way as you would any other view request by using forms.</p>
+</div>
+
+                    <div class="article-info">
+                            <footer class="post-info">
+
+
+Tags:
+	<a href="./tag/python.html"><em>python</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/forms.html"><em>forms</em></a>
+</footer><!-- /.post-info -->                    </div>
+                </div><!-- /.entry-content -->
+                                <hr/>
+                <div class="comments">
+                <h3>Comments</h3>
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                           var disqus_identifier = "core-concepts-django-modelforms.html";
+                           (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = 'http://pydanny.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] ||
+                                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+                          })();
+                        </script>
+                </div>
+                        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="offset1 span3 sidebar-nav" id="sidebar">
+            <ul class="nav nav-list">
+</ul>
+
+<h4>Two Scoops of Django</h4>
+
+<p><a href="http://django.2scoops.org">My new book</a> about Django best practices is now out as an ebook in PDF, Kindle, ePub, and print formats!</p>
+
+<a href="http://django.2scoops.org"><img class="two-scoops-cover-thumb" src="https://s3.amazonaws.com/twoscoops/img/tsd-cover-beta.png" /></a>
+
+<h4 class="nav-header">Follow Me</h4>
+    <p class="capitalize"><i class="icon-twitter-sign icon-large"></i> <a href="http://twitter.com/pydanny">twitter</a></p>
+    <p class="capitalize"><i class="icon-github-sign icon-large"></i> <a href="https://github.com/pydanny">github</a></p>
+    <p class="capitalize"><i class="icon-facebook-sign icon-large"></i> <a href="http://www.facebook.com/daniel.greenfeld">facebook</a></p>
+
+<h4>Subscribe To My Feed</h4>
+
+<p>
+While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
+
+<h4 class="nav-header">Tags</h4>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/filepicker.html">
+        filepicker
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+
+<h4 class="nav-header">Twitter</h4>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 'auto',
+  height: 300,
+  theme: {
+	shell: {
+	  background: '#f5f5f5',
+	  color: '#000000'
+	},
+	tweets: {
+	  background: '#ffffff',
+	  color: '#000000',
+	  links: '#1a50a1'
+	}
+  },
+  features: {
+	scrollbar: false,
+	loop: false,
+	live: false,
+	behavior: 'all'
+  }
+}).render().setUser('pydanny').start();
+</script>
+
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">Content Copyright © 2013 Daniel Greenfeld. 
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>. Adapted from the <a href="https://github.com/getpelican/pelican-themes/tree/master/bootstrap2">Pelican Bootstrap2</a> theme by <a href="http://www.audreymroy.com">Audrey M. Roy</a>. Support my work by spreading the word about <a href="http://django.2scoops.org">Two Scoops of Django: Best Practices For Django 1.5</a>.
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-18066389-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+        <script type="text/javascript">
+    var disqus_shortname = 'pydanny';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./theme/js/jquery-1.7.2.min.js"></script>
+    <script src="./theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -2,9 +2,9 @@
 About
 ===========
 
-:date: 2012-02-19 01:33
+:date: 2013-06-12 15:33
 
-I'm the principal of `Cartwheel Web`_, which does Python, Django, and JavaScript out of Los Angeles, California. I love to read, write, hang out with my fiancee_, and play at Capoeira_. I am a total Space and NASA Geek.
+Currently in Florence, Italy for a month, I do Python, Django, and JavaScript out of Los Angeles, California. I love to read, write, hang out with my fiancee_, and play at Capoeira_. I am a total Space and NASA Geek.
 
 Web Projects
 ========================
@@ -21,6 +21,7 @@ Web Projects
 Software Projects
 ==================
 
+* https://github.com/twoscoops/django-admin2 (lead)
 * https://github.com/opencomparison/opencomparison (lead)
 * https://github.com/django/django (contributor)
 * https://github.com/pydanny/django-shortener (lead)
@@ -32,10 +33,21 @@ Software Projects
 Donations
 =========
 
-Donations to my open source work are greatly appreciated and help me dedicate more time and energy into the Python and Django community. If you want to help me produce more open source work, please take a moment to contribute to me on gittip_.
+Donations to my open source work are greatly appreciated and help me dedicate more time and energy into the Python and Django community. If you want to help me produce more open source work, please take a moment to contribute to me on one of the following:
+
+.. raw:: html
+    
+    <table>
+    <tr><td>
+    <script data-gittip-username="pydanny"
+    src="https://www.gittip.com/assets/widgets/0002.js">
+    </script>
+    </td><td>
+    <a class="coinbase-button" data-code="33eece435bf58007893606961f29fbb7" data-button-style="custom_small" href="https://coinbase.com/checkouts/33eece435bf58007893606961f29fbb7">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
+    </td></tr>
+    </table>
 
 
-.. _gittip: https://www.gittip.com/pydanny/
 .. _`Pet Cheatsheets`: http://petcheatsheets.com
 .. _`consumer.io`: http://consumer.io
 .. _`Audrey Roy`: http://audreymroy.com

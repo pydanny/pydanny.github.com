@@ -2,17 +2,14 @@
 Events
 ===========
 
-:date: 2013-05-07 04:00
+:date: 2013-6-12 15:33
 
-Upcoming
-========
-
-DjangoCon Europe / Django Circus
+EuroPython
 ---------------------------------
 
-I'm giving the keynote. Wish me luck!
+I'm giving a keynote. Wish me luck!
 
-http://djangocircus.com/talks/#Talk35
+https://ep2013.europython.eu/p3/schedule/ep2013/
 
 ----
 
