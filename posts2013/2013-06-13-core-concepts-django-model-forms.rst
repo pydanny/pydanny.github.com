@@ -94,7 +94,7 @@ If you want to add more validators to a ModelForm (perhaps we want our title fie
     class MyModelForm(forms.ModelForm):
 
         def __init__(self, *args, **kwargs):
-            super(MyModelForm, self).__init_._(*args, **kwargs)     
+            super(MyModelForm, self).__init__(*args, **kwargs)     
             self.fields["title"].min_length = 20
             self.fields["title"].validators.append(MinLengthValidator)
 
