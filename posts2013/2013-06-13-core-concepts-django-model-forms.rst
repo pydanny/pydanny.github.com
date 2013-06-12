@@ -182,7 +182,7 @@ But what about ModelForm.Meta.excludes?
 
 We advocate strongly against using ``ModelForm.Meta.excludes``.
 
-In fact, when we were writing `Two Scoops of Django`_ the majority of our technical reviewers as well as our security reviewer fervently insisted that we advocate against it's use. We provide numerous warnings about it's usage, and go in-depth as to why in *section 21.12*. For reference, Django's own documentation is now including a rather mild warning (no warning box) on the subject at `Selecting the fields to use`_. I might try and get that addressed in the next few days...
+In fact, when we were writing `Two Scoops of Django`_ the majority of our technical reviewers as well as our security reviewer fervently insisted that we advocate against use of ``ModelForm.Meta.excludes``. We provide numerous warnings about it's usage, and go in-depth as to why in *section 21.12*. For reference, Django's own documentation is now including a rather mild warning (no warning box) on the subject at `Selecting the fields to use`_. I might try and get that addressed in the next few days...
 
 In any case, the problem with ``ModelForm.Meta.excludes`` is similar to but worse than duplicating field functionality. It means that changes to models (new fields for example) will display in associated forms **unless** you remember to modify the associated forms. Since a single model can have multiple forms, and we developers forget or leave projects, you can understanding what sort of security nightmare this can cause. 
 
