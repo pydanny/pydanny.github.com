@@ -71,7 +71,3 @@ I co-wrote a book_:
    :name: Two Scoops of Django: Best Practices for Django 1.5
    :align: center
    :target: http://django.2scoops.org/
-
-
-
-Django, like any framework, has tips, tricks, and pitfalls that aren't documented in one place. Experienced developers know this stuff, but gleaning it off the Internet takes a lot of time. We decided to take everything we know and write it down. This book_ reflects a portion of what we documented, and if it does well we plan to follow it up with other references.
