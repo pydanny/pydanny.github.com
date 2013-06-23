@@ -16,6 +16,4 @@ THEME='../pelican-themes/pydanny'
 TIMEZONE = "America/Los_Angeles"
 TWITTER_USERNAME = 'pydanny'
 
-
-
 # pelican==2.8.1
