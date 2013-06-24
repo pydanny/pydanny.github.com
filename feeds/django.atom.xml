@@ -1345,9 +1345,8 @@ The result isn't a walk-through or tutorial, but a reference guide for anyone wi
 &lt;div class="section" id="resolution"&gt;
 &lt;h2&gt;Resolution&lt;/h2&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;Go to at least one technical conference in North America, South America, Europe, Asia,  Africa, and Australia.&lt;/li&gt;
+&lt;li&gt;Go to at least one technical conference in South America, Asia,  Africa, and Australia.&lt;/li&gt;
 &lt;li&gt;Visit at least one new nation. It's hard to come up with preferences since the whole world is so exciting.&lt;/li&gt;
-&lt;li&gt;Go back to at least one of the nations I've visited before.&lt;/li&gt;
 &lt;li&gt;Take a road trip across the USA.&lt;/li&gt;
 &lt;li&gt;See the Grand Canyon.&lt;/li&gt;
 &lt;li&gt;Keep to a 32 waist for the whole year.&lt;/li&gt;
@@ -1355,7 +1354,6 @@ The result isn't a walk-through or tutorial, but a reference guide for anyone wi
 &lt;li&gt;Blog once a week. That is at least 52 blog entries!&lt;/li&gt;
 &lt;li&gt;Visit the beach for more than one day.&lt;/li&gt;
 &lt;li&gt;Take a fun class with Audrey.&lt;/li&gt;
-&lt;li&gt;Teach some Python or Django.&lt;/li&gt;
 &lt;li&gt;Build something real using Twisted as a critical component.&lt;/li&gt;
 &lt;li&gt;Take a high level Python class from the likes of Raymond Hettinger or David Beazley.&lt;/li&gt;
 &lt;li&gt;Commit to core Python&lt;/li&gt;
@@ -1372,6 +1370,10 @@ The result isn't a walk-through or tutorial, but a reference guide for anyone wi
 &lt;div class="section" id="accomplished"&gt;
 &lt;h2&gt;Accomplished&lt;/h2&gt;
 &lt;ul class="simple"&gt;
+&lt;li&gt;Teach some Python or Django.&lt;/li&gt;
+&lt;li&gt;Go back to at least one of the nations I've visited before.&lt;/li&gt;
+&lt;li&gt;Visit at least one new nation.&lt;/li&gt;
+&lt;li&gt;Go to at least one technical conference in North America and Europe.&lt;/li&gt;
 &lt;li&gt;Publish as least one book. See &lt;a class="reference external" href="http://django.2scoops.org/"&gt;Two Scoops of Django&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Update my blog to Pelican 3.&lt;/li&gt;
 &lt;li&gt;Implement a custom theme design so my blog looks more unique. ;-)&lt;/li&gt;
@@ -3173,7 +3175,8 @@ What to bring if you are participating: Workout clothes, water bottle
 &lt;div class="section" id="updates"&gt;
 &lt;h3&gt;Updates&lt;/h3&gt;
 &lt;p&gt;03/05/2012 - Removed Velruse from the list of providers as it's lead, Michael Merickel, clarified that it is not a provider.
-03/06/2012 - Added a link to the PyCon OAuth sprints.&lt;/p&gt;
+03/06/2012 - Added a link to the PyCon OAuth sprints.
+6/24/2013 - This article has been translated by Anja Skrba to Serbo-Croatian: &lt;a class="reference external" href="http://science.webhostinggeeks.com/lose-stanje-python"&gt;http://science.webhostinggeeks.com/lose-stanje-python&lt;/a&gt;&lt;/p&gt;
 &lt;hr class="docutils" /&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://news.ycombinator.com/item?id=3666853"&gt;Discuss this post on Hacker News&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
