@@ -1,0 +1,7 @@
+git+git://github.com/django/django.git@1.6b1
+Pillow==2.0.0
+South==0.8.1
+django-bootstrap-registration==0.1.2
+django-braces==1.0.0
+django-crispy-forms==1.3.2
+django-reg==1.0.1
