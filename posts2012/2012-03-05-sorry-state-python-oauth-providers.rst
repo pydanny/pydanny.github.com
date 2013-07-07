@@ -115,9 +115,10 @@ Join us at the PyCon US sprints either in person or on-line. `Details of the spr
 Updates
 -------
 
-03/05/2012 - Removed Velruse from the list of providers as it's lead, Michael Merickel, clarified that it is not a provider.
-03/06/2012 - Added a link to the PyCon OAuth sprints.
-6/24/2013 - This article has been translated by Anja Skrba to Serbo-Croatian: http://science.webhostinggeeks.com/lose-stanje-python
+* 03/05/2012 - Removed Velruse from the list of providers as it's lead, Michael Merickel, clarified that it is not a provider.
+* 03/06/2012 - Added a link to the PyCon OAuth sprints.
+* 6/24/2013 - This article has been translated by Anja Skrba to Serbo-Croatian: http://science.webhostinggeeks.com/lose-stanje-python
+* 07/07/2013 - Please consider https://github.com/evonove/django-oauth-toolkit for use as a Django-powered OAuth provider. The team behind it is doing it right!
 
 ----
 
