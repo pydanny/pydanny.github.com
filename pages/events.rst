@@ -4,12 +4,12 @@ Events
 
 :date: 2013-6-12 15:33
 
-EuroPython
----------------------------------
+Django Beer 1.0 in Florence, Italy
+-----------------------------------
 
-I'm giving a keynote. Wish me luck!
+I'm co-running the sprints. See you there for beer and code!
 
-https://ep2013.europython.eu/p3/schedule/ep2013/
+http://djangobeer.com/en/djangobeer-10/
 
 ----
 
