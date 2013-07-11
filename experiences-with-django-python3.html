@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Python dictionary vs JavaScript object: Dynamic Keys</title>
+    <title>My experiences with Django and Python 3.3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Python dictionary vs JavaScript object: Dynamic Keys">
-                                        Python dictionary vs JavaScript object: Dynamic Keys
+                                        title="Permalink to My experiences with Django and Python 3.3">
+                                        My experiences with Django and Python 3.3
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,53 +100,105 @@
                 </header>
 
                 <p>
-                    <em>Sunday, August 19, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to Python dictionary vs JavaScript object: Dynamic Keys">permalink</a>)
+                    <em>Thursday, July 11, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to My experiences with Django and Python 3.3">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>One of the things I noticed a long time ago with JavaScript is that when you create objects you can define keys outside of strings:</p>
-<div class="highlight"><pre><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">city</span><span class="o">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">}</span>
-  <span class="nb">Object</span>
-</pre></div>
-<p>In JavaScript, this is valid. In Python, you'll get a <tt class="docutils literal">NameError</tt>:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="p">{</span><span class="n">city</span><span class="p">:</span> <span class="s">&quot;San Francisco&quot;</span><span class="p">}</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s">&#39;city&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
-</pre></div>
-<p>Normally this isn't too big of an issue, except when you want to use JavaScript to create object keys based off of values in a variable. Which means that while this code works fine in Python...</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">region_name</span> <span class="o">=</span> <span class="s">&#39;state&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="p">{</span><span class="n">region_name</span><span class="p">:</span> <span class="s">&quot;Californa&quot;</span><span class="p">,</span> <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;San Francisco&quot;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">o</span><span class="p">[</span><span class="s">&quot;state&quot;</span><span class="p">]</span>
-<span class="s">&#39;Californa&#39;</span>
-</pre></div>
-<p>...it fails in JavaScript:</p>
-<div class="highlight"><pre><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">region_name</span> <span class="o">=</span> <span class="s1">&#39;state&#39;</span>
-  <span class="s2">&quot;state&quot;</span>
-<span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">region_name</span><span class="o">:</span> <span class="s2">&quot;Californa&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">}</span>
-  <span class="nb">Object</span>
-<span class="o">&gt;</span> <span class="nx">o</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span>
-  <span class="kc">undefined</span>
-<span class="o">&gt;</span> <span class="nx">o</span><span class="p">[</span><span class="s2">&quot;region_name&quot;</span><span class="p">]</span>
-  <span class="s2">&quot;Californa&quot;</span>
-</pre></div>
-<p>What this means is that if you want to define object keys dynamically in JavaScript, you need to add an extra line(s) of code:</p>
-<div class="highlight"><pre><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">region_name</span> <span class="o">=</span> <span class="s2">&quot;state&quot;&quot;</span>
-<span class="s2">  &quot;</span><span class="nx">state</span><span class="s2">&quot;</span>
-<span class="s2">&gt; var o = {&quot;</span><span class="nx">city</span><span class="s2">&quot;: &quot;</span><span class="nx">San</span> <span class="nx">Francisco</span><span class="s2">&quot;}</span>
-<span class="s2">  Object</span>
-<span class="s2">&gt; o[region_name] = &quot;</span><span class="nx">California</span><span class="s2">&quot; // Add dynamic key here</span>
-<span class="s2">  &quot;</span><span class="nx">California</span><span class="s2">&quot;</span>
-<span class="s2">&gt; o[&quot;</span><span class="nx">state</span><span class="s2">&quot;]</span>
-<span class="s2">  &quot;</span><span class="nx">California</span><span class="err">&quot;</span>
-</pre></div>
-<div class="section" id="summary">
-<h2>Summary</h2>
+                    <p>The following are my notes, observations, and resources on the subject of working with Python 3 (with or without Django).</p>
+<p>Recently I've become involved in a couple of Django efforts that used Python 3.3. The quick summary of what I learned is pretty much what I expected: Out of the box Django 1.5 (and the pending 1.6 release) works fine with Python 3.3.2.</p>
+<div class="section" id="use-python-3-3-2">
+<h2>Use Python 3.3.2!</h2>
+<p>Myself and others have encountered problems with using Django 1.5+ and earlier versions of Python 3. The issues can be tricky, for example <cite>syncdb</cite> fails in curious ways on Python 3.3.0.</p>
+<p>The answer, for me, is to use Python 3.3.2 and don't look back.</p>
+</div>
+<div class="section" id="checking-for-python-3-compatibility">
+<h2>Checking for Python 3 Compatibility</h2>
+<p>The steps I use are below. They are in rough order:</p>
 <ul class="simple">
-<li>Python is  consistent in how it deals with <cite>named</cite> objects. If you haven't named something, Python throws the <tt class="docutils literal">NameError</tt>.</li>
-<li>JavaScript seems to send out an <tt class="docutils literal">undefined</tt> unless you are defining an object.</li>
+<li>Look up the package on <a class="reference external" href="https://pypi.python.org/pypi/">PyPI</a> and see if any of it's trove classifiers mention Python 3 status.</li>
+<li>See if a pull request for Python 3 support is outstanding.</li>
+<li>Run the test suite using Python 3.3</li>
+<li>Use <a class="reference external" href="http://docs.python.org/2/library/2to3.html">2to3</a> to scan the code for issues.</li>
+<li>If a Django project, check the models for <tt class="docutils literal">__str__()</tt> methods. If it has them, it's a pretty good indicator it's Python 3.3 friendly.</li>
+<li>Make a judgement call.</li>
 </ul>
+</div>
+<div class="section" id="important-packages-that-work-with-python-3">
+<h2>Important Packages that work with Python 3</h2>
+<p>In this section I'm listing a few of the Python and Django packages I'm using that worked without me having to do anything sort of modification or pull request:</p>
+<ul class="simple">
+<li>Django 1.5 and 1.6 beta</li>
+<li>Pillow (drop-in replacement for PIL)</li>
+<li>South</li>
+<li>django-bootstrap-registration (templates for django-registration)</li>
+<li>django-braces</li>
+<li>django-crispy-forms</li>
+<li>requests</li>
+</ul>
+</div>
+<div class="section" id="conversion-process">
+<h2>Conversion process</h2>
+<p>How I convert Python 2 code to Python 3:</p>
+<ul class="simple">
+<li>Use 2to3 until you get used to not using it.</li>
+<li>Fix any problems you find in the code. Try to keep solutions as simple as possible.</li>
+<li>Submit the pull request.</li>
+<li>Politely poke the package owner to accept the pull request.</li>
+<li>Once the owner accepts the pull request, gently poke the package owner to push the update to PyPI.</li>
+</ul>
+</div>
+<div class="section" id="packages-that-needed-conversion">
+<h2>Packages that needed conversion</h2>
+<p>Here are four packages worth noting that had to be converted:</p>
+<ul class="simple">
+<li>unicode-slugify</li>
+<li>django-registration</li>
+<li>django-stripe-payments (in progress)</li>
+<li>django-nose (in progress)</li>
+</ul>
+<p>Let's get into some detail for each package:</p>
+<div class="section" id="unicode-slugify">
+<h3><a class="reference internal" href="#unicode-slugify">unicode-slugify</a></h3>
+<p>This is a handy, more unicode friendly replacement for Django's <cite>django.utils.text.slugify</cite> function. It failed on Django 1.6 beta, so I forked it, submitted a successful pull request after testing it on Python 2.6, 2.7, and Python 3.3.2. The Mozilla team pushed it to PyPI and even gave me <a class="reference external" href="https://badges.mozilla.org/en-US/profiles/profile/pydanny">badges</a> for my efforts!</p>
+<p>In the future I would like to see this little package work without the dependency of Django itself, and I've had a couple replacement dependencies suggested.</p>
+</div>
+<div class="section" id="django-registration">
+<h3>django-registration</h3>
+<p>With the 1.0 release, it's been updated for Django 1.5, <em>unless</em> you use customized User models or Python 3. I really needed this on PyPI, but the maintainer is very busy. Therefore, I forked the project, renamed it to <a class="reference external" href="https://pypi.python.org/pypi/django-reg">django-reg</a> while referencing the original, and pushed it to PyPI. Not ideal, but sometimes you have to do what you have to do.</p>
+<p>Lesson learned: In the future skip these issues and just use <a class="reference external" href="https://pypi.python.org/pypi/django-allauth">django-allauth</a>.</p>
+</div>
+<div class="section" id="django-stripe-payments-in-progress">
+<h3><a class="reference external" href="https://pypi.python.org/pypi/django-stripe-payments">django-stripe-payments</a> (in progress)</h3>
+<p>While django-zebra is better known for handling stripe payments, I prefer to use Eldarion's excellent, well-maintained and tested django-stripe-payments. Unfortunately, it's tests fail with Python 3 because <strong>django-nose</strong> is still in the process of being ported to... Python 3. Since there is no way I'm going to use a payment tool that can't run it's tests, I'm waiting for <strong>django-nose</strong> to be updated.</p>
+<p>Of course, I informed the maintainers of my efforts, problems, and look forward to working with them.</p>
+</div>
+<div class="section" id="django-nose-in-progress">
+<h3><a class="reference external" href="https://pypi.python.org/pypi/django-nose">django-nose</a> (in progress)</h3>
+<p>Today, I asked the maintainer to visit an outstanding pull request that adds Python 3 compatibility. It's a good idea to do this since they might already be working on it, or may have observations they want to share.</p>
+</div>
+</div>
+<div class="section" id="dealing-with-slow-maintainers">
+<h2>Dealing with Slow Maintainers</h2>
+<p>For what it's worth, from experience ranting to or about slow-moving maintainers is absolutely counter-productive. People have lives and jobs that sometimes get in the way of open source. It's more productive to be patient, be polite, and if necessary do an absolutely minimal fork or find a working alternative.</p>
+</div>
+<div class="section" id="handy-resources">
+<h2>Handy Resources</h2>
+<p>The following are two useful resources on converting Python 2 to Python 3. I don't follow their methods exactly, I just use them as rough guidelines for my own workflow.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://youtu.be/cJMGvAYYUyY">Porting Django apps to Python 3</a> video by Jacob Kaplan-Moss</li>
+<li><a class="reference external" href="http://python3porting.com/">Porting to Python 3</a> book (free HTML or paid PDF, Kindle, ePub) by Lennart Regebro</li>
+</ul>
+<p>For various Python 3 recipes, I keep my kindle reader open to this priceless gem:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.amazon.com/Python-Cookbook-ebook/dp/B00DQV4GGY/?tag=">Python Cookbook, 3rd Edition</a> book by David Beazley and Brian K. JOnes.</li>
+</ul>
+</div>
+<div class="section" id="closing-thoughts">
+<h2>Closing Thoughts</h2>
+<p>This blog post makes it seems like I've put in a lot of work getting things to Python 3, but that isn't the case at all. In fact, for the most part the transition has been trivial. There are a few minor hiccups, but nothing that's killing a whole day or destroying a deadline.</p>
+<p><strong>Benefit of using Python 3?</strong> I get to call myself a <strong>Python 3 Hipster</strong>.</p>
+<p><strong>Downside of using Python 3?</strong> A little bit of extra homework on each project. However, each time I fix something it's done and I've made the world a better place.</p>
 </div>
 
                     <div class="article-info">
@@ -155,8 +207,8 @@
 
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/javascript.html"><em>javascript</em></a>
-	<a href="./tag/vs.html"><em>vs</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/python3.html"><em>python3</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -164,7 +216,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "python-dictionary-vs-javascript-object-dynamic-keys.html";
+                           var disqus_identifier = "experiences-with-django-python3.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
