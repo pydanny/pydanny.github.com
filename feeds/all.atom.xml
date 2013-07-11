@@ -3,7 +3,7 @@
 &lt;p&gt;Recently I've become involved in a couple of Django efforts that used Python 3.3. The quick summary of what I learned is pretty much what I expected: Out of the box Django 1.5 (and the pending 1.6 release) works fine with Python 3.3.2.&lt;/p&gt;
 &lt;div class="section" id="use-python-3-3-2"&gt;
 &lt;h2&gt;Use Python 3.3.2!&lt;/h2&gt;
-&lt;p&gt;Myself and others have encountered problems with using Django 1.5+ and earlier versions of Python 3. The issues can be tricky, for example &lt;cite&gt;syncdb&lt;/cite&gt; fails in curious ways on Python 3.3.0.&lt;/p&gt;
+&lt;p&gt;Myself and others have encountered problems with using Django 1.5+ and earlier versions of Python 3. The issues can be tricky; for example &lt;tt class="docutils literal"&gt;syncdb&lt;/tt&gt; fails in curious ways on Python 3.3.0.&lt;/p&gt;
 &lt;p&gt;The answer, for me, is to use Python 3.3.2 and don't look back.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="checking-for-python-3-compatibility"&gt;
@@ -53,7 +53,7 @@
 &lt;/ul&gt;
 &lt;p&gt;Let's get into some detail for each package:&lt;/p&gt;
 &lt;div class="section" id="unicode-slugify"&gt;
-&lt;h3&gt;&lt;a class="reference internal" href="#unicode-slugify"&gt;unicode-slugify&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/unicode-slugify"&gt;unicode-slugify&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;This is a handy, more unicode friendly replacement for Django's &lt;cite&gt;django.utils.text.slugify&lt;/cite&gt; function. It failed on Django 1.6 beta, so I forked it, submitted a successful pull request after testing it on Python 2.6, 2.7, and Python 3.3.2. The Mozilla team pushed it to PyPI and even gave me &lt;a class="reference external" href="https://badges.mozilla.org/en-US/profiles/profile/pydanny"&gt;badges&lt;/a&gt; for my efforts!&lt;/p&gt;
 &lt;p&gt;In the future I would like to see this little package work without the dependency of Django itself, and I've had a couple replacement dependencies suggested.&lt;/p&gt;
 &lt;/div&gt;

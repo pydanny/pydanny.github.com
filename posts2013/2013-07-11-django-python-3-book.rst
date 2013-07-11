@@ -14,7 +14,7 @@ Recently I've become involved in a couple of Django efforts that used Python 3.3
 Use Python 3.3.2!
 =================
 
-Myself and others have encountered problems with using Django 1.5+ and earlier versions of Python 3. The issues can be tricky, for example `syncdb` fails in curious ways on Python 3.3.0.
+Myself and others have encountered problems with using Django 1.5+ and earlier versions of Python 3. The issues can be tricky; for example ``syncdb`` fails in curious ways on Python 3.3.0.
 
 The answer, for me, is to use Python 3.3.2 and don't look back.
 
@@ -77,6 +77,8 @@ Let's get into some detail for each package:
 This is a handy, more unicode friendly replacement for Django's `django.utils.text.slugify` function. It failed on Django 1.6 beta, so I forked it, submitted a successful pull request after testing it on Python 2.6, 2.7, and Python 3.3.2. The Mozilla team pushed it to PyPI and even gave me badges_ for my efforts!
 
 In the future I would like to see this little package work without the dependency of Django itself, and I've had a couple replacement dependencies suggested.
+
+.. _`unicode-slugify`: https://pypi.python.org/pypi/unicode-slugify
 
 .. _badges: https://badges.mozilla.org/en-US/profiles/profile/pydanny
 
