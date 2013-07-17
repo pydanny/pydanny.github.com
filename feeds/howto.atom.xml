@@ -808,7 +808,7 @@ stuffage/stuff_list.html (StuffListView)
 &lt;/div&gt;
 &lt;div class="section" id="want-to-learn-more"&gt;
 &lt;h2&gt;Want to learn more?&lt;/h2&gt;
-&lt;p&gt;If you live in the Los Angeles area and want to learn more about Django, everything from the basics to setting up a Content Management System or E-Commerce system, check out our Django (and &lt;a class="reference external" href="http://python.org"&gt;Python&lt;/a&gt;) training at &lt;a class="reference external" href="https://academy.cartwheelweb.com"&gt;Cartwheel Academy&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Check out the Django book I co-wrote, &lt;a class="reference external" href="https://django.2scoops.org"&gt;Two Scoops of Django: Best Practices for Django 1.5&lt;/a&gt;!&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="howto"></category><category term="class-based-views"></category></entry><entry><title>Simple Django email form using CBV</title><link href="http://pydanny.com/simple-django-email-form-using-cbv.html" rel="alternate"></link><updated>2012-05-22T09:30:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2012-05-22:simple-django-email-form-using-cbv.html</id><summary type="html">&lt;p&gt;Here's a simple &lt;tt class="docutils literal"&gt;FormView&lt;/tt&gt; Class Based Views for &lt;a class="reference external" href="http://djangoproject.com"&gt;Django&lt;/a&gt;. Here is a sample of how to do one as a simple email form. There is no CAPTCHA in this example, that's the topic of a future blog post.&lt;/p&gt;
 &lt;p&gt;This version requires the following packages &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt; installed into your &lt;tt class="docutils literal"&gt;virtualenv&lt;/tt&gt;.&lt;/p&gt;
@@ -895,7 +895,7 @@ stuffage/stuff_list.html (StuffListView)
 &lt;/div&gt;
 &lt;div class="section" id="want-to-learn-more"&gt;
 &lt;h2&gt;Want to learn more?&lt;/h2&gt;
-&lt;p&gt;If you live in the Los Angeles area and want to learn more about Django, everything from the basics to setting up a Content Management System or E-Commerce system, check out our Django (and &lt;a class="reference external" href="http://python.org"&gt;Python&lt;/a&gt;) training at &lt;a class="reference external" href="https://academy.cartwheelweb.com"&gt;Cartwheel Academy&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Check out the Django book I co-wrote, &lt;a class="reference external" href="https://django.2scoops.org"&gt;Two Scoops of Django: Best Practices for Django 1.5&lt;/a&gt;!&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="howto"></category><category term="class-based-views"></category></entry><entry><title>Parsing MongoDB URI</title><link href="http://pydanny.com/parsing-mongodb-uri.html" rel="alternate"></link><updated>2012-02-20T09:20:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2012-02-20:parsing-mongodb-uri.html</id><summary type="html">&lt;p&gt;Rather than hard-code the configuration into a Python based settings file, when using a PaaS such as Heroku you want to pick up the MongoDB URI from the system settings. Here's what I do:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# get the dynamic elements from the MongoURI&lt;/span&gt;

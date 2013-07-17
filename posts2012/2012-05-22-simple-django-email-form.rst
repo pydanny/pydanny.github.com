@@ -108,7 +108,8 @@ In tomorrow's post I'll show how to add CAPTCHA into your project to help reduce
 Want to learn more?
 ===================
 
-If you live in the Los Angeles area and want to learn more about Django, everything from the basics to setting up a Content Management System or E-Commerce system, check out our Django (and Python_) training at `Cartwheel Academy`_.
+Check out the Django book I co-wrote, `Two Scoops of Django: Best Practices for Django 1.5`_!
+
+.. _`Two Scoops of Django: Best Practices for Django 1.5`: https://django.2scoops.org
 
 .. _Python: http://python.org
-.. _`Cartwheel Academy`: https://academy.cartwheelweb.com
