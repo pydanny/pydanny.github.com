@@ -103,6 +103,13 @@ Consider buying anti-theft backpacks / laptop bags
 
 We prefer **PacSafe** brand gear because the clasps are hidden and require a trick to open. Their stuff also has steel wire woven into their straps and fabric, meaning they can't get cut by a razor. PacSafe stuff isn't cheap but the peace of mind has been definitely worth the price. We've relied on the PacSafe `laptop bag`_ and `shoulder bag`_ for about 18 months now and they've been awesome.
 
+.. image:: http://ecx.images-amazon.com/images/I/41lh%2B2goeNL._SL500_SS80_.jpg
+    :target: http://www.amazon.com/Pacsafe-Metrosafe-Anti-Theft-Tablet-Laptop/dp/B00AVXDELI/?tag=cn-001-20
+    :alt: My laptop bag
+    :align: center
+
+*My laptop bag*
+
 .. _`laptop bag`: http://www.amazon.com/Pacsafe-Metrosafe-Anti-Theft-Tablet-Laptop/dp/B00AVXDELI/?tag=cn-001-20
 .. _`shoulder bag`: http://www.amazon.com/Pacsafe-Luggage-Slingsafe-Shoulder-Black/dp/B006QLMDH0/?tag=cn-001-20
 
