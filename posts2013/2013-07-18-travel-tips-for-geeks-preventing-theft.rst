@@ -201,7 +201,7 @@ Anyone not wearing a uniform and claiming to be 'undercover' is an accomplice, s
 
 1. Don't give up any identification.
 2. Demand that real police be summoned by radio or phone to this location immediately.
-3. **Don't leave the spot!** If 'undercover' police try to get you to come with them, refuse loudly. If they try to force you away, start yelling as if your life is in danger, *because it is*. 
+3. **Don't leave the spot!** If 'undercover' police try to get you to come with them, refuse loudly. If they try to force you away, start yelling as if your life is in danger, **because it is**. 
 
 
 In Closing
