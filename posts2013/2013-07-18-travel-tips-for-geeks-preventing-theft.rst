@@ -25,9 +25,9 @@ While it can be said that thieves can be anywhere, the truth is that they focus 
 "I've never had any problems there"
 -------------------------------------
 
-I've heard this several times from local residents or travelers, often in places with statistical high crime rates. You'll hear it too. 
+I've heard this several times from local residents or travelers, often about places with statistically high crime rates. You'll hear it too. 
 
-All that means is that they've either been lucky or unobservant. It's better to be careful and avoid a miserable trip, because losing your identification, credit cards, cash, or electronics will ruin a trip.
+All that means is that they've either been lucky or unobservant. It's better to be careful and avoid a miserable trip.
 
 Listen to warnings before you go places
 --------------------------------------------
