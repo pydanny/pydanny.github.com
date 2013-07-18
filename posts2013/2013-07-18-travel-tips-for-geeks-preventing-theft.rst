@@ -110,6 +110,13 @@ We prefer **PacSafe** brand gear because the clasps are hidden and require a tri
 
 *My laptop bag*
 
+.. image:: http://ecx.images-amazon.com/images/I/31jF8RBoBEL._SL500_SS80_.jpg
+    :target: http://www.amazon.com/Pacsafe-Luggage-Slingsafe-Shoulder-Black/dp/B006QLMDH0/?tag=cn-001-20
+    :alt: Audrey's shoulder bag
+    :align: center
+
+*Audrey's shoulder bag*
+
 .. _`laptop bag`: http://www.amazon.com/Pacsafe-Metrosafe-Anti-Theft-Tablet-Laptop/dp/B00AVXDELI/?tag=cn-001-20
 .. _`shoulder bag`: http://www.amazon.com/Pacsafe-Luggage-Slingsafe-Shoulder-Black/dp/B006QLMDH0/?tag=cn-001-20
 
