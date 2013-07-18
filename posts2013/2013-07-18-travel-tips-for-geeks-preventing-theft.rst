@@ -14,7 +14,7 @@ For this first article, I'm hoping this gets on various technical RSS feeds. I'm
 About Thieves
 =============
 
-Thieves are everywhere. I've seen extremely suspicious activity in Portland, Los Angeles, Washington DC, Barcelona, Florence, Pisa, and Krakow. Years ago in Washington DC I had stuff stolen from me twice so I've been observant and careful ever since. Anywhere there are non-residents distracted by looking at new vistas while suffering from travel fatigue is where most thieves can be found. I've learned a lot by observation and doing research but I don't claim to be an expert. All I claim to be is someone who doesn't want to be ripped off far from home.
+Thieves (or pick pockets) are everywhere. I've seen extremely suspicious activity in Portland, Los Angeles, Washington DC, Barcelona, Florence, Pisa, and Krakow. Years ago in Washington DC I had stuff stolen from me twice so I've been observant and careful ever since. Anywhere there are non-residents distracted by looking at new vistas while suffering from travel fatigue is where most thieves can be found. I've learned a lot by observation and doing research but I don't claim to be an expert. All I claim to be is someone who doesn't want to be ripped off far from home.
 
 
 The Basics: Any place with tourists is risky
