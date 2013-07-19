@@ -33,7 +33,7 @@ When can I get a Kindle (mobi) or ePub version?
 
 Our plan is to support those formats in either the BETA or FINAL releases. In fact, I really love my Kindle_. I can't wait to proof my own book_ on my favorite reading device.
 
-.. _Kindle: http://www.amazon.com/gp/product/B007HCCNJU/?ie=UTF8&tag=cn-001-20
+.. _Kindle: http://www.amazon.com/gp/product/B007HCCNJU/?ie=UTF8&tag=ihpydanny-20
 
 When can I get a print version?
 ===============================

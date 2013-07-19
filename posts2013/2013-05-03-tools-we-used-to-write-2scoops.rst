@@ -82,7 +82,7 @@ Speaking of mobile editions, we also wrote a second version of each Python examp
 
 **note:** If you want to be the self-published author of a technical book I *strongly recommend* you read Matt's `Ebook Formatting: KF8, Mobi & EPUB`_. Also check out his rst2epub2 library for converting RST files to various formats. 
 
-.. _`Ebook Formatting: KF8, Mobi & EPUB`: http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=la_B0077BQLH6_1_2?ie=UTF8&qid=1366041987&sr=1-2&tag=cn-001-20
+.. _`Ebook Formatting: KF8, Mobi & EPUB`: http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=la_B0077BQLH6_1_2?ie=UTF8&qid=1366041987&sr=1-2&tag=ihpydanny-20
 
 While I worked on the mobile editions, Audrey focused on the print version and adding more art and tiny bit of new content. She focused on clarity and flow, and the result is that the book feels even lighter to read and yet is dense with useful information. To test how the book launched, she would order a copy from the printer and wait several days for it to arrive. Then she would inspect the cover and interior with her incredibly exacting eye. It's a slow process, but Audrey wanted to make absolutely certain our readers would enjoy and use the print edition.
 
@@ -91,7 +91,7 @@ On April 10th we launched the final in PDF, Kindle, and ePub form. The PDF weigh
 A week later we announced the launch of the `print version of the book`_. People seem to really like the design and feel of the physical book, and we've even had requests for t-shirts.
 
 
-.. _`print version of the book`: http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&qid=1366166104&sr=8-2&tag=cn-001-20
+.. _`print version of the book`: http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&qid=1366166104&sr=8-2&tag=ihpydanny-20
 
 Thoughts
 ========

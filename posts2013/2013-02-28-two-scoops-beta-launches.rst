@@ -73,7 +73,7 @@ The response from beginning Django developers reading it has been **unbelievably
 
 Since the book isn't a tutorial, we ask that before beginners purchase it, they `learn the fundamentals of`_ `Python`_ and take the `official Django tutorial`_.
 
-.. _Python: http://www.amazon.com/Learn-Python-Hard-Way-Introduction/dp/0321884914/?ie=UTF8&tag=cn-001-20
+.. _Python: http://www.amazon.com/Learn-Python-Hard-Way-Introduction/dp/0321884914/?ie=UTF8&tag=ihpydanny-20
 .. _`learn the fundamentals of`: http://learnpythonthehardway.org/
 .. _`official Django tutorial`: https://docs.djangoproject.com/en/1.5/intro/tutorial01/
 

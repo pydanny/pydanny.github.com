@@ -64,9 +64,9 @@ If you are a new Python developer, we suggest in addition to our course you sign
 * `Python for Kids`_ (meant for kids but good for beginning developers of all ages)
 
 
-.. _`Treading on Python`: http://www.amazon.com/Treading-Python-Volume-1-ebook/dp/B00639H0AK/ref=sr_1_4?s=digital-text&ie=UTF8&qid=1362769305&sr=1-4&keywords=matt+harrison&tag=cn-001-20
-.. _`Think in Python`: http://www.amazon.com/Think-Python-Allen-B-Downey/dp/144933072X/ref=sr_1_1?ie=UTF8&qid=1362768936&sr=8-1&keywords=think+in+python&tag=cn-001-20
-.. _`Python for Kids`: http://www.amazon.com/Python-Kids-Playful-Introduction-Programming/dp/1593274076/ref=sr_1_8?s=books&ie=UTF8&qid=1362769005&sr=1-8&keywords=python+programming&tag=cn-001-20
+.. _`Treading on Python`: http://www.amazon.com/Treading-Python-Volume-1-ebook/dp/B00639H0AK/ref=sr_1_4?s=digital-text&ie=UTF8&qid=1362769305&sr=1-4&keywords=matt+harrison&tag=ihpydanny-20
+.. _`Think in Python`: http://www.amazon.com/Think-Python-Allen-B-Downey/dp/144933072X/ref=sr_1_1?ie=UTF8&qid=1362768936&sr=8-1&keywords=think+in+python&tag=ihpydanny-20
+.. _`Python for Kids`: http://www.amazon.com/Python-Kids-Playful-Introduction-Programming/dp/1593274076/ref=sr_1_8?s=books&ie=UTF8&qid=1362769005&sr=1-8&keywords=python+programming&tag=ihpydanny-20
 
 
 

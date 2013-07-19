@@ -11,7 +11,7 @@ Generating NCX files with Python
 With the help of fellow Python developer Matt Harrison's excellent `Ebook Formatting: KF8, Mobi & EPUB`_, we managed to create pretty decent looking Kindle and ePub versions of `Two Scoops of Django`_. 
 
 .. _`Two Scoops of Django`: http://django.2scoops.org/
-.. _`Ebook Formatting: KF8, Mobi & EPUB`: http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=la_B0077BQLH6_1_2?ie=UTF8&qid=1366041987&sr=1-2&tag=cn-001-20
+.. _`Ebook Formatting: KF8, Mobi & EPUB`: http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=la_B0077BQLH6_1_2?ie=UTF8&qid=1366041987&sr=1-2&tag=ihpydanny-20
 
 One of many things we did was focus on providing an excellent table of contents. Of course we provided one inside the content of the book, but much like the PDF version we also provided one that various ebook readers can display in sidebars or drop down menus. Unfortunately, building this navigation isn't well documented (except for Matt's book), and I've yet to see any good ways to generate it via code.
 

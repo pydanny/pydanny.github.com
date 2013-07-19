@@ -52,4 +52,4 @@ Creating __init__.py in '/Users/danielgreenfeld/code/tsp/tsp/products/migrations
 &lt;p&gt;Now I can create South migrations and they'll just work.&lt;/p&gt;
 &lt;p&gt;Unfortunately, the problem is that for any model where I need to use filepicker's FPFileField I need to add those two lines of code. I don't like this approach, since it violates &lt;strong&gt;Don't Repeat Yourself&lt;/strong&gt; (DRY).&lt;/p&gt;
 &lt;p&gt;At some point I'll demonstrate how to fix this violation of DRY with an easy fix. In fact, I plan submit that fix as a pull request to django-filepicker.&lt;/p&gt;
-</summary><category term="django"></category><category term="python"></category><category term="filepicker"></category></entry></feed>
+</summary><category term="django"></category><category term="python"></category><category term="filepicker"></category><category term="howto"></category></entry></feed>

@@ -37,5 +37,5 @@ Interesting how much of my very recent shell experience is focused on the book_.
 Speaking of books, today's reading is Jeff Knupp's `Writing Idiomatic Python 3.3`_ (Python 2.7 edition also available_)
 
 .. _book: https://django.2scoops.org/
-.. _`Writing Idiomatic Python 3.3`: http://www.amazon.com/Writing-Idiomatic-Python-3-3-ebook/dp/B00B5VXMRG/ref=tmm_kin_title_0?ie=UTF8&qid=1365610132&sr=8-1&tag=cn-001-20
-.. _available: http://www.amazon.com/Writing-Idiomatic-Python-2-7-3-ebook/dp/B00B5KG0F8/ref=la_B00BBE1MDI_1_2_title_1_kin?ie=UTF8&qid=1365610777&sr=1-2&tag=cn-001-20
+.. _`Writing Idiomatic Python 3.3`: http://www.amazon.com/Writing-Idiomatic-Python-3-3-ebook/dp/B00B5VXMRG/ref=tmm_kin_title_0?ie=UTF8&qid=1365610132&sr=8-1&tag=ihpydanny-20
+.. _available: http://www.amazon.com/Writing-Idiomatic-Python-2-7-3-ebook/dp/B00B5KG0F8/ref=la_B00BBE1MDI_1_2_title_1_kin?ie=UTF8&qid=1365610777&sr=1-2&tag=ihpydanny-20

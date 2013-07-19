@@ -55,7 +55,145 @@
 &lt;p&gt;Also, next time I get called on something by a person I respect, I'll respond more quickly. Nearly two years is too long a wait.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Changed some of the text to be more succinct and took out the leading sentence.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="python"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Stay with the Django CBV defaults!</title><link href="http://pydanny.com/stay-with-the-django-cbv-defaults.html" rel="alternate"></link><updated>2012-11-27T16:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2012-11-27:stay-with-the-django-cbv-defaults.html</id><summary type="html">&lt;p&gt;One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity.&lt;/p&gt;
+</summary><category term="python"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Filepicker.io and South</title><link href="http://pydanny.com/filepicker-and-south.html" rel="alternate"></link><updated>2013-04-23T10:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-23:filepicker-and-south.html</id><summary type="html">&lt;p&gt;I've heard good things about filepicker.io, which is a service that makes file uploading a much better experience. Unfortunately, the Django package for filepicker.io doesn't work with South. When I try to create a migration using the filepicker.io field using code like the following...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# products/models.py&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django_filepicker.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FPFileField&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Product&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FPFileField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;upload_to&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;uploads&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;...when I try to run the command:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+(tsd)$ python manage.py schemamigration products --initial
+&lt;/pre&gt;
+&lt;p&gt;It results in this unpleasant looking response:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+(tsd)$ python manage.py schemamigration products --initial
+Creating migrations directory at '/Users/danielgreenfeld/code/tsp/tsp/products/migrations'...
+Creating __init__.py in '/Users/danielgreenfeld/code/tsp/tsp/products/migrations'...
+ ! Cannot freeze field 'products.product.fpfile'
+ ! (this field has class django_filepicker.models.FPFileField)
+ ! Cannot freeze field 'products.release.fpfile'
+ ! (this field has class django_filepicker.models.FPFileField)
+
+ ! South cannot introspect some fields; this is probably because they are custom
+ ! fields. If they worked in 0.6 or below, this is because we have removed the
+ ! models parser (it often broke things).
+ ! To fix this, read http://south.aeracode.org/wiki/MyFieldsDontWork
+&lt;/pre&gt;
+&lt;p&gt;The last line in the error report is important. I'll repeat it to illustrate it more clearly:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+! To fix this, read http://south.aeracode.org/wiki/MyFieldsDontWork
+&lt;/pre&gt;
+&lt;p&gt;Experience working on other projects has taught me I can simply add two lines of code to &lt;tt class="docutils literal"&gt;products/models.py&lt;/tt&gt; and everything should just work:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# South migration rules for the FPFileField field&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;south.modelsinspector&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;add_introspection_rules&lt;/span&gt;
+&lt;span class="n"&gt;add_introspection_rules&lt;/span&gt;&lt;span class="p"&gt;([],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;django_filepicker\.models\.FPFileField&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In case it's not clear, here's my new &lt;tt class="docutils literal"&gt;products/models.py&lt;/tt&gt; file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# products/models.py&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django_filepicker.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FPFileField&lt;/span&gt;
+
+&lt;span class="c"&gt;# South migration rules for the FPFileField field&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;south.modelsinspector&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;add_introspection_rules&lt;/span&gt;
+&lt;span class="n"&gt;add_introspection_rules&lt;/span&gt;&lt;span class="p"&gt;([],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;django_filepicker\.models\.FPFileField&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Product&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FPFileField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;upload_to&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;uploads&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now I can create South migrations and they'll just work.&lt;/p&gt;
+&lt;p&gt;Unfortunately, the problem is that for any model where I need to use filepicker's FPFileField I need to add those two lines of code. I don't like this approach, since it violates &lt;strong&gt;Don't Repeat Yourself&lt;/strong&gt; (DRY).&lt;/p&gt;
+&lt;p&gt;At some point I'll demonstrate how to fix this violation of DRY with an easy fix. In fact, I plan submit that fix as a pull request to django-filepicker.&lt;/p&gt;
+</summary><category term="django"></category><category term="python"></category><category term="filepicker"></category><category term="howto"></category></entry><entry><title>Generating NCX files with Python</title><link href="http://pydanny.com/generating-ncx-files-with-python.html" rel="alternate"></link><updated>2013-04-15T09:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-15:generating-ncx-files-with-python.html</id><summary type="html">&lt;p&gt;With the help of fellow Python developer Matt Harrison's excellent &lt;a class="reference external" href="http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=la_B0077BQLH6_1_2?ie=UTF8&amp;amp;qid=1366041987&amp;amp;sr=1-2&amp;amp;tag=ihpydanny-20"&gt;Ebook Formatting: KF8, Mobi &amp;amp; EPUB&lt;/a&gt;, we managed to create pretty decent looking Kindle and ePub versions of &lt;a class="reference external" href="http://django.2scoops.org/"&gt;Two Scoops of Django&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;One of many things we did was focus on providing an excellent table of contents. Of course we provided one inside the content of the book, but much like the PDF version we also provided one that various ebook readers can display in sidebars or drop down menus. Unfortunately, building this navigation isn't well documented (except for Matt's book), and I've yet to see any good ways to generate it via code.&lt;/p&gt;
+&lt;p&gt;Which is why I present the following code. It looks at the HTML that KindleGen and ePub generators demand and pulls from it a chapter-based table of contents. Then constructs a .ncx file, which is what ebook readers use to generate the sidebar/dropdown table of contents.&lt;/p&gt;
+&lt;p&gt;Our requirements:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Jinja2
+Django
+BeautifulSoup4
+&lt;/pre&gt;
+&lt;p&gt;And now the code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.utils.text&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;jinja2&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;
+
+&lt;span class="n"&gt;TEMPLATE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;!DOCTYPE ncx PUBLIC &amp;quot;-//NISO//DTD ncx 2005-1//EN&amp;quot; &amp;quot;http://www.daisy.org/z3986/2005/ncx-2005-1.dtd&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;ncx xmlns=&amp;quot;http://www.daisy.org/z3986/2005/ncx/&amp;quot; version=&amp;quot;2005-1&amp;quot; xml:lang=&amp;quot;en&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+
+&lt;span class="s"&gt;&amp;lt;!-- The content of dtb:uid must be exactly the same as the uuid specified in the OPF file. --&amp;gt;&lt;/span&gt;
+
+&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:uid&amp;quot; content=&amp;quot;urn:uuid:BLAH-BLAH-BLAH&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:depth&amp;quot; content=&amp;quot;1&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:totalPageCount&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:maxPageNumber&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+&lt;span class="s"&gt;&amp;lt;docTitle&amp;gt;&amp;lt;text&amp;gt;Two Scoops of Django: Best Practices for Django 1.5&amp;lt;/text&amp;gt;&amp;lt;/docTitle&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Greenfeld, Daniel&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Roy, Audrey&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;navMap&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% f&lt;/span&gt;&lt;span class="s"&gt;or chapter in chapters %}&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;navPoint id=&amp;quot;{{ chapter.slug }}&amp;quot; playOrder=&amp;quot;{{ loop.index }}&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;navLabel&amp;gt;&amp;lt;text&amp;gt;{{ chapter.string.strip() }}&amp;lt;/text&amp;gt;&amp;lt;/navLabel&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;content src=&amp;quot;{{ chapter.href }}&amp;quot; /&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% e&lt;/span&gt;&lt;span class="s"&gt;ndfor %}&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/navMap&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/ncx&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Grab the base file for review&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c"&gt;# load the text into a bs4 object&lt;/span&gt;
+    &lt;span class="n"&gt;soup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# grab the nav element&lt;/span&gt;
+    &lt;span class="n"&gt;nav&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;soup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# loop through the TOC for chapters.&lt;/span&gt;
+    &lt;span class="c"&gt;# Sections/Subsections can&amp;#39;t be displayed, so don&amp;#39;t worry about them&lt;/span&gt;
+    &lt;span class="c"&gt;# li.chapter is how we constructed our TOC. Your mileage may vary.&lt;/span&gt;
+    &lt;span class="n"&gt;chapters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;nav&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;li&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;chapter&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;href&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+            &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="n"&gt;slug&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Render the template&lt;/span&gt;
+    &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TEMPLATE&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# convert to ASCII&lt;/span&gt;
+    &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ascii&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;xmlcharrefreplace&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Save to the toc.ncx&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;toc.ncx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;book.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There is more to adding a table of contents then just this simple module. You also have to construct the .opf file, which is another undocumented mess that I'll blog about.&lt;/p&gt;
+</summary><category term="python"></category><category term="twoscoops"></category><category term="book"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Stay with the Django CBV defaults!</title><link href="http://pydanny.com/stay-with-the-django-cbv-defaults.html" rel="alternate"></link><updated>2012-11-27T16:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2012-11-27:stay-with-the-django-cbv-defaults.html</id><summary type="html">&lt;p&gt;One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity.&lt;/p&gt;
 &lt;p&gt;For example, here is an implementation of CBVs based on a straight-forward Django model , &lt;tt class="docutils literal"&gt;stuffage.models.Stuff&lt;/tt&gt;, that has a &lt;tt class="docutils literal"&gt;get_absolute_url&lt;/tt&gt; method:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;stuffage/views.py&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.views&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;generic&lt;/span&gt;

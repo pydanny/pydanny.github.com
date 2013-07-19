@@ -84,7 +84,7 @@ Got lunch? Time for more talks!
 * `You can be a speaker at PyCon!`_ (Anna Ravenscroft, Lynn Root) - PyCon loves new blood. Get some pointers on how to get your talks ready for submission next year!
 * `Python 3.3: Trust Me, It's Better than 2.7`_ (Brett Cannon) - The world of Python is heading towards Python 3. Want to know why? Attend this talk!
 
-.. _`book about  caterpillars`: http://www.amazon.com/Very-Magical-Caterpillar-Tale-Butterfly/dp/1453714081/?ie=UTF8&tag=cn-001-20
+.. _`book about  caterpillars`: http://www.amazon.com/Very-Magical-Caterpillar-Tale-Butterfly/dp/1453714081/?ie=UTF8&tag=ihpydanny-20
 .. _`Using Python To Generate Art And Sound`: https://us.pycon.org/2013/schedule/presentation/58/
 .. _`Python 3.3: Trust Me, It's Better than 2.7`: https://us.pycon.org/2013/schedule/presentation/117/
 .. _`You can be a speaker at PyCon!`: https://us.pycon.org/2013/schedule/presentation/54/

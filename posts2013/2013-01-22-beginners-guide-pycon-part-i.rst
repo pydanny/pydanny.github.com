@@ -54,7 +54,7 @@ Wednesday Afternoon
 
 1. You simply can't go wrong with David Beazley's `Learn Python Through Public Data Hacking`_. He's the author of `Python Essential Reference`_, an amazing instructor, and delivered a PyCon keynote last year.
 
-.. _`Python Essential Reference`: http://www.amazon.com/Python-Essential-Reference-4th-Edition/dp/0672329786/?ie=UTF8&tag=cn-001-20
+.. _`Python Essential Reference`: http://www.amazon.com/Python-Essential-Reference-4th-Edition/dp/0672329786/?ie=UTF8&tag=ihpydanny-20
 
 2. If you're interested in the web, check out Nathan Yergler's `Effective Django`_. I can assure you that he knows his Django material and is going to deliver a great experience.
 

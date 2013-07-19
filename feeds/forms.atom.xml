@@ -519,6 +519,6 @@
 &lt;h2&gt;Summary&lt;/h2&gt;
 &lt;p&gt;From the perspective of general software development, it's always a good thing to avoid repeating yourself. This might seem like as much or in some cases even more typing, but it's a lot better than making an embarrassing/costly mistake.&lt;/p&gt;
 &lt;p&gt;From the perspective of a Python developer our approach more closely matches the &lt;a class="reference external" href="http://www.python.org/dev/peps/pep-0020/"&gt;Zen of Python&lt;/a&gt;. This is because we only modify the field properties that need to be modified, the approach specified is more explicit.&lt;/p&gt;
-&lt;p&gt;Today's reading is Matt Harrison's &lt;a class="reference external" href="http://www.amazon.com/Guide-Learning-Iteration-Generators-ebook/dp/B007JR4FCQ/?ie=UTF8&amp;amp;qid=1364400929&amp;amp;sr=1-5&amp;amp;tag=cn-001-20"&gt;Guide to Learning Iteration and Generators in Python&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Today's reading is Matt Harrison's &lt;a class="reference external" href="http://www.amazon.com/Guide-Learning-Iteration-Generators-ebook/dp/B007JR4FCQ/?ie=UTF8&amp;amp;qid=1364400929&amp;amp;sr=1-5&amp;amp;tag=ihpydanny-20"&gt;Guide to Learning Iteration and Generators in Python&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="forms"></category></entry></feed>

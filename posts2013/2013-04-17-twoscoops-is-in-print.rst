@@ -31,5 +31,5 @@ What now? Well, we aren't certain. We're maintaining a couple client projects bu
 
 
 .. _`Audrey Roy`: http://audreymroy.com/
-.. _book: http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&qid=1366166104&sr=8-2&tag=cn-001-20
-.. _print: http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&qid=1366166104&sr=8-2&tag=cn-001-20
+.. _book: http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&qid=1366166104&sr=8-2&tag=ihpydanny-20
+.. _print: http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&qid=1366166104&sr=8-2&tag=ihpydanny-20

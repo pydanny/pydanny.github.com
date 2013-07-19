@@ -69,7 +69,7 @@ PayPal's demise won't happen this year, or the next, but every time they damage 
 .. _Payoneer: https://www.payoneer.com/
 .. _`Balanced Payments`: https://www.balancedpayments.com/
 
-.. _`scrappy company`: http://www.amazon.com/The-PayPal-Wars-Battles-Planet/dp/0977898431/?tag=cn-001-20
+.. _`scrappy company`: http://www.amazon.com/The-PayPal-Wars-Battles-Planet/dp/0977898431/?tag=ihpydanny-20
 
 What PayPal Can Do for Conferences
 ===================================
@@ -92,7 +92,7 @@ Note
 
 If this makes you angry as it did me, take a deep breath and step back. I've found `this book`_ recommended by my friend Randall Degges useful in getting back on track and staying productive.
 
-.. _`this book`: http://www.amazon.com/gp/product/0807012394/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0807012394&linkCode=as2&tag=cn-001-20
+.. _`this book`: http://www.amazon.com/gp/product/0807012394/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0807012394&linkCode=as2&tag=ihpydanny-20
 
 
 

@@ -130,7 +130,7 @@ For various Python 3 recipes, I keep my kindle reader open to this priceless gem
 
 * `Python Cookbook, 3rd Edition`_ book by David Beazley and Brian K. JOnes.
 
-.. _`Python Cookbook, 3rd Edition`: http://www.amazon.com/Python-Cookbook-ebook/dp/B00DQV4GGY/?tag=
+.. _`Python Cookbook, 3rd Edition`: http://www.amazon.com/Python-Cookbook-ebook/dp/B00DQV4GGY/?tag=ihpydanny
 
 Closing Thoughts
 ================
