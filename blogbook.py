@@ -3,9 +3,9 @@ import os
 TARGET = "../blogblook/docs/"
 
 INDEX = """
-.. Blog Book
+.. Inside the Head of Pydanny: E-book Edition
 
-Blog Book
+Inside the Head of Pydanny: E-book Edition
 ========================================
 
 Table of Contents:
