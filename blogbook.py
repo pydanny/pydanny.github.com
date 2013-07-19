@@ -1,15 +1,17 @@
 import os
 
-TARGET = "../blogblook/docs/"
+TARGET = "???"
 
 INDEX = """
 .. Inside the Head of Pydanny: E-book Edition
 
 Inside the Head of Pydanny: E-book Edition
-========================================
+===========================================
 
 Inside the Head of Pydanny: E-book Edition
+
 1st Edition
+
 by Daniel Greenfeld
 
 Copyright  2013 Daniel Greenfeld and Cartwheel Web.
