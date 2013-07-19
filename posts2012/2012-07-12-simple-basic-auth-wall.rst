@@ -5,6 +5,7 @@ Simple HTTP Basic Auth Wall
 :date: 2012-07-09 12:00:00
 :tags: python, django, wsgi, howto
 :category: python
+:blogbook: True
 
 I have a client who wanted their entire unlaunched public content site quickly but temporarily blocked for a short period of time. He wanted a universal password so he could send the site to reviewers, done quickly, and nothing else. In a few days the site will launch, and even if someone got through the authentication, nothing bad will happen except for an early visitor. So we determined this was a job for a very simple `Basic access authentication`_ implementation.
 

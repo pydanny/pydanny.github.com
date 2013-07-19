@@ -6,6 +6,7 @@ Core Concepts of Django Forms
 :tags: python, django, forms, class-based-views
 :category: django
 :slug: core-concepts-django-forms
+:blogbook: True
 
 In my opinion, the concepts behind Django's non-model forms can be listed in just three (3) bullets:
 

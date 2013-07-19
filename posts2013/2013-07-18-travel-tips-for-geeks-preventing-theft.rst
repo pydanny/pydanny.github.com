@@ -27,7 +27,7 @@ While it can be said that thieves can be anywhere, the truth is that they focus 
 
 I've heard this several times from local residents or travelers, often about places with statistically high crime rates. You'll hear it too. 
 
-All that means is that they've either been lucky or unobservant. It's better to be careful and avoid a miserable trip.
+All that means is that they've either been lucky or unobservant. It's better to avoid a miserable trip by being a least a little careful with your identity, money, and electronics.
 
 Listen to warnings before you go places
 --------------------------------------------
@@ -41,7 +41,7 @@ Watch how local residents protect themselves
 
 In suspicious places you'll notice local men with their hands in their pockets. Why? It's because they are literally keeping their hands on the money.
 
-In the same places, local women will take a shirt, sweater, or even a newspaper and have it on top of their purse with their arm on top of that. Where "man-purses" are acceptable wear, they'll do the same.
+In the same places, local women will take a shirt, sweater, or even a newspaper and have it on top of their purse with their arm on top of that. Where "man-purses" are acceptable wear, men will do the same.
 
 Good thieves Look like tourists or non-criminals
 -------------------------------------------------

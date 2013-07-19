@@ -5,6 +5,7 @@ Thoughts on my stack
 :date: 2012-09-04 10:30
 :tags: python, django, tools
 :category: python
+:blogbook: True
 
 I'm an open source developer. I use Python, Django, PostgreSQL, JQuery, MongoDB, Memcached, and Redis. I push production code to Linux servers.
 

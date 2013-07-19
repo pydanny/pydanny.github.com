@@ -6,6 +6,7 @@ Overloading Django Form Fields
 :tags: python, django, forms
 :category: django
 :slug: overloading-form-fields
+:blogbook: True
 
 One of the patterns we get positive feedback for mentioning in our book_ is **overloading form fields**.
 

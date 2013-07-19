@@ -5,6 +5,7 @@ The Easy Form Views Pattern Controversy
 :date: 2013-05-10 12:00:00
 :tags: python, django, howto
 :category: django
+:blogbook: True
 
 In the summer of 2010 `Frank Wiles`_ of Revsys_ exposed me to what I later called the "**Easy Form Views**" pattern when creating Django form function views. I used this technique in a variety of places, including `Django Packages`_ and the documentation for django-uni-form (which is rebooted as `django-crispy-forms`_). At DjangoCon 2011 `Miguel Araujo`_ and I opened our `Advanced Django Forms Usage`_ talk at DjangoCon 2011 with this technique. It’s a pattern that reduces the complexity of using forms in Django function-based views by flattening the form handling code. 
 

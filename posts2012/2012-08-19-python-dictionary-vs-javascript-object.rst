@@ -5,6 +5,7 @@ Python dictionary vs JavaScript object: Dynamic Keys
 :date: 2012-08-19 3:00
 :tags: python, javascript, vs
 :category: python
+:blogbook: True
 
 One of the things I noticed a long time ago with JavaScript is that when you create objects you can define keys outside of strings:
 

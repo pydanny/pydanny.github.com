@@ -6,6 +6,7 @@ Fixing Python's String class
 :tags: python, joke
 :category: python
 :slug: fixing-pythons-string-class
+:blogbook: True
 
 Ever wonder why Python's ``str`` or ``unicode`` types lack obvious length methods? Yes, we can get the length via the special ``__len__()`` method, but instead as Python developers we get the so-called 'luxury' of discovering length via the Python's built-in ``len()`` function. So instead of calling the length of objects the way Rubyists or Javascripters do...
 

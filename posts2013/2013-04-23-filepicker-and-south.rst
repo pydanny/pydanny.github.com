@@ -3,9 +3,10 @@ Filepicker.io and South
 ============================
 
 :date: 2013-4-23 10:00
-:tags: django, python, filepicker
+:tags: django, python, filepicker, howto
 :category: django
 :slug: filepicker-and-south
+:blogbook: True
 
 I've heard good things about filepicker.io, which is a service that makes file uploading a much better experience. Unfortunately, the Django package for filepicker.io doesn't work with South. When I try to create a migration using the filepicker.io field using code like the following...
 

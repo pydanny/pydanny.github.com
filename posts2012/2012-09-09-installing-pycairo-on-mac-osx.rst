@@ -5,6 +5,7 @@ Installing Pycairo on Mountain Lion
 :date: 2012-09-04 10:30
 :tags: python, tools, howto, setup
 :category: python
+:blogbook: True
 
 Pycairo_ is the binding for the `cairo graphics library`_. It's also not something you can get running with a simple ``pip install py2cairo``. After many hours of working the search engines and dancing to the configure/make/make install melody, I figured out an answer that worked for me. 
 

@@ -6,6 +6,7 @@ Core Concepts of Django ModelForms
 :tags: python, django, forms
 :category: django
 :slug: core-concepts-django-modelforms
+:blogbook: True
 
 
 In my opinion, the concepts behind Django's model forms can be listed in just six (6) bullets. The bullets I've marked in **bold** at the top are the topic of this blog post, while the two of these that were `covered in a previous blog post on Django forms`_ are at bottom of my list. 

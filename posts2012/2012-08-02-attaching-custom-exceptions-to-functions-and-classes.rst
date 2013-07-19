@@ -5,6 +5,7 @@ Attaching custom exceptions to functions and classes
 :date: 2012-08-02 09:30
 :tags: python, functions, howto, django
 :category: python
+:blogbook: True
 
 Having too many custom exceptions on a project can be a pain, but a few choices ones are really nice. The problem is that in complex libraries having to import both functions and exceptions becomes a drag. To mitigate having to remember to import custom exceptions, this is a handy pattern you can use in a project and can be done on both functions and classes.
 

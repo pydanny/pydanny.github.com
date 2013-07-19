@@ -5,6 +5,7 @@ Python dictionary as a class
 :date: 2012-09-01 01:00
 :tags: python, howto
 :category: python
+:blogbook: True
 
 A long time ago, circa 1999, when I was working in a certain procedural language I found a library that added objects to the language. It did so by playing interesting tricks with key/value structures, which in Python_ are called `dictionaries`. In 2005, as a new Python user, I read something about how objects in Python are essentially dictionaries with `syntactical sugar`_.
 
