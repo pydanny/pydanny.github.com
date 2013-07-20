@@ -200,7 +200,7 @@ DANGER: The 'undercover' police
 Anyone not wearing a uniform and claiming to be 'undercover' is an accomplice, scam artist, or worse. If they 'come to help':
 
 1. Don't give up any identification.
-2. Demand that real police be summoned by radio or phone to this location immediately.
+2. Demand that uniformed police be summoned by radio or phone to this location immediately. If the 'undercover' police refuse, then they are a scam or worse.
 3. **Don't leave the spot!** If 'undercover' police try to get you to come with them, refuse loudly. If they try to force you away, start yelling as if your life is in danger, **because it is**. 
 
 
