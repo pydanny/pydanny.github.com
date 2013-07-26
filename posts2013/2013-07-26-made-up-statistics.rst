@@ -98,7 +98,7 @@ The display for this data is a lovely pie chart as seen below. In order to make 
 Pydanny Made Up Python Web Optimization Statistics
 ==================================================
 
-I sometimes get asked how to best optimize a Django site. My answer is 'optimize your queries and use caching' but there are those who disagree with me and start switching out Django internals before doing anything silly like looking at I/O.  My bet is this same thing happens with other frameworks such as Flask and Pyramid Pyramid.
+I sometimes get asked how to best optimize a Django site. My answer is 'optimize your queries and use caching'. On the other hand, there are those who disagree with me and start switching out Django internals before doing anything silly like looking at I/O.  My bet is this same thing happens with other frameworks such as Flask and Pyramid.
 
 * 20% developers argue switching template languages.
 * 80% developers argue using caching and load balancing.
