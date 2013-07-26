@@ -116,9 +116,9 @@ Pydanny Made Up Debate Statistics
 
 Alright, let's conclude this article with some statistics I cooked up in regards to various Python related topics.
 
+* 95% of developers trying to create reusable Python packages have **no freaking idea** as to whether or not we should be using setuptools, distribute, or distribute2 and wish there was a **clear explanation on the front page** of PyPI as to what we should be using and how.
 * 99% of us get frustrated with trying to reconcile the pronunciations of PyPI with PyPy.
 * 97.2% of our family and friends have no idea what Two Scoops of Django is about.
-* 95% of developers trying to create reusable Python packages have **no freaking idea** as to whether or not we should be using setuptools, distribute, or distribute2 and wish there was a **clear explanation on the front page** of PyPI as to what we should be using and how.
 * 62% of Python developers are wondering if Tulip will make their projects more web scale.
 * 49% of Twisted developers wish that Python had accepted their standard instead of PEP-8.
 * 42% of Python developers think Flask/Pyramid have awesome names that don't get mispronounced the same way Django does.
