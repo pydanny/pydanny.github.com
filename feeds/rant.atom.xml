@@ -52,7 +52,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="pydanny-made-up-python-web-optimization-statistics"&gt;
 &lt;h2&gt;Pydanny Made Up Python Web Optimization Statistics&lt;/h2&gt;
-&lt;p&gt;I sometimes get asked how to best optimize a Django site. My answer is 'optimize your queries and use caching' but there are those who disagree with me and start switching out Django internals before doing anything silly like looking at I/O.  My bet is this same thing happens with other frameworks such as Flask and Pyramid Pyramid.&lt;/p&gt;
+&lt;p&gt;I sometimes get asked how to best optimize a Django site. My answer is 'optimize your queries and use caching'. On the other hand, there are those who disagree with me and start switching out Django internals before doing anything silly like looking at I/O.  My bet is this same thing happens with other frameworks such as Flask and Pyramid.&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;20% developers argue switching template languages.&lt;/li&gt;
 &lt;li&gt;80% developers argue using caching and load balancing.&lt;/li&gt;
