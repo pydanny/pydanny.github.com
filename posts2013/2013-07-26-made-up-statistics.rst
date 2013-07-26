@@ -28,7 +28,7 @@ In Chapter 10 of `Two Scoops of Django`_ I expanded on those made up statistics:
 
 **Important Disclaimer**: These numbers were cooked out of thin air by yours truly. I determined them with zero research, they carry absolutely no scientific weight, and shouldn't be used in any serious argument. They are wholly my opinion, which is good or bad depending on your point of view and your own opinion of my opinions.
 
-With that out of the way, I've made a bar graph out of my fictional data:
+With that out of the way, here's a bar graph created from the fictional data I presented with Miguel back in 2011:
 
 .. image:: static/made-up-statistics.png
    :name: Made Up Statistics
