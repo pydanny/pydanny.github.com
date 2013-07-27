@@ -116,7 +116,7 @@ Pydanny Made Up Debate Statistics
 
 Alright, let's conclude this article with some statistics I cooked up in regards to various Python related topics.
 
-* 95% of developers trying to create reusable Python packages have **no freaking idea** as to whether or not we should be using setuptools, distribute, or distribute2 and wish there was a **clear explanation on the front page** of PyPI as to what we should be using and how.
+* 95% of developers trying to create reusable Python packages have **no freaking idea** as to whether or not we should be using setuptools, distribute, or distribute2 and wish there was a **clear explanation on the front page** of PyPI as to what we should be using and how. Something like a link to the `Python Packaging User Guide`_ might be nice!
 * 99% of us get frustrated with trying to reconcile the pronunciations of PyPI with PyPy.
 * 97.2% of our family and friends have no idea what Two Scoops of Django is about.
 * 62% of Python developers are wondering if Tulip will make their projects more web scale.
@@ -125,8 +125,12 @@ Alright, let's conclude this article with some statistics I cooked up in regards
 * 28% of Python developers wish they could find a way to get some SciPy into their projects.
 * 23.6% of us get web.py and web2py confused with each other.
 
+.. _`Python Packaging User Guide`: https://python-packaging-user-guide.readthedocs.org/en/latest/index.html
+
 No chart? Getting this one to look meaningful was turning into a herculean effort. I invite others to render this data into something that look attractive and doesn't lose meaning. Come up with something impressive and I'll put it into a follow-up blog post.
 
 **Note:** This is a reprint and update of an earlier article_.
+
+**Update**: Added link to the `Python Packaging User Guide`_.
 
 .. _article: http://pydanny.blogspot.com/2011/12/made-up-statistics.html

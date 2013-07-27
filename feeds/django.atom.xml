@@ -65,7 +65,7 @@
 &lt;h2&gt;Pydanny Made Up Debate Statistics&lt;/h2&gt;
 &lt;p&gt;Alright, let's conclude this article with some statistics I cooked up in regards to various Python related topics.&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;95% of developers trying to create reusable Python packages have &lt;strong&gt;no freaking idea&lt;/strong&gt; as to whether or not we should be using setuptools, distribute, or distribute2 and wish there was a &lt;strong&gt;clear explanation on the front page&lt;/strong&gt; of PyPI as to what we should be using and how.&lt;/li&gt;
+&lt;li&gt;95% of developers trying to create reusable Python packages have &lt;strong&gt;no freaking idea&lt;/strong&gt; as to whether or not we should be using setuptools, distribute, or distribute2 and wish there was a &lt;strong&gt;clear explanation on the front page&lt;/strong&gt; of PyPI as to what we should be using and how. Something like a link to the &lt;a class="reference external" href="https://python-packaging-user-guide.readthedocs.org/en/latest/index.html"&gt;Python Packaging User Guide&lt;/a&gt; might be nice!&lt;/li&gt;
 &lt;li&gt;99% of us get frustrated with trying to reconcile the pronunciations of PyPI with PyPy.&lt;/li&gt;
 &lt;li&gt;97.2% of our family and friends have no idea what Two Scoops of Django is about.&lt;/li&gt;
 &lt;li&gt;62% of Python developers are wondering if Tulip will make their projects more web scale.&lt;/li&gt;
@@ -76,6 +76,7 @@
 &lt;/ul&gt;
 &lt;p&gt;No chart? Getting this one to look meaningful was turning into a herculean effort. I invite others to render this data into something that look attractive and doesn't lose meaning. Come up with something impressive and I'll put it into a follow-up blog post.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This is a reprint and update of an earlier &lt;a class="reference external" href="http://pydanny.blogspot.com/2011/12/made-up-statistics.html"&gt;article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: Added link to the &lt;a class="reference external" href="https://python-packaging-user-guide.readthedocs.org/en/latest/index.html"&gt;Python Packaging User Guide&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="rant"></category><category term="flask"></category><category term="pyramid"></category><category term="pypi"></category><category term="pypy"></category></entry><entry><title>Travel Tips for Geeks: Preventing Theft</title><link href="http://pydanny.com/travel-tips-for-geeks-preventing-theft.html" rel="alternate"></link><updated>2013-07-18T16:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-07-18:travel-tips-for-geeks-preventing-theft.html</id><summary type="html">&lt;p&gt;This is the first in a set of blog posts based on my experiences traveling in various places around the world. This particular safety-related post is about theft, not scams, which I may cover in another article.&lt;/p&gt;
 &lt;p&gt;For this first article, I'm hoping this gets on various technical RSS feeds. I'm doing this because many of the readers of such feeds attend conferences and are strangers in far and distant places.&lt;/p&gt;
