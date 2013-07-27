@@ -60,9 +60,9 @@
 &lt;/ul&gt;
 &lt;img alt="static/optimization.png" class="img-polaroid align-center" id="optimization" src="static/optimization.png" /&gt;
 &lt;p&gt;Of all the made up statistics in this blog post, I suspect this is the one closest to the truth of things.&lt;/p&gt;
-&lt;/div&gt;
+&lt;span id="debate-statistics"&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;div class="section" id="pydanny-made-up-debate-statistics"&gt;
-&lt;h2&gt;Pydanny Made Up Debate Statistics&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="reference external" href="#debate-statistics"&gt;Pydanny Made Up Debate Statistics&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Alright, let's conclude this article with some statistics I cooked up in regards to various Python related topics.&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;95% of developers trying to create reusable Python packages have &lt;strong&gt;no freaking idea&lt;/strong&gt; as to whether or not we should be using setuptools, distribute, or distribute2 and wish there was a &lt;strong&gt;clear explanation on the front page&lt;/strong&gt; of PyPI as to what we should be using and how. Something like a link to the &lt;a class="reference external" href="https://python-packaging-user-guide.readthedocs.org/en/latest/index.html"&gt;Python Packaging User Guide&lt;/a&gt; might be nice!&lt;/li&gt;

@@ -111,8 +111,14 @@ I sometimes get asked how to best optimize a Django site. My answer is 'optimize
 
 Of all the made up statistics in this blog post, I suspect this is the one closest to the truth of things.
 
-Pydanny Made Up Debate Statistics
+.. raw:: html
+
+   <span id="debate-statistics"></span>
+
+`Pydanny Made Up Debate Statistics`_
 ============================================
+
+.. _`Pydanny Made Up Debate Statistics`: #debate-statistics
 
 Alright, let's conclude this article with some statistics I cooked up in regards to various Python related topics.
 
