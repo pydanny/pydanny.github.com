@@ -274,7 +274,7 @@
 &lt;li&gt;unicode-slugify&lt;/li&gt;
 &lt;li&gt;django-registration&lt;/li&gt;
 &lt;li&gt;django-stripe-payments (in progress)&lt;/li&gt;
-&lt;li&gt;django-nose (in progress)&lt;/li&gt;
+&lt;li&gt;django-nose&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let's get into some detail for each package:&lt;/p&gt;
 &lt;div class="section" id="unicode-slugify"&gt;
@@ -292,9 +292,10 @@
 &lt;p&gt;While django-zebra is better known for handling stripe payments, I prefer to use Eldarion's excellent, well-maintained and tested django-stripe-payments. Unfortunately, it's tests fail with Python 3 because &lt;strong&gt;django-nose&lt;/strong&gt; is still in the process of being ported to... Python 3. Since there is no way I'm going to use a payment tool that can't run it's tests, I'm waiting for &lt;strong&gt;django-nose&lt;/strong&gt; to be updated.&lt;/p&gt;
 &lt;p&gt;Of course, I informed the maintainers of my efforts, problems, and look forward to working with them.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="django-nose-in-progress"&gt;
-&lt;h3&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/django-nose"&gt;django-nose&lt;/a&gt; (in progress)&lt;/h3&gt;
+&lt;div class="section" id="django-nose"&gt;
+&lt;h3&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/django-nose"&gt;django-nose&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Today, I asked the maintainer to visit an outstanding pull request that adds Python 3 compatibility. It's a good idea to do this since they might already be working on it, or may have observations they want to share.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 7/28/2013&lt;/strong&gt;: Jeff Balogh pushed a Python 3.3.2+ compatible version up to PyPI a few days ago. Makes everything so much better!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="dealing-with-slow-maintainers"&gt;

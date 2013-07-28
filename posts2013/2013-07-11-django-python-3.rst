@@ -68,7 +68,7 @@ Here are four packages worth noting that had to be converted:
 * unicode-slugify
 * django-registration
 * django-stripe-payments (in progress)
-* django-nose (in progress)
+* django-nose
 
 Let's get into some detail for each package:
 
@@ -102,10 +102,12 @@ Of course, I informed the maintainers of my efforts, problems, and look forward 
 
 .. _`django-stripe-payments`: https://pypi.python.org/pypi/django-stripe-payments
 
-`django-nose`_ (in progress)
------------------------------
+`django-nose`_ 
+---------------
 
-Today, I asked the maintainer to visit an outstanding pull request that adds Python 3 compatibility. It's a good idea to do this since they might already be working on it, or may have observations they want to share.
+Today, I asked the maintainer to visit an outstanding pull request that adds Python 3 compatibility. It's a good idea to do this since they might already be working on it, or may have observations they want to share. 
+
+**Update 7/28/2013**: Jeff Balogh pushed a Python 3.3.2+ compatible version up to PyPI a few days ago. Makes everything so much better!
 
 .. _`django-nose`: https://pypi.python.org/pypi/django-nose
 
