@@ -96,9 +96,11 @@ Lesson learned: In the future skip these issues and just use `django-allauth`_.
 `django-stripe-payments`_ (in progress)
 ---------------------------------------
 
-While django-zebra is better known for handling stripe payments, I prefer to use Eldarion's excellent, well-maintained and tested django-stripe-payments. Unfortunately, it's tests fail with Python 3 because **django-nose** is still in the process of being ported to... Python 3. Since there is no way I'm going to use a payment tool that can't run it's tests, I'm waiting for **django-nose** to be updated.
+While django-zebra is better known for handling stripe payments, I prefer to use Eldarion's excellent, well-maintained and tested django-stripe-payments. It was delayed because django-nose wasn't Python 3 compatible, but that's been fixed as of at least 7/28/2013. Unfortunately, it's Travis-CI tests fail with the Django 1.5 era custom user model because of what might be a linter misconfiguration. 
 
 Of course, I informed the maintainers of my efforts, problems, and look forward to working with them.
+
+**Update 07/30/2013**: Updated the text to reflect the current status of the linter problems I'm having. :P
 
 .. _`django-stripe-payments`: https://pypi.python.org/pypi/django-stripe-payments
 
