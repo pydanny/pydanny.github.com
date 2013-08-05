@@ -18,7 +18,7 @@ There are ways to live well but cheaply. It takes a bit of discipline, forethoug
 Pick the Right Location
 =======================
 
-A number of famous destination cities are expensive no matter what you do. San Francisco, New York, London, Paris, Berlin, Rom, and Tokyo might be wonderful, but they are also places where you have to pay more. More for everything. Rent, food, and accessory costs are likely to be at least double what you expect.
+A number of famous destination cities are expensive no matter what you do. San Francisco, New York, London, Paris, Berlin, Rome, and Tokyo might be wonderful, but they are also places where you have to pay more. More for everything. Rent, food, and accessory costs are likely to be at least double what you expect.
 
 Similarly, certain entire countries are expensive. Switzerland, Slovenia, Australia, and New Zealand are lovely, but everything just costs more there.
 
