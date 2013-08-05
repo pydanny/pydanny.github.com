@@ -100,7 +100,7 @@ While django-zebra is better known for handling stripe payments, I prefer to use
 
 Of course, I informed the maintainers of my efforts, problems, and look forward to working with them.
 
-**Update 07/30/2013**: Updated the text to reflect the current status of the linter problems I'm having. :P
+**Update 07/30/2013**: Updated the text to reflect the current status of the linter problems I'm having. 
 
 .. _`django-stripe-payments`: https://pypi.python.org/pypi/django-stripe-payments
 

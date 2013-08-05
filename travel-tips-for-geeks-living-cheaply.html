@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Installing Pycairo on Mountain Lion</title>
+    <title>Travel Tips for Geeks: Traveling Cheaply</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Installing Pycairo on Mountain Lion">
-                                        Installing Pycairo on Mountain Lion
+                                        title="Permalink to Travel Tips for Geeks: Traveling Cheaply">
+                                        Travel Tips for Geeks: Traveling Cheaply
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,39 +100,68 @@
                 </header>
 
                 <p>
-                    <em>Tuesday, September 04, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to Installing Pycairo on Mountain Lion">permalink</a>)
+                    <em>Monday, August 05, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to Travel Tips for Geeks: Traveling Cheaply">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p><a class="reference external" href="http://cairographics.org/pycairo/">Pycairo</a> is the binding for the <a class="reference external" href="http://cairographics.org/">cairo graphics library</a>. It's also not something you can get running with a simple <tt class="docutils literal">pip install py2cairo</tt>. After many hours of working the search engines and dancing to the configure/make/make install melody, I figured out an answer that worked for me.</p>
-<div class="section" id="step-1-install-gcc">
-<h2>Step 1 - Install GCC</h2>
-<p>If you don't have it yet, go get <a class="reference external" href="https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg">https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg</a> and install it. It's 200 MB so make sure you have a fast connection and/or a good place to wait.</p>
+                    <p>It's a given that in order to travel you need to have money or make a lot of money, right?</p>
+<p>That's not really true.</p>
+<p>There are ways to live well but cheaply. It takes a bit of discipline, forethought, and judgement, but the reward of living is amazing. This article explains how <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> and I do it.</p>
+<div class="section" id="pick-the-right-location">
+<h2>Pick the Right Location</h2>
+<p>A number of famous destination cities are expensive no matter what you do. San Francisco, New York, London, Paris, Berlin, Rom, and Tokyo might be wonderful, but they are also places where you have to pay more. More for everything. Rent, food, and accessory costs are likely to be at least double what you expect.</p>
+<p>Similarly, certain entire countries are expensive. Switzerland, Slovenia, Australia, and New Zealand are lovely, but everything just costs more there.</p>
+<p>Also, if the transit system is good, consider staying a little further from the expensive downtown or waterfront. This can make even expensive cities affordable.</p>
+<p>Affordable places we've discovered this year:</p>
+<ul class="simple">
+<li>Barcelona, Spain</li>
+<li>Bologna, Italy</li>
+<li>Florence, Italy</li>
+<li>Krakow, Poland</li>
+<li>Islands near Split, Croatia</li>
+<li>Warsaw, Poland</li>
+<li>Zagreb, Croatia</li>
+</ul>
+<p>One of our resource is <a class="reference external" href="http://www.amazon.com/Worlds-Cheapest-Destinations-Countries-ebook/dp/B00AYIBO1M/ref=tmm_kin_swatch_0?_encoding=UTF8&amp;sr=&amp;tag=mlinar-20">The World's Cheapest Destinations</a>, which, if nothing else, an interesting read.</p>
 </div>
-<div class="section" id="step-2-install-homebrew">
-<h2>Step 2 - Install Homebrew</h2>
-<p>I use Homebrew instead of Macports. If you don't have it yet, paste this in a terminal prompt:</p>
-<div class="highlight"><pre>ruby &lt;<span class="o">(</span>curl -fsSkL raw.github.com/mxcl/homebrew/go<span class="o">)</span>
-</pre></div>
+<div class="section" id="use-a-service-to-find-a-place-and-stay-a-while">
+<h2>Use a service to find a place and stay a while</h2>
+<p>Use a service like <a class="reference external" href="https://www.airbnb.com">airbnb</a> or the local equivalent to find a place. Some people like to just stay at hostels, we prefer apartments. Stay for a month so you get a lower rate.</p>
+<p>Try to research the nearby grocery shopping. While little stores are wonderful, they cost more than a large supermarket. The supermarket will allow you to stay cheaply in an area. However, make sure to check out the little markets at least once a week because the food there is often much, much better.</p>
+<div class="section" id="if-you-work-remotely">
+<h3>If you work remotely</h3>
+<p>We're fortunate in that our work lets us work remotely. Keep in mind the two cardinal rules:</p>
+<ul class="simple">
+<li><strong>Be available in real-time:</strong> Use Google Hangouts, Chat, IRC or whatever at regular times to demonstrate you are working.</li>
+<li><strong>Get your work done on time:</strong>  If you are working remotely while traveling, you have to demonstrate to the client/boss that the travel isn't a distraction. If you seem flakey, they'll seriously consider other options besides you. Honestly, who can blame them?</li>
+</ul>
 </div>
-<div class="section" id="step-3-install-cairo">
-<h2>Step 3 - Install Cairo</h2>
-<p>In your terminal prompt, type the following:</p>
-<div class="highlight"><pre><span class="nv">$ </span>brew install cairo --use-clang
-</pre></div>
-<p>You'll get some messages about <cite>LDFLAGS</cite> and <cite>CPPFLAGS</cite> in build variables, but that's only important if you skip Homebrew and build your own software later that interacts with <strong>cairo</strong>.</p>
 </div>
-<div class="section" id="step-4-install-pycairo-itself">
-<h2>Step 4 - Install Pycairo itself</h2>
-<p>The nasty little trick to this is to remember that <strong>Pycairo</strong> is packaged on it's site and other places as <strong>py2cairo</strong>. When they get around to releasing version 3 of Pycairo, I'm going to beg and plead that they follow an obvious naming system for their bundles. I know this is done in other communities, but it's frustrating and a real barrier for getting into a project.</p>
-<p>In case, in your terminal prompt, type the following:</p>
-<div class="highlight"><pre><span class="nv">$ </span>brew install py2cairo
-</pre></div>
-<p>If you are using a non-Homebrew installed Python like I do, you have to set the PYTHONPATH to find pycairo.  Set your PYTHONPATH in your <cite>.bashrc/.profile/.whatever</cite> to the following:</p>
-<div class="highlight"><pre><span class="nv">PYTHONPATH</span><span class="o">=</span>/usr/local/lib/python2.7/site-packages:<span class="nv">$PYTHONPATH</span>.
-</pre></div>
-<p>Yes, it's the system Python, but for now I'm okay with it. If someone has an easy recipe for alternative Python installations, I would love to link to it.</p>
+<div class="section" id="try-to-cook-and-eat-at-home">
+<h2>Try to Cook and Eat at Home</h2>
+<p>Our rule is we eat out once a week. Otherwise, it's all home cooking. Even when we do tourist things on our day off, we bring food from home.</p>
+<p>Also, the ingredients are always different. Fruits, vegetables, and meats are grown in different soils and climates and taste different. This means don't try and replicate what you eat at home, cook simple things they make where you are.</p>
+</div>
+<div class="section" id="finding-good-affordable-restaurants">
+<h2>Finding Good, Affordable Restaurants</h2>
+<p>Finding good, affordable restaurants is easy. Here are our steps:</p>
+<ol class="arabic simple">
+<li><strong>Find a place that looks busy.</strong> A busy place means the food is palatable and because of volume, the food is fresh. If the place is empty, walk away.</li>
+<li><strong>Check the menu for prices.</strong> If they make you flinch, walk away.</li>
+<li><strong>Listen to what people are saying.</strong> If it's in your version of your language, walk away.</li>
+</ol>
+<p>Once you stay, keep in mind local portion sizes. For example, in slavic countries like Poland and Croatia, the portions can be quite large. What we sometimes do is share a main course and use the savings to buy drinks or dessert.</p>
+<p>If you like beer, try to order local varieties of beer. They often sell for less and can be really tasty.</p>
+<p>If you like wine, the rule goes like this:</p>
+<ul class="simple">
+<li>In the USA, order the cheapest non-house wine.</li>
+<li>In Europe, order the house wine.</li>
+</ul>
+</div>
+<div class="section" id="what-else">
+<h2>What Else?</h2>
+<p>I'll be updating this article in the days and months and hopefully years to come.</p>
 </div>
 
                     <div class="article-info">
@@ -140,10 +169,8 @@
 
 
 Tags:
-	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/tools.html"><em>tools</em></a>
-	<a href="./tag/howto.html"><em>howto</em></a>
-	<a href="./tag/setup.html"><em>setup</em></a>
+	<a href="./tag/travel.html"><em>travel</em></a>
+	<a href="./tag/travel-tips-for-geeks.html"><em>travel tips for geeks</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -151,7 +178,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "installing-pycairo-on-mountain-lion.html";
+                           var disqus_identifier = "travel-tips-for-geeks-living-cheaply.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;

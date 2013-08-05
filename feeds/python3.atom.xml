@@ -66,7 +66,7 @@
 &lt;h3&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/django-stripe-payments"&gt;django-stripe-payments&lt;/a&gt; (in progress)&lt;/h3&gt;
 &lt;p&gt;While django-zebra is better known for handling stripe payments, I prefer to use Eldarion's excellent, well-maintained and tested django-stripe-payments. It was delayed because django-nose wasn't Python 3 compatible, but that's been fixed as of at least 7/28/2013. Unfortunately, it's Travis-CI tests fail with the Django 1.5 era custom user model because of what might be a linter misconfiguration.&lt;/p&gt;
 &lt;p&gt;Of course, I informed the maintainers of my efforts, problems, and look forward to working with them.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Update 07/30/2013&lt;/strong&gt;: Updated the text to reflect the current status of the linter problems I'm having. :P&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 07/30/2013&lt;/strong&gt;: Updated the text to reflect the current status of the linter problems I'm having.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-nose"&gt;
 &lt;h3&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/django-nose"&gt;django-nose&lt;/a&gt;&lt;/h3&gt;
