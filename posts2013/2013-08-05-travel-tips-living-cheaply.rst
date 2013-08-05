@@ -34,7 +34,7 @@ Affordable places we've discovered this year:
 * Warsaw, Poland
 * Zagreb, Croatia
 
-One of our resource is `The World's Cheapest Destinations`_, which, if nothing else, an interesting read.
+One of our resource is `The World's Cheapest Destinations`_, which, if nothing else, is an interesting read.
 
 .. _`The World's Cheapest Destinations`: http://www.amazon.com/Worlds-Cheapest-Destinations-Countries-ebook/dp/B00AYIBO1M/ref=tmm_kin_swatch_0?_encoding=UTF8&sr=&tag=mlinar-20
 
@@ -47,6 +47,11 @@ Use a service like airbnb_ or the local equivalent to find a place. Some people 
 .. _airbnb: https://www.airbnb.com
 
 Try to research the nearby grocery shopping. While little stores are wonderful, they cost more than a large supermarket. The supermarket will allow you to stay cheaply in an area. However, make sure to check out the little markets at least once a week because the food there is often much, much better.
+
+Our two constant requirements:
+
+* WiFi (we work remotely)
+* Washing machine
 
 If you work remotely
 ----------------------
