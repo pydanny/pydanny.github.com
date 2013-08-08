@@ -90,6 +90,8 @@ With the 1.0 release, it's been updated for Django 1.5, *unless* you use customi
 
 Lesson learned: In the future skip these issues and just use `django-allauth`_. 
 
+**Update 08/08/2013**: All my Python 3 work is now on django-allauth. This way I don't have to do the work of maintaining a compatibility branch.
+
 .. _`django-reg`: https://pypi.python.org/pypi/django-reg
 .. _`django-allauth`: https://pypi.python.org/pypi/django-allauth
 

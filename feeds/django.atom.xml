@@ -286,6 +286,7 @@
 &lt;h3&gt;django-registration&lt;/h3&gt;
 &lt;p&gt;With the 1.0 release, it's been updated for Django 1.5, &lt;em&gt;unless&lt;/em&gt; you use customized User models or Python 3. I really needed this on PyPI, but the maintainer is very busy. Therefore, I forked the project, renamed it to &lt;a class="reference external" href="https://pypi.python.org/pypi/django-reg"&gt;django-reg&lt;/a&gt; while referencing the original, and pushed it to PyPI. Not ideal, but sometimes you have to do what you have to do.&lt;/p&gt;
 &lt;p&gt;Lesson learned: In the future skip these issues and just use &lt;a class="reference external" href="https://pypi.python.org/pypi/django-allauth"&gt;django-allauth&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 08/08/2013&lt;/strong&gt;: All my Python 3 work is now on django-allauth. This way I don't have to do the work of maintaining a compatibility branch.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-stripe-payments-in-progress"&gt;
 &lt;h3&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/django-stripe-payments"&gt;django-stripe-payments&lt;/a&gt; (in progress)&lt;/h3&gt;
