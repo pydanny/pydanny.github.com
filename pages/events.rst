@@ -2,14 +2,8 @@
 Events
 ===========
 
-:date: 2013-6-12 15:33
+:date: 2013-08-09 23:32
 
-Django Beer 1.0 in Florence, Italy
------------------------------------
-
-I'm co-running the sprints. See you there for beer and code!
-
-http://djangobeer.com/en/djangobeer-10/
 
 ----
 

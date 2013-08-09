@@ -4,25 +4,34 @@ About
 
 :date: 2013-06-12 15:33
 
-Currently in Florence, Italy for a month, I do Python, Django, and JavaScript out of Los Angeles, California. I love to read, write, hang out with my fiancee_, and play at Capoeira_. I am a total Space and NASA Geek.
+Currently in Zagreb, Croatia for a month, I normally do Python, Django, and JavaScript out of Los Angeles, California. I love to read, write, hang out with my fiancee_, and play at Capoeira_. I am a total Space and NASA Geek.
 
-Web Projects
-========================
-
-* `Open Comparison`_
-
-   * `Django Packages`_
-   * `Plone Packages`_
-   * `Pyramid Packages`_
-
-* `pydanny-event-notes`_
-* `Pet Cheatsheets`_
-
-Software Projects
+Projects
 ==================
 
-* https://github.com/twoscoops/django-admin2 (lead)
-* https://github.com/opencomparison/opencomparison (lead)
+I like to do open source. Here are current or highlighted bits of work.
+
+django-admin2
+--------------
+
+A full-reboot of Django's admin interface.
+
+* http://djangoadmin.org
+* https://github.com/pydanny/django-admin2
+* https://django-admin2.rtfd.org
+
+dj-stripe
+----------
+
+Django + Stripe for Humans
+
+* https://github.com/pydanny/dj-stripe
+* https://dj-stripe.rtfd.org
+
+----
+
+* `Django Packages`_ (co-lead)
+* `pydanny-event-notes`_
 * https://github.com/django/django (contributor)
 * https://github.com/pydanny/django-shortener (lead)
 * https://github.com/pydanny/django-mongonaut (lead)
@@ -30,36 +39,12 @@ Software Projects
 * https://github.com/pydanny/django-wysiwyg (lead)
 * https://github.com/pydanny/that (lead)
 
-Donations
-=========
-
-Donations to my open source work are greatly appreciated and help me dedicate more time and energy into the Python and Django community. If you want to help me produce more open source work, please take a moment to contribute to me on one of the following:
-
-.. raw:: html
-    
-    <table>
-    <tr><td>
-    <script data-gittip-username="pydanny"
-    src="https://www.gittip.com/assets/widgets/0002.js">
-    </script>
-    </td><td>
-    <a class="coinbase-button" data-code="33eece435bf58007893606961f29fbb7" data-button-style="custom_small" href="https://coinbase.com/checkouts/33eece435bf58007893606961f29fbb7">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
-    </td></tr>
-    </table>
-
-
 .. _`Pet Cheatsheets`: http://petcheatsheets.com
-.. _`consumer.io`: http://consumer.io
 .. _`Audrey Roy`: http://audreymroy.com
 .. _fiancee: http://audreymroy.com
 .. _Capoeira: http://valleycapoeira.com
-.. _`Silicon Beach Hackercast`: http://sbhackercast.com
-.. _`Open Comparison`: http://opencomparison.org
 .. _`Django Packages`: http://djangopackages.com
-.. _`Pyramid Packages`: http://pyramid.opencomparison.org
-.. _`Plone Packages`: http://plone.opencomparison.org
 .. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
-.. _`Cartwheel Web`: http://cartwheelweb.com
 .. _`book`: http://django.2scoops.org
 
 Book
