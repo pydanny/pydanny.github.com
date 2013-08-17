@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>I use this</title>
+    <title>cookiecutter: Project Templates Made Easy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to I use this">
-                                        I use this
+                                        title="Permalink to cookiecutter: Project Templates Made Easy">
+                                        cookiecutter: Project Templates Made Easy
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,63 +100,138 @@
                 </header>
 
                 <p>
-                    <em>Saturday, February 25, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to I use this">permalink</a>)
+                    <em>Saturday, August 17, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to cookiecutter: Project Templates Made Easy">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>I had been meaning to do this for some time, and even had a nascent page for it on this site already. I just noticed my old friend <a class="reference external" href="http://jessica.hammer.usesthis.com/">Jessica Hammer</a> was featured on <cite>usesthis.com</cite>. Then I remembered <a class="reference external" href="http://kennethreitz.com/">Kenneth Reitz</a> <a class="reference external" href="http://kennethreitz.com/i-use-this.html">blogged about his tools</a> not that long ago. Looks like it is my turn now.</p>
-<p>So without further ado, seven of my tools, specifically software.</p>
-<div class="section" id="textmate">
-<h2><a class="reference external" href="http://consumernotebook.com/textmate-the-missing-editor-for-mac-os-x/4f4ad4e35a4305000d000000/">TextMate</a></h2>
-<blockquote class="epigraph">
-<p>&quot;My relationship with Textmate isn't healthy.&quot;</p>
-<p class="attribution">&mdash;Myself</p>
-</blockquote>
-<p>I continue to use it, even though it's unsupported, has weird whitespace issues, and people make fun of me. I don't mean the EMACS/Vim people, cause they mock everyone, I mean people using <a class="reference external" href="http://consumernotebook.com/sublime-text/4f4ad53a5a4305000e000000/">Sublime Text 2</a>, <a class="reference external" href="http://consumernotebook.com/jetbrains-pycharm/4f4ad5b861e9e4000e000000/">PyCharm</a>, and NotePad on Windows. I try to make a brave face of it and for the most part I succeed.</p>
-<p>Speaking of which, you know how you sometimes wish deep inside that the fairy tales of youth were actually true? Or that there was a zombie apocalypse and you got the chance to show off how all your eclectic skills and pursuits would make you a survival genius? Well, I feel that way about TextMates 2 being released in my lifetime. Alas, stark reality stares me in the face; yet I cling to hope.</p>
-<p>Alright, sometimes I dabble in Sublime Text 2.  I've played with PyCharm. In 2010 I even worked on a project where use of <a class="reference external" href="http://consumernotebook.com/pydev/4f4ad5d55a4c6f000d000000/">PyDev</a> was mandatory. When I touch servers it's EMACS, Vi, or even Nano. And yet to TextMate I always return.</p>
-<p>Is TextMate dead? Probably. And yes, someday I'll switch over to something else, probably Sublime Text 2. In order to be certain I'm starting to <a class="reference external" href="http://consumernotebook.com/lists/pydanny/complete-list-of-python-editors/">list all the Python editors</a> so I can review them properly before switching.</p>
+                    <p>Yesterday, Jeff Knupp wrote an amazing how-to article called &quot;<a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Open Sourcing a Python Project the Right Way</a>&quot;. While I was reading it, I was rather pleased by just how close it is to my own practices. Considering Jeff's amazing <a class="reference external" href="http://www.amazon.com/gp/product/B00B5KG0F8/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00B5KG0F8&amp;linkCode=as2&amp;tag=mlinar-20">Writing</a> <a class="reference external" href="http://www.amazon.com/gp/product/B00B5VXMRG/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00B5VXMRG&amp;linkCode=as2&amp;tag=mlinar-20">Idiomatic</a> <a class="reference external" href="http://www.jeffknupp.com/writing-idiomatic-python-ebook/">Python</a>, it meant I was on the right track.</p>
+<p>The downside, of course, is implementation. Creating reusable Python packages has always been annoying. There are no defined/maintained best practices (especially for setup.py), so you end up cutting and pasting hacky, poorly understood, often legacy code from one project to the other. Some of it does nothing and some of it fails catastrophically on Python 3. There's a term for this sort of behavior, and it's called <a class="reference external" href="http://en.wikipedia.org/wiki/Cargo_cult_programming">Cargo Cult programming</a>.</p>
+<p>Fortunately, while I was <a class="reference external" href="http://pydanny.com/made-up-statistics.html#debate-statistics">ranting</a> and <a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Jeff</a> (and <a class="reference external" href="http://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/">Hynek Schlawack</a>) was writing, someone was making <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a>.</p>
+<div class="section" id="cookiecutter-does-one-thing-and-it-does-it-well">
+<h2>cookiecutter does one thing and it does it well</h2>
+<p>What <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a> does is make creating and maintaining project templates easy and intuitive. This allow developers of all languages (not just Python) the ability to break free from cargo-cult configuration and follow patterns dictated by the experts who present their own cookiecutter templates. So if you don't like how the author of cookiecutter's creates her projects, you can use someone else's or roll your own.</p>
+<p>Okay, enough talk, let's use cookiecutter to build a Python project. Assuming you have <a class="reference external" href="http://www.virtualenv.org/">virtualenv</a> installed:</p>
+<div class="highlight"><pre><span class="nv">$ </span>pip install cookiecutter
+</pre></div>
+<p><strong>note</strong>: In the works is a <a class="reference external" href="https://github.com/mxcl/homebrew">Homebrew</a> package, and possibly packages for the various Linux distributions as well.</p>
+<p>Done? Okay, now use cookiecutter to create your Python project. For this example, I'm going to create a sample project called &quot;<em>cheese</em>&quot;.:</p>
+<div class="highlight"><pre><span class="nv">$ </span>cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
+Cloning into <span class="s1">&#39;cookiecutter-pypackage&#39;</span>...
+remote: Counting objects: 183, <span class="k">done</span>.
+remote: Compressing objects: 100% <span class="o">(</span>100/100<span class="o">)</span>, <span class="k">done</span>.
+remote: Total 183 <span class="o">(</span>delta 87<span class="o">)</span>, reused 161 <span class="o">(</span>delta 70<span class="o">)</span>
+Receiving objects: 100% <span class="o">(</span>183/183<span class="o">)</span>, 29.36 KiB | 0 bytes/s, <span class="k">done</span>.
+Resolving deltas: 100% <span class="o">(</span>87/87<span class="o">)</span>, <span class="k">done</span>.
+Checking connectivity... <span class="k">done</span>
+full_name <span class="o">(</span>default is <span class="s2">&quot;Audrey Roy&quot;</span><span class="o">)</span>? Daniel Greenfeld
+project_name <span class="o">(</span>default is <span class="s2">&quot;your project&quot;</span><span class="o">)</span>? cheese
+... snip <span class="k">for </span>brevity
+</pre></div>
+<p>See how it asks my full name? Well, at this point, <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a> begins to ask a number of questions. These questions are actually specified in the <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a> file for <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage">cookiecutter-pypackage</a>.</p>
+<p>Once you've answered everything that <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage">cookiecutter-pypackage</a> wants, it generates your project. Let's go and check:</p>
+<div class="highlight"><pre><span class="nv">$ </span>tree cheese
+cheese/
+├── AUTHORS.rst
+├── CONTRIBUTING.rst
+├── HISTORY.rst
+├── LICENSE
+├── MANIFEST.in
+├── README.rst
+├── docs
+│   ├── Makefile
+│   ├── authors.rst
+│   ├── conf.py
+│   ├── contributing.rst
+│   ├── history.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── make.bat
+│   ├── readme.rst
+│   └── usage.rst
+├── requirements.txt
+├── setup.py
+├── simplicity
+│   ├── __init__.py
+│   └── simplicity.py
+├── tests
+│   ├── __init__.py
+│   └── test_simplicity.py
+└── tox.ini
+</pre></div>
+<p>While there are <em>some</em> differences from Jeff Knupp's example in his <a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">article</a> (ReStructuredText vs Markdown, location of tests, etc), I would argue that the general vision is the same. Better yet, if Jeff (or someone) wants to implement Jeff's pattern, they can.</p>
+<p>In fact...</p>
 </div>
-<hr class="docutils" />
-<div class="section" id="keynote">
-<h2>Keynote</h2>
-<p>I never liked Powerpoint. I tried to use Google Presentations for years. Finally I tried Apple's Keynote for presentations and it was an amazing decision. It's simple, easy, and remains out of my way. To make code pretty I copy/paste pygmentized code and it just works.</p>
+<div class="section" id="creating-cookiecutter-templates-is-easy-and-intuitive">
+<h2>Creating cookiecutter templates is easy and intuitive</h2>
+<p>All you have to do is:</p>
+<ol class="arabic simple">
+<li><strong>Fork</strong> <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage">cookiecutter-pypackage</a> <strong>and rename it</strong>.</li>
+<li><strong>Make the changes you desire.</strong> You can change anything you want, the setup.py, the test handling, or perhaps add or remove from the questions specified in <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a>. Right now <strong>repo_name</strong> is a mandatory <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a> field, but there is an issue submitted to have that changed.</li>
+<li><strong>Remember that renders everything in</strong> <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a>. Questions asked by <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a> are rendered to the project's files (be those files in Python, Javascript, HTML, etc). So if you add a field to <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a>, all you have to do to see it in a templates is write:</li>
+</ol>
+<div class="highlight"><pre><span class="x"># Place in Python, HTML. Javascript, CSS, Markdown, or any other plaintext format.</span>
+<span class="x">#</span>
+<span class="cp">{{</span><span class="nv">cookiecutter.my_new_field</span><span class="cp">}}</span><span class="x"></span>
+</pre></div>
+<ol class="arabic simple" start="4">
+<li><strong>Submit a pull request to</strong> <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a> asking for their project to be listed on the README.</li>
+</ol>
+<p>It's not hard. In fact, there is already a growing ecosystem of <a class="reference external" href="https://github.com/audreyr/cookiecutter#available-templates">cookiecutter templates</a>, including Python, <a class="reference external" href="https://github.com/sloria/cookiecutter-flask">Flask</a>, <a class="reference external" href="https://www.djangopackages.com/grids/g/cookiecutter/">Django</a> and <a class="reference external" href="https://github.com/audreyr/cookiecutter-jquery">JQuery</a> templates. Indeed, there is already a <a class="reference external" href="https://github.com/Nekroze/cookiecutter-pypackage">fork</a> of cookiecutter-pypackage that even more closely matches Jeff Knupp's design.</p>
 </div>
-<hr class="docutils" />
-<div class="section" id="read-the-docs">
-<h2><a class="reference external" href="http://rtfd.org">Read the Docs</a></h2>
-<blockquote class="epigraph">
-<p>&quot;Wikis are where documentation goes to die.&quot;</p>
-<p class="attribution">&mdash;Jacob Kaplan-Moss</p>
-</blockquote>
-<p>I'm of the opinion that Python open source projects that don't have Sphinx documentation are not ready for production use. And if I have to decide between two projects that are close in capability and one of them isn't on Read the Docs, then you know which way I'll go.</p>
-<p>Why?</p>
-<p>Because I want my documentation as up-to-date as possible. Wikis often fail in this, so do custom documentation solutions, and so does upload tarballs to a service. You should be using the same patterns for documentation as you do coding. Use Read the Docs.</p>
+<div class="section" id="additional-cookiecutter-features">
+<h2>Additional cookiecutter features</h2>
+<p>Here are more things to like about cookiecutter:</p>
+<div class="section" id="cookiecutter-is-focused">
+<h3>cookiecutter is focused</h3>
+<p>It doesn't handle deployment, serving of HTTP, testing, or anything else. All it does is project templates. It follows those classic words, &quot;<em>It's programmed to do one thing and do it well</em>&quot;.</p>
 </div>
-<hr class="docutils" />
-<div class="section" id="heroku">
-<h2><a class="reference external" href="http://heroku.com">Heroku</a></h2>
-<p>When I first heard that Heroku had become yet-another-Python-PAAS, I shrugged. The field is crowded. We've tried a bunch, but never felt like committing a real project to this type of service.</p>
-<p>After a coding contest in October over in Hollywood where <a class="reference external" href="http://rdegges.com">Randall Degges</a> served as sys admin for the project and tried out Heroku, I was impressed. Heroku provided a nice command-line interface and had an impressive feature set on it's own. A stand-out feature I noticed was the <a class="reference external" href="http://add-ons.heroku.com">add-ons</a>, which are Heroku moderated third-party plug-ins for their service. Finally, it didn't hurt that Heroku has the staff to provide 24/7 coverage of their servers.</p>
-<p>We decided to give it a try and the results are that <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a> is hosted by Heroku. We're more than pleased, and I'll be blogging about the advantages of PaaS over doing-servers-yourself in a future article.</p>
+<div class="section" id="supports-all-modern-versions-of-python">
+<h3>Supports all modern versions of Python</h3>
+<ul class="simple">
+<li>Python 2.6</li>
+<li>Python 2.7</li>
+<li>Python 3.3</li>
+<li>Even PyPy!</li>
+</ul>
 </div>
-<hr class="docutils" />
-<div class="section" id="password">
-<h2><a class="reference external" href="https://agilebits.com/store">1Password</a></h2>
-<p>For all my umpteen accounts they all have different, crazy obscure passwords. All I need to do is remember one password and I've got access to them. What is even better is that it allows me to look up passwords in a crowded room - they are kept obfuscated by the password <tt class="docutils literal"><span class="pre">****</span></tt> field. So much better than trying to keep it all in my head, or relying on weird coding patterns.</p>
+<div class="section" id="cookiecutter-is-modular">
+<h3>cookiecutter is modular</h3>
+<p>It's not built off a single giant function, or a complex architecture. Instead, it's comprised of a number of relatively simple functions. Why? Well this way you can import easily elements of cookiecutter into other projects, and it plays into the next feature:</p>
 </div>
-<hr class="docutils" />
-<div class="section" id="consumer-notebook">
-<h2><a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a></h2>
-<p>Yup, I eat my own dogfood. It lets me <a class="reference external" href="http://consumernotebook.com/grids/~pydanny/">build comparison grids</a> or look at what <a class="reference external" href="http://consumernotebook.com/grids/r1chardj0n3s/10-android-tablets/">other people are comparing</a>. I can <a class="reference external" href="http://consumernotebook.com/lists/~pydanny/">list stuff for any purpose</a>, and turn the content of those lists into grids. It is still in BETA, so things are still under development. However, on the other side, since I'm the one building and using it, I get to determine the features going in or coming out.</p>
+<div class="section" id="cookiecutter-is-tested">
+<h3>cookiecutter is tested</h3>
+<p>The project has as of August 17th 2013, <a class="reference external" href="https://coveralls.io/r/audreyr/cookiecutter?branch=master">91% test coverage</a> with an intention to increase it to 100%. This makes handling the following things much easier/safer:</p>
+<ol class="arabic simple">
+<li>Implementing new features without breaking existing ones.</li>
+<li>Handling new versions of Python as they emerge.</li>
+</ol>
 </div>
-<hr class="docutils" />
-<div class="section" id="mac-os-x">
-<h2>Mac OS X</h2>
-<p>I started as an Apple user:</p>
-<a class="reference external image-reference" href="http://www.flickr.com/photos/pydanny/6933443849/"><img alt="http://farm8.staticflickr.com/7050/6933443849_51316a7cb7.jpg" class="align-center" id="apple" src="http://farm8.staticflickr.com/7050/6933443849_51316a7cb7.jpg" /></a>
-<p>I use Mac OS X professionally and have done so since 2006. However, between autumn of 1985 and 2006 I used MS/DOS and Windows (deployments usually to Unix/Linux). Not by choice but by hard reality of management decision. In September of 2006 as I started to learn Python work gave me an old, discarded Macbook Pro. Since then coding on OS X and then deploying on Linux has been my pattern. I've followed this pattern ever since, and I'm going to hit six years now as an OS X user.</p>
+<div class="section" id="cookiecutter-isn-t-just-for-python-packages">
+<h3>cookiecutter isn't just for Python packages</h3>
+<p>That's correct. While at the moment there is only <a class="reference external" href="https://github.com/audreyr/cookiecutter-jquery">cookiecutter-jquery</a>, there is nothing to stop developers from using <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a> to create templates for anything. The way it renders output is designed to accommodate customizations for any tool.</p>
+<p>Which brings me to my next point...</p>
+</div>
+<div class="section" id="cookiecutter-isn-t-just-for-python-developers">
+<h3>cookiecutter isn't just for Python developers</h3>
+<p>Even if you don't know Python you can use <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a>. The templating is done via <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a>, which isn't far off from other template languages like Mustache, Handlebars, or Liquid. if you are worried about collisions between templating systems, just use Jinja2's <cite>{% raw %}</cite> template tag:</p>
+<div class="highlight"><pre><span class="c">{# Jinja2&#39;s raw template to escape the Liquid template inside #}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">raw</span> <span class="cp">%}</span> {# Liquid template from here on #}
+&lt;ul id=&quot;products&quot;&gt;
+{% for product in products %}
+&lt;li&gt;
+  &lt;h2&gt;{{ product.title }}&lt;/h2&gt;
+  Only {{ product.price | format_as_money }}
+
+  &lt;p&gt;{{ product.description | prettyprint | truncate: 200  }}&lt;/p&gt;
+
+&lt;/li&gt;
+{% endfor %}
+&lt;/ul&gt;
+<span class="cp">{%</span> <span class="k">endraw</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+<a class="reference external image-reference" href="https://github.com/audreyr/cookiecutter"><img alt="https://raw.github.com/audreyr/cookiecutter/aa309b73bdc974788ba265d843a65bb94c2e608e/cookiecutter_medium.png" src="https://raw.github.com/audreyr/cookiecutter/aa309b73bdc974788ba265d843a65bb94c2e608e/cookiecutter_medium.png" /></a>
+</div>
 </div>
 
                     <div class="article-info">
@@ -165,7 +240,13 @@
 
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/tools.html"><em>tools</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/rant.html"><em>rant</em></a>
+	<a href="./tag/flask.html"><em>flask</em></a>
+	<a href="./tag/pypi.html"><em>pypi</em></a>
+	<a href="./tag/pypy.html"><em>pypy</em></a>
+	<a href="./tag/python3.html"><em>python3</em></a>
+	<a href="./tag/javascript.html"><em>javascript</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -173,7 +254,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "i-use-this.html";
+                           var disqus_identifier = "cookie-project-templates-made-easy.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;

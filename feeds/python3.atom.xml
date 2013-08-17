@@ -1,5 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python3.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-07-11T16:00:00-07:00</updated><entry><title>My experiences with Django and Python 3</title><link href="http://pydanny.com/experiences-with-django-python3.html" rel="alternate"></link><updated>2013-07-11T16:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-07-11:experiences-with-django-python3.html</id><summary type="html">&lt;p&gt;The following are my notes, observations, and resources on the subject of working with Python 3 (with or without Django).&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python3.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-08-17T12:00:00-07:00</updated><entry><title>cookiecutter: Project Templates Made Easy</title><link href="http://pydanny.com/cookie-project-templates-made-easy.html" rel="alternate"></link><updated>2013-08-17T12:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-08-17:cookie-project-templates-made-easy.html</id><summary type="html">&lt;p&gt;Yesterday, Jeff Knupp wrote an amazing how-to article called &amp;quot;&lt;a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/"&gt;Open Sourcing a Python Project the Right Way&lt;/a&gt;&amp;quot;. While I was reading it, I was rather pleased by just how close it is to my own practices. Considering Jeff's amazing &lt;a class="reference external" href="http://www.amazon.com/gp/product/B00B5KG0F8/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B00B5KG0F8&amp;amp;linkCode=as2&amp;amp;tag=mlinar-20"&gt;Writing&lt;/a&gt; &lt;a class="reference external" href="http://www.amazon.com/gp/product/B00B5VXMRG/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B00B5VXMRG&amp;amp;linkCode=as2&amp;amp;tag=mlinar-20"&gt;Idiomatic&lt;/a&gt; &lt;a class="reference external" href="http://www.jeffknupp.com/writing-idiomatic-python-ebook/"&gt;Python&lt;/a&gt;, it meant I was on the right track.&lt;/p&gt;
+&lt;p&gt;The downside, of course, is implementation. Creating reusable Python packages has always been annoying. There are no defined/maintained best practices (especially for setup.py), so you end up cutting and pasting hacky, poorly understood, often legacy code from one project to the other. Some of it does nothing and some of it fails catastrophically on Python 3. There's a term for this sort of behavior, and it's called &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Cargo_cult_programming"&gt;Cargo Cult programming&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Fortunately, while I was &lt;a class="reference external" href="http://pydanny.com/made-up-statistics.html#debate-statistics"&gt;ranting&lt;/a&gt; and &lt;a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/"&gt;Jeff&lt;/a&gt; (and &lt;a class="reference external" href="http://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/"&gt;Hynek Schlawack&lt;/a&gt;) was writing, someone was making &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="cookiecutter-does-one-thing-and-it-does-it-well"&gt;
+&lt;h2&gt;cookiecutter does one thing and it does it well&lt;/h2&gt;
+&lt;p&gt;What &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt; does is make creating and maintaining project templates easy and intuitive. This allow developers of all languages (not just Python) the ability to break free from cargo-cult configuration and follow patterns dictated by the experts who present their own cookiecutter templates. So if you don't like how the author of cookiecutter's creates her projects, you can use someone else's or roll your own.&lt;/p&gt;
+&lt;p&gt;Okay, enough talk, let's use cookiecutter to build a Python project. Assuming you have &lt;a class="reference external" href="http://www.virtualenv.org/"&gt;virtualenv&lt;/a&gt; installed:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install cookiecutter
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;note&lt;/strong&gt;: In the works is a &lt;a class="reference external" href="https://github.com/mxcl/homebrew"&gt;Homebrew&lt;/a&gt; package, and possibly packages for the various Linux distributions as well.&lt;/p&gt;
+&lt;p&gt;Done? Okay, now use cookiecutter to create your Python project. For this example, I'm going to create a sample project called &amp;quot;&lt;em&gt;cheese&lt;/em&gt;&amp;quot;.:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
+Cloning into &lt;span class="s1"&gt;&amp;#39;cookiecutter-pypackage&amp;#39;&lt;/span&gt;...
+remote: Counting objects: 183, &lt;span class="k"&gt;done&lt;/span&gt;.
+remote: Compressing objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;100/100&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+remote: Total 183 &lt;span class="o"&gt;(&lt;/span&gt;delta 87&lt;span class="o"&gt;)&lt;/span&gt;, reused 161 &lt;span class="o"&gt;(&lt;/span&gt;delta 70&lt;span class="o"&gt;)&lt;/span&gt;
+Receiving objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;183/183&lt;span class="o"&gt;)&lt;/span&gt;, 29.36 KiB | 0 bytes/s, &lt;span class="k"&gt;done&lt;/span&gt;.
+Resolving deltas: 100% &lt;span class="o"&gt;(&lt;/span&gt;87/87&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+Checking connectivity... &lt;span class="k"&gt;done&lt;/span&gt;
+full_name &lt;span class="o"&gt;(&lt;/span&gt;default is &lt;span class="s2"&gt;&amp;quot;Audrey Roy&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;? Daniel Greenfeld
+project_name &lt;span class="o"&gt;(&lt;/span&gt;default is &lt;span class="s2"&gt;&amp;quot;your project&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;? cheese
+... snip &lt;span class="k"&gt;for &lt;/span&gt;brevity
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;See how it asks my full name? Well, at this point, &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt; begins to ask a number of questions. These questions are actually specified in the &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt; file for &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage"&gt;cookiecutter-pypackage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once you've answered everything that &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage"&gt;cookiecutter-pypackage&lt;/a&gt; wants, it generates your project. Let's go and check:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;tree cheese
+cheese/
+├── AUTHORS.rst
+├── CONTRIBUTING.rst
+├── HISTORY.rst
+├── LICENSE
+├── MANIFEST.in
+├── README.rst
+├── docs
+│   ├── Makefile
+│   ├── authors.rst
+│   ├── conf.py
+│   ├── contributing.rst
+│   ├── history.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── make.bat
+│   ├── readme.rst
+│   └── usage.rst
+├── requirements.txt
+├── setup.py
+├── simplicity
+│   ├── __init__.py
+│   └── simplicity.py
+├── tests
+│   ├── __init__.py
+│   └── test_simplicity.py
+└── tox.ini
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;While there are &lt;em&gt;some&lt;/em&gt; differences from Jeff Knupp's example in his &lt;a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/"&gt;article&lt;/a&gt; (ReStructuredText vs Markdown, location of tests, etc), I would argue that the general vision is the same. Better yet, if Jeff (or someone) wants to implement Jeff's pattern, they can.&lt;/p&gt;
+&lt;p&gt;In fact...&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="creating-cookiecutter-templates-is-easy-and-intuitive"&gt;
+&lt;h2&gt;Creating cookiecutter templates is easy and intuitive&lt;/h2&gt;
+&lt;p&gt;All you have to do is:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;strong&gt;Fork&lt;/strong&gt; &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage"&gt;cookiecutter-pypackage&lt;/a&gt; &lt;strong&gt;and rename it&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Make the changes you desire.&lt;/strong&gt; You can change anything you want, the setup.py, the test handling, or perhaps add or remove from the questions specified in &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt;. Right now &lt;strong&gt;repo_name&lt;/strong&gt; is a mandatory &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt; field, but there is an issue submitted to have that changed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Remember that renders everything in&lt;/strong&gt; &lt;a class="reference external" href="http://jinja.pocoo.org/"&gt;Jinja2&lt;/a&gt;. Questions asked by &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt; are rendered to the project's files (be those files in Python, Javascript, HTML, etc). So if you add a field to &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt;, all you have to do to see it in a templates is write:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;# Place in Python, HTML. Javascript, CSS, Markdown, or any other plaintext format.&lt;/span&gt;
+&lt;span class="x"&gt;#&lt;/span&gt;
+&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;cookiecutter.my_new_field&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ol class="arabic simple" start="4"&gt;
+&lt;li&gt;&lt;strong&gt;Submit a pull request to&lt;/strong&gt; &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt; asking for their project to be listed on the README.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It's not hard. In fact, there is already a growing ecosystem of &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter#available-templates"&gt;cookiecutter templates&lt;/a&gt;, including Python, &lt;a class="reference external" href="https://github.com/sloria/cookiecutter-flask"&gt;Flask&lt;/a&gt;, &lt;a class="reference external" href="https://www.djangopackages.com/grids/g/cookiecutter/"&gt;Django&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-jquery"&gt;JQuery&lt;/a&gt; templates. Indeed, there is already a &lt;a class="reference external" href="https://github.com/Nekroze/cookiecutter-pypackage"&gt;fork&lt;/a&gt; of cookiecutter-pypackage that even more closely matches Jeff Knupp's design.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="additional-cookiecutter-features"&gt;
+&lt;h2&gt;Additional cookiecutter features&lt;/h2&gt;
+&lt;p&gt;Here are more things to like about cookiecutter:&lt;/p&gt;
+&lt;div class="section" id="cookiecutter-is-focused"&gt;
+&lt;h3&gt;cookiecutter is focused&lt;/h3&gt;
+&lt;p&gt;It doesn't handle deployment, serving of HTTP, testing, or anything else. All it does is project templates. It follows those classic words, &amp;quot;&lt;em&gt;It's programmed to do one thing and do it well&lt;/em&gt;&amp;quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="supports-all-modern-versions-of-python"&gt;
+&lt;h3&gt;Supports all modern versions of Python&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Python 2.6&lt;/li&gt;
+&lt;li&gt;Python 2.7&lt;/li&gt;
+&lt;li&gt;Python 3.3&lt;/li&gt;
+&lt;li&gt;Even PyPy!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cookiecutter-is-modular"&gt;
+&lt;h3&gt;cookiecutter is modular&lt;/h3&gt;
+&lt;p&gt;It's not built off a single giant function, or a complex architecture. Instead, it's comprised of a number of relatively simple functions. Why? Well this way you can import easily elements of cookiecutter into other projects, and it plays into the next feature:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cookiecutter-is-tested"&gt;
+&lt;h3&gt;cookiecutter is tested&lt;/h3&gt;
+&lt;p&gt;The project has as of August 17th 2013, &lt;a class="reference external" href="https://coveralls.io/r/audreyr/cookiecutter?branch=master"&gt;91% test coverage&lt;/a&gt; with an intention to increase it to 100%. This makes handling the following things much easier/safer:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Implementing new features without breaking existing ones.&lt;/li&gt;
+&lt;li&gt;Handling new versions of Python as they emerge.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cookiecutter-isn-t-just-for-python-packages"&gt;
+&lt;h3&gt;cookiecutter isn't just for Python packages&lt;/h3&gt;
+&lt;p&gt;That's correct. While at the moment there is only &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-jquery"&gt;cookiecutter-jquery&lt;/a&gt;, there is nothing to stop developers from using &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt; to create templates for anything. The way it renders output is designed to accommodate customizations for any tool.&lt;/p&gt;
+&lt;p&gt;Which brings me to my next point...&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cookiecutter-isn-t-just-for-python-developers"&gt;
+&lt;h3&gt;cookiecutter isn't just for Python developers&lt;/h3&gt;
+&lt;p&gt;Even if you don't know Python you can use &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt;. The templating is done via &lt;a class="reference external" href="http://jinja.pocoo.org/"&gt;Jinja2&lt;/a&gt;, which isn't far off from other template languages like Mustache, Handlebars, or Liquid. if you are worried about collisions between templating systems, just use Jinja2's &lt;cite&gt;{% raw %}&lt;/cite&gt; template tag:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;{# Jinja2&amp;#39;s raw template to escape the Liquid template inside #}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;raw&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt; {# Liquid template from here on #}
+&amp;lt;ul id=&amp;quot;products&amp;quot;&amp;gt;
+{% for product in products %}
+&amp;lt;li&amp;gt;
+  &amp;lt;h2&amp;gt;{{ product.title }}&amp;lt;/h2&amp;gt;
+  Only {{ product.price | format_as_money }}
+
+  &amp;lt;p&amp;gt;{{ product.description | prettyprint | truncate: 200  }}&amp;lt;/p&amp;gt;
+
+&amp;lt;/li&amp;gt;
+{% endfor %}
+&amp;lt;/ul&amp;gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endraw&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;a class="reference external image-reference" href="https://github.com/audreyr/cookiecutter"&gt;&lt;img alt="https://raw.github.com/audreyr/cookiecutter/aa309b73bdc974788ba265d843a65bb94c2e608e/cookiecutter_medium.png" src="https://raw.github.com/audreyr/cookiecutter/aa309b73bdc974788ba265d843a65bb94c2e608e/cookiecutter_medium.png" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="django"></category><category term="rant"></category><category term="flask"></category><category term="pypi"></category><category term="pypy"></category><category term="python3"></category><category term="javascript"></category></entry><entry><title>My experiences with Django and Python 3</title><link href="http://pydanny.com/experiences-with-django-python3.html" rel="alternate"></link><updated>2013-07-11T16:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-07-11:experiences-with-django-python3.html</id><summary type="html">&lt;p&gt;The following are my notes, observations, and resources on the subject of working with Python 3 (with or without Django).&lt;/p&gt;
 &lt;p&gt;Recently I've become involved in a couple of Django efforts that used Python 3.3. The quick summary of what I learned is pretty much what I expected: Out of the box Django 1.5 (and the pending 1.6 release) works fine with Python 3.3.2.&lt;/p&gt;
 &lt;div class="section" id="use-python-3-3-2"&gt;
 &lt;h2&gt;Use Python 3.3.2!&lt;/h2&gt;
