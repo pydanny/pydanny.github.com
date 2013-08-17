@@ -13,9 +13,13 @@ Frameworks
 
 * Django_
 * JQuery_
+* AngularJS_
+* Cookiecutter_
 
 .. _Django: http://djangoproject.com
 .. _JQuery: http://jquery.com/
+.. _AngularJS: http://angularjs.org/
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
 
 References
 ==========

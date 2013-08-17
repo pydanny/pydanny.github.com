@@ -3,8 +3,8 @@ Cookiecutter: Project Templates Made Easy
 =========================================
 
 :date: 2013-8-17 12:00
-:tags: python, django, rant, flask, pypi, pypy, python3, javascript
-:category: python
+:tags: python, django, rant, flask, pypi, pypy, python3, javascript, audreyr
+:category: audrey
 :slug: cookie-project-templates-made-easy
 
 Yesterday, Jeff Knupp wrote an amazing how-to article called "`Open Sourcing a Python Project the Right Way`_". While I was reading it, I was rather pleased by just how close it is to my own practices. Considering Jeff's amazing Writing_ Idiomatic_ Python_, it meant I was on the right track.
