@@ -65,7 +65,6 @@ cheese/
 &lt;li&gt;&lt;strong&gt;Remember that renders everything in&lt;/strong&gt; &lt;a class="reference external" href="http://jinja.pocoo.org/"&gt;Jinja2&lt;/a&gt;. Questions asked by &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt; are rendered to the project's files (be those files in Python, Javascript, HTML, etc). So if you add a field to &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt;, all you have to do to see it in a templates is write:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;# Place in Python, HTML. Javascript, CSS, Markdown, or any other plaintext format.&lt;/span&gt;
-&lt;span class="x"&gt;#&lt;/span&gt;
 &lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;cookiecutter.my_new_field&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;ol class="arabic simple" start="4"&gt;
