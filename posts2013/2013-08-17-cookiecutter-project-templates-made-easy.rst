@@ -97,7 +97,6 @@ All you have to do is:
 .. code-block:: django
 
     # Place in Python, HTML. Javascript, CSS, Markdown, or any other plaintext format.
-    # 
     {{cookiecutter.my_new_field}}
 
 4. **Submit a pull request to** cookiecutter_ asking for their project to be listed on the README.
