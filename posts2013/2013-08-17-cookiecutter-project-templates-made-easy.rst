@@ -101,7 +101,9 @@ All you have to do is:
 
 4. **Submit a pull request to** cookiecutter_ asking for their project to be listed on the README.
 
-It's not hard. In fact, there is already a growing ecosystem of `cookiecutter templates`_, including Python, Flask_, Django_ and JQuery_ templates. Indeed, there is already a fork_ of cookiecutter-pypackage that even more closely matches Jeff Knupp's design.
+It's not hard. In fact, there is already a growing ecosystem of `cookiecutter templates`_, including Python, Flask_, Django_ and JQuery_ templates. 
+
+**Note**: There is already a fork_ of cookiecutter-pypackage that even more closely matches Jeff Knupp's design.
 
 .. _fork: https://github.com/Nekroze/cookiecutter-pypackage
 .. _`cookiecutter templates`: https://github.com/audreyr/cookiecutter#available-templates
