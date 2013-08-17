@@ -1,5 +1,5 @@
 =========================================
-cookiecutter: Project Templates Made Easy
+Cookiecutter: Project Templates Made Easy
 =========================================
 
 :date: 2013-8-17 12:00
