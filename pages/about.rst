@@ -23,7 +23,7 @@ A full-reboot of Django's admin interface.
 dj-stripe
 ----------
 
-Django + Stripe for Humans
+Django + Stripe made easy.
 
 * https://github.com/pydanny/dj-stripe
 * https://dj-stripe.rtfd.org

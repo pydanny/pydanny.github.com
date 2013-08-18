@@ -64,7 +64,6 @@ Software
 * Filezilla
 * Google Chrome
 * Mozilla Firefox
-* NetNewsWire
 * OSX
 * TextMate
 * Sublime
