@@ -13,15 +13,19 @@ Currently in Zagreb, Croatia for a month, I normally do Python, Django, and Java
 .. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
 .. _`book`: http://django.2scoops.org
 
+----
+
 Book
 =====
 
-I co-wrote a book_:
+I co-wrote a book_ with `Audrey Roy`_:
 
 .. image:: https://s3.amazonaws.com/twoscoops/img/tsd-cover.png
    :name: Two Scoops of Django: Best Practices for Django 1.5
    :align: center
    :target: http://django.2scoops.org/
+   
+----
    
 Itinerary
 ==========
@@ -53,3 +57,8 @@ Barcelona Spain       May 01-09       Done!
 Ship      Atlantic    April 20-May 1  Done!
 ========= =========== =============== =============
 
+
+Talks
+=====
+
+* TODO: List all my talks and link to slide decks
