@@ -32,9 +32,20 @@ A full-reboot of Django's admin interface.
 cookiecutter-dj-project
 -----------------------
 
-A cookiecutter_ template for creating reusable Django projects quickly the way I want.
+A cookiecutter_ template for creating Django projects quickly the way I want.
 
-* https://github.com/pydanny/dj-stripe
+* https://github.com/pydanny/cookiecutter-dj-project
+
+.. _cookiecutter: https://github.com/audreyr/cookiecutter
+
+----
+
+cookiecutter-dj-package
+-----------------------
+
+A cookiecutter_ template for creating reusable Django packages quickly the right way. Stuff like setup.py, travis, docs, and more included!
+
+* https://github.com/pydanny/cookiecutter-dj-package
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
