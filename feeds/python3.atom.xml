@@ -95,7 +95,7 @@ cheese/
 &lt;/div&gt;
 &lt;div class="section" id="cookiecutter-is-tested"&gt;
 &lt;h3&gt;cookiecutter is tested&lt;/h3&gt;
-&lt;p&gt;The project has as of August 17th 2013, &lt;a class="reference external" href="https://coveralls.io/r/audreyr/cookiecutter?branch=master"&gt;91% test coverage&lt;/a&gt; with an intention to increase it to 100%. This makes handling the following things much easier/safer:&lt;/p&gt;
+&lt;p&gt;The project has as of August 20th 2013, &lt;a class="reference external" href="https://coveralls.io/r/audreyr/cookiecutter?branch=master"&gt;98% test coverage&lt;/a&gt;, with an intention to increase it to 100%. This makes handling the following things much easier/safer:&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;Implementing new features without breaking existing ones.&lt;/li&gt;
 &lt;li&gt;Handling new versions of Python as they emerge.&lt;/li&gt;
@@ -125,6 +125,9 @@ cheese/
 &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endraw&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;a class="reference external image-reference" href="https://github.com/audreyr/cookiecutter"&gt;&lt;img alt="https://raw.github.com/audreyr/cookiecutter/aa309b73bdc974788ba265d843a65bb94c2e608e/cookiecutter_medium.png" src="https://raw.github.com/audreyr/cookiecutter/aa309b73bdc974788ba265d843a65bb94c2e608e/cookiecutter_medium.png" /&gt;&lt;/a&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;Update 09/20/2013&lt;/strong&gt;: Test coverage increased to 98% from 91%.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="rant"></category><category term="flask"></category><category term="pypi"></category><category term="pypy"></category><category term="python3"></category><category term="javascript"></category><category term="audrey"></category></entry><entry><title>My experiences with Django and Python 3</title><link href="http://pydanny.com/experiences-with-django-python3.html" rel="alternate"></link><updated>2013-07-11T16:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-07-11:experiences-with-django-python3.html</id><summary type="html">&lt;p&gt;The following are my notes, observations, and resources on the subject of working with Python 3 (with or without Django).&lt;/p&gt;

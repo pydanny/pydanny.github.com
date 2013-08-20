@@ -134,7 +134,7 @@ It's not built off a single giant function, or a complex architecture. Instead, 
 cookiecutter is tested
 ------------------------
 
-The project has as of August 17th 2013, `91% test coverage`_ with an intention to increase it to 100%. This makes handling the following things much easier/safer:
+The project has as of August 20th 2013, `98% test coverage`_, with an intention to increase it to 100%. This makes handling the following things much easier/safer:
 
 1. Implementing new features without breaking existing ones.
 2. Handling new versions of Python as they emerge.
@@ -172,9 +172,11 @@ Even if you don't know Python you can use cookiecutter_. The templating is done 
     :target: https://github.com/audreyr/cookiecutter
 
 
+* **Update 09/20/2013**: Test coverage increased to 98% from 91%.
+
 .. _Django: https://www.djangopackages.com/grids/g/cookiecutter/
 .. _Flask: https://github.com/sloria/cookiecutter-flask
-.. _`91% test coverage`: https://coveralls.io/r/audreyr/cookiecutter?branch=master
+.. _`98% test coverage`: https://coveralls.io/r/audreyr/cookiecutter?branch=master
 .. _JQuery: https://github.com/audreyr/cookiecutter-jquery
 .. _`cookiecutter-jquery`: https://github.com/audreyr/cookiecutter-jquery
 .. _`cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
