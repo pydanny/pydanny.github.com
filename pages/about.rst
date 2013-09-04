@@ -2,9 +2,9 @@
 About
 ===========
 
-:date: 2013-08-18 15:33
+:date: 2013-09-04 13:11
 
-Currently in Zagreb, Croatia for a month, I normally do Python, Django, and JavaScript out of Los Angeles, California. I love to read, write, hang out with my fiancee_, and play at Capoeira_. I am a total Space and NASA Geek.
+Currently in Split, Croatia for a month, I normally do Python, Django, and JavaScript out of Los Angeles, California. I love to read, write, hang out with my fiancee_, and play at Capoeira_. I am a total Space and NASA Geek.
 
 .. _`Audrey Roy`: http://audreymroy.com
 .. _fiancee: http://audreymroy.com
@@ -26,6 +26,10 @@ I co-wrote a book_ with `Audrey Roy`_:
    :target: http://django.2scoops.org/
    
 ----
+
+.. raw: html
+
+    <span id="itinerary"></span>
    
 Itinerary
 ==========
@@ -42,8 +46,8 @@ We're currently traveling through Europe.
 City        Country     Date            Status
 ========= =========== =============== =============
 ???       ???         ???             ???
-Split     Croatia     Aug 27-Oct 1    Pending
-Zagreb    Croatia     July 23-Aug 27  In progress
+Split     Croatia     Aug 27-Oct 1    In progress
+Zagreb    Croatia     July 23-Aug 27  Done!
 Ljubljana Slovenia    July 21-July23  Done!
 Florence  Italy       July 1-July 21  Done!
 Pisa      Italy       July 14         Done!
