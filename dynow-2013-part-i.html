@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Simple HTTP Basic Auth Wall</title>
+    <title>Dynow 2013 Part I</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Simple HTTP Basic Auth Wall">
-                                        Simple HTTP Basic Auth Wall
+                                        title="Permalink to Dynow 2013 Part I">
+                                        Dynow 2013 Part I
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,37 +100,33 @@
                 </header>
 
                 <p>
-                    <em>Monday, July 09, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to Simple HTTP Basic Auth Wall">permalink</a>)
+                    <em>Monday, September 09, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to Dynow 2013 Part I">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>I have a client who wanted their entire unlaunched public content site quickly but temporarily blocked for a short period of time. He wanted a universal password so he could send the site to reviewers, done quickly, and nothing else. In a few days the site will launch, and even if someone got through the authentication, nothing bad will happen except for an early visitor. So we determined this was a job for a very simple <a class="reference external" href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic access authentication</a> implementation.</p>
-<p>I asked around and <a class="reference external" href="http://jacobian.org/">Jacob Kaplan-Moss</a> gave me this awesome snippet using <a class="reference external" href="http://pypi.python.org/pypi/barrel">barrel</a> that I pasted right into the bottom of the <a class="reference external" href="http://djangoproject.com">Django</a> 1.4-style application's <tt class="docutils literal">wsgi.py</tt> file.</p>
-<div class="highlight"><pre><span class="c"># Add to the bottom of your wsgi.py file</span>
-<span class="c"># Don&#39;t forget to add barrel to your requirements!</span>
-<span class="kn">from</span> <span class="nn">barrel</span> <span class="kn">import</span> <span class="n">cooper</span>
-
-<span class="n">REALM</span> <span class="o">=</span> <span class="s">&quot;PRIVATE&quot;</span>
-<span class="n">USERS</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;eggs&#39;</span><span class="p">)]</span>
-
-<span class="n">application</span> <span class="o">=</span> <span class="n">cooper</span><span class="o">.</span><span class="n">basicauth</span><span class="p">(</span><span class="n">users</span><span class="o">=</span><span class="n">USERS</span><span class="p">,</span> <span class="n">realm</span><span class="o">=</span><span class="n">REALM</span><span class="p">)(</span><span class="n">get_wsgi_application</span><span class="p">())</span>
-</pre></div>
-<p>This took all of 5 minutes to implement and launch. The result is that the first time you visit the site the login prompt appears. If you enter 'spam' and 'eggs' then you can see the site fine.</p>
-<p>It worked and the customer was happy.</p>
-<p>Will this block a concerted penetration attempt? Of course not. If the site has/had critical or identifying information it would be implemented with <a class="reference external" href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a>. Implementing a Django site with HTTPS is something I've done many times now, but this use case was 'do it fast, easy, and make it temporary'.</p>
-<p><strong>Moral of the story:</strong> Pay attention to your requirements.</p>
-<p><strong>Note :</strong> As this is just adding in some WSGI middleware, this should work without much modification in Flask, Pyramid, and other WSGI compliant web frameworks.</p>
+                    <p><strong>note</strong>: This is the first part in a series about a family research trip to Dynow, Poland in May 2013.</p>
+<p>This was our second trip to Poland. Last year (2012) I went with <a class="reference external" href="http://audreymroy.com">Audrey</a> in 2012 for a few days to present at a software conference called <a class="reference external" href="http://pl.pycon.org/">PyCon Poland</a>. We stayed for a few days afterwards in the eerily familiar Krakow, always conscious that my family heritage was perhaps just hours away. You see, my mother and father's family come from Jews who emigrated to the USA respectively about 110 and 90 years ago. Unfortunately, for many reasons boiling down to time, resources, and contacts I held off from exploring my family roots, promising myself I would return one day.</p>
+<p>Now I was back in Poland, with both the time, resources, and contacts to make it possible to explore at least a portion of my family roots. This year I would get to research and visit where my grand-father's roots in south-eastern Poland. We blocked out some time, made various reservations, talked to family members such as my mother and Aunt Bernice (who <a class="reference external" href="http://kehilalinks.jewishgen.org/krosno/Krosnodubtrip.htm">wrote about her trip in 2006</a>), and leaned heavily on the graces of close friends Tomasz 'Tomek' Paczkowski and Alexandra 'Ola' Sendecka.</p>
+<p>We knew we were in for an uphill battle researching the family. You can't just go to a computer and search. In fact, as of the summer of 2013 there isn't really a central database of information for Jewish ancestry - what exists is still under construction and rather incomplete. That means you have to go and look at old documents yourself, which are incomplete and hard to find. You see, over the decades various documents have been destroyed by accident or war, meaning that the old property/census/tax documents are either incomplete or broken up into parts seperated by hours of travel.</p>
+<p>Getting to Dynow was a matter of renting a car and having Tomasz drive us from Krakow. Most of it was on a pretty new highway and we zipped along at a rapid pace. Once we got to Rzeszow and the highway ended, we were on the winding country roads that make up most of Poland. While unbelievably scenic, the country roads make Poland feel much larger than it seems; explaining why we would not be able to accomodate the requests from various family members and friends in the USA to visit the villages of their ancestors.</p>
+<p>More about the trip is forthcoming. In the meantime, here are some things still being edited:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.flickr.com/photos/pydanny/sets/72157635453007448/">Photos</a></li>
+<li><a class="reference external" href="https://github.com/pydanny/dynow-trip-2013">Notes</a></li>
+</ul>
 
                     <div class="article-info">
                             <footer class="post-info">
 
 
 Tags:
-	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/django.html"><em>django</em></a>
-	<a href="./tag/wsgi.html"><em>wsgi</em></a>
-	<a href="./tag/howto.html"><em>howto</em></a>
+	<a href="./tag/europe.html"><em>europe</em></a>
+	<a href="./tag/travel.html"><em>travel</em></a>
+	<a href="./tag/travel-tips-for-geeks.html"><em>travel tips for geeks</em></a>
+	<a href="./tag/family.html"><em>family</em></a>
+	<a href="./tag/friends.html"><em>friends</em></a>
+	<a href="./tag/audrey.html"><em>audrey</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -138,7 +134,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "simple-http-basic-auth-wall.html";
+                           var disqus_identifier = "dynow-2013-part-i.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
