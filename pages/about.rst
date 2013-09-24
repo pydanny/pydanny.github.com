@@ -45,8 +45,8 @@ We're currently traveling through Europe.
 ========= =========== =============== =============
 City        Country     Date            Status
 ========= =========== =============== =============
-???       ???         ???             ???
-Split     Croatia     Aug 27-Oct 1    In progress
+Manila    Philippines Oct 25-???      In progress
+Split     Croatia     Aug 27-Oct 23   Done
 Zagreb    Croatia     July 23-Aug 27  Done!
 Ljubljana Slovenia    July 21-July23  Done!
 Florence  Italy       July 1-July 21  Done!
