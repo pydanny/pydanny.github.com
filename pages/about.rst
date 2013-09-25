@@ -34,7 +34,7 @@ I co-wrote a book_ with `Audrey Roy`_:
 Itinerary
 ==========
 
-We're currently traveling through Europe.
+We just spent about 5 months living in Europe.
 
 * `Why?`_
 * `How?`_
