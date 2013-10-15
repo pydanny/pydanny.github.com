@@ -45,8 +45,8 @@ We just spent about 5 months living in Europe.
 ========= =========== =============== =============
 City        Country     Date            Status
 ========= =========== =============== =============
-Manila    Philippines Oct 25-???      In progress
-Split     Croatia     Aug 27-Oct 23   Done
+Manila    Philippines Sept 25-Oct 1   Done!
+Split     Croatia     Aug 27-Sept 23  Done!
 Zagreb    Croatia     July 23-Aug 27  Done!
 Ljubljana Slovenia    July 21-July23  Done!
 Florence  Italy       July 1-July 21  Done!
