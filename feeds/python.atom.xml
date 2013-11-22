@@ -1,5 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-08-17T12:00:00-07:00</updated><entry><title>Cookiecutter: Project Templates Made Easy</title><link href="http://pydanny.com/cookie-project-templates-made-easy.html" rel="alternate"></link><updated>2013-08-17T12:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-08-17:cookie-project-templates-made-easy.html</id><summary type="html">&lt;p&gt;Yesterday, Jeff Knupp wrote an amazing how-to article called &amp;quot;&lt;a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/"&gt;Open Sourcing a Python Project the Right Way&lt;/a&gt;&amp;quot;. While I was reading it, I was rather pleased by just how close it is to my own practices. Considering Jeff's amazing &lt;a class="reference external" href="http://www.amazon.com/gp/product/B00B5KG0F8/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B00B5KG0F8&amp;amp;linkCode=as2&amp;amp;tag=mlinar-20"&gt;Writing&lt;/a&gt; &lt;a class="reference external" href="http://www.amazon.com/gp/product/B00B5VXMRG/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B00B5VXMRG&amp;amp;linkCode=as2&amp;amp;tag=mlinar-20"&gt;Idiomatic&lt;/a&gt; &lt;a class="reference external" href="http://www.jeffknupp.com/writing-idiomatic-python-ebook/"&gt;Python&lt;/a&gt;, it meant I was on the right track.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-11-22T14:00:00-08:00</updated><entry><title>Python Yields are Fun!</title><link href="http://pydanny.com/yielding-python.html" rel="alternate"></link><updated>2013-11-22T14:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-11-22:yielding-python.html</id><summary type="html">&lt;p&gt;While you can optimize the heck out of your Python code with &lt;tt class="docutils literal"&gt;generators&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;generator expressions&lt;/tt&gt; I'm more interested in goofing around and solving classic programming questions with the &lt;tt class="docutils literal"&gt;yield&lt;/tt&gt; statement.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;note:&lt;/strong&gt; For this article, since it's easier to explain things as they happen, I'll be including a lot of inline comments.&lt;/p&gt;
+&lt;p&gt;Let's start with a simple function that returns a sequence of some of my favorite values:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# yielding.py&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;pydanny_selected_numbers&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+
+    &lt;span class="c"&gt;# If you multiple 9 by any other number you can easily play with&lt;/span&gt;
+    &lt;span class="c"&gt;#   numbers to get back to 9.&lt;/span&gt;
+    &lt;span class="c"&gt;#   Ex: 2 * 9 = 18. 1 + 8 = 9&lt;/span&gt;
+    &lt;span class="c"&gt;#   Ex: 15 * 9 = 135. 1 + 3 + 5 = 9&lt;/span&gt;
+    &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;
+
+    &lt;span class="c"&gt;# A pretty prime.&lt;/span&gt;
+    &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="mi"&gt;31&lt;/span&gt;
+
+    &lt;span class="c"&gt;# What&amp;#39;s 6 * 7?&lt;/span&gt;
+    &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;
+
+    &lt;span class="c"&gt;# The string representation of my first date with Audrey Roy&lt;/span&gt;
+    &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2010/02/17&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;note:&lt;/strong&gt; When a function uses the &lt;tt class="docutils literal"&gt;yield&lt;/tt&gt; keyword it's now called a &lt;strong&gt;generator&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Let's do a test drive in the REPL:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;yielding&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;pydanny_selected_numbers&lt;/span&gt;  &lt;span class="c"&gt;# import ye aulde code&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;pydanny_selected_numbers&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c"&gt;# create the iterator object&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;pydanny_selected_numbers&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x1038a03c0&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;pydanny_selected_numbers&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;  &lt;span class="c"&gt;# iterate through the iterator&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="mi"&gt;31&lt;/span&gt;
+&lt;span class="mi"&gt;42&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;2010/02/17&amp;quot;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pydanny_selected_numbers&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c"&gt;# create the iterator object&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c"&gt;# iterate through the iterator object&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="mi"&gt;31&lt;/span&gt;
+&lt;span class="mi"&gt;42&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;2010/02/17&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Of course, if you know anything about generator expressions, you know I could do this more tersely with the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2010/02/17&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="n"&gt;i&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="mi"&gt;31&lt;/span&gt;
+&lt;span class="mi"&gt;42&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;2010/02/17&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;While that is more terse, it doesn't give us the amount of control we get by defining our own generator function. For example, what if I want to present the Fibonacci sequence in a loop rather than with recursion?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# fun.py&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fibonacci&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;base&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+        &lt;span class="c"&gt;# This yield statement is where the execution leaves the function.&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
+        &lt;span class="c"&gt;# This is where the execution comes back into the function. This is&lt;/span&gt;
+        &lt;span class="c"&gt;# just whitespace, but that it came back while preserving the state&lt;/span&gt;
+        &lt;span class="c"&gt;# of the function is pretty awesome.&lt;/span&gt;
+
+        &lt;span class="c"&gt;# Fibonacci code to increase the number according to&lt;/span&gt;
+        &lt;span class="c"&gt;#   https://en.wikipedia.org/wiki/Fibonacci_number&lt;/span&gt;
+        &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;base&lt;/span&gt;
+        &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;base&lt;/span&gt;
+        &lt;span class="n"&gt;base&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fibonacci&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;144&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let's try this out in the REPL:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;fun&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;fibonacci&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;fibonacci&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;fibonacci&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x10d49e460&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fibonacci&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="mi"&gt;8&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fibonacci&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;fibonacci&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x10d63c550&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What's nice about this is so much more than fibonacci logic in a generator function. Instead, imagine instead of a lightweight calculation I had done something performance intensive. By using generator expressions I can readily control the execution calls with the iterator object's &lt;tt class="docutils literal"&gt;next()&lt;/tt&gt; method, saving processor cycles.&lt;/p&gt;
+&lt;p&gt;Very nifty.&lt;/p&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;I admit it. Like many Python developers, I find using tools like yields and generators to optimize the heck out of performance intensive things a lot of fun.&lt;/p&gt;
+&lt;p&gt;If you are like me and like this sort of stuff, I recommend the following resources:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.amazon.com/Treading-Python-Volume-Intermediate/dp/149055095X/ref=tmm_pap_title_0?tag=mlinar-20"&gt;Matt Harrison's Treading on Python Volume 2: Intermediate Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/"&gt;Jeff Knupp's Improve Your Python: 'yield' and Generators Explained&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the next article I'll demonstrate how to use the &lt;tt class="docutils literal"&gt;yield&lt;/tt&gt; statement to create context managers.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category></entry><entry><title>Cookiecutter: Project Templates Made Easy</title><link href="http://pydanny.com/cookie-project-templates-made-easy.html" rel="alternate"></link><updated>2013-08-17T12:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-08-17:cookie-project-templates-made-easy.html</id><summary type="html">&lt;p&gt;Yesterday, Jeff Knupp wrote an amazing how-to article called &amp;quot;&lt;a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/"&gt;Open Sourcing a Python Project the Right Way&lt;/a&gt;&amp;quot;. While I was reading it, I was rather pleased by just how close it is to my own practices. Considering Jeff's amazing &lt;a class="reference external" href="http://www.amazon.com/gp/product/B00B5KG0F8/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B00B5KG0F8&amp;amp;linkCode=as2&amp;amp;tag=mlinar-20"&gt;Writing&lt;/a&gt; &lt;a class="reference external" href="http://www.amazon.com/gp/product/B00B5VXMRG/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=B00B5VXMRG&amp;amp;linkCode=as2&amp;amp;tag=mlinar-20"&gt;Idiomatic&lt;/a&gt; &lt;a class="reference external" href="http://www.jeffknupp.com/writing-idiomatic-python-ebook/"&gt;Python&lt;/a&gt;, it meant I was on the right track.&lt;/p&gt;
 &lt;p&gt;The downside, of course, is implementation. Creating reusable Python packages has always been annoying. There are no defined/maintained best practices (especially for setup.py), so you end up cutting and pasting hacky, poorly understood, often legacy code from one project to the other. Some of it does nothing and some of it fails catastrophically on Python 3. There's a term for this sort of behavior, and it's called &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Cargo_cult_programming"&gt;Cargo Cult programming&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Fortunately, while I was &lt;a class="reference external" href="http://pydanny.com/made-up-statistics.html#debate-statistics"&gt;ranting&lt;/a&gt; and &lt;a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/"&gt;Jeff&lt;/a&gt; (and &lt;a class="reference external" href="http://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/"&gt;Hynek Schlawack&lt;/a&gt;) was writing, someone was making &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="section" id="cookiecutter-does-one-thing-and-it-does-it-well"&gt;
