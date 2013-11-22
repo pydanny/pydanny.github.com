@@ -5,7 +5,7 @@ Python Yields are Fun!
 :date: 2013-11-22 14:00
 :tags: python
 :category: blog
-:slug: yielding-python
+:slug: python-yields-are-fun
 
 While you can optimize the heck out of your Python code with ``generators`` and ``generator expressions`` I'm more interested in goofing around and solving classic programming questions with the ``yield`` statement.
 
@@ -31,7 +31,7 @@ Let's start with a simple function that returns a sequence of some of my favorit
         yield 42
     
         # The string representation of my first date with Audrey Roy
-        yield "2010/02/17"
+        yield "2010/02/20"
 
 **note:** When a function uses the ``yield`` keyword it's now called a **generator**.
 
@@ -50,7 +50,7 @@ Let's do a test drive in the REPL:
     9
     31
     42
-    "2010/02/17"
+    "2010/02/20"
 
     >>> iterator = pydanny_selected_numbers() # create the iterator object
     >>> for i in iterator:  # iterate through the iterator object
@@ -59,20 +59,20 @@ Let's do a test drive in the REPL:
     9
     31
     42
-    "2010/02/17"
+    "2010/02/20"
 
 Of course, if you know anything about generator expressions, you know I could do this more tersely with the following:
 
 .. code-block:: python
 
-    >>> iterator = (x for x in [9, 31, 42, "2010/02/17"]) 
+    >>> iterator = (x for x in [9, 31, 42, "2010/02/20"]) 
     >>> for i in iterator:
     ...     i
     ...
     9
     31
     42
-    "2010/02/17"
+    "2010/02/20"
 
 While that is more terse, it doesn't give us the amount of control we get by defining our own generator function. For example, what if I want to present the Fibonacci sequence in a loop rather than with recursion?
 

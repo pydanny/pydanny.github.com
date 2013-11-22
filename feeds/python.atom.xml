@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-11-22T14:00:00-08:00</updated><entry><title>Python Yields are Fun!</title><link href="http://pydanny.com/yielding-python.html" rel="alternate"></link><updated>2013-11-22T14:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-11-22:yielding-python.html</id><summary type="html">&lt;p&gt;While you can optimize the heck out of your Python code with &lt;tt class="docutils literal"&gt;generators&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;generator expressions&lt;/tt&gt; I'm more interested in goofing around and solving classic programming questions with the &lt;tt class="docutils literal"&gt;yield&lt;/tt&gt; statement.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-11-22T14:00:00-08:00</updated><entry><title>Python Yields are Fun!</title><link href="http://pydanny.com/python-yields-are-fun.html" rel="alternate"></link><updated>2013-11-22T14:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-11-22:python-yields-are-fun.html</id><summary type="html">&lt;p&gt;While you can optimize the heck out of your Python code with &lt;tt class="docutils literal"&gt;generators&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;generator expressions&lt;/tt&gt; I'm more interested in goofing around and solving classic programming questions with the &lt;tt class="docutils literal"&gt;yield&lt;/tt&gt; statement.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;note:&lt;/strong&gt; For this article, since it's easier to explain things as they happen, I'll be including a lot of inline comments.&lt;/p&gt;
 &lt;p&gt;Let's start with a simple function that returns a sequence of some of my favorite values:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# yielding.py&lt;/span&gt;
@@ -18,7 +18,7 @@
     &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;
 
     &lt;span class="c"&gt;# The string representation of my first date with Audrey Roy&lt;/span&gt;
-    &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2010/02/17&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2010/02/20&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;note:&lt;/strong&gt; When a function uses the &lt;tt class="docutils literal"&gt;yield&lt;/tt&gt; keyword it's now called a &lt;strong&gt;generator&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Let's do a test drive in the REPL:&lt;/p&gt;
@@ -33,7 +33,7 @@
 &lt;span class="mi"&gt;9&lt;/span&gt;
 &lt;span class="mi"&gt;31&lt;/span&gt;
 &lt;span class="mi"&gt;42&lt;/span&gt;
-&lt;span class="s"&gt;&amp;quot;2010/02/17&amp;quot;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;2010/02/20&amp;quot;&lt;/span&gt;
 
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pydanny_selected_numbers&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c"&gt;# create the iterator object&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c"&gt;# iterate through the iterator object&lt;/span&gt;
@@ -42,17 +42,17 @@
 &lt;span class="mi"&gt;9&lt;/span&gt;
 &lt;span class="mi"&gt;31&lt;/span&gt;
 &lt;span class="mi"&gt;42&lt;/span&gt;
-&lt;span class="s"&gt;&amp;quot;2010/02/17&amp;quot;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;2010/02/20&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Of course, if you know anything about generator expressions, you know I could do this more tersely with the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2010/02/17&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2010/02/20&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 &lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="n"&gt;i&lt;/span&gt;
 &lt;span class="o"&gt;...&lt;/span&gt;
 &lt;span class="mi"&gt;9&lt;/span&gt;
 &lt;span class="mi"&gt;31&lt;/span&gt;
 &lt;span class="mi"&gt;42&lt;/span&gt;
-&lt;span class="s"&gt;&amp;quot;2010/02/17&amp;quot;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;2010/02/20&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;While that is more terse, it doesn't give us the amount of control we get by defining our own generator function. For example, what if I want to present the Fibonacci sequence in a loop rather than with recursion?&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# fun.py&lt;/span&gt;

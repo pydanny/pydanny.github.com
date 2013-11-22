@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Tools we used to write Two Scoops of Django</title>
+    <title>Python Yields are Fun!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Tools we used to write Two Scoops of Django">
-                                        Tools we used to write Two Scoops of Django
+                                        title="Permalink to Python Yields are Fun!">
+                                        Python Yields are Fun!
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,75 +100,122 @@
                 </header>
 
                 <p>
-                    <em>Friday, May 03, 2013</em>
-                    (<a href="" rel="bookmark" title="Permalink to Tools we used to write Two Scoops of Django">permalink</a>)
+                    <em>Friday, November 22, 2013</em>
+                    (<a href="" rel="bookmark" title="Permalink to Python Yields are Fun!">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>Because of the ubiquitousness of <a class="reference external" href="http://en.wikipedia.org/wiki/Restructured_Text">reStructuredText</a> in the lives of <a class="reference external" href="http://python.org">Python</a> developers and the advocacy of it, it's not uncommon for people to assume we used it to write our book. However, that's not really the case.</p>
-<p>The short Answer is we used:</p>
-<ul class="simple">
-<li>reStructuredText (RST)</li>
-<li>Google Documents</li>
-<li>Apple Pages</li>
-<li><a class="reference external" href="http://en.wikipedia.com/wiki/LateX">LaTeX</a></li>
-</ul>
-<p>The long answer is the rest of this posting. Since writing the book was broken up into three major stages '<em>alpha</em>', '<em>beta</em>', and '<em>final</em>', so have I broken up blog article.</p>
-<div class="section" id="alpha-days">
-<h2>Alpha Days</h2>
-<p>Some of the original alpha material was written in rough draft form as RST since it was what we were used to using. Unfortunately, the PDF generation wasn't to our liking, so we immediately began looking at other options. Since she enjoyed using it at MIT and because it gave us greater individual control, <a class="reference external" href="http://audreymroy.com">Audrey</a> wanted to switch to <a class="reference external" href="http://en.wikipedia.com/wiki/LateX">LaTeX</a>. I was worried about the challenges of learning LaTeX, so we compromised and moved to Google Documents.</p>
-<p>For the most part, Google Documents was great in the early stages. The real-time collaborative nature was handy, but the gem was the comment system. It gave us the ability to have line-by-line written dialogues with our technical reviewers. However, Google Documents makes it nigh-impossible to use WYSIWYG editor styles, add in better print fonts, forced us to cut-and-paste code examples, and finally the PDF export system was flakey on our massive document.</p>
-<p>Our original thought was to convert the Google Document output to PDF and then modify it with Adobe InDesign. Upon trying it, we found it had a lackluster user interface that had a steep learning curve and was prohibitively expensive ($550-$700). Our friend and reviewer, Kenneth Love of <a class="reference external" href="http://gettingstartedwithdjango.com">Getting Started with Django</a> fame, offered to do the conversion work, but we wanted to be able to update our work at will. Awesome as Kenneth might be, we couldn't expect him to drop what he was doing to update the final output of our work whenever we wanted.</p>
-<p>Therefore, what we did in the week of January 10th-16th was convert the book to Apple Pages, which is the word processor in Apple iWorks. This was as painful as it sounds. We also discovered the day before launch that Apple Pages doesn't create a sidebar PDF table of contents, which a lot of people enjoy (including ourselves). Tired and exhausted from weeks of 16 hour days, we launched anyway on January 17th with the book weighing in at 5.1 MB.</p>
-</div>
-<div class="section" id="beta-experiences">
-<h2>Beta Experiences</h2>
-<p>People were so positive it really gave us a boost. Hundreds of people sent us feedback and we were delighted beyond words, with a significant portion sending us commentary/corrections about our writing and code. I'll admin did get tired over a certain 'moat' mistake since I got corrected on it over 50 times. However, the number of code corrections we were getting was higher than expected. It was clear we needed to be able to import the code modules from testable chunks of real code.  We had so many kindle/epub requests we also needed the ability to render the text attractively across multiple formats.</p>
-<p>After stumbling through RST, Google Documents, and Apple Pages different tools, I finally agreed with Audrey that the challenges of learning LaTeX was worth it. While we could have used RST, we would have had to use LaTeX anyway for our customizations since when RST is converted to PDF it actually uses an interim step of LaTeX!</p>
-<p>So while I handled the corrections and feedback from thousands, Audrey built the fundamentals of the LaTeX file structure. Audrey really got her hands dirty by teaching me LaTeX, since my brain is slow and thick. Here's a sample of what I've learned how to do, taken from Chapter 6, Section 1, Subsection 5 (6.1.5):</p>
-<div class="highlight"><pre><span class="k">\subsection</span><span class="nb">{</span>Model Inheritance in Practice: The TimeStampedModel<span class="nb">}</span>
-It&#39;s very common in Django projects to include a <span class="k">\inlinecode</span><span class="nb">{</span>created<span class="nb">}</span> and <span class="k">\inlinecode</span><span class="nb">{</span>modified<span class="nb">}</span> timestamp field on all your models. We could manually add those fields to each and every model, but that&#39;s a lot of work and adds the risk of human error. A better solution is to write a <span class="k">\inlinecode</span><span class="nb">{</span>TimeStampedModel<span class="nb">}</span> <span class="k">\index</span><span class="nb">{</span>TimeStampedModel<span class="nb">}</span> to do the work for us:
+                    <p>While you can optimize the heck out of your Python code with <tt class="docutils literal">generators</tt> and <tt class="docutils literal">generator expressions</tt> I'm more interested in goofing around and solving classic programming questions with the <tt class="docutils literal">yield</tt> statement.</p>
+<p><strong>note:</strong> For this article, since it's easier to explain things as they happen, I'll be including a lot of inline comments.</p>
+<p>Let's start with a simple function that returns a sequence of some of my favorite values:</p>
+<div class="highlight"><pre><span class="c"># yielding.py</span>
+<span class="k">def</span> <span class="nf">pydanny_selected_numbers</span><span class="p">():</span>
 
-<span class="k">\goodcodefile</span><span class="nb">{</span>chapter<span class="nb">_</span>06/myapp/core/timestampedmodel.py<span class="nb">}</span>
+    <span class="c"># If you multiple 9 by any other number you can easily play with</span>
+    <span class="c">#   numbers to get back to 9.</span>
+    <span class="c">#   Ex: 2 * 9 = 18. 1 + 8 = 9</span>
+    <span class="c">#   Ex: 15 * 9 = 135. 1 + 3 + 5 = 9</span>
+    <span class="k">yield</span> <span class="mi">9</span>
 
-Take careful note of the very last two lines in the example, which turn our example into an abstract base class: <span class="k">\index</span><span class="nb">{</span>abstract base classes<span class="nb">}</span>
+    <span class="c"># A pretty prime.</span>
+    <span class="k">yield</span> <span class="mi">31</span>
 
-<span class="k">\goodcodefile</span><span class="nb">{</span>chapter<span class="nb">_</span>06/myapp/core/class<span class="nb">_</span>meta.py<span class="nb">}</span>
+    <span class="c"># What&#39;s 6 * 7?</span>
+    <span class="k">yield</span> <span class="mi">42</span>
 
-By defining <span class="k">\inlinecode</span><span class="nb">{</span>TimeStampedModel<span class="nb">}</span> as an abstract base class <span class="k">\index</span><span class="nb">{</span>abstract base classes<span class="nb">}</span> when we define a new class that inherits from it, Django doesn&#39;t create a <span class="k">\inlinecode</span><span class="nb">{</span>model<span class="k">\_</span>utils.time<span class="k">\_</span>stamped<span class="k">\_</span>model<span class="nb">}</span> table when syncdb is run.
+    <span class="c"># The string representation of my first date with Audrey Roy</span>
+    <span class="k">yield</span> <span class="s">&quot;2010/02/20&quot;</span>
 </pre></div>
-<p>Once I got the hang of LaTeX, then began the hard work of converting the book's current content from Apple Pages That was a couple weeks of grueling effort on my part. Daily I would request a new LaTeX customizations, which Audrey would address. However, as she was working on literally rewriting the content of a dozen chapters including templates, testing, admin, and logging my interruptions became an issue. So we enlisted the help of Italian economist and LaTeX expert Laura Gelsomino. Thanks to her the desired text formatting was achieved.</p>
-<p>During the conversion process we also rewrote every single code example, putting them into easily testable projects, and pull them into via use of custom LaTeX commands called <tt class="docutils literal">\goodcodefile{}</tt> and <tt class="docutils literal">\badcodefile{}</tt>.</p>
-<p>Eventually I joined Audrey on rewriting and reviewing chapters and on February 28th, the beta was launched. LaTeX generates lean PDFs so the book came in at just 1.6 MB while adding a whopping 50 pages (25% more) of content.</p>
-</div>
-<div class="section" id="final-efforts">
-<h2>Final Efforts</h2>
-<p>The final effort was focused on cleanup, new formats, presentation, and art.</p>
-<p>For cleanup, our amazing readers gave us so much feedback we could barely keep up. We fought to keep our dialogues with them personal yet brief. With reader oversight we corrected many of the 'quirks' of my writing style (Audrey is a stickler for Strunk and White, I am not). We also made numerous corrections based on feedback and our own observations.</p>
-<p>With the guidance of fellow Python author <a class="reference external" href="http://hairysun.com/">Matt Harrison</a> I wrote scripts that took the archaic HTML generated by LaTeX module tex4ht and rendered it into something that Kindlegen could use to generate Kindle .mobi files. At first the results looked awesome on modern kindles and other new ebook readers, but was terrible on older devices. So I toned back the fancy stuff to what you see today. Getting technical books to look nice on all readers is really, really hard - and unfortunately some publishers take shortcuts that hurt the efforts of the authors. If you have problem with an e-book's format, please consider that before writing a negative review about the final output.</p>
-<p>Speaking of mobile editions, we also wrote a second version of each Python example to deal with the smaller format. While libraries exist to do the work for you, since I did a lot of it from scratch (albeit coached by Matt) I had to dig into the lackluster .mobi/.epub documentation to figure out things like .ncx files.</p>
-<p><strong>note:</strong> If you want to be the self-published author of a technical book I <em>strongly recommend</em> you read Matt's <a class="reference external" href="http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=la_B0077BQLH6_1_2?ie=UTF8&amp;qid=1366041987&amp;sr=1-2&amp;tag=ihpydanny-20">Ebook Formatting: KF8, Mobi &amp; EPUB</a>. Also check out his rst2epub2 library for converting RST files to various formats.</p>
-<p>While I worked on the mobile editions, Audrey focused on the print version and adding more art and tiny bit of new content. She focused on clarity and flow, and the result is that the book feels even lighter to read and yet is dense with useful information. To test how the book launched, she would order a copy from the printer and wait several days for it to arrive. Then she would inspect the cover and interior with her incredibly exacting eye. It's a slow process, but Audrey wanted to make absolutely certain our readers would enjoy and use the print edition.</p>
-<p>On April 10th we launched the final in PDF, Kindle, and ePub form. The PDF weighs in at 2.7 MB, and the Kindle file is a bit heaver. At some point we'll do the work to reduce file size, but for now we're working on other things.</p>
-<p>A week later we announced the launch of the <a class="reference external" href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&amp;qid=1366166104&amp;sr=8-2&amp;tag=ihpydanny-20">print version of the book</a>. People seem to really like the design and feel of the physical book, and we've even had requests for t-shirts.</p>
-</div>
-<div class="section" id="thoughts">
-<h2>Thoughts</h2>
-<p>Writing a technical book was really hard. Crazy hard. Also very satisfying. We could have made more money doing just client work, but this was a dream come true. Sometimes money doesn't matter.</p>
-<div class="section" id="whither-two-scoops-of-django">
-<h3>Whither Two Scoops of Django?</h3>
-<p><a class="reference external" href="http://django.2scoops.org">Two Scoops of Django: Best Practices for Django 1.5</a> will still receive periodic corrections, but won't see new content unless it's security related for Django 1.5. Don't worry though, for when Django 1.6 comes nigh, we'll commence work on Two Scoops of Django: Best Practices for Django <strong>1.6</strong> (<strong>TSD 1.6</strong>). The plan is to update practices as needed and hopefully add more content on testing, logging, continuous integration, and more. Like it's predecessor TSD 1.6 will be written using LaTeX.</p>
-<p>That said, if I ever fulfill my dream of writing fiction I'll just use Matt Harrison's <a class="reference external" href="https://github.com/mattharrison/rst2epub2">rst2epub2</a> library.</p>
-</div>
-<div class="section" id="concerns-about-open-sourcing">
-<h3>Concerns about Open Sourcing</h3>
-<p>We've considered open sourcing our current book generation system, but installation is rather challenging and requires serious Audrey/Laura-level LaTeX knowledge combined with my experience with Python. Unfortunately, from our experience on managing other open source projects, dealing with requests for documentation and assistance would take up a prohibitive amount of our time. Honestly, we would rather write another book or sling code.</p>
-</div>
-<div class="section" id="book-generation-as-a-service">
-<h3>Book Generation as a Service?</h3>
-<p>Another option is turning our system into a service, which would convert existing RST or even MarkDown to LaTeX so it could generate books in the Two Scoops format. Doing this would require at least a month of full-time work on both of our parts, and we have no idea as to the interest level. We think it would be a low amount of interest, but then again, hasn't <a class="reference external" href="http://leanpub.com">leanpub</a> done pretty well using this model of business?</p>
-<p>In any case we're working on other projects. Maybe even a new technical book...</p>
-</div>
+<p><strong>note:</strong> When a function uses the <tt class="docutils literal">yield</tt> keyword it's now called a <strong>generator</strong>.</p>
+<p>Let's do a test drive in the REPL:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">yielding</span> <span class="kn">import</span> <span class="n">pydanny_selected_numbers</span>  <span class="c"># import ye aulde code</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pydanny_selected_numbers</span><span class="p">()</span>  <span class="c"># create the iterator object</span>
+<span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="n">pydanny_selected_numbers</span> <span class="n">at</span> <span class="mh">0x1038a03c0</span><span class="o">&gt;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pydanny_selected_numbers</span><span class="p">():</span>  <span class="c"># iterate through the iterator</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="mi">9</span>
+<span class="mi">31</span>
+<span class="mi">42</span>
+<span class="s">&quot;2010/02/20&quot;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">pydanny_selected_numbers</span><span class="p">()</span> <span class="c"># create the iterator object</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iterator</span><span class="p">:</span>  <span class="c"># iterate through the iterator object</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="mi">9</span>
+<span class="mi">31</span>
+<span class="mi">42</span>
+<span class="s">&quot;2010/02/20&quot;</span>
+</pre></div>
+<p>Of course, if you know anything about generator expressions, you know I could do this more tersely with the following:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="s">&quot;2010/02/20&quot;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">i</span>
+<span class="o">...</span>
+<span class="mi">9</span>
+<span class="mi">31</span>
+<span class="mi">42</span>
+<span class="s">&quot;2010/02/20&quot;</span>
+</pre></div>
+<p>While that is more terse, it doesn't give us the amount of control we get by defining our own generator function. For example, what if I want to present the Fibonacci sequence in a loop rather than with recursion?</p>
+<div class="highlight"><pre><span class="c"># fun.py</span>
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">result</span> <span class="o">&lt;=</span> <span class="nb">max</span><span class="p">:</span>
+
+        <span class="c"># This yield statement is where the execution leaves the function.</span>
+        <span class="k">yield</span> <span class="n">result</span>
+        <span class="c"># This is where the execution comes back into the function. This is</span>
+        <span class="c"># just whitespace, but that it came back while preserving the state</span>
+        <span class="c"># of the function is pretty awesome.</span>
+
+        <span class="c"># Fibonacci code to increase the number according to</span>
+        <span class="c">#   https://en.wikipedia.org/wiki/Fibonacci_number</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="n">base</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">base</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="n">n</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fibonacci</span><span class="p">(</span><span class="mi">144</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+<p>Let's try this out in the REPL:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">fun</span> <span class="kn">import</span> <span class="n">fibonacci</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="n">fibonacci</span> <span class="n">at</span> <span class="mh">0x10d49e460</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">5</span>
+<span class="mi">8</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">iterator</span>
+<span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="n">fibonacci</span> <span class="n">at</span> <span class="mh">0x10d63c550</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">iterator</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">iterator</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="mi">1</span>
+</pre></div>
+<p>What's nice about this is so much more than fibonacci logic in a generator function. Instead, imagine instead of a lightweight calculation I had done something performance intensive. By using generator expressions I can readily control the execution calls with the iterator object's <tt class="docutils literal">next()</tt> method, saving processor cycles.</p>
+<p>Very nifty.</p>
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>I admit it. Like many Python developers, I find using tools like yields and generators to optimize the heck out of performance intensive things a lot of fun.</p>
+<p>If you are like me and like this sort of stuff, I recommend the following resources:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.amazon.com/Treading-Python-Volume-Intermediate/dp/149055095X/ref=tmm_pap_title_0?tag=mlinar-20">Matt Harrison's Treading on Python Volume 2: Intermediate Python</a></li>
+<li><a class="reference external" href="http://www.jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/">Jeff Knupp's Improve Your Python: 'yield' and Generators Explained</a></li>
+</ul>
+<p>In the next article I'll demonstrate how to use the <tt class="docutils literal">yield</tt> statement to create context managers.</p>
 </div>
 
                     <div class="article-info">
@@ -176,10 +223,7 @@ By defining <span class="k">\inlinecode</span><span class="nb">{</span>TimeStamp
 
 
 Tags:
-	<a href="./tag/django.html"><em>django</em></a>
 	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/twoscoops.html"><em>twoscoops</em></a>
-	<a href="./tag/book.html"><em>book</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -187,7 +231,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "tools-we-used-to-write-2scoops.html";
+                           var disqus_identifier = "python-yields-are-fun.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
