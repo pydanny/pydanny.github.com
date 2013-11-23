@@ -22,6 +22,7 @@ Let's start with a simple function that returns a sequence of some of my favorit
         #   numbers to get back to 9.
         #   Ex: 2 * 9 = 18. 1 + 8 = 9
         #   Ex: 15 * 9 = 135. 1 + 3 + 5 = 9
+        #   See https://en.wikipedia.org/wiki/Digital_root
         yield 9
 
         # A pretty prime.
@@ -141,5 +142,8 @@ If you are like me and like this sort of stuff, I recommend the following resour
 
 In the next article I'll demonstrate how to use the ``yield`` statement to create context managers.
 
+**Update**: `Nicholas Tollervey`_ pointed me at wikipedia's Digital root article, so I added it to the comments of the first code sample.
+
 .. _`Matt Harrison's Treading on Python Volume 2: Intermediate Python`: http://www.amazon.com/Treading-Python-Volume-Intermediate/dp/149055095X/ref=tmm_pap_title_0?tag=mlinar-20
 .. _`Jeff Knupp's Improve Your Python: 'yield' and Generators Explained`: http://www.jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/
+.. _`Nicholas Tollervey`: https://twitter.com/ntoll

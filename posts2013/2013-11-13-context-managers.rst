@@ -1,5 +1,5 @@
 ===========================================
-Managing Connections with Context Managers
+Context Managers are Fun
 ===========================================
 
 :date: 2013-11-14 12:00
@@ -7,6 +7,8 @@ Managing Connections with Context Managers
 :category: blog
 :slug: managing-connections-with-context-managers
 :status: draft
+
+Woek 
 
 The purpose of this is to show how easy it is to write context managers
 
