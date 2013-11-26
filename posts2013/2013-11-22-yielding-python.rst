@@ -68,7 +68,7 @@ Of course, if you know anything about generator expressions, you know I could do
 
     >>> iterator = (x for x in [9, 31, 42, "2010/02/20"]) 
     >>> for i in iterator:
-    ...     i
+    ...     print(i)
     ...
     9
     31
@@ -143,6 +143,8 @@ If you are like me and like this sort of stuff, I recommend the following resour
 In the next article I'll demonstrate how to use the ``yield`` statement to create context managers.
 
 **Update**: `Nicholas Tollervey`_ pointed me at wikipedia's Digital root article, so I added it to the comments of the first code sample.
+
+**Update**: Oddthinking pointed out that I forgot a print statement. In the REPL it's not really needed, but if this is translated to a script then it's necessary.
 
 .. _`Matt Harrison's Treading on Python Volume 2: Intermediate Python`: http://www.amazon.com/Treading-Python-Volume-Intermediate/dp/149055095X/ref=tmm_pap_title_0?tag=mlinar-20
 .. _`Jeff Knupp's Improve Your Python: 'yield' and Generators Explained`: http://www.jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/
