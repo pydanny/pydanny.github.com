@@ -95,3 +95,9 @@ article img, .article img {
     .about-this-blog, .article, article{margin-left:20px;margin-right:20px;}
     .nav li{margin-left: 40px;}
 }
+
+/* button links */
+.btn {
+    /* remove underline from button links */
+    text-decoration: none;
+}
