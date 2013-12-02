@@ -3,7 +3,7 @@ Python Indie Bundle Cyber Monday Sale
 ===========================================
 
 :date: 2013-12-02 14:00
-:tags: python, django, twoscoops
+:tags: python, django, twoscoops, book
 :category: python
 :slug: python-indie-bundle-cyber-monday
 
@@ -11,7 +11,7 @@ I've joined forces with Matt Harrison and Audrey Roy to put together the first e
 
 .. _`Python Indie Bundle`: http://www.pythonindiebundle.com
 
-This bundle includes the following e-book bundles (PDF, Kindle, ePub) for just **S$24.95**:
+This bundle includes the following e-book bundles (PDF, Kindle, ePub) for just **$24.95**:
 
 * Treading on Python Volume 1: Foundations
 * Treading on Python Volume 2: Intermediate
