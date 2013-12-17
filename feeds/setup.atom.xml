@@ -157,7 +157,7 @@ pip install -r requirements.txt
 &lt;div class="section" id="django-registration-0-8-0"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-registration"&gt;django-registration==0.8.0&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Normally &lt;a class="reference external" href="http://pypi.python.org/pypi/django-social-auth"&gt;django-social-auth&lt;/a&gt; is my go-to tool for registration, but in this case I need simple username/password registration. This is a very solid tool, but you do have to make your own templates or find someone's fork that has a copy of templates that match.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: django-registration is no longer maintained and doesn't entirely work with modern Django's new user model system. Use &lt;a class="reference external" href="https://github.com/pennersr/django-allauth"&gt;django-allauth&lt;/a&gt; instead.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 2013/12/17&lt;/strong&gt;: django-registration is no longer maintained and doesn't entirely work with modern Django's new user model system. Use &lt;a class="reference external" href="https://github.com/pennersr/django-allauth"&gt;django-allauth&lt;/a&gt; instead.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-floppyforms-0-4-7"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-floppyforms"&gt;django-floppyforms==0.4.7&lt;/a&gt;&lt;/h2&gt;
