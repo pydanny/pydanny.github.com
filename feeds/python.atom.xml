@@ -2179,10 +2179,10 @@ The result isn't a walk-through or tutorial, but a reference guide for anyone wi
 &lt;li&gt;Blog once a week. That is at least 52 blog entries!&lt;/li&gt;
 &lt;li&gt;Visit the beach for more than one day.&lt;/li&gt;
 &lt;li&gt;Take a fun class with Audrey.&lt;/li&gt;
+&lt;li&gt;Get married&lt;/li&gt;
 &lt;li&gt;Build something real using Twisted as a critical component.&lt;/li&gt;
 &lt;li&gt;Take a high level Python class from the likes of Raymond Hettinger or David Beazley.&lt;/li&gt;
 &lt;li&gt;Commit to core Python&lt;/li&gt;
-&lt;li&gt;Visit my Son.&lt;/li&gt;
 &lt;li&gt;Upload all my outstanding pictures to Flickr!&lt;/li&gt;
 &lt;li&gt;Pull off an Aú sem Mão (no-handed cartwheel).&lt;/li&gt;
 &lt;li&gt;Attend my first Capoeira Batizado (formal gathering).&lt;/li&gt;
@@ -2202,6 +2202,7 @@ The result isn't a walk-through or tutorial, but a reference guide for anyone wi
 &lt;li&gt;Publish as least one book. See &lt;a class="reference external" href="http://django.2scoops.org/"&gt;Two Scoops of Django&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Update my blog to Pelican 3.&lt;/li&gt;
 &lt;li&gt;Implement a custom theme design so my blog looks more unique. ;-)&lt;/li&gt;
+&lt;li&gt;Visit a beach for more than one day. (Split, Croatia)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </summary><category term="holidays"></category><category term="resolutions"></category><category term="python"></category><category term="capoeira"></category><category term="family"></category><category term="friends"></category><category term="django"></category></entry><entry><title>2012 resolution summary</title><link href="http://pydanny.com/2012-resolution-summary.html" rel="alternate"></link><updated>2012-12-30T10:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2012-12-30:2012-resolution-summary.html</id><summary type="html">&lt;div class="section" id="resolutions-completed"&gt;
@@ -4136,21 +4137,22 @@ pip install -r requirements.txt
 &lt;div class="section" id="django-registration-0-8-0"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-registration"&gt;django-registration==0.8.0&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Normally &lt;a class="reference external" href="http://pypi.python.org/pypi/django-social-auth"&gt;django-social-auth&lt;/a&gt; is my go-to tool for registration, but in this case I need simple username/password registration. This is a very solid tool, but you do have to make your own templates or find someone's fork that has a copy of templates that match.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: django-registration is no longer maintained and doesn't entirely work with modern Django's new user model system. Use &lt;a class="reference external" href="https://github.com/pennersr/django-allauth"&gt;django-allauth&lt;/a&gt; instead.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-floppyforms-0-4-7"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-floppyforms"&gt;django-floppyforms==0.4.7&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;An excellent tool for making your forms HTML5-ish out of the box.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-crispy-forms-1-1-3"&gt;
-&lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-crispy-forms"&gt;django-crispy-forms==1.1.3&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/django-crispy-forms"&gt;django-crispy-forms==1.1.3&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The child of my own django-uni-forms, this will let me create forms using div-based controls super fast, and do layout customizations if I need them.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-heroku-postgresify-0-2"&gt;
-&lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-heroku-postgresify"&gt;django-heroku-postgresify==0.2&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/django-heroku-postgresify"&gt;django-heroku-postgresify==0.2&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This tool makes getting the PostGreSQL settings out of Heroku trivial.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-heroku-memcacheify-0-1"&gt;
-&lt;h2&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi/django-heroku-memcacheify"&gt;django-heroku-memcacheify==0.1&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/django-heroku-memcacheify"&gt;django-heroku-memcacheify==0.1&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This tool makes getting the memcache settings for Heroku trivial.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="gunicorn-0-14-2"&gt;
@@ -4176,7 +4178,7 @@ django-registration==0.8.0
 gunicorn==0.14.2
 psycopg2==2.4.5
 &lt;/pre&gt;
-&lt;p&gt;Once you have that, you install them thus in your &lt;a class="reference external" href="http://pypi.python.org/pypi/virtualenv"&gt;virtualenv&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Once you have that, you install them thus in your &lt;a class="reference external" href="https://pypi.python.org/pypi/virtualenv"&gt;virtualenv&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 pip install -r requirements.txt
 &lt;/pre&gt;

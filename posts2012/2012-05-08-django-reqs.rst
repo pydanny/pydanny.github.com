@@ -51,9 +51,13 @@ Django gives you the freedom to migrate data in the way you want. The way I want
 
 Normally `django-social-auth`_ is my go-to tool for registration, but in this case I need simple username/password registration. This is a very solid tool, but you do have to make your own templates or find someone's fork that has a copy of templates that match.
 
+**Update 2013/12/17**: django-registration is no longer maintained and doesn't entirely work with modern Django's new user model system. Use `django-allauth`_ instead.
+
 .. _`django-social-auth`: http://pypi.python.org/pypi/django-social-auth
 
 .. _`django-registration==0.8.0`: http://pypi.python.org/pypi/django-registration
+
+.. _`django-allauth`: https://github.com/pennersr/django-allauth
 
 `django-floppyforms==0.4.7`_
 ==============================
@@ -67,21 +71,21 @@ An excellent tool for making your forms HTML5-ish out of the box.
 
 The child of my own django-uni-forms, this will let me create forms using div-based controls super fast, and do layout customizations if I need them.
 
-.. _`django-crispy-forms==1.1.3`: http://pypi.python.org/pypi/django-crispy-forms
+.. _`django-crispy-forms==1.1.3`: https://pypi.python.org/pypi/django-crispy-forms
 
 `django-heroku-postgresify==0.2`_
 ==================================
 
 This tool makes getting the PostGreSQL settings out of Heroku trivial.
 
-.. _`django-heroku-postgresify==0.2`: http://pypi.python.org/pypi/django-heroku-postgresify
+.. _`django-heroku-postgresify==0.2`: https://pypi.python.org/pypi/django-heroku-postgresify
 
 `django-heroku-memcacheify==0.1`_
 ==================================
 
 This tool makes getting the memcache settings for Heroku trivial.
 
-.. _`django-heroku-memcacheify==0.1`: http://pypi.python.org/pypi/django-heroku-memcacheify
+.. _`django-heroku-memcacheify==0.1`: https://pypi.python.org/pypi/django-heroku-memcacheify
 
 
 `gunicorn==0.14.2`_
@@ -120,7 +124,7 @@ Once you have that, you install them thus in your virtualenv_::
 
 Now that I have all this, it's time to code!
 
-.. _virtualenv: http://pypi.python.org/pypi/virtualenv
+.. _virtualenv: https://pypi.python.org/pypi/virtualenv
 
 ----
 

@@ -20,10 +20,10 @@ Resolution
 * Blog once a week. That is at least 52 blog entries!
 * Visit the beach for more than one day.
 * Take a fun class with Audrey.
+* Get married
 * Build something real using Twisted as a critical component.
 * Take a high level Python class from the likes of Raymond Hettinger or David Beazley.
 * Commit to core Python
-* Visit my Son.
 * Upload all my outstanding pictures to Flickr!
 * Pull off an Aú sem Mão (no-handed cartwheel).
 * Attend my first Capoeira Batizado (formal gathering).
@@ -42,6 +42,6 @@ Accomplished
 * Publish as least one book. See `Two Scoops of Django`_
 * Update my blog to Pelican 3.
 * Implement a custom theme design so my blog looks more unique. ;-)
-
+* Visit a beach for more than one day. (Split, Croatia)
 
 .. _`Two Scoops of Django`: http://django.2scoops.org/

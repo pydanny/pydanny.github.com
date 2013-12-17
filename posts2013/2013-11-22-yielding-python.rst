@@ -4,7 +4,7 @@ Python Yields are Fun!
 
 :date: 2013-11-22 14:00
 :tags: python
-:category: blog
+:category: python
 :slug: python-yields-are-fun
 
 While you can optimize the heck out of your Python code with ``generators`` and ``generator expressions`` I'm more interested in goofing around and solving classic programming questions with the ``yield`` statement.
