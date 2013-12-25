@@ -72,3 +72,5 @@ Now I can create South migrations and they'll just work.
 Unfortunately, the problem is that for any model where I need to use filepicker's FPFileField I need to add those two lines of code. I don't like this approach, since it violates **Don't Repeat Yourself** (DRY). 
 
 At some point I'll demonstrate how to fix this violation of DRY with an easy fix. In fact, I plan submit that fix as a pull request to django-filepicker.
+
+**Update 2013/12/24:** django-filepicker has been patched to address this issue. This blog post therefore describes a historical version of the package.
