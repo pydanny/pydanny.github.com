@@ -1,55 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2013-04-23T10:00:00-07:00</updated><entry><title>Filepicker.io and South</title><link href="http://pydanny.com/filepicker-and-south.html" rel="alternate"></link><updated>2013-04-23T10:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-23:filepicker-and-south.html</id><summary type="html">&lt;p&gt;I've heard good things about filepicker.io, which is a service that makes file uploading a much better experience. Unfortunately, the Django package for filepicker.io doesn't work with South. When I try to create a migration using the filepicker.io field using code like the following...&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# products/models.py&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django_filepicker.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FPFileField&lt;/span&gt;
-
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Product&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FPFileField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;upload_to&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;uploads&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;...when I try to run the command:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-(tsd)$ python manage.py schemamigration products --initial
-&lt;/pre&gt;
-&lt;p&gt;It results in this unpleasant looking response:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-(tsd)$ python manage.py schemamigration products --initial
-Creating migrations directory at '/Users/danielgreenfeld/code/tsp/tsp/products/migrations'...
-Creating __init__.py in '/Users/danielgreenfeld/code/tsp/tsp/products/migrations'...
- ! Cannot freeze field 'products.product.fpfile'
- ! (this field has class django_filepicker.models.FPFileField)
- ! Cannot freeze field 'products.release.fpfile'
- ! (this field has class django_filepicker.models.FPFileField)
-
- ! South cannot introspect some fields; this is probably because they are custom
- ! fields. If they worked in 0.6 or below, this is because we have removed the
- ! models parser (it often broke things).
- ! To fix this, read http://south.aeracode.org/wiki/MyFieldsDontWork
-&lt;/pre&gt;
-&lt;p&gt;The last line in the error report is important. I'll repeat it to illustrate it more clearly:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-! To fix this, read http://south.aeracode.org/wiki/MyFieldsDontWork
-&lt;/pre&gt;
-&lt;p&gt;Experience working on other projects has taught me I can simply add two lines of code to &lt;tt class="docutils literal"&gt;products/models.py&lt;/tt&gt; and everything should just work:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# South migration rules for the FPFileField field&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;south.modelsinspector&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;add_introspection_rules&lt;/span&gt;
-&lt;span class="n"&gt;add_introspection_rules&lt;/span&gt;&lt;span class="p"&gt;([],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;django_filepicker\.models\.FPFileField&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In case it's not clear, here's my new &lt;tt class="docutils literal"&gt;products/models.py&lt;/tt&gt; file:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# products/models.py&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django_filepicker.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FPFileField&lt;/span&gt;
-
-&lt;span class="c"&gt;# South migration rules for the FPFileField field&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;south.modelsinspector&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;add_introspection_rules&lt;/span&gt;
-&lt;span class="n"&gt;add_introspection_rules&lt;/span&gt;&lt;span class="p"&gt;([],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;django_filepicker\.models\.FPFileField&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Product&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FPFileField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;upload_to&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;uploads&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now I can create South migrations and they'll just work.&lt;/p&gt;
-&lt;p&gt;Unfortunately, the problem is that for any model where I need to use filepicker's FPFileField I need to add those two lines of code. I don't like this approach, since it violates &lt;strong&gt;Don't Repeat Yourself&lt;/strong&gt; (DRY).&lt;/p&gt;
-&lt;p&gt;At some point I'll demonstrate how to fix this violation of DRY with an easy fix. In fact, I plan submit that fix as a pull request to django-filepicker.&lt;/p&gt;
-</summary><category term="django"></category><category term=""></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-01-01T12:00:00-08:00</updated><entry><title>New Year's Resolutions for 2014</title><link href="http://pydanny.com/new-years-resolutions-for-2014.html" rel="alternate"></link><updated>2014-01-01T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-01-01:new-years-resolutions-for-2014.html</id><summary type="html">&lt;p&gt;Making News Year's Resolutions is something I do every year. It's important to me. I like to set goals and see how well I do.&lt;/p&gt;
+&lt;div class="section" id="resolutions"&gt;
+&lt;h2&gt;Resolutions&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Write and publish fiction. This is a childhood dream that I would like to do.&lt;/li&gt;
+&lt;li&gt;Write and publish as least one new technical book, preferably on Python.&lt;/li&gt;
+&lt;li&gt;Release the second edition of Two Scoops of Django.&lt;/li&gt;
+&lt;li&gt;Learn Haskell or some other interesting programming language.&lt;/li&gt;
+&lt;li&gt;Figure out a way I can make enough money working in open source efforts so that I can do it full time.&lt;/li&gt;
+&lt;li&gt;Visit the three continents I've yet to see. That means South America, Africa, and Antarctica.&lt;/li&gt;
+&lt;li&gt;Visit at least one new nation. It's hard to come up with preferences since the whole world is so exciting.&lt;/li&gt;
+&lt;li&gt;Take road trips around the USA.&lt;/li&gt;
+&lt;li&gt;See the Grand Canyon.&lt;/li&gt;
+&lt;li&gt;Visit more family.&lt;/li&gt;
+&lt;li&gt;Do 1000 push-ups or similar exercises in a single day. I'm at 300 now.&lt;/li&gt;
+&lt;li&gt;Pull off an Aú sem Mão (no-handed cartwheel).&lt;/li&gt;
+&lt;li&gt;Blog once a week. That is at least 52 blog entries!&lt;/li&gt;
+&lt;li&gt;Take a fun class with Audrey.&lt;/li&gt;
+&lt;li&gt;Upload all my outstanding pictures to Flickr!&lt;/li&gt;
+&lt;li&gt;Learn how to surf or snowboard.&lt;/li&gt;
+&lt;li&gt;See all my friends. All of them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</summary><category term="holidays"></category><category term="resolutions"></category><category term="python"></category><category term="family"></category><category term="friends"></category><category term="capoeira"></category><category term=""></category></entry></feed>
