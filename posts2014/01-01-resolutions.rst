@@ -19,6 +19,7 @@ Resolutions
 * Figure out a way I can make money working in open source efforts. As a consultant, this explains why I don't do it more.
 * Visit the three continents I've yet to see. That means South America, Africa, and Antarctica.
 * Visit at least one new nation. It's hard to come up with preferences since the whole world is so exciting.
+* Go back to places I've visited before. For example, Italy, Philippines, and the states where I grew up.
 * Take road trips around the USA.
 * See the Grand Canyon.
 * Visit more family.
