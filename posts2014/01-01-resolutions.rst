@@ -16,7 +16,7 @@ Resolutions
 * Write and publish as least one new technical book, preferably on Python.
 * Release the second edition of Two Scoops of Django.
 * Learn Haskell or some other interesting programming language.
-* Figure out a way I can make enough money working in open source efforts so that I can do it full time.
+* Figure out a way I can make money working in open source efforts. As a consultant, this explains why I don't do it more.
 * Visit the three continents I've yet to see. That means South America, Africa, and Antarctica.
 * Visit at least one new nation. It's hard to come up with preferences since the whole world is so exciting.
 * Take road trips around the USA.
@@ -29,3 +29,4 @@ Resolutions
 * Upload all my outstanding pictures to Flickr!
 * Learn how to surf or snowboard.
 * See all my friends. All of them.
+* Work less and enjoy life with Audrey more.
