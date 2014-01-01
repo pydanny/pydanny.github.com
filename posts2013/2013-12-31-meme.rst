@@ -72,7 +72,7 @@ What Are the Top Three Things You Want to Learn Next Year?
 What is the Top Thing You Wish Someone Would Write Next Year?
 =============================================================
 
-Something that gets more women into the top 10 of Gittip_. That amazing developers and community leaders in the Python community like `Lynn Root`_, `Jessica McKellar`_, and dare I say Audrey_ Roy_ aren't up there speaks uncomfortable volumes. Starting today, I'm directing all my Gittip funds in their direction. Well... not Audrey because she won't let me, but you get the idea.
+Something that gets more women into the top 10 of Gittip_. That amazing developers and community leaders in the Python community like `Lynn Root`_, `Jessica McKellar`_, dare I say Audrey_ Roy_, and others aren't up there speaks uncomfortable volumes. Starting today, I'm directing all my Gittip funds in their direction. Well... not Audrey because she won't let me, but you get the idea.
 
 What Else?
 ================
