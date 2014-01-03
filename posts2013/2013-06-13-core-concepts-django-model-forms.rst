@@ -283,7 +283,7 @@ In this example, we're validating the output of a RESTful API before letting it 
     
     def fetch_reitz_data(target_url):
         response = requests.get(target_url)
-        if response.status_code == "200":
+        if response.status_code == 200:
         
             # generate the form from the response
             form = MyModelForm(response.json())
