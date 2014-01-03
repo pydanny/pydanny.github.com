@@ -164,5 +164,7 @@ ModelForms adds at least three more bullets...
 * ModelForms automatically choose validators based off of Model field definitions.
 * ModelForms save dictionaries to SQL tables.
 
-... and I'll be touching on them in the future.
+... and I touch on them in `my post on ModelForms`_.
+
+.. _`my post on ModelForms`: http://pydanny.com/core-concepts-django-modelforms.html
 

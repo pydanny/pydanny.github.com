@@ -125,7 +125,7 @@
 &lt;li&gt;ModelForms automatically choose validators based off of Model field definitions.&lt;/li&gt;
 &lt;li&gt;ModelForms save dictionaries to SQL tables.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;... and I'll be touching on them in the future.&lt;/p&gt;
+&lt;p&gt;... and I touch on them in &lt;a class="reference external" href="http://pydanny.com/core-concepts-django-modelforms.html"&gt;my post on ModelForms&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="forms"></category><category term="class-based-views"></category></entry><entry><title>Stay with the Django CBV defaults!</title><link href="http://pydanny.com/stay-with-the-django-cbv-defaults.html" rel="alternate"></link><updated>2012-11-27T16:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2012-11-27:stay-with-the-django-cbv-defaults.html</id><summary type="html">&lt;p&gt;One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity.&lt;/p&gt;
 &lt;p&gt;For example, here is an implementation of CBVs based on a straight-forward Django model , &lt;tt class="docutils literal"&gt;stuffage.models.Stuff&lt;/tt&gt;, that has a &lt;tt class="docutils literal"&gt;get_absolute_url&lt;/tt&gt; method:&lt;/p&gt;
