@@ -4,10 +4,10 @@ About
 
 :date: 2013-09-04 13:11
 
-Currently in Split, Croatia for a month, I normally do Python, Django, and JavaScript out of Los Angeles, California. I love to read, write, hang out with my fiancee_, and play at Capoeira_. I am a total Space and NASA Geek.
+Currently in Split, Croatia for a month, I normally do Python, Django, and JavaScript out of the Inland Empire in California. I love to read, write, hang out with my wife_, and play at Capoeira_. I am a total Space and NASA Geek.
 
 .. _`Audrey Roy`: http://audreymroy.com
-.. _fiancee: http://audreymroy.com
+.. _wife: http://audreyr.com
 .. _Capoeira: http://valleycapoeira.com
 .. _`Django Packages`: http://djangopackages.com
 .. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
