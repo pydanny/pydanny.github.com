@@ -19,9 +19,9 @@ In a small, private family ceremony on December 27th, 2013 I exchanged wedding v
 
 It was an incredible day. I'll savor the moment we promised ourselves to each other in matrimony forever. She is the other half of my soul, and since we've become husband and wife, everything has changed. The world is simply a better place to be.
 
-Audrey wore my mother's 1961 wedding dress and her wedding ring was my grandmother's. These symbolized the close bond Audrey has with my family. I was wearing a tuxedo and for the occasion taught myself how to tie a bow tie. The flowers were a combined effort of Audrey, her aunt, and her cousin. Audrey made the wedding cake figurines herself.
 
-I'll be expanding this post to include links to more photos of the occasion.
+
+Audrey wore my mother's 1961 wedding dress and her wedding ring was my grandmother's. These symbolized the close bond Audrey has with my family. I was wearing a tuxedo and for the occasion taught myself how to tie a bow tie. The flowers were a combined effort of Audrey, her aunt, and her cousin. Audrey made the wedding cake figurines herself.
 
 Honeymoon
 ==========
@@ -32,3 +32,13 @@ Future Celebrations
 ===================
 
 We're thinking of planning a fun, casual outdoor reception in late March in Southern California. We're not absolutely certain yet, because at big events you barely have time to say hello to everyone. Still, it could be fun...
+
+More Photos
+===========
+
+This image is a link to a short collection of photos from the incredible photographer, Lindy DiMaio. More to come:
+
+.. image:: https://s3.amazonaws.com/pydanny/couple.jpg
+   :name: Newlywed Couple
+   :align: center
+   :target: http://www.2scoops.co/3p/
