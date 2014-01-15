@@ -23,7 +23,7 @@ records/
     records.py
     test_records.py &lt;span class="c"&gt;# skipped because records/ lacks __init__.py&lt;/span&gt;
 __init__.py
-main.py  &lt;span class="c"&gt;# checked for tests&lt;/span&gt;
+main.py
 test_main.py  &lt;span class="c"&gt;# checked for tests&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now that I've explained which files are checked for tests, here is how &lt;strong&gt;pytest&lt;/strong&gt; determines what in each Python module is run as a test.&lt;/p&gt;
