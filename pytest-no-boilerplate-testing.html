@@ -105,7 +105,7 @@
                 </p>
 
                 <div class="entry-content">
-                    <p>When I first encountered Holger krekel's <a class="reference external" href="http://pytest.org/">pytest</a> this summer on <a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Jeff Knupp's blog</a> I felt like I had been living under a rock for years. I've been using Python's <a class="reference external" href="http://docs.python.org/2/library/unittest.html">unittest</a> framework since 2006 and <a class="reference external" href="https://pypi.python.org/pypi/nose">nose</a> to find tests since 2008, but here was another test framework dating back to at least <a class="reference external" href="https://bitbucket.org/hpk42/pytest/commits/all?page=112">January 24, 2007</a>.  pytest is a very mature testing tool for testing Python. My favorite features:</p>
+                    <p>When I first encountered Holger Krekel's <a class="reference external" href="http://pytest.org/">pytest</a> this summer on <a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Jeff Knupp's blog</a> I felt like I had been living under a rock for years. I've been using Python's <a class="reference external" href="http://docs.python.org/2/library/unittest.html">unittest</a> framework since 2006 and <a class="reference external" href="https://pypi.python.org/pypi/nose">nose</a> to find tests since 2008, but here was another test framework dating back to at least <a class="reference external" href="https://bitbucket.org/hpk42/pytest/commits/all?page=112">January 24, 2007</a>.  <strong>pytest</strong> is a very mature testing tool for testing Python. My favorite features:</p>
 <ul class="simple">
 <li>It can run <strong>unittest</strong>, <strong>doctest</strong>, and <strong>nose</strong>, style tests suites, making it ideal for new and legacy projects.</li>
 <li>It includes an intuitively named <tt class="docutils literal">raises</tt> <strong>context manager</strong> for testing exceptions.</li>
@@ -116,7 +116,7 @@
 <p>Alright, lets dive into usage.</p>
 <div class="section" id="test-discovery">
 <h2>Test Discovery</h2>
-<p>The first thing that <strong>pytest</strong> provides is test discovery. Like <strong>nose</strong>, starting from the directory where it is run, it will find any Python module prefixed with <cite>test_</cite> and will attempt to run any defined <strong>unittest</strong> or function prefixed with  <cite>test_</cite>. <strong>pytest</strong> explores properly defined Python packages, searching recursively through directories that include <tt class="docutils literal">__init.py__</tt> modules. Since an image is probably easier to read, here's a sample directory structure annotated with which files are checked for tests:</p>
+<p>The first thing that <strong>pytest</strong> provides is test discovery. Like <strong>nose</strong>, starting from the directory where it is run, it will find any Python module prefixed with <tt class="docutils literal">test_</tt> and will attempt to run any defined <strong>unittest</strong> or function prefixed with  <tt class="docutils literal">test_</tt>. <strong>pytest</strong> explores properly defined Python packages, searching recursively through directories that include <tt class="docutils literal">__init.py__</tt> modules. Since an image is probably easier to read, here's a sample directory structure annotated with which files are checked for tests:</p>
 <div class="highlight"><pre>address/
     __init__.py
     envelope.py
@@ -135,7 +135,7 @@ test_main.py  <span class="c"># checked for tests</span>
 <p>Now that I've explained which files are checked for tests, here is how <strong>pytest</strong> determines what in each Python module is run as a test.</p>
 <ol class="arabic simple">
 <li><strong>pytest</strong> <em>just runs</em> <strong>doctests</strong> and <strong>unittests</strong>.</li>
-<li><strong>pytest</strong> runs any function prefixed with <cite>test_</cite> as a test.</li>
+<li><strong>pytest</strong> runs any function prefixed with <tt class="docutils literal">test_</tt> as a test.</li>
 <li><strong>pytest</strong> does <a class="reference external" href="http://pytest.org/latest/nose.html#unsupported-idioms-known-issues">it's best</a> to run tests written for <strong>nose</strong>.</li>
 </ol>
 <p>Yes, <strong>pytest</strong> behaves similarly to <strong>nose</strong> in test discovery. Next is another feature that it shares with <strong>nose</strong> that I really enjoy.</p>
@@ -265,104 +265,14 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
 </p>
 
 <h4 class="nav-header">Tags</h4>
-<span class="tag-3">
-    <a href="./tag/javascript.html">
-        javascript
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/australia.html">
-        australia
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/europe.html">
-        europe
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/forms.html">
-        forms
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/science.html">
-        science
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumernotebook.html">
-        consumernotebook
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nodejs.html">
-        nodejs
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/pyladies.html">
-        pyladies
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/python.html">
-        python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/functions.html">
-        functions
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/philippines.html">
-        philippines
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/clojure.html">
-        clojure
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/djangodash.html">
-        djangodash
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/review.html">
-        review
-    </a>
-</span>
 <span class="tag-2">
-    <a href="./tag/rant.html">
-        rant
+    <a href="./tag/howto.html">
+        howto
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        los-angeles
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/family.html">
-        family
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/twoscoops.html">
-        twoscoops
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/sprint.html">
-        sprint
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/hackathon.html">
-        hackathon
+    <a href="./tag/gondor.html">
+        gondor
     </a>
 </span>
 <span class="tag-2">
@@ -371,188 +281,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/capoeira.html">
-        capoeira
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/gondor.html">
-        gondor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/css.html">
-        css
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/pycon.html">
-        pycon
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/friends.html">
-        friends
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dsf.html">
-        dsf
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/django.html">
-        django
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackthons.html">
-        lahackthons
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/travel.html">
-        travel
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypy.html">
-        pypy
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/vs.html">
-        vs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/api.html">
-        api
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/djangocon.html">
-        djangocon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/flask.html">
-        flask
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/mongodb.html">
-        mongodb
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/ruby.html">
-        ruby
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/europython.html">
-        europython
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/resolutions.html">
-        resolutions
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/blog.html">
-        blog
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/php.html">
-        php
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/joke.html">
-        joke
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/rails.html">
-        rails
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/audrey.html">
-        audrey
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/meme.html">
-        meme
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/setup.html">
-        setup
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/wsgi.html">
-        wsgi
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/tools.html">
-        tools
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/paypal.html">
-        paypal
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
-        Consumer-Notebook
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dotcloud.html">
-        dotcloud
-    </a>
-</span>
-<span class="tag-3">
     <a href="./tag/travel-tips-for-geeks.html">
         travel tips for geeks
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/usability.html">
-        usability
-    </a>
-</span>
 <span class="tag-2">
-    <a href="./tag/howto.html">
-        howto
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/casestudy.html">
-        casestudy
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/holidays.html">
-        holidays
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        Los Angeles
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/book.html">
-        book
+    <a href="./tag/rant.html">
+        rant
     </a>
 </span>
 <span class="tag-4">
@@ -566,13 +301,23 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/testing.html">
-        testing
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/lahackathons.html">
-        lahackathons
+    <a href="./tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
     </a>
 </span>
 <span class="tag-3">
@@ -581,8 +326,33 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/la.html">
-        la
+    <a href="./tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
     </a>
 </span>
 <span class="tag-3">
@@ -591,8 +361,148 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/la.html">
-        LA
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/filepicker.html">
+        filepicker
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/flask.html">
+        flask
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
     </a>
 </span>
 <span class="tag-3">
@@ -601,18 +511,63 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
-        pycon-2013-guide
+    <a href="./tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel.html">
+        travel
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/filepicker.html">
-        filepicker
+    <a href="./tag/paypal.html">
+        paypal
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/nasa.html">
-        nasa
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
     </a>
 </span>
 <span class="tag-3">
@@ -621,8 +576,53 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/meteor.html">
-        meteor
+    <a href="./tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/testing.html">
+        testing
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
     </a>
 </span>
 
