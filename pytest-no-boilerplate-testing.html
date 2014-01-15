@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Annotated History of My Most Used Shell Commands</title>
+    <title>pytest: no-boilerplate testing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Annotated History of My Most Used Shell Commands">
-                                        Annotated History of My Most Used Shell Commands
+                                        title="Permalink to pytest: no-boilerplate testing">
+                                        pytest: no-boilerplate testing
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,37 +100,118 @@
                 </header>
 
                 <p>
-                    <em>Wednesday, April 10, 2013</em>
-                    (<a href="" rel="bookmark" title="Permalink to Annotated History of My Most Used Shell Commands">permalink</a>)
+                    <em>Wednesday, January 15, 2014</em>
+                    (<a href="" rel="bookmark" title="Permalink to pytest: no-boilerplate testing">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>An oldie, but a goodie. This time I annotate it with reasons as to why things are used so much. If you blog, post your own!</p>
-<p>For reference, anything after a &quot;#&quot; is an annotation.</p>
-<pre class="literal-block">
-$ history | awk '{a[$2]++ } END{for(i in a){print a[i] &quot; &quot; i}}'|sort -rn |head -n 20
-166 git     # I am a software developer.
-138 make    # Building the book takes 5 to 8 commands depending on format.
-68 touch    # Readying the book for kindle requires adding a lot of new files.
-51 python   # I am a Python developer and often use the shell.
-21 open     # Opening PDFs and Mobi to see how the book build works.
-12 rm       # I hate bad files.
-10 cd       # Intrigued that this isn't higher.
-9 kindled/kindlegen # Converting the book to .mobi format.
-7 heroku    # Support for clients.
-6 vim       # Sometimes I use it to keep my street cred up.
-5 bpython   # I like this shell.
-3 source    # Activating virtualenv without virtualenvwrapper. Long story...
-3 cp        # Files need to be copied, right?
-3 gondor    # More client support.
-2 import    # I have no idea.
-1 wget      # Fetching files from the internets.
-1 pip       # More client support.
-1 ls        # How is this not higher?
-1 ssh       # Some projects are not on PaaS.
-</pre>
-<p>Interesting how much of my very recent shell experience is focused on the <a class="reference external" href="https://django.2scoops.org/">book</a>.</p>
-<p>Speaking of books, today's reading is Jeff Knupp's <a class="reference external" href="http://www.amazon.com/Writing-Idiomatic-Python-3-3-ebook/dp/B00B5VXMRG/ref=tmm_kin_title_0?ie=UTF8&amp;qid=1365610132&amp;sr=8-1&amp;tag=ihpydanny-20">Writing Idiomatic Python 3.3</a> (Python 2.7 edition also <a class="reference external" href="http://www.amazon.com/Writing-Idiomatic-Python-2-7-3-ebook/dp/B00B5KG0F8/ref=la_B00BBE1MDI_1_2_title_1_kin?ie=UTF8&amp;qid=1365610777&amp;sr=1-2&amp;tag=ihpydanny-20">available</a>)</p>
+                    <p>When I first encountered Holger krekel's <a class="reference external" href="http://pytest.org/">pytest</a> this summer on <a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Jeff Knupp's blog</a> I felt like I had been living under a rock for years. I've been using Python's <a class="reference external" href="http://docs.python.org/2/library/unittest.html">unittest</a> framework since 2006 and <a class="reference external" href="https://pypi.python.org/pypi/nose">nose</a> to find tests since 2008, but here was another test framework dating back to at least <a class="reference external" href="https://bitbucket.org/hpk42/pytest/commits/all?page=112">January 24, 2007</a>.  pytest is a very mature testing tool for testing Python. My favorite features:</p>
+<ul class="simple">
+<li>It can run <strong>unittest</strong>, <strong>doctest</strong>, and <strong>nose</strong>, style tests suites, making it ideal for new and legacy projects.</li>
+<li>It includes an intuitively named <tt class="docutils literal">raises</tt> <strong>context manager</strong> for testing exceptions.</li>
+<li>You can define <cite>fixture arguments</cite> to generate baseline data. This is very, very different from Django-style fixtures.</li>
+<li>Via <tt class="docutils literal">pytest.ini</tt> you can change the behavior of pytest.</li>
+<li>Integrates nicely with <tt class="docutils literal">setup.py</tt>.</li>
+</ul>
+<p>Alright, lets dive into usage.</p>
+<div class="section" id="test-discovery">
+<h2>Test Discovery</h2>
+<p>The first thing that <strong>pytest</strong> provides is test discovery. Like <strong>nose</strong>, starting from the directory where it is run, it will find any Python module prefixed with <cite>test_</cite> and will attempt to run any defined <strong>unittest</strong> or function prefixed with  <cite>test_</cite>. <strong>pytest</strong> explores properly defined Python packages, searching recursively through directories that include <tt class="docutils literal">__init.py__</tt> modules. Since an image is probably easier to read, here's a sample directory structure annotated with which files are checked for tests:</p>
+<div class="highlight"><pre>address/
+    __init__.py
+    envelope.py
+    geo.py
+    test_envelope.py <span class="c"># checked for tests</span>
+    test_geo.py <span class="c"># checked for tests</span>
+records/
+    <span class="c"># pytest WON&#39;T look here because it lacks __init__.py</span>
+    records.csv
+    records.py
+    test_records.py <span class="c"># skipped because records/ lacks __init__.py</span>
+__init__.py
+main.py  <span class="c"># checked for tests</span>
+test_main.py  <span class="c"># checked for tests</span>
+</pre></div>
+<p>Now that I've explained which files are checked for tests, here is how <strong>pytest</strong> determines what in each Python module is run as a test.</p>
+<ol class="arabic simple">
+<li><strong>pytest</strong> <em>just runs</em> <strong>doctests</strong> and <strong>unittests</strong>.</li>
+<li><strong>pytest</strong> runs any function prefixed with <cite>test_</cite> as a test.</li>
+<li><strong>pytest</strong> does <a class="reference external" href="http://pytest.org/latest/nose.html#unsupported-idioms-known-issues">it's best</a> to run tests written for <strong>nose</strong>.</li>
+</ol>
+<p>Yes, <strong>pytest</strong> behaves similarly to <strong>nose</strong> in test discovery. Next is another feature that it shares with <strong>nose</strong> that I really enjoy.</p>
+</div>
+<div class="section" id="writing-tests-as-functions">
+<h2>Writing Tests as Functions</h2>
+<p>Python's <strong>unittest</strong> framework works, but it's always felt like too much boilerplate. I admit I like to write tests, but working with the <strong>unittest</strong> framework always dimmed that fun. I suppose this is why the assert keyword is useful, because it changes this:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">TestMyStuff</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_the_obvious</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+<p>to this:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="bp">True</span> <span class="o">==</span> <span class="bp">True</span>
+</pre></div>
+<p>The former is nine lines of code (seven if you are using <strong>pytest</strong> to find this test) to do what the assert statement does in one. However, the nine lines of <strong>unittest</strong> code has a couple major advantages:</p>
+<ol class="arabic simple">
+<li>Not automatically run when stumbled on by the Python interpreter.</li>
+<li>Produces a more illuminating response than an uninformative <cite>AssertionError</cite>.</li>
+</ol>
+<p>Fortunately, tools like <strong>pytest</strong> (and <strong>nose</strong>) provide the ability to write tests as functions. This means we can combine the advantages of both <tt class="docutils literal">unittest</tt> and <tt class="docutils literal">assert</tt> thus:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">test_the_obvious</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="bp">True</span> <span class="o">==</span> <span class="bp">True</span>
+</pre></div>
+<p>Now we are down to just two lines of code! That could be increased to five if we called <strong>pytest</strong> the same as we did in the <strong>unittest</strong> example:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="k">def</span> <span class="nf">test_the_obvious</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="bp">True</span> <span class="o">==</span> <span class="bp">True</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+<p>The next part is wonderful. If an <tt class="docutils literal">assert</tt> statement fails, then <strong>pytest</strong> provides a very informative response. Let's check it out by running the following code:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="k">def</span> <span class="nf">test_gonna_fail</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="bp">True</span> <span class="o">==</span> <span class="n">Fail</span>  <span class="c"># Going to fail here on line 4</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table><p>When I run this code, I get the following response:</p>
+<div class="highlight"><pre><span class="o">====================</span> <span class="nv">FAILURES</span> <span class="o">=====================</span>
+----------------- test_gonna_fail -----------------
+
+    def test_gonna_fail<span class="o">()</span>:
+&gt;       assert <span class="nv">True</span> <span class="o">==</span> False
+E       assert <span class="nv">True</span> <span class="o">==</span> False
+
+samples.py:4: <span class="nv">AssertionError</span>
+<span class="o">========</span> 1 failed, 0 passed in 0.1 <span class="nv">seconds</span> <span class="o">========</span>
+</pre></div>
+<p>As you can see, nose identified where the <tt class="docutils literal">assert</tt> statement failed on line 4 and displays exactly caused the failure (<tt class="docutils literal">True</tt> did not equal <tt class="docutils literal">False</tt>). Very nice indeed.</p>
+</div>
+<div class="section" id="more-to-come">
+<h2>More to Come</h2>
+<p>Come back to my blog tomorrow where I'll describe the following features of writing tests with <strong>pytest</strong>.</p>
+<ul class="simple">
+<li>The <tt class="docutils literal">raises</tt> <strong>context manager</strong></li>
+<li>Fixtures</li>
+<li>Teardown</li>
+<li>Integrating with Django</li>
+</ul>
+</div>
 
                     <div class="article-info">
                             <footer class="post-info">
@@ -138,8 +219,8 @@ $ history | awk '{a[$2]++ } END{for(i in a){print a[i] &quot; &quot; i}}'|sort -
 
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/twoscoops.html"><em>twoscoops</em></a>
-	<a href="./tag/book.html"><em>book</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/testing.html"><em>testing</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -147,7 +228,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "20130410-history-of-my-most-used-shell-commands.html";
+                           var disqus_identifier = "pytest-no-boilerplate-testing.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
