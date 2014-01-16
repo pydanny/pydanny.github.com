@@ -10,7 +10,7 @@
 &lt;p&gt;Alright, lets dive into usage.&lt;/p&gt;
 &lt;div class="section" id="test-discovery"&gt;
 &lt;h2&gt;Test Discovery&lt;/h2&gt;
-&lt;p&gt;The first thing that &lt;strong&gt;pytest&lt;/strong&gt; provides is test discovery. Like &lt;strong&gt;nose&lt;/strong&gt;, starting from the directory where it is run, it will find any Python module prefixed with &lt;tt class="docutils literal"&gt;test_&lt;/tt&gt; and will attempt to run any defined &lt;strong&gt;unittest&lt;/strong&gt; or function prefixed with  &lt;tt class="docutils literal"&gt;test_&lt;/tt&gt;. &lt;strong&gt;pytest&lt;/strong&gt; explores properly defined Python packages, searching recursively through directories that include &lt;tt class="docutils literal"&gt;__init.py__&lt;/tt&gt; modules. Since an image is probably easier to read, here's a sample directory structure annotated with which files are checked for tests:&lt;/p&gt;
+&lt;p&gt;The first thing that &lt;strong&gt;pytest&lt;/strong&gt; provides is test discovery. Like &lt;strong&gt;nose&lt;/strong&gt;, starting from the directory where it is run, it will find any Python module prefixed with &lt;tt class="docutils literal"&gt;test_&lt;/tt&gt; and will attempt to run any defined &lt;strong&gt;unittest&lt;/strong&gt; or function prefixed with  &lt;tt class="docutils literal"&gt;test_&lt;/tt&gt;. &lt;strong&gt;pytest&lt;/strong&gt; explores properly defined Python packages, searching recursively through directories that include &lt;tt class="docutils literal"&gt;__init__.py&lt;/tt&gt; modules. Since an image is probably easier to read, here's a sample directory structure annotated with which files are checked for tests:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;address/
     __init__.py
     envelope.py
