@@ -26,10 +26,21 @@ When using **pytest**, you can assert whether or not an exception occurred via t
             # Indexing the 30th item in a 3 item list
             [5, 10, 15][30]
 
+    class CustomException(Exception):
+        pass
+        
+    def test_my_exception():
+        with raises(CustomException):
+            raise CustomException
+
+This is similar to, but just a bit easier to remember than the implementation in unittest_. What I like about it is that even if I step away from code and tests for enough time to go on vacation and `get married`_, when I come back I always remember the precise name of the **context manager** in **pytest** used to raise exceptions. 
+
+.. _`get married`: http://pydanny.com/i-married-audrey-roy.html
+
 Fixtures as Function Arguments
 ==============================
 
-When writing tests, it's not uncommon to need common objects used between tests. However, if you have a complicated process to generate these common objects, then you have to write tests for your tests. When using Python's venerable unittest_ framework, this always causes a spaghetti-code headache. However, via the virtue of simplicity, **pytest** helps keep our test code cleaner and more maintainable.
+When writing tests, it's not uncommon to need common objects used between tests. However, if you have a complicated process to generate these common objects, then you have to write tests for your tests. When using Python's venerable **unittest** framework, this always causes a spaghetti-code headache. However, via the virtue of simplicity, **pytest** helps keep our test code cleaner and more maintainable.
 
 Rather than try and explain that further, I'll write some code to get my point across:
 

@@ -10,11 +10,19 @@
     &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;raises&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ne"&gt;IndexError&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="c"&gt;# Indexing the 30th item in a 3 item list&lt;/span&gt;
         &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CustomException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_my_exception&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;raises&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CustomException&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;CustomException&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is similar to, but just a bit easier to remember than the implementation in &lt;a class="reference external" href="http://docs.python.org/2/library/unittest.html"&gt;unittest&lt;/a&gt;. What I like about it is that even if I step away from code and tests for enough time to go on vacation and &lt;a class="reference external" href="http://pydanny.com/i-married-audrey-roy.html"&gt;get married&lt;/a&gt;, when I come back I always remember the precise name of the &lt;strong&gt;context manager&lt;/strong&gt; in &lt;strong&gt;pytest&lt;/strong&gt; used to raise exceptions.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="fixtures-as-function-arguments"&gt;
 &lt;h2&gt;Fixtures as Function Arguments&lt;/h2&gt;
-&lt;p&gt;When writing tests, it's not uncommon to need common objects used between tests. However, if you have a complicated process to generate these common objects, then you have to write tests for your tests. When using Python's venerable &lt;a class="reference external" href="http://docs.python.org/2/library/unittest.html"&gt;unittest&lt;/a&gt; framework, this always causes a spaghetti-code headache. However, via the virtue of simplicity, &lt;strong&gt;pytest&lt;/strong&gt; helps keep our test code cleaner and more maintainable.&lt;/p&gt;
+&lt;p&gt;When writing tests, it's not uncommon to need common objects used between tests. However, if you have a complicated process to generate these common objects, then you have to write tests for your tests. When using Python's venerable &lt;strong&gt;unittest&lt;/strong&gt; framework, this always causes a spaghetti-code headache. However, via the virtue of simplicity, &lt;strong&gt;pytest&lt;/strong&gt; helps keep our test code cleaner and more maintainable.&lt;/p&gt;
 &lt;p&gt;Rather than try and explain that further, I'll write some code to get my point across:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# test_fixtures.py&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;fixture&lt;/span&gt;
