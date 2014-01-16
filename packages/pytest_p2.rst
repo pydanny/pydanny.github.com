@@ -116,7 +116,7 @@ I can tear down data structures in them. This is useful for any sort of data bin
     # test_fixtures_with_teardown.py
     from pytest import fixture
     
-    @fixture(scope="module")
+    @fixture()
     def file_data(request): # The fixture MUST have a 'request' argument
         text = open("data.txt", "w")
         
