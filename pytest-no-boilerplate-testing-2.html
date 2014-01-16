@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>pytest: no-boilerplate testing (part 2)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel-Greenfeld">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css" />
+    <link href="./theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="./theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
+
+    <link href="http://pydanny.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+    
+  </head>
+
+  <body>
+
+    <div class="pre-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h1 class="site-logo">
+              <a href=".">
+              <img src="./theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              </a>
+            </h1>
+          </div>
+          <div class="offset1 span5">
+            <p class="about-this-blog">
+              Hi, I'm Daniel Greenfeld, and welcome to my blog. I write about Python, Django, and much more.
+            </p>
+          </div>
+        </div>
+        <div class="pydanny-cartwheel"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+    <div class="navbar navbar-fixed-top" id="pydanny-navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href=".">Home</a></li>
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/events.html">Events</a></li>
+                <li><a href="./pages/projects.html">Projects</a></li>
+                <li><a href="./pages/tools.html">Tools</a></li>
+                <li><a href="./category/audrey.html">Audrey</a></li>
+                <li><a href="./category/blog.html">Blog</a></li>
+                <li><a href="./category/book.html">Book</a></li>
+                <li><a href="./category/django.html">Django</a></li>
+                <li><a href="./category/python.html">Python</a></li>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+            <section id="content">
+        <article>
+                <header>
+                        <h1 class="article-title">
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to pytest: no-boilerplate testing (part 2)">
+                                        pytest: no-boilerplate testing (part 2)
+                                </a>
+                                <a href="http://twitter.com/share" class="twitter-share-button"
+   data-count="horizontal" data-via="pydanny">Tweet</a>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js">
+</script>
+                        </h1>
+                </header>
+
+                <p>
+                    <em>Thursday, January 16, 2014</em>
+                    (<a href="" rel="bookmark" title="Permalink to pytest: no-boilerplate testing (part 2)">permalink</a>)
+                </p>
+
+                <div class="entry-content">
+                    <p>In my previous <a class="reference external" href="pytest-no-boilerplate-testing.html">blog post</a> I covered test discovery and writing basic tests using <a class="reference external" href="http://pytest.org/">pytest</a>. Today I'm going to cover a few more features that I really enjoy: <tt class="docutils literal">raises</tt> and <tt class="docutils literal">fixtures</tt>.</p>
+<div class="section" id="the-intuitively-named-raises-context-manager">
+<h2>The Intuitively Named <tt class="docutils literal">raises</tt> <strong>context manager</strong></h2>
+<p>When using <strong>pytest</strong>, you can assert whether or not an exception occurred via the following:</p>
+<div class="highlight"><pre><span class="c"># test_exceptions.py</span>
+<span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">raises</span>
+
+<span class="k">def</span> <span class="nf">test_an_exception</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">raises</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">):</span>
+        <span class="c"># Indexing the 30th item in a 3 item list</span>
+        <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">][</span><span class="mi">30</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="fixtures-as-function-arguments">
+<h2>Fixtures as Function Arguments</h2>
+<p>When writing tests, it's not uncommon to need common objects used between tests. However, if you have a complicated process to generate these common objects, then you have to write tests for your tests. When using Python's venerable <a class="reference external" href="http://docs.python.org/2/library/unittest.html">unittest</a> framework, this always causes a spaghetti-code headache. However, via the virtue of simplicity, <strong>pytest</strong> helps keep our test code cleaner and more maintainable.</p>
+<p>Rather than try and explain that further, I'll write some code to get my point across:</p>
+<div class="highlight"><pre><span class="c"># test_fixtures.py</span>
+<span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">fixture</span>
+
+<span class="nd">@fixture</span>  <span class="c"># Registering this function as a fixture.</span>
+<span class="k">def</span> <span class="nf">complex_data</span><span class="p">():</span>
+    <span class="c"># Creating test data entirely in this function to isolate it</span>
+    <span class="c">#   from the rest of this module.</span>
+    <span class="k">class</span> <span class="nc">DataTypes</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="nb">str</span>
+        <span class="nb">list</span> <span class="o">=</span> <span class="nb">list</span>
+    <span class="k">return</span> <span class="n">DataTypes</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">test_types</span><span class="p">(</span><span class="n">complex_data</span><span class="p">):</span> <span class="c"># fixture is passed as an argument</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="s">&quot;Elephant&quot;</span><span class="p">,</span> <span class="n">complex_data</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="n">complex_data</span><span class="o">.</span><span class="n">list</span><span class="p">)</span>
+</pre></div>
+<p>Nice and simple, which is how I think test harnesses should operate.</p>
+<div class="section" id="writing-tests-for-fixtures">
+<h3>Writing Tests for Fixtures</h3>
+<p>Let's pretend that the <tt class="docutils literal">complex_data()</tt> is a terribly sophisticated function in it's own right. It's so sophisticated that I can't determine what it's actually doing, and I start to get worried. Fortunately, because the <tt class="docutils literal">complex_data()</tt> argument itself is written as a function, I can easily write a test for it.</p>
+<div class="highlight"><pre><span class="c"># test_fixtures.py</span>
+<span class="c"># note: this version of test_fixtures.py is built off the previous example</span>
+
+<span class="k">def</span> <span class="nf">test_complex_data</span><span class="p">(</span><span class="n">complex_data</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">complex_data</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">complex_data</span><span class="o">.</span><span class="n">string</span> <span class="o">==</span> <span class="nb">str</span>
+    <span class="k">assert</span> <span class="n">complex_data</span><span class="o">.</span><span class="n">list</span> <span class="o">==</span> <span class="nb">list</span>
+</pre></div>
+<p>Now that I can easily write tests for my fixtures, that means I can refactor them! I can replace difficult-to-use libraries with easier ones, break up giant functions into little ones, and generally simplify the unnecessarily complex.</p>
+<p>If you've ever been in that weird place where the a <strong>unittest</strong> <tt class="docutils literal">setUp()</tt> method is indecipherable, you know just how useful this can be.</p>
+</div>
+<div class="section" id="scoping-fixtures">
+<h3>Scoping Fixtures</h3>
+<p>What if I want a fixture that shares it's scope across several test functions?</p>
+<div class="highlight"><pre><span class="c"># test_fixtures_with_scope.py</span>
+<span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">fixture</span>
+
+<span class="nd">@fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s">&quot;module&quot;</span><span class="p">)</span>  <span class="c"># Registering fixture with module-level scope</span>
+<span class="k">def</span> <span class="nf">scope_data</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">&quot;count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">test_first</span><span class="p">(</span><span class="n">scope_data</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope_data</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">scope_data</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">test_second</span><span class="p">(</span><span class="n">scope_data</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">scope_data</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="section" id="executing-teardown-code">
+<h3>Executing Teardown Code</h3>
+<p>I can tear down data structures in them. This is useful for any sort of data binding, including file management.</p>
+<div class="highlight"><pre><span class="c"># test_fixtures_with_teardown.py</span>
+<span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">fixture</span>
+
+<span class="nd">@fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s">&quot;module&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">file_data</span><span class="p">(</span><span class="n">request</span><span class="p">):</span> <span class="c"># The fixture MUST have a &#39;request&#39; argument</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
+
+    <span class="nd">@request.addfinalizer</span>
+    <span class="k">def</span> <span class="nf">teardown</span><span class="p">():</span>
+        <span class="n">text</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">text</span>
+
+<span class="k">def</span> <span class="nf">test_data_type</span><span class="p">(</span><span class="n">file_data</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file_data</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
+</pre></div>
+<p>What's really nice about this teardown feature is that when combined with the fixture decorator's <tt class="docutils literal">scope</tt> argument, I can exactly control when fixtures are taken down. This is an amazing piece of control. While I can and have duplicated this behavior using <strong>unittest</strong>, with <strong>pytest</strong> I can do it with more obvious code.</p>
+</div>
+<div class="section" id="more-pytext-fixture-features">
+<h3>More <strong>pytext</strong> Fixture Features</h3>
+<p>Want to know more things you can do with <strong>pytest</strong> fixtures? Please read the <a class="reference external" href="http://pytest.org/latest/fixture.html">pytest fixtures documentation</a></p>
+</div>
+</div>
+<div class="section" id="more-to-come">
+<h2>More to Come</h2>
+<p>Come back to my blog tomorrow where I'll describe the following features of writing tests with <strong>pytest</strong>.</p>
+<ul class="simple">
+<li>Changing search behavior of <strong>pytest</strong> with <tt class="docutils literal">pytest.ini</tt></li>
+<li>Integrating with <tt class="docutils literal">setup.py</tt></li>
+<li>Integrating with <strong>Django</strong></li>
+</ul>
+</div>
+
+                    <div class="article-info">
+                            <footer class="post-info">
+
+
+Tags:
+	<a href="./tag/python.html"><em>python</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/testing.html"><em>testing</em></a>
+	<a href="./tag/ppoftw.html"><em>ppoftw</em></a>
+</footer><!-- /.post-info -->                    </div>
+                </div><!-- /.entry-content -->
+                                <hr/>
+                <div class="comments">
+                <h3>Comments</h3>
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                           var disqus_identifier = "pytest-no-boilerplate-testing-2.html";
+                           (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = 'http://pydanny.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] ||
+                                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+                          })();
+                        </script>
+                </div>
+                        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="offset1 span3 sidebar-nav" id="sidebar">
+            <ul class="nav nav-list">
+</ul>
+
+<h4>Two Scoops of Django</h4>
+
+<p><a href="http://django.2scoops.org">My book</a> about Django best practices is available as an ebook in PDF, Kindle, ePub, and print formats!</p>
+
+<a href="http://django.2scoops.org"><img class="two-scoops-cover-thumb" src="https://s3.amazonaws.com/twoscoops/img/tsd-cover-beta.png" /></a>
+
+<h4 class="nav-header">Follow Me</h4>
+    <p class="capitalize"><i class="icon-twitter-sign icon-large"></i> <a href="http://twitter.com/pydanny">twitter</a></p>
+    <p class="capitalize"><i class="icon-github-sign icon-large"></i> <a href="https://github.com/pydanny">github</a></p>
+    <p class="capitalize"><i class="icon-facebook-sign icon-large"></i> <a href="http://www.facebook.com/daniel.greenfeld">facebook</a></p>
+    <p class="capitalize"><i class="icon-gittip icon-large"></i> <a href="https://www.gittip.com/pydanny">gittip</a></p>
+
+<h4>Subscribe To My Feed</h4>
+
+<p>
+While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
+
+<h4 class="nav-header">Tags</h4>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel-tips-for-geeks.html">
+        travel tips for geeks
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/python3.html">
+        python3
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ppoftw.html">
+        ppoftw
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/testing.html">
+        testing
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypi.html">
+        pypi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/filepicker.html">
+        filepicker
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/flask.html">
+        flask
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pyramid.html">
+        pyramid
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+
+
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">Content Copyright © 2013 Daniel Greenfeld. 
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>. Adapted from the <a href="https://github.com/getpelican/pelican-themes/tree/master/bootstrap2">Pelican Bootstrap2</a> theme by <a href="http://www.audreymroy.com">Audrey M. Roy</a>. Support my work by spreading the word about <a href="http://django.2scoops.org">Two Scoops of Django: Best Practices For Django 1.5</a>.
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-18066389-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+        <script type="text/javascript">
+    var disqus_shortname = 'pydanny';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./theme/js/jquery-1.7.2.min.js"></script>
+    <script src="./theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
