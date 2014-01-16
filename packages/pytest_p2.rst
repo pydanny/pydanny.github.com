@@ -33,7 +33,9 @@ When using **pytest**, you can assert whether or not an exception occurred via t
         with raises(CustomException):
             raise CustomException
 
-This is similar to, but just a bit easier to remember than the implementation in unittest_. What I like about it is that even if I step away from code and tests for enough time to go on vacation and `get married`_, when I come back I always remember the precise name of the **context manager** in **pytest** used to raise exceptions. 
+This is similar to, but just a bit easier to remember than the implementation in unittest_. 
+
+What I like about it is that even if I step away from code and tests for enough time to go on vacation and `get married`_, when I come back I always remember the precise name of the **context manager** used to raise exceptions. 
 
 .. _`get married`: http://pydanny.com/i-married-audrey-roy.html
 
