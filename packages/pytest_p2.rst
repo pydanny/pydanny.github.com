@@ -9,7 +9,7 @@ pytest: no-boilerplate testing (part 2)
 
 In my previous `blog post`_ I covered test discovery and writing basic tests using pytest_. Today I'm going to cover a few more features that I really enjoy: ``raises`` and ``fixtures``.
 
-.. _`blog post`: pytest-no-boilerplate-testing.html
+.. _`blog post`: http://pydanny.com/pytest-no-boilerplate-testing.html
 
 The Intuitively Named ``raises`` **context manager**
 =====================================================
@@ -83,7 +83,7 @@ Let's pretend that the ``complex_data()`` is a terribly sophisticated function i
 
 Now that I can easily write tests for my fixtures, that means I can refactor them! I can replace difficult-to-use libraries with easier ones, break up giant functions into little ones, and generally simplify the unnecessarily complex.
 
-If you've ever been in that weird place where the a **unittest** ``setUp()`` method is indecipherable, you know just how useful this can be.
+If you've ever been in that weird place where a **unittest** ``setUp()`` method is indecipherable, you know just how useful this can be.
 
 Scoping Fixtures
 ------------------

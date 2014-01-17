@@ -139,4 +139,4 @@ In my next `blog post`_ I describe the following features of writing tests with 
 .. _nose: https://pypi.python.org/pypi/nose
 .. _`January 24, 2007`: https://bitbucket.org/hpk42/pytest/commits/all?page=112
 .. _`it's best`: http://pytest.org/latest/nose.html#unsupported-idioms-known-issues
-.. _`blog post`: pytest-no-boilerplate-testing-2.html
+.. _`blog post`: http://pydanny.com/pytest-no-boilerplate-testing-2.html

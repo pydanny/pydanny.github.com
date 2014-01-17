@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-01-16T12:00:00-08:00</updated><entry><title>pytest: no-boilerplate testing (part 2)</title><link href="http://pydanny.com/pytest-no-boilerplate-testing-2.html" rel="alternate"></link><updated>2014-01-16T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-01-16:pytest-no-boilerplate-testing-2.html</id><summary type="html">&lt;p&gt;In my previous &lt;a class="reference external" href="pytest-no-boilerplate-testing.html"&gt;blog post&lt;/a&gt; I covered test discovery and writing basic tests using &lt;a class="reference external" href="http://pytest.org/"&gt;pytest&lt;/a&gt;. Today I'm going to cover a few more features that I really enjoy: &lt;tt class="docutils literal"&gt;raises&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;fixtures&lt;/tt&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-01-16T12:00:00-08:00</updated><entry><title>pytest: no-boilerplate testing (part 2)</title><link href="http://pydanny.com/pytest-no-boilerplate-testing-2.html" rel="alternate"></link><updated>2014-01-16T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-01-16:pytest-no-boilerplate-testing-2.html</id><summary type="html">&lt;p&gt;In my previous &lt;a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing.html"&gt;blog post&lt;/a&gt; I covered test discovery and writing basic tests using &lt;a class="reference external" href="http://pytest.org/"&gt;pytest&lt;/a&gt;. Today I'm going to cover a few more features that I really enjoy: &lt;tt class="docutils literal"&gt;raises&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;fixtures&lt;/tt&gt;.&lt;/p&gt;
 &lt;div class="section" id="the-intuitively-named-raises-context-manager"&gt;
 &lt;h2&gt;The Intuitively Named &lt;tt class="docutils literal"&gt;raises&lt;/tt&gt; &lt;strong&gt;context manager&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;When using &lt;strong&gt;pytest&lt;/strong&gt;, you can assert whether or not an exception occurred via the following:&lt;/p&gt;
@@ -54,7 +54,7 @@
     &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;complex_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now that I can easily write tests for my fixtures, that means I can refactor them! I can replace difficult-to-use libraries with easier ones, break up giant functions into little ones, and generally simplify the unnecessarily complex.&lt;/p&gt;
-&lt;p&gt;If you've ever been in that weird place where the a &lt;strong&gt;unittest&lt;/strong&gt; &lt;tt class="docutils literal"&gt;setUp()&lt;/tt&gt; method is indecipherable, you know just how useful this can be.&lt;/p&gt;
+&lt;p&gt;If you've ever been in that weird place where a &lt;strong&gt;unittest&lt;/strong&gt; &lt;tt class="docutils literal"&gt;setUp()&lt;/tt&gt; method is indecipherable, you know just how useful this can be.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="scoping-fixtures"&gt;
 &lt;h3&gt;Scoping Fixtures&lt;/h3&gt;
@@ -207,7 +207,7 @@ samples.py:4: &lt;span class="nv"&gt;AssertionError&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class="section" id="what-s-next"&gt;
 &lt;h2&gt;What's Next?&lt;/h2&gt;
-&lt;p&gt;In my next &lt;a class="reference external" href="pytest-no-boilerplate-testing-2.html"&gt;blog post&lt;/a&gt; I describe the following features of writing tests with &lt;strong&gt;pytest&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In my next &lt;a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing-2.html"&gt;blog post&lt;/a&gt; I describe the following features of writing tests with &lt;strong&gt;pytest&lt;/strong&gt;.&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;The &lt;tt class="docutils literal"&gt;raises&lt;/tt&gt; &lt;strong&gt;context manager&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Fixtures&lt;/li&gt;
