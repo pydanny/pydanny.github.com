@@ -7,7 +7,7 @@ pytest: no-boilerplate testing
 :category: book
 :slug: pytest-no-boilerplate-testing
 
-When I first encountered Holger Krekel's pytest_ this summer on `Jeff Knupp's blog`_ I felt like I had been living under a rock for years. I've been using Python's unittest_ framework since 2006 and nose_ to find tests since 2008, but here was another test framework dating back to at least `January 24, 2007`_.  **pytest** is a very mature testing tool for testing Python. My favorite features:
+When I first encountered Holger Krekel's pytest_ this summer on `Jeff Knupp's blog`_ I felt like I had been living under a rock for years. I've been using Python's unittest_ framework since 2006 and nose_ to find tests since 2008, but here was another test framework that actually predates **nose**!  **pytest** is a very mature testing tool for testing Python. My favorite features:
 
 .. _`Jeff Knupp's blog`: http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/
 
@@ -137,6 +137,5 @@ In my next `blog post`_ I describe the following features of writing tests with 
 .. _pytest: http://pytest.org/
 .. _unittest: http://docs.python.org/2/library/unittest.html
 .. _nose: https://pypi.python.org/pypi/nose
-.. _`January 24, 2007`: https://bitbucket.org/hpk42/pytest/commits/all?page=112
 .. _`it's best`: http://pytest.org/latest/nose.html#unsupported-idioms-known-issues
 .. _`blog post`: http://pydanny.com/pytest-no-boilerplate-testing-2.html
