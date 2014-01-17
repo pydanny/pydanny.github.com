@@ -64,12 +64,12 @@ A good example of using **pytest** with **Django** can be found in `django-brace
 Twisted (and more) Integration is Just a Plug-In Away
 ------------------------------------------------------
 
-The same goes for Twisted_ thanks to `pytest-twisted`_. There is also a Pyramid_ plug-in that was just released_. I'm not sure if it needs it, but I guess there will be Flask_ plug-in soon.
+The same goes for Twisted_ thanks to `pytest-twisted`_. There is also a Pyramid_ plug-in that was just released_. I'm not sure if Flask_ needs it, but I guess there will be **Flask** plug-in soon.
 
 Integration With ``setup.py``
 =============================
 
-Fortunately, the documentation for **pytest** covers both adding a new `setup.py command-classes for pytest`_ and `actual integration`_. That's useful, but what I've found even more useful is the `setup.py that Jeff Knupp wrote for his Sandman project`_. 
+Fortunately, the documentation for **pytest** covers both adding a new `setup.py command-classes for pytest`_ and `actual integration`_. That's handy, but what I've found even more useful is the `setup.py that Jeff Knupp wrote for his Sandman project`_. 
 
 **Note:** If you aren't experienced with writing Python packages and readying them for **PyPI**, I recommend you read `Jeff Knupp's blog post on open sourcing projects`_. Amongst other things, it has an in-depth discussion about integration of **pytest** with ``setup.py``. Anything I would write on the subject of ``setup.py`` integration would be just a cheap knock-off of Jeff's excellent work.
 
