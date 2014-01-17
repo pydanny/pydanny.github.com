@@ -88,7 +88,7 @@ Tests are an important part of any project. While they increase the stability of
 
 .. _`pytest-django`: https://pypi.python.org/pypi/pytest-django
 
-.. _`blog post`: http://pydanny.com/pytest-no-boilerplate-testing-3.html
+.. _`blog post`: http://pydanny.com/pytest-no-boilerplate-testing-2.html
 .. _pytest: http://pytest.org/
 .. _`looks for a configuration file`: http://pytest.org/latest/customize.html#how-test-configuration-is-read-from-configuration-ini-files
 .. _`search results`: http://pytest.org/latest/search.html?q=conftest&check_keywords=yes&area=default
