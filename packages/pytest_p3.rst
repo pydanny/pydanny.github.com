@@ -57,6 +57,10 @@ If you want to use **pytest** instead of **Django**'s test runner and also get t
 
 That previous tests still function means that as with a pure Python project, I can rely on existing **unittests** and write all my new tests as functions. I guess I could say that my existing Django projects just got much easier to maintain.
 
+A good example of using **pytest** with **Django** can be found in `django-braces' tox.ini file`_.
+
+.. _`django-braces' tox.ini file`: https://github.com/brack3t/django-braces/blob/master/tox.ini
+
 Twisted (and more) Integration is Just a Plug-In Away
 ------------------------------------------------------
 
