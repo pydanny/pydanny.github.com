@@ -53,7 +53,9 @@ There are a lot of `third-party pytest plug-ins`_, which brings me to the next m
 Django Integration is Just a Plug-In Away
 ==========================================
 
-If you want to use **pytest** instead of **Django**'s test runner and also get the power of function-based tests, fixture functions, improved test discover, and all the stuff I haven't covered, then check out and/or ``pip`` install `pytest-django`_. My *admittedly brief* usage on some of my existing projects demonstrates that my existing **unittest**-style tests work.
+If you want to use **pytest** instead of **Django**'s test runner and also get the power of function-based tests, fixture functions, improved test discover, and all the stuff I haven't covered, then check out and/or ``pip`` install `pytest-django`_. My *admittedly brief* usage on some of my existing projects has demonstrating that my existing **unittest**-style tests work.
+
+That previous tests still function means that as with a pure Python project, I can rely on existing **unittests** and write all my new tests as functions. I guess I could say that my existing Django projects just got much easier to maintain.
 
 Twisted (and more) Integration is Just a Plug-In Away
 ------------------------------------------------------
