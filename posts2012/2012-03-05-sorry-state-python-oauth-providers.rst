@@ -119,6 +119,7 @@ Updates
 * 03/06/2012 - Added a link to the PyCon OAuth sprints.
 * 6/24/2013 - This article has been translated by Anja Skrba to Serbo-Croatian: http://science.webhostinggeeks.com/lose-stanje-python
 * 07/07/2013 - Please consider https://github.com/evonove/django-oauth-toolkit for use as a Django-powered OAuth provider. The team behind it is doing it right!
+* 01/16/2014 - Please consider https://github.com/lepture/flask-oauthlib for use as a Flask-powered OAuth provider.
 
 ----
 

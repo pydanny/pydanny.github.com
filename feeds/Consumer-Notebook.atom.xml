@@ -129,6 +129,7 @@ What to bring if you are participating: Workout clothes, water bottle
 &lt;li&gt;03/06/2012 - Added a link to the PyCon OAuth sprints.&lt;/li&gt;
 &lt;li&gt;6/24/2013 - This article has been translated by Anja Skrba to Serbo-Croatian: &lt;a class="reference external" href="http://science.webhostinggeeks.com/lose-stanje-python"&gt;http://science.webhostinggeeks.com/lose-stanje-python&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;07/07/2013 - Please consider &lt;a class="reference external" href="https://github.com/evonove/django-oauth-toolkit"&gt;https://github.com/evonove/django-oauth-toolkit&lt;/a&gt; for use as a Django-powered OAuth provider. The team behind it is doing it right!&lt;/li&gt;
+&lt;li&gt;01/16/2014 - Please consider &lt;a class="reference external" href="https://github.com/lepture/flask-oauthlib"&gt;https://github.com/lepture/flask-oauthlib&lt;/a&gt; for use as a Flask-powered OAuth provider.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr class="docutils" /&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://news.ycombinator.com/item?id=3666853"&gt;Discuss this post on Hacker News&lt;/a&gt;&lt;/p&gt;
