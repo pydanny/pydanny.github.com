@@ -140,7 +140,7 @@ More to Come
 
 Come back to my blog tomorrow where I'll describe the following features of writing tests with **pytest**.
 
-* Changing search behavior of **pytest** with ``pytest.ini``
+* Changing behavior of **pytest** with ``pytest.ini``
 * Integration with ``setup.py``
 * Integration with **Django**
 
