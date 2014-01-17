@@ -148,11 +148,11 @@
 &lt;/div&gt;
 &lt;div class="section" id="more-to-come"&gt;
 &lt;h2&gt;More to Come&lt;/h2&gt;
-&lt;p&gt;Come back to my blog tomorrow where I'll describe the following features of writing tests with &lt;strong&gt;pytest&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In my &lt;a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing-3.html"&gt;next blog post&lt;/a&gt; I describe usage of the following &lt;strong&gt;pytest&lt;/strong&gt; features:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;Changing behavior of &lt;strong&gt;pytest&lt;/strong&gt; with &lt;tt class="docutils literal"&gt;pytest.ini&lt;/tt&gt;&lt;/li&gt;
+&lt;li&gt;Changing behavior of &lt;strong&gt;pytest&lt;/strong&gt; with &lt;tt class="docutils literal"&gt;pytest.ini&lt;/tt&gt; and plug-ins.&lt;/li&gt;
+&lt;li&gt;Integration with &lt;strong&gt;Django&lt;/strong&gt; and other frameworks.&lt;/li&gt;
 &lt;li&gt;Integration with &lt;tt class="docutils literal"&gt;setup.py&lt;/tt&gt;&lt;/li&gt;
-&lt;li&gt;Integration with &lt;strong&gt;Django&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="testing"></category><category term="ppoftw"></category></entry><entry><title>pytest: no-boilerplate testing</title><link href="http://pydanny.com/pytest-no-boilerplate-testing.html" rel="alternate"></link><updated>2014-01-15T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-01-15:pytest-no-boilerplate-testing.html</id><summary type="html">&lt;p&gt;When I first encountered Holger Krekel's &lt;a class="reference external" href="http://pytest.org/"&gt;pytest&lt;/a&gt; this summer on &lt;a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/"&gt;Jeff Knupp's blog&lt;/a&gt; I felt like I had been living under a rock for years. I've been using Python's &lt;a class="reference external" href="http://docs.python.org/2/library/unittest.html"&gt;unittest&lt;/a&gt; framework since 2006 and &lt;a class="reference external" href="https://pypi.python.org/pypi/nose"&gt;nose&lt;/a&gt; to find tests since 2008, but here was another test framework that actually predates &lt;strong&gt;nose&lt;/strong&gt;!  &lt;strong&gt;pytest&lt;/strong&gt; is a very mature testing tool for testing Python. My favorite features:&lt;/p&gt;

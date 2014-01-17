@@ -138,13 +138,13 @@ Want to know more things you can do with **pytest** fixtures? Please read the `p
 More to Come
 ============
 
-Come back to my blog tomorrow where I'll describe the following features of writing tests with **pytest**.
+In my `next blog post`_ I describe usage of the following **pytest** features:
 
-* Changing behavior of **pytest** with ``pytest.ini``
+* Changing behavior of **pytest** with ``pytest.ini`` and plug-ins.
+* Integration with **Django** and other frameworks.
 * Integration with ``setup.py``
-* Integration with **Django**
 
-
+.. _`next blog post`: http://pydanny.com/pytest-no-boilerplate-testing-3.html
 .. _pytest: http://pytest.org/
 .. _unittest: http://docs.python.org/2/library/unittest.html
 .. _`pytest fixtures documentation`: http://pytest.org/latest/fixture.html
