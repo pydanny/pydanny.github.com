@@ -13,7 +13,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;While a very nice tool, this package is dependent on Django's internal machinery to operate, which is a problem for non-Django users. While we could use Python's &lt;a class="reference external" href="http://flask.pocoo.org/snippets/5/"&gt;unicodedata library to resolve unicode to slugs&lt;/a&gt;, wouldn't it be nice if there was a nicely packaged/tested solution?&lt;/p&gt;
 &lt;p&gt;Fortunately, such a nicely packaged/tested solution exists, and it's awesome!&lt;/p&gt;
-&lt;img alt="django.utils.text.slugify" class="align-center" id="django-slug" src="https://s3.amazonaws.com/pydanny/awesome_slugify_django.jpg" /&gt;
+&lt;img alt="An Awesome Django slug" class="align-center" id="django-slug" src="https://s3.amazonaws.com/pydanny/awesome_slugify_django.jpg" /&gt;
 &lt;div class="section" id="introducing-awesome-slugify"&gt;
 &lt;h2&gt;Introducing awesome-slugify&lt;/h2&gt;
 &lt;p&gt;Created and maintained by &lt;a class="reference external" href="https://github.com/dimka665"&gt;Dmitry Voronin&lt;/a&gt;, &lt;a class="reference external" href="https://pypi.python.org/pypi/awesome-slugify"&gt;awesome-slugify&lt;/a&gt; is easy to use and 100% independent from Django. You call it thus:&lt;/p&gt;
