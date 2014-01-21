@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/unicode.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-01-20T12:00:00-08:00</updated><entry><title>awesome-slugify: Human-readable URL slugs from any string</title><link href="http://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string.html" rel="alternate"></link><updated>2014-01-20T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-01-20:awesome-slugify-human-readable-url-slugs-from-any-string.html</id><summary type="html">&lt;p&gt;Years ago, when I was working with &lt;a class="reference external" href="http://plone.org"&gt;Plone&lt;/a&gt; at &lt;a class="reference external" href="http://nasa.gov"&gt;NASA&lt;/a&gt;, one thing I dreaded was when content editors would copy-and-paste from Microsoft Word into the title bar. All kinds of funny characters would appear in the title bar and URL. I would have to go into the database (ZODB) and fix things. Things didn't get better until Reed O'Brien turned on a title validator (probably in &lt;tt class="docutils literal"&gt;Plone.i18n&lt;/tt&gt;).&lt;/p&gt;
+&lt;p&gt;When we started using &lt;a class="reference external" href="https://www.djangoproject.com"&gt;Django&lt;/a&gt;, one thing that made it nice was the presence of it's &lt;a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/utils/#module-django.utils.text"&gt;slugify()&lt;/a&gt; function and template filter. Inspired by the newspaper industry, this function it easier on both content editors and software engineers. In any case, using &lt;tt class="docutils literal"&gt;slugify()&lt;/tt&gt; we completed a number of projects, with &lt;a class="reference external" href="http://science.nasa.gov/"&gt;NASA Science&lt;/a&gt; being the only public one I worked on.&lt;/p&gt;
+&lt;p&gt;As much as the &lt;tt class="docutils literal"&gt;slugify()&lt;/tt&gt; function was useful, there were problems. As I discovered time and time again over the years, it didn't handle &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Unicode"&gt;unicode&lt;/a&gt;. Or rather, it handled them by simply vanishing non-ASCII unicode characters. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.utils.text&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;quot;straße&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# German for road&lt;/span&gt;
+&lt;span class="s"&gt;u&amp;quot;strae&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you read German, you'll know that the default Django &lt;tt class="docutils literal"&gt;slugify()&lt;/tt&gt; function is converting the word 'road' to nonsense. For sites dealing with internationalization, this won't do. So over three years ago while at &lt;a class="reference external" href="http://www.mozilla.org/"&gt;Mozilla&lt;/a&gt;, &lt;a class="reference external" href="http://pinterest.com"&gt;Pinterest&lt;/a&gt; engineer &lt;a class="reference external" href="https://twitter.com/davedash"&gt;Dave Dash&lt;/a&gt; created &lt;a class="reference external" href="https://pypi.python.org/pypi/unicode-slugify"&gt;unicode-slugify&lt;/a&gt;. From then we could do this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;slugify&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;quot;straße&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# Again with the German word for road&lt;/span&gt;
+&lt;span class="s"&gt;u&amp;quot;straße&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;While a very nice tool, this package is dependent on Django's internal machinery to operate, which is a problem for non-Django users. While we could use Python's &lt;a class="reference external" href="http://flask.pocoo.org/snippets/5/"&gt;unicodedata library to resolve unicode to slugs&lt;/a&gt;, wouldn't it be nice if there was a nicely packaged/tested solution?&lt;/p&gt;
+&lt;p&gt;Fortunately, such a nicely packaged/tested solution exists, and it's awesome!&lt;/p&gt;
+&lt;img alt="django.utils.text.slugify" class="align-center" id="django-slug" src="https://s3.amazonaws.com/pydanny/awesome_slugify_django.jpg" /&gt;
+&lt;div class="section" id="introducing-awesome-slugify"&gt;
+&lt;h2&gt;Introducing awesome-slugify&lt;/h2&gt;
+&lt;p&gt;Created and maintained by &lt;a class="reference external" href="https://github.com/dimka665"&gt;Dmitry Voronin&lt;/a&gt;, &lt;a class="reference external" href="https://pypi.python.org/pypi/awesome-slugify"&gt;awesome-slugify&lt;/a&gt; is easy to use and 100% independent from Django. You call it thus:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;slugify&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;quot;straße&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# Yet again the German for road&lt;/span&gt;
+&lt;span class="s"&gt;u&amp;#39;strasse&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Works! Hooray!&lt;/p&gt;
+&lt;p&gt;However, please note that unlike the Django-only &lt;strong&gt;unicode-slugify&lt;/strong&gt; package which preserves the non-ASCII characters, &lt;strong&gt;awesome-slugify&lt;/strong&gt; transformed the German 'ß' into the ASCII equivalent. This is similar to how the popular &lt;a class="reference external" href="https://pypi.python.org/pypi/python-slugify"&gt;python-slugify&lt;/a&gt; package works. While this behavior of translating unicode to ASCII might work for English-only sites, it's not so useful for the rest of the world. Fortunately, &lt;strong&gt;awesome-slugify&lt;/strong&gt; also provides the incredibly useful &lt;tt class="docutils literal"&gt;slugify_unicode()&lt;/tt&gt; function:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;slugify&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;slugify_unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;quot;straße&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# What is it with German Roads?&lt;/span&gt;
+&lt;span class="s"&gt;u&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\u044f&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;slugify_unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;quot;straße&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;straße&amp;quot;&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="using-awesome-slugify"&gt;
+&lt;h3&gt;Using awesome-slugify&lt;/h3&gt;
+&lt;p&gt;Rather than describe &lt;strong&gt;awesome-slugify&lt;/strong&gt; in paragraph format, here is working test code (&lt;a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing.html"&gt;using pytest which I described before&lt;/a&gt;) that explains what we can do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="c"&gt;# test_awesome_slugify.py&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;unicode_literals&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;slugify&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;slugify_unicode&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_simple&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;This is basic functionality!!!    &amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;This-is-basic-functionality&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_remove_special_characters&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;special characters (#?@$%^&amp;amp;*) are also ASCII&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;special-characters-are-also-ASCII&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_basic_accents_and_backslash_escapes&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Where I&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;ve gone before&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Where-Ive-gone-before&amp;quot;&lt;/span&gt;
+
+&lt;span class="nd"&gt;@pytest.fixture&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;accents&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;Àddîñg áçćèńtš tô Éñgłïśh íš śīłłÿ!&amp;#39;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_accents&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;accents&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;accents&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Adding-accents-to-English-is-silly&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_keep_accents&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;accents&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;accents&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; \
+                        &lt;span class="s"&gt;&amp;#39;Àddîñg-áçćèńtš-tô-Éñgłïśh-íš-śīłłÿ&amp;#39;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_keep_accents_lower&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;accents&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c"&gt;# Because awesome-slugify doesn&amp;#39;t lower() while slugify, we&lt;/span&gt;
+    &lt;span class="c"&gt;#   have to do it ourselves. I&amp;#39;m torn if I like this or hate it&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;accents&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; \
+                        &lt;span class="s"&gt;&amp;#39;àddîñg-áçćèńtš-tô-éñgłïśh-íš-śīłłÿ&amp;#39;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_musical_notes&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Is ♬ ♫ ♪ ♩ a melody or just noise?&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Is-a-melody-or-just-noise&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Is-a-melody-or-just-noise&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_chinese&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;美国&amp;quot;&lt;/span&gt; &lt;span class="c"&gt;# Chinese for &amp;#39;America&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Mei-Guo&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt;  &lt;span class="s"&gt;&amp;quot;美国&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_separator&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Separator is a word I frequently mispell.&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;separator&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;capitalize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Separator_is_a_word_I_frequently_mispell&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;pytest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Easy to use as any good &lt;tt class="docutils literal"&gt;slugify()&lt;/tt&gt; function!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="restricting-the-length-of-a-returned-slug"&gt;
+&lt;h3&gt;Restricting the length of a returned slug&lt;/h3&gt;
+&lt;p&gt;When using &lt;strong&gt;awesome-slugify&lt;/strong&gt;'s &lt;tt class="docutils literal"&gt;slugify()&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;slugify_unicode()&lt;/tt&gt; functions, the &lt;tt class="docutils literal"&gt;max_length&lt;/tt&gt; argument acts in an interesting fashion. On very short strings it removes longer words to make things fit. As the author of &lt;strong&gt;awesome-slugify&lt;/strong&gt; is Russian, and the Russian language, as far as I know, doesn't have prepositions (words like 'the' and 'a') this makes sense.&lt;/p&gt;
+&lt;p&gt;Let's take a look, shall we?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="c"&gt;# test_awesome_slugify_max_length.py&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;slugify&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;slugify_unicode&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_max_length_tiny&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# Removes the longer words to fit smaller words in.&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$ is a special character, as is #.&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;is-a-as-is&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_max_length_medium&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# Keeps in prepositions, but removes meaningful words.&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$ is a special character, as is #.&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;is-a-special-as&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_max_length_realistic&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# Long enough that long words are not removed from the string in favor&lt;/span&gt;
+    &lt;span class="c"&gt;#   of shorter words.&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;This sentence illuminates the method that this package&lt;/span&gt;
+&lt;span class="s"&gt;                handles truncation of longer strings.&lt;/span&gt;
+&lt;span class="s"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; \
+        &lt;span class="s"&gt;&amp;quot;This-sentence-illuminates-the-method-that-this-of&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# The next few tests cover how the max_length argument handles truncation&lt;/span&gt;
+&lt;span class="c"&gt;#   inside of a word. When working with longer word languages, like German,&lt;/span&gt;
+&lt;span class="c"&gt;#   understanding how your chosen slugify() function works is important.&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_truncating_word&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# This demonstrates taking a long German word and truncating it.&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; \
+                &lt;span class="s"&gt;&amp;quot;Rindfleischetikettierungsuberwachungsauf&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; \
+                &lt;span class="s"&gt;u&amp;quot;Rindfleischetikettierungsüberwachungsauf&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_truncating_varying_letter_size&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# Truncating unicode slugs is challenging. For example, the German&lt;/span&gt;
+    &lt;span class="c"&gt;#   letter &amp;#39;ß&amp;#39; is &amp;#39;ss&amp;#39; in English. Should a slugify&amp;#39;s max_length&lt;/span&gt;
+    &lt;span class="c"&gt;#   argument use the German or the English length? In the case of&lt;/span&gt;
+    &lt;span class="c"&gt;#   awesome-slugify, it uses the length of English letter for both the&lt;/span&gt;
+    &lt;span class="c"&gt;#   slugify() and slugify_unicode() functions.&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;straße&amp;quot;&lt;/span&gt; &lt;span class="c"&gt;# I really can&amp;#39;t stop using German roads.&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;stras&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;max_length&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;straß&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;pytest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="more-to-come"&gt;
+&lt;h2&gt;More to Come!&lt;/h2&gt;
+&lt;p&gt;As demonstrated, &lt;strong&gt;awesome-slugify&lt;/strong&gt; covers many common use cases. Nevertheless, stay tuned as tomorrow I'll cover how to write custom language &lt;tt class="docutils literal"&gt;slugify()&lt;/tt&gt; functions using &lt;strong&gt;awesome-slugify&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="django"></category><category term="unicode"></category><category term="i18n"></category><category term="ppoftw"></category></entry></feed>
