@@ -51,7 +51,7 @@ Fortunately, such a nicely packaged/tested solution exists, and it's awesome!
 .. image:: https://s3.amazonaws.com/pydanny/awesome_slugify_django.jpg
    :name: Django Slug
    :align: center
-   :alt: django.utils.text.slugify
+   :alt: An Awesome Django slug
 
    
    
