@@ -66,7 +66,7 @@ Explaining this in depth will take paragraphs of text, so I'll just demonstrate 
 More Practical Applications
 ----------------------------
 
-While writing an **emoji**-based translation function is fun, most of the time we need more practical translation functions. Built into **awesome-slugify** is a cyrillic translation function for users of that alphabet that works like this:
+While writing an **emoji**-based translation function is fun, most of the time we need more practical translation functions. Built into **awesome-slugify** is a cyrillic translation function that works like this:
 
 .. code-block:: python
 

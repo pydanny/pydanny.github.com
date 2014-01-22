@@ -44,7 +44,7 @@
 &lt;img alt="I ♥ your unicode smile" class="align-center" id="i-your-unicode-smile" src="https://s3.amazonaws.com/pydanny/i-♥-your-unicode-smile.png" /&gt;
 &lt;div class="section" id="more-practical-applications"&gt;
 &lt;h3&gt;More Practical Applications&lt;/h3&gt;
-&lt;p&gt;While writing an &lt;strong&gt;emoji&lt;/strong&gt;-based translation function is fun, most of the time we need more practical translation functions. Built into &lt;strong&gt;awesome-slugify&lt;/strong&gt; is a cyrillic translation function for users of that alphabet that works like this:&lt;/p&gt;
+&lt;p&gt;While writing an &lt;strong&gt;emoji&lt;/strong&gt;-based translation function is fun, most of the time we need more practical translation functions. Built into &lt;strong&gt;awesome-slugify&lt;/strong&gt; is a cyrillic translation function that works like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="c"&gt;# test_slugify_cyrillic.py&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;slugify.main&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_slugify&lt;/span&gt;
