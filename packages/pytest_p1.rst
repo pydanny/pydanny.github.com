@@ -62,7 +62,7 @@ Python's **unittest** framework works, but it's always felt like too much boiler
     
         def test_the_obvious(self):
             self.assertEqual(True, True)
-
+    
     if __name__ == '__main__':
         unittest.main()
             
@@ -102,10 +102,10 @@ The next part is wonderful. If an ``assert`` statement fails, then **pytest** pr
     :linenos:
 
     import pytest
-
+    
     def test_gonna_fail():
         assert True == False  # Going to fail here on line 4
-
+        
     if __name__ == '__main__':
         pytest.main()
 

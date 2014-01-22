@@ -7,8 +7,14 @@ awesome-slugify: Human-readable URL slugs from any string
 :category: book
 :slug: awesome-slugify-human-readable-url-slugs-from-any-string
 
-Years ago, when I was working with Plone_ at NASA_, one thing I dreaded was when content editors would copy-and-paste from Microsoft Word into the title bar. All kinds of funny characters would appear in the title bar and URL. I would have to go into the database (ZODB) and fix things. Things didn't get better until Reed O'Brien turned on a title validator (probably in ``Plone.i18n``).
+*note: The introduction mentions Django and Plone. However, this is not an article about Django or Plone.*
 
+Introduction
+=============
+
+Years ago, when I was working with Plone_ at NASA_, one thing I dreaded was when content editors would copy-and-paste from Microsoft Word into the title bar. All kinds of funny characters would appear in the title bar and URL. I would have to go into the database (ZODB) and fix things. Things didn't get better until `Reed O'Brien`_ turned on a title validator (probably in ``Plone.i18n``).
+
+.. _`Reed O'Brien`: https://github.com/reedobrien
 .. _Plone: http://plone.org
 .. _NASA: http://nasa.gov
 
@@ -41,6 +47,9 @@ If you read German, you'll know that the default Django ``slugify()`` function i
     >>> from slugify import slugify
     >>> slugify(u"straße") # Again with the German word for road
     u"straße"
+    
+What If I'm Not Using Django?
+------------------------------
 
 While a very nice tool, this package is dependent on Django's internal machinery to operate, which is a problem for non-Django users. While we could use Python's `unicodedata library to resolve unicode to slugs`_, wouldn't it be nice if there was a nicely packaged/tested solution?
 
@@ -53,13 +62,11 @@ Fortunately, such a nicely packaged/tested solution exists, and it's awesome!
    :align: center
    :alt: An Awesome Django slug
 
-   
-   
 
 Introducing awesome-slugify
 ===========================
 
-Created and maintained by `Dmitry Voronin`_, `awesome-slugify`_ is easy to use and 100% independent from Django. You call it thus:
+Created and maintained by `Dmitry Voronin`_, `awesome-slugify`_ is easy to use and **100% independent from Django**. You call it thus:
 
 .. _`Dmitry Voronin`: https://github.com/dimka665
 .. _`awesome-slugify`: https://pypi.python.org/pypi/awesome-slugify
@@ -80,7 +87,7 @@ However, please note that unlike the Django-only **unicode-slugify** package whi
 
     >>> import slugify
     >>> slugify.slugify_unicode(u"straße") # What is it with German Roads?
-    u'\u044f'
+    u'stra\xdfe'
     >>> slugify.slugify_unicode(u"straße") == u"straße"
     True
 
@@ -161,7 +168,6 @@ Let's take a look, shall we?
     # test_awesome_slugify_max_length.py
     import pytest
     from slugify import slugify, slugify_unicode
-        
         
     def test_max_length_tiny():
         # Removes the longer words to fit smaller words in.

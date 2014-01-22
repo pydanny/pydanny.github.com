@@ -105,7 +105,10 @@
                 </p>
 
                 <div class="entry-content">
-                    <p>Years ago, when I was working with <a class="reference external" href="http://plone.org">Plone</a> at <a class="reference external" href="http://nasa.gov">NASA</a>, one thing I dreaded was when content editors would copy-and-paste from Microsoft Word into the title bar. All kinds of funny characters would appear in the title bar and URL. I would have to go into the database (ZODB) and fix things. Things didn't get better until Reed O'Brien turned on a title validator (probably in <tt class="docutils literal">Plone.i18n</tt>).</p>
+                    <p><em>note: The introduction mentions Django and Plone. However, this is not an article about Django or Plone.</em></p>
+<div class="section" id="introduction">
+<h2>Introduction</h2>
+<p>Years ago, when I was working with <a class="reference external" href="http://plone.org">Plone</a> at <a class="reference external" href="http://nasa.gov">NASA</a>, one thing I dreaded was when content editors would copy-and-paste from Microsoft Word into the title bar. All kinds of funny characters would appear in the title bar and URL. I would have to go into the database (ZODB) and fix things. Things didn't get better until <a class="reference external" href="https://github.com/reedobrien">Reed O'Brien</a> turned on a title validator (probably in <tt class="docutils literal">Plone.i18n</tt>).</p>
 <p>When we started using <a class="reference external" href="https://www.djangoproject.com">Django</a>, one thing that made it nice was the presence of it's <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/utils/#module-django.utils.text">slugify()</a> function and template filter. Inspired by the newspaper industry, this function it easier on both content editors and software engineers. In any case, using <tt class="docutils literal">slugify()</tt> we completed a number of projects, with <a class="reference external" href="http://science.nasa.gov/">NASA Science</a> being the only public one I worked on.</p>
 <p>As much as the <tt class="docutils literal">slugify()</tt> function was useful, there were problems. As I discovered time and time again over the years, it didn't handle <a class="reference external" href="https://en.wikipedia.org/wiki/Unicode">unicode</a>. Or rather, it handled them by simply vanishing non-ASCII unicode characters. For example:</p>
 <div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.utils.text</span> <span class="kn">import</span> <span class="n">slugify</span>
@@ -117,12 +120,16 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="p">(</span><span class="s">u&quot;straße&quot;</span><span class="p">)</span> <span class="c"># Again with the German word for road</span>
 <span class="s">u&quot;straße&quot;</span>
 </pre></div>
+<div class="section" id="what-if-i-m-not-using-django">
+<h3>What If I'm Not Using Django?</h3>
 <p>While a very nice tool, this package is dependent on Django's internal machinery to operate, which is a problem for non-Django users. While we could use Python's <a class="reference external" href="http://flask.pocoo.org/snippets/5/">unicodedata library to resolve unicode to slugs</a>, wouldn't it be nice if there was a nicely packaged/tested solution?</p>
 <p>Fortunately, such a nicely packaged/tested solution exists, and it's awesome!</p>
 <img alt="An Awesome Django slug" class="align-center" id="django-slug" src="https://s3.amazonaws.com/pydanny/awesome_slugify_django.jpg" />
+</div>
+</div>
 <div class="section" id="introducing-awesome-slugify">
 <h2>Introducing awesome-slugify</h2>
-<p>Created and maintained by <a class="reference external" href="https://github.com/dimka665">Dmitry Voronin</a>, <a class="reference external" href="https://pypi.python.org/pypi/awesome-slugify">awesome-slugify</a> is easy to use and 100% independent from Django. You call it thus:</p>
+<p>Created and maintained by <a class="reference external" href="https://github.com/dimka665">Dmitry Voronin</a>, <a class="reference external" href="https://pypi.python.org/pypi/awesome-slugify">awesome-slugify</a> is easy to use and <strong>100% independent from Django</strong>. You call it thus:</p>
 <div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">slugify</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="o">.</span><span class="n">slugify</span><span class="p">(</span><span class="s">u&quot;straße&quot;</span><span class="p">)</span> <span class="c"># Yet again the German for road</span>
 <span class="s">u&#39;strasse&#39;</span>
@@ -131,7 +138,7 @@
 <p>However, please note that unlike the Django-only <strong>unicode-slugify</strong> package which preserves the non-ASCII characters, <strong>awesome-slugify</strong> transformed the German 'ß' into the ASCII equivalent. This is similar to how the popular <a class="reference external" href="https://pypi.python.org/pypi/python-slugify">python-slugify</a> package works. While this behavior of translating unicode to ASCII might work for English-only sites, it's not so useful for the rest of the world. Fortunately, <strong>awesome-slugify</strong> also provides the incredibly useful <tt class="docutils literal">slugify_unicode()</tt> function:</p>
 <div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">slugify</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="o">.</span><span class="n">slugify_unicode</span><span class="p">(</span><span class="s">u&quot;straße&quot;</span><span class="p">)</span> <span class="c"># What is it with German Roads?</span>
-<span class="s">u&#39;</span><span class="se">\u044f</span><span class="s">&#39;</span>
+<span class="s">u&#39;stra</span><span class="se">\xdf</span><span class="s">e&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="o">.</span><span class="n">slugify_unicode</span><span class="p">(</span><span class="s">u&quot;straße&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;straße&quot;</span>
 <span class="bp">True</span>
 </pre></div>
@@ -201,7 +208,6 @@
 <span class="c"># test_awesome_slugify_max_length.py</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
 <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span><span class="p">,</span> <span class="n">slugify_unicode</span>
-
 
 <span class="k">def</span> <span class="nf">test_max_length_tiny</span><span class="p">():</span>
     <span class="c"># Removes the longer words to fit smaller words in.</span>
@@ -308,14 +314,34 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
 </p>
 
 <h4 class="nav-header">Tags</h4>
-<span class="tag-4">
-    <a href="./tag/joke.html">
-        joke
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
-        pycon-2013-guide
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/testing.html">
+        testing
     </a>
 </span>
 <span class="tag-2">
@@ -323,29 +349,59 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         resolutions
     </a>
 </span>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
 <span class="tag-2">
-    <a href="./tag/holidays.html">
-        holidays
+    <a href="./tag/howto.html">
+        howto
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/nodejs.html">
-        nodejs
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/python3.html">
+        python3
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/unicode.html">
-        unicode
+    <a href="./tag/i18n.html">
+        i18n
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/pyramid.html">
-        pyramid
+    <a href="./tag/nasa.html">
+        nasa
     </a>
 </span>
-<span class="tag-1">
-    <a href="./tag/python.html">
-        python
+<span class="tag-2">
+    <a href="./tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel-tips-for-geeks.html">
+        travel tips for geeks
     </a>
 </span>
 <span class="tag-2">
@@ -354,23 +410,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/travel.html">
-        travel
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/php.html">
-        php
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/setup.html">
-        setup
+    <a href="./tag/capoeira.html">
+        capoeira
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/dotcloud.html">
-        dotcloud
+    <a href="./tag/filepicker.html">
+        filepicker
     </a>
 </span>
 <span class="tag-3">
@@ -378,9 +424,9 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         mongodb
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/family.html">
-        family
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
     </a>
 </span>
 <span class="tag-4">
@@ -388,19 +434,9 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         pyladies
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/la.html">
-        la
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/europe.html">
-        europe
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/sprint.html">
-        sprint
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
     </a>
 </span>
 <span class="tag-2">
@@ -409,128 +445,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/philippines.html">
-        philippines
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/python3.html">
-        python3
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/vs.html">
-        vs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/hackathon.html">
-        hackathon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/ruby.html">
-        ruby
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypy.html">
-        pypy
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/flask.html">
-        flask
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/djangodash.html">
-        djangodash
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/ppoftw.html">
-        ppoftw
+    <a href="./tag/meme.html">
+        meme
     </a>
 </span>
 <span class="tag-2">
     <a href="./tag/pycon.html">
         pycon
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/rant.html">
-        rant
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/australia.html">
-        australia
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
-        Consumer-Notebook
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/testing.html">
-        testing
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/functions.html">
-        functions
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/perl.html">
-        perl
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/filepicker.html">
-        filepicker
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/paypal.html">
-        paypal
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/wsgi.html">
-        wsgi
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/gondor.html">
-        gondor
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/api.html">
-        api
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/i18n.html">
-        i18n
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/usability.html">
-        usability
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/tools.html">
-        tools
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/la.html">
-        LA
     </a>
 </span>
 <span class="tag-3">
@@ -543,14 +464,14 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         consumernotebook
     </a>
 </span>
-<span class="tag-3">
-    <a href="./tag/clojure.html">
-        clojure
+<span class="tag-4">
+    <a href="./tag/functions.html">
+        functions
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/djangocon.html">
-        djangocon
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
     </a>
 </span>
 <span class="tag-4">
@@ -559,18 +480,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/forms.html">
-        forms
+    <a href="./tag/travel.html">
+        travel
     </a>
 </span>
-<span class="tag-3">
-    <a href="./tag/javascript.html">
-        javascript
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/capoeira.html">
-        capoeira
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
     </a>
 </span>
 <span class="tag-4">
@@ -578,9 +494,19 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         rails
     </a>
 </span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
 <span class="tag-4">
-    <a href="./tag/lahackathons.html">
-        lahackathons
+    <a href="./tag/pyramid.html">
+        pyramid
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
     </a>
 </span>
 <span class="tag-3">
@@ -589,23 +515,8 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/meteor.html">
-        meteor
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/oauth.html">
-        OAuth
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackthons.html">
-        lahackthons
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/meme.html">
-        meme
+    <a href="./tag/lahackathons.html">
+        lahackathons
     </a>
 </span>
 <span class="tag-4">
@@ -613,14 +524,94 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         europython
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/friends.html">
-        friends
+<span class="tag-4">
+    <a href="./tag/unicode.html">
+        unicode
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/travel-tips-for-geeks.html">
-        travel tips for geeks
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
     </a>
 </span>
 <span class="tag-2">
@@ -629,33 +620,23 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/nasa.html">
-        nasa
+    <a href="./tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/friends.html">
+        friends
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/review.html">
-        review
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dsf.html">
-        dsf
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/css.html">
-        css
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        Los Angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/science.html">
-        science
+    <a href="./tag/nodejs.html">
+        nodejs
     </a>
 </span>
 <span class="tag-1">
@@ -664,23 +645,48 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-2">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ppoftw.html">
+        ppoftw
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/flask.html">
+        flask
+    </a>
+</span>
+<span class="tag-2">
     <a href="./tag/class-based-views.html">
         class-based-views
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/blog.html">
-        blog
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/casestudy.html">
-        casestudy
+    <a href="./tag/la.html">
+        la
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/howto.html">
-        howto
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
     </a>
 </span>
 
