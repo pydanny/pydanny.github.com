@@ -2,9 +2,9 @@
 awesome-slugify: Human-readable URL slugs from any string
 =========================================================
 
-:date: 2014-01-20 12:00
+:date: 2014-01-21 12:00
 :tags: python, django, unicode, i18n, ppoftw
-:category: book
+:category: python
 :slug: awesome-slugify-human-readable-url-slugs-from-any-string
 
 *note: The introduction mentions Django and Plone. However, this is not an article about Django or Plone.*
@@ -34,7 +34,7 @@ As much as the ``slugify()`` function was useful, there were problems. As I disc
     >>> slugify(u"straße") # German for road
     u"strae"
 
-If you read German, you'll know that the default Django ``slugify()`` function is converting the word 'road' to nonsense. For sites dealing with internationalization, this won't do. So over three years ago while at Mozilla_, Pinterest_ engineer `Dave Dash`_ created `unicode-slugify`_. From then we could do this:
+If you read German, you'll know that the default Django ``slugify()`` function is converting the word 'road' to nonsense. For sites dealing with internationalization, this won't do. So over three years ago while at Mozilla_, Pinterest_ engineer `Dave Dash`_ created `unicode-slugify`_. From then on we could do this:
 
 .. _`Dave Dash`: https://twitter.com/davedash
 .. _Pinterest: http://pinterest.com
@@ -213,9 +213,12 @@ Let's take a look, shall we?
     if __name__ == "__main__":
         pytest.main()
         
-More to Come!
+What's Next?
 ==============
 
-As demonstrated, **awesome-slugify** covers many common use cases. Nevertheless, stay tuned as tomorrow I'll cover how to write custom language ``slugify()`` functions using **awesome-slugify**.
+As demonstrated, **awesome-slugify** covers many common use cases. Nevertheless, in `my next blog post`_ I cover how to write custom language ``slugify()`` translation functions using **awesome-slugify**.
+
+.. _`my next blog post`: http://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string-2.html
+
 
 .. _pip: http://www.pip-installer.org/

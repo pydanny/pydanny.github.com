@@ -4,7 +4,7 @@ pytest: no-boilerplate testing (part 3)
 
 :date: 2014-01-17 12:00
 :tags: python, django, testing, ppoftw
-:category: book
+:category: python
 :slug: pytest-no-boilerplate-testing-3
 
 In my previous `blog post`_ I covered writing exception-based assertions and fixtures. Today I'm going to close things out by demonstrating how to change the behavior of pytest_ and how to integrate it with **Django** and ``setup.py``.

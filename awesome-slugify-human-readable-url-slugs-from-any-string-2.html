@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>10 reasons to go to DjangoCon Europe</title>
+    <title>awesome-slugify: Human-readable URL slugs from any string (part 2)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to 10 reasons to go to DjangoCon Europe">
-                                        10 reasons to go to DjangoCon Europe
+                                        title="Permalink to awesome-slugify: Human-readable URL slugs from any string (part 2)">
+                                        awesome-slugify: Human-readable URL slugs from any string (part 2)
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,60 +100,125 @@
                 </header>
 
                 <p>
-                    <em>Monday, May 14, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to 10 reasons to go to DjangoCon Europe">permalink</a>)
+                    <em>Wednesday, January 22, 2014</em>
+                    (<a href="" rel="bookmark" title="Permalink to awesome-slugify: Human-readable URL slugs from any string (part 2)">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>You should go to <a class="reference external" href="http://djangocon.eu">DjangoCon Europe</a> in lovely <a class="reference external" href="https://en.wikipedia.org/wiki/Zurich">Zurich</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Switzerland">Switzerland</a>. Here are 10 reasons why:</p>
-<div class="section" id="chocolate">
-<h2>1. <strong>Chocolate</strong></h2>
-<p>So much of what we like about chocolate comes from Switzerland. For example, Milk Chocolate was invented in Switzerland.</p>
+                    <p>In my previous <a class="reference external" href="http://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string.html">blog post</a> I covered using <a class="reference external" href="https://pypi.python.org/pypi/awesome-slugify">awesome-slugify</a> to capture slugs in both ASCII and unicode. Today I'm covering the definition custom language <tt class="docutils literal">slugify</tt> translation functions.</p>
+<div class="section" id="defining-custom-language-slugify-translation-functions">
+<h2>Defining Custom Language <tt class="docutils literal">slugify</tt> Translation Functions</h2>
+<p>For those times we need ASCII representation of unicode characters, we can't always use the default unicode-to-ASCII mappings. A powerful feature of <strong>awesome-slugify</strong> is we can quickly and easily create our own translation functions. Just follow these two steps:</p>
+<ol class="arabic simple">
+<li>Define a translation dictionary. Keys are the names of things you want translated, and the associated values are what the keys are translated into.</li>
+<li>Generate a translation function using <tt class="docutils literal">slugify.main.get_slugify()</tt>.</li>
+</ol>
+<p>Explaining this in depth will take paragraphs of text, so I'll just demonstrate it using <a class="reference external" href="https://en.wikipedia.org/wiki/Emoji">emoji</a>:</p>
+<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># test_slugify_emoji.py</span>
+
+<span class="c"># The way the awesome-slugify API works, you can&#39;t directly import from</span>
+<span class="c">#   the &#39;slugify&#39; package. You have to import from the &#39;slugify.main&#39;</span>
+<span class="c">#   module. See https://github.com/dimka665/awesome-slugify/issues/2</span>
+<span class="kn">from</span> <span class="nn">slugify.main</span> <span class="kn">import</span> <span class="n">get_slugify</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="c"># Step 1: Define the translation dictionary</span>
+<span class="n">ALT_EMOJI</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">u&#39;ʘ‿ʘ&#39;</span><span class="p">:</span> <span class="s">u&#39;smiling&#39;</span><span class="p">,</span>
+    <span class="s">u&#39;ಠ_ಠ&#39;</span><span class="p">:</span> <span class="s">u&#39;disapproval&#39;</span><span class="p">,</span>
+    <span class="s">u&#39;♥‿♥&#39;</span><span class="p">:</span> <span class="s">u&#39;enamored&#39;</span><span class="p">,</span>
+    <span class="s">u&#39;♥&#39;</span><span class="p">:</span> <span class="s">u&#39;love&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c"># Step 2: Generate a translation function</span>
+<span class="n">slugify_emoji</span> <span class="o">=</span> <span class="n">get_slugify</span><span class="p">(</span><span class="n">pretranslate</span><span class="o">=</span><span class="n">ALT_EMOJI</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_basic_emoji</span><span class="p">():</span>
+    <span class="c"># awesome-slugify capitalizes strings.</span>
+    <span class="c"># see https://github.com/dimka665/awesome-slugify/issues/3</span>
+    <span class="k">assert</span> <span class="n">slugify_emoji</span><span class="p">(</span><span class="s">u&quot;ʘ‿ʘ&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;Smiling&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_emoji</span><span class="p">(</span><span class="s">u&quot;ಠ_ಠ&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;Disapproval&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_sentence</span><span class="p">():</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s">u&quot;I ♥ Audrey Roy Greenfeld&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_emoji</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;I-Love-Audrey-Roy-Greenfeld&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+<img alt="I ♥ your unicode smile" class="align-center" id="i-your-unicode-smile" src="https://s3.amazonaws.com/pydanny/i-♥-your-unicode-smile.png" />
+<div class="section" id="more-practical-applications">
+<h3>More Practical Applications</h3>
+<p>While writing an <strong>emoji</strong>-based translation function is fun, most of the time we need more practical translation functions. Built into <strong>awesome-slugify</strong> is a cyrillic translation function for users of that alphabet that works like this:</p>
+<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># test_slugify_cyrillic.py</span>
+<span class="kn">from</span> <span class="nn">slugify.main</span> <span class="kn">import</span> <span class="n">get_slugify</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="c"># The following code is nearly identical to the source code of</span>
+<span class="c">#   awesome-slugify. All credit goes to Dmitry Voronin.</span>
+
+<span class="c"># Step 1: Define the translation dictionary</span>
+<span class="n">ALT_CYRILLIC</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">u&#39;ё&#39;</span><span class="p">:</span> <span class="s">u&#39;e&#39;</span><span class="p">,</span>    <span class="c"># instead of &#39;io&#39; / &#39;yo&#39;</span>
+    <span class="s">u&#39;ж&#39;</span><span class="p">:</span> <span class="s">u&#39;j&#39;</span><span class="p">,</span>    <span class="c"># instead of &#39;zh&#39;</span>
+    <span class="s">u&#39;у&#39;</span><span class="p">:</span> <span class="s">u&#39;y&#39;</span><span class="p">,</span>    <span class="c"># instead of &#39;u&#39;</span>
+    <span class="s">u&#39;х&#39;</span><span class="p">:</span> <span class="s">u&#39;h&#39;</span><span class="p">,</span>    <span class="c"># instead of &#39;kh&#39;</span>
+    <span class="s">u&#39;щ&#39;</span><span class="p">:</span> <span class="s">u&#39;sch&#39;</span><span class="p">,</span>  <span class="c"># instead of &#39;shch&#39;</span>
+    <span class="s">u&#39;ю&#39;</span><span class="p">:</span> <span class="s">u&#39;u&#39;</span><span class="p">,</span>    <span class="c"># instead of &#39;iu&#39; / &#39;yu&#39;</span>
+    <span class="s">u&#39;я&#39;</span><span class="p">:</span> <span class="s">u&#39;ya&#39;</span><span class="p">,</span>   <span class="c"># instead of &#39;ia&#39;</span>
+<span class="p">}</span>
+
+<span class="c"># Step 2: Generate a translation function</span>
+<span class="n">slugify_ru</span> <span class="o">=</span> <span class="n">get_slugify</span><span class="p">(</span><span class="n">pretranslate</span><span class="o">=</span><span class="n">ALT_CYRILLIC</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_some_cyrillic</span><span class="p">():</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s">u&quot;ж and я are really fun letters.&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_ru</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;j-and-ya-are-really-fun-letters&quot;</span>
+
+    <span class="c"># Not sure why the first letter isn&#39;t capitalized.</span>
+    <span class="c"># see https://github.com/dimka665/awesome-slugify/issues/3</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+<p><a class="reference external" href="http://bikeshedder.com/">Michael P. Jung</a> created a German translation function, which I've included below:</p>
+<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># test_slugify_german.py</span>
+<span class="kn">from</span> <span class="nn">slugify.main</span> <span class="kn">import</span> <span class="n">get_slugify</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="c"># Step 1: Define the translation dictionary</span>
+<span class="n">ALT_GERMAN</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">u&#39;ä&#39;</span><span class="p">:</span> <span class="s">u&#39;ae&#39;</span><span class="p">,</span>
+    <span class="s">u&#39;Ä&#39;</span><span class="p">:</span> <span class="s">u&#39;Ae&#39;</span><span class="p">,</span>
+    <span class="s">u&#39;ö&#39;</span><span class="p">:</span> <span class="s">u&#39;oe&#39;</span><span class="p">,</span>
+    <span class="s">u&#39;Ö&#39;</span><span class="p">:</span> <span class="s">u&#39;Oe&#39;</span><span class="p">,</span>
+    <span class="s">u&#39;ü&#39;</span><span class="p">:</span> <span class="s">u&#39;ue&#39;</span><span class="p">,</span>
+    <span class="s">u&#39;Ü&#39;</span><span class="p">:</span> <span class="s">u&#39;Ue&#39;</span>
+<span class="p">}</span>
+
+<span class="c"># Step 2: Generate a translation function</span>
+<span class="n">slugify_de</span> <span class="o">=</span> <span class="n">get_slugify</span><span class="p">(</span><span class="n">pretranslate</span><span class="o">=</span><span class="n">ALT_GERMAN</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_german_dumpling</span><span class="p">():</span>
+    <span class="c"># According to Michael P. Jung, this looks like ice cream.</span>
+    <span class="k">assert</span> <span class="n">slugify_de</span><span class="p">(</span><span class="s">u&#39;Thüringer Klöße&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;Thueringer-Kloesse&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_german_road</span><span class="p">():</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s">u&quot;I&#39;ve never been in a car on a German straße&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_de</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;Ive-never-been-in-a-car-on-a-German-strasse&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="keynote-speaker-jacob-kaplan-moss">
-<h2>2. <strong>Keynote speaker: Jacob Kaplan-Moss</strong></h2>
-<p>Always a great speaker and fun to be around, he's one of the BDFL's of <a class="reference external" href="http://djangoproject.com">Django</a>.</p>
 </div>
-<div class="section" id="cheese">
-<h2>3. <strong>Cheese</strong></h2>
-<p>I grew up thinking that Swiss Cheese was just about holes. It's so much more. I can't wait to try fresh European cheese made by master craftsmen from the freshest ingredients.</p>
-</div>
-<div class="section" id="keynote-speaker-jessica-mckellar">
-<h2>4. <strong>Keynote speaker: Jessica McKellar</strong></h2>
-<p>In a word, Jessica is <strong>incredible</strong>. She's a Twisted core developer, PSF board member, part of the trio responsible for the gigantic Boston Python User Group's massive size explosion, and a talented speaker. She's used her incredible talents and skills to increase diversity in the community and generally help other people.</p>
-</div>
-<div class="section" id="breakfast">
-<h2>5. <strong>Breakfast</strong></h2>
-<p>Muesli was invented in Switzerland. I love Muesli. I was floored by how much better it was in New Zealand. I can't wait to try it in it's homeland.</p>
-</div>
-<div class="section" id="web-site">
-<h2>6. <strong>Web Site</strong></h2>
-<p>The DjangoCon Europe site is crazy. I mean, look at all those animations!</p>
-</div>
-<div class="section" id="talks">
-<h2>7. <strong>Talks</strong></h2>
-<p>This is a single track event with proven speakers like Zachary Voase and Andrew Godwin, yet balances that with bringing in new blood to spice things up. And dare I say <a class="reference external" href="http://2012.djangocon.eu/schedule/round-pegs-and-square-holes/">I'm giving a technical talk</a> with <a class="reference external" href="http://audreymroy.com/">Audrey Roy</a>? ;-)</p>
-</div>
-<div class="section" id="mountains">
-<h2>8. <strong>Mountains</strong></h2>
-<p>With all the incredible food, you would think you would gain umpteen kilograms. Fortunately there are mountains all around to climb and hike.</p>
-</div>
-<div class="section" id="sprints">
-<h2>9. <strong>Sprints</strong></h2>
-<p>Want to sprint on Django itself? Look no further because there will be Django core developers around! There will also be notable <a class="reference external" href="http://python.org">Python</a> developers like <a class="reference external" href="http://kennethreitz.com/">Kenneth Reitz</a> and others around working hard on a lot of different projects. It's going to intense and fun!</p>
-</div>
-<div class="section" id="castles">
-<h2>10. <strong>Castles</strong></h2>
-<p>Living in the USA, we just don't have anything like castles. DjangoCon Europe will be near a <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_castles_and_fortresses_in_Switzerland#Zurich">small horde of stone fortifications</a>. Which means if the Zombie Apocalypse happens during the conference, we'll have many secure places to go. They also make lovely tourist destinations. :-)</p>
-</div>
-<div class="section" id="what-are-you-waiting-for">
-<h2>What are you waiting for?</h2>
-<p>DjangoCon Europe has a cap on attendance. Tickets for Python events have been selling out, not just for PyCon US. Don't miss out!</p>
-</div>
-<div class="section" id="it-s-all-about-me">
-<h2>It's all about me</h2>
-<p>Yup.</p>
-<p>Call me selfish but I want you there because I haven't haven't met all our European friends yet in person. Hope to see you next month in Zurich!</p>
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>I really like the flexibility and power of <strong>awesome-slugify</strong>. During slugification it provides functions to preserve unicode characters, convert unicode characters to ASCII, and even define new translation functions. As <strong>awesome-slugify</strong> is a relatively new project, there are <a class="reference external" href="https://github.com/dimka665/awesome-slugify/issues">a few issues</a>, but most of those are for my quirky edge cases (such as when trying to use parenthesis in translation dictionaries for <a class="reference external" href="https://en.wikipedia.org/wiki/Emoticons">emoticons</a>) or perhaps stem from my poor understanding of how unicode-to-ASCII functions.</p>
+<p>In any case, this is a very useful package.</p>
 </div>
 
                     <div class="article-info">
@@ -163,8 +228,9 @@
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
 	<a href="./tag/django.html"><em>django</em></a>
-	<a href="./tag/europe.html"><em>europe</em></a>
-	<a href="./tag/djangocon.html"><em>djangocon</em></a>
+	<a href="./tag/unicode.html"><em>unicode</em></a>
+	<a href="./tag/i18n.html"><em>i18n</em></a>
+	<a href="./tag/ppoftw.html"><em>ppoftw</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -172,7 +238,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "10-reasons-to-go-to-djangocon-europe.html";
+                           var disqus_identifier = "awesome-slugify-human-readable-url-slugs-from-any-string-2.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;

@@ -4,7 +4,7 @@ pytest: no-boilerplate testing
 
 :date: 2014-01-15 12:00
 :tags: python, django, testing, ppoftw
-:category: book
+:category: python
 :slug: pytest-no-boilerplate-testing
 
 When I first encountered Holger Krekel's pytest_ this summer on `Jeff Knupp's blog`_ I felt like I had been living under a rock for years. I've been using Python's unittest_ framework since 2006 and nose_ to find tests since 2008, but here was another test framework that actually predates **nose**!  **pytest** is a very mature testing tool for testing Python. My favorite features:

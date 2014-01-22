@@ -4,7 +4,7 @@ pytest: no-boilerplate testing (part 2)
 
 :date: 2014-01-16 12:00
 :tags: python, django, testing, ppoftw
-:category: book
+:category: python
 :slug: pytest-no-boilerplate-testing-2
 
 In my previous `blog post`_ I covered test discovery and writing basic tests using pytest_. Today I'm going to cover a few more features that I really enjoy: ``raises`` and ``fixtures``.
