@@ -90,9 +90,6 @@ While writing an **emoji**-based translation function is fun, most of the time w
     def test_some_cyrillic():
         txt = u"ж and я are really fun letters."
         assert slugify_ru(txt) == u"j-and-ya-are-really-fun-letters"
-        
-        # Not sure why the first letter isn't capitalized.
-        # see https://github.com/dimka665/awesome-slugify/issues/3
     
     if __name__ == "__main__":
         pytest.main()
