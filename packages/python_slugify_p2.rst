@@ -27,10 +27,7 @@ Explaining this in depth will take paragraphs of text, so I'll just demonstrate 
     # -*- coding: utf-8 -*-
     # test_slugify_emoji.py
     
-    # The way the awesome-slugify API works, you can't directly import from
-    #   the 'slugify' package. You have to import from the 'slugify.main' 
-    #   module. See https://github.com/dimka665/awesome-slugify/issues/2
-    from slugify.main import get_slugify
+    from slugify import get_slugify
     import pytest
 
     # Step 1: Define the translation dictionary
@@ -45,14 +42,12 @@ Explaining this in depth will take paragraphs of text, so I'll just demonstrate 
     slugify_emoji = get_slugify(pretranslate=ALT_EMOJI)
     
     def test_basic_emoji():
-        # awesome-slugify capitalizes strings. 
-        # see https://github.com/dimka665/awesome-slugify/issues/3
-        assert slugify_emoji(u"ʘ‿ʘ") == u"Smiling"
-        assert slugify_emoji(u"ಠ_ಠ") == u"Disapproval"
+        assert slugify_emoji(u"ʘ‿ʘ") == u"smiling"
+        assert slugify_emoji(u"ಠ_ಠ") == u"disapproval"
         
     def test_sentence():
         txt = u"I ♥ Audrey Roy Greenfeld"
-        assert slugify_emoji(txt) == u"I-Love-Audrey-Roy-Greenfeld"
+        assert slugify_emoji(txt) == u"I-love-Audrey-Roy-Greenfeld"
         
     if __name__ == "__main__":
         pytest.main()
@@ -72,7 +67,7 @@ While writing an **emoji**-based translation function is fun, most of the time w
 
     # -*- coding: utf-8 -*-
     # test_slugify_cyrillic.py
-    from slugify.main import get_slugify
+    from slugify import get_slugify
     import pytest
     
     # The following code is nearly identical to the source code of
@@ -108,7 +103,7 @@ While writing an **emoji**-based translation function is fun, most of the time w
 
     # -*- coding: utf-8 -*-
     # test_slugify_german.py
-    from slugify.main import get_slugify
+    from slugify import get_slugify
     import pytest
     
     # Step 1: Define the translation dictionary
@@ -142,6 +137,10 @@ I really like the flexibility and power of **awesome-slugify**. During slugifica
 
 In any case, this is a very useful package.
 
+**Update 2013/01/23** Thanks to `Dmitry Voronin`_, I removed references to a couple issues with **awesome-slugify**. It no longer forces capitalization in custom translation functions and the ``get_slugify()`` can be imported directly from the base ``slugify`` package.
+
+
+.. _`Dmitry Voronin`: https://github.com/dimka665
 .. _`a few issues`: https://github.com/dimka665/awesome-slugify/issues
 .. _`Michael P. Jung`: http://bikeshedder.com/
 .. _`blog post`: http://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string.html

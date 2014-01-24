@@ -79,7 +79,7 @@ Created and maintained by `Dmitry Voronin`_, `awesome-slugify`_ is easy to use a
     
 Works! Hooray! 
 
-However, please note that unlike the Django-only **unicode-slugify** package which preserves the non-ASCII characters, **awesome-slugify** transformed the German 'ß' into the ASCII equivalent. This is similar to how the popular `python-slugify`_ package works. While this behavior of translating unicode to ASCII might work for English-only sites, it's not so useful for the rest of the world. Fortunately, **awesome-slugify** also provides the incredibly useful ``slugify_unicode()`` function:
+However, please note that unlike the Django-only **unicode-slugify** package which preserves the non-ASCII characters, **awesome-slugify** transformed the German 'ß' into an ASCII substitution of 'ss'. This is similar to how the popular `python-slugify`_ package works. While this behavior of translating unicode to ASCII might work for English-only sites, it's not so useful for the rest of the world. Fortunately, **awesome-slugify** also provides the incredibly useful ``slugify_unicode()`` function:
 
 .. _`python-slugify`: https://pypi.python.org/pypi/python-slugify
 
@@ -217,6 +217,10 @@ What's Next?
 ==============
 
 As demonstrated, **awesome-slugify** covers many common use cases. Nevertheless, in `my next blog post`_ I cover how to write custom language ``slugify()`` translation functions using **awesome-slugify**.
+
+**Update 2013/01/23** Thanks to `flying-sheep`_, I Changed 'equivalent' to 'substitution' in describing the unicode-to-ASCII translation. This is because 'ss' is not a precise translation of 'ß'.
+
+.. _`flying-sheep`: http://www.reddit.com/user/flying-sheep
 
 .. _`my next blog post`: http://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string-2.html
 

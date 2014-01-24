@@ -11,10 +11,7 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="c"&gt;# test_slugify_emoji.py&lt;/span&gt;
 
-&lt;span class="c"&gt;# The way the awesome-slugify API works, you can&amp;#39;t directly import from&lt;/span&gt;
-&lt;span class="c"&gt;#   the &amp;#39;slugify&amp;#39; package. You have to import from the &amp;#39;slugify.main&amp;#39;&lt;/span&gt;
-&lt;span class="c"&gt;#   module. See https://github.com/dimka665/awesome-slugify/issues/2&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;slugify.main&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_slugify&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;slugify&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_slugify&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
 
 &lt;span class="c"&gt;# Step 1: Define the translation dictionary&lt;/span&gt;
@@ -29,14 +26,12 @@
 &lt;span class="n"&gt;slugify_emoji&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pretranslate&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ALT_EMOJI&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_basic_emoji&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="c"&gt;# awesome-slugify capitalizes strings.&lt;/span&gt;
-    &lt;span class="c"&gt;# see https://github.com/dimka665/awesome-slugify/issues/3&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_emoji&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;quot;ʘ‿ʘ&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;Smiling&amp;quot;&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_emoji&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;quot;ಠ_ಠ&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;Disapproval&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_emoji&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;quot;ʘ‿ʘ&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;smiling&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_emoji&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;quot;ಠ_ಠ&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;disapproval&amp;quot;&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_sentence&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;I ♥ Audrey Roy Greenfeld&amp;quot;&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_emoji&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;I-Love-Audrey-Roy-Greenfeld&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slugify_emoji&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;I-love-Audrey-Roy-Greenfeld&amp;quot;&lt;/span&gt;
 
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;pytest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -47,7 +42,7 @@
 &lt;p&gt;While writing an &lt;strong&gt;emoji&lt;/strong&gt;-based translation function is fun, most of the time we need more practical translation functions. Built into &lt;strong&gt;awesome-slugify&lt;/strong&gt; is a cyrillic translation function that works like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="c"&gt;# test_slugify_cyrillic.py&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;slugify.main&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_slugify&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;slugify&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_slugify&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
 
 &lt;span class="c"&gt;# The following code is nearly identical to the source code of&lt;/span&gt;
@@ -80,7 +75,7 @@
 &lt;p&gt;&lt;a class="reference external" href="http://bikeshedder.com/"&gt;Michael P. Jung&lt;/a&gt; created a German translation function, which I've included below:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="c"&gt;# test_slugify_german.py&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;slugify.main&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_slugify&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;slugify&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_slugify&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
 
 &lt;span class="c"&gt;# Step 1: Define the translation dictionary&lt;/span&gt;
@@ -113,6 +108,7 @@
 &lt;h2&gt;Summary&lt;/h2&gt;
 &lt;p&gt;I really like the flexibility and power of &lt;strong&gt;awesome-slugify&lt;/strong&gt;. During slugification it provides functions to preserve unicode characters, convert unicode characters to ASCII, and even define new translation functions. As &lt;strong&gt;awesome-slugify&lt;/strong&gt; is a relatively new project, there are &lt;a class="reference external" href="https://github.com/dimka665/awesome-slugify/issues"&gt;a few issues&lt;/a&gt;, but most of those are for my quirky edge cases (such as when trying to use parenthesis in translation dictionaries for &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Emoticons"&gt;emoticons&lt;/a&gt;) or perhaps stem from my poor understanding of how unicode-to-ASCII functions.&lt;/p&gt;
 &lt;p&gt;In any case, this is a very useful package.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 2013/01/23&lt;/strong&gt; Thanks to &lt;a class="reference external" href="https://github.com/dimka665"&gt;Dmitry Voronin&lt;/a&gt;, I removed references to a couple issues with &lt;strong&gt;awesome-slugify&lt;/strong&gt;. It no longer forces capitalization in custom translation functions and the &lt;tt class="docutils literal"&gt;get_slugify()&lt;/tt&gt; can be imported directly from the base &lt;tt class="docutils literal"&gt;slugify&lt;/tt&gt; package.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="unicode"></category><category term="i18n"></category><category term="ppoftw"></category></entry><entry><title>awesome-slugify: Human-readable URL slugs from any string</title><link href="http://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string.html" rel="alternate"></link><updated>2014-01-21T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-01-21:awesome-slugify-human-readable-url-slugs-from-any-string.html</id><summary type="html">&lt;p&gt;&lt;em&gt;note: The introduction mentions Django and Plone. However, this is not an article about Django or Plone.&lt;/em&gt;&lt;/p&gt;
 &lt;div class="section" id="introduction"&gt;
@@ -144,7 +140,7 @@
 &lt;span class="s"&gt;u&amp;#39;strasse&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Works! Hooray!&lt;/p&gt;
-&lt;p&gt;However, please note that unlike the Django-only &lt;strong&gt;unicode-slugify&lt;/strong&gt; package which preserves the non-ASCII characters, &lt;strong&gt;awesome-slugify&lt;/strong&gt; transformed the German 'ß' into the ASCII equivalent. This is similar to how the popular &lt;a class="reference external" href="https://pypi.python.org/pypi/python-slugify"&gt;python-slugify&lt;/a&gt; package works. While this behavior of translating unicode to ASCII might work for English-only sites, it's not so useful for the rest of the world. Fortunately, &lt;strong&gt;awesome-slugify&lt;/strong&gt; also provides the incredibly useful &lt;tt class="docutils literal"&gt;slugify_unicode()&lt;/tt&gt; function:&lt;/p&gt;
+&lt;p&gt;However, please note that unlike the Django-only &lt;strong&gt;unicode-slugify&lt;/strong&gt; package which preserves the non-ASCII characters, &lt;strong&gt;awesome-slugify&lt;/strong&gt; transformed the German 'ß' into an ASCII substitution of 'ss'. This is similar to how the popular &lt;a class="reference external" href="https://pypi.python.org/pypi/python-slugify"&gt;python-slugify&lt;/a&gt; package works. While this behavior of translating unicode to ASCII might work for English-only sites, it's not so useful for the rest of the world. Fortunately, &lt;strong&gt;awesome-slugify&lt;/strong&gt; also provides the incredibly useful &lt;tt class="docutils literal"&gt;slugify_unicode()&lt;/tt&gt; function:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;slugify&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;slugify_unicode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;quot;straße&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# What is it with German Roads?&lt;/span&gt;
 &lt;span class="s"&gt;u&amp;#39;stra&lt;/span&gt;&lt;span class="se"&gt;\xdf&lt;/span&gt;&lt;span class="s"&gt;e&amp;#39;&lt;/span&gt;
@@ -267,6 +263,7 @@
 &lt;div class="section" id="what-s-next"&gt;
 &lt;h2&gt;What's Next?&lt;/h2&gt;
 &lt;p&gt;As demonstrated, &lt;strong&gt;awesome-slugify&lt;/strong&gt; covers many common use cases. Nevertheless, in &lt;a class="reference external" href="http://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string-2.html"&gt;my next blog post&lt;/a&gt; I cover how to write custom language &lt;tt class="docutils literal"&gt;slugify()&lt;/tt&gt; translation functions using &lt;strong&gt;awesome-slugify&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 2013/01/23&lt;/strong&gt; Thanks to &lt;a class="reference external" href="http://www.reddit.com/user/flying-sheep"&gt;flying-sheep&lt;/a&gt;, I Changed 'equivalent' to 'substitution' in describing the unicode-to-ASCII translation. This is because 'ss' is not a precise translation of 'ß'.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="unicode"></category><category term="i18n"></category><category term="ppoftw"></category></entry><entry><title>pytest: no-boilerplate testing (part 3)</title><link href="http://pydanny.com/pytest-no-boilerplate-testing-3.html" rel="alternate"></link><updated>2014-01-17T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-01-17:pytest-no-boilerplate-testing-3.html</id><summary type="html">&lt;p&gt;In my previous &lt;a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing-2.html"&gt;blog post&lt;/a&gt; I covered writing exception-based assertions and fixtures. Today I'm going to close things out by demonstrating how to change the behavior of &lt;a class="reference external" href="http://pytest.org/"&gt;pytest&lt;/a&gt; and how to integrate it with &lt;strong&gt;Django&lt;/strong&gt; and &lt;tt class="docutils literal"&gt;setup.py&lt;/tt&gt;.&lt;/p&gt;
 &lt;div class="section" id="changing-the-behavior-of-pytest"&gt;
