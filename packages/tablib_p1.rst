@@ -1,12 +1,14 @@
-=========================================================
-Tablib: Turning Data into Tables
-=========================================================
+=====================================
+Tablib: Tabular Data the Pythonic Way 
+=====================================
 
 :date: 2014-01-28 12:00
 :tags: python, ppoftw
 :category: python
-:slug: tablib-turning-data-into-tables
+:slug: tablib-tabular-data-pythonic-way
 :status: draft
+
+**WARNING: ROUGH DRAFT - This is a work in progress!!!**
 
 Over the years I've had to do the following many, many times:
 
