@@ -2,7 +2,7 @@
 Announcing Two Scoops of Django 1.6!
 ====================================
 
-:date: 2014-02-05 07:00
+:date: 2014-02-05 01:00
 :tags: python, django, book, twoscoops
 :category: book
 :slug: announcing-two-scoops-of-django-1.6
