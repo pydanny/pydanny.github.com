@@ -513,7 +513,7 @@ E       assert &lt;span class="nv"&gt;True&lt;/span&gt; &lt;span class="o"&gt;==
 samples.py:4: &lt;span class="nv"&gt;AssertionError&lt;/span&gt;
 &lt;span class="o"&gt;========&lt;/span&gt; 1 failed, 0 passed in 0.1 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;========&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;As you can see, nose identified where the &lt;tt class="docutils literal"&gt;assert&lt;/tt&gt; statement failed on line 4 and displays exactly caused the failure (&lt;tt class="docutils literal"&gt;True&lt;/tt&gt; did not equal &lt;tt class="docutils literal"&gt;False&lt;/tt&gt;). Very nice indeed.&lt;/p&gt;
+&lt;p&gt;As you can see, pytest identified where the &lt;tt class="docutils literal"&gt;assert&lt;/tt&gt; statement failed on line 4 and displays exactly caused the failure (&lt;tt class="docutils literal"&gt;True&lt;/tt&gt; did not equal &lt;tt class="docutils literal"&gt;False&lt;/tt&gt;). Very nice indeed.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="what-s-next"&gt;
 &lt;h2&gt;What's Next?&lt;/h2&gt;

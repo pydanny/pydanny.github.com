@@ -109,8 +109,8 @@ In tomorrow's post I'll show how to add CAPTCHA into your project to help reduce
 Want to learn more?
 ===================
 
-Check out the Django book I co-wrote, `Two Scoops of Django: Best Practices for Django 1.5`_!
+Check out the Django book I co-wrote, `Two Scoops of Django: Best Practices for Django 1.6`_!
 
-.. _`Two Scoops of Django: Best Practices for Django 1.5`: https://django.2scoops.org
+.. _`Two Scoops of Django: Best Practices for Django 1.6`: http://twoscoopspress.org/products/two-scoops-of-django-1-6
 
 .. _Python: http://python.org

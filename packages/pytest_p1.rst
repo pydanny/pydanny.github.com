@@ -123,7 +123,7 @@ When I run this code, I get the following response:
     samples.py:4: AssertionError
     ======== 1 failed, 0 passed in 0.1 seconds ========
 
-As you can see, nose identified where the ``assert`` statement failed on line 4 and displays exactly caused the failure (``True`` did not equal ``False``). Very nice indeed.
+As you can see, pytest identified where the ``assert`` statement failed on line 4 and displays exactly caused the failure (``True`` did not equal ``False``). Very nice indeed.
 
 What's Next?
 ============

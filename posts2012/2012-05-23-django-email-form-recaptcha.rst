@@ -137,8 +137,8 @@ What I could do
 Want to learn more?
 ===================
 
-Check out the Django book I co-wrote, `Two Scoops of Django: Best Practices for Django 1.5`_!
+Check out the Django book I co-wrote, `Two Scoops of Django: Best Practices for Django 1.6`_!
 
 
 .. _Python: http://python.org
-.. _`Two Scoops of Django: Best Practices for Django 1.5`: https://django.2scoops.org
+.. _`Two Scoops of Django: Best Practices for Django 1.6`: http://twoscoopspress.org/products/two-scoops-of-django-1-6
