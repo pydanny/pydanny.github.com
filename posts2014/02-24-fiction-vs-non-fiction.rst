@@ -43,13 +43,13 @@ You can't write tests for this, it just happens.
 Not Everything Has to Be Described
 ==================================
 
-When you are writing a technical book, you have to describe all elements mentioned. Not being a tutorial, Two Scoops of Django allowed us to truncate a tiny, small amount of things. As any author knows, this represents a huge amount of work.
+When you are writing a technical book, you have to describe all elements mentioned. Not being a tutorial, Two Scoops of Django allowed us to truncate a tiny, small amount of things. As any technical author knows, this represents a huge amount of work.
 
 In fiction, you create characters, scenes, and stories in such a way that the reader paints it in their mind's eye. If done right, the reader feels that you've written in an evocative fashion. If done wrong, the reader is bored and uninspired.
 
 In order to do write evocatively, one technique used is not describing everything. Authors leave blank spaces. It's these blank spaces that allow the readers to create their own vista of the story.
 
-**Note:** I'm well aware that writing isn't the only medium that uses blank spaces. Painting, sculpture, film making, music, and every art finds a way to use this technique. 
+**Note:** I'm well aware that writing isn't the only medium that uses blank spaces. Painting, sculpture, film making, music, and every form of art finds a way to use this technique. 
 
 Eternal Dynamic Characters
 ==========================
@@ -58,7 +58,7 @@ A dynamic character is either a good person who can be bad, or a bad person who 
 
 On the other hand, in fiction dynamic characters survive as long as they are in print. We can read again and again stories about heroes and anti-heroes, and recommend them to our associates. 
 
-This is a permanence that I long to have in my writing.
+This is a permanence I long to have in my writing.
 
 Conclusion
 ===============================
