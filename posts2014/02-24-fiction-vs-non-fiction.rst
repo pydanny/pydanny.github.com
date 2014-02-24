@@ -56,7 +56,9 @@ Eternal Dynamic Characters
 
 A dynamic character is either a good person who can be bad, or a bad person who can be good. Using this definition of character in technical books is challenging and is usually reserved to rants about some necessary but unpleasant component. Of course, that rant often becomes dated, as someone who is also annoyed by the same component creates something that replaces it.
 
-On the other hand, in fiction dynamic characters survive as long as they are in print. We can read again and again stories about heroes and anti-heroes, and recommend them to our associates. There is a permanence that I long to have in my writing.
+On the other hand, in fiction dynamic characters survive as long as they are in print. We can read again and again stories about heroes and anti-heroes, and recommend them to our associates. 
+
+This is a permanence that I long to have in my writing.
 
 Conclusion
 ===============================
