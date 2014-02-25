@@ -9,7 +9,7 @@ Fiction vs Non-Fiction
 
 I'm a published author.
 
-There, I said it. I co-wrote a book_ and it's sequel_. My childhood dream of becoming a writer has come true.
+There, I said it. I co-wrote a book_ and its sequel_. My childhood dream of becoming a writer has come true.
 
 .. _book: http://twoscoopspress.com/products/two-scoops-of-django-1-5
 .. _sequel: http://twoscoopspress.com/products/two-scoops-of-django-1-6
