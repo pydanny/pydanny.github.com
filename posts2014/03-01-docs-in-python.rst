@@ -156,6 +156,8 @@ In Python, everything might be an object, but not all objects are created equal.
 
 I wonder if I scratch this particular itch long enough I might be able to create a string-like class that handles the ``help()`` issue. If that happens, maybe I'll add it to `String Theory`_. ;-)
 
+**Resource**: The entire ``test_docstrings.py`` module: https://gist.github.com/pydanny/9373279
+
 .. _`String Theory`: http://pydanny.com/fixing-pythons-string-class.html
 
 .. image:: https://s3.amazonaws.com/pydanny/lambda_scoops.png
