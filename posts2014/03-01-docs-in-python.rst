@@ -7,7 +7,7 @@ Docstrings and Various Python Objects
 :category: python
 :slug: docstrings-and-various-python-objects
 
-Early in my journeys with Python I struggled with understanding the purpose and use of **lambda** functions. When I finally understood them I was disappointed by their lack of **docstrings**. For that reason, and various other shortcomings, `I went back to standard functions`_. Also, for what it's worth, I've even spoken about how much `you shouldn't use lambdas`_.
+Early in my journeys with Python I struggled with understanding the purpose and use of **lambda** functions. When I finally understood them I was disappointed by their lack of **docstrings**. For that reason, and various other shortcomings, `I went back to standard functions`_. Also, for what it's worth, I've even spoken about how `you shouldn't use lambdas`_.
 
 .. _`I went back to standard functions`: http://pydanny.blogspot.com/2007/07/lambdas-no-more.html
 .. _`you shouldn't use lambdas`: http://www.slideshare.net/pydanny/python-worst-practices/41
