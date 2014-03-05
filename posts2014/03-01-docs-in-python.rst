@@ -1,20 +1,20 @@
 =====================================
-Docstrings and Random Python Objects
+Docstrings and Various Python Objects
 =====================================
 
-:date: 2014-03-01 01:00
+:date: 2014-03-05 12:00
 :tags: python
 :category: python
-:slug: docstrings-and-random-python-objects
-:status: draft
+:slug: docstrings-and-various-python-objects
 
-Early in my journeys with Python I struggled with understanding the purpose and use of **lambda** functions. When I finally understood them I was disappointed by their lack of **docstrings**. So `I went back to standard functions`_.
+Early in my journeys with Python I struggled with understanding the purpose and use of **lambda** functions. When I finally understood them I was disappointed by their lack of **docstrings**. For that reason, and various other shortcomings, `I went back to standard functions`_. Also, for what it's worth, I've even spoken about how much `you shouldn't use lambdas`_.
 
 .. _`I went back to standard functions`: http://pydanny.blogspot.com/2007/07/lambdas-no-more.html
+.. _`you shouldn't use lambdas`: http://www.slideshare.net/pydanny/python-worst-practices/41
 
-Recently I was thinking about how everything in Python is an object. This includes lambdas. Since all Python objects have the `__doc__` special method, can we add custom docstrings to everything? 
+Recently I was thinking about how everything in Python is an object. This includes lambdas. Since all Python objects have the `__doc__` special (aka 'magic') attribute, can we add custom docstrings to everything? 
 
-Using pytest_ and Python 2.7.x, let's find out!
+Using pytest_, Python 2.7.x, and lambdas, let's find out!
 
 .. _pytest: http://pydanny.com/pytest-no-boilerplate-testing.html
 
@@ -46,8 +46,23 @@ Hey! It worked! If I try it in the shell, I can even see that the ``help()`` fun
 
     <lambda> lambda x
         Doubles strings
+        
+Contrary to what I thought in 2007, Python lambdas *can* be documented. Modifying their docstring functions with both the direct ``__doc___`` special attribute and the ``help()`` built-in works just fine.
 
-If this works for lambdas, what about other python objects? Let's start with an easy one, specifically functions:
+Should We Use Lambdas?
+=======================
+
+As demonstrated in this article, lambdas can be documented. Nevertheless, I'm still not entirely convinced python lambdas should be used as anything except when an anonymous function is advantageous, i.e during functional programming.
+
+What About Other Python Types?
+==============================
+
+Enough about lambdas, let's see what else we can do with docstrings. 
+
+Functions and Docstrings
+-------------------------
+
+We know modifying docstrings of functions works, so we'll use it as a 'control'.
 
 .. code-block:: python
 
@@ -65,8 +80,11 @@ If this works for lambdas, what about other python objects? Let's start with an 
     
         # Test that calling __doc__ works
         assert doubler.__doc__ == "Really doubles strings"
-        
-That was easy. Let's go for something a bit harder. Strings, for example, come with a docstring, but as Python strings are immutable types, it's read-only:
+
+Strings and Docstrings
+------------------------
+
+Let's go for something a bit harder. Strings, for example, come with a docstring, but as Python strings are immutable types, it's read-only access:
 
 .. code-block:: python
 
@@ -134,4 +152,13 @@ You'll notice in the result of the ``help()`` call on the 's' object, that the p
 Conclusion
 ===========
 
-In Python, everything might be an object, but not all objects are created equal. That said, odds are if I scratch this particular itch long enough I might be able to create a string-like class that handles the ``help()`` issue.
+In Python, everything might be an object, but not all objects are created equal. Lambdas (and functions and objects) do allow for docstrings, but many, if not all basic types (strings, lists, classes, etc) for Python do not.
+
+I wonder if I scratch this particular itch long enough I might be able to create a string-like class that handles the ``help()`` issue. If that happens, maybe I'll add it to `String Theory`_. ;-)
+
+.. _`String Theory`: http://pydanny.com/fixing-pythons-string-class.html
+
+.. image:: https://s3.amazonaws.com/pydanny/lambda_scoops.png
+   :name: Lambda Scoops
+   :align: center
+   :target: https://s3.amazonaws.com/pydanny/lambda_scoops.png

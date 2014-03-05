@@ -86,7 +86,7 @@
 &lt;div class="section" id="conquering-with-the-string-class"&gt;
 &lt;h2&gt;Conquering with the String Class&lt;/h2&gt;
 &lt;p&gt;So far I've carefully changed the Python ecosystem with my brilliant addition to the language. What if I want to get stupidly dangerous? What if I want to allow developers the &lt;strong&gt;dangerous capability to alter the returned length of a String&lt;/strong&gt;? Fortunately for me, and unfortunately for anyone who uses this code on a real project, I know how to be this stupidly dangerous.&lt;/p&gt;
-&lt;p&gt;I've present to you the &lt;tt class="docutils literal"&gt;ConqueringString&lt;/tt&gt; class:&lt;/p&gt;
+&lt;p&gt;I present to you the &lt;tt class="docutils literal"&gt;ConqueringString&lt;/tt&gt; class:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt;
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConqueringString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;

@@ -121,7 +121,7 @@ Conquering with the String Class
 
 So far I've carefully changed the Python ecosystem with my brilliant addition to the language. What if I want to get stupidly dangerous? What if I want to allow developers the **dangerous capability to alter the returned length of a String**? Fortunately for me, and unfortunately for anyone who uses this code on a real project, I know how to be this stupidly dangerous. 
 
-I've present to you the ``ConqueringString`` class:
+I present to you the ``ConqueringString`` class:
 
 .. code-block:: python
 

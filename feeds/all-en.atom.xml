@@ -1,5 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/all-en.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-02-24T01:00:00-08:00</updated><entry><title>Fiction vs Non-Fiction</title><link href="http://pydanny.com/fiction-vs-non-fiction.html" rel="alternate"></link><updated>2014-02-24T01:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-02-24:fiction-vs-non-fiction.html</id><summary type="html">&lt;p&gt;I'm a published author.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/all-en.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-03-05T12:00:00-08:00</updated><entry><title>Docstrings and Various Python Objects</title><link href="http://pydanny.com/docstrings-and-various-python-objects.html" rel="alternate"></link><updated>2014-03-05T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-03-05:docstrings-and-various-python-objects.html</id><summary type="html">&lt;p&gt;Early in my journeys with Python I struggled with understanding the purpose and use of &lt;strong&gt;lambda&lt;/strong&gt; functions. When I finally understood them I was disappointed by their lack of &lt;strong&gt;docstrings&lt;/strong&gt;. For that reason, and various other shortcomings, &lt;a class="reference external" href="http://pydanny.blogspot.com/2007/07/lambdas-no-more.html"&gt;I went back to standard functions&lt;/a&gt;. Also, for what it's worth, I've even spoken about how much &lt;a class="reference external" href="http://www.slideshare.net/pydanny/python-worst-practices/41"&gt;you shouldn't use lambdas&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Recently I was thinking about how everything in Python is an object. This includes lambdas. Since all Python objects have the &lt;cite&gt;__doc__&lt;/cite&gt; special (aka 'magic') attribute, can we add custom docstrings to everything?&lt;/p&gt;
+&lt;p&gt;Using &lt;a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing.html"&gt;pytest&lt;/a&gt;, Python 2.7.x, and lambdas, let's find out!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# test_docstrings.py&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_lambdas&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# Create a lambda and test it&lt;/span&gt;
+    &lt;span class="n"&gt;doubler&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;doubler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;fun&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;fun fun&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Add a docstring to the lambda&lt;/span&gt;
+    &lt;span class="n"&gt;doubler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Doubles strings&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Test that calling __doc__ works&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;doubler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Doubles strings&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Hey! It worked! If I try it in the shell, I can even see that the &lt;tt class="docutils literal"&gt;help()&lt;/tt&gt; function works:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="c"&gt;# Welcome to the REPL!&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;doubler&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;doubler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Doubles strings&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;doubler&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Help&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="n"&gt;__main__&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
+    &lt;span class="n"&gt;Doubles&lt;/span&gt; &lt;span class="n"&gt;strings&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Contrary to what I thought in 2007, Python lambdas &lt;em&gt;can&lt;/em&gt; be documented. Modifying their docstring functions with both the direct &lt;tt class="docutils literal"&gt;__doc___&lt;/tt&gt; special attribute and the &lt;tt class="docutils literal"&gt;help()&lt;/tt&gt; built-in works just fine.&lt;/p&gt;
+&lt;div class="section" id="should-we-use-lambdas"&gt;
+&lt;h2&gt;Should We Use Lambdas?&lt;/h2&gt;
+&lt;p&gt;As demonstrated in this article, lambdas can be documented. Nevertheless, I'm still not entirely convinced python lambdas should be used as anything except when an anonymous function is advantageous, i.e during functional programming.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-about-other-python-types"&gt;
+&lt;h2&gt;What About Other Python Types?&lt;/h2&gt;
+&lt;p&gt;Enough about lambdas, let's see what else we can do with docstrings.&lt;/p&gt;
+&lt;div class="section" id="functions-and-docstrings"&gt;
+&lt;h3&gt;Functions and Docstrings&lt;/h3&gt;
+&lt;p&gt;We know modifying docstrings of functions works, so we'll use it as a 'control'.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# appended to test_docstrings.py&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_functions&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# Create a function and test it&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;doubler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;Doubles strings&amp;quot;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;doubler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;fun&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;fun fun&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;doubler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Doubles strings&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Change the docstring&lt;/span&gt;
+    &lt;span class="n"&gt;doubler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Really doubles strings&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Test that calling __doc__ works&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;doubler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Really doubles strings&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="strings-and-docstrings"&gt;
+&lt;h3&gt;Strings and Docstrings&lt;/h3&gt;
+&lt;p&gt;Let's go for something a bit harder. Strings, for example, come with a docstring, but as Python strings are immutable types, it's read-only access:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# more appended to test_docstrings.py&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_strings&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# Assert that strings come with a built-in doc string&lt;/span&gt;
+    &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello, world&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;str(object) -&amp;gt; string&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s"&gt;Return a nice string&amp;#39;&lt;/span&gt; \
+        &lt;span class="s"&gt;&amp;#39; representation of the object.&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;If the argument is a string,&amp;#39;&lt;/span&gt; \
+        &lt;span class="s"&gt;&amp;#39; the return value is the same object.&amp;#39;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Try to set the docstring of a string and you get an AttributeError&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;pytest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;raises&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Stock programming text&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# The error&amp;#39;s value explains the problem...&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;#39;str&amp;#39; object attribute &amp;#39;__doc__&amp;#39; is read-only&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Hmmm... does this mean that we can't assign a docstring to a string? What if we subclass Python's &lt;tt class="docutils literal"&gt;str&lt;/tt&gt; type?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Again appended to test_docstrings.py&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_subclassed_string&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Subclass the string type&lt;/span&gt;
+    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;I am a string class&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Instantiate the string&lt;/span&gt;
+    &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello, world&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# The default docstring is set&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;I am a string class&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Let&amp;#39;s set the docstring&lt;/span&gt;
+    &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;I am a string object&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;I am a string object&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This looks like it works, but it doesn't do enough. Specifically, this doesn't satisfy the needs of Python's &lt;tt class="docutils literal"&gt;help()&lt;/tt&gt; function when called against the instantiated object.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="c"&gt;# REPL again so we can call the help() function&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;I am a string class&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello, world&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# instantiate the String Object&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;I am a string object&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# Called against the &amp;#39;s&amp;#39; object, not the &amp;#39;String&amp;#39; class.&lt;/span&gt;
+&lt;span class="n"&gt;Help&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;built&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="n"&gt;__builtin__&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+&lt;span class="n"&gt;NAME&lt;/span&gt;
+    &lt;span class="n"&gt;__builtin__&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Built&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;functions&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exceptions&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;other&lt;/span&gt; &lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+
+&lt;span class="n"&gt;FILE&lt;/span&gt;
+    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;built&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;DESCRIPTION&lt;/span&gt;
+    &lt;span class="n"&gt;Noteworthy&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="sb"&gt;`nil&amp;#39; object; Ellipsis represents `&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="s"&gt;&amp;#39; in slices.&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You'll notice in the result of the &lt;tt class="docutils literal"&gt;help()&lt;/tt&gt; call on the 's' object, that the phrase, &amp;quot;I am a string object&amp;quot; does not exist.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;In Python, everything might be an object, but not all objects are created equal. Lambdas (and functions and objects) do allow for docstrings, but many, if not all basic types (strings, lists, classes, etc) for Python do not.&lt;/p&gt;
+&lt;p&gt;I wonder if I scratch this particular itch long enough I might be able to create a string-like class that handles the &lt;tt class="docutils literal"&gt;help()&lt;/tt&gt; issue. If that happens, maybe I'll add it to &lt;a class="reference external" href="http://pydanny.com/fixing-pythons-string-class.html"&gt;String Theory&lt;/a&gt;. ;-)&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://s3.amazonaws.com/pydanny/lambda_scoops.png"&gt;&lt;img alt="https://s3.amazonaws.com/pydanny/lambda_scoops.png" class="align-center" id="lambda-scoops" src="https://s3.amazonaws.com/pydanny/lambda_scoops.png" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+</summary><category term="python"></category></entry><entry><title>Fiction vs Non-Fiction</title><link href="http://pydanny.com/fiction-vs-non-fiction.html" rel="alternate"></link><updated>2014-02-24T01:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-02-24:fiction-vs-non-fiction.html</id><summary type="html">&lt;p&gt;I'm a published author.&lt;/p&gt;
 &lt;p&gt;There, I said it. I co-wrote a &lt;a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-5"&gt;book&lt;/a&gt; and its &lt;a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-6"&gt;sequel&lt;/a&gt;. My childhood dream of becoming a writer has come true.&lt;/p&gt;
 &lt;p&gt;Well, not completely.&lt;/p&gt;
 &lt;p&gt;Truth is, I've always wanted to be a fiction author. Don't get me wrong, writing a technical book has been a life-worthy experience, with unbelievable challenges, incredible highs, and soul-crushing lows. I'm delighted we made it happen, and want to write more technical works. Still, there are things about writing fiction that have become very appealing to me.&lt;/p&gt;
@@ -2116,7 +2235,7 @@ $ history | awk '{a[$2]++ } END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}
 &lt;div class="section" id="conquering-with-the-string-class"&gt;
 &lt;h2&gt;Conquering with the String Class&lt;/h2&gt;
 &lt;p&gt;So far I've carefully changed the Python ecosystem with my brilliant addition to the language. What if I want to get stupidly dangerous? What if I want to allow developers the &lt;strong&gt;dangerous capability to alter the returned length of a String&lt;/strong&gt;? Fortunately for me, and unfortunately for anyone who uses this code on a real project, I know how to be this stupidly dangerous.&lt;/p&gt;
-&lt;p&gt;I've present to you the &lt;tt class="docutils literal"&gt;ConqueringString&lt;/tt&gt; class:&lt;/p&gt;
+&lt;p&gt;I present to you the &lt;tt class="docutils literal"&gt;ConqueringString&lt;/tt&gt; class:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt;
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConqueringString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
