@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com" rel="alternate"></link><link href="http://pydanny.com/feeds/posts.atom.xml" rel="self"></link><id>http://pydanny.com</id><updated>2012-08-14T09:49:37Z</updated><entry><title>A legible guide to MarkDown</title><link href="http://pydanny.com/a-legible-guide-to-markdown.html" rel="alternate"></link><updated>2012-08-14T09:49:37Z</updated><author><name>Daniel-Greenfeld</name></author><id>http://pydanny.com/a-legible-guide-to-markdown.html</id><summary type="html">&lt;blockquote class="pull-quote"&gt;
-&lt;p&gt;Markdown is a lightweight markup language, originally created by John Gruber and Aaron Swartz allowing
-people &amp;quot;to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally
-valid XHTML (or HTML)&amp;quot;.&lt;/p&gt;
-&lt;p class="attribution"&gt;&amp;mdash;&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Markdown"&gt;http://en.wikipedia.org/wiki/Markdown&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</summary></entry></feed>
