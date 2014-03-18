@@ -20,16 +20,18 @@ Here are some of my memories of Malcolm.
 DjangoCon US: September 2010
 =============================
 
-This is where Audrey and I first met Malcolm. We ended up spending a good amount of the conference with him just hanging out and having a good time. I remember being honored that such a luminary want to spend time with us, yet more importantly discovering a good friend.
+This is where Audrey and I first met Malcolm. We ended up spending a good amount of the conference with him just hanging out and having a good time. I remember being honored that such a luminary wanted to spend time with us, yet was more delighted in discovering a good friend.
 
-During the conference, he peered into the nascent code base of djangopackages.com and asked some pointed questions. We justified a few design decisions, and he nodded and we saw him using similar techniques later. He also gave us some great pointers on things we could do, and I believe we implemented all of them.
+During the conference, he peered into the nascent code base of `djangopackages.com`_ and asked some pointed questions. We justified a few design decisions, and he agreed, and we saw him using similar techniques later. He gave us some great pointers on things we could do, and I believe we implemented all of them.
+
+.. _`djangopackages.com`: https://www.djangopackages.com
 
 Summer to Autumn of 2010
 =========================
 
 Malcolm and I worked together on a project in 2010. During this time we had a number of email and chat discussions. Going over them now I'm impressed by his friendship and generosity of knowledge. I know he was terribly busy but yet he always had time for me in 2010.
 
-After about emails where I addressed him as 'Malcom', Malcolm finally got me to consistently spell his name correctly with a single sentence:
+After about 15 emails where I addressed him as 'Malcom', Malcolm finally got me to consistently spell his name correctly with a single sentence:
 
     You might be amazed at how cranky it makes me when people try to spell Malcolm with only one "l".
     
