@@ -8,6 +8,8 @@ The Python Decorator Cheat Sheet
 :slug: python-decorator-cheat-sheet
 :status: draft
 
+Dushyant Rijhwani
+
 This is a cheat sheet for Python decorators, serving as a place to store decorator templates. I created this because if I go for more than a week without using decorators I have to look them up or noodle around for a bit. By placing this information on my blog it becomes a trivial lookup, either by looking at my blog locally or online.
 
 All templates include tests. For the tests, I'm using Holger Krekel's pytest_ library, which I described in-depth `earlier this year`_. The templates and tests are available in this gist_.
