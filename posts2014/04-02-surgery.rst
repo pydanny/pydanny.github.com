@@ -64,7 +64,7 @@ Ugh.
 
 Waiting was necessary because I didn't want to spend all my earnings for a time feeding the heartless American insurance bureaucracy industry. 
 
-As soon as it was available we signed up for proper American medical coverage through the Affordable Care Act. I now have medical coverage! I went through the necessary appointments and was recommended the surgery in two days. The operation should take 90 minutes and I'm going home the same day. Two weeks after surgery I'll be feeling completely normal, and a month after surgery I can carefully restart my exercise regimen.
+As soon as it was available we signed up for proper American medical coverage through the Affordable Care Act. I now have medical coverage! I went through the necessary appointments and was recommended the surgery that's going to happen in two days. The operation should take 90 minutes and I'm going home the same day. Two weeks after surgery I'll be feeling completely normal, and a month after surgery I can carefully restart my exercise regimen.
 
 Living With a Hernia
 ====================
