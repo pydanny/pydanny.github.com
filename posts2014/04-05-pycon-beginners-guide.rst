@@ -124,3 +124,16 @@ Here are some things I've found work wonders to keep me active and alert and I r
 
 .. _`Immune System Boosters`: http://www.amazon.com/Airborne-Support-Supplement-Vitamin-Effervescent/dp/B000WZI4WY?tag=mlinar-20
 
+
+Two Scoops of Django 1.6 Footnote
+====================================
+
+Check out what we're releasing in India this coming Tuesday!
+
+.. image:: http://twoscoops.smugmug.com/Two-Scoops-Press-Media-Kit/i-PqFxQRs/0/S/tsd-india-edition-S.jpg
+   :name: Two Scoops of Django 1.6 India Edition Sneak Peek
+   :align: center
+   :target: http://twoscoopspress.com/blogs/news/13363013-two-scoops-of-django-1-6-india-edition-sneak-peek
+
+*The US edition, on the left, is 7.5x9.25 inches. The India edition, on the right, is sized A4, which is about 8.3x11.7 inches. The US edition is slightly thicker, but not dramatically so. The cover of the India Edition has more vibrant color (admittedly slightly rumpled thanks to the clumsy hands of the male co-author). The SD memory card and garlic clove are for scale.*
+
