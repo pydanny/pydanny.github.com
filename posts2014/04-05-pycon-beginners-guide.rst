@@ -11,7 +11,7 @@ New to Python and/or conferences and attending the upcoming `PyCon 2014`_ in Mon
 
 Hoping to get the most out of joining thousands of Python enthusiasts?
 
-No worries! This guide will aid you in attending one of the best technical conferences on the planet. Even though I'm not attending on account of various reasons including finances, work, and surgery, I'm going to share how to get through the whole event in good shape. I'm also going to share some great tricks to optimize the event.
+No worries! This guide will aid you in attending one of the best technical conferences on the planet. Even though I'm not attending on account of various reasons including finances, work, and surgery, I'm going to share how to get through duration of pycon in good shape. I'm also going to share some great tricks to optimize the event.
 
 .. _`PyCon 2014`: https://us.pycon.org/2014/
 .. _Python: http://python.orgå
