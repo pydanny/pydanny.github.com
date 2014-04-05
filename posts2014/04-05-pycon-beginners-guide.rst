@@ -36,7 +36,7 @@ PyCon is a professional event. Sure, lots of people are in t-shirts and are havi
 Get to the Registration Desk Early
 ==================================
 
-As the lines for registration can get epic, I like to get my badge as early as possible to I don't miss PyCon's famously incredible keynote speeches.
+As the lines for registration can get epic, I like to get my badge as early as possible so I don't miss PyCon's famously incredible keynote speeches.
 
 Must-See Tutorials
 ==================
