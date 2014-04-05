@@ -7,7 +7,7 @@ Beginner's Guide to PyCon 2014
 :category: python
 :slug: beginners-guide-pycon-2014
 
-New to Python and/or conferences and attending the upcoming `PyCon 2014`_? in Montreal, Canada?  Or is this your first conference? Or perhaps your first conference longer than a weekend?
+New to Python and/or conferences and attending the upcoming `PyCon 2014`_ in Montreal, Canada?  Or is this your first conference? Or perhaps your first conference longer than a weekend?
 
 Hoping to get the most out of joining thousands of Python enthusiasts?
 
