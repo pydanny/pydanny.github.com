@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Django Class Based View: email form with CAPTCHA</title>
+    <title>Beginner's Guide to PyCon 2014</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Django Class Based View: email form with CAPTCHA">
-                                        Django Class Based View: email form with CAPTCHA
+                                        title="Permalink to Beginner's Guide to PyCon 2014">
+                                        Beginner's Guide to PyCon 2014
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,120 +100,102 @@
                 </header>
 
                 <p>
-                    <em>Wednesday, May 23, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to Django Class Based View: email form with CAPTCHA">permalink</a>)
+                    <em>Saturday, April 05, 2014</em>
+                    (<a href="" rel="bookmark" title="Permalink to Beginner's Guide to PyCon 2014">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p><a class="reference external" href="http://pydanny.com/simple-django-email-form-using-cbv.html">Yesterday I showed how to implement a simple email form</a> for <a class="reference external" href="http://djangoproject.com">Django</a> using Class Based Views. Today I'm going to extend yesterday's work to use the excellent <a class="reference external" href="http://www.google.com/recaptcha">RECAPTCHA</a> service to help reduce spam content.</p>
-<p>This version requires <tt class="docutils literal">pip</tt> installing the following into your <tt class="docutils literal">virtualenv</tt>.</p>
+                    <p>New to Python and/or conferences and attending the upcoming <a class="reference external" href="https://us.pycon.org/2014/">PyCon 2014</a>? in Montreal, Canada?  Or is this your first conference? Or perhaps your first conference longer than a weekend?</p>
+<p>Hoping to get the most out of joining thousands of Python enthusiasts?</p>
+<p>No worries! This guide will aid you in attending one of the best technical conferences on the planet. Even though I'm not attending on account of various reasons including finances, work, and surgery recovery, I'm going to share how to get through the whole event in good shape. I'm also going to share some great tricks to optimize the event.</p>
+<div class="section" id="basics">
+<h2>Basics</h2>
+<ol class="arabic simple">
+<li>Take at least one shower per day. Please.</li>
+<li>Bring something to take notes. A paper notebook, laptop, or tablet. Anything!</li>
+<li>If you are looking for work, bring business cards. Seriously.</li>
+<li>At every meal (breakfast, lunch, dinner) make a point of sitting with or going out with different people. Introduce yourself. Make new friends and learn new things!</li>
+<li>If you can't make it to a talk, don't stress out. They are recorded and will be available later on <a class="reference external" href="http://www.pyvideo.org">http://www.pyvideo.org</a>.</li>
+<li>Act Professionally (see next section)</li>
+</ol>
+</div>
+<div class="section" id="be-professional">
+<h2>Be Professional</h2>
+<p>PyCon is a professional event. Sure, lots of people are in t-shirts and are having fun, often in oddly goofy ways. Yet stepping outside the boundaries of civilized behavior is not acceptable. Keep in mind that PyCon US has a <a class="reference external" href="https://us.pycon.org/2014/about/code-of-conduct/">code of conduct</a>. Whether or not you agree with codes of conduct for conferences, PyCon US has one and it will be enforced.</p>
+</div>
+<div class="section" id="get-to-the-registration-desk-early">
+<h2>Get to the Registration Desk Early</h2>
+<p>As the lines for registration can get epic, I like to get my badge as early as possible to I don't miss PyCon's famously incredible keynote speeches.</p>
+</div>
+<div class="section" id="must-see-tutorials">
+<h2>Must-See Tutorials</h2>
+<p>All of the beginner tutorials at <a class="reference external" href="https://us.pycon.org/2014/schedule/tutorials/">https://us.pycon.org/2014/schedule/tutorials/</a> look wonderful. You simply can't go wrong with any of them.</p>
+<p>If you plan to attend the PyCon 2014 sprints, or in general contribute to open source, then I strongly recommend Jessica McKellar's &quot;Contribute with me! Getting started with open source development&quot; tutorial (description at <a class="reference external" href="https://us.pycon.org/2014/schedule/presentation/59/">https://us.pycon.org/2014/schedule/presentation/59/</a>). She's an amazing instructor, brilliant developer, and a board member of the Python Software Foundation.</p>
+</div>
+<div class="section" id="must-see-talks">
+<h2>Must-See Talks</h2>
+<p>All of them. Seriously, I'm a little relieved that I'm not going, because there were some time slots thad several must-see talks running concurrently. I would have to clone myself in order to see all the talks I wanted to watch. Fortunately, I'll be able to watch them on <a class="reference external" href="http://www.pyvideo.org">http://www.pyvideo.org</a>.</p>
+<p><strong>Pro-tip</strong>: For the talks you are excited about attending, get there early. If you really  want to attend a particular talk, odds are so does everyone else and the room might be packed. Don't be forced to sit on the floor or stand outside the door. Show up early!</p>
+<p>See <a class="reference external" href="https://us.pycon.org/2014/schedule/talks/">https://us.pycon.org/2014/schedule/talks/</a> for the talk schedules.</p>
+</div>
+<div class="section" id="talk-attendance-guidelines">
+<h2>Talk Attendance Guidelines</h2>
+<p>At PyCon, talks are either 30 or 45 long. They represent the best and brightest in both old hands in the community and rising stars. Some quick guidelines:</p>
 <ul class="simple">
-<li><tt class="docutils literal">pip install <span class="pre">django-crispy-forms</span></tt> so we can do Python driven layouts.</li>
-<li><tt class="docutils literal">pip install <span class="pre">django-floppyforms</span></tt> so we get HTML5 elements for free.</li>
-<li><tt class="docutils literal">pip install <span class="pre">django-recaptcha</span></tt> to do the RECAPTCHA work.</li>
-</ul>
-<p>Don't forget to add the app to your INSTALLED_APPS in settings.py:</p>
-<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">+=</span> <span class="p">(</span>
-    <span class="s">&#39;crispy_forms&#39;</span><span class="p">,</span>
-    <span class="s">&#39;floppyforms&#39;</span><span class="p">,</span>
-    <span class="s">&#39;captcha&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-</pre></div>
-<p>Generate your KEYs from the RECAPTCHA site and add them in settings.py:</p>
-<div class="highlight"><pre><span class="n">RECAPTCHA_PUBLIC_KEY</span> <span class="o">=</span> <span class="s">&#39;6LcVu9ESAAAAANVWwbM5-PLuLES94GQ2bIYmSNTG&#39;</span>
-<span class="n">RECAPTCHA_PRIVATE_KEY</span> <span class="o">=</span> <span class="s">&#39;6LcVu9ESAAAAAGxz7aEIACWRa3CVnXN3mFd-cajP&#39;</span>
-</pre></div>
-<p>In myapp.forms.py:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">captcha.fields</span> <span class="kn">import</span> <span class="n">ReCaptchaField</span>  <span class="c"># Only import different from yesterday</span>
-<span class="kn">from</span> <span class="nn">crispy_forms.helper</span> <span class="kn">import</span> <span class="n">FormHelper</span>
-<span class="kn">from</span> <span class="nn">crispy_forms.layout</span> <span class="kn">import</span> <span class="n">Submit</span>
-<span class="kn">import</span> <span class="nn">floppyforms</span> <span class="kn">as</span> <span class="nn">forms</span>
-
-<span class="k">class</span> <span class="nc">ContactForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
-
-    <span class="n">name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">email</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">subject</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">)</span>
-    <span class="n">captcha</span> <span class="o">=</span> <span class="n">ReCaptchaField</span><span class="p">()</span>  <span class="c"># Only field different from yesterday</span>
-
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">helper</span> <span class="o">=</span> <span class="n">FormHelper</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">helper</span><span class="o">.</span><span class="n">add_input</span><span class="p">(</span><span class="n">Submit</span><span class="p">(</span><span class="s">&#39;submit&#39;</span><span class="p">,</span> <span class="s">&#39;Submit&#39;</span><span class="p">))</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ContactForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</pre></div>
-<p>In myapp.views.py:</p>
-<div class="highlight"><pre><span class="c"># Unchanged from yesterday. :-)</span>
-<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
-<span class="kn">from</span> <span class="nn">django.core.mail</span> <span class="kn">import</span> <span class="n">send_mail</span>
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">FormView</span>
-
-<span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">ContactForm</span>
-
-<span class="k">class</span> <span class="nc">ContactFormView</span><span class="p">(</span><span class="n">FormView</span><span class="p">):</span>
-
-    <span class="n">form_class</span> <span class="o">=</span> <span class="n">ContactForm</span>
-    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&quot;myapp/email_form.html&quot;</span>
-    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&#39;/email-sent/&#39;</span>
-
-    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;{name} / {email} said: &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">),</span>
-            <span class="n">email</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;email&#39;</span><span class="p">))</span>
-        <span class="n">message</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n\n</span><span class="s">{0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;message&#39;</span><span class="p">))</span>
-        <span class="n">send_mail</span><span class="p">(</span>
-            <span class="n">subject</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">cleaned_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;subject&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
-            <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="p">,</span>
-            <span class="n">from_email</span><span class="o">=</span><span class="s">&#39;contact-form@myapp.com&#39;</span><span class="p">,</span>
-            <span class="n">recipient_list</span><span class="o">=</span><span class="p">[</span><span class="n">settings</span><span class="o">.</span><span class="n">LIST_OF_EMAIL_RECIPIENTS</span><span class="p">],</span>
-        <span class="p">)</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContactFormView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">form_valid</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
-</pre></div>
-<p>In templates/myapp/email_form.html:</p>
-<div class="highlight"><pre>{# Also unchanged from yesterday. :-)  #}
-{% extends &#39;base.html&#39; %}
-{% load crispy_forms_tags %}
-
-{% block title %}Send an email{% endblock %}
-
-{% block content %}
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;span6&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;h1&gt;</span>Send an email<span class="nt">&lt;/h1&gt;</span>
-            {% crispy form form.helper %}
-        <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-{% endblock %}
-
-{% block extrajs %}
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;{{ STATIC_URL }}js/jquery-1.7.1.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#id_name&#39;</span><span class="p">).</span><span class="nx">focus</span><span class="p">()</span>
-<span class="p">});</span>
-<span class="nt">&lt;/script&gt;</span>
-{% endblock %}
-</pre></div>
-<div class="section" id="what-i-did">
-<h2>What I did</h2>
-<ul class="simple">
-<li>Using <tt class="docutils literal">pip</tt> I installed three packages into my Python environment.</li>
-<li>Added those three packages into the INSTALLED_APPS setting.</li>
-<li>Set the RECAPTCHA keys for my site.</li>
-<li>Modified the <tt class="docutils literal">forms.py</tt> file from yesterday to include the RECAPTCHA field.</li>
-<li>Reduced spam content.</li>
+<li><strong>Ask Questions!</strong> If the speaker leaves time for questions at the end, <a class="reference external" href="http://cecinestpasun.com/entries/i-can-haz-question-or-five/">go and ask</a>!</li>
+<li><strong>Shut the Laptop and Turn Off the Device.</strong> It's disconcerting to give a speech to hundreds of people staring at their portable electronics and not responding to your banter. Unless you are using electronics to actively take notes on the talk, consider turning them off to look at the speaker.</li>
+<li><strong>Don't Heckle.</strong> It's nerve wracking going up in front of hundreds of people live and tens of thousands on streaming video. Heckling is <strong>never</strong> funny and it's a good way to lose friends and make enemies. Unless the speaker asks for commentary during the talk, wait until the end and then ask your questions.</li>
 </ul>
 </div>
-<div class="section" id="what-i-could-do">
-<h2>What I could do</h2>
+<div class="section" id="lunches">
+<h2>Lunches</h2>
+<p>Don't forget to keep whatever they hand out to track meals at the registration desk or you might not be able to get your food.</p>
+<p>Try and sit down to people you don't know and introduce yourself. Every time I do this I don't just get to meet interesting people, I get to meet amazing people. PyCon is full of brilliant minds and you'll never get to know any of them unless you try.</p>
+</div>
+<div class="section" id="sprints">
+<h2>Sprints</h2>
+<p>When the tutorials and talks are over, the sprints begin. These are like hackathons, but for only open source efforts. Imagine the chance to apply everything you just learn, while sitting amongst other Python enthusiast including dozens of projects leaders. Not only do you get the chance to apply what you've just learned, you can contribute to make the world of Python better!</p>
+<p>See <a class="reference external" href="https://us.pycon.org/2014/community/sprints/">https://us.pycon.org/2014/community/sprints/</a> for general sprint information.</p>
+<div class="section" id="sprint-requirements">
+<h3>Sprint Requirements</h3>
+<p>For beginners setting up a Python development environment can be tricky. If the list below looks intimidating, look for any sprints with &quot;beginner&quot; in the title. There is always something! While they aren't listed yet, but there should be something up within a week or two.</p>
+<p>On the other hand, if you want a pre-PyCon challenge, I recommend getting the the following installed:</p>
+<ul>
+<li><p class="first">Modern versions of Python:</p>
+<blockquote>
 <ul class="simple">
-<li>Pin the app versions for a particular release. This is what you should be doing in normal development and in production, but for a blog entry I'm avoiding it because release numbers become quickly dated.</li>
-<li>Rather than change the <tt class="docutils literal">ContactForm</tt> from yesterday, I could have extended it via inheritance.</li>
+<li>Python 2.7 (mandatory)</li>
+<li>Python 3.3 (Rather mandatory for Python 3 work)</li>
+<li>Python 3.4 (optional, but useful for Python 3 work)</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">Be ready with source control. You should have installed and possess working knowledge with:</p>
+<blockquote>
+<ul class="simple">
+<li>Git. Make sure you have a GitHub account</li>
+<li>Mercurial. Make sure you have a BitBucket account.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first"><a class="reference external" href="http://www.virtualenv.org/en/latest/index.html">virtualenv</a> and <a class="reference external" href="http://www.pip-installer.org/en/latest/installing.html">pip</a> for all versions of Python. If you are using Python 3.4, you don't need to have them installed.</p>
+</li>
+<li><p class="first">An IDE or Text Editor you are comfortable using.</p>
+</li>
 </ul>
 </div>
-<div class="section" id="want-to-learn-more">
-<h2>Want to learn more?</h2>
-<p>Check out the Django book I co-wrote, <a class="reference external" href="http://twoscoopspress.org/products/two-scoops-of-django-1-6">Two Scoops of Django: Best Practices for Django 1.6</a>!</p>
+</div>
+<div class="section" id="staying-healthy-over-nine-days-of-python">
+<h2>Staying Healthy Over Nine Days of Python!</h2>
+<p>If you attend the tutorials, talks and sprints, that's <strong>nine days</strong>. You (or your organization) are putting out some serious money for you to go and discover new knowledge, new people, or a bunch of other reasons. The last thing you want to do is end up sick for part or all of the conference.</p>
+<p>Odds are you'll be riding in public transit (planes, trains, buses) to get there. Unfortunately, you'll be travelling with people who are sick. Then, for over a week, you'll be around thousands of people who have travelled under similar conditions. Many of those people, possibly yourself, will be eating poorly, drinking heavily, and not getting enough sleep.</p>
+<p>Here are some things I've found work wonders to keep me active and alert and I recommend you do the same <strong>every</strong> day of the conference:</p>
+<ol class="arabic simple">
+<li>Take at least one shower per day. Please.</li>
+<li>Eat at least two good meals. Make a point of sitting with different people at each meal and introducing yourself. Make new friends!</li>
+<li>Get at least three hours of sleep. More if possible because your brain is going to go into learning overdrive.  I aim for 6-8 hours.</li>
+<li>Bring <a class="reference external" href="http://www.amazon.com/Airborne-Support-Supplement-Vitamin-Effervescent/dp/B000WZI4WY?tag=mlinar-20">Immune System Boosters</a> and consume them daily. I usually do it with breakfast and lunch.</li>
+</ol>
 </div>
 
                     <div class="article-info">
@@ -223,8 +205,7 @@
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
 	<a href="./tag/django.html"><em>django</em></a>
-	<a href="./tag/howto.html"><em>howto</em></a>
-	<a href="./tag/class-based-views.html"><em>class-based-views</em></a>
+	<a href="./tag/pycon.html"><em>pycon</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -232,7 +213,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "django-class-based-view-email-form-with-captcha.html";
+                           var disqus_identifier = "beginners-guide-pycon-2014.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
