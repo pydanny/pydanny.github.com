@@ -48,7 +48,9 @@ If you plan to attend the PyCon 2014 sprints, or in general contribute to open s
 Must-See Talks
 ==============
 
-All of them. Seriously, I'm a little relieved that I'm not going, because there were some time slots thad several must-see talks running concurrently. I would have to clone myself in order to see all the talks I wanted to watch. Fortunately, I'll be able to watch them on http://www.pyvideo.org.
+All of them. 
+
+I'm actually a little relieved that I'm not going, because there were some time slots thad several must-see talks running concurrently. I would have to clone myself repeatedly in order to see all the good stuff! Fortunately, I'll be able to watch them on http://www.pyvideo.org.
 
 **Pro-tip**: For the talks you are excited about attending, get there early. If you really  want to attend a particular talk, odds are so does everyone else and the room might be packed. Don't be forced to sit on the floor or stand outside the door. Show up early!
 
