@@ -11,7 +11,7 @@ Writing reusable code is a good thing, right? The trick is to do so in a way tha
 
 .. _`functools.partial`: https://docs.python.org/2.7/library/functools.html#functools.partial
 
-.. image:: http://pydanny/static/partials.png
+.. image:: http://pydanny.com/static/partials.png
    :name: Python Partials are Fun!
    :align: center
    :target: http://pydanny.com/python-partials-are-fun.html
