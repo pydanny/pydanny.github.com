@@ -4,7 +4,7 @@ Surgery in Two Days
 
 :date: 2014-04-02 05:00
 :tags: blog, pycon, surgery
-:category: book
+:category: blog
 :slug: surgery-in-two-days
 
 In two days, Friday, April 4th, I'm going into `laparoscopic surgery`_ in order to correct a double inguinal hernia. If you want to know what that is, you can read the `Not Safe For Work (NSFW) Wikipedia article`. 
