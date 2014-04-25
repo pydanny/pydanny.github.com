@@ -31,7 +31,7 @@ Rather than dive into paragraphs of explanation, I'll use code examples to expla
 My Demonstration of ``functools.partial``
 =========================================
 
-First, let's say we want to create a function that explicitly performs exponentiation_. This way we can get the squares_, cubes_, and other power operations on any number.
+First, let's say we want to create a function that explicitly performs exponentiation_. This way we can get the squares_, cubes_, and other power operations on any number. This duplicates Python's built-in ``pow()`` function, but our version has the very nice addition of keyword arguments.
 
 .. _exponentiation: https://en.wikipedia.org/wiki/Exponentiation
 .. _squares: https://en.wikipedia.org/wiki/Square_(algebra)
@@ -187,3 +187,5 @@ Summary
 ========
 
 I've provided some simple examples of how to use ``functools.partials``. I find them really useful for certain tasks, mostly in avoiding repeating myself. Like any coding tool, complex usage can cloak the meaning of code, so be careful and use ``functools.partials`` judiciously.
+
+Update: Nick Cpghlan reminded me to mention that Python has a ``pow()`` built-in.

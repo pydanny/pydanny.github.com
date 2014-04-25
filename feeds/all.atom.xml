@@ -13,7 +13,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="my-demonstration-of-functools-partial"&gt;
 &lt;h2&gt;My Demonstration of &lt;tt class="docutils literal"&gt;functools.partial&lt;/tt&gt;&lt;/h2&gt;
-&lt;p&gt;First, let's say we want to create a function that explicitly performs &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Exponentiation"&gt;exponentiation&lt;/a&gt;. This way we can get the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Square_(algebra)"&gt;squares&lt;/a&gt;, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Cube_(algebra)"&gt;cubes&lt;/a&gt;, and other power operations on any number.&lt;/p&gt;
+&lt;p&gt;First, let's say we want to create a function that explicitly performs &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Exponentiation"&gt;exponentiation&lt;/a&gt;. This way we can get the &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Square_(algebra)"&gt;squares&lt;/a&gt;, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Cube_(algebra)"&gt;cubes&lt;/a&gt;, and other power operations on any number. This duplicates Python's built-in &lt;tt class="docutils literal"&gt;pow()&lt;/tt&gt; function, but our version has the very nice addition of keyword arguments.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;power&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;base&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exponent&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;base&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;exponent&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -132,6 +132,7 @@
 &lt;div class="section" id="summary"&gt;
 &lt;h2&gt;Summary&lt;/h2&gt;
 &lt;p&gt;I've provided some simple examples of how to use &lt;tt class="docutils literal"&gt;functools.partials&lt;/tt&gt;. I find them really useful for certain tasks, mostly in avoiding repeating myself. Like any coding tool, complex usage can cloak the meaning of code, so be careful and use &lt;tt class="docutils literal"&gt;functools.partials&lt;/tt&gt; judiciously.&lt;/p&gt;
+&lt;p&gt;Update: Nick Cpghlan reminded me to mention that Python has a &lt;tt class="docutils literal"&gt;pow()&lt;/tt&gt; built-in.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category></entry><entry><title>Beginner's Guide to PyCon 2014</title><link href="http://pydanny.com/beginners-guide-pycon-2014.html" rel="alternate"></link><updated>2014-04-05T05:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-04-05:beginners-guide-pycon-2014.html</id><summary type="html">&lt;p&gt;New to Python and/or conferences and attending the upcoming &lt;a class="reference external" href="https://us.pycon.org/2014/"&gt;PyCon 2014&lt;/a&gt; in Montreal, Canada?  Or is this your first conference? Or perhaps your first conference longer than a weekend?&lt;/p&gt;
 &lt;p&gt;Hoping to get the most out of joining thousands of Python enthusiasts?&lt;/p&gt;
