@@ -73,8 +73,9 @@
 &lt;h2&gt;A Way to Organize Partials&lt;/h2&gt;
 &lt;p&gt;Lists are great, but sometimes it's nice to have a more legible way of interacting with functions. There are an infinite ways to make this happen, but I like the dot notation of classes. So here is a 'partial structure' class which follows a pattern I think is pretty handy:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Since I like my article code to work in both Python 2.7 and 3,&lt;/span&gt;
-&lt;span class="c"&gt;#   I&amp;#39;ll import the excellent six_ library to manage the&lt;/span&gt;
-&lt;span class="c"&gt;#   differences between Python versions.&lt;/span&gt;
+&lt;span class="c"&gt;#   I&amp;#39;ll import the excellent six library to manage the&lt;/span&gt;
+&lt;span class="c"&gt;#   differences between Python versions. Six is available on PyPI&lt;/span&gt;
+&lt;span class="c"&gt;#   at https://pypi.python.org/pypi/six.&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;six&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;add_metaclass&lt;/span&gt;
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;PowerMeta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -132,7 +133,8 @@
 &lt;div class="section" id="summary"&gt;
 &lt;h2&gt;Summary&lt;/h2&gt;
 &lt;p&gt;I've provided some simple examples of how to use &lt;tt class="docutils literal"&gt;functools.partials&lt;/tt&gt;. I find them really useful for certain tasks, mostly in avoiding repeating myself. Like any coding tool, complex usage can cloak the meaning of code, so be careful and use &lt;tt class="docutils literal"&gt;functools.partials&lt;/tt&gt; judiciously.&lt;/p&gt;
-&lt;p&gt;Update: Nick Cpghlan reminded me to mention that Python has a &lt;tt class="docutils literal"&gt;pow()&lt;/tt&gt; built-in.&lt;/p&gt;
+&lt;p&gt;Update: &lt;a class="reference external" href="https://twitter.com/ncoghlan_dev"&gt;Nick Coghlan&lt;/a&gt; reminded me to mention that Python has a &lt;tt class="docutils literal"&gt;pow()&lt;/tt&gt; built-in.&lt;/p&gt;
+&lt;p&gt;Update 04/30/2014: &lt;a class="reference external" href="https://twitter.com/samueljohn_de"&gt;Samuel John&lt;/a&gt; corrected me on Nick Coghlan's name.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category></entry><entry><title>Beginner's Guide to PyCon 2014</title><link href="http://pydanny.com/beginners-guide-pycon-2014.html" rel="alternate"></link><updated>2014-04-05T05:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-04-05:beginners-guide-pycon-2014.html</id><summary type="html">&lt;p&gt;New to Python and/or conferences and attending the upcoming &lt;a class="reference external" href="https://us.pycon.org/2014/"&gt;PyCon 2014&lt;/a&gt; in Montreal, Canada?  Or is this your first conference? Or perhaps your first conference longer than a weekend?&lt;/p&gt;
 &lt;p&gt;Hoping to get the most out of joining thousands of Python enthusiasts?&lt;/p&gt;

@@ -113,13 +113,12 @@ A Way to Organize Partials
 
 Lists are great, but sometimes it's nice to have a more legible way of interacting with functions. There are an infinite ways to make this happen, but I like the dot notation of classes. So here is a 'partial structure' class which follows a pattern I think is pretty handy:
 
-.. _six:  https://pypi.python.org/pypi/six
-
 .. code-block:: python
     
     # Since I like my article code to work in both Python 2.7 and 3,
-    #   I'll import the excellent six_ library to manage the
-    #   differences between Python versions.
+    #   I'll import the excellent six library to manage the
+    #   differences between Python versions. Six is available on PyPI
+    #   at https://pypi.python.org/pypi/six.
     from six import add_metaclass 
 
     class PowerMeta(type):
@@ -188,4 +187,9 @@ Summary
 
 I've provided some simple examples of how to use ``functools.partials``. I find them really useful for certain tasks, mostly in avoiding repeating myself. Like any coding tool, complex usage can cloak the meaning of code, so be careful and use ``functools.partials`` judiciously.
 
-Update: Nick Cpghlan reminded me to mention that Python has a ``pow()`` built-in.
+Update: `Nick Coghlan`_ reminded me to mention that Python has a ``pow()`` built-in.
+
+Update 04/30/2014: `Samuel John`_ corrected me on Nick Coghlan's name.
+
+.. _`Nick Coghlan`: https://twitter.com/ncoghlan_dev
+.. _`Samuel John`: https://twitter.com/samueljohn_de
