@@ -45,7 +45,7 @@ Now that I've explained which files are checked for tests, here is how **pytest*
 
 1. **pytest** *just runs* **doctests** and **unittests**. 
 2. **pytest** runs any function prefixed with ``test_`` as a test. 
-3. **pytest** does `it's best`_ to run tests written for **nose**.
+3. **pytest** does `its best`_ to run tests written for **nose**.
 
 Yes, **pytest** behaves similarly to **nose** in test discovery. Next is another feature that it shares with **nose** that I really enjoy.
 
@@ -137,5 +137,5 @@ In my next `blog post`_ I describe the following features of writing tests with 
 .. _pytest: http://pytest.org/
 .. _unittest: http://docs.python.org/2/library/unittest.html
 .. _nose: https://pypi.python.org/pypi/nose
-.. _`it's best`: http://pytest.org/latest/nose.html#unsupported-idioms-known-issues
+.. _`its best`: http://pytest.org/latest/nose.html#unsupported-idioms-known-issues
 .. _`blog post`: http://pydanny.com/pytest-no-boilerplate-testing-2.html
