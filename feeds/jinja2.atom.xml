@@ -17,5 +17,5 @@
 &lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;render_from_template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;shopping_list.html&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I've thought about packaging this up with &lt;a class="reference external" href="github.com/audreyr/cookiecutter-pypackage"&gt;cookiecutter-pypackage&lt;/a&gt; and placing it on &lt;a class="reference external" href="https://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt;, but I think it might be overkill.&lt;/p&gt;
+&lt;p&gt;I've thought about packaging this up with &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage"&gt;cookiecutter-pypackage&lt;/a&gt; and placing it on &lt;a class="reference external" href="https://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt;, but I think it might be overkill.&lt;/p&gt;
 </summary><category term="python"></category><category term="jinja2"></category></entry></feed>
