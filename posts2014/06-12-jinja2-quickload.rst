@@ -34,6 +34,8 @@ Sample usage:
 
 I've thought about packaging this up with `cookiecutter-pypackage`_ and placing it on PyPI_, but I think it might be overkill.
 
+**Update 2014/06/12:** Fixed cookiecutter link thanks to https://github.com/dirn
+
 .. _Jinja2: http://jinja.pocoo.org/
 .. _`cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 .. _PyPI: https://pypi.python.org/pypi
