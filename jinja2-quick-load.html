@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Selected for PyCon StartUp Row</title>
+    <title>Jinja2 Quick Load</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Selected for PyCon StartUp Row">
-                                        Selected for PyCon StartUp Row
+                                        title="Permalink to Jinja2 Quick Load">
+                                        Jinja2 Quick Load
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,18 +100,38 @@
                 </header>
 
                 <p>
-                    <em>Tuesday, February 21, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to Selected for PyCon StartUp Row">permalink</a>)
+                    <em>Thursday, June 12, 2014</em>
+                    (<a href="" rel="bookmark" title="Permalink to Jinja2 Quick Load">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>Me and Audrey have been working hard on <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a>, a Python/Django based project. We submitted it to PyCon StartUp row and found out this morning we've been accepted. <strong>Hooray!</strong></p>
-<p>From the <a class="reference external" href="http://pycon.blogspot.com/2012/02/startup-row-winners-for-pycon-2012.html">PyCon StartUp Row winner's post</a>, here is a little bit of what we're about:</p>
-<blockquote class="highlights">
-Have you tried researching products online recently? Search engines are gamed by scammy marketers. Product review sites overwhelm you with ads, have unreliable reviews, or dryly compare raw product specs. <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a> is working to solve this problem. It is like Yelp for products, with product comparison grids inspired by the founders' open-source work on <a class="reference external" href="http://djangopackages.com">Django Packages</a> and <a class="reference external" href="http://opencomparison.org">Open Comparison</a>.</blockquote>
-<p>Just so you know, <a class="reference external" href="http://us.pycon.org">PyCon</a> in North America is the biggest gathering for the international Python community. The conference this year is in Santa Clara, California, and is sold-out at 1500+ attendees, but could have easily sold out several times that number. The talks, tutorials, and events are going to be incredible, and I'm delighted to be part of the PyCon experience!</p>
-<p>We look forward to sharing the StartUp Row with friends like Transifex, Python Packages, and <a class="reference external" href="http://www.weddinglovely.com/">Wedding Lovely</a>.</p>
-<p>Please check out <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a> right now and also visit our PyCon booth on Saturday, March 10th and we'll show you what we're doing.</p>
+                    <p>It seems like that for every few weeks I find myself needing to generate something out of a template while working outside a framework. For this task, my preferred solution is <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a>. I've used Jinja2 to generate HTML, code, and text. If I were brave enough I would even say I've used it to generate XML <a class="footnote-reference" href="#id2" id="id1">[1]</a> (<em>While my preferred xml tool is great for parsing, even lxml is not so much fun for XML generation</em>).</p>
+<p>I frequently use this snippet of code to render templates. Since I'm tired of digging through my code to find it, I'm placing it here for personal reference.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">FileSystemLoader</span><span class="p">,</span> <span class="n">Environment</span>
+
+<span class="k">def</span> <span class="nf">render_from_template</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">template_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">loader</span> <span class="o">=</span> <span class="n">FileSystemLoader</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">loader</span><span class="p">)</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="n">template_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+<p>Sample usage:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">simple_script</span> <span class="kn">import</span> <span class="n">render_from_template</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<span class="o">...</span>     <span class="s">&quot;date&quot;</span><span class="p">:</span> <span class="s">&quot;June 12, 2014&quot;</span><span class="p">,</span>
+<span class="o">...</span>     <span class="s">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;oranges&quot;</span><span class="p">,</span> <span class="s">&quot;bananas&quot;</span><span class="p">,</span> <span class="s">&quot;steak&quot;</span><span class="p">,</span> <span class="s">&quot;milk&quot;</span><span class="p">]</span>
+<span class="o">...</span> <span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">render_from_template</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="s">&quot;shopping_list.html&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+<p>I've thought about packaging this up with <a class="reference external" href="github.com/audreyr/cookiecutter-pypackage">cookiecutter-pypackage</a> and placing it on <a class="reference external" href="https://pypi.python.org/pypi">PyPI</a>, but I think it might be overkill.</p>
+<blockquote>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>The repercussions for publicly admitting to hand-crafting XML for one-off scripts instead of doing it with XML-generating tools are too scary to face.</td></tr>
+</tbody>
+</table>
+</blockquote>
 
                     <div class="article-info">
                             <footer class="post-info">
@@ -119,10 +139,7 @@ Have you tried researching products online recently? Search engines are gamed by
 
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/pycon.html"><em>pycon</em></a>
-	<a href="./tag/audrey.html"><em>audrey</em></a>
-	<a href="./tag/consumernotebook.html"><em>consumernotebook</em></a>
-	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/jinja2.html"><em>jinja2</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -130,7 +147,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "selected-for-pycon-startup-row.html";
+                           var disqus_identifier = "jinja2-quick-load.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
