@@ -1,11 +1,11 @@
-========================
-Jinja2 Quick Load
-========================
+===========================
+Jinja2 Quick Load Function
+===========================
 
 :date: 2014-06-12 09:00
 :tags: python, jinja2
 :category: python
-:slug: jinja2-quick-load
+:slug: jinja2-quick-load-function
 
 It seems like that for every few weeks I find myself needing to generate something out of a template while working outside a framework. For this task, my preferred solution is Jinja2_. I've used Jinja2 to generate HTML, code, and text. If I were brave enough I would even say I've used it to generate XML (*While my preferred xml tool is great for parsing, even lxml is not so much fun for XML generation*).
 
