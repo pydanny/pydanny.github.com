@@ -7,7 +7,7 @@ Jinja2 Quick Load
 :category: python
 :slug: jinja2-quick-load
 
-It seems like that for every few weeks I find myself needing to generate something out of a template while working outside a framework. For this task, my preferred solution is Jinja2_. I've used Jinja2 to generate HTML, code, and text. If I were brave enough I would even say I've used it to generate XML [1]_ (*While my preferred xml tool is great for parsing, even lxml is not so much fun for XML generation*).
+It seems like that for every few weeks I find myself needing to generate something out of a template while working outside a framework. For this task, my preferred solution is Jinja2_. I've used Jinja2 to generate HTML, code, and text. If I were brave enough I would even say I've used it to generate XML (*While my preferred xml tool is great for parsing, even lxml is not so much fun for XML generation*).
 
 I frequently use this snippet of code to render templates. Since I'm tired of digging through my code to find it, I'm placing it here for personal reference.
 
@@ -33,8 +33,6 @@ Sample usage:
     >>> render_from_template(".", "shopping_list.html", **data)
 
 I've thought about packaging this up with `cookiecutter-pypackage`_ and placing it on PyPI_, but I think it might be overkill.
-
- .. [1] The repercussions for publicly admitting to hand-crafting XML for one-off scripts instead of doing it with XML-generating tools are too scary to face.
 
 .. _Jinja2: http://jinja.pocoo.org/
 .. _`cookiecutter-pypackage`: github.com/audreyr/cookiecutter-pypackage
