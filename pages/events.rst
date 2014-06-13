@@ -2,7 +2,15 @@
 Events
 ===========
 
-:date: 2013-08-09 23:32
+:date: 2014-06-13 14:30
+
+
+July 15th: Wharton Web Conference
+========================================
+
+* Philadelpha, PA, USA
+* https://www.sas.upenn.edu/wwc/
+* http://lanyrd.com/2014/wharton-web-conference/
 
 
 ----
