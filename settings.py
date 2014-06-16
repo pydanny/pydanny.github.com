@@ -11,7 +11,7 @@ SOCIAL = (('twitter-sign', 'http://twitter.com/pydanny'),
           ('facebook-sign', 'http://www.facebook.com/daniel.greenfeld'),
           )
 TAG_FEED_ATOM = 'feeds/%s.atom.xml'
-THEME='../pelican-themes/pydanny'
+THEME='../pydanny.blog.theme'
 TIMEZONE = "America/Los_Angeles"
 TWITTER_USERNAME = 'pydanny'
 
