@@ -2,8 +2,8 @@
 
 build:
 	pelican-themes -r pydanny
-	pelican-themes -i ../pelican-themes/pydanny
+	pelican-themes -i ../pydanny.blog.theme
 	pelican . -o . -s settings.py
 
 test:
-	python pytester.py 
+	python pytester.py

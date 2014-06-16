@@ -9,7 +9,6 @@ SITENAME = 'pydanny'
 SOCIAL = (('twitter-sign', 'http://twitter.com/pydanny'),
           ('github-sign', 'https://github.com/pydanny'),
           ('facebook-sign', 'http://www.facebook.com/daniel.greenfeld'),
-          ('gittip', 'https://www.gittip.com/pydanny'),
           )
 TAG_FEED_ATOM = 'feeds/%s.atom.xml'
 THEME='../pelican-themes/pydanny'
