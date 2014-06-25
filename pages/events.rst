@@ -12,6 +12,24 @@ July 15th: Wharton Web Conference
 * https://www.sas.upenn.edu/wwc/
 * http://lanyrd.com/2014/wharton-web-conference/
 
+July 16th: Philly Python Users Group
+========================================
+
+* Philadelpha, PA, USA
+* http://www.meetup.com/phillypug/events/190641272/
+
+August 15th-16th: PyDay Mendoza
+================================
+
+* Mendoza, Argentina
+* https://eventioz.com.ar/e/pyday-mendoza-2014
+
+November 4th to November 9th: PyCon Brasil
+===========================================
+
+* Recife/Porto de Galinhas, Brazil
+* http://2014.pythonbrasil.org.br/
+
 
 ----
 
