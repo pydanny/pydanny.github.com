@@ -1,5 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/django.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-04-05T05:00:00-07:00</updated><entry><title>Beginner's Guide to PyCon 2014</title><link href="http://pydanny.com/beginners-guide-pycon-2014.html" rel="alternate"></link><updated>2014-04-05T05:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-04-05:beginners-guide-pycon-2014.html</id><summary type="html">&lt;p&gt;New to Python and/or conferences and attending the upcoming &lt;a class="reference external" href="https://us.pycon.org/2014/"&gt;PyCon 2014&lt;/a&gt; in Montreal, Canada?  Or is this your first conference? Or perhaps your first conference longer than a weekend?&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/django.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-07-01T12:00:00-07:00</updated><entry><title>cached-property: Don't copy/paste code</title><link href="http://pydanny.com/cached-property.html" rel="alternate"></link><updated>2014-07-01T12:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-07-01:cached-property.html</id><summary type="html">&lt;p&gt;In Python, the &lt;tt class="docutils literal"&gt;&amp;#64;cached_property&lt;/tt&gt; decorator is a really nice piece of code. What it does is it caches the result of a &lt;a class="reference external" href="https://docs.python.org/2/library/functions.html#property"&gt;property&lt;/a&gt; call. The cached result will persist as long as the instance does, so if the instance is passed around and the function subsequently invoked, the cached result will be returned.&lt;/p&gt;
+&lt;p&gt;If that doesn't make much sense, below is a snippet of code that shows the code and demonstrates it in action. As always, I'm using &lt;a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing.html"&gt;pytest&lt;/a&gt; to validate my code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;timedelta&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;cached_property&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot; A property that is only computed once per instance and then replaces&lt;/span&gt;
+&lt;span class="sd"&gt;        itself with an ordinary attribute. Deleting the attribute resets the&lt;/span&gt;
+&lt;span class="sd"&gt;        property.&lt;/span&gt;
+
+&lt;span class="sd"&gt;        Source: https://github.com/bottlepy/bottle/commit/fa7733e075da0d790d809aa3d2f53071897e6f76&lt;/span&gt;
+&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;getattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__doc__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__get__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;
+        &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__dict__&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;SlowClass1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@cached_property&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;very_slow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Represents a performance heavy property.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;# Wait a WHOLE second!&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;I am slooooow&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_slow_class1&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# Instantiate the slow class&lt;/span&gt;
+    &lt;span class="n"&gt;slow_class&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SlowClass1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Start the clock!&lt;/span&gt;
+    &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Call the property. This time it&amp;#39;s really slow...&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slow_class&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;very_slow&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;I am slooooow&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Check that it took at least a second to run&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;timedelta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;milliseconds&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Call the property a second time. This time it runs fast.&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slow_class&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;very_slow&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;I am slooooow&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Second time running, should take a TINY amount of time.&lt;/span&gt;
+    &lt;span class="c"&gt;# Should take just a microsecond, but we&amp;#39;ll play a test for and test&lt;/span&gt;
+    &lt;span class="c"&gt;#   for a maximim of at least 100 milliseconds.&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;timedelta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;milliseconds&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is great for encapsulating slow database queries, fetching results from third-party REST APIs, performing slow algorythims, and anything else where you would want to catch the results. Pretty neat, yeah!&lt;/p&gt;
+&lt;p&gt;While originally implemented for web frameworks such as Django, Flask, Pyramid, and Bottle, I've copy/pasted the &lt;tt class="docutils literal"&gt;cached_property&lt;/tt&gt; property from non-web project to project as a quick way to give my code a little boost. I got tired of doing this, and on May 17th, 2014 I decided to release it as a package called &lt;cite&gt;cached-property&lt;/cite&gt; on &lt;a class="reference external" href="https://pypi.python.org/pypi/cached-property"&gt;PyPI&lt;/a&gt;. Using it is easy:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# assuming you&amp;#39;ve already done &amp;quot;pip install cached-property&amp;quot;&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;cached_property&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;cached_property&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;SlowClass2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@cached_property&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;very_slow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Represents a performance heavy property.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;# Wait a WHOLE second!&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;I am slooooow&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_slow_class2&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c"&gt;# Instantiate the slow class&lt;/span&gt;
+    &lt;span class="n"&gt;slow_class&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SlowClass2&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Start the clock!&lt;/span&gt;
+    &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Call the property. This time it&amp;#39;s really slow...&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slow_class&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;very_slow&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;I am slooooow&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Check that it took at least a second to run&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;timedelta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;milliseconds&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Call the property a second time. This time it runs fast.&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;slow_class&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;very_slow&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;I am slooooow&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Second time running, should take a TINY amount of time.&lt;/span&gt;
+    &lt;span class="c"&gt;# Should take just a microsecond, but we&amp;#39;ll play a test for and test&lt;/span&gt;
+    &lt;span class="c"&gt;#   for a maximim of at least 100 milliseconds.&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;timedelta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;milliseconds&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Hooray! No more copy/pasting for me! I was very pleased with myself.&lt;/p&gt;
+&lt;p&gt;Little did I know how fortunate I was for having released this package.&lt;/p&gt;
+&lt;div class="section" id="don-t-copy-paste-code"&gt;
+&lt;h2&gt;Don't Copy/Paste Code&lt;/h2&gt;
+&lt;p&gt;The very next day after I released the &lt;cite&gt;cached-property&lt;/cite&gt; package, &lt;a class="reference external" href="https://github.com/Tinche"&gt;Tin Tvrtković&lt;/a&gt; opened an issue asking for &lt;a class="reference external" href="https://github.com/pydanny/cached-property/issues/6"&gt;better multithreaded support&lt;/a&gt;.  To my shock and embarressment, my copy/pasted code could have been disastrous if brought into the wrong project. I had blindly been assuming that the code I hadn't bothered to try and understand worked under any situation, when in reality it had been designed for working within the context of a web framework.&lt;/p&gt;
+&lt;p&gt;Ultimately, Tin &lt;a class="reference external" href="https://github.com/pydanny/cached-property/pull/9"&gt;submitted a pull request&lt;/a&gt;, and now the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cached-property&lt;/span&gt;&lt;/tt&gt; package also includes a &lt;tt class="docutils literal"&gt;&amp;#64;threaded_cached_property&lt;/tt&gt; decorator. Thank you Tin!&lt;/p&gt;
+&lt;p&gt;However, the lessons of the experience had been burned into my brain.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="lessons-learned"&gt;
+&lt;h2&gt;Lessons Learned&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Don't copy/paste code blindly from project to project.&lt;/li&gt;
+&lt;li&gt;If you are repeatedly moving code from project project, take the time to understand what the code is actually doing.&lt;/li&gt;
+&lt;li&gt;Instead of copy/pasting code from project to project, make a package and ask for input from others.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="going-forward"&gt;
+&lt;h2&gt;Going forward&lt;/h2&gt;
+&lt;p&gt;One exciting development has been the &lt;a class="reference external" href="https://github.com/pydanny/cached-property/issues/2"&gt;discussion to include a cached_property decorator in core Python&lt;/a&gt;. Even if my contribution to the effort has been merely the encapsulation of the code, it's nice to know I may have some small part in the development of the language.&lt;/p&gt;
+&lt;img alt="http://pydanny.com/static/directions_med" class="align-center" id="whither-shall-i-go" src="http://pydanny.com/static/directions_med" /&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="django"></category><category term="flask"></category><category term="bottle"></category><category term="ppoftw"></category><category term="pypi"></category><category term="pyramid"></category></entry><entry><title>Beginner's Guide to PyCon 2014</title><link href="http://pydanny.com/beginners-guide-pycon-2014.html" rel="alternate"></link><updated>2014-04-05T05:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-04-05:beginners-guide-pycon-2014.html</id><summary type="html">&lt;p&gt;New to Python and/or conferences and attending the upcoming &lt;a class="reference external" href="https://us.pycon.org/2014/"&gt;PyCon 2014&lt;/a&gt; in Montreal, Canada?  Or is this your first conference? Or perhaps your first conference longer than a weekend?&lt;/p&gt;
 &lt;p&gt;Hoping to get the most out of joining thousands of Python enthusiasts?&lt;/p&gt;
 &lt;p&gt;No worries! This guide will aid you in attending one of the best technical conferences on the planet. Even though I'm not attending on account of various reasons including finances, work, and surgery, I'm going to share how to get through duration of pycon in good shape. I'm also going to share some great tricks to optimize the event.&lt;/p&gt;
 &lt;div class="section" id="basics"&gt;

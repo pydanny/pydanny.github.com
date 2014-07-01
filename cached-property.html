@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Cookiecutter: Project Templates Made Easy</title>
+    <title>cached-property: Don't copy/paste code</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Cookiecutter: Project Templates Made Easy">
-                                        Cookiecutter: Project Templates Made Easy
+                                        title="Permalink to cached-property: Don't copy/paste code">
+                                        cached-property: Don't copy/paste code
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,141 +100,117 @@
                 </header>
 
                 <p>
-                    <em>Saturday, August 17, 2013</em>
-                    (<a href="" rel="bookmark" title="Permalink to Cookiecutter: Project Templates Made Easy">permalink</a>)
+                    <em>Tuesday, July 01, 2014</em>
+                    (<a href="" rel="bookmark" title="Permalink to cached-property: Don't copy/paste code">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>Yesterday, Jeff Knupp wrote an amazing how-to article called &quot;<a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Open Sourcing a Python Project the Right Way</a>&quot;. While I was reading it, I was rather pleased by just how close it is to my own practices. Considering Jeff's amazing <a class="reference external" href="http://www.amazon.com/gp/product/B00B5KG0F8/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00B5KG0F8&amp;linkCode=as2&amp;tag=mlinar-20">Writing</a> <a class="reference external" href="http://www.amazon.com/gp/product/B00B5VXMRG/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00B5VXMRG&amp;linkCode=as2&amp;tag=mlinar-20">Idiomatic</a> <a class="reference external" href="http://www.jeffknupp.com/writing-idiomatic-python-ebook/">Python</a>, it meant I was on the right track.</p>
-<p>The downside, of course, is implementation. Creating reusable Python packages has always been annoying. There are no defined/maintained best practices (especially for setup.py), so you end up cutting and pasting hacky, poorly understood, often legacy code from one project to the other. Some of it does nothing and some of it fails catastrophically on Python 3. There's a term for this sort of behavior, and it's called <a class="reference external" href="http://en.wikipedia.org/wiki/Cargo_cult_programming">Cargo Cult programming</a>.</p>
-<p>Fortunately, while I was <a class="reference external" href="http://pydanny.com/made-up-statistics.html#debate-statistics">ranting</a> and <a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Jeff</a> (and <a class="reference external" href="http://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/">Hynek Schlawack</a>) was writing, someone was making <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a>.</p>
-<div class="section" id="cookiecutter-does-one-thing-and-it-does-it-well">
-<h2>cookiecutter does one thing and it does it well</h2>
-<p>What <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a> does is make creating and maintaining project templates easy and intuitive. This allow developers of all languages (not just Python) the ability to break free from cargo-cult configuration and follow patterns dictated by the experts who present their own cookiecutter templates. So if you don't like how the author of cookiecutter's creates her projects, you can use someone else's or roll your own.</p>
-<p>Okay, enough talk, let's use cookiecutter to build a Python project. Assuming you have <a class="reference external" href="http://www.virtualenv.org/">virtualenv</a> installed:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pip install cookiecutter
-</pre></div>
-<p><strong>note</strong>: In the works is a <a class="reference external" href="https://github.com/mxcl/homebrew">Homebrew</a> package, and possibly packages for the various Linux distributions as well.</p>
-<p>Done? Okay, now use cookiecutter to create your Python project. For this example, I'm going to create a sample project called &quot;<em>cheese</em>&quot;.:</p>
-<div class="highlight"><pre><span class="nv">$ </span>cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
-Cloning into <span class="s1">&#39;cookiecutter-pypackage&#39;</span>...
-remote: Counting objects: 183, <span class="k">done</span>.
-remote: Compressing objects: 100% <span class="o">(</span>100/100<span class="o">)</span>, <span class="k">done</span>.
-remote: Total 183 <span class="o">(</span>delta 87<span class="o">)</span>, reused 161 <span class="o">(</span>delta 70<span class="o">)</span>
-Receiving objects: 100% <span class="o">(</span>183/183<span class="o">)</span>, 29.36 KiB | 0 bytes/s, <span class="k">done</span>.
-Resolving deltas: 100% <span class="o">(</span>87/87<span class="o">)</span>, <span class="k">done</span>.
-Checking connectivity... <span class="k">done</span>
-full_name <span class="o">(</span>default is <span class="s2">&quot;Audrey Roy&quot;</span><span class="o">)</span>? Daniel Greenfeld
-project_name <span class="o">(</span>default is <span class="s2">&quot;your project&quot;</span><span class="o">)</span>? cheese
-... snip <span class="k">for </span>brevity
-</pre></div>
-<p>See how it asks my full name? Well, at this point, <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a> begins to ask a number of questions. These questions are actually specified in the <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a> file for <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage">cookiecutter-pypackage</a>.</p>
-<p>Once you've answered everything that <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage">cookiecutter-pypackage</a> wants, it generates your project. Let's go and check:</p>
-<div class="highlight"><pre><span class="nv">$ </span>tree cheese
-cheese/
-├── AUTHORS.rst
-├── CONTRIBUTING.rst
-├── HISTORY.rst
-├── LICENSE
-├── MANIFEST.in
-├── README.rst
-├── docs
-│   ├── Makefile
-│   ├── authors.rst
-│   ├── conf.py
-│   ├── contributing.rst
-│   ├── history.rst
-│   ├── index.rst
-│   ├── installation.rst
-│   ├── make.bat
-│   ├── readme.rst
-│   └── usage.rst
-├── requirements.txt
-├── setup.py
-├── simplicity
-│   ├── __init__.py
-│   └── simplicity.py
-├── tests
-│   ├── __init__.py
-│   └── test_simplicity.py
-└── tox.ini
-</pre></div>
-<p>While there are <em>some</em> differences from Jeff Knupp's example in his <a class="reference external" href="http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">article</a> (ReStructuredText vs Markdown, location of tests, etc), I would argue that the general vision is the same. Better yet, if Jeff (or someone) wants to implement Jeff's pattern, they can.</p>
-<p>In fact...</p>
-</div>
-<div class="section" id="creating-cookiecutter-templates-is-easy-and-intuitive">
-<h2>Creating cookiecutter templates is easy and intuitive</h2>
-<p>All you have to do is:</p>
-<ol class="arabic simple">
-<li><strong>Fork</strong> <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage">cookiecutter-pypackage</a> <strong>and rename it</strong>.</li>
-<li><strong>Make the changes you desire.</strong> You can change anything you want, the setup.py, the test handling, or perhaps add or remove from the questions specified in <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a>. Right now <strong>repo_name</strong> is a mandatory <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a> field, but there is an issue submitted to have that changed.</li>
-<li><strong>Remember that renders everything in</strong> <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a>. Questions asked by <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a> are rendered to the project's files (be those files in Python, Javascript, HTML, etc). So if you add a field to <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a>, all you have to do to see it in a templates is write:</li>
-</ol>
-<div class="highlight"><pre><span class="x"># Place in Python, HTML. Javascript, CSS, Markdown, or any other plaintext format.</span>
-<span class="cp">{{</span><span class="nv">cookiecutter.my_new_field</span><span class="cp">}}</span><span class="x"></span>
-</pre></div>
-<ol class="arabic simple" start="4">
-<li><strong>Submit a pull request to</strong> <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a> asking for their project to be listed on the README.</li>
-</ol>
-<p>It's not hard. In fact, there is already a growing ecosystem of <a class="reference external" href="https://github.com/audreyr/cookiecutter#available-templates">cookiecutter templates</a>, including Python, <a class="reference external" href="https://github.com/sloria/cookiecutter-flask">Flask</a>, <a class="reference external" href="https://www.djangopackages.com/grids/g/cookiecutter/">Django</a> and <a class="reference external" href="https://github.com/audreyr/cookiecutter-jquery">JQuery</a> templates.</p>
-<p><strong>Note</strong>: There is already a <a class="reference external" href="https://github.com/Nekroze/cookiecutter-pypackage">fork</a> of cookiecutter-pypackage that even more closely matches Jeff Knupp's design.</p>
-</div>
-<div class="section" id="additional-cookiecutter-features">
-<h2>Additional cookiecutter features</h2>
-<p>Here are more things to like about cookiecutter:</p>
-<div class="section" id="cookiecutter-is-focused">
-<h3>cookiecutter is focused</h3>
-<p>It doesn't handle deployment, serving of HTTP, testing, or anything else. All it does is project templates. It follows those classic words, &quot;<em>It's programmed to do one thing and do it well</em>&quot;.</p>
-</div>
-<div class="section" id="supports-all-modern-versions-of-python">
-<h3>Supports all modern versions of Python</h3>
-<ul class="simple">
-<li>Python 2.6</li>
-<li>Python 2.7</li>
-<li>Python 3.3</li>
-<li>Even PyPy!</li>
-</ul>
-</div>
-<div class="section" id="cookiecutter-is-modular">
-<h3>cookiecutter is modular</h3>
-<p>It's not built off a single giant function, or a complex architecture. Instead, it's comprised of a number of relatively simple functions. Why? Well this way you can import easily elements of cookiecutter into other projects, and it plays into the next feature:</p>
-</div>
-<div class="section" id="cookiecutter-is-tested">
-<h3>cookiecutter is tested</h3>
-<p>The project has as of August 20th 2013, <a class="reference external" href="https://coveralls.io/r/audreyr/cookiecutter?branch=master">98% test coverage</a>, with an intention to increase it to 100%. This makes handling the following things much easier/safer:</p>
-<ol class="arabic simple">
-<li>Implementing new features without breaking existing ones.</li>
-<li>Handling new versions of Python as they emerge.</li>
-</ol>
-</div>
-<div class="section" id="cookiecutter-isn-t-just-for-python-packages">
-<h3>cookiecutter isn't just for Python packages</h3>
-<p>That's correct. While at the moment there is only <a class="reference external" href="https://github.com/audreyr/cookiecutter-jquery">cookiecutter-jquery</a>, there is nothing to stop developers from using <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a> to create templates for anything. The way it renders output is designed to accommodate customizations for any tool.</p>
-<p>Which brings me to my next point...</p>
-</div>
-<div class="section" id="cookiecutter-isn-t-just-for-python-developers">
-<h3>cookiecutter isn't just for Python developers</h3>
-<p>Even if you don't know Python you can use <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a>. The templating is done via <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a>, which isn't far off from other template languages like Mustache, Handlebars, or Liquid. if you are worried about collisions between templating systems, just use Jinja2's <cite>{% raw %}</cite> template tag:</p>
-<div class="highlight"><pre><span class="c">{# Jinja2&#39;s raw template to escape the Liquid template inside #}</span><span class="x"></span>
-<span class="cp">{%</span> <span class="k">raw</span> <span class="cp">%}</span> {# Liquid template from here on #}
-&lt;ul id=&quot;products&quot;&gt;
-{% for product in products %}
-&lt;li&gt;
-  &lt;h2&gt;{{ product.title }}&lt;/h2&gt;
-  Only {{ product.price | format_as_money }}
+                    <p>In Python, the <tt class="docutils literal">&#64;cached_property</tt> decorator is a really nice piece of code. What it does is it caches the result of a <a class="reference external" href="https://docs.python.org/2/library/functions.html#property">property</a> call. The cached result will persist as long as the instance does, so if the instance is passed around and the function subsequently invoked, the cached result will be returned.</p>
+<p>If that doesn't make much sense, below is a snippet of code that shows the code and demonstrates it in action. As always, I'm using <a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing.html">pytest</a> to validate my code:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-  &lt;p&gt;{{ product.description | prettyprint | truncate: 200  }}&lt;/p&gt;
+<span class="k">class</span> <span class="nc">cached_property</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; A property that is only computed once per instance and then replaces</span>
+<span class="sd">        itself with an ordinary attribute. Deleting the attribute resets the</span>
+<span class="sd">        property.</span>
 
-&lt;/li&gt;
-{% endfor %}
-&lt;/ul&gt;
-<span class="cp">{%</span> <span class="k">endraw</span> <span class="cp">%}</span><span class="x"></span>
+<span class="sd">        Source: https://github.com/bottlepy/bottle/commit/fa7733e075da0d790d809aa3d2f53071897e6f76</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="s">&#39;__doc__&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+
+    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+<span class="k">class</span> <span class="nc">SlowClass1</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="nd">@cached_property</span>
+    <span class="k">def</span> <span class="nf">very_slow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Represents a performance heavy property.&quot;&quot;&quot;</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Wait a WHOLE second!</span>
+        <span class="k">return</span> <span class="s">&quot;I am slooooow&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_slow_class1</span><span class="p">():</span>
+    <span class="c"># Instantiate the slow class</span>
+    <span class="n">slow_class</span> <span class="o">=</span> <span class="n">SlowClass1</span><span class="p">()</span>
+
+    <span class="c"># Start the clock!</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="c"># Call the property. This time it&#39;s really slow...</span>
+    <span class="k">assert</span> <span class="n">slow_class</span><span class="o">.</span><span class="n">very_slow</span> <span class="o">==</span> <span class="s">&quot;I am slooooow&quot;</span>
+
+    <span class="c"># Check that it took at least a second to run</span>
+    <span class="k">assert</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">milliseconds</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">start</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="c"># Call the property a second time. This time it runs fast.</span>
+    <span class="k">assert</span> <span class="n">slow_class</span><span class="o">.</span><span class="n">very_slow</span> <span class="o">==</span> <span class="s">&quot;I am slooooow&quot;</span>
+
+    <span class="c"># Second time running, should take a TINY amount of time.</span>
+    <span class="c"># Should take just a microsecond, but we&#39;ll play a test for and test</span>
+    <span class="c">#   for a maximim of at least 100 milliseconds.</span>
+    <span class="k">assert</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">milliseconds</span><span class="o">=</span><span class="mi">1100</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">start</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 </pre></div>
-<a class="reference external image-reference" href="https://github.com/audreyr/cookiecutter"><img alt="https://raw.github.com/audreyr/cookiecutter/aa309b73bdc974788ba265d843a65bb94c2e608e/cookiecutter_medium.png" src="https://raw.github.com/audreyr/cookiecutter/aa309b73bdc974788ba265d843a65bb94c2e608e/cookiecutter_medium.png" /></a>
-<ul class="simple">
-<li><strong>Update 09/20/2013</strong>: Test coverage increased to 98% from 91%.</li>
-</ul>
+<p>This is great for encapsulating slow database queries, fetching results from third-party REST APIs, performing slow algorythims, and anything else where you would want to catch the results. Pretty neat, yeah!</p>
+<p>While originally implemented for web frameworks such as Django, Flask, Pyramid, and Bottle, I've copy/pasted the <tt class="docutils literal">cached_property</tt> property from non-web project to project as a quick way to give my code a little boost. I got tired of doing this, and on May 17th, 2014 I decided to release it as a package called <cite>cached-property</cite> on <a class="reference external" href="https://pypi.python.org/pypi/cached-property">PyPI</a>. Using it is easy:</p>
+<div class="highlight"><pre><span class="c"># assuming you&#39;ve already done &quot;pip install cached-property&quot;</span>
+<span class="kn">from</span> <span class="nn">cached_property</span> <span class="kn">import</span> <span class="n">cached_property</span>
+
+<span class="k">class</span> <span class="nc">SlowClass2</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="nd">@cached_property</span>
+    <span class="k">def</span> <span class="nf">very_slow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Represents a performance heavy property.&quot;&quot;&quot;</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Wait a WHOLE second!</span>
+        <span class="k">return</span> <span class="s">&quot;I am slooooow&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_slow_class2</span><span class="p">():</span>
+    <span class="c"># Instantiate the slow class</span>
+    <span class="n">slow_class</span> <span class="o">=</span> <span class="n">SlowClass2</span><span class="p">()</span>
+
+    <span class="c"># Start the clock!</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="c"># Call the property. This time it&#39;s really slow...</span>
+    <span class="k">assert</span> <span class="n">slow_class</span><span class="o">.</span><span class="n">very_slow</span> <span class="o">==</span> <span class="s">&quot;I am slooooow&quot;</span>
+
+    <span class="c"># Check that it took at least a second to run</span>
+    <span class="k">assert</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">milliseconds</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">start</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+    <span class="c"># Call the property a second time. This time it runs fast.</span>
+    <span class="k">assert</span> <span class="n">slow_class</span><span class="o">.</span><span class="n">very_slow</span> <span class="o">==</span> <span class="s">&quot;I am slooooow&quot;</span>
+
+    <span class="c"># Second time running, should take a TINY amount of time.</span>
+    <span class="c"># Should take just a microsecond, but we&#39;ll play a test for and test</span>
+    <span class="c">#   for a maximim of at least 100 milliseconds.</span>
+    <span class="k">assert</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">milliseconds</span><span class="o">=</span><span class="mi">1100</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">start</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</pre></div>
+<p>Hooray! No more copy/pasting for me! I was very pleased with myself.</p>
+<p>Little did I know how fortunate I was for having released this package.</p>
+<div class="section" id="don-t-copy-paste-code">
+<h2>Don't Copy/Paste Code</h2>
+<p>The very next day after I released the <cite>cached-property</cite> package, <a class="reference external" href="https://github.com/Tinche">Tin Tvrtković</a> opened an issue asking for <a class="reference external" href="https://github.com/pydanny/cached-property/issues/6">better multithreaded support</a>.  To my shock and embarressment, my copy/pasted code could have been disastrous if brought into the wrong project. I had blindly been assuming that the code I hadn't bothered to try and understand worked under any situation, when in reality it had been designed for working within the context of a web framework.</p>
+<p>Ultimately, Tin <a class="reference external" href="https://github.com/pydanny/cached-property/pull/9">submitted a pull request</a>, and now the <tt class="docutils literal"><span class="pre">cached-property</span></tt> package also includes a <tt class="docutils literal">&#64;threaded_cached_property</tt> decorator. Thank you Tin!</p>
+<p>However, the lessons of the experience had been burned into my brain.</p>
 </div>
+<div class="section" id="lessons-learned">
+<h2>Lessons Learned</h2>
+<ol class="arabic simple">
+<li>Don't copy/paste code blindly from project to project.</li>
+<li>If you are repeatedly moving code from project project, take the time to understand what the code is actually doing.</li>
+<li>Instead of copy/pasting code from project to project, make a package and ask for input from others.</li>
+</ol>
+</div>
+<div class="section" id="going-forward">
+<h2>Going forward</h2>
+<p>One exciting development has been the <a class="reference external" href="https://github.com/pydanny/cached-property/issues/2">discussion to include a cached_property decorator in core Python</a>. Even if my contribution to the effort has been merely the encapsulation of the code, it's nice to know I may have some small part in the development of the language.</p>
+<img alt="http://pydanny.com/static/directions_med" class="align-center" id="whither-shall-i-go" src="http://pydanny.com/static/directions_med" />
 </div>
 
                     <div class="article-info">
@@ -244,13 +220,11 @@ cheese/
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
 	<a href="./tag/django.html"><em>django</em></a>
-	<a href="./tag/rant.html"><em>rant</em></a>
 	<a href="./tag/flask.html"><em>flask</em></a>
+	<a href="./tag/bottle.html"><em>bottle</em></a>
+	<a href="./tag/ppoftw.html"><em>ppoftw</em></a>
 	<a href="./tag/pypi.html"><em>pypi</em></a>
-	<a href="./tag/pypy.html"><em>pypy</em></a>
-	<a href="./tag/python3.html"><em>python3</em></a>
-	<a href="./tag/javascript.html"><em>javascript</em></a>
-	<a href="./tag/audrey.html"><em>audrey</em></a>
+	<a href="./tag/pyramid.html"><em>pyramid</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -258,7 +232,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "cookie-project-templates-made-easy.html";
+                           var disqus_identifier = "cached-property.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
