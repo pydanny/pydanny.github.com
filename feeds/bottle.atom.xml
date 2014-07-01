@@ -104,6 +104,6 @@
 &lt;div class="section" id="going-forward"&gt;
 &lt;h2&gt;Going forward&lt;/h2&gt;
 &lt;p&gt;One exciting development has been the &lt;a class="reference external" href="https://github.com/pydanny/cached-property/issues/2"&gt;discussion to include a cached_property decorator in core Python&lt;/a&gt;. Even if my contribution to the effort has been merely the encapsulation of the code, it's nice to know I may have some small part in the development of the language.&lt;/p&gt;
-&lt;img alt="http://pydanny.com/static/directions_med" class="align-center" id="whither-shall-i-go" src="http://pydanny.com/static/directions_med" /&gt;
+&lt;img alt="http://pydanny.com/static/directions_med.png" class="align-center" id="whither-shall-i-go" src="http://pydanny.com/static/directions_med.png" /&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="flask"></category><category term="bottle"></category><category term="ppoftw"></category><category term="pypi"></category><category term="pyramid"></category></entry></feed>

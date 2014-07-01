@@ -129,7 +129,7 @@ Going forward
 
 One exciting development has been the `discussion to include a cached_property decorator in core Python`_. Even if my contribution to the effort has been merely the encapsulation of the code, it's nice to know I may have some small part in the development of the language.
 
-.. image:: http://pydanny.com/static/directions_med
+.. image:: http://pydanny.com/static/directions_med.png
    :name: Whither shall I go?
    :align: center
 
