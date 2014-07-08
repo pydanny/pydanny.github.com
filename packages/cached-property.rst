@@ -65,7 +65,7 @@ If that doesn't make much sense, below is a snippet of code that shows the code 
         #   for a maximim of at least 100 milliseconds.
         assert timedelta(milliseconds=1100) > start - datetime.now()
 
-This is great for encapsulating slow database queries, fetching results from third-party REST APIs, performing slow algorythims, and anything else where you would want to catch the results. Pretty neat, yeah!
+This is great for encapsulating slow database queries, fetching results from third-party REST APIs, performing slow algorithms, and anything else where you would want to catch the results. Pretty neat, yeah!
 
 
 While originally implemented for web frameworks such as Django, Flask, Pyramid, and Bottle, I've copy/pasted the ``cached_property`` property from non-web project to project as a quick way to give my code a little boost. I got tired of doing this, and on May 17th, 2014 I decided to release it as a package called `cached-property` on PyPI_. Using it is easy:
