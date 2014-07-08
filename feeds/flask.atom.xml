@@ -51,7 +51,7 @@
     &lt;span class="c"&gt;#   for a maximim of at least 100 milliseconds.&lt;/span&gt;
     &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;timedelta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;milliseconds&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This is great for encapsulating slow database queries, fetching results from third-party REST APIs, performing slow algorythims, and anything else where you would want to catch the results. Pretty neat, yeah!&lt;/p&gt;
+&lt;p&gt;This is great for encapsulating slow database queries, fetching results from third-party REST APIs, performing slow algorithms, and anything else where you would want to catch the results. Pretty neat, yeah!&lt;/p&gt;
 &lt;p&gt;While originally implemented for web frameworks such as Django, Flask, Pyramid, and Bottle, I've copy/pasted the &lt;tt class="docutils literal"&gt;cached_property&lt;/tt&gt; property from non-web project to project as a quick way to give my code a little boost. I got tired of doing this, and on May 17th, 2014 I decided to release it as a package called &lt;cite&gt;cached-property&lt;/cite&gt; on &lt;a class="reference external" href="https://pypi.python.org/pypi/cached-property"&gt;PyPI&lt;/a&gt;. Using it is easy:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# assuming you&amp;#39;ve already done &amp;quot;pip install cached-property&amp;quot;&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;cached_property&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;cached_property&lt;/span&gt;
@@ -97,7 +97,7 @@
 &lt;h2&gt;Lessons Learned&lt;/h2&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;Don't copy/paste code blindly from project to project.&lt;/li&gt;
-&lt;li&gt;If you are repeatedly moving code from project project, take the time to understand what the code is actually doing.&lt;/li&gt;
+&lt;li&gt;If you are repeatedly moving code from project to project, take the time to understand what the code is actually doing.&lt;/li&gt;
 &lt;li&gt;Instead of copy/pasting code from project to project, make a package and ask for input from others. If making a package feels like too much work, &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage"&gt;cookiecutter-pypackage&lt;/a&gt; makes creating new packages really easy.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
