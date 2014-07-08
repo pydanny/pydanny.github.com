@@ -121,7 +121,7 @@ Lessons Learned
 ================
 
 1. Don't copy/paste code blindly from project to project.
-2. If you are repeatedly moving code from project project, take the time to understand what the code is actually doing.
+2. If you are repeatedly moving code from project to project, take the time to understand what the code is actually doing.
 3. Instead of copy/pasting code from project to project, make a package and ask for input from others. If making a package feels like too much work, `cookiecutter-pypackage`_ makes creating new packages really easy.
 
 .. _`cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
