@@ -6,7 +6,6 @@ Building, Maintaining and Scaling Projects
 :tags: nasa, WhartonWC
 :category: blog
 :slug: building-maintaining-scaling-projects
-:status: draft
 
 These are the slides from the talk I gave today at the `Wharton Web Conference`_.
 
