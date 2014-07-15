@@ -2,18 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Annotated History of My Most Used Shell Commands</title>
+    <title>Building, Maintaining and Scaling Projects</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
 
     <!-- Le styles -->
-    <link rel="stylesheet" href="./theme/css/pydanny.css" type="text/css" />
-    <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css" />
-    <link href="./theme/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css" />
+    <link href="../theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="./theme/css/pygments.css" rel="stylesheet">
+    <link href="../theme/css/pygments.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -21,10 +21,10 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="./theme/images/favicon.ico">
-    <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="./theme/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="../theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="../theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../theme/images/apple-touch-icon-114x114.png">
 
     <link href="http://pydanny.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
     
@@ -37,8 +37,8 @@
         <div class="row">
           <div class="span6">
             <h1 class="site-logo">
-              <a href=".">
-              <img src="./theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              <a href="..">
+              <img src="../theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
               </a>
             </h1>
           </div>
@@ -62,16 +62,16 @@
           </a>
           <div class="nav-collapse">
             <ul class="nav">
-                <li><a href=".">Home</a></li>
-                <li><a href="./pages/about.html">About</a></li>
-                <li><a href="./pages/events.html">Events</a></li>
-                <li><a href="./pages/projects.html">Projects</a></li>
-                <li><a href="./pages/tools.html">Tools</a></li>
-                <li><a href="./category/audrey.html">Audrey</a></li>
-                <li><a href="./category/blog.html">Blog</a></li>
-                <li><a href="./category/book.html">Book</a></li>
-                <li><a href="./category/django.html">Django</a></li>
-                <li><a href="./category/python.html">Python</a></li>
+                <li><a href="..">Home</a></li>
+                <li><a href="../pages/about.html">About</a></li>
+                <li><a href="../pages/events.html">Events</a></li>
+                <li><a href="../pages/projects.html">Projects</a></li>
+                <li><a href="../pages/tools.html">Tools</a></li>
+                <li><a href="../category/audrey.html">Audrey</a></li>
+                <li><a href="../category/blog.html">Blog</a></li>
+                <li><a href="../category/book.html">Book</a></li>
+                <li><a href="../category/django.html">Django</a></li>
+                <li><a href="../category/python.html">Python</a></li>
 
             </ul>
             <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Annotated History of My Most Used Shell Commands">
-                                        Annotated History of My Most Used Shell Commands
+                                        title="Permalink to Building, Maintaining and Scaling Projects">
+                                        Building, Maintaining and Scaling Projects
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,46 +100,20 @@
                 </header>
 
                 <p>
-                    <em>Wednesday, April 10, 2013</em>
-                    (<a href="" rel="bookmark" title="Permalink to Annotated History of My Most Used Shell Commands">permalink</a>)
+                    <em>Tuesday, July 15, 2014</em>
+                    (<a href="" rel="bookmark" title="Permalink to Building, Maintaining and Scaling Projects">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>An oldie, but a goodie. This time I annotate it with reasons as to why things are used so much. If you blog, post your own!</p>
-<p>For reference, anything after a &quot;#&quot; is an annotation.</p>
-<pre class="literal-block">
-$ history | awk '{a[$2]++ } END{for(i in a){print a[i] &quot; &quot; i}}'|sort -rn |head -n 20
-166 git     # I am a software developer.
-138 make    # Building the book takes 5 to 8 commands depending on format.
-68 touch    # Readying the book for kindle requires adding a lot of new files.
-51 python   # I am a Python developer and often use the shell.
-21 open     # Opening PDFs and Mobi to see how the book build works.
-12 rm       # I hate bad files.
-10 cd       # Intrigued that this isn't higher.
-9 kindled/kindlegen # Converting the book to .mobi format.
-7 heroku    # Support for clients.
-6 vim       # Sometimes I use it to keep my street cred up.
-5 bpython   # I like this shell.
-3 source    # Activating virtualenv without virtualenvwrapper. Long story...
-3 cp        # Files need to be copied, right?
-3 gondor    # More client support.
-2 import    # I have no idea.
-1 wget      # Fetching files from the internets.
-1 pip       # More client support.
-1 ls        # How is this not higher?
-1 ssh       # Some projects are not on PaaS.
-</pre>
-<p>Interesting how much of my very recent shell experience is focused on the <a class="reference external" href="https://django.2scoops.org/">book</a>.</p>
-<p>Speaking of books, today's reading is Jeff Knupp's <a class="reference external" href="http://www.amazon.com/Writing-Idiomatic-Python-3-3-ebook/dp/B00B5VXMRG/ref=tmm_kin_title_0?ie=UTF8&amp;qid=1365610132&amp;sr=8-1&amp;tag=ihpydanny-20">Writing Idiomatic Python 3.3</a> (Python 2.7 edition also <a class="reference external" href="http://www.amazon.com/Writing-Idiomatic-Python-2-7-3-ebook/dp/B00B5KG0F8/ref=la_B00BBE1MDI_1_2_title_1_kin?ie=UTF8&amp;qid=1365610777&amp;sr=1-2&amp;tag=ihpydanny-20">available</a>)</p>
-
+                    <p>These are the slides from the talk I gave today at the <a class="reference external" href="https://www.sas.upenn.edu/wwc/">Wharton Web Conference</a>.</p>
+<iframe src="//www.slideshare.net/slideshow/embed_code/37009740" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/pydanny/building-maintainableprojectswharton" title="From NASA to Startups to Big Commerce" target="_blank">From NASA to Startups to Big Commerce</a> </strong> from <strong><a href="http://www.slideshare.net/pydanny" target="_blank">Daniel Greenfeld</a></strong> </div>
                     <div class="article-info">
                             <footer class="post-info">
 
 
 Tags:
-	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/twoscoops.html"><em>twoscoops</em></a>
-	<a href="./tag/book.html"><em>book</em></a>
+	<a href="../tag/nasa.html"><em>nasa</em></a>
+	<a href="../tag/whartonwc.html"><em>WhartonWC</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -147,7 +121,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "20130410-history-of-my-most-used-shell-commands.html";
+                           var disqus_identifier = "building-maintaining-scaling-projects.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
@@ -179,397 +153,397 @@ Tags:
 <h4>Subscribe To My Feed</h4>
 
 <p>
-While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
 </p>
 
 <h4 class="nav-header">Tags</h4>
 <span class="tag-4">
-    <a href="./tag/nasa.html">
+    <a href="../tag/nasa.html">
         nasa
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/php.html">
+    <a href="../tag/php.html">
         php
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/resolutions.html">
+    <a href="../tag/resolutions.html">
         resolutions
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/setup.html">
+    <a href="../tag/setup.html">
         setup
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/forms.html">
+    <a href="../tag/forms.html">
         forms
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/class-based-views.html">
+    <a href="../tag/class-based-views.html">
         class-based-views
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/casestudy.html">
+    <a href="../tag/casestudy.html">
         casestudy
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/lahackthons.html">
+    <a href="../tag/lahackthons.html">
         lahackthons
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/i18n.html">
+    <a href="../tag/i18n.html">
         i18n
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/oauth.html">
+    <a href="../tag/oauth.html">
         OAuth
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/los-angeles.html">
+    <a href="../tag/los-angeles.html">
         Los Angeles
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/usability.html">
+    <a href="../tag/usability.html">
         usability
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/surgery.html">
+    <a href="../tag/surgery.html">
         surgery
     </a>
 </span>
 <span class="tag-1">
-    <a href="./tag/python.html">
+    <a href="../tag/python.html">
         python
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/functions.html">
+    <a href="../tag/functions.html">
         functions
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/travel.html">
+    <a href="../tag/travel.html">
         travel
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/api.html">
+    <a href="../tag/api.html">
         api
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
+    <a href="../tag/pycon-2013-guide.html">
         pycon-2013-guide
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/blog.html">
+    <a href="../tag/blog.html">
         blog
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/perl.html">
+    <a href="../tag/perl.html">
         perl
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/python3.html">
+    <a href="../tag/python3.html">
         python3
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/lahackathons.html">
+    <a href="../tag/lahackathons.html">
         lahackathons
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/audrey.html">
+    <a href="../tag/audrey.html">
         audrey
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/nodejs.html">
+    <a href="../tag/nodejs.html">
         nodejs
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/los-angeles.html">
+    <a href="../tag/los-angeles.html">
         los-angeles
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/gondor.html">
+    <a href="../tag/gondor.html">
         gondor
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/pyladies.html">
+    <a href="../tag/pyladies.html">
         pyladies
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/css.html">
+    <a href="../tag/css.html">
         css
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/joke.html">
+    <a href="../tag/joke.html">
         joke
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/sprint.html">
+    <a href="../tag/sprint.html">
         sprint
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/review.html">
+    <a href="../tag/review.html">
         review
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/flask.html">
+    <a href="../tag/flask.html">
         flask
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/book.html">
+    <a href="../tag/book.html">
         book
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/dsf.html">
+    <a href="../tag/dsf.html">
         dsf
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/friends.html">
+    <a href="../tag/friends.html">
         friends
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
+    <a href="../tag/consumer-notebook.html">
         Consumer-Notebook
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/bottle.html">
+    <a href="../tag/bottle.html">
         bottle
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/philippines.html">
+    <a href="../tag/philippines.html">
         philippines
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/dotcloud.html">
+    <a href="../tag/dotcloud.html">
         dotcloud
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/djangocon.html">
+    <a href="../tag/djangocon.html">
         djangocon
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/heroku.html">
+    <a href="../tag/heroku.html">
         heroku
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/javascript.html">
+    <a href="../tag/javascript.html">
         javascript
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/twoscoops.html">
+    <a href="../tag/twoscoops.html">
         twoscoops
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/wsgi.html">
+    <a href="../tag/wsgi.html">
         wsgi
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/howto.html">
+    <a href="../tag/howto.html">
         howto
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/paypal.html">
+    <a href="../tag/paypal.html">
         paypal
     </a>
 </span>
 <span class="tag-1">
-    <a href="./tag/django.html">
+    <a href="../tag/django.html">
         django
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/unicode.html">
+    <a href="../tag/unicode.html">
         unicode
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/la.html">
+    <a href="../tag/la.html">
         LA
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/mongodb.html">
+    <a href="../tag/mongodb.html">
         mongodb
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/meteor.html">
+    <a href="../tag/meteor.html">
         meteor
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/tools.html">
+    <a href="../tag/tools.html">
         tools
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/australia.html">
+    <a href="../tag/australia.html">
         australia
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/europe.html">
+    <a href="../tag/europe.html">
         europe
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/la.html">
+    <a href="../tag/la.html">
         la
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/testing.html">
+    <a href="../tag/testing.html">
         testing
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/capoeira.html">
+    <a href="../tag/capoeira.html">
         capoeira
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pypi.html">
+    <a href="../tag/pypi.html">
         pypi
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/jinja2.html">
+    <a href="../tag/jinja2.html">
         jinja2
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/djangodash.html">
+    <a href="../tag/djangodash.html">
         djangodash
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pyramid.html">
+    <a href="../tag/pyramid.html">
         pyramid
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/hackathon.html">
+    <a href="../tag/hackathon.html">
         hackathon
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/rails.html">
+    <a href="../tag/rails.html">
         rails
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/ruby.html">
+    <a href="../tag/ruby.html">
         ruby
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/consumernotebook.html">
+    <a href="../tag/consumernotebook.html">
         consumernotebook
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/europython.html">
+    <a href="../tag/europython.html">
         europython
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/ppoftw.html">
+    <a href="../tag/ppoftw.html">
         ppoftw
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/rant.html">
+    <a href="../tag/rant.html">
         rant
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/vs.html">
+    <a href="../tag/vs.html">
         vs
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/science.html">
+    <a href="../tag/science.html">
         science
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pypy.html">
+    <a href="../tag/pypy.html">
         pypy
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/holidays.html">
+    <a href="../tag/holidays.html">
         holidays
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/family.html">
+    <a href="../tag/family.html">
         family
     </a>
 </span>
 <span class="tag-1">
-    <a href="./tag/pycon.html">
+    <a href="../tag/pycon.html">
         pycon
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/travel-tips-for-geeks.html">
+    <a href="../tag/travel-tips-for-geeks.html">
         travel tips for geeks
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/clojure.html">
+    <a href="../tag/clojure.html">
         clojure
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/filepicker.html">
+    <a href="../tag/filepicker.html">
         filepicker
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/meme.html">
+    <a href="../tag/meme.html">
         meme
     </a>
 </span>
@@ -612,7 +586,7 @@ pageTracker._trackPageview();
 
     <!-- Le javascript -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./theme/js/jquery-1.7.2.min.js"></script>
-    <script src="./theme/js/bootstrap.min.js"></script>
+    <script src="../theme/js/jquery-1.7.2.min.js"></script>
+    <script src="../theme/js/bootstrap.min.js"></script>
   </body>
 </html>
