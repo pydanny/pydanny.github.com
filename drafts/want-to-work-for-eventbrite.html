@@ -2,18 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Python dictionary vs JavaScript object: Dynamic Keys</title>
+    <title>Want to work for Eventbrite?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
 
     <!-- Le styles -->
-    <link rel="stylesheet" href="./theme/css/pydanny.css" type="text/css" />
-    <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css" />
-    <link href="./theme/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css" />
+    <link href="../theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="./theme/css/pygments.css" rel="stylesheet">
+    <link href="../theme/css/pygments.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -21,10 +21,10 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="./theme/images/favicon.ico">
-    <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="./theme/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="../theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="../theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../theme/images/apple-touch-icon-114x114.png">
 
     <link href="http://pydanny.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
     
@@ -37,8 +37,8 @@
         <div class="row">
           <div class="span6">
             <h1 class="site-logo">
-              <a href=".">
-              <img src="./theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              <a href="..">
+              <img src="../theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
               </a>
             </h1>
           </div>
@@ -62,16 +62,16 @@
           </a>
           <div class="nav-collapse">
             <ul class="nav">
-                <li><a href=".">Home</a></li>
-                <li><a href="./pages/about.html">About</a></li>
-                <li><a href="./pages/events.html">Events</a></li>
-                <li><a href="./pages/projects.html">Projects</a></li>
-                <li><a href="./pages/tools.html">Tools</a></li>
-                <li><a href="./category/audrey.html">Audrey</a></li>
-                <li><a href="./category/blog.html">Blog</a></li>
-                <li><a href="./category/book.html">Book</a></li>
-                <li><a href="./category/django.html">Django</a></li>
-                <li><a href="./category/python.html">Python</a></li>
+                <li><a href="..">Home</a></li>
+                <li><a href="../pages/about.html">About</a></li>
+                <li><a href="../pages/events.html">Events</a></li>
+                <li><a href="../pages/projects.html">Projects</a></li>
+                <li><a href="../pages/tools.html">Tools</a></li>
+                <li><a href="../category/audrey.html">Audrey</a></li>
+                <li><a href="../category/blog.html">Blog</a></li>
+                <li><a href="../category/book.html">Book</a></li>
+                <li><a href="../category/django.html">Django</a></li>
+                <li><a href="../category/python.html">Python</a></li>
 
             </ul>
             <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Python dictionary vs JavaScript object: Dynamic Keys">
-                                        Python dictionary vs JavaScript object: Dynamic Keys
+                                        title="Permalink to Want to work for Eventbrite?">
+                                        Want to work for Eventbrite?
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,53 +100,47 @@
                 </header>
 
                 <p>
-                    <em>Sunday, August 19, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to Python dictionary vs JavaScript object: Dynamic Keys">permalink</a>)
+                    <em>Monday, July 21, 2014</em>
+                    (<a href="" rel="bookmark" title="Permalink to Want to work for Eventbrite?">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>One of the things I noticed a long time ago with JavaScript is that when you create objects you can define keys outside of strings:</p>
-<div class="highlight"><pre><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">city</span><span class="o">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">}</span>
-  <span class="nb">Object</span>
-</pre></div>
-<p>In JavaScript, this is valid. In Python, you'll get a <tt class="docutils literal">NameError</tt>:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="p">{</span><span class="n">city</span><span class="p">:</span> <span class="s">&quot;San Francisco&quot;</span><span class="p">}</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s">&#39;city&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
-</pre></div>
-<p>Normally this isn't too big of an issue, except when you want to use JavaScript to create object keys based off of values in a variable. Which means that while this code works fine in Python...</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">region_name</span> <span class="o">=</span> <span class="s">&#39;state&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="p">{</span><span class="n">region_name</span><span class="p">:</span> <span class="s">&quot;Californa&quot;</span><span class="p">,</span> <span class="s">&quot;city&quot;</span><span class="p">:</span> <span class="s">&quot;San Francisco&quot;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">o</span><span class="p">[</span><span class="s">&quot;state&quot;</span><span class="p">]</span>
-<span class="s">&#39;Californa&#39;</span>
-</pre></div>
-<p>...it fails in JavaScript:</p>
-<div class="highlight"><pre><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">region_name</span> <span class="o">=</span> <span class="s1">&#39;state&#39;</span>
-  <span class="s2">&quot;state&quot;</span>
-<span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">region_name</span><span class="o">:</span> <span class="s2">&quot;Californa&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">}</span>
-  <span class="nb">Object</span>
-<span class="o">&gt;</span> <span class="nx">o</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span>
-  <span class="kc">undefined</span>
-<span class="o">&gt;</span> <span class="nx">o</span><span class="p">[</span><span class="s2">&quot;region_name&quot;</span><span class="p">]</span>
-  <span class="s2">&quot;Californa&quot;</span>
-</pre></div>
-<p>What this means is that if you want to define object keys dynamically in JavaScript, you need to add an extra line(s) of code:</p>
-<div class="highlight"><pre><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">region_name</span> <span class="o">=</span> <span class="s2">&quot;state&quot;&quot;</span>
-<span class="s2">  &quot;</span><span class="nx">state</span><span class="s2">&quot;</span>
-<span class="s2">&gt; var o = {&quot;</span><span class="nx">city</span><span class="s2">&quot;: &quot;</span><span class="nx">San</span> <span class="nx">Francisco</span><span class="s2">&quot;}</span>
-<span class="s2">  Object</span>
-<span class="s2">&gt; o[region_name] = &quot;</span><span class="nx">California</span><span class="s2">&quot; // Add dynamic key here</span>
-<span class="s2">  &quot;</span><span class="nx">California</span><span class="s2">&quot;</span>
-<span class="s2">&gt; o[&quot;</span><span class="nx">state</span><span class="s2">&quot;]</span>
-<span class="s2">  &quot;</span><span class="nx">California</span><span class="err">&quot;</span>
-</pre></div>
-<div class="section" id="summary">
-<h2>Summary</h2>
-<ul class="simple">
-<li>Python is  consistent in how it deals with <cite>named</cite> objects. If you haven't named something, Python throws the <tt class="docutils literal">NameError</tt>.</li>
-<li>JavaScript seems to send out an <tt class="docutils literal">undefined</tt> unless you are defining an object.</li>
+                    <p>Join me, <a class="reference external" href="http://www.aeracode.org/">Andrew Godwin</a> (South, <a class="reference external" href="https://docs.djangoproject.com/en/1.7/topics/migrations/">Django migrations</a>), <a class="reference external" href="http://en.wikipedia.org/wiki/Simon_Willison">Simon</a> <a class="reference external" href="http://blog.simonwillison.net/">Willison</a> (co-founder of <a class="reference external" href="http://djangoproject.com">Django</a>, founder of <a class="reference external" href="http://lanyrd.com/">Lanyrd</a>), and many other talented people at <a class="reference external" href="https://eventbrite.com">Eventbrite</a>. We have great challenges, the kind that inspire you to rise to the occasion. We need you to help us overcome them.</p>
+<p>I should mention that Eventbrite at is committed to giving back to the community. Most notably <a class="reference external" href="https://www.kickstarter.com/projects/tomchristie/django-rest-framework-3/posts/921581">Eventbrite just contributed £5000 to the Django Rest Framework kickstarter</a>, or about <strong>US$8500!!</strong>. We're a frequent sponsor of events around the world. It doesn't stop there, as Eventbrite managers during the discussion of any tool outside our domain of running events will ask: &quot;<em>When can we open source this?</em>&quot;</p>
+<p>As someone who loves working on open source, Eventbrite is the place to be. I say this because I know what we're planning to do in the future. If you join us, you'll find out sooner rather than later. ;)</p>
+<p>What's Eventbrite like as a company? Well, we're rated in the <strong>top 20 of best places to work</strong> in the United States. We get full benefits, free lunch, educational opportunities, and much more. In addition, I have to say that my co-workers are friendly, intelligent, always learning, and love to do things the right way, even if it's the hard way.</p>
+<div class="section" id="applying-for-eventbrite-python-positions">
+<h2>Applying for Eventbrite python positions</h2>
+<p>Sure, you could go to the official Eventbrite job site, but this method is a fun challenge that proves to us you have the basics down. All you need to do is pass this little test of mine. If you fail any portion of this test we can't consider hiring you.</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt><strong>Can you work</strong> in <strong>San Francisco</strong> (USA), <strong>Nashville</strong> (USA), or <strong>Mendoza</strong> (Argentina)?</dt>
+<dd><ul class="first last simple">
+<li>We do have a visa program for foreign nationals in the US but the hiring process is much longer and limited in number by the US government.</li>
+<li>For political reasons outside our control, hiring Australian or UK citizens is easier.</li>
+<li>We have no control over how or why the USA visa system works the way it does. We wish it were differrent.</li>
 </ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Do you know Python?</strong> Sorry, we aren't looking for Foxpro coders. Experience with git-scm, CSS, JavaScript, Django, and MySQL  definate plusses.</p>
+</li>
+<li><p class="first"><strong>Are you able to communicate in both written and verbal English?</strong></p>
+</li>
+<li><p class="first"><strong>Are you a coder?</strong> I will throw away anything from a recruiter.</p>
+</li>
+<li><p class="first"><strong>Can you figure out how to contact me?</strong> Eventbrite doesn't believe in testing applicants with puzzle logic questions. Instead, we ask you meaningful technical questions or to solve a coding problem. With that in mind, use the following to contact me:</p>
+</li>
+</ol>
+<pre class="literal-block">
+104, 116, 116, 112, 115, 58, 47, 47, 103, 105, 115, 116, 46, 103,
+105, 116, 104, 117, 98, 46, 99, 111, 109, 47, 112, 121, 100, 97,
+110, 110, 121, 47, 99, 57, 51, 55, 57, 50, 101, 98, 99, 57, 100,
+49, 55, 48, 98, 49, 52, 51, 101, 55
+
+hints: chr(), str.join(), list comprehension, problem solving
+</pre>
+<p>Good luck!</p>
 </div>
 
                     <div class="article-info">
@@ -154,9 +148,9 @@
 
 
 Tags:
-	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/javascript.html"><em>javascript</em></a>
-	<a href="./tag/vs.html"><em>vs</em></a>
+	<a href="../tag/python.html"><em>python</em></a>
+	<a href="../tag/django.html"><em>django</em></a>
+	<a href="../tag/eventbrite.html"><em>eventbrite</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -164,7 +158,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "python-dictionary-vs-javascript-object-dynamic-keys.html";
+                           var disqus_identifier = "want-to-work-for-eventbrite.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
@@ -196,402 +190,402 @@ Tags:
 <h4>Subscribe To My Feed</h4>
 
 <p>
-While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
 </p>
 
 <h4 class="nav-header">Tags</h4>
 <span class="tag-3">
-    <a href="./tag/australia.html">
+    <a href="../tag/australia.html">
         australia
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/javascript.html">
+    <a href="../tag/javascript.html">
         javascript
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/oauth.html">
+    <a href="../tag/oauth.html">
         OAuth
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/css.html">
+    <a href="../tag/css.html">
         css
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/forms.html">
+    <a href="../tag/forms.html">
         forms
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/howto.html">
+    <a href="../tag/howto.html">
         howto
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/blog.html">
+    <a href="../tag/blog.html">
         blog
     </a>
 </span>
 <span class="tag-1">
-    <a href="./tag/pycon.html">
+    <a href="../tag/pycon.html">
         pycon
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pypi.html">
+    <a href="../tag/pypi.html">
         pypi
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
+    <a href="../tag/consumer-notebook.html">
         Consumer-Notebook
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/heroku.html">
+    <a href="../tag/heroku.html">
         heroku
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/la.html">
+    <a href="../tag/la.html">
         la
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/setup.html">
+    <a href="../tag/setup.html">
         setup
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/mongodb.html">
+    <a href="../tag/mongodb.html">
         mongodb
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/meme.html">
+    <a href="../tag/meme.html">
         meme
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/dsf.html">
+    <a href="../tag/dsf.html">
         dsf
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/pyladies.html">
+    <a href="../tag/pyladies.html">
         pyladies
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/usability.html">
+    <a href="../tag/usability.html">
         usability
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/joke.html">
+    <a href="../tag/joke.html">
         joke
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/jinja2.html">
+    <a href="../tag/jinja2.html">
         jinja2
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/ppoftw.html">
+    <a href="../tag/ppoftw.html">
         ppoftw
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/travel.html">
+    <a href="../tag/travel.html">
         travel
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/djangocon.html">
+    <a href="../tag/djangocon.html">
         djangocon
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/ruby.html">
+    <a href="../tag/ruby.html">
         ruby
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pyramid.html">
+    <a href="../tag/pyramid.html">
         pyramid
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/family.html">
+    <a href="../tag/family.html">
         family
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/wsgi.html">
+    <a href="../tag/wsgi.html">
         wsgi
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/vs.html">
+    <a href="../tag/vs.html">
         vs
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/rant.html">
+    <a href="../tag/rant.html">
         rant
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/whartonwc.html">
+    <a href="../tag/whartonwc.html">
         WhartonWC
     </a>
 </span>
 <span class="tag-1">
-    <a href="./tag/python.html">
+    <a href="../tag/python.html">
         python
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/nasa.html">
+    <a href="../tag/nasa.html">
         nasa
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/friends.html">
+    <a href="../tag/friends.html">
         friends
     </a>
 </span>
 <span class="tag-1">
-    <a href="./tag/django.html">
+    <a href="../tag/django.html">
         django
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/tools.html">
+    <a href="../tag/tools.html">
         tools
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/book.html">
+    <a href="../tag/book.html">
         book
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/dotcloud.html">
+    <a href="../tag/dotcloud.html">
         dotcloud
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/europython.html">
+    <a href="../tag/europython.html">
         europython
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/bottle.html">
+    <a href="../tag/bottle.html">
         bottle
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/hackathon.html">
+    <a href="../tag/hackathon.html">
         hackathon
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/clojure.html">
+    <a href="../tag/clojure.html">
         clojure
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pypy.html">
+    <a href="../tag/pypy.html">
         pypy
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/capoeira.html">
+    <a href="../tag/capoeira.html">
         capoeira
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/testing.html">
+    <a href="../tag/testing.html">
         testing
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/travel-tips-for-geeks.html">
+    <a href="../tag/travel-tips-for-geeks.html">
         travel tips for geeks
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/la.html">
+    <a href="../tag/la.html">
         LA
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/philippines.html">
+    <a href="../tag/philippines.html">
         philippines
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/sprint.html">
+    <a href="../tag/sprint.html">
         sprint
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/api.html">
+    <a href="../tag/api.html">
         api
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/perl.html">
+    <a href="../tag/perl.html">
         perl
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/resolutions.html">
+    <a href="../tag/resolutions.html">
         resolutions
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/audrey.html">
+    <a href="../tag/audrey.html">
         audrey
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/consumernotebook.html">
+    <a href="../tag/consumernotebook.html">
         consumernotebook
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/i18n.html">
+    <a href="../tag/i18n.html">
         i18n
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/twoscoops.html">
+    <a href="../tag/twoscoops.html">
         twoscoops
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/europe.html">
+    <a href="../tag/europe.html">
         europe
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/science.html">
+    <a href="../tag/science.html">
         science
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
+    <a href="../tag/pycon-2013-guide.html">
         pycon-2013-guide
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/lahackathons.html">
+    <a href="../tag/lahackathons.html">
         lahackathons
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/unicode.html">
+    <a href="../tag/unicode.html">
         unicode
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/flask.html">
+    <a href="../tag/flask.html">
         flask
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/review.html">
+    <a href="../tag/review.html">
         review
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/surgery.html">
+    <a href="../tag/surgery.html">
         surgery
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/los-angeles.html">
+    <a href="../tag/los-angeles.html">
         los-angeles
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/functions.html">
+    <a href="../tag/functions.html">
         functions
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/class-based-views.html">
+    <a href="../tag/class-based-views.html">
         class-based-views
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/rails.html">
+    <a href="../tag/rails.html">
         rails
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/lahackthons.html">
+    <a href="../tag/lahackthons.html">
         lahackthons
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/nodejs.html">
+    <a href="../tag/nodejs.html">
         nodejs
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/djangodash.html">
+    <a href="../tag/djangodash.html">
         djangodash
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/filepicker.html">
+    <a href="../tag/filepicker.html">
         filepicker
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/paypal.html">
+    <a href="../tag/paypal.html">
         paypal
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/php.html">
+    <a href="../tag/php.html">
         php
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/meteor.html">
+    <a href="../tag/meteor.html">
         meteor
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/gondor.html">
+    <a href="../tag/gondor.html">
         gondor
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/python3.html">
+    <a href="../tag/python3.html">
         python3
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/casestudy.html">
+    <a href="../tag/casestudy.html">
         casestudy
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/los-angeles.html">
+    <a href="../tag/los-angeles.html">
         Los Angeles
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/holidays.html">
+    <a href="../tag/holidays.html">
         holidays
     </a>
 </span>
@@ -634,7 +628,7 @@ pageTracker._trackPageview();
 
     <!-- Le javascript -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./theme/js/jquery-1.7.2.min.js"></script>
-    <script src="./theme/js/bootstrap.min.js"></script>
+    <script src="../theme/js/jquery-1.7.2.min.js"></script>
+    <script src="../theme/js/bootstrap.min.js"></script>
   </body>
 </html>
