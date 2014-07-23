@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>pytest: no-boilerplate testing (part 2)</title>
+    <title>Want to work for Eventbrite? (part 2)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to pytest: no-boilerplate testing (part 2)">
-                                        pytest: no-boilerplate testing (part 2)
+                                        title="Permalink to Want to work for Eventbrite? (part 2)">
+                                        Want to work for Eventbrite? (part 2)
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,120 +100,24 @@
                 </header>
 
                 <p>
-                    <em>Thursday, January 16, 2014</em>
-                    (<a href="" rel="bookmark" title="Permalink to pytest: no-boilerplate testing (part 2)">permalink</a>)
+                    <em>Wednesday, July 23, 2014</em>
+                    (<a href="" rel="bookmark" title="Permalink to Want to work for Eventbrite? (part 2)">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>In my previous <a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing.html">blog post</a> I covered test discovery and writing basic tests using <a class="reference external" href="http://pytest.org/">pytest</a>. Today I'm going to cover a few more features that I really enjoy: <tt class="docutils literal">raises</tt> and <tt class="docutils literal">fixtures</tt>.</p>
-<div class="section" id="the-intuitively-named-raises-context-manager">
-<h2>The Intuitively Named <tt class="docutils literal">raises</tt> <strong>context manager</strong></h2>
-<p>When using <strong>pytest</strong>, you can assert whether or not an exception occurred via the following:</p>
-<div class="highlight"><pre><span class="c"># test_exceptions.py</span>
-<span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">raises</span>
-
-<span class="k">def</span> <span class="nf">test_an_exception</span><span class="p">():</span>
-    <span class="k">with</span> <span class="n">raises</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">):</span>
-        <span class="c"># Indexing the 30th item in a 3 item list</span>
-        <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">][</span><span class="mi">30</span><span class="p">]</span>
-
-<span class="k">class</span> <span class="nc">CustomException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="k">def</span> <span class="nf">test_my_exception</span><span class="p">():</span>
-    <span class="k">with</span> <span class="n">raises</span><span class="p">(</span><span class="n">CustomException</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="n">CustomException</span>
-</pre></div>
-<p>This is similar to, but just a bit easier to remember than the implementation in <a class="reference external" href="http://docs.python.org/2/library/unittest.html">unittest</a>.</p>
-<p>What I like about it is that even if I step away from code and tests for enough time to go on vacation and <a class="reference external" href="http://pydanny.com/i-married-audrey-roy.html">get married</a>, when I come back I always remember the precise name of the <strong>context manager</strong> used to raise exceptions.</p>
-</div>
-<div class="section" id="fixtures-as-function-arguments">
-<h2>Fixtures as Function Arguments</h2>
-<p>When writing tests, it's not uncommon to need common objects used between tests. However, if you have a complicated process to generate these common objects, then you have to write tests for your tests. When using Python's venerable <strong>unittest</strong> framework, this always causes a spaghetti-code headache. However, via the virtue of simplicity, <strong>pytest</strong> helps keep our test code cleaner and more maintainable.</p>
-<p>Rather than try and explain that further, I'll write some code to get my point across:</p>
-<div class="highlight"><pre><span class="c"># test_fixtures.py</span>
-<span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">fixture</span>
-
-<span class="nd">@fixture</span>  <span class="c"># Registering this function as a fixture.</span>
-<span class="k">def</span> <span class="nf">complex_data</span><span class="p">():</span>
-    <span class="c"># Creating test data entirely in this function to isolate it</span>
-    <span class="c">#   from the rest of this module.</span>
-    <span class="k">class</span> <span class="nc">DataTypes</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-        <span class="n">string</span> <span class="o">=</span> <span class="nb">str</span>
-        <span class="nb">list</span> <span class="o">=</span> <span class="nb">list</span>
-    <span class="k">return</span> <span class="n">DataTypes</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">test_types</span><span class="p">(</span><span class="n">complex_data</span><span class="p">):</span> <span class="c"># fixture is passed as an argument</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="s">&quot;Elephant&quot;</span><span class="p">,</span> <span class="n">complex_data</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="n">complex_data</span><span class="o">.</span><span class="n">list</span><span class="p">)</span>
-</pre></div>
-<p>Nice and simple, which is how I think test harnesses should operate.</p>
-<div class="section" id="writing-tests-for-fixtures">
-<h3>Writing Tests for Fixtures</h3>
-<p>Let's pretend that the <tt class="docutils literal">complex_data()</tt> is a terribly sophisticated function in it's own right. It's so sophisticated that I can't determine what it's actually doing, and I start to get worried. Fortunately, because the <tt class="docutils literal">complex_data()</tt> argument itself is written as a function, I can easily write a test for it.</p>
-<div class="highlight"><pre><span class="c"># test_fixtures.py</span>
-<span class="c"># note: this version of test_fixtures.py is built off the previous example</span>
-
-<span class="k">def</span> <span class="nf">test_complex_data</span><span class="p">(</span><span class="n">complex_data</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">complex_data</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">complex_data</span><span class="o">.</span><span class="n">string</span> <span class="o">==</span> <span class="nb">str</span>
-    <span class="k">assert</span> <span class="n">complex_data</span><span class="o">.</span><span class="n">list</span> <span class="o">==</span> <span class="nb">list</span>
-</pre></div>
-<p>Now that I can easily write tests for my fixtures, that means I can refactor them! I can replace difficult-to-use libraries with easier ones, break up giant functions into little ones, and generally simplify the unnecessarily complex.</p>
-<p>If you've ever been in that weird place where a <strong>unittest</strong> <tt class="docutils literal">setUp()</tt> method is indecipherable, you know just how useful this can be.</p>
-</div>
-<div class="section" id="scoping-fixtures">
-<h3>Scoping Fixtures</h3>
-<p>What if I want a fixture that shares it's scope across several test functions?</p>
-<div class="highlight"><pre><span class="c"># test_fixtures_with_scope.py</span>
-<span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">fixture</span>
-
-<span class="nd">@fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s">&quot;module&quot;</span><span class="p">)</span>  <span class="c"># Registering fixture with module-level scope</span>
-<span class="k">def</span> <span class="nf">scope_data</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s">&quot;count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
-
-<span class="k">def</span> <span class="nf">test_first</span><span class="p">(</span><span class="n">scope_data</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope_data</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="n">scope_data</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="k">def</span> <span class="nf">test_second</span><span class="p">(</span><span class="n">scope_data</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">scope_data</span><span class="p">[</span><span class="s">&quot;count&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<div class="section" id="executing-teardown-code">
-<h3>Executing Teardown Code</h3>
-<p>I can tear down data structures in them. This is useful for any sort of data binding, including file management.</p>
-<div class="highlight"><pre><span class="c"># test_fixtures_with_teardown.py</span>
-<span class="kn">from</span> <span class="nn">pytest</span> <span class="kn">import</span> <span class="n">fixture</span>
-
-<span class="nd">@fixture</span>
-<span class="k">def</span> <span class="nf">file_data</span><span class="p">(</span><span class="n">request</span><span class="p">):</span> <span class="c"># The fixture MUST have a &#39;request&#39; argument</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">)</span>
-
-    <span class="nd">@request.addfinalizer</span>
-    <span class="k">def</span> <span class="nf">teardown</span><span class="p">():</span>
-        <span class="n">text</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">text</span>
-
-<span class="k">def</span> <span class="nf">test_data_type</span><span class="p">(</span><span class="n">file_data</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file_data</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
-</pre></div>
-<p>What's really nice about this teardown feature is that when combined with the fixture decorator's <tt class="docutils literal">scope</tt> argument, I can exactly control when fixtures are taken down. This is an amazing piece of control. While I can and have duplicated this behavior using <strong>unittest</strong>, with <strong>pytest</strong> I can do it with more obvious code.</p>
-</div>
-<div class="section" id="more-pytext-fixture-features">
-<h3>More <strong>pytext</strong> Fixture Features</h3>
-<p>Want to know more things you can do with <strong>pytest</strong> fixtures? Please read the <a class="reference external" href="http://pytest.org/latest/fixture.html">pytest fixtures documentation</a></p>
-</div>
-</div>
-<div class="section" id="more-to-come">
-<h2>More to Come</h2>
-<p>In my <a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing-3.html">next blog post</a> I describe usage of the following <strong>pytest</strong> features:</p>
-<ul class="simple">
-<li>Changing behavior of <strong>pytest</strong> with <tt class="docutils literal">pytest.ini</tt> and plug-ins.</li>
-<li>Integration with <strong>Django</strong> and other frameworks.</li>
-<li>Integration with <tt class="docutils literal">setup.py</tt></li>
-</ul>
-</div>
+                    <p>I had to change some things about the Eventbrite test. The new version is listed here:</p>
+<pre class="literal-block">
+104, 116, 116, 112, 115, 58, 47, 47, 103, 105, 115, 116, 46, 103, 105, 116, 104,117,
+98, 117, 115, 101, 114, 99, 111, 110, 116, 101, 110, 116, 46, 99, 111, 109, 47, 112,
+121, 100, 97, 110, 110, 121, 47, 102, 100, 101, 54, 98, 48, 101, 49, 97, 54, 51, 99,
+49, 56, 101, 51, 52, 51, 101, 51, 47, 114, 97, 119, 47, 57, 56, 97, 54, 55, 99, 57,
+55, 52, 54, 101, 52, 57, 54, 48, 49, 102, 50, 54, 53, 49, 56, 101, 54, 98, 101, 100,
+51, 101, 53, 48, 52, 56, 48, 56, 50, 54, 99, 98, 56, 47, 103, 105, 115, 116, 102,
+105, 108, 101, 49, 46, 116, 120, 116
+hints: chr, problem solving, list comprehension
+</pre>
+<p>Good luck!</p>
+<a class="reference external image-reference" href="https://www.eventbrite.com"><img alt="http://pydanny.com/static/eventbrite_logo_gradient_v2.png" class="align-center" id="want-to-work-for-eventbrite" src="http://pydanny.com/static/eventbrite_logo_gradient_v2.png" style="width: 300px; height: 116px;" /></a>
 
                     <div class="article-info">
                             <footer class="post-info">
@@ -222,8 +126,8 @@
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
 	<a href="./tag/django.html"><em>django</em></a>
-	<a href="./tag/testing.html"><em>testing</em></a>
-	<a href="./tag/ppoftw.html"><em>ppoftw</em></a>
+	<a href="./tag/eventbrite.html"><em>eventbrite</em></a>
+	<a href="./tag/django-rest-framework.html"><em>django-rest-framework</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -231,7 +135,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "pytest-no-boilerplate-testing-2.html";
+                           var disqus_identifier = "want-to-work-for-eventbrite-2.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
