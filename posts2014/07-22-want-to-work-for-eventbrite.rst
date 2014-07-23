@@ -37,19 +37,7 @@ Sure, you could go to the official Eventbrite job site, but this method is a fun
 4. **Are you a coder?** I will throw away anything from a recruiter.
 5. **Can you figure out how to contact me?** Eventbrite doesn't believe in testing applicants with puzzle logic questions. Instead, we ask you meaningful technical questions or to solve a coding problem. With that in mind, use the following to contact me:
 
-::
-
-    104, 116, 116, 112, 115, 58, 47, 47, 103, 105, 115, 116, 46, 103, 105, 116, 104,117,
-    98, 117, 115, 101, 114, 99, 111, 110, 116, 101, 110, 116, 46, 99, 111, 109, 47, 112,
-    121, 100, 97, 110, 110, 121, 47, 102, 100, 101, 54, 98, 48, 101, 49, 97, 54, 51, 99,
-    49, 56, 101, 51, 52, 51, 101, 51, 47, 114, 97, 119, 47, 57, 56, 97, 54, 55, 99, 57,
-    55, 52, 54, 101, 52, 57, 54, 48, 49, 102, 50, 54, 53, 49, 56, 101, 54, 98, 101, 100,
-    51, 101, 53, 48, 52, 56, 48, 56, 50, 54, 99, 98, 56, 47, 103, 105, 115, 116, 102,
-    105, 108, 101, 49, 46, 116, 120, 116
-
-    hints: chr, problem solving, list comprehension
-
-**Note:** This is the updated test.
+**Note:** Updating the test
 
 Good luck!
 
