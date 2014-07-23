@@ -32,7 +32,7 @@ Applying for Eventbrite python positions
 Sure, you could go to the official Eventbrite job site, but this method is a fun challenge that proves to us you have the basics down. All you need to do is pass this little test of mine. If you fail any portion of this test we can't consider hiring you.
 
 1. **Can you work** in **San Francisco** (USA), **Nashville** (USA), or **Mendoza** (Argentina)?
-2. **Do you know Python?** Sorry, we aren't looking for Foxpro coders. Experience with git-scm, CSS, JavaScript, Django, and MySQL  definate plusses.
+2. **Do you know Python?** Sorry, we aren't looking for Foxpro coders. Experience with git-scm, CSS, JavaScript, Django, and MySQL definite plusses.
 3. **Are you able to communicate in both written and verbal English?**
 4. **Are you a coder?** I will throw away anything from a recruiter.
 5. **Can you figure out how to contact me?** Eventbrite doesn't believe in testing applicants with puzzle logic questions. Instead, we ask you meaningful technical questions or to solve a coding problem. With that in mind, use the following to contact me:
