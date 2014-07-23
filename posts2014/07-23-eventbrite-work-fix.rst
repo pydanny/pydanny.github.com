@@ -6,6 +6,7 @@ Want to work for Eventbrite? (part 2)
 :tags: python, django, eventbrite, django-rest-framework
 :category: python
 :slug: want-to-work-for-eventbrite-2
+:status: draft
 
 I had to change some things about the Eventbrite test. The new version is listed here:
 
