@@ -7,7 +7,7 @@ Want to work for Eventbrite? (part 2)
 :category: python
 :slug: want-to-work-for-eventbrite-2
 
-I had to change some things about the Eventbrite test. The new version is listed here:
+For various reasons I had to change some things about my Eventbrite test. The new version is listed here and the previous blog post has been updated:
 
 ::
 
