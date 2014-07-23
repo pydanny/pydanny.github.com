@@ -17,7 +17,7 @@ Join me, `Andrew Godwin`_ (South, `Django migrations`_), Simon_ Willison_ (co-fo
 .. _`Django migrations`: https://docs.djangoproject.com/en/1.7/topics/migrations/
 .. _Eventbrite: https://eventbrite.com
 
-I should mention that Eventbrite is committed to giving back to the community. Most notably `Eventbrite just contributed £5000 to the Django Rest Framework kickstarter`_, or about **US$8500!!**. We're a frequent sponsor of events around the world. It doesn't stop there, as Eventbrite managers during the discussion of any tool outside our domain of running events will ask: "*When can we open source this?*"
+I should mention that Eventbrite is committed to giving back to the community. Most notably `Eventbrite just contributed £5000 to the Django Rest Framework kickstarter`_, or about **US$8500!!** We're a frequent sponsor of events around the world. It doesn't stop there, as Eventbrite managers during the discussion of any tool outside our domain of running events will ask: "*When can we open source this?*"
 
 As someone who loves working on open source, Eventbrite is the place to be. I say this because I know what we're planning to do in the future. If you join us, you'll find out sooner rather than later. ;)
 
@@ -26,13 +26,13 @@ What's Eventbrite like as a company? Well, we're rated in the **top 20 of best p
 .. _`Eventbrite just contributed £5000 to the Django Rest Framework kickstarter`: https://www.kickstarter.com/projects/tomchristie/django-rest-framework-3/posts/921581
 
 
-Applying for Eventbrite python positions
+Applying for Eventbrite Python positions
 ==========================================
 
 Sure, you could go to the official Eventbrite job site, but this method is a fun challenge that proves to us you have the basics down. All you need to do is pass this little test of mine. If you fail any portion of this test we can't consider hiring you.
 
 1. **Can you work** in **San Francisco** (USA), **Nashville** (USA), or **Mendoza** (Argentina)?
-2. **Do you know Python?** Sorry, we aren't looking for Foxpro coders. Experience with git-scm, CSS, JavaScript, Django, and MySQL definite plusses.
+2. **Do you know Python?** Sorry, we aren't looking for Foxpro coders. Experience with git-scm, CSS, JavaScript, Django, and MySQL definite pluses.
 3. **Are you able to communicate in both written and verbal English?**
 4. **Are you a coder?** I will throw away anything from a recruiter.
 5. **Can you figure out how to contact me?** Eventbrite doesn't believe in testing applicants with puzzle logic questions. Instead, we ask you meaningful technical questions or to solve a coding problem. With that in mind, use the following to contact me:
