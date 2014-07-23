@@ -6,18 +6,13 @@ Want to work for Eventbrite? (part 2)
 :tags: python, django, eventbrite, django-rest-framework
 :category: python
 :slug: want-to-work-for-eventbrite-2
-:status: draft
 
 I had to change some things about the Eventbrite test. The new version is listed here:
 
+::
 
-note: updating the test
+    104, 116, 116, 112, 115, 58, 47, 47, 103, 105, 115, 116, 46, 103, 105, 116, 104, 117,
+    98, 46, 99, 111, 109, 47, 112, 121, 100, 97, 110, 110, 121, 47, 97, 56, 55, 100, 57,
+    54, 49, 54, 102, 49, 50, 55, 52, 48, 48, 97, 57, 55, 97, 52
 
 Good luck!
-
-.. image:: http://pydanny.com/static/eventbrite_logo_gradient_v2.png
-   :name: Want to work for Eventbrite?
-   :align: center
-   :height: 116px
-   :width: 300px
-   :target: https://www.eventbrite.com
