@@ -3,7 +3,7 @@ Hola, Argentina!
 ================
 
 :date: 2014-08-13 13:00
-:tags: python, django, argentina, eventbrite
+:tags: python, django, argentina, eventbrite, pyladies
 :category: python
 :slug: hola-argentina
 
