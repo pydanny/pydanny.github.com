@@ -23,6 +23,6 @@ Hasta pronto!
 .. image:: http://pydanny.com/static/800px-Flag_of_Argentina.png
    :name: Argentina!
    :align: center
-   :height: 122px
+   :height: 183px
    :width: 292px
    :target: http://en.wikipedia.org/wiki/Argentina

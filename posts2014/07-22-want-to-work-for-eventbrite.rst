@@ -3,7 +3,7 @@ Want to work for Eventbrite?
 ============================
 
 :date: 2014-07-23 12:00
-:tags: python, django, eventbrite, django-rest-framework
+:tags: python, django, eventbrite, django-rest-framework, argentina
 :category: python
 :slug: want-to-work-for-eventbrite
 
