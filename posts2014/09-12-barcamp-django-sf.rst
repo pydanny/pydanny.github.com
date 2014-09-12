@@ -15,7 +15,7 @@ On October 4th and 5th `BarCamp Django SF`_ will be taking place in the Eventbri
 
 .. _Django: http://djangoproject.com
 
-So how is `BarCamp Django SF`_ different than previous Django conferences and events?
+How is `BarCamp Django SF`_ different than previous Django conferences and events?
 
 Speakers are determined at the event
 --------------------------------------
@@ -75,6 +75,8 @@ On the night of October 4th, you can stay overnight at `BarCamp Django SF`_!
 `BarCamp Django SF`_ is 2 days, and will run from 10am Saturday morning until 4pm Sunday in the Eventbrite_ San Francisco office. Doors will be open throughout the duration of the event and all are welcome to camp out overnight. If you do plan on camping, you'll need to **bring your own sleeping bag, blow up beds, pillows & blankets**.
 
 What's really awesome about camping at `BarCamp Django SF`_ is it allows out-of-town attendees to keep their costs low ($15 event cost vs $200+ hotel rooms).
+
+**note:** Our definition of 'camping' is staying overnight inside the Eventbrite office in San Francisco. hile you can't pitch a tent, but you don't have to worry about mosquitos. Some people will stay up all night, but we'll have quiet areas for those of us who need our 8 hours.
 
 
 See you there!
