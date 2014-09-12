@@ -76,7 +76,7 @@ On the night of October 4th, you can stay overnight at `BarCamp Django SF`_!
 
 What's really awesome about camping at `BarCamp Django SF`_ is it allows out-of-town attendees to keep their costs low ($15 event cost vs $200+ hotel rooms).
 
-**note:** Our definition of 'camping' is staying overnight inside the Eventbrite office in San Francisco. While you can't pitch a tent, you don't have to worry about mosquitos. Some people will stay up all night, but we'll have quiet areas for those of us who need our 8 hours.
+**note:** Our definition of 'camping' is staying overnight inside the Eventbrite office in San Francisco. While you can't pitch a tent, you don't have to worry about mosquitoes. Some people will stay up all night, but we'll have quiet areas for those of us who need our 8 hours.
 
 
 See you there!
