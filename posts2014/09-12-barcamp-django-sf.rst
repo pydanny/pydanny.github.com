@@ -41,6 +41,8 @@ Some attendees planning to be speakers:
 * Myself
 * You! We especially welcome people from diverse backgrounds (race, gender, age, LGBT, disability, nationality, etc.)
 
+**note:** Since enough people asked me about it, speaking is not mandatory for attendees of BarCamp Django SF.
+
 .. _`Cookiecutter`: github.com/audreyr/cookiecutter
 .. _`MessageBar`: https://github.com/audreyr/messagebar
 .. _`Audrey Roy Greenfeld`: https://twitter.com/audreyr
@@ -93,3 +95,5 @@ See you there!
 .. _Eventbrite: http://eventbrite.com
 .. _`event page`: http://barcampdjangosf.eventbrite.com
 .. _`BarCamp Django SF`: http://barcampdjangosf.eventbrite.com
+
+**Update 2014/09/13:** Added note that explains speaking is not mandatory.

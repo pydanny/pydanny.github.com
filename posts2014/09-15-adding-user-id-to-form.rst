@@ -60,14 +60,15 @@ Now that the form is defined, the view needs to inject the form with the user id
 Additional Notes
 =================
 
-You can also use this technique with:
+You can use this technique with:
 
 * ``forms.Form``
+* ``forms.ModelForm``
 * ``CreateView``
 * ``FormView``
 * ``UpdateView``
 
-This should also work with `django-vanilla-views`_.
+This **should** work with `django-vanilla-views`_.
 
 As always, `http://ccbv.co.uk`_ is a great resource for deliving into Django forms.
 
