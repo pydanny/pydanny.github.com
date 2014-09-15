@@ -69,6 +69,8 @@ You can use this technique with:
 
 As always, `http://ccbv.co.uk`_ is a great resource for deliving into Django forms.
 
+While this technique is used by ``django-braces`` through the ``UserFormKwargsMixin`` and ``UserKwargModelFormMixin`` mixins, it's useful to know how to do it outside that very useful tool. The reason being that attaching the ``user`` object or ``user_id`` is just one option out of many.
+
 django-vanilla-views
 ====================
 

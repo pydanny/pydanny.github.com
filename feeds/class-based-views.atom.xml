@@ -52,6 +52,7 @@
 &lt;li&gt;&lt;tt class="docutils literal"&gt;UpdateView&lt;/tt&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;As always, &lt;a class="reference external" href="http://ccbv.co.uk"&gt;http://ccbv.co.uk&lt;/a&gt; is a great resource for deliving into Django forms.&lt;/p&gt;
+&lt;p&gt;While this technique is used by &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;django-braces&lt;/span&gt;&lt;/tt&gt; through the &lt;tt class="docutils literal"&gt;UserFormKwargsMixin&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;UserKwargModelFormMixin&lt;/tt&gt; mixins, it's useful to know how to do it outside that very useful tool. The reason being that attaching the &lt;tt class="docutils literal"&gt;user&lt;/tt&gt; object or &lt;tt class="docutils literal"&gt;user_id&lt;/tt&gt; is just one option out of many.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="django-vanilla-views"&gt;
 &lt;h2&gt;django-vanilla-views&lt;/h2&gt;
