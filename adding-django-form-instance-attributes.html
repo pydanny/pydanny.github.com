@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Jinja2 Quick Load Function</title>
+    <title>Adding Django form instance attributes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Jinja2 Quick Load Function">
-                                        Jinja2 Quick Load Function
+                                        title="Permalink to Adding Django form instance attributes">
+                                        Adding Django form instance attributes
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,31 +100,74 @@
                 </header>
 
                 <p>
-                    <em>Thursday, June 12, 2014</em>
-                    (<a href="" rel="bookmark" title="Permalink to Jinja2 Quick Load Function">permalink</a>)
+                    <em>Monday, September 15, 2014</em>
+                    (<a href="" rel="bookmark" title="Permalink to Adding Django form instance attributes">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>It seems like that for every few weeks I find myself needing to generate something out of a template while working outside a framework. For this task, my preferred solution is <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a>. I've used Jinja2 to generate HTML, code, and text. If I were brave enough I would even say I've used it to generate XML (<em>While my preferred xml tool is great for parsing, even lxml is not so much fun for XML generation</em>).</p>
-<p>I frequently use this snippet of code to render templates. Since I'm tired of digging through my code to find it, I'm placing it here for personal reference.</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">FileSystemLoader</span><span class="p">,</span> <span class="n">Environment</span>
+                    <p>Sometimes in the <tt class="docutils literal">clean()</tt>, <tt class="docutils literal">clean_FOO</tt> or <tt class="docutils literal">save()</tt> methods of a Django form, you need to have additional form instance attributes available. A sample case for this is having <tt class="docutils literal">user_id</tt> available. This is a simple example of how to do it in Class-Based Views.</p>
+<p>Assuming this form:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
 
-<span class="k">def</span> <span class="nf">render_from_template</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">template_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">loader</span> <span class="o">=</span> <span class="n">FileSystemLoader</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-    <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">loader</span><span class="p">)</span>
-    <span class="n">template</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="n">template_name</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+
+
+<span class="k">class</span> <span class="nc">MyForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MyForm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c"># set the user_id as an attribute of the form</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">user_id</span>
 </pre></div>
-<p>Sample usage:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">simple_script</span> <span class="kn">import</span> <span class="n">render_from_template</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-<span class="o">...</span>     <span class="s">&quot;date&quot;</span><span class="p">:</span> <span class="s">&quot;June 12, 2014&quot;</span><span class="p">,</span>
-<span class="o">...</span>     <span class="s">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s">&quot;oranges&quot;</span><span class="p">,</span> <span class="s">&quot;bananas&quot;</span><span class="p">,</span> <span class="s">&quot;steak&quot;</span><span class="p">,</span> <span class="s">&quot;milk&quot;</span><span class="p">]</span>
-<span class="o">...</span> <span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">render_from_template</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="s">&quot;shopping_list.html&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">)</span>
+<p>Now that the form is defined, the view needs to inject the form with the user id:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">UpdateView</span>
+
+<span class="c"># this assumes that django-braces is installed</span>
+<span class="kn">from</span> <span class="nn">braces.views</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>
+
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">MyForm</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+
+
+<span class="k">class</span> <span class="nc">MyUpdateView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">UpdateView</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span>
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">MyForm</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="s">&quot;/someplace/&quot;</span>
+
+    <span class="k">def</span> <span class="nf">get_form_kwargs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This method is what injects forms with their keyword</span>
+<span class="sd">            arguments.&quot;&quot;&quot;</span>
+        <span class="c"># grab the current set of form #kwargs</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">MyUpdateView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_form_kwargs</span><span class="p">()</span>
+        <span class="c"># Update the kwargs with the user_id</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">pk</span>
+        <span class="k">return</span> <span class="n">kwargs</span>
 </pre></div>
-<p>I've thought about packaging this up with <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage">cookiecutter-pypackage</a> and placing it on <a class="reference external" href="https://pypi.python.org/pypi">PyPI</a>, but I think it might be overkill.</p>
-<p><strong>Update 2014/06/12:</strong> Fixed cookiecutter link thanks to <a class="reference external" href="https://github.com/dirn">https://github.com/dirn</a></p>
+<div class="section" id="additional-notes">
+<h2>Additional Notes</h2>
+<p>You can use this technique with:</p>
+<ul class="simple">
+<li><tt class="docutils literal">forms.Form</tt></li>
+<li><tt class="docutils literal">forms.ModelForm</tt></li>
+<li><tt class="docutils literal">CreateView</tt></li>
+<li><tt class="docutils literal">FormView</tt></li>
+<li><tt class="docutils literal">UpdateView</tt></li>
+</ul>
+<p>As always, <a class="reference external" href="http://ccbv.co.uk">http://ccbv.co.uk</a> is a great resource for deliving into Django forms.</p>
+</div>
+<div class="section" id="django-vanilla-views">
+<h2>django-vanilla-views</h2>
+<p>This should also work with <a class="reference external" href="http://django-vanilla-views.org">django-vanilla-views</a>, but I haven't tested it yet.</p>
+<a class="reference external image-reference" href="https://twitter.com/audreyr"><img alt="http://pydanny.com/static/form-attributes.png" class="align-center" id="vanilla-and-strawberry-forms" src="http://pydanny.com/static/form-attributes.png" /></a>
+</div>
+<div class="section" id="see-you-at-barcamp-django-sf">
+<h2>See you at BarCamp Django SF!</h2>
+<p>On October 4th and 5th I'll be at <a class="reference external" href="http://pydanny.com/barcamp-django-sf.html">BarCamp Django SF</a> if you want to talk about Django, Python, or have me teach you how to do cartwheels.</p>
+</div>
 
                     <div class="article-info">
                             <footer class="post-info">
@@ -132,7 +175,10 @@
 
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/jinja2.html"><em>jinja2</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/howto.html"><em>howto</em></a>
+	<a href="./tag/class-based-views.html"><em>class-based-views</em></a>
+	<a href="./tag/forms.html"><em>forms</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -140,7 +186,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "jinja2-quick-load-function.html";
+                           var disqus_identifier = "adding-django-form-instance-attributes.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;

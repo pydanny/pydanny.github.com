@@ -2,34 +2,29 @@
 Events
 ===========
 
-:date: 2014-06-13 14:30
+:date: 2014-09-15 07:30
 
 
-July 15th: Wharton Web Conference
-========================================
+October 4th-5th: BarCamp Django SF
+==================================
 
-* Philadelpha, PA, USA
-* https://www.sas.upenn.edu/wwc/
-* http://lanyrd.com/2014/wharton-web-conference/
+* San Francisco, CA, USA
+* http://pydanny.com/barcamp-django-sf.html
+* http://lanyrd.com/2014/djbarcampsf/
 
-July 16th: Philly Python Users Group
-========================================
-
-* Philadelpha, PA, USA
-* http://www.meetup.com/phillypug/events/190641272/
-
-August 15th-16th: PyDay Mendoza
-================================
-
-* Mendoza, Argentina
-* https://eventioz.com.ar/e/pyday-mendoza-2014
-
-November 4th to November 9th: PyCon Brasil
-===========================================
+November 4th-9th: Python Brasil
+===============================
 
 * Recife/Porto de Galinhas, Brazil
 * http://2014.pythonbrasil.org.br/
+* http://lanyrd.com/2014/python-brasil/
 
+November 13th-15th, PyCon Argentina
+====================================
+
+* Rafaela, Argentina
+* http://pycon.com.ar/pyconar2014/
+* http://lanyrd.com/2014/pycon-argentina/
 
 ----
 

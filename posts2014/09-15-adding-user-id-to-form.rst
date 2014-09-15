@@ -1,14 +1,13 @@
-=======================================
-Adding extra attributes to Django forms
-=======================================
+=========================================
+Adding Django form instance attributes
+=========================================
 
 :date: 2014-09-15 10:30
 :tags: python, django, howto, class-based-views, forms
 :category: django
-:slug: adding-extra-attributes-to-forms
-:status: draft
+:slug: adding-django-form-instance-attributes
 
-Sometimes in the ``clean()``, ``clean_FOO`` or ``save()`` methods of a Django form, you need to have additional attributes available. A sample case for this is having ``user_id`` available. This is a simple example of how to do it in Class-Based Views.
+Sometimes in the ``clean()``, ``clean_FOO`` or ``save()`` methods of a Django form, you need to have additional form instance attributes available. A sample case for this is having ``user_id`` available. This is a simple example of how to do it in Class-Based Views.
 
 Assuming this form:
 
@@ -68,9 +67,31 @@ You can use this technique with:
 * ``FormView``
 * ``UpdateView``
 
-This **should** work with `django-vanilla-views`_.
-
 As always, `http://ccbv.co.uk`_ is a great resource for deliving into Django forms.
+
+django-vanilla-views
+====================
+
+This should also work with `django-vanilla-views`_, but I haven't tested it yet.
+
+.. image:: http://pydanny.com/static/form-attributes.png
+   :name: Vanilla and Strawberry forms
+   :align: center
+   :target: https://twitter.com/audreyr
+
+
+See you at BarCamp Django SF!
+=============================
+
+On October 4th and 5th I'll be at `BarCamp Django SF`_ if you want to talk about Django, Python, or have me teach you how to do cartwheels.
+
+
+
+
+
+
+
+.. _`BarCamp Django SF`: http://pydanny.com/barcamp-django-sf.html
 
 .. _`django-vanilla-views`: http://django-vanilla-views.org
 .. _`http://ccbv.co.uk`: http://ccbv.co.uk
