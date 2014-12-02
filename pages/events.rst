@@ -5,26 +5,11 @@ Events
 :date: 2014-09-15 07:30
 
 
-October 4th-5th: BarCamp Django SF
+June 2015: PyCon Singapore
 ==================================
 
-* San Francisco, CA, USA
-* http://pydanny.com/barcamp-django-sf.html
-* http://lanyrd.com/2014/djbarcampsf/
+* Singapore
 
-November 4th-9th: Python Brasil
-===============================
-
-* Recife/Porto de Galinhas, Brazil
-* http://2014.pythonbrasil.org.br/
-* http://lanyrd.com/2014/python-brasil/
-
-November 13th-15th, PyCon Argentina
-====================================
-
-* Rafaela, Argentina
-* http://pycon.com.ar/pyconar2014/
-* http://lanyrd.com/2014/pycon-argentina/
 
 ----
 
