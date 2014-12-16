@@ -14,13 +14,9 @@ Resolutions
 
 * Write and publish fiction. This is a childhood dream that I would like to do.
 * Write and publish as least one new technical book, preferably on Python.
-* Release the second edition of Two Scoops of Django.
 * Learn Haskell or some other interesting programming language.
 * Figure out a way I can make money working in open source efforts. As a consultant, this explains why I don't do it more.
-* Visit the three continents I've yet to see. That means South America, Africa, and Antarctica.
-* Visit at least one new nation. It's hard to come up with preferences since the whole world is so exciting.
-* Go back to places I've visited before. For example, Italy, Philippines, and the states where I grew up.
-* Take road trips around the USA.
+* Visit the two continents I've yet to see. That means Africa and Antarctica.
 * See the Grand Canyon.
 * Visit more family.
 * Do 1000 push-ups or similar exercises in a single day. I'm at 300 now.
@@ -31,3 +27,16 @@ Resolutions
 * Learn how to surf or snowboard.
 * See all my friends. All of them.
 * Work less and enjoy life with Audrey more.
+
+
+Accomplished
+============
+
+* Release the second edition of Two Scoops of Django.
+* Visited South Africa (Argentina and Brazil!)
+* Visited two new nations, Argentina and Brazil.
+* Went back to the East Coast to visit Philadelphia and places in New Jersey.
+* Went back to the Philippines.
+* Took some awesome road trips around the USA. My favorite was driving up the Pacific Coast highway.
+* Pulled of an Aú Batido
+* Took a fun class with Audrey. We did woodshop!
