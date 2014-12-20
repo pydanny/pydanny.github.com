@@ -1,5 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/ppoftw.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-07-01T12:00:00-07:00</updated><entry><title>cached-property: Don't copy/paste code</title><link href="http://pydanny.com/cached-property.html" rel="alternate"></link><updated>2014-07-01T12:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-07-01:cached-property.html</id><summary type="html">&lt;p&gt;In Python, the &lt;tt class="docutils literal"&gt;&amp;#64;cached_property&lt;/tt&gt; decorator is a really nice piece of code. What it does is it caches the result of a &lt;a class="reference external" href="https://docs.python.org/2/library/functions.html#property"&gt;property&lt;/a&gt; call. The cached result will persist as long as the instance does, so if the instance is passed around and the function subsequently invoked, the cached result will be returned.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/ppoftw.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-12-19T12:00:00-08:00</updated><entry><title>setup.py tricks</title><link href="http://pydanny.com/python-dot-py-tricks.html" rel="alternate"></link><updated>2014-12-19T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-12-19:python-dot-py-tricks.html</id><summary type="html">&lt;img alt="Setup.py tricks" class="align-center" id="id1" src="http://pydanny.com/static/setup.png" /&gt;
+&lt;p&gt;Before I begin, I want to make very clear that most of what I'm about to explain are &lt;strong&gt;'tricks'&lt;/strong&gt;. They aren't &amp;quot;best practices&amp;quot;,  and in at least one case, is possibly inadvisable.&lt;/p&gt;
+&lt;p&gt;Speaking of inadvisable practices, at some point I'll write a &lt;strong&gt;'setup.py traps'&lt;/strong&gt; blog post, which are things I believe you should never, ever do in a &lt;strong&gt;setup.py&lt;/strong&gt; module.&lt;/p&gt;
+&lt;div class="section" id="tricks"&gt;
+&lt;h2&gt;Tricks&lt;/h2&gt;
+&lt;p&gt;These are tricks I have to make package management in &lt;a class="reference external" href="http://python.org"&gt;python&lt;/a&gt; a tiny bit easier. Before you attempt to implement them, I recommend you have at least basic experience with creating new packages. Two ways to learn about python packaging are the &lt;a class="reference external" href="http://audreyr.gitbooks.io/new-library-sprint/content/"&gt;New Library Sprint&lt;/a&gt; (beginner friendly) and the &lt;a class="reference external" href="https://python-packaging-user-guide.readthedocs.org"&gt;Python Packaging User Guide&lt;/a&gt; (more advanced).&lt;/p&gt;
+&lt;div class="section" id="python-setup-py-publish"&gt;
+&lt;h3&gt;'python setup.py publish'&lt;/h3&gt;
+&lt;p&gt;This is where it all started. One day I was looking at some of &lt;a class="reference external" href="https://github.com/tomchristie"&gt;Tom Christie's code&lt;/a&gt; and discovered the &lt;a class="reference external" href="https://github.com/tomchristie/django-rest-framework/blob/971578ca345c3d3bae7fd93b87c41d43483b6f05/setup.py#L61-L67"&gt;python setup.py publish&lt;/a&gt; command inside the &lt;strong&gt;setup.py&lt;/strong&gt; module of &lt;strong&gt;Django Rest Framework&lt;/strong&gt;. It goes something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# setup.py&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+
+&lt;span class="c"&gt;# I&amp;#39;ll discuss version tricks in a future blog post.&lt;/span&gt;
+&lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;42.0.0&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;publish&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;python setup.py sdist upload&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;python setup.py bdist_wheel upload&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;You probably want to also tag the version now:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;  git tag -a &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; -m &amp;#39;version &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;  git push --tags&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c"&gt;# Below this point is the rest of the setup() function&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What's awesome about this is that using this technique I don't have to look up the somewhat cryptic &lt;strong&gt;python setup.py sdist upload&lt;/strong&gt; command, or the actually cryptic &lt;strong&gt;python setup.py bdist_wheel upload&lt;/strong&gt;. Instead, when it's time to push one of my packages to &lt;a class="reference external" href="https://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt;, I just type:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python setup.py publish
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Much easier to remember!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="python-setup-py-tag"&gt;
+&lt;h3&gt;'python setup.py tag'&lt;/h3&gt;
+&lt;p&gt;The problem with Tom Christie's &lt;strong&gt;python setup.py publish&lt;/strong&gt; command is that it forces me to type out the &lt;strong&gt;git tag&lt;/strong&gt; command. Okay, let's be honest, it forces me to copy/paste the output of my screen. Therefore, all on my very own, I 'invented' the &lt;strong&gt;python setup.py tag&lt;/strong&gt; command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# setup.py&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;tag&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;git tag -a &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; -m &amp;#39;version &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;git push --tags&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pretty nifty, eh? Now I don't have to remember so many cryptic git commands. And I get to shorten the &lt;cite&gt;python setup.py publish&lt;/cite&gt; command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;publish&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;python setup.py sdist upload&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;python setup.py bdist_wheel upload&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When I need to do a version release, I commit my code then type:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python setup.py publish
+&lt;span class="nv"&gt;$ &lt;/span&gt;python setup.py tag
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Why don't I combine the commands? Well, you aren't supposed to put things like 'RC1' or '-alpha' in your PyPI version names. By seperating the commands I have finer grained control over my package releases. I'm encouraged to place alpha, beta, and release candidates in git tags, rather than formal PyPI releases.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="python-setup-py-test"&gt;
+&lt;h3&gt;'python setup.py test'&lt;/h3&gt;
+&lt;p&gt;I'm fairly certain some of my readers are going to have a seriously problem with this trick. In fact, depending on the the response of those who manage Python's packaging infrastructure, it might be moved to my forthcoming 'traps' blog post.&lt;/p&gt;
+&lt;p&gt;Alrighty then...&lt;/p&gt;
+&lt;p&gt;I like &lt;a class="reference external" href="http://pytest.org"&gt;py.test&lt;/a&gt;. I've &lt;a class="reference external" href="http://www.pydanny.com/pytest-no-boilerplate-testing.html"&gt;blogged about the use of py.test&lt;/a&gt;. I try to use it everywhere. Yet, I'm really not a fan of how we're supposed tie it into &lt;strong&gt;python setup.py test&lt;/strong&gt;. The precise moment I get uncomfortable with &lt;strong&gt;py.test&lt;/strong&gt; is when it makes me add special classes into &lt;strong&gt;setup.py&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Fortunately, there is another way:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;test&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;test_requirements&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;#39;pytest&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;#39;flake8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;#39;coverage&amp;#39;&lt;/span&gt;
+    &lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;modules&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;__import__&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;test_requirements&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ImportError&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;err_msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;No module named &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; is not installed. Install your test requirments.&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;err_msg&lt;/span&gt;
+        &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;ImportError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;py.test&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Which means I get to use &lt;strong&gt;py.test&lt;/strong&gt; and &lt;strong&gt;python setup.py test&lt;/strong&gt; with a trivial addition of code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python setup.py &lt;span class="nb"&gt;test&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In theory, one could run &lt;strong&gt;pip install&lt;/strong&gt; on the missing requirements, or call them from a requirements file. However, since these are 'tricks', I like to keep things short and sweet. If I get enough positive results for this one I'll update this example to include calling of &lt;strong&gt;pip&lt;/strong&gt; for missing requirements.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-about-subprocess"&gt;
+&lt;h2&gt;What about subprocess?&lt;/h2&gt;
+&lt;p&gt;There are those who will ask, &amp;quot;Why aren't you using the &lt;a class="reference external" href="https://docs.python.org/2/library/subprocess.html"&gt;subprocess&lt;/a&gt; library for these shell commands?&amp;quot;&lt;/p&gt;
+&lt;p&gt;My answer to that question is, &amp;quot;Because if I need a nuclear weapon to kill a rabbit maybe I'm overdoing things.&amp;quot; For these simple tricks, the &lt;strong&gt;os.system()&lt;/strong&gt; function is good enough.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="traps"&gt;
+&lt;h2&gt;Traps!&lt;/h2&gt;
+&lt;p&gt;Stay tuned for my 'traps' blog post to come out early in 2015.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="ppoftw"></category></entry><entry><title>cached-property: Don't copy/paste code</title><link href="http://pydanny.com/cached-property.html" rel="alternate"></link><updated>2014-07-01T12:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-07-01:cached-property.html</id><summary type="html">&lt;p&gt;In Python, the &lt;tt class="docutils literal"&gt;&amp;#64;cached_property&lt;/tt&gt; decorator is a really nice piece of code. What it does is it caches the result of a &lt;a class="reference external" href="https://docs.python.org/2/library/functions.html#property"&gt;property&lt;/a&gt; call. The cached result will persist as long as the instance does, so if the instance is passed around and the function subsequently invoked, the cached result will be returned.&lt;/p&gt;
 &lt;p&gt;If that doesn't make much sense, below is a snippet of code that shows the code and demonstrates it in action. As always, I'm using &lt;a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing.html"&gt;pytest&lt;/a&gt; to validate my code:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;timedelta&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
