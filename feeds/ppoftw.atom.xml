@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/ppoftw.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-12-19T12:00:00-08:00</updated><entry><title>setup.py tricks</title><link href="http://pydanny.com/python-dot-py-tricks.html" rel="alternate"></link><updated>2014-12-19T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-12-19:python-dot-py-tricks.html</id><summary type="html">&lt;img alt="Setup.py tricks" class="align-center" id="id1" src="http://pydanny.com/static/setup.png" /&gt;
+&lt;p&gt;Seasons greetings!&lt;/p&gt;
 &lt;p&gt;Before I begin, I want to make very clear that most of what I'm about to explain are &lt;strong&gt;'tricks'&lt;/strong&gt;. They aren't &amp;quot;best practices&amp;quot;,  and in at least one case, is possibly inadvisable.&lt;/p&gt;
 &lt;p&gt;Speaking of inadvisable practices, at some point I'll write a &lt;strong&gt;'setup.py traps'&lt;/strong&gt; blog post, which are things I believe you should never, ever do in a &lt;strong&gt;setup.py&lt;/strong&gt; module.&lt;/p&gt;
 &lt;div class="section" id="tricks"&gt;

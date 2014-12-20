@@ -12,6 +12,8 @@ setup.py tricks
    :align: center
    :alt: Setup.py tricks
 
+Seasons greetings!
+
 Before I begin, I want to make very clear that most of what I'm about to explain are **'tricks'**. They aren't "best practices",  and in at least one case, is possibly inadvisable.
 
 Speaking of inadvisable practices, at some point I'll write a **'setup.py traps'** blog post, which are things I believe you should never, ever do in a **setup.py** module.
