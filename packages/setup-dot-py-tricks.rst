@@ -130,6 +130,8 @@ Which means I get to use **py.test** and **python setup.py test** with a trivial
 
 In theory, one could run **pip install** on the missing requirements, or call them from a requirements file. However, since these are 'tricks', I like to keep things short and sweet. If I get enough positive results for this one I'll update this example to include calling of **pip** for missing requirements.
 
+**note**: This doesn't mean I'm not using tox_. In fact, I use tox to call my version of **python setup.py test**.
+
 What about subprocess?
 =========================
 
@@ -137,12 +139,23 @@ There are those who will ask, "Why aren't you using the subprocess_ library for 
 
 My answer to that question is, "Because if I need a nuclear weapon to kill a rabbit maybe I'm overdoing things." For these simple tricks, the **os.system()** function is good enough.
 
+Why not just use a Makefile?
+============================
+
+While I code primarily on Mac OSX and Linux, most of my open source packages are used Windows. Thanks to AppVeyor_, I'm testing more and more of them in that environment. In fact, I'll probably be modifying these "tricks" to work better for Windows users.
+
 Traps!
 ======
 
 Stay tuned for my 'traps' blog post to come out early in 2015.
 
+Updates
+========
 
+* 2014/12/21 - Added a note about using tox.
+* 2014/12/21 - Added a note about Makefile and Windows
+
+.. _tox: https://pypi.python.org/pypi/tox
 .. _subprocess: https://docs.python.org/2/library/subprocess.html
 .. _`_version.py`: https://github.com/eventbrite/eventbrite-sdk-python/blob/master/eventbrite/_version.py
 .. _`Bartek Ogryczak`: https://github.com/vartec
@@ -151,3 +164,4 @@ Stay tuned for my 'traps' blog post to come out early in 2015.
 .. _`python setup.py publish`: https://github.com/tomchristie/django-rest-framework/blob/971578ca345c3d3bae7fd93b87c41d43483b6f05/setup.py#L61-L67
 .. _PyPI: https://pypi.python.org/pypi
 .. _python: http://python.org
+.. _AppVeyor: http://appveyor.com

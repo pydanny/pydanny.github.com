@@ -132,6 +132,7 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python setup.py &lt;span class="nb"&gt;test&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In theory, one could run &lt;strong&gt;pip install&lt;/strong&gt; on the missing requirements, or call them from a requirements file. However, since these are 'tricks', I like to keep things short and sweet. If I get enough positive results for this one I'll update this example to include calling of &lt;strong&gt;pip&lt;/strong&gt; for missing requirements.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;note&lt;/strong&gt;: This doesn't mean I'm not using &lt;a class="reference external" href="https://pypi.python.org/pypi/tox"&gt;tox&lt;/a&gt;. In fact, I use tox to call my version of &lt;strong&gt;python setup.py test&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="what-about-subprocess"&gt;
@@ -139,9 +140,20 @@
 &lt;p&gt;There are those who will ask, &amp;quot;Why aren't you using the &lt;a class="reference external" href="https://docs.python.org/2/library/subprocess.html"&gt;subprocess&lt;/a&gt; library for these shell commands?&amp;quot;&lt;/p&gt;
 &lt;p&gt;My answer to that question is, &amp;quot;Because if I need a nuclear weapon to kill a rabbit maybe I'm overdoing things.&amp;quot; For these simple tricks, the &lt;strong&gt;os.system()&lt;/strong&gt; function is good enough.&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class="section" id="why-not-just-use-a-makefile"&gt;
+&lt;h2&gt;Why not just use a Makefile?&lt;/h2&gt;
+&lt;p&gt;While I code primarily on Mac OSX and Linux, most of my open source packages are used Windows. Thanks to &lt;a class="reference external" href="http://appveyor.com"&gt;AppVeyor&lt;/a&gt;, I'm testing more and more of them in that environment. In fact, I'll probably be modifying these &amp;quot;tricks&amp;quot; to work better for Windows users.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class="section" id="traps"&gt;
 &lt;h2&gt;Traps!&lt;/h2&gt;
 &lt;p&gt;Stay tuned for my 'traps' blog post to come out early in 2015.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="updates"&gt;
+&lt;h2&gt;Updates&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;2014/12/21 - Added a note about using tox.&lt;/li&gt;
+&lt;li&gt;2014/12/21 - Added a note about Makefile and Windows&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="ppoftw"></category></entry><entry><title>Adding Django form instance attributes</title><link href="http://pydanny.com/adding-django-form-instance-attributes.html" rel="alternate"></link><updated>2014-09-15T10:30:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-09-15:adding-django-form-instance-attributes.html</id><summary type="html">&lt;p&gt;Sometimes in the &lt;tt class="docutils literal"&gt;clean()&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;clean_FOO&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;save()&lt;/tt&gt; methods of a Django form, you need to have additional form instance attributes available. A sample case for this is having &lt;tt class="docutils literal"&gt;user_id&lt;/tt&gt; available. This is a simple example of how to do it in Class-Based Views.&lt;/p&gt;
 &lt;p&gt;Assuming this form:&lt;/p&gt;
