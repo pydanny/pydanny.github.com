@@ -7,7 +7,7 @@ New Year's Resolutions for 2014
 :category: blog
 :slug: new-years-resolutions-for-2014
 
-Making News Year's Resolutions is something I do every year. It's important to me. I like to set goals and see how well I do.
+Making New Year's Resolutions is something I do every year. It's important to me. I like to set goals and see how well I do.
 
 Resolutions
 ===========

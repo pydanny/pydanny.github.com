@@ -37,7 +37,6 @@ Resolutions completed
 
 * Implement something in node.js, backbone.js, and handlebars.js
 * Teach some Python or Django.
-* Visit my Son.
 
 Resolution Failure
 ==================
