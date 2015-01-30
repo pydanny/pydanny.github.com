@@ -67,8 +67,8 @@ win-64
 &lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload win-32/cookiecutter-0.9.1-BUILDNUM.tar.bz2
 &lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload win-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://binstar.org/pydanny/cookiecutter"&gt;Check out the results of my work&lt;/a&gt; or take a look right below:&lt;/p&gt;
-&lt;a class="reference external image-reference" href="https://binstar.org/search?q=cookiecutter"&gt;&lt;img alt="http://pydanny.com/static/packages.png" class="align-center" id="packages" src="http://pydanny.com/static/packages.png" /&gt;&lt;/a&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://binstar.org/pydanny/cookiecutter"&gt;Check out the results of my work&lt;/a&gt; or take a look right below at what's on &lt;a class="reference external" href="binstar.org"&gt;binstar&lt;/a&gt;:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://binstar.org/search?q=cookiecutter"&gt;&lt;img alt="http://pydanny.com/static/packages.png" class="align-center" id="packages" src="http://pydanny.com/static/packages.png" style="width: 500px; height: 138px;" /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div class="section" id="try-installing-cookiecutter-with-conda"&gt;
 &lt;h2&gt;Try installing Cookiecutter with conda!&lt;/h2&gt;

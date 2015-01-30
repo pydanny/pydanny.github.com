@@ -3,7 +3,7 @@ Cookiecutter: Project Templates Made Easy
 =========================================
 
 :date: 2013-8-17 12:00
-:tags: python, django, rant, flask, pypi, pypy, python3, javascript, audrey
+:tags: python, django, rant, flask, pypi, pypy, python3, javascript, audrey, cookiecutter
 :category: audrey
 :slug: cookie-project-templates-made-easy
 
