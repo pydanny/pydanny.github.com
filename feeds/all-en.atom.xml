@@ -32,7 +32,7 @@
 &lt;div class="section" id="building-a-conda-package"&gt;
 &lt;h2&gt;Building a conda package&lt;/h2&gt;
 &lt;p&gt;Use the conda recipe to build a package for my operating system (in this case, Mac OS X):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda-build cookiecutter
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda build cookiecutter
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This creates a Cookiecutter conda package at &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/miniconda/conda-bld/osx-64/cookiecutter-0.9.1_BUILDNUM.tar.bz2&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The official conda recipe for &lt;strong&gt;cookiecutter&lt;/strong&gt; is at &lt;a class="reference external" href="https://github.com/conda/conda-recipes/tree/master/cookiecutter"&gt;https://github.com/conda/conda-recipes/tree/master/cookiecutter&lt;/a&gt;.&lt;/p&gt;
@@ -40,7 +40,7 @@
 &lt;div class="section" id="converting-the-conda-package-to-other-systems"&gt;
 &lt;h2&gt;Converting the conda package to other systems&lt;/h2&gt;
 &lt;p&gt;Let's convert that to Windows and Linux systems:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;convert ~/miniconda/conda-bld/osx-64/cookiecutter-0.9.1_BUILDNUM.tar.bz2 -p all
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda convert ~/miniconda/conda-bld/osx-64/cookiecutter-0.9.1_BUILDNUM.tar.bz2 -p all
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This creates five new directories, each with a new package. It looks something like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ls
@@ -81,6 +81,12 @@ win-64
 &lt;h2&gt;Summary&lt;/h2&gt;
 &lt;p&gt;Writing about how to package software is hard, so figuring this out was a &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter/issues/232#issuecomment-71552905"&gt;bit of detective work&lt;/a&gt;. I think that's going to change, as the company behind conda, &lt;a class="reference external" href="http://www.continuum.io/"&gt;Continuum Analytics&lt;/a&gt; has stated their intentions to improve conda's documentation. Furthermore, just as many &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter#python"&gt;for-python cookiecutter templates&lt;/a&gt; include carefully researched &lt;tt class="docutils literal"&gt;setup.py&lt;/tt&gt; modules for use with &lt;tt class="docutils literal"&gt;distutils&lt;/tt&gt;, in 2015 I think we'll begin to see many of these templates include carefully research conda recipes and instructions.&lt;/p&gt;
 &lt;p&gt;Many thanks go to &lt;a class="reference external" href="https://twitter.com/fperez_org"&gt;Fernando Perez&lt;/a&gt; for inspiring me to actually delve into conda. &lt;a class="reference external" href="https://twitter.com/tswicegood"&gt;Travis Swicegood&lt;/a&gt; gave me some useful pointers. Last, but not least, none of this would have been figured out without the help of &lt;a class="reference external" href="https://twitter.com/westurner"&gt;Wes Turner&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="updates"&gt;
+&lt;h2&gt;Updates&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;2015/01/30 - Wes Turner corrected a couple typos in the conda command statements.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="pypi"></category><category term="python3"></category><category term="conda"></category><category term="cookiecutter"></category><category term="binstar"></category><category term="packaging"></category></entry><entry><title>I did an Aú Batido in 2014, now what?</title><link href="http://pydanny.com/new-years-resolutions-2015.html" rel="alternate"></link><updated>2014-12-20T12:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-12-20:new-years-resolutions-2015.html</id><summary type="html">&lt;p&gt;This is my summary of my &lt;a class="reference external" href="http://www.pydanny.com/tag/resolutions.html"&gt;resolutions&lt;/a&gt; for 2014 and an early pass at my resolutions for 2015. I'm doing this right now instead of at the end of the year because as of the afternoon of December 21, I'm &lt;a class="reference external" href="http://danielroygreenfeld.com/2014/12/21/going-off-the-grid/"&gt;going off the grid&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="section" id="resolutions-accomplished-in-2014"&gt;
