@@ -1,5 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/howto.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-09-15T10:30:00-07:00</updated><entry><title>Adding Django form instance attributes</title><link href="http://pydanny.com/adding-django-form-instance-attributes.html" rel="alternate"></link><updated>2014-09-15T10:30:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-09-15:adding-django-form-instance-attributes.html</id><summary type="html">&lt;p&gt;Sometimes in the &lt;tt class="docutils literal"&gt;clean()&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;clean_FOO&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;save()&lt;/tt&gt; methods of a Django form, you need to have additional form instance attributes available. A sample case for this is having &lt;tt class="docutils literal"&gt;user_id&lt;/tt&gt; available. This is a simple example of how to do it in Class-Based Views.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/howto.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-01-29T18:00:00-08:00</updated><entry><title>Building Conda Packages for Multiple Operating Systems</title><link href="http://pydanny.com/building-conda-packages-for-multiple-operating-systems.html" rel="alternate"></link><updated>2015-01-29T18:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2015-01-29:building-conda-packages-for-multiple-operating-systems.html</id><summary type="html">&lt;p&gt;On the &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt; project, recently we added &lt;a class="reference external" href="http://conda.pydata.org/"&gt;conda&lt;/a&gt; to the open source packaging systems we officially support (You can find Cookiecutter on &lt;a class="reference external" href="https://pypi.python.org/pypi/cookiecutter"&gt;PyPI&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/Homebrew/homebrew/blob/master/Library/Formula/cookiecutter.rb"&gt;homebrew&lt;/a&gt;, and apparently some Linux distros).&lt;/p&gt;
+&lt;div class="section" id="creating-a-conda-recipe-from-a-pypi-package"&gt;
+&lt;h2&gt;Creating a conda recipe from a PyPI package&lt;/h2&gt;
+&lt;p&gt;Prequisites:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;A &lt;a class="reference external" href="http://conda.pydata.org/miniconda.html#miniconda"&gt;conda binary&lt;/a&gt; installed.&lt;/li&gt;
+&lt;li&gt;A package deployed to &lt;a class="reference external" href="https://pypi.python.org/pypi/cookiecutter"&gt;PyPI&lt;/a&gt; (in our case, &lt;a class="reference external" href="https://pypi.python.org/pypi/cookiecutter/0.9.1"&gt;https://pypi.python.org/pypi/cookiecutter/0.9.1&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once those are ready, create a conda recipe for Cookiecutter.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda skeleton pypi cookiecutter
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will create a conda recipe, which is a directory named &lt;tt class="docutils literal"&gt;cookiecutter&lt;/tt&gt; that contains several text files.&lt;/p&gt;
+&lt;p&gt;Inside the new &lt;tt class="docutils literal"&gt;cookiecutter&lt;/tt&gt; recipe directory, find the &lt;tt class="docutils literal"&gt;meta.yaml&lt;/tt&gt; file and change the appropriate sections to have this content:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="l-Scalar-Plain"&gt;source&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# Change to match the most recent release&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;git_tag&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;0.9.1&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;git_url&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;https://github.com/audreyr/cookiecutter.git&lt;/span&gt;
+
+&lt;span class="l-Scalar-Plain"&gt;package&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;cookiecutter&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;version&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p-Indicator"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;environ&lt;/span&gt;&lt;span class="p-Indicator"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;GIT_DESCRIBE_TAG&amp;#39;&lt;/span&gt;&lt;span class="p-Indicator"&gt;]&lt;/span&gt; &lt;span class="p-Indicator"&gt;}}&lt;/span&gt;
+
+&lt;span class="l-Scalar-Plain"&gt;build&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;number&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p-Indicator"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;environ.get(&amp;#39;GIT_DESCRIBE_NUMBER&amp;#39;&lt;/span&gt;&lt;span class="p-Indicator"&gt;,&lt;/span&gt; &lt;span class="nv"&gt;0)&lt;/span&gt; &lt;span class="p-Indicator"&gt;}}&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Note that this will override the default build string with the Python&lt;/span&gt;
+    &lt;span class="c1"&gt;# and NumPy versions&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;string&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p-Indicator"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;environ.get(&amp;#39;GIT_BUILD_STR&amp;#39;&lt;/span&gt;&lt;span class="p-Indicator"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;)&lt;/span&gt; &lt;span class="p-Indicator"&gt;}}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="building-a-conda-package"&gt;
+&lt;h2&gt;Building a conda package&lt;/h2&gt;
+&lt;p&gt;Use the conda recipe to build a package for my operating system (in this case, Mac OS X):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda build cookiecutter
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This creates a Cookiecutter conda package at &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/miniconda/conda-bld/osx-64/cookiecutter-0.9.1_BUILDNUM.tar.bz2&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The official conda recipe for &lt;strong&gt;cookiecutter&lt;/strong&gt; is at &lt;a class="reference external" href="https://github.com/conda/conda-recipes/tree/master/cookiecutter"&gt;https://github.com/conda/conda-recipes/tree/master/cookiecutter&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="converting-the-conda-package-to-other-systems"&gt;
+&lt;h2&gt;Converting the conda package to other systems&lt;/h2&gt;
+&lt;p&gt;Let's convert that to Windows and Linux systems:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda convert ~/miniconda/conda-bld/osx-64/cookiecutter-0.9.1_BUILDNUM.tar.bz2 -p all
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This creates five new directories, each with a new package. It looks something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ls
+linux-32
+linux-64
+osx-64
+win-32
+win-64
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Each one of these directories contains a conda build also named &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cookiecutter-0.9.1_BUILDNUM.tar.bz2&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I never left the Mac OSX operating system, yet I have packages that are pretty much garaunteed to work on Windows and Linux. That said, Cookiecutter is pure python and it's dependencies already have conda packages. I haven't tried this yet on anything that includes compiling C or C++, much less Fortran.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="uploading-conda-packages-to-binstar"&gt;
+&lt;h2&gt;Uploading conda packages to Binstar&lt;/h2&gt;
+&lt;p&gt;With these packages created, it's time to upload them to &lt;a class="reference external" href="http://binstar.org"&gt;binstar&lt;/a&gt;, the primary conda package index.&lt;/p&gt;
+&lt;p&gt;First, &lt;a class="reference external" href="https://binstar.org/account/register"&gt;register your binstar account&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Then use conda to install the binstar client:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda install binstar
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Finally, start uploading the new packages:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload linux-32/cookiecutter-0.9.1-BUILDNUM.tar.bz2
+&lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload linux-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
+&lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload osx-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
+&lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload win-32/cookiecutter-0.9.1-BUILDNUM.tar.bz2
+&lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload win-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://binstar.org/pydanny/cookiecutter"&gt;Check out the results of my work&lt;/a&gt; or take a look right below at what's on &lt;a class="reference external" href="http://binstar.org"&gt;binstar&lt;/a&gt;:&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://binstar.org/search?q=cookiecutter"&gt;&lt;img alt="http://pydanny.com/static/packages.png" class="align-center" id="packages" src="http://pydanny.com/static/packages.png" style="width: 500px; height: 138px;" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="section" id="try-installing-cookiecutter-with-conda"&gt;
+&lt;h2&gt;Try installing Cookiecutter with conda!&lt;/h2&gt;
+&lt;p&gt;If you have &lt;strong&gt;conda&lt;/strong&gt; installed, you should be able to get Cookiecutter thus:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda config --add channels https://conda.binstar.org/pydanny
+&lt;span class="nv"&gt;$ &lt;/span&gt;conda install cookiecutter
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Writing about how to package software is hard, so figuring this out was a &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter/issues/232#issuecomment-71552905"&gt;bit of detective work&lt;/a&gt;. I think that's going to change, as the company behind conda, &lt;a class="reference external" href="http://www.continuum.io/"&gt;Continuum Analytics&lt;/a&gt; has stated their intentions to improve conda's documentation. Furthermore, just as many &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter#python"&gt;for-python cookiecutter templates&lt;/a&gt; include carefully researched &lt;tt class="docutils literal"&gt;setup.py&lt;/tt&gt; modules for use with &lt;tt class="docutils literal"&gt;distutils&lt;/tt&gt;, in 2015 I think we'll begin to see many of these templates include carefully research conda recipes and instructions.&lt;/p&gt;
+&lt;p&gt;Many thanks go to &lt;a class="reference external" href="https://twitter.com/fperez_org"&gt;Fernando Perez&lt;/a&gt; for inspiring me to actually delve into conda. &lt;a class="reference external" href="https://twitter.com/tswicegood"&gt;Travis Swicegood&lt;/a&gt; gave me some useful pointers. Last, but not least, none of this would have been figured out without the help of &lt;a class="reference external" href="https://twitter.com/westurner"&gt;Wes Turner&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="updates"&gt;
+&lt;h2&gt;Updates&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;2015/01/31 - Fixed a broken binstar link thanks to Russ Ferriday.&lt;/li&gt;
+&lt;li&gt;2015/01/30 - Wes Turner corrected a couple typos in the conda command statements.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="pypi"></category><category term="python3"></category><category term="conda"></category><category term="cookiecutter"></category><category term="binstar"></category><category term="packaging"></category><category term="howto"></category></entry><entry><title>Adding Django form instance attributes</title><link href="http://pydanny.com/adding-django-form-instance-attributes.html" rel="alternate"></link><updated>2014-09-15T10:30:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-09-15:adding-django-form-instance-attributes.html</id><summary type="html">&lt;p&gt;Sometimes in the &lt;tt class="docutils literal"&gt;clean()&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;clean_FOO&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;save()&lt;/tt&gt; methods of a Django form, you need to have additional form instance attributes available. A sample case for this is having &lt;tt class="docutils literal"&gt;user_id&lt;/tt&gt; available. This is a simple example of how to do it in Class-Based Views.&lt;/p&gt;
 &lt;p&gt;Assuming this form:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;
 
