@@ -55,7 +55,7 @@ win-64
 &lt;/div&gt;
 &lt;div class="section" id="uploading-conda-packages-to-binstar"&gt;
 &lt;h2&gt;Uploading conda packages to Binstar&lt;/h2&gt;
-&lt;p&gt;With these packages created, it's time to upload them to &lt;a class="reference external" href="binstar.org"&gt;binstar&lt;/a&gt;, the primary conda package index.&lt;/p&gt;
+&lt;p&gt;With these packages created, it's time to upload them to &lt;a class="reference external" href="http://binstar.org"&gt;binstar&lt;/a&gt;, the primary conda package index.&lt;/p&gt;
 &lt;p&gt;First, &lt;a class="reference external" href="https://binstar.org/account/register"&gt;register your binstar account&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Then use conda to install the binstar client:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda install binstar
@@ -67,7 +67,7 @@ win-64
 &lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload win-32/cookiecutter-0.9.1-BUILDNUM.tar.bz2
 &lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload win-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://binstar.org/pydanny/cookiecutter"&gt;Check out the results of my work&lt;/a&gt; or take a look right below at what's on &lt;a class="reference external" href="binstar.org"&gt;binstar&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://binstar.org/pydanny/cookiecutter"&gt;Check out the results of my work&lt;/a&gt; or take a look right below at what's on &lt;a class="reference external" href="http://binstar.org"&gt;binstar&lt;/a&gt;:&lt;/p&gt;
 &lt;a class="reference external image-reference" href="https://binstar.org/search?q=cookiecutter"&gt;&lt;img alt="http://pydanny.com/static/packages.png" class="align-center" id="packages" src="http://pydanny.com/static/packages.png" style="width: 500px; height: 138px;" /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div class="section" id="try-installing-cookiecutter-with-conda"&gt;
@@ -85,6 +85,7 @@ win-64
 &lt;div class="section" id="updates"&gt;
 &lt;h2&gt;Updates&lt;/h2&gt;
 &lt;ul class="simple"&gt;
+&lt;li&gt;2015/01/31 - Fixed a broken binstar link thanks to Russ Ferriday.&lt;/li&gt;
 &lt;li&gt;2015/01/30 - Wes Turner corrected a couple typos in the conda command statements.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
