@@ -189,7 +189,7 @@ In any case, the problem with ``ModelForm.Meta.excludes`` is similar to but wors
 
 Do yourself a favor and stay away from ``ModelForm.Meta.excludes``.
 
-.. _`Two Scoops of Django`: https://django.2scoops.org
+.. _`Two Scoops of Django`: http://django.2scoops.org
 .. _`selecting the fields to use`: https://docs.djangoproject.com/en/dev/topics/forms/modelforms/#modelforms-selecting-fields
 
 

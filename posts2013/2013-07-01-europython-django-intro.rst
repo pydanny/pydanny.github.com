@@ -16,7 +16,7 @@ Workshop Description
 
 Bring your laptops and join the authors of `Two Scoops of Django`_ for a hands-on Django workshop. We'll build a real, working site from the ground up, using the upcoming Django 1.6 and covering Python 2.7/3.3. We'll cover as much as we can get through, including but not limited to:
 
-.. _`Two Scoops of Django`: https://django.2scoops.org
+.. _`Two Scoops of Django`: http://django.2scoops.org
 
 * Python and Django setup
 * Project creation

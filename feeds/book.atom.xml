@@ -343,6 +343,6 @@ $ history | awk '{a[$2]++ } END{for(i in a){print a[i] &amp;quot; &amp;quot; i}}
 1 ls        # How is this not higher?
 1 ssh       # Some projects are not on PaaS.
 &lt;/pre&gt;
-&lt;p&gt;Interesting how much of my very recent shell experience is focused on the &lt;a class="reference external" href="https://django.2scoops.org/"&gt;book&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Interesting how much of my very recent shell experience is focused on the &lt;a class="reference external" href="http://django.2scoops.org/"&gt;book&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Speaking of books, today's reading is Jeff Knupp's &lt;a class="reference external" href="http://www.amazon.com/Writing-Idiomatic-Python-3-3-ebook/dp/B00B5VXMRG/ref=tmm_kin_title_0?ie=UTF8&amp;amp;qid=1365610132&amp;amp;sr=8-1&amp;amp;tag=ihpydanny-20"&gt;Writing Idiomatic Python 3.3&lt;/a&gt; (Python 2.7 edition also &lt;a class="reference external" href="http://www.amazon.com/Writing-Idiomatic-Python-2-7-3-ebook/dp/B00B5KG0F8/ref=la_B00BBE1MDI_1_2_title_1_kin?ie=UTF8&amp;amp;qid=1365610777&amp;amp;sr=1-2&amp;amp;tag=ihpydanny-20"&gt;available&lt;/a&gt;)&lt;/p&gt;
 </summary><category term="python"></category><category term="twoscoops"></category><category term="book"></category></entry></feed>

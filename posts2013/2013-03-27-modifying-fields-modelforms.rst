@@ -163,6 +163,6 @@ From the perspective of a Python developer our approach more closely matches the
 Today's reading is Matt Harrison's `Guide to Learning Iteration and Generators in Python`_
 
 .. _DRY: http://en.wikipedia.org/wiki/Don%27t_repeat_yourself
-.. _book: https://django.2scoops.org/
+.. _book: http://django.2scoops.org/
 .. _`Zen of Python`: http://www.python.org/dev/peps/pep-0020/
 .. _`Guide to Learning Iteration and Generators in Python`: http://www.amazon.com/Guide-Learning-Iteration-Generators-ebook/dp/B007JR4FCQ/?ie=UTF8&qid=1364400929&sr=1-5&tag=ihpydanny-20
