@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/book.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2014-04-01T05:00:00-07:00</updated><entry><title>Two Scoops of Goblins</title><link href="http://pydanny.com/two-scoops-of-goblins.html" rel="alternate"></link><updated>2014-04-01T05:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-04-01:two-scoops-of-goblins.html</id><summary type="html">&lt;p&gt;While &lt;a class="reference external" href="http://audreyr.com/"&gt;Audrey Roy Greenfeld&lt;/a&gt; and I were contemplating our next Two Scoops Press book topic, it came down to a decision between Pyramid, Flask, and mythical creatures. Inspired by Django's magical flying pony, Pyramid's scary alien dude, and even the idea of a magical Flask pouring out wonderful projects, we've decided to go with mythical creatures.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/book.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-02-22T14:00:00-08:00</updated><entry><title>Setting up LaTeX on Mac OS X</title><link href="http://pydanny.com/setting-up-latex-on-mac-os-x.html" rel="alternate"></link><updated>2015-02-22T14:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2015-02-22:setting-up-latex-on-mac-os-x.html</id><summary type="html">&lt;p&gt;These are my notes for getting LaTeX running on Mac OS X with the components and fonts I want. Which is handy when you want to generate PDFs from &lt;a class="reference external" href="http://sphinx-doc.org/"&gt;Sphinx&lt;/a&gt;. At some point I want to replace this with a &lt;a class="reference external" href="https://www.docker.com/"&gt;Docker&lt;/a&gt; container similar &lt;a class="reference external" href="https://github.com/blang/latex-docker"&gt;https://github.com/blang/latex-docker&lt;/a&gt;, albeit with the components in parts 3 and 4 below.&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Get mactex-basic.pkg from &lt;a class="reference external" href="http://www.ctan.org/pkg/mactex-basic"&gt;http://www.ctan.org/pkg/mactex-basic&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click mactex-basic.pkg to install LaTeX.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Update &lt;tt class="docutils literal"&gt;tlmgr&lt;/tt&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo tlmgr update --self
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol class="arabic" start="3"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install the following tools via &lt;tt class="docutils literal"&gt;tlmgr&lt;/tt&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo tlmgr install titlesec
+sudo tlmgr install framed
+sudo tlmgr install threeparttable
+sudo tlmgr install wrapfig
+sudo tlmgr install multirow
+sudo tlmgr install enumitem
+sudo tlmgr install bbding
+sudo tlmgr install titling
+sudo tlmgr install tabu
+sudo tlmgr install mdframed
+sudo tlmgr install tcolorbox
+sudo tlmgr install textpos
+sudo tlmgr install import
+sudo tlmgr install varwidth
+sudo tlmgr install needspace
+sudo tlmgr install tocloft
+sudo tlmgr install ntheorem
+sudo tlmgr install environ
+sudo tlmgr install trimspaces
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install fonts via &lt;tt class="docutils literal"&gt;tlmgr&lt;/tt&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo tlmgr install collection-fontsrecommended
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;note:&lt;/strong&gt; Yes, I know I can install the basic LaTeX package using &lt;a class="reference external" href="http://brew.sh/"&gt;Homebrew&lt;/a&gt;, but sometimes I like doing things manually.&lt;/p&gt;
+</summary><category term="book"></category><category term="LaTeX"></category><category term="howto"></category><category term="python"></category></entry><entry><title>Two Scoops of Goblins</title><link href="http://pydanny.com/two-scoops-of-goblins.html" rel="alternate"></link><updated>2014-04-01T05:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2014-04-01:two-scoops-of-goblins.html</id><summary type="html">&lt;p&gt;While &lt;a class="reference external" href="http://audreyr.com/"&gt;Audrey Roy Greenfeld&lt;/a&gt; and I were contemplating our next Two Scoops Press book topic, it came down to a decision between Pyramid, Flask, and mythical creatures. Inspired by Django's magical flying pony, Pyramid's scary alien dude, and even the idea of a magical Flask pouring out wonderful projects, we've decided to go with mythical creatures.&lt;/p&gt;
 &lt;p&gt;Specifically, we're writing about goblins, hence the title of this blog post.&lt;/p&gt;
 &lt;p&gt;What that means is that the next book we publish will be fantasy. Going forward all the books we write will be fiction.&lt;/p&gt;
 &lt;p&gt;If we ever write a new &lt;a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-6"&gt;Two Scoops of Django&lt;/a&gt; book, it will be a fantasy about a magical flying pony who eats ice cream. That way we'll confuse the &lt;a class="reference external" href="http://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&amp;amp;field-keywords=django&amp;amp;tag=mlinar-20"&gt;already muddled Amazon.com search requests for 'Django'&lt;/a&gt; even more.&lt;/p&gt;
@@ -226,7 +269,7 @@ By defining &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt
 &lt;p&gt;In any case we're working on other projects. Maybe even a new technical book...&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="django"></category><category term="python"></category><category term="twoscoops"></category><category term="book"></category></entry><entry><title>Two Scoops of Django is in print!</title><link href="http://pydanny.com/two-scoops-of-django-is-in-print.html" rel="alternate"></link><updated>2013-04-17T09:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-17:two-scoops-of-django-is-in-print.html</id><summary type="html">&lt;p&gt;Since I was a child I wanted to be a published author. I've dreamt of people reading my book. While one could say that dream was fulfilled when we launched the e-book version in January, it's not the same as seeing the printed copy. Today I got to see my dream come true, a printed &lt;a class="reference external" href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&amp;amp;qid=1366166104&amp;amp;sr=8-2&amp;amp;tag=ihpydanny-20"&gt;book&lt;/a&gt; is out there with my name on it.&lt;/p&gt;
+</summary><category term="django"></category><category term="python"></category><category term="twoscoops"></category><category term="book"></category><category term="LaTeX"></category></entry><entry><title>Two Scoops of Django is in print!</title><link href="http://pydanny.com/two-scoops-of-django-is-in-print.html" rel="alternate"></link><updated>2013-04-17T09:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-17:two-scoops-of-django-is-in-print.html</id><summary type="html">&lt;p&gt;Since I was a child I wanted to be a published author. I've dreamt of people reading my book. While one could say that dream was fulfilled when we launched the e-book version in January, it's not the same as seeing the printed copy. Today I got to see my dream come true, a printed &lt;a class="reference external" href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&amp;amp;qid=1366166104&amp;amp;sr=8-2&amp;amp;tag=ihpydanny-20"&gt;book&lt;/a&gt; is out there with my name on it.&lt;/p&gt;
 &lt;p&gt;Also, I have a confession to make. When it comes to technical books, I really prefer the print version. For me, nothing beats being able to flip through pages of a hardcopy next to a keyboard, or simply reading while I'm on a bus, train, or plane. So this adds to my excitement when I get to say that the book that &lt;a class="reference external" href="http://audreymroy.com/"&gt;Audrey Roy&lt;/a&gt; and I wrote together is in &lt;a class="reference external" href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&amp;amp;qid=1366166104&amp;amp;sr=8-2&amp;amp;tag=ihpydanny-20"&gt;print&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Note: As of April 17th it's only available in the US. However, it's in the queue for being available for Amazon Europe. Enough people are asking that we are also looking into getting it bulk shipped to &lt;a class="reference external" href="http://djangocircus.com/"&gt;Django Circus&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;While it's been an amazing journey, it's also been a long hard road. Starting with a late night dinner with &lt;a class="reference external" href="http://rdegges.com"&gt;Randall Degges&lt;/a&gt;, his wife &lt;a class="reference external" href="http://hardlyfunny.com"&gt;Samantha&lt;/a&gt;, and &lt;a class="reference external" href="https://bravoflix.com/"&gt;Sean Bradley&lt;/a&gt;, to spending hours upon hours writing and revising, to taking painfully honest critiques from mentors, to alpha launch, then rewriting the book followed by the beta launch. It wasn't easy, but the growing volume of positive feedback and suggestions from readers kept us going.&lt;/p&gt;

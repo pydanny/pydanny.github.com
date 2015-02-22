@@ -3,7 +3,7 @@ Tools we used to write Two Scoops of Django
 ===========================================
 
 :date: 2013-5-03 10:00
-:tags: django, python, twoscoops, book
+:tags: django, python, twoscoops, book, LaTeX
 :category: book
 :slug: tools-we-used-to-write-2scoops
 

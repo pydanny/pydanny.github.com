@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/howto.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-01-29T18:00:00-08:00</updated><entry><title>Building Conda Packages for Multiple Operating Systems</title><link href="http://pydanny.com/building-conda-packages-for-multiple-operating-systems.html" rel="alternate"></link><updated>2015-01-29T18:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2015-01-29:building-conda-packages-for-multiple-operating-systems.html</id><summary type="html">&lt;p&gt;On the &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt; project, recently we added &lt;a class="reference external" href="http://conda.pydata.org/"&gt;conda&lt;/a&gt; to the open source packaging systems we officially support (You can find Cookiecutter on &lt;a class="reference external" href="https://pypi.python.org/pypi/cookiecutter"&gt;PyPI&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/Homebrew/homebrew/blob/master/Library/Formula/cookiecutter.rb"&gt;homebrew&lt;/a&gt;, and apparently some Linux distros).&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/howto.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-02-22T14:00:00-08:00</updated><entry><title>Setting up LaTeX on Mac OS X</title><link href="http://pydanny.com/setting-up-latex-on-mac-os-x.html" rel="alternate"></link><updated>2015-02-22T14:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2015-02-22:setting-up-latex-on-mac-os-x.html</id><summary type="html">&lt;p&gt;These are my notes for getting LaTeX running on Mac OS X with the components and fonts I want. Which is handy when you want to generate PDFs from &lt;a class="reference external" href="http://sphinx-doc.org/"&gt;Sphinx&lt;/a&gt;. At some point I want to replace this with a &lt;a class="reference external" href="https://www.docker.com/"&gt;Docker&lt;/a&gt; container similar &lt;a class="reference external" href="https://github.com/blang/latex-docker"&gt;https://github.com/blang/latex-docker&lt;/a&gt;, albeit with the components in parts 3 and 4 below.&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Get mactex-basic.pkg from &lt;a class="reference external" href="http://www.ctan.org/pkg/mactex-basic"&gt;http://www.ctan.org/pkg/mactex-basic&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click mactex-basic.pkg to install LaTeX.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Update &lt;tt class="docutils literal"&gt;tlmgr&lt;/tt&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo tlmgr update --self
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol class="arabic" start="3"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install the following tools via &lt;tt class="docutils literal"&gt;tlmgr&lt;/tt&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo tlmgr install titlesec
+sudo tlmgr install framed
+sudo tlmgr install threeparttable
+sudo tlmgr install wrapfig
+sudo tlmgr install multirow
+sudo tlmgr install enumitem
+sudo tlmgr install bbding
+sudo tlmgr install titling
+sudo tlmgr install tabu
+sudo tlmgr install mdframed
+sudo tlmgr install tcolorbox
+sudo tlmgr install textpos
+sudo tlmgr install import
+sudo tlmgr install varwidth
+sudo tlmgr install needspace
+sudo tlmgr install tocloft
+sudo tlmgr install ntheorem
+sudo tlmgr install environ
+sudo tlmgr install trimspaces
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install fonts via &lt;tt class="docutils literal"&gt;tlmgr&lt;/tt&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo tlmgr install collection-fontsrecommended
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;note:&lt;/strong&gt; Yes, I know I can install the basic LaTeX package using &lt;a class="reference external" href="http://brew.sh/"&gt;Homebrew&lt;/a&gt;, but sometimes I like doing things manually.&lt;/p&gt;
+</summary><category term="book"></category><category term="LaTeX"></category><category term="howto"></category><category term="python"></category></entry><entry><title>Building Conda Packages for Multiple Operating Systems</title><link href="http://pydanny.com/building-conda-packages-for-multiple-operating-systems.html" rel="alternate"></link><updated>2015-01-29T18:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2015-01-29:building-conda-packages-for-multiple-operating-systems.html</id><summary type="html">&lt;p&gt;On the &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt; project, recently we added &lt;a class="reference external" href="http://conda.pydata.org/"&gt;conda&lt;/a&gt; to the open source packaging systems we officially support (You can find Cookiecutter on &lt;a class="reference external" href="https://pypi.python.org/pypi/cookiecutter"&gt;PyPI&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/Homebrew/homebrew/blob/master/Library/Formula/cookiecutter.rb"&gt;homebrew&lt;/a&gt;, and apparently some Linux distros).&lt;/p&gt;
 &lt;div class="section" id="creating-a-conda-recipe-from-a-pypi-package"&gt;
 &lt;h2&gt;Creating a conda recipe from a PyPI package&lt;/h2&gt;
 &lt;p&gt;Prequisites:&lt;/p&gt;

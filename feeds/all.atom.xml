@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/all.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-02-13T18:20:00-08:00</updated><entry><title>Python Decorator Cheatsheet</title><link href="http://pydanny.com/python-decorator-cheatsheet.html" rel="alternate"></link><updated>2015-02-13T18:20:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2015-02-13:python-decorator-cheatsheet.html</id><summary type="html">&lt;p&gt;I can never remember the syntax for writing &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Python_syntax_and_semantics#Decorators"&gt;decorators&lt;/a&gt;. I always have to look it up. Worse, I always have to remember where to look to find references. Hence the reason for this article. I'll never lose this reference: It's on my laptop and the internet.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/all.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-02-22T14:00:00-08:00</updated><entry><title>Setting up LaTeX on Mac OS X</title><link href="http://pydanny.com/setting-up-latex-on-mac-os-x.html" rel="alternate"></link><updated>2015-02-22T14:00:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2015-02-22:setting-up-latex-on-mac-os-x.html</id><summary type="html">&lt;p&gt;These are my notes for getting LaTeX running on Mac OS X with the components and fonts I want. Which is handy when you want to generate PDFs from &lt;a class="reference external" href="http://sphinx-doc.org/"&gt;Sphinx&lt;/a&gt;. At some point I want to replace this with a &lt;a class="reference external" href="https://www.docker.com/"&gt;Docker&lt;/a&gt; container similar &lt;a class="reference external" href="https://github.com/blang/latex-docker"&gt;https://github.com/blang/latex-docker&lt;/a&gt;, albeit with the components in parts 3 and 4 below.&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Get mactex-basic.pkg from &lt;a class="reference external" href="http://www.ctan.org/pkg/mactex-basic"&gt;http://www.ctan.org/pkg/mactex-basic&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Click mactex-basic.pkg to install LaTeX.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Update &lt;tt class="docutils literal"&gt;tlmgr&lt;/tt&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo tlmgr update --self
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol class="arabic" start="3"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install the following tools via &lt;tt class="docutils literal"&gt;tlmgr&lt;/tt&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo tlmgr install titlesec
+sudo tlmgr install framed
+sudo tlmgr install threeparttable
+sudo tlmgr install wrapfig
+sudo tlmgr install multirow
+sudo tlmgr install enumitem
+sudo tlmgr install bbding
+sudo tlmgr install titling
+sudo tlmgr install tabu
+sudo tlmgr install mdframed
+sudo tlmgr install tcolorbox
+sudo tlmgr install textpos
+sudo tlmgr install import
+sudo tlmgr install varwidth
+sudo tlmgr install needspace
+sudo tlmgr install tocloft
+sudo tlmgr install ntheorem
+sudo tlmgr install environ
+sudo tlmgr install trimspaces
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install fonts via &lt;tt class="docutils literal"&gt;tlmgr&lt;/tt&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo tlmgr install collection-fontsrecommended
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;note:&lt;/strong&gt; Yes, I know I can install the basic LaTeX package using &lt;a class="reference external" href="http://brew.sh/"&gt;Homebrew&lt;/a&gt;, but sometimes I like doing things manually.&lt;/p&gt;
+</summary><category term="book"></category><category term="LaTeX"></category><category term="howto"></category><category term="python"></category></entry><entry><title>Python Decorator Cheatsheet</title><link href="http://pydanny.com/python-decorator-cheatsheet.html" rel="alternate"></link><updated>2015-02-13T18:20:00-08:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2015-02-13:python-decorator-cheatsheet.html</id><summary type="html">&lt;p&gt;I can never remember the syntax for writing &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Python_syntax_and_semantics#Decorators"&gt;decorators&lt;/a&gt;. I always have to look it up. Worse, I always have to remember where to look to find references. Hence the reason for this article. I'll never lose this reference: It's on my laptop and the internet.&lt;/p&gt;
 &lt;p&gt;Each type will include a basic version, a &lt;tt class="docutils literal"&gt;functools.wraps&lt;/tt&gt; version, and a &lt;a class="reference external" href="https://github.com/GrahamDumpleton/wrapt"&gt;wrapt&lt;/a&gt; version.&lt;/p&gt;
 &lt;div class="section" id="decorators-without-arguments"&gt;
 &lt;h2&gt;Decorators Without Arguments&lt;/h2&gt;
@@ -3011,7 +3054,7 @@ By defining &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt
 &lt;p&gt;In any case we're working on other projects. Maybe even a new technical book...&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="django"></category><category term="python"></category><category term="twoscoops"></category><category term="book"></category></entry><entry><title>Filepicker.io and South</title><link href="http://pydanny.com/filepicker-and-south.html" rel="alternate"></link><updated>2013-04-23T10:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-23:filepicker-and-south.html</id><summary type="html">&lt;p&gt;I've heard good things about filepicker.io, which is a service that makes file uploading a much better experience. Unfortunately, the Django package for filepicker.io doesn't work with South. When I try to create a migration using the filepicker.io field using code like the following...&lt;/p&gt;
+</summary><category term="django"></category><category term="python"></category><category term="twoscoops"></category><category term="book"></category><category term="LaTeX"></category></entry><entry><title>Filepicker.io and South</title><link href="http://pydanny.com/filepicker-and-south.html" rel="alternate"></link><updated>2013-04-23T10:00:00-07:00</updated><author><name>Daniel-Greenfeld</name></author><id>tag:pydanny.com,2013-04-23:filepicker-and-south.html</id><summary type="html">&lt;p&gt;I've heard good things about filepicker.io, which is a service that makes file uploading a much better experience. Unfortunately, the Django package for filepicker.io doesn't work with South. When I try to create a migration using the filepicker.io field using code like the following...&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# products/models.py&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django_filepicker.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FPFileField&lt;/span&gt;
