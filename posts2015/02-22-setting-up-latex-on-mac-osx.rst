@@ -50,3 +50,8 @@ These are my notes for getting LaTeX running on Mac OS X with the components and
 **note:** Yes, I know I can install the basic LaTeX package using Homebrew_, but sometimes I like doing things manually.
 
 .. _Homebrew: http://brew.sh/
+
+.. image:: http://upload.wikimedia.org/wikipedia/commons/9/9c/Latex_example.png
+   :name: packages
+   :align: center
+   :target: http://en.wikipedia.org/wiki/LaTeX#mediaviewer/File:Latex_example.png
