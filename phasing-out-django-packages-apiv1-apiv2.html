@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Docstrings and Various Python Objects</title>
+    <title>Phasing Out Django Packages APIv1 &amp; APIv2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Greenfeld">
@@ -89,8 +89,8 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Docstrings and Various Python Objects">
-                                        Docstrings and Various Python Objects
+                                        title="Permalink to Phasing Out Django Packages APIv1 &amp; APIv2">
+                                        Phasing Out Django Packages APIv1 &amp; APIv2
                                 </a>
                                 <a href="http://twitter.com/share" class="twitter-share-button"
    data-count="horizontal" data-via="pydanny">Tweet</a>
@@ -100,130 +100,38 @@
                 </header>
 
                 <p>
-                    <em>Wednesday, March 05, 2014</em>
-                    (<a href="" rel="bookmark" title="Permalink to Docstrings and Various Python Objects">permalink</a>)
+                    <em>Sunday, March 01, 2015</em>
+                    (<a href="" rel="bookmark" title="Permalink to Phasing Out Django Packages APIv1 &amp; APIv2">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>Early in my journeys with Python I struggled with understanding the purpose and use of <strong>lambda</strong> functions. When I finally understood them I was disappointed by their lack of <strong>docstrings</strong>. For that reason, and various other shortcomings, <a class="reference external" href="http://pydanny.blogspot.com/2007/07/lambdas-no-more.html">I went back to standard functions</a>. Also, for what it's worth, I've even spoken about how <a class="reference external" href="http://www.slideshare.net/pydanny/python-worst-practices/41">you shouldn't use lambdas</a>.</p>
-<p>Recently I was thinking about how everything in Python is an object. This includes lambdas. Since all Python objects have the <cite>__doc__</cite> special (aka 'magic') attribute, can we add custom docstrings to everything?</p>
-<p>Using <a class="reference external" href="http://pydanny.com/pytest-no-boilerplate-testing.html">pytest</a>, Python 2.7.x, and lambdas, let's find out!</p>
-<div class="highlight"><pre><span class="c"># test_docstrings.py</span>
-<span class="kn">import</span> <span class="nn">pytest</span>
-
-<span class="k">def</span> <span class="nf">test_lambdas</span><span class="p">():</span>
-    <span class="c"># Create a lambda and test it</span>
-    <span class="n">doubler</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>
-    <span class="k">assert</span> <span class="n">doubler</span><span class="p">(</span><span class="s">&quot;fun&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;fun fun&quot;</span>
-
-    <span class="c"># Add a docstring to the lambda</span>
-    <span class="n">doubler</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="s">&quot;Doubles strings&quot;</span>
-
-    <span class="c"># Test that calling __doc__ works</span>
-    <span class="k">assert</span> <span class="n">doubler</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">==</span> <span class="s">&quot;Doubles strings&quot;</span>
-</pre></div>
-<p>Hey! It worked! If I try it in the shell, I can even see that the <tt class="docutils literal">help()</tt> function works:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="c"># Welcome to the REPL!</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">doubler</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">doubler</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="s">&quot;Doubles strings&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">help</span><span class="p">(</span><span class="n">doubler</span><span class="p">)</span>
-<span class="n">Help</span> <span class="n">on</span> <span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">__main__</span><span class="p">:</span>
-
-<span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="k">lambda</span> <span class="n">x</span>
-    <span class="n">Doubles</span> <span class="n">strings</span>
-</pre></div>
-<p>Contrary to what I thought in 2007, Python lambdas <em>can</em> be documented. Modifying their docstring functions with both the direct <tt class="docutils literal">__doc___</tt> special attribute and the <tt class="docutils literal">help()</tt> built-in works just fine.</p>
-<div class="section" id="should-we-use-lambdas">
-<h2>Should We Use Lambdas?</h2>
-<p>As demonstrated in this article, lambdas can be documented. Nevertheless, I'm still not entirely convinced python lambdas should be used as anything except when an anonymous function is advantageous, i.e during functional programming.</p>
+                    <p>It is time to upgrade <a class="reference external" href="https://www.djangopackages.com/">Django Packages</a>. If you are using the site's APIs in any way, this affects you.</p>
+<p>This site, maintained by myself and <a class="reference external" href="https://twitter.com/audreyr">Audrey Roy Greenfeld</a>, is the directory of reusable apps, sites, and tools for Django-powered projects. And the site has been running on Django 1.4.x for about 2.5 years. Which in internet years is forever. It's time to upgrade!</p>
+<p>Alas, we have a problem.</p>
+<div class="section" id="the-problem">
+<h2>The Problem</h2>
+<p>The first REST API for the project, APIv1 is running on a very old version of <a class="reference external" href="https://pypi.python.org/pypi/django-tastypie/0.9.7">django-tastypie</a> (0.9.7)  which blocks upgrading the Django version, even to Django 1.5. While we could do a lot of work to migrate upwards to modern django-tastypie, that would require a lot of time that we would rather spend adding new features or making other stuff. More importantly, there are elements to the APIv1's design that we want to change.</p>
+<p>While we are on the subject of legacy APIs, the second REST API for the project, the mostly undocumented APIv2, is powered by a relatively old version of <a class="reference external" href="https://pypi.python.org/pypi/djangorestframework/2.3.8">Django Rest Framework</a> (2.3.8). The design of APIv2 was a bit of an experiement in architectural design, one whose novel approach (API views in individual apps) was unweildy and ultimately annoying. One might even call it an anti-pattern. That's fine, as sometimes you have to try things in order to determine better approaches for later, but it's time for this version of the API to die.</p>
+<p>Our eventual goal is to get Django Packages running on Django 1.8 as well as implementing a brand-new REST API powered by Django Rest Framework. Getting there is the trick. Hence, we've created &quot;<strong>The Plan</strong>&quot;.</p>
 </div>
-<div class="section" id="what-about-other-python-types">
-<h2>What About Other Python Types?</h2>
-<p>Enough about lambdas, let's see what else we can do with docstrings.</p>
-<div class="section" id="functions-and-docstrings">
-<h3>Functions and Docstrings</h3>
-<p>We know modifying docstrings of functions works, so we'll use it as a 'control'.</p>
-<div class="highlight"><pre><span class="c"># appended to test_docstrings.py</span>
-<span class="k">def</span> <span class="nf">test_functions</span><span class="p">():</span>
-    <span class="c"># Create a function and test it</span>
-    <span class="k">def</span> <span class="nf">doubler</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="s">&quot;Doubles strings&quot;</span>
-        <span class="k">return</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>
-    <span class="k">assert</span> <span class="n">doubler</span><span class="p">(</span><span class="s">&quot;fun&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;fun fun&quot;</span>
-    <span class="k">assert</span> <span class="n">doubler</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">==</span> <span class="s">&quot;Doubles strings&quot;</span>
-
-    <span class="c"># Change the docstring</span>
-    <span class="n">doubler</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="s">&quot;Really doubles strings&quot;</span>
-
-    <span class="c"># Test that calling __doc__ works</span>
-    <span class="k">assert</span> <span class="n">doubler</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">==</span> <span class="s">&quot;Really doubles strings&quot;</span>
-</pre></div>
+<div class="section" id="the-plan">
+<h2>The Plan</h2>
+<p>We have a four-stage plan for migrating the site upwards:</p>
+<ol class="arabic simple">
+<li>On April 2, 2015 we will be turning off APIv1. All endpoints will redirect to APIv3.</li>
+<li>On April 3, 2015, we will be turning off APIv2. All endpoints will stop working.</li>
+<li>On April 4, we commence work on migrating the project to Django 1.8.</li>
+<li>Whenever we finish #3, we start work on APIv4, powered by Django Rest Framework.</li>
+</ol>
+<div class="section" id="about-apiv3">
+<h3>About APIv3</h3>
+<p>Already implemented, this version of the API is powered by very simple JSON-powered views. Since both APIv1 and APIv2 only have GET endpoints, it was easy to roll something out that provided nearly all the data generated by both previous APIs.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://djangopackages.readthedocs.org/en/latest/apiv3_docs.html">Django Packages APIv3 Documentation</a></li>
+<li><a class="reference external" href="https://www.djangopackages.com/api/v3/">Django Packages APIv3 Endpoint</a></li>
+</ul>
+<a class="reference external image-reference" href="https://www.djangopackages.com/"><img alt="https://s3.amazonaws.com/opencomparison/img/logo_501x316.png" class="align-center" id="django-packages-logo" src="https://s3.amazonaws.com/opencomparison/img/logo_501x316.png" /></a>
 </div>
-<div class="section" id="strings-and-docstrings">
-<h3>Strings and Docstrings</h3>
-<p>Let's go for something a bit harder. Strings, for example, come with a docstring, but as Python strings are immutable types, it's read-only access:</p>
-<div class="highlight"><pre><span class="c"># more appended to test_docstrings.py</span>
-<span class="k">def</span> <span class="nf">test_strings</span><span class="p">():</span>
-    <span class="c"># Assert that strings come with a built-in doc string</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;Hello, world&quot;</span>
-    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">==</span> <span class="s">&#39;str(object) -&gt; string</span><span class="se">\n\n</span><span class="s">Return a nice string&#39;</span> \
-        <span class="s">&#39; representation of the object.</span><span class="se">\n</span><span class="s">If the argument is a string,&#39;</span> \
-        <span class="s">&#39; the return value is the same object.&#39;</span>
-
-    <span class="c"># Try to set the docstring of a string and you get an AttributeError</span>
-    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">AttributeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-        <span class="n">s</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="s">&quot;Stock programming text&quot;</span>
-
-    <span class="c"># The error&#39;s value explains the problem...</span>
-    <span class="k">assert</span> <span class="n">err</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="s">&quot;&#39;str&#39; object attribute &#39;__doc__&#39; is read-only&quot;</span>
-</pre></div>
-<p>Hmmm... does this mean that we can't assign a docstring to a string? What if we subclass Python's <tt class="docutils literal">str</tt> type?</p>
-<div class="highlight"><pre><span class="c"># Again appended to test_docstrings.py</span>
-<span class="k">def</span> <span class="nf">test_subclassed_string</span><span class="p">():</span>
-
-    <span class="c"># Subclass the string type</span>
-    <span class="k">class</span> <span class="nc">String</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;I am a string class&quot;&quot;&quot;</span>
-
-    <span class="c"># Instantiate the string</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;Hello, world&quot;</span><span class="p">)</span>
-
-    <span class="c"># The default docstring is set</span>
-    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">==</span> <span class="s">&quot;&quot;&quot;I am a string class&quot;&quot;&quot;</span>
-
-    <span class="c"># Let&#39;s set the docstring</span>
-    <span class="n">s</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="s">&quot;I am a string object&quot;</span>
-    <span class="k">assert</span> <span class="n">s</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">==</span> <span class="s">&quot;I am a string object&quot;</span>
-</pre></div>
-<p>This looks like it works, but it doesn't do enough. Specifically, this doesn't satisfy the needs of Python's <tt class="docutils literal">help()</tt> function when called against the instantiated object.</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="c"># REPL again so we can call the help() function</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">String</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
-<span class="o">...</span>     <span class="s">&quot;&quot;&quot;I am a string class&quot;&quot;&quot;</span>
-<span class="o">...</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;Hello, world&quot;</span><span class="p">)</span> <span class="c"># instantiate the String Object</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="s">&quot;I am a string object&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">help</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="c"># Called against the &#39;s&#39; object, not the &#39;String&#39; class.</span>
-<span class="n">Help</span> <span class="n">on</span> <span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">module</span> <span class="n">__builtin__</span><span class="p">:</span>
-
-<span class="n">NAME</span>
-    <span class="n">__builtin__</span> <span class="o">-</span> <span class="n">Built</span><span class="o">-</span><span class="ow">in</span> <span class="n">functions</span><span class="p">,</span> <span class="n">exceptions</span><span class="p">,</span> <span class="ow">and</span> <span class="n">other</span> <span class="n">objects</span><span class="o">.</span>
-
-<span class="n">FILE</span>
-    <span class="p">(</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="p">)</span>
-
-<span class="n">DESCRIPTION</span>
-    <span class="n">Noteworthy</span><span class="p">:</span> <span class="bp">None</span> <span class="ow">is</span> <span class="n">the</span> <span class="sb">`nil&#39; object; Ellipsis represents `</span><span class="o">...</span><span class="s">&#39; in slices.</span>
-<span class="o">...</span>
-</pre></div>
-<p>You'll notice in the result of the <tt class="docutils literal">help()</tt> call on the 's' object, that the phrase, &quot;I am a string object&quot; does not exist.</p>
-</div>
-</div>
-<div class="section" id="conclusion">
-<h2>Conclusion</h2>
-<p>In Python, everything might be an object, but not all objects are created equal. Lambdas (and functions and objects) do allow for docstrings, but many, if not all basic types (strings, lists, classes, etc) for Python do not.</p>
-<p>I wonder if I scratch this particular itch long enough I might be able to create a string-like class that handles the <tt class="docutils literal">help()</tt> issue. If that happens, maybe I'll add it to <a class="reference external" href="http://pydanny.com/fixing-pythons-string-class.html">String Theory</a>. ;-)</p>
-<p><strong>Resource</strong>: The entire <tt class="docutils literal">test_docstrings.py</tt> module: <a class="reference external" href="https://gist.github.com/pydanny/9373279">https://gist.github.com/pydanny/9373279</a></p>
-<a class="reference external image-reference" href="https://s3.amazonaws.com/pydanny/lambda_scoops.png"><img alt="https://s3.amazonaws.com/pydanny/lambda_scoops.png" class="align-center" id="lambda-scoops" src="https://s3.amazonaws.com/pydanny/lambda_scoops.png" /></a>
 </div>
 
                     <div class="article-info">
@@ -231,7 +139,10 @@
 
 
 Tags:
+	<a href="./tag/django.html"><em>django</em></a>
 	<a href="./tag/python.html"><em>python</em></a>
+	<a href="./tag/django-rest-framework.html"><em>django-rest-framework</em></a>
+	<a href="./tag/api.html"><em>api</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -239,7 +150,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "docstrings-and-various-python-objects.html";
+                           var disqus_identifier = "phasing-out-django-packages-apiv1-apiv2.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;
