@@ -23,7 +23,7 @@ The first REST API for the project, APIv1 is running on a very old version of `d
 
 .. _`django-tastypie`: https://pypi.python.org/pypi/django-tastypie/0.9.7
 
-While we are on the subject of legacy APIs, the second REST API for the project, the mostly undocumented APIv2, is powered by a relatively old version of `Django Rest Framework`_ (2.3.8). The design of APIv2 was a bit of an experiement in architectural design, one whose novel approach (API views in individual apps) was unweildy and ultimately annoying. One might even call it an anti-pattern. That's fine, as sometimes you have to try things in order to determine better approaches for later, but it's time for this version of the API to die.
+While we are on the subject of legacy APIs, the second REST API for the project, the mostly undocumented APIv2, is powered by a relatively old version of `Django Rest Framework`_ (2.3.8). The design of APIv2 was a bit of an experiement in architectural design, one whose novel approach (API views mixed into standard HTML views instead of seperated out) was unweildy and ultimately annoying. One might even call it an anti-pattern. That's fine, as sometimes you have to try things in order to determine better approaches for later, but it's time for this version of the API to die.
 
 .. _`django-tastypie`: https://pypi.python.org/pypi/django-tastypie/0.9.7
 .. _`Django Rest Framework`: https://pypi.python.org/pypi/djangorestframework/2.3.8
@@ -47,6 +47,8 @@ Already implemented, this version of the API is powered by very simple JSON-powe
 
 * `Django Packages APIv3 Documentation`_
 * `Django Packages APIv3 Endpoint`_
+
+**Update 2014/03/01**: Clarified the design mistake of APIv2.
 
 .. _`Django Packages APIv3 Documentation`: http://djangopackages.readthedocs.org/en/latest/apiv3_docs.html
 .. _`Django Packages APIv3 Endpoint`: https://www.djangopackages.com/api/v3/
