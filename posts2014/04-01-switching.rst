@@ -21,11 +21,11 @@ If we ever write a new `Two Scoops of Django`_ book, it will be a fantasy about 
 
 .. _`already muddled Amazon.com search requests for 'Django'`: http://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=django&tag=mlinar-20
 
-Since this is a technical blog, I'll be moving my fiction writing based articles to my author blog at `dannygreenfeld.com`_.
+Since this is a technical blog, I'll be moving my fiction writing based articles to my author blog at `danielroygreenfeld.com`_.
 
 .. image:: https://s3.amazonaws.com/pydanny/two-scoops-of-goblins.png
    :name: Two Scoops of Goblins Cover
    :align: center
-   :target: http://dannygreenfeld.com
+   :target: http://www.danielroygreenfeld.com
 
-.. _`dannygreenfeld.com`: http://dannygreenfeld.com
+.. _`danielroygreenfeld.com`: http://www.danielroygreenfeld.com
