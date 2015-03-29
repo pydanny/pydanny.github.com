@@ -15,10 +15,20 @@ I do Python, Django, and JavaScript out of the Inland Empire in California. I lo
 
 ----
 
-Book
-=====
+Fiction Book
+===============
 
-I co-wrote a book_ with `Audrey Roy`_:
+I'm a fiction author!
+
+.. image:: http://cdn.shopify.com/s/files/1/0304/6901/products/1.6-cover-389x480_1024x1024.png?v=1391472047
+   :name: Into the Brambles
+   :align: center
+   :target: http://www.amazon.com/into-the-brambles-ebook/dp/B00VC5UQHO/?tag=the-brambles-20
+
+Techicaln Books
+===============
+
+I co-wrote a book series with `Audrey Roy`_:
 
 .. image:: http://cdn.shopify.com/s/files/1/0304/6901/products/1.6-cover-389x480_1024x1024.png?v=1391472047
    :name: Two Scoops of Django: Best Practices for Django 1.6
@@ -38,8 +48,8 @@ The `previous version`_ is still available.
 
     <span id="itinerary"></span>
    
-Itinerary
-==========
+Itinerary in 2013
+===================
 
 In 2013 we spent about 5 months living in Europe.
 
@@ -49,21 +59,22 @@ In 2013 we spent about 5 months living in Europe.
 .. _`Why?`: http://pydanny.com/off-to-europe.html
 .. _`How?`: http://pydanny.com/travel-tips-for-geeks-living-cheaply.html
 
-========= =========== =============== =============
+========== =========== =============== =============
 City        Country     Date            Status
-========= =========== =============== =============
-Manila    Philippines Sept 25-Oct 1   Done!
-Split     Croatia     Aug 27-Sept 23  Done!
-Zagreb    Croatia     July 23-Aug 27  Done!
-Ljubljana Slovenia    July 21-July23  Done!
-Florence  Italy       July 1-July 21  Done!
-Pisa      Italy       July 14         Done!
-Bologna   Italy       June 21-June 30 Done!
-Florence  Italy       June 10-June 21 Done!
-Krakow    Poland      May 24-June 10  Done!
-Dynow     Poland      May 25-28       Done!
-Krakow    Poland      May 24          Done!
-Warsaw    Poland      May 09-24       Done!
-Barcelona Spain       May 01-09       Done!
-Ship      Atlantic    April 20-May 1  Done!
-========= =========== =============== =============
+========== =========== =============== =============
+Copenhagen Denmark     Sept 25-Oct 1   Done!
+Manila     Philippines Sept 25-Oct 1   Done!
+Split      Croatia     Aug 27-Sept 23  Done!
+Zagreb     Croatia     July 23-Aug 27  Done!
+Ljubljana  Slovenia    July 21-July23  Done!
+Florence   Italy       July 1-July 21  Done!
+Pisa       Italy       July 14         Done!
+Bologna    Italy       June 21-June 30 Done!
+Florence   Italy       June 10-June 21 Done!
+Krakow     Poland      May 24-June 10  Done!
+Dynow      Poland      May 25-28       Done!
+Krakow     Poland      May 24          Done!
+Warsaw     Poland      May 09-24       Done!
+Barcelona  Spain       May 01-09       Done!
+Ship       Atlantic    April 20-May 1  Done!
+========== =========== =============== =============

@@ -1,4 +1,4 @@
-AUTHOR = 'Daniel-Greenfeld'
+AUTHOR = 'Daniel-Roy-Greenfeld'
 DEFAULT_DATE_FORMAT = '%A, %B %d, %Y'
 DISQUS_SITENAME = 'pydanny'
 GITHUB_URL = 'https://github.com/pydanny/pydanny.github.com'
