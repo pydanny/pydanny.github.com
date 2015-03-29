@@ -20,7 +20,7 @@ Fiction Book
 
 I'm a fiction author!
 
-.. image:: http://cdn.shopify.com/s/files/1/0304/6901/products/1.6-cover-389x480_1024x1024.png?v=1391472047
+.. image:: http://www.pydanny.com/theme/img/itb.png
    :name: Into the Brambles
    :align: center
    :target: http://www.amazon.com/into-the-brambles-ebook/dp/B00VC5UQHO/?tag=the-brambles-20
