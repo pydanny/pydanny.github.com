@@ -7,6 +7,8 @@ Beginner's Guide to PyCon 2015
 :category: python
 :slug: beginners-guide-pycon-2014
 
+**note**: This post has been updated for PyCon 2015. Even though the URL is old, the content is new.
+
 New to Python and/or conferences and attending the upcoming `PyCon 2015`_ in Montreal, Canada?  Or is this your first conference? Or perhaps your first conference longer than a weekend?
 
 Hoping to get the most out of joining thousands of Python enthusiasts?
@@ -122,6 +124,13 @@ Here are some things I've found work wonders to keep me active and alert and I r
 4. Bring `Immune System Boosters`_ and consume them daily. I usually do it with breakfast and lunch.
 
 .. _`Immune System Boosters`: http://www.amazon.com/Airborne-Support-Supplement-Vitamin-Effervescent/dp/B000WZI4WY?tag=mlinar-20
+
+Get Autographs!
+================
+
+As an author, I can't recommend enough that you bring your favorite programming book and get it autographed. A few books of mine I want to get signed:
+
+*
 
 
 Two Scoops of Django Footnote
