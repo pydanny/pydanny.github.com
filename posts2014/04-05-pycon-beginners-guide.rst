@@ -128,9 +128,17 @@ Here are some things I've found work wonders to keep me active and alert and I r
 Get Autographs!
 ================
 
-As an author, I can't recommend enough that you bring your favorite programming book and get it autographed. A few books of mine I want to get signed:
+As an author, I can't recommend enough that you bring your favorite programming book and get it autographed. A few books I want to get signed:
 
-*
+* `Python Cookbook, by David Beazley and Brian Jones`_
+* `Python for Data Analysis, by Wes McKinney`_
+* `Flask Web Development, by Miguel Grinberg`_
+* `Test-Driven Development with Python, by Harry Percival`_
+
+.. _`Python Cookbook, by David Beazley and Brian Jones`: http://www.amazon.com/gp/product/1449340377/?tag=cn-001-20
+.. _`Python for Data Analysis, by Wes McKinney`: http://www.amazon.com/Python-Data-Analysis-Wrangling-IPython/dp/1449319793/?tag=cn-001-20
+.. _`Flask Web Development, by Miguel Grinberg`: http://www.amazon.com/Flask-Web-Development-Developing-Applications/dp/1449372627/?tag=cn-001-20
+.. _`Test-Driven Development with Python, by Harry Percival`: http://www.amazon.com/Test-Driven-Development-Python-Harry-Percival/dp/1449364829/?tag=cn-001-20
 
 
 Two Scoops of Django Footnote

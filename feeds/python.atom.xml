@@ -960,9 +960,12 @@ hints: chr, problem solving, list comprehension
 &lt;/div&gt;
 &lt;div class="section" id="get-autographs"&gt;
 &lt;h2&gt;Get Autographs!&lt;/h2&gt;
-&lt;p&gt;As an author, I can't recommend enough that you bring your favorite programming book and get it autographed. A few books of mine I want to get signed:&lt;/p&gt;
+&lt;p&gt;As an author, I can't recommend enough that you bring your favorite programming book and get it autographed. A few books I want to get signed:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.amazon.com/gp/product/1449340377/?tag=cn-001-20"&gt;Python Cookbook, by David Beazley and Brian Jones&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.amazon.com/Python-Data-Analysis-Wrangling-IPython/dp/1449319793/?tag=cn-001-20"&gt;Python for Data Analysis, by Wes McKinney&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.amazon.com/Flask-Web-Development-Developing-Applications/dp/1449372627/?tag=cn-001-20"&gt;Flask Web Development, by Miguel Grinberg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.amazon.com/Test-Driven-Development-Python-Harry-Percival/dp/1449364829/?tag=cn-001-20"&gt;Test-Driven Development with Python, by Harry Percival&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="two-scoops-of-django-footnote"&gt;
