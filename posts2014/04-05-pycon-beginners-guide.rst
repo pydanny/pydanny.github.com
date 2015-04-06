@@ -1,5 +1,5 @@
 ==============================
-Beginner's Guide to PyCon 2014
+Beginner's Guide to PyCon 2015
 ==============================
 
 :date: 2014-04-05 05:00
@@ -7,15 +7,15 @@ Beginner's Guide to PyCon 2014
 :category: python
 :slug: beginners-guide-pycon-2014
 
-New to Python and/or conferences and attending the upcoming `PyCon 2014`_ in Montreal, Canada?  Or is this your first conference? Or perhaps your first conference longer than a weekend?
+New to Python and/or conferences and attending the upcoming `PyCon 2015`_ in Montreal, Canada?  Or is this your first conference? Or perhaps your first conference longer than a weekend?
 
 Hoping to get the most out of joining thousands of Python enthusiasts?
 
 No worries! This guide will aid you in attending one of the best technical conferences on the planet. Even though I'm not attending on account of various reasons including finances, work, and surgery, I'm going to share how to get through duration of pycon in good shape. I'm also going to share some great tricks to optimize the event.
 
-.. _`PyCon 2014`: https://us.pycon.org/2014/
+.. _`PyCon 2015`: https://us.pycon.org/2015/
 .. _Python: http://python.orgå
-.. _`code of conduct`: https://us.pycon.org/2014/about/code-of-conduct/
+.. _`code of conduct`: https://us.pycon.org/2015/about/code-of-conduct/
 
 Basics
 ==========
@@ -41,20 +41,20 @@ As the lines for registration can get epic, I like to get my badge as early as p
 Must-See Tutorials
 ==================
 
-All of the beginner tutorials at https://us.pycon.org/2014/schedule/tutorials/ look wonderful. You simply can't go wrong with any of them. 
-
-If you plan to attend the PyCon 2014 sprints, or in general contribute to open source, then I strongly recommend Jessica McKellar's "Contribute with me! Getting started with open source development" tutorial (description at https://us.pycon.org/2014/schedule/presentation/59/). She's an amazing instructor, brilliant developer, and a board member of the Python Software Foundation.
+All of the beginner tutorials at https://us.pycon.org/2015/schedule/tutorials/ look wonderful. You simply can't go wrong with any of them.
 
 Must-See Talks
 ==============
 
 All of them. 
 
-I'm actually a little relieved that I'm not going, because there were some time slots thad several must-see talks running concurrently. I would have to clone myself repeatedly in order to see all the good stuff! Fortunately, I'll be able to watch them on http://www.pyvideo.org.
+I'm actually a little relieved that I'm not going to PyCon, because there were some time slots thad several must-see talks running concurrently. I would have to clone myself repeatedly in order to see all the good stuff! Fortunately, I'll be able to watch them on http://www.pyvideo.org.
+
+If you are new to open source and plan to attend the PyCon 2015 sprints (or in general contribute to open source), then I strongly recommend Shauna Gordon-McKeon's "Open Source for Newcomers and the People Who Want to Welcome Them" talk (description at https://us.pycon.org/2015/schedule/presentation/346/). She's the program director of Open Hatch, a group focused on bringing more people into the open source community.
 
 **Pro-tip**: For the talks you are excited about attending, get there early. If you really  want to attend a particular talk, odds are so does everyone else and the room might be packed. Don't be forced to sit on the floor or stand outside the door. Show up early!
 
-See https://us.pycon.org/2014/schedule/talks/ for the talk schedules.
+See https://us.pycon.org/2015/schedule/talks/ for the talk schedules.
 
 Talk Attendance Guidelines
 ==========================
@@ -79,7 +79,7 @@ Sprints
 
 When the tutorials and talks are over, the sprints begin. These are like hackathons, but for only open source efforts. Imagine the chance to apply everything you just learn, while sitting amongst other Python enthusiast including dozens of projects leaders. Not only do you get the chance to apply what you've just learned, you can contribute to make the world of Python better!
 
-See https://us.pycon.org/2014/community/sprints/ for general sprint information.
+See https://us.pycon.org/2015/community/sprints/ for general sprint information.
 
 Sprint Requirements
 --------------------
@@ -91,13 +91,12 @@ On the other hand, if you want a pre-PyCon challenge, I recommend getting the th
 * Modern versions of Python:
 
     * Python 2.7 (mandatory)
-    * Python 3.3 (Rather mandatory for Python 3 work)
-    * Python 3.4 (optional, but useful for Python 3 work)
+    * Python 3.4 (Rather mandatory for Python 3 work)
 
 * Be ready with source control. You should have installed and possess working knowledge with:
 
-    * Git. Make sure you have a GitHub account
-    * Mercurial. Make sure you have a BitBucket account.
+    * Git. Really make sure you have a GitHub account
+    * Mercurial. Useful to have a BitBucket account.
 
 * virtualenv_ and pip_ for all versions of Python. If you are using Python 3.4, you don't need to have them installed.
 
@@ -125,15 +124,7 @@ Here are some things I've found work wonders to keep me active and alert and I r
 .. _`Immune System Boosters`: http://www.amazon.com/Airborne-Support-Supplement-Vitamin-Effervescent/dp/B000WZI4WY?tag=mlinar-20
 
 
-Two Scoops of Django 1.6 Footnote
+Two Scoops of Django Footnote
 ====================================
 
-Check out what we're releasing in India this coming Tuesday!
-
-.. image:: http://twoscoops.smugmug.com/Two-Scoops-Press-Media-Kit/i-PqFxQRs/0/S/tsd-india-edition-S.jpg
-   :name: Two Scoops of Django 1.6 India Edition Sneak Peek
-   :align: center
-   :target: http://twoscoopspress.com/blogs/news/13363013-two-scoops-of-django-1-6-india-edition-sneak-peek
-
-*The US edition, on the left, is 7.5x9.25 inches. The India edition, on the right, is sized A4, which is about 8.3x11.7 inches. The US edition is slightly thicker, but not dramatically so. The cover of the India Edition has more vibrant color (admittedly slightly rumpled thanks to the clumsy hands of the male co-author). The SD memory card and garlic clove are for scale.*
-
+Keep your eyes open.
