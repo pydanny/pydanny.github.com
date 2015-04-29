@@ -20,7 +20,7 @@ Co-authored with `Audrey Roy Greenfeld`_, the `1.8 edition`_ of *Two Scoops of D
 What's Next?
 =============
 
-* We'll be adding more content to the 1.8 edition in the near future, hence the term, "`early release`_". Everyone who buys the 1.8 ebook_ from us gets all 1.8 ebook updates.
+* We'll be adding more material to the 1.8 edition in the near future, hence the term, "`early release`_". Everyone who buys the 1.8 ebook_ from us gets all 1.8 ebook updates.
 * Once we're happy with the ebook, we'll release a `print paperback edition`_, scheduled for mid-to-late May.
 * We'll have a `ebook/print bundle`_. If you buy the early release ebook from us, you qualify for the bundle.
 
