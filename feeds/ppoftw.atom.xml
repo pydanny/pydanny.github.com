@@ -606,8 +606,8 @@
 &lt;div class="section" id="changing-the-behavior-of-pytest"&gt;
 &lt;h2&gt;Changing the Behavior of &lt;strong&gt;pytest&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;When &lt;strong&gt;pytest&lt;/strong&gt; is called, either via the command-line or by &lt;tt class="docutils literal"&gt;pytest.main()&lt;/tt&gt;, it &lt;a class="reference external" href="http://pytest.org/latest/customize.html#how-test-configuration-is-read-from-configuration-ini-files"&gt;looks for a configuration file&lt;/a&gt; called either &lt;tt class="docutils literal"&gt;pytest.ini&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;tox.ini&lt;/tt&gt;, and &lt;tt class="docutils literal"&gt;setup.cfg&lt;/tt&gt;. If it finds a configuration file, it follows standard practices for those things. In the following example, I demonstrating searching for tests inside of all Python files while ignoring the &lt;strong&gt;_build&lt;/strong&gt; directories:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# pytest.ini (or tox.ini or setup.cfg)&lt;/span&gt;
-&lt;span class="err"&gt;[pytest]&lt;/span&gt; &lt;span class="c"&gt;# You must put pytest-related controls in a &amp;#39;pytest&amp;#39; block&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# pytest.ini (or tox.ini or setup.cfg)&lt;/span&gt;
+&lt;span class="err"&gt;[pytest]&lt;/span&gt; &lt;span class="c1"&gt;# You must put pytest-related controls in a &amp;#39;pytest&amp;#39; block&lt;/span&gt;
 &lt;span class="na"&gt;python_files&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;*.py  # Run tests against all python modules&lt;/span&gt;
 &lt;span class="na"&gt;norecursedirs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;_build # Don&amp;#39;t look inside of _build directories&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -851,7 +851,7 @@ test_main.py  &lt;span class="c"&gt;# checked for tests&lt;/span&gt;
 E       assert &lt;span class="nv"&gt;True&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; False
 
 samples.py:4: &lt;span class="nv"&gt;AssertionError&lt;/span&gt;
-&lt;span class="o"&gt;========&lt;/span&gt; 1 failed, 0 passed in 0.1 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;========&lt;/span&gt;
+&lt;span class="o"&gt;========&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; failed, &lt;span class="m"&gt;0&lt;/span&gt; passed in 0.1 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;========&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;As you can see, pytest identified where the &lt;tt class="docutils literal"&gt;assert&lt;/tt&gt; statement failed on line 4 and displays exactly caused the failure (&lt;tt class="docutils literal"&gt;True&lt;/tt&gt; did not equal &lt;tt class="docutils literal"&gt;False&lt;/tt&gt;). Very nice indeed.&lt;/p&gt;
 &lt;/div&gt;

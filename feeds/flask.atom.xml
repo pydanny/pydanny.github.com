@@ -121,13 +121,13 @@
 Cloning into &lt;span class="s1"&gt;&amp;#39;cookiecutter-pypackage&amp;#39;&lt;/span&gt;...
 remote: Counting objects: 183, &lt;span class="k"&gt;done&lt;/span&gt;.
 remote: Compressing objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;100/100&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-remote: Total 183 &lt;span class="o"&gt;(&lt;/span&gt;delta 87&lt;span class="o"&gt;)&lt;/span&gt;, reused 161 &lt;span class="o"&gt;(&lt;/span&gt;delta 70&lt;span class="o"&gt;)&lt;/span&gt;
-Receiving objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;183/183&lt;span class="o"&gt;)&lt;/span&gt;, 29.36 KiB | 0 bytes/s, &lt;span class="k"&gt;done&lt;/span&gt;.
+remote: Total &lt;span class="m"&gt;183&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta 87&lt;span class="o"&gt;)&lt;/span&gt;, reused &lt;span class="m"&gt;161&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta 70&lt;span class="o"&gt;)&lt;/span&gt;
+Receiving objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;183/183&lt;span class="o"&gt;)&lt;/span&gt;, 29.36 KiB &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; bytes/s, &lt;span class="k"&gt;done&lt;/span&gt;.
 Resolving deltas: 100% &lt;span class="o"&gt;(&lt;/span&gt;87/87&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
 Checking connectivity... &lt;span class="k"&gt;done&lt;/span&gt;
 full_name &lt;span class="o"&gt;(&lt;/span&gt;default is &lt;span class="s2"&gt;&amp;quot;Audrey Roy&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;? Daniel Greenfeld
 project_name &lt;span class="o"&gt;(&lt;/span&gt;default is &lt;span class="s2"&gt;&amp;quot;your project&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;? cheese
-... snip &lt;span class="k"&gt;for &lt;/span&gt;brevity
+... snip &lt;span class="k"&gt;for&lt;/span&gt; brevity
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;See how it asks my full name? Well, at this point, &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt; begins to ask a number of questions. These questions are actually specified in the &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt; file for &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage"&gt;cookiecutter-pypackage&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Once you've answered everything that &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage"&gt;cookiecutter-pypackage&lt;/a&gt; wants, it generates your project. Let's go and check:&lt;/p&gt;
