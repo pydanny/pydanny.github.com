@@ -3,7 +3,7 @@ Markup Language Faceoff: Lists
 =====================================
 
 :date: 2015-05-14 10:00
-:tags: python, LaTeX, RestructuredText, markdown, faceoff
+:tags: python, LaTeX, RestructuredText, markdown, faceoff, django
 :category: python
 :slug: markup-language-faceoff-lists
 
