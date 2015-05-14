@@ -160,7 +160,7 @@ Or do you?
 The problem my wife and I have faced is that the combination of **LaTeX** packages and tools we've assembled for ourselves to write books like `Two Scoops of Django`_ is very, very different than what is rendered via docutils_' ``rst2latex`` or Sphinx ``make latex``. We've tried to write migration scripts, but have found that we end up spending too much of our time on formatting. That's why we have stuck with hand-crafted artisan **LaTeX**.
 
 .. _docutils: https://pypi.python.org/pypi/docutils
-.. _`Two Scoops of Django`: twoscoopspress.com/products/two-scoops-of-django-1-8
+.. _`Two Scoops of Django`: http://twoscoopspress.com/products/two-scoops-of-django-1-8
 
 That isn't to say it isn't possible. In fact, Matt Harrison has released_ a number handsome_ Python_ books_ following this path (**reStructuredText** to **LaTeX**). I'm certain there are **Markdown** books that follow this path too.
 
