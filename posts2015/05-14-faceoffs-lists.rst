@@ -7,7 +7,15 @@ Markup Language Faceoff: Lists
 :category: python
 :slug: markup-language-faceoff-lists
 
-Today I want to talk about lists. Not for shopping, not the programming data type, but the display of items in both unordered and ordered fashion. Specifically this:
+Today I want to talk about lists. Not for shopping, not the programming data type, but the display of items in both unordered and ordered fashion. 
+
+.. image:: http://pydanny.com/static/bullets.png
+   :name: Bullets faceoff
+   :align: center
+   :alt: Bullets faceoff
+   :target: http://www.pydanny.com/markup-language-faceoff-lists.html
+
+Specifically this:
 
 * Item A
 
@@ -20,13 +28,6 @@ Today I want to talk about lists. Not for shopping, not the programming data typ
 * Item C
 
 In other words, lists of bullets and numbers. This article explores some of the different tools used by the programming world to render display lists, specifically **HTML**, **reStructuredText**, **Markdown**, and **LaTeX**.
-
-.. image:: http://pydanny.com/static/bullets.png
-   :name: Bullets faceoff
-   :align: center
-   :alt: Bullets faceoff
-   :target: http://www.pydanny.com/markup-language-faceoff-lists.html
-
 
 
 HTML

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/markdown.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-05-14T10:00:00-07:00</updated><entry><title>Markup Language Faceoff: Lists</title><link href="http://pydanny.com/markup-language-faceoff-lists.html" rel="alternate"></link><updated>2015-05-14T10:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-05-14:markup-language-faceoff-lists.html</id><summary type="html">&lt;p&gt;Today I want to talk about lists. Not for shopping, not the programming data type, but the display of items in both unordered and ordered fashion. Specifically this:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/markdown.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-05-14T10:00:00-07:00</updated><entry><title>Markup Language Faceoff: Lists</title><link href="http://pydanny.com/markup-language-faceoff-lists.html" rel="alternate"></link><updated>2015-05-14T10:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-05-14:markup-language-faceoff-lists.html</id><summary type="html">&lt;p&gt;Today I want to talk about lists. Not for shopping, not the programming data type, but the display of items in both unordered and ordered fashion.&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://www.pydanny.com/markup-language-faceoff-lists.html"&gt;&lt;img alt="Bullets faceoff" class="align-center" id="bullets-faceoff" src="http://pydanny.com/static/bullets.png" /&gt;&lt;/a&gt;
+&lt;p&gt;Specifically this:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Item A&lt;/li&gt;
 &lt;li&gt;Item B&lt;ol class="arabic"&gt;
@@ -10,7 +12,6 @@
 &lt;li&gt;Item C&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In other words, lists of bullets and numbers. This article explores some of the different tools used by the programming world to render display lists, specifically &lt;strong&gt;HTML&lt;/strong&gt;, &lt;strong&gt;reStructuredText&lt;/strong&gt;, &lt;strong&gt;Markdown&lt;/strong&gt;, and &lt;strong&gt;LaTeX&lt;/strong&gt;.&lt;/p&gt;
-&lt;a class="reference external image-reference" href="http://www.pydanny.com/markup-language-faceoff-lists.html"&gt;&lt;img alt="Bullets faceoff" class="align-center" id="bullets-faceoff" src="http://pydanny.com/static/bullets.png" /&gt;&lt;/a&gt;
 &lt;div class="section" id="html"&gt;
 &lt;h2&gt;HTML&lt;/h2&gt;
 &lt;p&gt;If you view the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/HTML"&gt;HTML&lt;/a&gt; source of this web page, you'll find this:&lt;/p&gt;
