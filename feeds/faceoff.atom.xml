@@ -35,7 +35,7 @@
     &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item C&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This works, but is incredibly verbose. &lt;strong&gt;HTML&lt;/strong&gt; requires closing tags on every element. Working with lists in HTML becomes tedious quickly. Which is why so many people use &lt;a class="reference external" href="http://en.wikipedia.org/wiki/WYSIWYG"&gt;WYSIWYG&lt;/a&gt; tools or mark up languages like &lt;strong&gt;reStructuredText&lt;/strong&gt; and &lt;strong&gt;Markdown&lt;/strong&gt;, as it expedites creation of lists (and many other things).&lt;/p&gt;
+&lt;p&gt;This works, but is incredibly verbose. &lt;strong&gt;HTML&lt;/strong&gt; requires closing tags on every element (keep in mind browsers are not the same as specifications). Working with lists in HTML becomes tedious quickly. Which is why so many people use &lt;a class="reference external" href="http://en.wikipedia.org/wiki/WYSIWYG"&gt;WYSIWYG&lt;/a&gt; tools or mark up languages like &lt;strong&gt;reStructuredText&lt;/strong&gt; and &lt;strong&gt;Markdown&lt;/strong&gt;, as it expedites creation of lists (and many other things).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="restructuredtext"&gt;
 &lt;h2&gt;reStructuredText&lt;/h2&gt;
@@ -58,8 +58,8 @@
 &lt;p&gt;&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; does lists really well. Terse and no weird quirks:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="m"&gt;*&lt;/span&gt; Item A
 &lt;span class="m"&gt;*&lt;/span&gt; Item B
-  &lt;span class="m"&gt;1.&lt;/span&gt; First Numbered Inner Item
-  &lt;span class="m"&gt;1.&lt;/span&gt; Second Numbered Inner Item
+    &lt;span class="m"&gt;1.&lt;/span&gt; First Numbered Inner Item
+    &lt;span class="m"&gt;1.&lt;/span&gt; Second Numbered Inner Item
 &lt;span class="m"&gt;*&lt;/span&gt; Item C
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Another nice feature about &lt;strong&gt;Markdown&lt;/strong&gt; is that it's in use everywhere. GitHub, Stack Overflow, my favorite tablet writing app, and a lot more.&lt;/p&gt;
@@ -108,5 +108,9 @@
 &lt;div class="section" id="closing-thoughts"&gt;
 &lt;h2&gt;Closing Thoughts&lt;/h2&gt;
 &lt;p&gt;For better or for worse, lists of bullets and numbers are a foundation of how we communicate via the written medium. They allow for terse communication of ideas and thought, but that same terseness can mean we skip over details. Interestingly enough, the very tools that we use to create lists can color our ability and desire to use them.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Update 2015/05/14 - Added note about closing &amp;lt;/li&amp;gt; tags thanks to Ivan Sagalaev.&lt;/li&gt;
+&lt;li&gt;Update 2015/05/14 - Made Markdown list more cross-compatible thanks to Tzu-ping Chung.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="LaTeX"></category><category term="RestructuredText"></category><category term="markdown"></category><category term="faceoff"></category><category term="django"></category></entry></feed>

@@ -55,7 +55,7 @@ Or more clearly:
         <li>Item C</li>
     </ul>
 
-This works, but is incredibly verbose. **HTML** requires closing tags on every element. Working with lists in HTML becomes tedious quickly. Which is why so many people use WYSIWYG_ tools or mark up languages like **reStructuredText** and **Markdown**, as it expedites creation of lists (and many other things).
+This works, but is incredibly verbose. **HTML** requires closing tags on every element (keep in mind browsers are not the same as specifications). Working with lists in HTML becomes tedious quickly. Which is why so many people use WYSIWYG_ tools or mark up languages like **reStructuredText** and **Markdown**, as it expedites creation of lists (and many other things).
 
 .. _WYSIWYG: http://en.wikipedia.org/wiki/WYSIWYG
 
@@ -91,8 +91,8 @@ Markdown_ does lists really well. Terse and no weird quirks:
 
     * Item A
     * Item B
-      1. First Numbered Inner Item
-      1. Second Numbered Inner Item
+        1. First Numbered Inner Item
+        1. Second Numbered Inner Item
     * Item C
 
 Another nice feature about **Markdown** is that it's in use everywhere. GitHub, Stack Overflow, my favorite tablet writing app, and a lot more.
@@ -174,3 +174,5 @@ Closing Thoughts
 
 For better or for worse, lists of bullets and numbers are a foundation of how we communicate via the written medium. They allow for terse communication of ideas and thought, but that same terseness can mean we skip over details. Interestingly enough, the very tools that we use to create lists can color our ability and desire to use them.
 
+* Update 2015/05/14 - Added note about closing </li> tags thanks to Ivan Sagalaev.
+* Update 2015/05/14 - Made Markdown list more cross-compatible thanks to Tzu-ping Chung.
