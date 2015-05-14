@@ -174,12 +174,3 @@ Closing Thoughts
 
 For better or for worse, lists of bullets and numbers are a foundation of how we communicate via the written medium. They allow for terse communication of ideas and thought, but that same terseness can mean we skip over details. Interestingly enough, the very tools that we use to create lists can color our ability and desire to use them.
 
-.. image:: http://pydanny.com/static/320px-Naseby_musket_balls.jpg
-   :name: Naseby musket balls
-   :align: center
-   :alt: Naseby musket balls
-   :target: https://www.flickr.com/photos/26724339@N00/3025221901/
-
-Old-fashioned bullets, specifically matchlock musket balls, alleged to have been found at the site of the Battle of Naseby.
-
-From the collection of Northampton Museum and Art Gallery.
