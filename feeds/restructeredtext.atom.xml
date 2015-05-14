@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/restructeredtext.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-05-03T10:00:00-07:00</updated><entry><title>Lists</title><link href="http://pydanny.com/lists.html" rel="alternate"></link><updated>2015-05-03T10:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-05-03:lists.html</id><summary type="html">&lt;p&gt;Today I want to talk about lists. Not the Python data type, but the display of items in both unordered and ordered fashion. Specifically this:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Item A&lt;/li&gt;
+&lt;li&gt;Item B&lt;ol class="arabic"&gt;
+&lt;li&gt;First Numbered Inner Item&lt;/li&gt;
+&lt;li&gt;Second Numbered Inner Item&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Item C&lt;/li&gt;
+&lt;/ul&gt;
+</summary><category term="python"></category><category term="LaTeX"></category><category term="restructeredtext"></category><category term="markdown"></category></entry></feed>

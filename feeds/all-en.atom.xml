@@ -1,5 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/all-en.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-04-29T10:00:00-07:00</updated><entry><title>Two Scoops of Django 1.8 is Out!</title><link href="http://pydanny.com/two-scoops-of-django-1-8.html" rel="alternate"></link><updated>2015-04-29T10:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-04-29:two-scoops-of-django-1-8.html</id><summary type="html">&lt;p&gt;I'm pleased to announce the &amp;quot;Early Release&amp;quot; of the &lt;a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-8"&gt;Two Scoops of Django: Best Practices for Django 1.8&lt;/a&gt; &lt;strong&gt;PDF&lt;/strong&gt; ebook.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/all-en.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-05-14T10:00:00-07:00</updated><entry><title>Markup Language Faceoff: Lists</title><link href="http://pydanny.com/markup-language-faceoff-lists.html" rel="alternate"></link><updated>2015-05-14T10:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-05-14:markup-language-faceoff-lists.html</id><summary type="html">&lt;p&gt;Today I want to talk about lists. Not for shopping, not the programming data type, but the display of items in both unordered and ordered fashion. Specifically this:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Item A&lt;/li&gt;
+&lt;li&gt;Item B&lt;ol class="arabic"&gt;
+&lt;li&gt;First Numbered Inner Item&lt;/li&gt;
+&lt;li&gt;Second Numbered Inner Item&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Item C&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In other words, lists of bullets and numbers. This article explores some of the different tools used by the programming world to render display lists, specifically &lt;strong&gt;HTML&lt;/strong&gt;, &lt;strong&gt;reStructuredText&lt;/strong&gt;, &lt;strong&gt;Markdown&lt;/strong&gt;, and &lt;strong&gt;LaTeX&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="section" id="html"&gt;
+&lt;h2&gt;HTML&lt;/h2&gt;
+&lt;p&gt;If you view the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/HTML"&gt;HTML&lt;/a&gt; source of this web page, you'll find this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;simple&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item A&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item B&lt;span class="nt"&gt;&amp;lt;ol&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;arabic&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;First Numbered Inner Item&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Second Numbered Inner Item&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item C&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Or more clearly:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;simple&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item A&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item B
+        &lt;span class="nt"&gt;&amp;lt;ol&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;arabic&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;First Numbered Inner Item&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Second Numbered Inner Item&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item C&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This works, but is incredibly verbose. &lt;strong&gt;HTML&lt;/strong&gt; requires closing tags on every element. Working with lists in HTML becomes tedious quickly. Which is why so many people use &lt;a class="reference external" href="http://en.wikipedia.org/wiki/WYSIWYG"&gt;WYSIWYG&lt;/a&gt; tools or mark up languages like &lt;strong&gt;reStructuredText&lt;/strong&gt; and &lt;strong&gt;Markdown&lt;/strong&gt;, as it expedites creation of lists (and many other things).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="restructuredtext"&gt;
+&lt;h2&gt;reStructuredText&lt;/h2&gt;
+&lt;p&gt;This blog is written in &lt;a class="reference external" href="http://en.wikipedia.org/wiki/ReStructuredText"&gt;reStructuredText&lt;/a&gt; and transformed into &lt;strong&gt;HTML&lt;/strong&gt;. Let's see the markup for this blog post:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="m"&gt;*&lt;/span&gt; Item A
+
+&lt;span class="m"&gt;*&lt;/span&gt; Item B
+
+  &lt;span class="m"&gt;#.&lt;/span&gt; First Numbered Inner Item
+
+  &lt;span class="m"&gt;#.&lt;/span&gt; Second Numbered Inner Item
+
+&lt;span class="m"&gt;*&lt;/span&gt; Item C
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Notice the extra lines between bullets and numbers? A quirk of &lt;strong&gt;reStructuredText&lt;/strong&gt; is that you have to put those in nested lists in order to make things display correctly. Also, 2 spaces indentation generates a different result than 4 spaces. I have no idea why this behavior exists, but I admit to finding both quirks annoying.&lt;/p&gt;
+&lt;p&gt;One thing to note about &lt;strong&gt;reStructuredText&lt;/strong&gt; is that it's pretty much Python only. Outside the Python world if you are writing plaintext markup then odds are you are using &lt;strong&gt;Markdown&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="markdown"&gt;
+&lt;h2&gt;Markdown&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; does lists really well. Terse and no weird quirks:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="m"&gt;*&lt;/span&gt; Item A
+&lt;span class="m"&gt;*&lt;/span&gt; Item B
+  &lt;span class="m"&gt;1.&lt;/span&gt; First Numbered Inner Item
+  &lt;span class="m"&gt;1.&lt;/span&gt; Second Numbered Inner Item
+&lt;span class="m"&gt;*&lt;/span&gt; Item C
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Another nice feature about &lt;strong&gt;Markdown&lt;/strong&gt; is that it's in use everywhere. GitHub, Stack Overflow, my favorite tablet writing app, and a lot more.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="markdown-vs-restructuredtext"&gt;
+&lt;h2&gt;Markdown vs. reStructuredText&lt;/h2&gt;
+&lt;p&gt;Why don't I switch from &lt;strong&gt;reStructuredText&lt;/strong&gt; to &lt;strong&gt;Markdown&lt;/strong&gt;? Here are my reasons against switching:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Force of habit.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt; requires it to display package long descriptions nicely on Package pages.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Sphinx_(documentation_generator)"&gt;Sphinx&lt;/a&gt; is based on it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;reStructuredText&lt;/strong&gt; has one concrete standard, with extensions that people add. Markdown has many standards, which may or may not have shared features.&lt;/li&gt;
+&lt;li&gt;I can use &lt;a class="reference external" href="http://pandoc.org"&gt;Pandoc&lt;/a&gt; to help transform &lt;strong&gt;reStructuredText&lt;/strong&gt; to &lt;strong&gt;Markdown&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="latex"&gt;
+&lt;h2&gt;LaTeX&lt;/h2&gt;
+&lt;p&gt;Finally, let's discuss &lt;a class="reference external" href="http://en.wikipedia.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt;. While not a markup language it bears mentioning, and I'll explain why later in this section.&lt;/p&gt;
+&lt;p&gt;Up to about 8-10 years ago &lt;strong&gt;LaTeX&lt;/strong&gt; was used in a lot of technical writing, including the Python core documentation. That ended with the rise of mark up languages, relegating &lt;strong&gt;LaTeX&lt;/strong&gt; to the world of academics, mathematicians and computer scientists - anywhere complex equations need to be specified.&lt;/p&gt;
+&lt;p&gt;LaTeX belongs in this article because it is so commonly used with markup. In fact, as far as I can tell, in order to render &lt;strong&gt;reStructuredText&lt;/strong&gt; and &lt;strong&gt;Markdown&lt;/strong&gt; content into the PDF format, the most common approach is:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Use a script to transform the markup into &lt;strong&gt;LaTeX&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Use a tool like &lt;a class="reference external" href="http://en.wikipedia.org/wiki/XeTeX"&gt;XeTeX&lt;/a&gt; to render the &lt;strong&gt;LaTeX&lt;/strong&gt; into PDF.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Why the extra step? Why not just go directly from markup to PDF? Well, the content in &lt;strong&gt;reStructuredText&lt;/strong&gt; and &lt;strong&gt;Markdown&lt;/strong&gt; have to be formatted in order for them to be displayed, or they will just look like plaintext markup. When they are converted to &lt;strong&gt;HTML&lt;/strong&gt;, the browser does the formatting for us. When they are translated to PDF, LaTeX is a very common choice. That is because &lt;strong&gt;LaTeX&lt;/strong&gt; isn't a markup language, but a typesetting tool. Unlike &lt;strong&gt;reStructuredText&lt;/strong&gt; and &lt;strong&gt;Markdown&lt;/strong&gt; which are designed for ease of use, &lt;strong&gt;LaTeX&lt;/strong&gt; is designed to make documents look good.&lt;/p&gt;
+&lt;p&gt;Here is how I define my sample list in &lt;strong&gt;LaTeX&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;itemize&lt;span class="nb"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;\item&lt;/span&gt; Item A
+    &lt;span class="k"&gt;\item&lt;/span&gt; Item A
+        &lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;itemize&lt;span class="nb"&gt;}&lt;/span&gt;
+            &lt;span class="k"&gt;\item&lt;/span&gt; First Numbered Inner Item
+            &lt;span class="k"&gt;\item&lt;/span&gt; Second Numbered Inner Item
+        &lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;itemize&lt;span class="nb"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;\item&lt;/span&gt; Item C
+&lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;itemize&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Halfway between the markup languages and HTML in verbosity, &lt;strong&gt;LaTeX&lt;/strong&gt; lists are of medium difficulty to write. If this example makes &lt;strong&gt;LaTeX&lt;/strong&gt; look easy, please realize that while lists are easy to understand, other structures like &lt;strong&gt;LaTeX&lt;/strong&gt; &lt;a class="reference external" href="http://en.wikibooks.org/wiki/LaTeX/Tables"&gt;tables&lt;/a&gt; can quickly get out of hand. &lt;strong&gt;LaTeX&lt;/strong&gt;'s reputation for being an arcane tool is a well deserved one.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="modifying-generated-latex"&gt;
+&lt;h2&gt;Modifying Generated LaTeX&lt;/h2&gt;
+&lt;p&gt;Several book authors, including ourselves, have written books using &lt;strong&gt;reStructuredText&lt;/strong&gt; or &lt;strong&gt;Markdown&lt;/strong&gt;, generated the &lt;strong&gt;LaTeX&lt;/strong&gt;, then modified the &lt;strong&gt;LaTeX&lt;/strong&gt; before rendering the PDF. The approach is seductive: You get the ease of a markup language combined with the formatting precision of &lt;strong&gt;LaTeX&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Or do you?&lt;/p&gt;
+&lt;p&gt;The problem my wife and I have faced is that the combination of &lt;strong&gt;LaTeX&lt;/strong&gt; packages and tools we've assembled for ourselves to write books like &lt;a class="reference external" href="twoscoopspress.com/products/two-scoops-of-django-1-8"&gt;Two Scoops of Django&lt;/a&gt; is very, very different than what is rendered via &lt;a class="reference external" href="https://pypi.python.org/pypi/docutils"&gt;docutils&lt;/a&gt;' &lt;tt class="docutils literal"&gt;rst2latex&lt;/tt&gt; or Sphinx &lt;tt class="docutils literal"&gt;make latex&lt;/tt&gt;. We've tried to write migration scripts, but have found that we end up spending too much of our time on formatting. That's why we have stuck with hand-crafted artisan &lt;strong&gt;LaTeX&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;That isn't to say it isn't possible. In fact, Matt Harrison has &lt;a class="reference external" href="http://www.amazon.com/Brief-Introduction-Python-Testing-Harrison-ebook/dp/B00AY4VE8E/?tag=mlinar-20"&gt;released&lt;/a&gt; a number &lt;a class="reference external" href="http://www.amazon.com/Guide-Learning-Iteration-Generators-Python/dp/1492333514/ref=sr_1_7?tag=mlinar-20"&gt;handsome&lt;/a&gt; &lt;a class="reference external" href="http://www.amazon.com/Treading-Python-1-Foundations/dp/1475266413/ref=sr_1_2?tag=mlinar-20"&gt;Python&lt;/a&gt; &lt;a class="reference external" href="http://www.amazon.com/Treading-Python-2-Intermediate/dp/149055095X/ref=sr_1_1?tag=mlinar-20"&gt;books&lt;/a&gt; following this path (&lt;strong&gt;reStructuredText&lt;/strong&gt; to &lt;strong&gt;LaTeX&lt;/strong&gt;). I'm certain there are &lt;strong&gt;Markdown&lt;/strong&gt; books that follow this path too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="closing-thoughts"&gt;
+&lt;h2&gt;Closing Thoughts&lt;/h2&gt;
+&lt;p&gt;For better or for worse, lists of bullets and numbers are a foundation of how we communicate via the written medium. They allow for terse communication of ideas and thought, but that same terseness can mean we skip over details. Interestingly enough, the very tools that we use to create lists can color our ability and desire to use them.&lt;/p&gt;
+&lt;a class="reference external image-reference" href="https://www.flickr.com/photos/26724339&amp;#64;N00/3025221901/"&gt;&lt;img alt="Naseby musket balls" class="align-center" id="naseby-musket-balls" src="http://pydanny.com/static/320px-Naseby_musket_balls.jpg" /&gt;&lt;/a&gt;
+&lt;p&gt;Old-fashioned bullets, specifically matchlock musket balls, alleged to have been found at the site of the Battle of Naseby.&lt;/p&gt;
+&lt;p&gt;From the collection of Northampton Museum and Art Gallery.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="LaTeX"></category><category term="RestructuredText"></category><category term="markdown"></category><category term="faceoff"></category><category term="LaTeX"></category></entry><entry><title>Two Scoops of Django 1.8 is Out!</title><link href="http://pydanny.com/two-scoops-of-django-1-8.html" rel="alternate"></link><updated>2015-04-29T10:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-04-29:two-scoops-of-django-1-8.html</id><summary type="html">&lt;p&gt;I'm pleased to announce the &amp;quot;Early Release&amp;quot; of the &lt;a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-8"&gt;Two Scoops of Django: Best Practices for Django 1.8&lt;/a&gt; &lt;strong&gt;PDF&lt;/strong&gt; ebook.&lt;/p&gt;
 &lt;a class="reference external image-reference" href="http://twoscoopspress.org/products/two-scoops-of-django-1-8"&gt;&lt;img alt="Two Scoops of Django" class="align-center" id="two-scoops-of-django-1-8-cover" src="http://twoscoops.smugmug.com/Two-Scoops-Press-Media-Kit/i-HZqTR3Z/0/S/two-scoops-1.8-ebook-S.jpg" /&gt;&lt;/a&gt;
 &lt;p&gt;Co-authored with &lt;a class="reference external" href="https://twitter.com/audreyr"&gt;Audrey Roy Greenfeld&lt;/a&gt;, the &lt;a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-8"&gt;1.8 edition&lt;/a&gt; of &lt;em&gt;Two Scoops of Django&lt;/em&gt; is filled to the brim with knowledge to help make Django projects better. We introduce various tips, tricks, patterns, code snippets, and techniques that we've picked up over the years. What we didn't know or weren't certain about, we found the best experts in the world and asked them for the answers. Then we packed the result into a 500+ page book.&lt;/p&gt;
 &lt;div class="section" id="what-s-next"&gt;
@@ -3055,7 +3168,7 @@ django-reg==1.0.1
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Changed some of the text to be more succinct and took out the leading sentence.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Tools we used to write Two Scoops of Django</title><link href="http://pydanny.com/tools-we-used-to-write-2scoops.html" rel="alternate"></link><updated>2013-05-03T10:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2013-05-03:tools-we-used-to-write-2scoops.html</id><summary type="html">&lt;p&gt;Because of the ubiquitousness of &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Restructured_Text"&gt;reStructuredText&lt;/a&gt; in the lives of &lt;a class="reference external" href="http://python.org"&gt;Python&lt;/a&gt; developers and the advocacy of it, it's not uncommon for people to assume we used it to write our book. However, that's not really the case.&lt;/p&gt;
-&lt;p&gt;The short Answer is we used:&lt;/p&gt;
+&lt;p&gt;The short answer is we used:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;reStructuredText (RST)&lt;/li&gt;
 &lt;li&gt;Google Documents&lt;/li&gt;
@@ -3072,7 +3185,7 @@ django-reg==1.0.1
 &lt;/div&gt;
 &lt;div class="section" id="beta-experiences"&gt;
 &lt;h2&gt;Beta Experiences&lt;/h2&gt;
-&lt;p&gt;People were so positive it really gave us a boost. Hundreds of people sent us feedback and we were delighted beyond words, with a significant portion sending us commentary/corrections about our writing and code. I'll admin did get tired over a certain 'moat' mistake since I got corrected on it over 50 times. However, the number of code corrections we were getting was higher than expected. It was clear we needed to be able to import the code modules from testable chunks of real code.  We had so many kindle/epub requests we also needed the ability to render the text attractively across multiple formats.&lt;/p&gt;
+&lt;p&gt;People were so positive it really gave us a boost. Hundreds of people sent us feedback and we were delighted beyond words, with a significant portion sending us commentary/corrections about our writing and code. I'll admit I did get tired over a certain 'moat' mistake since I got corrected on it over 50 times. However, the number of code corrections we were getting was higher than expected. It was clear we needed to be able to import the code modules from testable chunks of real code.  We had so many kindle/epub requests we also needed the ability to render the text attractively across multiple formats.&lt;/p&gt;
 &lt;p&gt;After stumbling through RST, Google Documents, and Apple Pages different tools, I finally agreed with Audrey that the challenges of learning LaTeX was worth it. While we could have used RST, we would have had to use LaTeX anyway for our customizations since when RST is converted to PDF it actually uses an interim step of LaTeX!&lt;/p&gt;
 &lt;p&gt;So while I handled the corrections and feedback from thousands, Audrey built the fundamentals of the LaTeX file structure. Audrey really got her hands dirty by teaching me LaTeX, since my brain is slow and thick. Here's a sample of what I've learned how to do, taken from Chapter 6, Section 1, Subsection 5 (6.1.5):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;\subsection&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;Model Inheritance in Practice: The TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt;
@@ -3086,8 +3199,8 @@ Take careful note of the very last two lines in the example, which turn our exam
 
 By defining &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt; as an abstract base class &lt;span class="k"&gt;\index&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;abstract base classes&lt;span class="nb"&gt;}&lt;/span&gt; when we define a new class that inherits from it, Django doesn&amp;#39;t create a &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;model&lt;span class="k"&gt;\_&lt;/span&gt;utils.time&lt;span class="k"&gt;\_&lt;/span&gt;stamped&lt;span class="k"&gt;\_&lt;/span&gt;model&lt;span class="nb"&gt;}&lt;/span&gt; table when syncdb is run.
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Once I got the hang of LaTeX, then began the hard work of converting the book's current content from Apple Pages That was a couple weeks of grueling effort on my part. Daily I would request a new LaTeX customizations, which Audrey would address. However, as she was working on literally rewriting the content of a dozen chapters including templates, testing, admin, and logging my interruptions became an issue. So we enlisted the help of Italian economist and LaTeX expert Laura Gelsomino. Thanks to her the desired text formatting was achieved.&lt;/p&gt;
-&lt;p&gt;During the conversion process we also rewrote every single code example, putting them into easily testable projects, and pull them into via use of custom LaTeX commands called &lt;tt class="docutils literal"&gt;\goodcodefile{}&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;\badcodefile{}&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;Once I got the hang of LaTeX, then began the hard work of converting the book's current content from Apple Pages. That was a couple weeks of grueling effort on my part while Audrey wrote more book material. Daily I would request a new LaTeX customizations, which Audrey would address. However, as she was working on literally rewriting the content of a dozen chapters including templates, testing, admin, and logging my interruptions became an issue. So we enlisted the help of Italian economist and LaTeX expert Laura Gelsomino. Thanks to her the desired text formatting was achieved.&lt;/p&gt;
+&lt;p&gt;During the conversion process we rewrote every single code example, putting them into easily testable projects, and pulled them into the book via use of custom LaTeX commands called &lt;tt class="docutils literal"&gt;\goodcodefile{}&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;\badcodefile{}&lt;/tt&gt;.&lt;/p&gt;
 &lt;p&gt;Eventually I joined Audrey on rewriting and reviewing chapters and on February 28th, the beta was launched. LaTeX generates lean PDFs so the book came in at just 1.6 MB while adding a whopping 50 pages (25% more) of content.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="final-efforts"&gt;
@@ -3097,7 +3210,7 @@ By defining &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt
 &lt;p&gt;With the guidance of fellow Python author &lt;a class="reference external" href="http://hairysun.com/"&gt;Matt Harrison&lt;/a&gt; I wrote scripts that took the archaic HTML generated by LaTeX module tex4ht and rendered it into something that Kindlegen could use to generate Kindle .mobi files. At first the results looked awesome on modern kindles and other new ebook readers, but was terrible on older devices. So I toned back the fancy stuff to what you see today. Getting technical books to look nice on all readers is really, really hard - and unfortunately some publishers take shortcuts that hurt the efforts of the authors. If you have problem with an e-book's format, please consider that before writing a negative review about the final output.&lt;/p&gt;
 &lt;p&gt;Speaking of mobile editions, we also wrote a second version of each Python example to deal with the smaller format. While libraries exist to do the work for you, since I did a lot of it from scratch (albeit coached by Matt) I had to dig into the lackluster .mobi/.epub documentation to figure out things like .ncx files.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;note:&lt;/strong&gt; If you want to be the self-published author of a technical book I &lt;em&gt;strongly recommend&lt;/em&gt; you read Matt's &lt;a class="reference external" href="http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=la_B0077BQLH6_1_2?ie=UTF8&amp;amp;qid=1366041987&amp;amp;sr=1-2&amp;amp;tag=ihpydanny-20"&gt;Ebook Formatting: KF8, Mobi &amp;amp; EPUB&lt;/a&gt;. Also check out his rst2epub2 library for converting RST files to various formats.&lt;/p&gt;
-&lt;p&gt;While I worked on the mobile editions, Audrey focused on the print version and adding more art and tiny bit of new content. She focused on clarity and flow, and the result is that the book feels even lighter to read and yet is dense with useful information. To test how the book launched, she would order a copy from the printer and wait several days for it to arrive. Then she would inspect the cover and interior with her incredibly exacting eye. It's a slow process, but Audrey wanted to make absolutely certain our readers would enjoy and use the print edition.&lt;/p&gt;
+&lt;p&gt;While I worked on the mobile editions, Audrey focused on the print version and adding more art and bits and pieces of new content. She focused on clarity and flow, and the result is that the book feels even lighter to read and yet is dense with useful information. To test how the book launched, she would order a copy from the printer and wait several days for it to arrive. Then she would inspect the cover and interior with her incredibly exacting eye. It's a slow process, but Audrey wanted to make absolutely certain our readers would enjoy and use the print edition.&lt;/p&gt;
 &lt;p&gt;On April 10th we launched the final in PDF, Kindle, and ePub form. The PDF weighs in at 2.7 MB, and the Kindle file is a bit heaver. At some point we'll do the work to reduce file size, but for now we're working on other things.&lt;/p&gt;
 &lt;p&gt;A week later we announced the launch of the &lt;a class="reference external" href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&amp;amp;qid=1366166104&amp;amp;sr=8-2&amp;amp;tag=ihpydanny-20"&gt;print version of the book&lt;/a&gt;. People seem to really like the design and feel of the physical book, and we've even had requests for t-shirts.&lt;/p&gt;
 &lt;/div&gt;
@@ -3110,7 +3223,7 @@ By defining &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt
 &lt;p&gt;That said, if I ever fulfill my dream of writing fiction I'll just use Matt Harrison's &lt;a class="reference external" href="https://github.com/mattharrison/rst2epub2"&gt;rst2epub2&lt;/a&gt; library.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="concerns-about-open-sourcing"&gt;
-&lt;h3&gt;Concerns about Open Sourcing&lt;/h3&gt;
+&lt;h3&gt;Concerns About Open Sourcing&lt;/h3&gt;
 &lt;p&gt;We've considered open sourcing our current book generation system, but installation is rather challenging and requires serious Audrey/Laura-level LaTeX knowledge combined with my experience with Python. Unfortunately, from our experience on managing other open source projects, dealing with requests for documentation and assistance would take up a prohibitive amount of our time. Honestly, we would rather write another book or sling code.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="book-generation-as-a-service"&gt;

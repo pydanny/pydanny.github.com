@@ -106,7 +106,7 @@
 
                 <div class="entry-content">
                     <p>Because of the ubiquitousness of <a class="reference external" href="http://en.wikipedia.org/wiki/Restructured_Text">reStructuredText</a> in the lives of <a class="reference external" href="http://python.org">Python</a> developers and the advocacy of it, it's not uncommon for people to assume we used it to write our book. However, that's not really the case.</p>
-<p>The short Answer is we used:</p>
+<p>The short answer is we used:</p>
 <ul class="simple">
 <li>reStructuredText (RST)</li>
 <li>Google Documents</li>
@@ -123,7 +123,7 @@
 </div>
 <div class="section" id="beta-experiences">
 <h2>Beta Experiences</h2>
-<p>People were so positive it really gave us a boost. Hundreds of people sent us feedback and we were delighted beyond words, with a significant portion sending us commentary/corrections about our writing and code. I'll admin did get tired over a certain 'moat' mistake since I got corrected on it over 50 times. However, the number of code corrections we were getting was higher than expected. It was clear we needed to be able to import the code modules from testable chunks of real code.  We had so many kindle/epub requests we also needed the ability to render the text attractively across multiple formats.</p>
+<p>People were so positive it really gave us a boost. Hundreds of people sent us feedback and we were delighted beyond words, with a significant portion sending us commentary/corrections about our writing and code. I'll admit I did get tired over a certain 'moat' mistake since I got corrected on it over 50 times. However, the number of code corrections we were getting was higher than expected. It was clear we needed to be able to import the code modules from testable chunks of real code.  We had so many kindle/epub requests we also needed the ability to render the text attractively across multiple formats.</p>
 <p>After stumbling through RST, Google Documents, and Apple Pages different tools, I finally agreed with Audrey that the challenges of learning LaTeX was worth it. While we could have used RST, we would have had to use LaTeX anyway for our customizations since when RST is converted to PDF it actually uses an interim step of LaTeX!</p>
 <p>So while I handled the corrections and feedback from thousands, Audrey built the fundamentals of the LaTeX file structure. Audrey really got her hands dirty by teaching me LaTeX, since my brain is slow and thick. Here's a sample of what I've learned how to do, taken from Chapter 6, Section 1, Subsection 5 (6.1.5):</p>
 <div class="highlight"><pre><span class="k">\subsection</span><span class="nb">{</span>Model Inheritance in Practice: The TimeStampedModel<span class="nb">}</span>
@@ -137,8 +137,8 @@ Take careful note of the very last two lines in the example, which turn our exam
 
 By defining <span class="k">\inlinecode</span><span class="nb">{</span>TimeStampedModel<span class="nb">}</span> as an abstract base class <span class="k">\index</span><span class="nb">{</span>abstract base classes<span class="nb">}</span> when we define a new class that inherits from it, Django doesn&#39;t create a <span class="k">\inlinecode</span><span class="nb">{</span>model<span class="k">\_</span>utils.time<span class="k">\_</span>stamped<span class="k">\_</span>model<span class="nb">}</span> table when syncdb is run.
 </pre></div>
-<p>Once I got the hang of LaTeX, then began the hard work of converting the book's current content from Apple Pages That was a couple weeks of grueling effort on my part. Daily I would request a new LaTeX customizations, which Audrey would address. However, as she was working on literally rewriting the content of a dozen chapters including templates, testing, admin, and logging my interruptions became an issue. So we enlisted the help of Italian economist and LaTeX expert Laura Gelsomino. Thanks to her the desired text formatting was achieved.</p>
-<p>During the conversion process we also rewrote every single code example, putting them into easily testable projects, and pull them into via use of custom LaTeX commands called <tt class="docutils literal">\goodcodefile{}</tt> and <tt class="docutils literal">\badcodefile{}</tt>.</p>
+<p>Once I got the hang of LaTeX, then began the hard work of converting the book's current content from Apple Pages. That was a couple weeks of grueling effort on my part while Audrey wrote more book material. Daily I would request a new LaTeX customizations, which Audrey would address. However, as she was working on literally rewriting the content of a dozen chapters including templates, testing, admin, and logging my interruptions became an issue. So we enlisted the help of Italian economist and LaTeX expert Laura Gelsomino. Thanks to her the desired text formatting was achieved.</p>
+<p>During the conversion process we rewrote every single code example, putting them into easily testable projects, and pulled them into the book via use of custom LaTeX commands called <tt class="docutils literal">\goodcodefile{}</tt> and <tt class="docutils literal">\badcodefile{}</tt>.</p>
 <p>Eventually I joined Audrey on rewriting and reviewing chapters and on February 28th, the beta was launched. LaTeX generates lean PDFs so the book came in at just 1.6 MB while adding a whopping 50 pages (25% more) of content.</p>
 </div>
 <div class="section" id="final-efforts">
@@ -148,7 +148,7 @@ By defining <span class="k">\inlinecode</span><span class="nb">{</span>TimeStamp
 <p>With the guidance of fellow Python author <a class="reference external" href="http://hairysun.com/">Matt Harrison</a> I wrote scripts that took the archaic HTML generated by LaTeX module tex4ht and rendered it into something that Kindlegen could use to generate Kindle .mobi files. At first the results looked awesome on modern kindles and other new ebook readers, but was terrible on older devices. So I toned back the fancy stuff to what you see today. Getting technical books to look nice on all readers is really, really hard - and unfortunately some publishers take shortcuts that hurt the efforts of the authors. If you have problem with an e-book's format, please consider that before writing a negative review about the final output.</p>
 <p>Speaking of mobile editions, we also wrote a second version of each Python example to deal with the smaller format. While libraries exist to do the work for you, since I did a lot of it from scratch (albeit coached by Matt) I had to dig into the lackluster .mobi/.epub documentation to figure out things like .ncx files.</p>
 <p><strong>note:</strong> If you want to be the self-published author of a technical book I <em>strongly recommend</em> you read Matt's <a class="reference external" href="http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=la_B0077BQLH6_1_2?ie=UTF8&amp;qid=1366041987&amp;sr=1-2&amp;tag=ihpydanny-20">Ebook Formatting: KF8, Mobi &amp; EPUB</a>. Also check out his rst2epub2 library for converting RST files to various formats.</p>
-<p>While I worked on the mobile editions, Audrey focused on the print version and adding more art and tiny bit of new content. She focused on clarity and flow, and the result is that the book feels even lighter to read and yet is dense with useful information. To test how the book launched, she would order a copy from the printer and wait several days for it to arrive. Then she would inspect the cover and interior with her incredibly exacting eye. It's a slow process, but Audrey wanted to make absolutely certain our readers would enjoy and use the print edition.</p>
+<p>While I worked on the mobile editions, Audrey focused on the print version and adding more art and bits and pieces of new content. She focused on clarity and flow, and the result is that the book feels even lighter to read and yet is dense with useful information. To test how the book launched, she would order a copy from the printer and wait several days for it to arrive. Then she would inspect the cover and interior with her incredibly exacting eye. It's a slow process, but Audrey wanted to make absolutely certain our readers would enjoy and use the print edition.</p>
 <p>On April 10th we launched the final in PDF, Kindle, and ePub form. The PDF weighs in at 2.7 MB, and the Kindle file is a bit heaver. At some point we'll do the work to reduce file size, but for now we're working on other things.</p>
 <p>A week later we announced the launch of the <a class="reference external" href="http://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/1481879707/ref=sr_1_2?ie=UTF8&amp;qid=1366166104&amp;sr=8-2&amp;tag=ihpydanny-20">print version of the book</a>. People seem to really like the design and feel of the physical book, and we've even had requests for t-shirts.</p>
 </div>
@@ -161,7 +161,7 @@ By defining <span class="k">\inlinecode</span><span class="nb">{</span>TimeStamp
 <p>That said, if I ever fulfill my dream of writing fiction I'll just use Matt Harrison's <a class="reference external" href="https://github.com/mattharrison/rst2epub2">rst2epub2</a> library.</p>
 </div>
 <div class="section" id="concerns-about-open-sourcing">
-<h3>Concerns about Open Sourcing</h3>
+<h3>Concerns About Open Sourcing</h3>
 <p>We've considered open sourcing our current book generation system, but installation is rather challenging and requires serious Audrey/Laura-level LaTeX knowledge combined with my experience with Python. Unfortunately, from our experience on managing other open source projects, dealing with requests for documentation and assistance would take up a prohibitive amount of our time. Honestly, we would rather write another book or sling code.</p>
 </div>
 <div class="section" id="book-generation-as-a-service">
@@ -234,158 +234,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
 
 <h4 class="nav-header">Tags</h4>
 <span class="tag-3">
-    <a href="./tag/unicode.html">
-        unicode
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/usability.html">
-        usability
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/rant.html">
-        rant
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/class-based-views.html">
-        class-based-views
+    <a href="./tag/travel.html">
+        travel
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/hackathon.html">
-        hackathon
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/binstar.html">
-        binstar
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/la.html">
-        LA
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/latex.html">
-        LaTeX
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackathons.html">
-        lahackathons
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypi.html">
-        pypi
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/setup.html">
-        setup
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/sprint.html">
-        sprint
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/django-rest-framework.html">
-        django-rest-framework
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/holidays.html">
-        holidays
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/science.html">
-        science
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/philippines.html">
-        philippines
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/blog.html">
-        blog
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/eventbrite.html">
-        eventbrite
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/recipe.html">
-        recipe
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/functions.html">
-        functions
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/bottle.html">
-        bottle
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/wsgi.html">
-        wsgi
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/audrey.html">
-        audrey
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/pydiversity.html">
-        pydiversity
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/python.html">
-        python
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/travel-tips-for-geeks.html">
-        travel tips for geeks
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/europython.html">
-        europython
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/cheatsheet.html">
-        cheatsheet
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/twoscoops.html">
-        twoscoops
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/django.html">
-        django
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nodejs.html">
-        nodejs
+    <a href="./tag/mongodb.html">
+        mongodb
     </a>
 </span>
 <span class="tag-3">
@@ -394,8 +249,68 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pyladies.html">
-        pyladies
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/markdown.html">
+        markdown
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/whartonwc.html">
+        WhartonWC
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/hackathon.html">
+        hackathon
     </a>
 </span>
 <span class="tag-4">
@@ -404,8 +319,63 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/python3.html">
-        python3
+    <a href="./tag/eventbrite.html">
+        eventbrite
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/cheatsheet.html">
+        cheatsheet
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/binstar.html">
+        binstar
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/jinja2.html">
+        jinja2
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/faceoff.html">
+        faceoff
     </a>
 </span>
 <span class="tag-4">
@@ -413,9 +383,19 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         la
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/howto.html">
-        howto
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/meme.html">
+        meme
     </a>
 </span>
 <span class="tag-4">
@@ -424,68 +404,123 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
-        Consumer-Notebook
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/bottle.html">
+        bottle
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/forms.html">
-        forms
+    <a href="./tag/twoscoops.html">
+        twoscoops
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/friends.html">
-        friends
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypy.html">
-        pypy
+    <a href="./tag/rant.html">
+        rant
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/casestudy.html">
-        casestudy
+    <a href="./tag/brambles.html">
+        brambles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/ingredients.html">
+        ingredients
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pumpkin.html">
+        pumpkin
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/restructuredtext.html">
+        RestructuredText
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/capoeira.html">
-        capoeira
+    <a href="./tag/ppoftw.html">
+        ppoftw
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        Los Angeles
+    <a href="./tag/functions.html">
+        functions
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/review.html">
-        review
+    <a href="./tag/django-rest-framework.html">
+        django-rest-framework
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/australia.html">
-        australia
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumernotebook.html">
-        consumernotebook
+    <a href="./tag/tools.html">
+        tools
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/halloween.html">
-        halloween
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/surgery.html">
-        surgery
+    <a href="./tag/joke.html">
+        joke
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/oauth.html">
-        OAuth
+    <a href="./tag/flask.html">
+        flask
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/recipe.html">
+        recipe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/conda.html">
+        conda
     </a>
 </span>
 <span class="tag-4">
@@ -499,163 +534,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/meteor.html">
-        meteor
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/europe.html">
-        europe
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
-        pycon-2013-guide
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/book.html">
-        book
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/djangodash.html">
-        djangodash
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/mongodb.html">
-        mongodb
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackthons.html">
-        lahackthons
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/pumpkin.html">
-        pumpkin
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/rails.html">
-        rails
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/php.html">
-        php
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/tools.html">
-        tools
-    </a>
-</span>
-<span class="tag-4">
     <a href="./tag/brazil.html">
         brazil
     </a>
 </span>
-<span class="tag-3">
-    <a href="./tag/meme.html">
-        meme
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/ruby.html">
-        ruby
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/pycon.html">
-        pycon
-    </a>
-</span>
 <span class="tag-2">
-    <a href="./tag/ppoftw.html">
-        ppoftw
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dotcloud.html">
-        dotcloud
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/ingredients.html">
-        ingredients
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/travel.html">
-        travel
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/whartonwc.html">
-        WhartonWC
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/clojure.html">
-        clojure
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/flask.html">
-        flask
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/cookiecutter.html">
-        cookiecutter
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/paypal.html">
-        paypal
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/joke.html">
-        joke
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/jinja2.html">
-        jinja2
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/testing.html">
-        testing
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nasa.html">
-        nasa
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/brambles.html">
-        brambles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/css.html">
-        css
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/conda.html">
-        conda
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/resolutions.html">
-        resolutions
+    <a href="./tag/djangocon.html">
+        djangocon
     </a>
 </span>
 <span class="tag-3">
@@ -663,19 +548,19 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         heroku
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/gondor.html">
-        gondor
+<span class="tag-3">
+    <a href="./tag/latex.html">
+        LaTeX
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/dsf.html">
-        dsf
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/packaging.html">
-        packaging
+<span class="tag-3">
+    <a href="./tag/nasa.html">
+        nasa
     </a>
 </span>
 <span class="tag-2">
@@ -683,19 +568,24 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         family
     </a>
 </span>
-<span class="tag-3">
-    <a href="./tag/i18n.html">
-        i18n
-    </a>
-</span>
 <span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        los-angeles
+    <a href="./tag/halloween.html">
+        halloween
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pyramid.html">
-        pyramid
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/unicode.html">
+        unicode
     </a>
 </span>
 <span class="tag-3">
@@ -704,13 +594,138 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
+    <a href="./tag/testing.html">
+        testing
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/i18n.html">
+        i18n
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/python3.html">
+        python3
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cookiecutter.html">
+        cookiecutter
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pyramid.html">
+        pyramid
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pydiversity.html">
+        pydiversity
+    </a>
+</span>
+<span class="tag-3">
     <a href="./tag/api.html">
         api
     </a>
 </span>
+<span class="tag-3">
+    <a href="./tag/travel-tips-for-geeks.html">
+        travel tips for geeks
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
 <span class="tag-2">
-    <a href="./tag/djangocon.html">
-        djangocon
+    <a href="./tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/packaging.html">
+        packaging
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/surgery.html">
+        surgery
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypi.html">
+        pypi
     </a>
 </span>
 
