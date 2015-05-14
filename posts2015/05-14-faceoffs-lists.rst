@@ -139,10 +139,10 @@ Here is how I define my sample list in **LaTeX**
     \begin{itemize}
         \item Item A
         \item Item A
-            \begin{itemize}
+            \begin{enumerate}
                 \item First Numbered Inner Item
                 \item Second Numbered Inner Item
-            \end{itemize}
+            \end{enumerate}
         \item Item C
     \end{itemize}
 
@@ -176,6 +176,7 @@ For better or for worse, lists of bullets and numbers are a foundation of how we
 
 * Update 2015/05/14 - Added note about closing </li> tags thanks to Ivan Sagalaev.
 * Update 2015/05/14 - Made Markdown list more cross-compatible thanks to Tzu-ping Chung.
+* Update 2015/05/14 - Fixed LaTeX list definition thanks to Mark van Lent.
 
 .. image:: http://pydanny.com/static/bullets.png
    :name: Bullets faceoff

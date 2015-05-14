@@ -89,10 +89,10 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;itemize&lt;span class="nb"&gt;}&lt;/span&gt;
     &lt;span class="k"&gt;\item&lt;/span&gt; Item A
     &lt;span class="k"&gt;\item&lt;/span&gt; Item A
-        &lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;itemize&lt;span class="nb"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;enumerate&lt;span class="nb"&gt;}&lt;/span&gt;
             &lt;span class="k"&gt;\item&lt;/span&gt; First Numbered Inner Item
             &lt;span class="k"&gt;\item&lt;/span&gt; Second Numbered Inner Item
-        &lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;itemize&lt;span class="nb"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;enumerate&lt;span class="nb"&gt;}&lt;/span&gt;
     &lt;span class="k"&gt;\item&lt;/span&gt; Item C
 &lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;itemize&lt;span class="nb"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -111,6 +111,7 @@
 &lt;ul class="simple"&gt;
 &lt;li&gt;Update 2015/05/14 - Added note about closing &amp;lt;/li&amp;gt; tags thanks to Ivan Sagalaev.&lt;/li&gt;
 &lt;li&gt;Update 2015/05/14 - Made Markdown list more cross-compatible thanks to Tzu-ping Chung.&lt;/li&gt;
+&lt;li&gt;Update 2015/05/14 - Fixed LaTeX list definition thanks to Mark van Lent.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;a class="reference external image-reference" href="http://www.pydanny.com/markup-language-faceoff-lists.html"&gt;&lt;img alt="Bullets faceoff" class="align-center" id="bullets-faceoff" src="http://pydanny.com/static/bullets.png" /&gt;&lt;/a&gt;
 &lt;/div&gt;
