@@ -9,7 +9,7 @@ Tools we used to write Two Scoops of Django
 
 Because of the ubiquitousness of reStructuredText_ in the lives of Python_ developers and the advocacy of it, it's not uncommon for people to assume we used it to write our book. However, that's not really the case.
 
-The short Answer is we used:
+The short answer is we used:
 
 * reStructuredText (RST)
 * Google Documents
@@ -40,7 +40,7 @@ Therefore, what we did in the week of January 10th-16th was convert the book to 
 Beta Experiences
 ================
 
-People were so positive it really gave us a boost. Hundreds of people sent us feedback and we were delighted beyond words, with a significant portion sending us commentary/corrections about our writing and code. I'll admin did get tired over a certain 'moat' mistake since I got corrected on it over 50 times. However, the number of code corrections we were getting was higher than expected. It was clear we needed to be able to import the code modules from testable chunks of real code.  We had so many kindle/epub requests we also needed the ability to render the text attractively across multiple formats.
+People were so positive it really gave us a boost. Hundreds of people sent us feedback and we were delighted beyond words, with a significant portion sending us commentary/corrections about our writing and code. I'll admit I did get tired over a certain 'moat' mistake since I got corrected on it over 50 times. However, the number of code corrections we were getting was higher than expected. It was clear we needed to be able to import the code modules from testable chunks of real code.  We had so many kindle/epub requests we also needed the ability to render the text attractively across multiple formats.
 
 After stumbling through RST, Google Documents, and Apple Pages different tools, I finally agreed with Audrey that the challenges of learning LaTeX was worth it. While we could have used RST, we would have had to use LaTeX anyway for our customizations since when RST is converted to PDF it actually uses an interim step of LaTeX!
 
@@ -59,9 +59,9 @@ So while I handled the corrections and feedback from thousands, Audrey built the
 
     By defining \inlinecode{TimeStampedModel} as an abstract base class \index{abstract base classes} when we define a new class that inherits from it, Django doesn't create a \inlinecode{model\_utils.time\_stamped\_model} table when syncdb is run.
 
-Once I got the hang of LaTeX, then began the hard work of converting the book's current content from Apple Pages That was a couple weeks of grueling effort on my part. Daily I would request a new LaTeX customizations, which Audrey would address. However, as she was working on literally rewriting the content of a dozen chapters including templates, testing, admin, and logging my interruptions became an issue. So we enlisted the help of Italian economist and LaTeX expert Laura Gelsomino. Thanks to her the desired text formatting was achieved.
+Once I got the hang of LaTeX, then began the hard work of converting the book's current content from Apple Pages. That was a couple weeks of grueling effort on my part while Audrey wrote more book material. Daily I would request a new LaTeX customizations, which Audrey would address. However, as she was working on literally rewriting the content of a dozen chapters including templates, testing, admin, and logging my interruptions became an issue. So we enlisted the help of Italian economist and LaTeX expert Laura Gelsomino. Thanks to her the desired text formatting was achieved.
 
-During the conversion process we also rewrote every single code example, putting them into easily testable projects, and pull them into via use of custom LaTeX commands called ``\goodcodefile{}`` and ``\badcodefile{}``.
+During the conversion process we rewrote every single code example, putting them into easily testable projects, and pulled them into the book via use of custom LaTeX commands called ``\goodcodefile{}`` and ``\badcodefile{}``.
 
 Eventually I joined Audrey on rewriting and reviewing chapters and on February 28th, the beta was launched. LaTeX generates lean PDFs so the book came in at just 1.6 MB while adding a whopping 50 pages (25% more) of content.
 
@@ -84,7 +84,7 @@ Speaking of mobile editions, we also wrote a second version of each Python examp
 
 .. _`Ebook Formatting: KF8, Mobi & EPUB`: http://www.amazon.com/Ebook-Formatting-Mobi-EPUB-ebook/dp/B00BWQXHU6/ref=la_B0077BQLH6_1_2?ie=UTF8&qid=1366041987&sr=1-2&tag=ihpydanny-20
 
-While I worked on the mobile editions, Audrey focused on the print version and adding more art and tiny bit of new content. She focused on clarity and flow, and the result is that the book feels even lighter to read and yet is dense with useful information. To test how the book launched, she would order a copy from the printer and wait several days for it to arrive. Then she would inspect the cover and interior with her incredibly exacting eye. It's a slow process, but Audrey wanted to make absolutely certain our readers would enjoy and use the print edition.
+While I worked on the mobile editions, Audrey focused on the print version and adding more art and bits and pieces of new content. She focused on clarity and flow, and the result is that the book feels even lighter to read and yet is dense with useful information. To test how the book launched, she would order a copy from the printer and wait several days for it to arrive. Then she would inspect the cover and interior with her incredibly exacting eye. It's a slow process, but Audrey wanted to make absolutely certain our readers would enjoy and use the print edition.
 
 On April 10th we launched the final in PDF, Kindle, and ePub form. The PDF weighs in at 2.7 MB, and the Kindle file is a bit heaver. At some point we'll do the work to reduce file size, but for now we're working on other things.
 
@@ -107,7 +107,7 @@ That said, if I ever fulfill my dream of writing fiction I'll just use Matt Harr
 
 .. _rst2epub2: https://github.com/mattharrison/rst2epub2
 
-Concerns about Open Sourcing
+Concerns About Open Sourcing
 -----------------------------
 
 We've considered open sourcing our current book generation system, but installation is rather challenging and requires serious Audrey/Laura-level LaTeX knowledge combined with my experience with Python. Unfortunately, from our experience on managing other open source projects, dealing with requests for documentation and assistance would take up a prohibitive amount of our time. Honestly, we would rather write another book or sling code.
