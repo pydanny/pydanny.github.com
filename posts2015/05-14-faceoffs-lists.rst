@@ -174,5 +174,11 @@ Closing Thoughts
 
 For better or for worse, lists of bullets and numbers are a foundation of how we communicate via the written medium. They allow for terse communication of ideas and thought, but that same terseness can mean we skip over details. Interestingly enough, the very tools that we use to create lists can color our ability and desire to use them.
 
+.. image:: http://pydanny.com/static/bullets.png
+   :name: Bullets faceoff
+   :align: center
+   :alt: Bullets faceoff
+   :target: http://www.pydanny.com/markup-language-faceoff-lists.html
+
 * Update 2015/05/14 - Added note about closing </li> tags thanks to Ivan Sagalaev.
 * Update 2015/05/14 - Made Markdown list more cross-compatible thanks to Tzu-ping Chung.
