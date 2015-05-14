@@ -21,6 +21,14 @@ Today I want to talk about lists. Not for shopping, not the programming data typ
 
 In other words, lists of bullets and numbers. This article explores some of the different tools used by the programming world to render display lists, specifically **HTML**, **reStructuredText**, **Markdown**, and **LaTeX**.
 
+.. image:: http://pydanny.com/static/bullets.png
+   :name: Bullets faceoff
+   :align: center
+   :alt: Bullets faceoff
+   :target: http://www.pydanny.com/markup-language-faceoff-lists.html
+
+
+
 HTML
 ====
 
@@ -177,10 +185,4 @@ For better or for worse, lists of bullets and numbers are a foundation of how we
 * Update 2015/05/14 - Added note about closing </li> tags thanks to Ivan Sagalaev.
 * Update 2015/05/14 - Made Markdown list more cross-compatible thanks to Tzu-ping Chung.
 * Update 2015/05/14 - Fixed LaTeX list definition thanks to Mark van Lent.
-
-.. image:: http://pydanny.com/static/bullets.png
-   :name: Bullets faceoff
-   :align: center
-   :alt: Bullets faceoff
-   :target: http://www.pydanny.com/markup-language-faceoff-lists.html
 

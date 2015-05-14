@@ -10,6 +10,7 @@
 &lt;li&gt;Item C&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In other words, lists of bullets and numbers. This article explores some of the different tools used by the programming world to render display lists, specifically &lt;strong&gt;HTML&lt;/strong&gt;, &lt;strong&gt;reStructuredText&lt;/strong&gt;, &lt;strong&gt;Markdown&lt;/strong&gt;, and &lt;strong&gt;LaTeX&lt;/strong&gt;.&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://www.pydanny.com/markup-language-faceoff-lists.html"&gt;&lt;img alt="Bullets faceoff" class="align-center" id="bullets-faceoff" src="http://pydanny.com/static/bullets.png" /&gt;&lt;/a&gt;
 &lt;div class="section" id="html"&gt;
 &lt;h2&gt;HTML&lt;/h2&gt;
 &lt;p&gt;If you view the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/HTML"&gt;HTML&lt;/a&gt; source of this web page, you'll find this:&lt;/p&gt;
@@ -113,6 +114,5 @@
 &lt;li&gt;Update 2015/05/14 - Made Markdown list more cross-compatible thanks to Tzu-ping Chung.&lt;/li&gt;
 &lt;li&gt;Update 2015/05/14 - Fixed LaTeX list definition thanks to Mark van Lent.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;a class="reference external image-reference" href="http://www.pydanny.com/markup-language-faceoff-lists.html"&gt;&lt;img alt="Bullets faceoff" class="align-center" id="bullets-faceoff" src="http://pydanny.com/static/bullets.png" /&gt;&lt;/a&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="LaTeX"></category><category term="RestructuredText"></category><category term="markdown"></category><category term="faceoff"></category><category term="django"></category></entry></feed>
