@@ -18,11 +18,9 @@ Today I want to talk about lists. Not for shopping, not the programming data typ
 Specifically this:
 
 * Item A
-
 * Item B
 
   #. First Numbered Inner Item
-
   #. Second Numbered Inner Item
 
 * Item C
@@ -78,16 +76,20 @@ This blog is written in reStructuredText_ and transformed into **HTML**. Let's s
 .. code-block:: rst
 
     * Item A
-
     * Item B
 
       #. First Numbered Inner Item
-
       #. Second Numbered Inner Item
 
     * Item C
 
-Notice the extra lines between bullets and numbers? A quirk of **reStructuredText** is that you have to put those in nested lists in order to make things display correctly. Also, 2 spaces indentation generates a different result than 4 spaces. I have no idea why this behavior exists, but I admit to finding both quirks annoying.
+Notice the extra lines between bullets and numbers? A behavior of **reStructuredText** is that you have to put those in nested lists in order to make things display correctly. Also, 2 spaces indentation generates a different result than 4 spaces, the former creating sub-bullets, the latter creating an indented block quote with bullets. They are there to remove ambiguity.
+
+Interestingly enough, I did not know this until the day after I wrote this article. Since understanding these behaviors can be challenging, myself and Eric Holscher of ReadTheDocs_ fame began a project last year to `clearly index and document`_ all the details of **reStructuredText** from the user's point of view. Our plan was to provide this as an adjunct to the `formal documentation`_ of **reStructuredText**. Alas, time and work considerations got in the way. If you want to help expand our effort, you can contribute at https://github.com/pydanny/restructuredtext.
+
+.. _ReadTheDocs: ttp://readthedocs.org
+.. _`clearly index and document`: http://restructuredtext.readthedocs.org/
+.. _`formal documentation`: http://docutils.sourceforge.net/docs/
 
 One thing to note about **reStructuredText** is that it's pretty much Python only. Outside the Python world if you are writing plaintext markup then odds are you are using **Markdown**.
 
@@ -186,4 +188,4 @@ For better or for worse, lists of bullets and numbers are a foundation of how we
 * Update 2015/05/14 - Added note about closing </li> tags thanks to Ivan Sagalaev.
 * Update 2015/05/14 - Made Markdown list more cross-compatible thanks to Tzu-ping Chung.
 * Update 2015/05/14 - Fixed LaTeX list definition thanks to Mark van Lent.
-
+* Update 2015/05/15 - Explained the behaviors of **reStructuredText** thanks to David Goodger.
