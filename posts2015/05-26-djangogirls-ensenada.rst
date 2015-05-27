@@ -56,7 +56,7 @@ The Django Girls Ensenada organizers did a magnificent job of assembling a wonde
 
 The event had two sponsors, `Hala Ken`_ and the `US Consulate in Tijuana, Mexico`_. They did more than just sponsor, they were part of the effort of organizing and running the event.
 
-My co-author, co-presenter, co-everything wife AudrerR also blogged her account of it: `Our Trip to DjangoGirls Ensenada, Mexico`_.
+My co-author, co-presenter, co-everything wife AudreyR also blogged her account of it: `Our Trip to DjangoGirls Ensenada, Mexico`_.
 
 .. _`Our Trip to DjangoGirls Ensenada, Mexico`: http://www.codemakesmehappy.com/2015/05/our-trip-to-djangogirls-ensenada-mexico.html
 .. _`Hala Ken`: http://halaken.org
