@@ -42,7 +42,7 @@ No one wanted the day to end.
 
     <br>
 
-We did our small part. We coached and did our best to give an inspirational talk.
+We did our small part. We coached and did our best to give an invited inspirational talk.
 
 .. raw:: html
 
