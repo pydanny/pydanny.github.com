@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Python's Curious Switch/Case Workaround</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel-Roy-Greenfeld">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="../theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css" />
+    <link href="../theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="../theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../theme/images/apple-touch-icon-114x114.png">
+
+    <link href="http://pydanny.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+    
+  </head>
+
+  <body>
+
+    <div class="pre-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h1 class="site-logo">
+              <a href="..">
+              <img src="../theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              </a>
+            </h1>
+          </div>
+          <div class="offset1 span5">
+            <p class="about-this-blog">
+              Hi, I'm Daniel Roy Greenfeld, and welcome to my blog. I write about Python, Django, and much more.
+            </p>
+          </div>
+        </div>
+        <div class="pydanny-cartwheel"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+    <div class="navbar navbar-fixed-top" id="pydanny-navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href="..">Home</a></li>
+                <li><a href="../pages/about.html">About</a></li>
+                <li><a href="../pages/events.html">Events</a></li>
+                <li><a href="../pages/projects.html">Projects</a></li>
+                <li><a href="../pages/tools.html">Tools</a></li>
+                <li><a href="../category/audrey.html">Audrey</a></li>
+                <li><a href="../category/blog.html">Blog</a></li>
+                <li><a href="../category/book.html">Book</a></li>
+                <li><a href="../category/django.html">Django</a></li>
+                <li><a href="../category/python.html">Python</a></li>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+            <section id="content">
+        <article>
+                <header>
+                        <h1 class="article-title">
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Python's Curious Switch/Case Workaround">
+                                        Python's Curious Switch/Case Workaround
+                                </a>
+                        </h1>
+                </header>
+
+                <p>
+                    <em>Monday, June 08, 2015</em>
+                    (<a href="" rel="bookmark" title="Permalink to Python's Curious Switch/Case Workaround">permalink</a>)
+                </p>
+
+                <div class="entry-content">
+                    <p>Unlike every other programming language I've used before, Python does not have a switch or case statement. To get around this fact, we use dictionary mapping:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">numbers_to_strings</span><span class="p">(</span><span class="n">argument</span><span class="p">):</span>
+    <span class="n">switcher</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="s">&quot;zero&quot;</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s">&quot;one&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s">&quot;two&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">switcher</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span> <span class="s">&quot;nothing&quot;</span><span class="p">)</span>
+</pre></div>
+<p>This code is analogous to:</p>
+<div class="highlight"><pre><span class="kd">function</span><span class="p">(</span><span class="nx">argument</span><span class="p">){</span>
+    <span class="k">switch</span><span class="p">(</span><span class="nx">argument</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+            <span class="k">return</span> <span class="s2">&quot;zero&quot;</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+            <span class="k">return</span> <span class="s2">&quot;one&quot;</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+            <span class="k">return</span> <span class="s2">&quot;two&quot;</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="k">return</span> <span class="s2">&quot;nothing&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+<p>While the Python code is often more terse than the standard method of handling cases, I could argue it is more arcane. When I first started Python it felt weird and distracting. Over time it grew on me, the use of a dictionary key being the identifier in a switch becoming more and more habitual.</p>
+<div class="section" id="dictionary-mapping-for-functions">
+<h2>Dictionary Mapping for Functions</h2>
+<p>In Python we can also include functions or lambdas in our dictionary mapping:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">zero</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&quot;zero&quot;</span>
+
+<span class="k">def</span> <span class="nf">one</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&quot;one&quot;</span>
+
+<span class="k">def</span> <span class="nf">numbers_to_functions_to_strings</span><span class="p">(</span><span class="n">argument</span><span class="p">):</span>
+    <span class="n">switcher</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="n">zero</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="n">one</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;two&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="c"># Get the function from switcher dictionary</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="n">switcher</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;nothing&quot;</span><span class="p">)</span>
+    <span class="c"># Execute the function</span>
+    <span class="k">return</span> <span class="n">func</span><span class="p">()</span>
+</pre></div>
+<p>While the code inside <tt class="docutils literal">zero()</tt> and <tt class="docutils literal">one</tt> are simple, many Python programs use dictionary mappings like this to dispatch complex procedures.</p>
+</div>
+<div class="section" id="dispatch-methods-for-classes">
+<h2>Dispatch Methods for Classes</h2>
+<p>If we don't know what method to call on a class, we can use a dispatch method to determine it at runtime.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Switcher</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">numbers_to_methods_to_strings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">argument</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Dispatch method&quot;&quot;&quot;</span>
+        <span class="c"># prefix the method_name with &#39;number_&#39; because method names</span>
+        <span class="c"># cannot begin with an integer.</span>
+        <span class="n">method_name</span> <span class="o">=</span> <span class="s">&#39;number_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">argument</span><span class="p">)</span>
+        <span class="c"># Get the method from &#39;self&#39;. Default to a lambda.</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="s">&quot;nothing&quot;</span><span class="p">)</span>
+        <span class="c"># Call the method as we return it</span>
+        <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">number_0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;zero&quot;</span>
+
+    <span class="k">def</span> <span class="nf">number_1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;one&quot;</span>
+
+    <span class="k">def</span> <span class="nf">number_2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;two&quot;</span>
+</pre></div>
+<p>Pretty nifty, right?</p>
+</div>
+<div class="section" id="so-why-isnt-there-a-switch-case-statement-in-python">
+<h2>So why isn’t there a switch/case statement in Python?</h2>
+<p>The <a class="reference external" href="https://docs.python.org/2/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python">official answer</a> says, &quot;You can do this easily enough with a sequence of <tt class="docutils literal"><span class="pre">if...</span> <span class="pre">elif...</span> <span class="pre">elif...</span> else</tt>&quot;. Or that you can use dictionary mapping for functions and dispatch methods for classes.</p>
+<p>In my opinion, what the official answer is really trying to say is, &quot;Python doesn't need a case statement.&quot;</p>
+</div>
+<div class="section" id="really">
+<h2>Really?</h2>
+<p>Yup. But there's more. I've heard people I respect say that switch/case statements in code can be really hard to debug.</p>
+<p>Personally I find that argument breaks down as soon as you run into gigantic nested dictionaries used for mapping of code branches. Think about it, a 100+ element nested dictionary is just as hard to debug as a nested switch block with 100+ cases.</p>
+</div>
+<div class="section" id="maybe-dictionary-mapping-runs-faster">
+<h2>Maybe Dictionary Mapping runs Faster?</h2>
+<p>Moot as Python doesn't have a case statement. What is faster in one language is not always faster in another.</p>
+</div>
+<div class="section" id="the-significant-advantage-of-python-s-approach">
+<h2>The Significant Advantage of Python's Approach</h2>
+<p>Every once in a while I walk into a scenario where Python's approach just works better than a switch/case statement. This is when at runtime I need to add or remove potential items from the mapping. When this occurs, my years of practice of writing dictionary mappings and dispatch methods pays off. I have insights now that I never had back in the day when I relied on switch/case statements.</p>
+</div>
+<div class="section" id="closing-thoughts">
+<h2>Closing Thoughts</h2>
+<p>To me, that Python forced me to accumalate lots of practical experience with mappings is a blessing in disguise. The constraint of not having switch/case statements allowed me to create approaches and ideas I may not have developed with it.</p>
+<p>Intentional or not, Python's lack of switch/case has been a social construct that made me a better coder.</p>
+<p>Enough so that I think this accidental social construct is a better answer than the official one.</p>
+<hr class="docutils" />
+<p>My reference book on Django best practices, <a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-8">Two Scoops of Django 1.8</a>, is now available in both print paperback and PDF formats.</p>
+</div>
+
+                    <div class="article-info">
+                            <footer class="post-info">
+
+
+Tags:
+	<a href="../tag/python.html"><em>python</em></a>
+	<a href="../tag/cheatsheet.html"><em>cheatsheet</em></a>
+</footer><!-- /.post-info -->                    </div>
+                </div><!-- /.entry-content -->
+                                <hr/>
+                <div class="comments">
+                <h3>Comments</h3>
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                           var disqus_identifier = "python-curious-switch-case-workaround.html";
+                           (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = 'http://pydanny.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] ||
+                                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+                          })();
+                        </script>
+                </div>
+                        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="offset1 span3 sidebar-nav" id="sidebar">
+            <ul class="nav nav-list">
+</ul>
+
+<h4>Two Scoops of Django 1.8</h4>
+
+<p><a href="http://twoscoopspress.com/products/two-scoops-of-django-1-8">The new edition is out!</a></p>
+
+<a href="http://twoscoopspress.com/products/two-scoops-of-django-1-8"><img class="two-scoops-cover-thumb" src="http://twoscoops.smugmug.com/Two-Scoops-Press-Media-Kit/i-LPrcKVv/0/S/1.8-cover-front-v3c-1350x1665-S.png"></a>
+
+
+<h4>Into the Brambles</h4>
+
+<p><a href="http://mybook.to/itb">My first fiction book!</a></p>
+
+<a href="http://mybook.to/itb"><img class="two-scoops-cover-thumb" src="../theme/img/itb.png" /></a>
+
+
+
+<h4 class="nav-header">Follow Me</h4>
+    <p class="capitalize"><i class="icon-twitter-sign icon-large"></i> <a href="http://twitter.com/pydanny">twitter</a></p>
+    <p class="capitalize"><i class="icon-github-sign icon-large"></i> <a href="https://github.com/pydanny">github</a></p>
+    <p class="capitalize"><i class="icon-facebook-sign icon-large"></i> <a href="http://www.facebook.com/daniel.greenfeld">facebook</a></p>
+
+<h4>Subscribe To My Feed</h4>
+
+<p>
+While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
+
+<h4 class="nav-header">Tags</h4>
+<span class="tag-3">
+    <a href="../tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/brazil.html">
+        brazil
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/surgery.html">
+        surgery
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/pypi.html">
+        pypi
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/i18n.html">
+        i18n
+    </a>
+</span>
+<span class="tag-1">
+    <a href="../tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/testing.html">
+        testing
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/pyramid.html">
+        pyramid
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/whartonwc.html">
+        WhartonWC
+    </a>
+</span>
+<span class="tag-1">
+    <a href="../tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/argentina.html">
+        argentina
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/eventbrite.html">
+        eventbrite
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/django-rest-framework.html">
+        django-rest-framework
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/ingredients.html">
+        ingredients
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/ppoftw.html">
+        ppoftw
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/recipe.html">
+        recipe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-1">
+    <a href="../tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/restructuredtext.html">
+        RestructuredText
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/pumpkin.html">
+        pumpkin
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/bottle.html">
+        bottle
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/packaging.html">
+        packaging
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/latex.html">
+        LaTeX
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/markdown.html">
+        markdown
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/halloween.html">
+        halloween
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/travel-tips-for-geeks.html">
+        travel tips for geeks
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/unicode.html">
+        unicode
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/python3.html">
+        python3
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/brambles.html">
+        brambles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/binstar.html">
+        binstar
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/faceoff.html">
+        faceoff
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/jinja2.html">
+        jinja2
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/barcamp.html">
+        barcamp
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/pydiversity.html">
+        pydiversity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/filepicker.html">
+        filepicker
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/cookiecutter.html">
+        cookiecutter
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/flask.html">
+        flask
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/conda.html">
+        conda
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/cheatsheet.html">
+        cheatsheet
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/blog.html">
+        blog
+    </a>
+</span>
+
+
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">Content Copyright © 2013 Daniel Greenfeld. 
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>. Adapted from the <a href="https://github.com/getpelican/pelican-themes/tree/master/bootstrap2">Pelican Bootstrap2</a> theme by <a href="http://www.audreymroy.com">Audrey M. Roy</a>. Support my work by spreading the word about <a href="http://twoscoopspress.com/products/two-scoops-of-django-1-8">Two Scoops of Django: Best Practices For Django 1.8</a>.
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-18066389-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+        <script type="text/javascript">
+    var disqus_shortname = 'pydanny';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../theme/js/jquery-1.7.2.min.js"></script>
+    <script src="../theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
