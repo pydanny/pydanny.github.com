@@ -133,6 +133,13 @@ Intentional or not, Python's lack of switch/case has been a social construct tha
 
 Enough so that I think this accidental social construct is a better answer than the official one of 'Do this instead!'
 
+Or... as Tim Lesher puts it, I'm suffering from Stockholme Syndrome:
+
+.. raw:: html
+
+    <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/pydanny">@pydanny</a> I think they call that &quot;Stockholm Syndrome&quot;.</p>&mdash; Tim Lesher (@tlesher) <a href="https://twitter.com/tlesher/status/608331276307808256">June 9, 2015</a></blockquote>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ----
 
 The reference book I co-authored with `Audrey Roy Greenfeld`_ on Django best practices, `Two Scoops of Django 1.8`_, is now available in both print paperback and PDF formats.
