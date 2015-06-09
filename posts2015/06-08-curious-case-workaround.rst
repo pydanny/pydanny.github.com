@@ -129,9 +129,7 @@ Closing Thoughts
 
 To me, that Python forced me to accumalate lots of practical experience with mappings is a blessing in disguise. The constraint of not having switch/case statements allowed me to create approaches and ideas I may not have developed with it.
 
-Intentional or not, Python's lack of switch/case has been a social construct that made me a better coder.
-
-Enough so that I think this accidental social construct is a better answer than the official one of 'Do this instead!'
+Intentional or not, Python's lack of switch/case has been a social construct that made me a better coder. Enough so that I think this accidental social construct is a better answer than the official one of 'Do this instead!'
 
 Or... as Tim Lesher puts it, I'm suffering from Stockholme Syndrome:
 
