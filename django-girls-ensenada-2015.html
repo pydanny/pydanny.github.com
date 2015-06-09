@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>You should Heroku</title>
+    <title>Django Girls Ensenada 2015</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Roy-Greenfeld">
@@ -89,123 +89,29 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to You should Heroku">
-                                        You should Heroku
+                                        title="Permalink to Django Girls Ensenada 2015">
+                                        Django Girls Ensenada 2015
                                 </a>
                         </h1>
                 </header>
 
                 <p>
-                    <em>Tuesday, February 28, 2012</em>
-                    (<a href="" rel="bookmark" title="Permalink to You should Heroku">permalink</a>)
+                    <em>Wednesday, May 27, 2015</em>
+                    (<a href="" rel="bookmark" title="Permalink to Django Girls Ensenada 2015">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>In mid-November me and my fiancee, <a class="reference external" href="http://audreymroy.com">Audrey Roy</a> began our startup. We had been frustrated with trying to do on-line product research and came up with an idea to take the lessons learned from <a class="reference external" href="http://djangopackages.com">Django Packages</a> / <a class="reference external" href="http://opencomparison.org">Open Comparison</a> and apply them to a commercial effort. The result has been <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a>, and it's been a steadily growing success.</p>
-<p>We've been bootstrapping the project. That means supporting it with consulting and grinding away on it during our free time. That means 12-16 hour days of Python, Django, and Javascript coding, marketing, system administration, graphic design, communicating with users and vendors, and a thousand other tasks. Since we've had to explore new techniques for making things work on the backend and front end, that means we've needed to have a robust system that is trivial to deploy and certain to never go down. Which, of course, requires serious sys admin skills.</p>
-<div class="section" id="the-big-problem">
-<h2>The Big Problem</h2>
-<blockquote class="pull-quote">
-<strong>I hate system administration work.</strong></blockquote>
-<p>Sys admin is boring. I find it tedious and dull. Devops doesn't make it easier/faster, it just makes it possible to do it at a large scale.</p>
-<p>Fortunately for me, my fiancee likes the sys admin side of things. However, she's got serious programming skills in Python/Javascript, understands CSS, is an excellent illustrator, and has good business skills to boot. Which means <strong>I needed Audrey not to be doing sys admin</strong>.</p>
-</div>
-<div class="section" id="solution-platform-as-a-service">
-<h2>Solution: Platform as a Service</h2>
-<p>Platform as a Service, or <a class="reference external" href="http://en.wikipedia.org/wiki/PaaS">PaaS</a>, is where someone else does the majority of work involved in system administration. There are now <a class="reference external" href="http://www.quora.com/What-is-the-Heroku-equivalent-for-Django-applications-Edit-Question-not-relevant-anymore-as-Heroku-now-supports-Django">dozens of companies edging into the Python capable PaaS space</a>. We've been leery of using any of them but finally settled on <a class="reference external" href="http://heroku.com">Heroku</a> after a long period of evaluation.</p>
-</div>
-<div class="section" id="why-heroku">
-<h2>Why Heroku?</h2>
-<p>We choose Heroku for a number of reasons:</p>
-<ol class="arabic simple">
-<li>We competed in a Los Angeles area Hacking contest with <a class="reference external" href="http://rdegges.com/">Randall Degges</a>. He was responsible for the sys admin and went with Heroku. He got it up and it was out of the way for the competition. He spent his time coding, adding features, and fixing templates instead of tweaking knobs on something in the cloud. We saw other people not deliver products at the contest because of this issue.</li>
-<li>Heroku doesn't lock you in. If I wanted to, I could take all the pieces out in about 10 minutes, then go old school and host it myself on my own closet server.</li>
-<li>Heroku has very good <a class="reference external" href="http://devcenter.heroku.com/categories/heroku-postgres">PostgreSQL</a> support. Our web framework is <a class="reference external" href="http://djangoproject.com">Django</a>, which has an ORM that works best with PostgreSQL.</li>
-<li>Heroku has staff. At least seventy of them. Odds are they would have people around 24/7 to deal with issues.</li>
-<li>The add-on system means they've got many other people adding great new features. Want <a class="reference external" href="https://addons.heroku.com/mongolab">MongoDB</a>? No problem! How about something to <a class="reference external" href="https://addons.heroku.com/pandastream">handle video</a>? You got it!</li>
-<li>Heroku scales up trivially. If we get an upswell of users, I just type <tt class="docutils literal">heroku ps:scale web=50</tt> and I've got 50 web server things handling the load.</li>
-<li>When I think of Heroku I think of Puffer Fish. Which is awesome because Puffer Fish are awesome.</li>
-</ol>
-<a class="reference external image-reference" href="http://www.flickr.com/photos/saspotato/5776592544/"><img alt="http://farm6.staticflickr.com/5303/5776592544_fb15a2902a_m.jpg" class="align-center" id="puffer-fish" src="http://farm6.staticflickr.com/5303/5776592544_fb15a2902a_m.jpg" /></a>
-<p>Creative Commons: Some rights reserved by <a class="reference external" href="http://www.flickr.com/photos/saspotato/5776592544/">Saspotato</a></p>
-<div class="section" id="things-that-we-really-liked-about-using-heroku">
-<h3>Things that we really liked about using Heroku</h3>
-<p>As we progressed down the journey of building our site, we discovered even more nice features about Heroku. Here are some of the things that really make me smile:</p>
-<ol class="arabic simple">
-<li><a class="reference external" href="http://devcenter.heroku.com/articles/releases">Releases</a> and especially <a class="reference external" href="http://devcenter.heroku.com/articles/releases#rollback">rollbacks</a> means we deploy with a lot more confidence.</li>
-<li><a class="reference external" href="http://devcenter.heroku.com/articles/logging">Logging</a> and other diagnostic add-ons like <a class="reference external" href="https://addons.heroku.com/sentry">Sentry</a> and <a class="reference external" href="https://addons.heroku.com/newrelic">New Relic</a> means we know what's going on.</li>
-<li>During one huge data migration effort I scaled up the workers so a 6 hour task became a 5 minute task. Cost was less then 10 cents for workers instead of me losing hours of labor.</li>
-<li>In case we go viral, we don't have to worry about load balancers and all that high performance stuff.</li>
-</ol>
-</div>
-</div>
-<div class="section" id="what-does-that-mean">
-<h2>What does that mean?</h2>
-<p>It means I'm doing the deployments. I'm the sys admin. And I'm happy with my role because it takes minutes out of my day. Me and Audrey team up on everything else and the results so far have been great. If you've ever worked with me, the fact that <a class="reference external" href="http://consumernotebook.com">Consumer Notebook</a> is administered and deployed by me is going to be a shock.</p>
-<p>We've been able to really focus on development of the project. And when I mean development, I mean a lot of things. I mean:</p>
-<ul class="simple">
-<li>Python</li>
-<li>Django</li>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-<li>Data Modeling</li>
-<li><a class="reference external" href="http://api.consumernotebook.com/">Documenting the API</a></li>
-<li>Marketing: <a class="reference external" href="http://insidertips.consumernotebook.com/">blogging on Consumer Notebook</a>, <a class="reference external" href="https://twitter.com/consumernotebk">Tweeting</a>, and working with other groups</li>
-<li>Trying out <a class="reference external" href="https://github.com/consumernotebook/tickets/issues">public tickets</a></li>
-<li>Iterating through the user experience by communicating to users</li>
-<li>All the boring legal and business stuff</li>
-</ul>
-<p>What you don't see is anything about sys admin issues. That's because what could have been a huge sink in time and resources is pretty much gone. We deploy staging servers with a bit of code I copy/pasted from a bash history into a Fabric script:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="n">local</span>
-
-<span class="n">commands</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
-<span class="s">heroku create --stack cedar</span>
-<span class="s">heroku addons:add memcache</span>
-<span class="s">heroku config:add S3_KEY=HAHAHAHAHAHA S3_SECRET=NOTGIVINGITOUT</span>
-<span class="s">heroku addons:add redistogo</span>
-<span class="s">heroku addons:add sendgrid:starter</span>
-<span class="s">heroku addons:add mongolab:starter</span>
-<span class="s">heroku addons:add sentry:test</span>
-<span class="s">heroku addons:add pgbackups</span>
-<span class="s">heroku addons:add custom_domains:basic</span>
-<span class="s">heroku addons:add zerigo_dns:basic</span>
-<span class="s">heroku domains:add staging.consumernotebook.com</span>
-<span class="s">heroku addons:add ssl:piggyback</span>
-<span class="s">git push heroku master</span>
-<span class="s">heroku scale web=1</span>
-<span class="s">heroku addons:add heroku-PostgreSQL:ronin</span>
-<span class="s">heroku pg:wait</span>
-<span class="s">&quot;&quot;&quot;</span>
-
-<span class="k">def</span> <span class="nf">build_staging</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">commands</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">):</span>
-        <span class="n">local</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-</pre></div>
-<p>How awesome is that?</p>
-</div>
-<div class="section" id="how-much-does-heroku-really-cost">
-<h2>How much does Heroku really cost?</h2>
-<p>You can do Heroku for free. A lot of people do. More power to them.</p>
-<p>But let's face it, beyond a certain point, every PaaS, including Heroku, is going to be more expensive then getting your own EC2, Rackspace, Dreamhost, or Linode hosted server. For a fraction of the cost, you can provision a server, install all the bits, configure the database, http server, load balancers, and even write Chef/Puppet/Fabric scripts so you can do it repeatedly at scale. Cheap!</p>
-<p>So why pay more for Heroku? Why not just do it ourselves? For example, right now we're on dedicated PostgreSQL hosting which Heroku charges us $200/month. That's a lot, right?</p>
-<blockquote class="pull-quote">
-<strong>Wrong.</strong></blockquote>
-<p>Right now we're seeing a 50% increase in visits every day. So if we ran our own servers, Chef/Puppet/Fabric or not, odds are we would be spending at least 10 hours a month doing server work. And I can assure you that when we consult that we make more than $20/hour.</p>
-<blockquote class="pull-quote">
-<strong>$200 &lt; 10 hours of us doing consulting work to bootstrap the project.</strong></blockquote>
-<p>Until you hit a certain point, these days the real cost of servers is labor. If you're a developer or small effort, and you think going with a cheap hosting provider is the way to go, think again. Think about the hours you're losing monkeying around with servers and databases instead of getting code done.</p>
-<p>Heroku saves us money.</p>
-</div>
-<div class="section" id="the-takeaway">
-<h2>The Takeaway</h2>
-<p>One of the problems Django and other Python web frameworks has had is the difficulty of deployment. I can't tell you how many projects I didn't do because of the thought of handling the sys admin side of things. Let's face it, one of the great ongoing successes for PHP is that deploying the majority of sites is trivial.</p>
-<p>With the rise of devops we've seen a lot of developers across languages and frameworks dive into <strong>Chef</strong> and <strong>Puppet</strong>. It's been sadly amusing watching people muck around with these great tools to make the deployment of 1-2 servers 'easier', when the real benefit of those tools has been to do things at scale. Things like deployments of fifty servers at once or deployment abstractions for hundreds of people (my fancy talk for PaaS).</p>
-<p>In any case, things have changed. Deploying Python web apps is as trivial as deploying PHP code.</p>
-<p>For developers I see great times ahead.</p>
-<hr class="docutils" />
-<p><a class="reference external" href="http://news.ycombinator.com/item?id=3643910">Discuss this post on Hacker News</a></p>
-</div>
+                    <p>Since the first <a class="reference external" href="http://djangogirls.org/">Django Girls</a> event I've watched the movement grow with a sense of of awe and inevitability. There is something about it that is both contagious and powerful, and in a very good way. This past weekend I had my first chance to attend one of their events in Ensenada, Mexico.</p>
+<p>This is what we saw. A room full of attendees with laser focus. The coaches were clearly inspired by the dedication of the women who had come to learn and grow.</p>
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="4" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://instagram.com/p/3Jh2fnq9Dp/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_top">#djangogirls</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A photo posted by Daniel Greenfeld (@pydanny) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2015-05-26T14:42:40+00:00">May 26, 2015 at 7:42am PDT</time></p></div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script><br><p>By the end of the day, the energy hadn't dwindled, it had accelerated.</p>
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="4" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://instagram.com/p/3JlCDUK9Ja/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_top">Saying goodbye to #djangogirls Ensenada. Everyone stayed until the very end.</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A photo posted by Daniel Greenfeld (@pydanny) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2015-05-26T15:10:27+00:00">May 26, 2015 at 8:10am PDT</time></p></div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script><br><p>No one wanted the day to end.</p>
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="4" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://instagram.com/p/3JlfO7K9KV/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_top">#djangogirls Ensenada attendees so dedicated they stayed after the event finished! :-)</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A photo posted by Daniel Greenfeld (@pydanny) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2015-05-26T15:14:26+00:00">May 26, 2015 at 8:14am PDT</time></p></div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script><br><p>We did our small part. We coached and did our best to give an invited inspirational talk.</p>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/key/5bBUFTEvDYqcIn" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/twoscoopspress/programming-gives-you-superpowers" title="Programming Gives You Superpowers" target="_blank">Programming Gives You Superpowers</a> </strong> from <strong><a href="//www.slideshare.net/twoscoopspress" target="_blank">Audrey &amp; Daniel Roy Greenfeld</a></strong> </div><br><p>The Django Girls Ensenada organizers did a magnificent job of assembling a wonderful day that touched lives. We were very impressed!</p>
+<p>The event had two sponsors, <a class="reference external" href="http://halaken.org">Hala Ken</a> and the <a class="reference external" href="http://tijuana.usconsulate.gov/">US Consulate in Tijuana, Mexico</a>. They did more than just sponsor, they were part of the effort of organizing and running the event.</p>
+<p>My co-author, co-presenter, co-everything wife AudreyR also blogged her account of it: <a class="reference external" href="http://www.codemakesmehappy.com/2015/05/our-trip-to-djangogirls-ensenada-mexico.html">Our Trip to DjangoGirls Ensenada, Mexico</a>.</p>
 
                     <div class="article-info">
                             <footer class="post-info">
@@ -214,9 +120,7 @@
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
 	<a href="./tag/django.html"><em>django</em></a>
-	<a href="./tag/heroku.html"><em>heroku</em></a>
-	<a href="./tag/consumernotebook.html"><em>consumernotebook</em></a>
-	<a href="./tag/mongodb.html"><em>mongodb</em></a>
+	<a href="./tag/pydiversity.html"><em>pydiversity</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -224,7 +128,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "you-should-heroku.html";
+                           var disqus_identifier = "django-girls-ensenada-2015.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;

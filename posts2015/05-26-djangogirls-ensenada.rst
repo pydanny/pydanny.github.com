@@ -1,11 +1,11 @@
 =====================================
-My First Django Girls Event
+Django Girls Ensenada 2015
 =====================================
 
 :date: 2015-05-27 10:00
 :tags: python, django, pydiversity
 :category: django
-:slug: my-first-djangogirls-event
+:slug: django-girls-ensenada-2015
 
 Since the first `Django Girls`_ event I've watched the movement grow with a sense of of awe and inevitability. There is something about it that is both contagious and powerful, and in a very good way. This past weekend I had my first chance to attend one of their events in Ensenada, Mexico.
 

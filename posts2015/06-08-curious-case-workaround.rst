@@ -1,12 +1,17 @@
 =======================================
-Python's Curious Switch/Case Workaround
+Why Doesn't Python Have Switch/Case?
 =======================================
 
-:date: 2015-06-08 10:00
-:tags: python, cheatsheet
-:category: django
-:slug: python-curious-switch-case-workaround
-:status: draft
+:date: 2015-06-09 18:00
+:tags: python, django, howto
+:category: python
+:slug: why-doesnt-python-have-switch-case
+
+.. image:: http://pydanny.com/static/aliens.png
+   :name: Aliens
+   :align: center
+   :alt: Aliens
+   :target: http://www.pydanny.com/static/aliens.png
 
 Unlike every other programming language I've used before, Python does not have a switch or case statement. To get around this fact, we use dictionary mapping:
 
@@ -95,24 +100,24 @@ If we don't know what method to call on a class, we can use a dispatch method to
 Pretty nifty, right?
 
 
-So why isn’t there a switch/case statement in Python?
-======================================================
+The Official Answer
+===================
 
-The `official answer`_ says, "You can do this easily enough with a sequence of ``if... elif... elif... else``". Or that you can use dictionary mapping for functions and dispatch methods for classes.
+The `official answer`_ says, "You can do this easily enough with a sequence of ``if... elif... elif... else``". And that you can use dictionary mapping for functions and dispatch methods for classes.
 
-In my opinion, what the official answer is really trying to say is, "Python doesn't need a case statement."
+Arguably the official answer doesn't explain anything except for workarounds. In other words, a "non-answer". In my opinion, what the official answer is really trying to say is, "Python doesn't need a case statement."
 
 Really?
 =======
 
 Yup. But there's more. I've heard people I respect say that switch/case statements in code can be really hard to debug.
 
-Personally I find that argument breaks down as soon as you run into gigantic nested dictionaries used for mapping of code branches. Think about it, a 100+ element nested dictionary is just as hard to debug as a nested switch block with 100+ cases.
+Personally I find that argument breaks down as soon as you run into gigantic nested dictionaries used for mapping of code branches. Think about it, a 100+ element nested dictionary is just as hard to debug as a nested switch and case block with 100+ cases.
 
-Maybe Dictionary Mapping runs Faster?
+Maybe Dictionary Mapping Runs Faster?
 =====================================
 
-Moot as Python doesn't have a case statement. What is faster in one language is not always faster in another.
+Moot as Python doesn't have a case statement. Talking about benchmarks from other languages is pointless as what is faster in one language is not always faster in another. Let's move on.
 
 The Significant Advantage of Python's Approach
 ==============================================
@@ -126,13 +131,14 @@ To me, that Python forced me to accumalate lots of practical experience with map
 
 Intentional or not, Python's lack of switch/case has been a social construct that made me a better coder.
 
-Enough so that I think this accidental social construct is a better answer than the official one.
+Enough so that I think this accidental social construct is a better answer than the official one of 'Do this instead!'
 
 ----
 
-My reference book on Django best practices, `Two Scoops of Django 1.8`_, is now available in both print paperback and PDF formats.
+The reference book I co-authored with `Audrey Roy Greenfeld`_ on Django best practices, `Two Scoops of Django 1.8`_, is now available in both print paperback and PDF formats.
 
 .. _`Two Scoops of Django 1.8`: http://twoscoopspress.com/products/two-scoops-of-django-1-8
 
 
 .. _`official answer`: https://docs.python.org/2/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python
+.. _`Audrey Roy Greenfeld`: http://www.codemakesmehappy.com
