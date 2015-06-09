@@ -92,10 +92,9 @@
 &lt;div class="section" id="closing-thoughts"&gt;
 &lt;h2&gt;Closing Thoughts&lt;/h2&gt;
 &lt;p&gt;To me, that Python forced me to accumalate lots of practical experience with mappings is a blessing in disguise. The constraint of not having switch/case statements allowed me to create approaches and ideas I may not have developed with it.&lt;/p&gt;
-&lt;p&gt;Intentional or not, Python's lack of switch/case has been a social construct that made me a better coder. Enough so that I think this accidental social construct is a better answer than the official one of 'Do this instead!'&lt;/p&gt;
-&lt;p&gt;Or... as Tim Lesher puts it, I'm suffering from Stockholme Syndrome:&lt;/p&gt;
-&lt;blockquote class="twitter-tweet" lang="en"&gt;&lt;p lang="en" dir="ltr"&gt;&lt;a href="https://twitter.com/pydanny"&gt;@pydanny&lt;/a&gt; I think they call that &amp;quot;Stockholm Syndrome&amp;quot;.&lt;/p&gt;&amp;mdash; Tim Lesher (@tlesher) &lt;a href="https://twitter.com/tlesher/status/608331276307808256"&gt;June 9, 2015&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;&lt;hr class="docutils" /&gt;
+&lt;p&gt;Intentional or not, Python's lack of switch/case has been a social construct that made me a better coder.&lt;/p&gt;
+&lt;p&gt;Enough so that I think this accidental social construct is a better answer than the official one of 'Do this instead!'&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
 &lt;p&gt;The reference book I co-authored with &lt;a class="reference external" href="http://www.codemakesmehappy.com"&gt;Audrey Roy Greenfeld&lt;/a&gt; on Django best practices, &lt;a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-8"&gt;Two Scoops of Django 1.8&lt;/a&gt;, is now available in both print paperback and PDF formats.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Django Girls Ensenada 2015</title><link href="http://pydanny.com/django-girls-ensenada-2015.html" rel="alternate"></link><updated>2015-05-27T10:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-05-27:django-girls-ensenada-2015.html</id><summary type="html">&lt;p&gt;Since the first &lt;a class="reference external" href="http://djangogirls.org/"&gt;Django Girls&lt;/a&gt; event I've watched the movement grow with a sense of of awe and inevitability. There is something about it that is both contagious and powerful, and in a very good way. This past weekend I had my first chance to attend one of their events in Ensenada, Mexico.&lt;/p&gt;
