@@ -1,5 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/ppoftw.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-02-13T18:20:00-08:00</updated><entry><title>Python Decorator Cheatsheet</title><link href="http://pydanny.com/python-decorator-cheatsheet.html" rel="alternate"></link><updated>2015-02-13T18:20:00-08:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-02-13:python-decorator-cheatsheet.html</id><summary type="html">&lt;p&gt;I can never remember the syntax for writing &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Python_syntax_and_semantics#Decorators"&gt;decorators&lt;/a&gt;. I always have to look it up. Worse, I always have to remember where to look to find references. Hence the reason for this article. I'll never lose this reference: It's on my laptop and the internet.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/ppoftw.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-09-12T09:00:00-07:00</updated><entry><title>Titlecasing Markdown Headers with Python</title><link href="http://pydanny.com/titlecasing-markdown-headers-with-python.html" rel="alternate"></link><updated>2015-09-12T09:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-09-12:titlecasing-markdown-headers-with-python.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://www.pydanny.com/static/title-case.png"&gt;&lt;img alt="Markdown" class="align-center" id="markdown" src="http://pydanny.com/static/title-case.png" /&gt;&lt;/a&gt;
+&lt;p&gt;Recently I've been writing a lot of Markdown. While not as sophisticated as ReStructuredText, it's simplicity is nice for accelerated writing. The problem is that I like to put section headings in &lt;em&gt;Title Case&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;What do I mean by title case?&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+go to the room
+&lt;/pre&gt;
+&lt;p&gt;becomes:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Go to the Room
+&lt;/pre&gt;
+&lt;p&gt;See how verb 'Go' and the noun 'Room' have their first letter capitalized? And the 'small words', specifically 'to' (preposition) and 'the' (definate article) are not? That's how title casing works (at least in English). That's what I like to see in my section headings.&lt;/p&gt;
+&lt;p&gt;In theory one could just use Python's &lt;tt class="docutils literal"&gt;str.title()&lt;/tt&gt; method to perform this transformation. However, that method is too global in reach. We would end up with:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Go To The Room  # 'to' and 'the' have titlecase, when they should not.
+&lt;/pre&gt;
+&lt;p&gt;So how do I programmatically (i.e. quickly) ensure that dozens of files scattered across multiple directories have section headers that are accurately titlecased?&lt;/p&gt;
+&lt;div class="section" id="accurately-titlecasing-programmatically"&gt;
+&lt;h2&gt;Accurately Titlecasing Programmatically&lt;/h2&gt;
+&lt;p&gt;The solution to this is a handy library called &lt;a class="reference external" href="https://pypi.python.org/pypi/titlecase"&gt;titlecase&lt;/a&gt;. Empowered by this tool I wrote the following script that allows me to transforms all my markdown files to have title cased section headings.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;Titlecases all markdown section headers in a directory.&lt;/span&gt;
+&lt;span class="sd"&gt;Confirmed to work with Python 2.7, 3.3, and 3.4.&lt;/span&gt;
+
+&lt;span class="sd"&gt;Usage:&lt;/span&gt;
+
+&lt;span class="sd"&gt;  python titlemd.py a-directory/&lt;/span&gt;
+&lt;span class="sd"&gt;  python titlemd.py  # defaults to &amp;#39;.&amp;#39;&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;fnmatch&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;titlecase&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;titlecase&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ImportError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Please install titlecase&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;location&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dirs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;walk&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;location&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fnmatch&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;*.md&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+          &lt;span class="n"&gt;file_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+          &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+          &lt;span class="c"&gt;# Open the file and read the lines as a list&lt;/span&gt;
+          &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+              &lt;span class="n"&gt;lines&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+          &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+              &lt;span class="c"&gt;# Loop through the list of lines and titlecase&lt;/span&gt;
+              &lt;span class="c"&gt;# any line beginning with &amp;#39;#&amp;#39;.&lt;/span&gt;
+              &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;startswith&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;#&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+                      &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;titlecase&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                  &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+  &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;IndexError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="markdown"></category><category term="ppoftw"></category></entry><entry><title>Python Decorator Cheatsheet</title><link href="http://pydanny.com/python-decorator-cheatsheet.html" rel="alternate"></link><updated>2015-02-13T18:20:00-08:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-02-13:python-decorator-cheatsheet.html</id><summary type="html">&lt;p&gt;I can never remember the syntax for writing &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Python_syntax_and_semantics#Decorators"&gt;decorators&lt;/a&gt;. I always have to look it up. Worse, I always have to remember where to look to find references. Hence the reason for this article. I'll never lose this reference: It's on my laptop and the internet.&lt;/p&gt;
 &lt;p&gt;Each type will include a basic version, a &lt;tt class="docutils literal"&gt;functools.wraps&lt;/tt&gt; version, and a &lt;a class="reference external" href="https://github.com/GrahamDumpleton/wrapt"&gt;wrapt&lt;/a&gt; version.&lt;/p&gt;
 &lt;div class="section" id="decorators-without-arguments"&gt;
 &lt;h2&gt;Decorators Without Arguments&lt;/h2&gt;

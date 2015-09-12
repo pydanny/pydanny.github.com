@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Two Scoops of Goblins</title>
+    <title>Titlecasing Markdown Headers with Python</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Daniel-Roy-Greenfeld">
@@ -89,24 +89,81 @@
                         <h1 class="article-title">
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to Two Scoops of Goblins">
-                                        Two Scoops of Goblins
+                                        title="Permalink to Titlecasing Markdown Headers with Python">
+                                        Titlecasing Markdown Headers with Python
                                 </a>
                         </h1>
                 </header>
 
                 <p>
-                    <em>Tuesday, April 01, 2014</em>
-                    (<a href="" rel="bookmark" title="Permalink to Two Scoops of Goblins">permalink</a>)
+                    <em>Saturday, September 12, 2015</em>
+                    (<a href="" rel="bookmark" title="Permalink to Titlecasing Markdown Headers with Python">permalink</a>)
                 </p>
 
                 <div class="entry-content">
-                    <p>While <a class="reference external" href="http://audreyr.com/">Audrey Roy Greenfeld</a> and I were contemplating our next Two Scoops Press book topic, it came down to a decision between Pyramid, Flask, and mythical creatures. Inspired by Django's magical flying pony, Pyramid's scary alien dude, and even the idea of a magical Flask pouring out wonderful projects, we've decided to go with mythical creatures.</p>
-<p>Specifically, we're writing about goblins, hence the title of this blog post.</p>
-<p>What that means is that the next book we publish will be fantasy. Going forward all the books we write will be fiction.</p>
-<p>If we ever write a new <a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-6">Two Scoops of Django</a> book, it will be a fantasy about a magical flying pony who eats ice cream. That way we'll confuse the <a class="reference external" href="http://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&amp;field-keywords=django&amp;tag=mlinar-20">already muddled Amazon.com search requests for 'Django'</a> even more.</p>
-<p>Since this is a technical blog, I'll be moving my fiction writing based articles to my author blog at <a class="reference external" href="http://www.danielroygreenfeld.com">danielroygreenfeld.com</a>.</p>
-<a class="reference external image-reference" href="http://www.danielroygreenfeld.com"><img alt="https://s3.amazonaws.com/pydanny/two-scoops-of-goblins.png" class="align-center" id="two-scoops-of-goblins-cover" src="https://s3.amazonaws.com/pydanny/two-scoops-of-goblins.png" /></a>
+                    <a class="reference external image-reference" href="http://www.pydanny.com/static/title-case.png"><img alt="Markdown" class="align-center" id="markdown" src="http://pydanny.com/static/title-case.png" /></a>
+<p>Recently I've been writing a lot of Markdown. While not as sophisticated as ReStructuredText, it's simplicity is nice for accelerated writing. The problem is that I like to put section headings in <em>Title Case</em>.</p>
+<p>What do I mean by title case?</p>
+<pre class="literal-block">
+go to the room
+</pre>
+<p>becomes:</p>
+<pre class="literal-block">
+Go to the Room
+</pre>
+<p>See how verb 'Go' and the noun 'Room' have their first letter capitalized? And the 'small words', specifically 'to' (preposition) and 'the' (definate article) are not? That's how title casing works (at least in English). That's what I like to see in my section headings.</p>
+<p>In theory one could just use Python's <tt class="docutils literal">str.title()</tt> method to perform this transformation. However, that method is too global in reach. We would end up with:</p>
+<pre class="literal-block">
+Go To The Room  # 'to' and 'the' have titlecase, when they should not.
+</pre>
+<p>So how do I programmatically (i.e. quickly) ensure that dozens of files scattered across multiple directories have section headers that are accurately titlecased?</p>
+<div class="section" id="accurately-titlecasing-programmatically">
+<h2>Accurately Titlecasing Programmatically</h2>
+<p>The solution to this is a handy library called <a class="reference external" href="https://pypi.python.org/pypi/titlecase">titlecase</a>. Empowered by this tool I wrote the following script that allows me to transforms all my markdown files to have title cased section headings.</p>
+<div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Titlecases all markdown section headers in a directory.</span>
+<span class="sd">Confirmed to work with Python 2.7, 3.3, and 3.4.</span>
+
+<span class="sd">Usage:</span>
+
+<span class="sd">  python titlemd.py a-directory/</span>
+<span class="sd">  python titlemd.py  # defaults to &#39;.&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">fnmatch</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="kn">from</span> <span class="nn">titlecase</span> <span class="kn">import</span> <span class="n">titlecase</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">&quot;Please install titlecase&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">location</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">location</span><span class="p">):</span>
+      <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="s">&quot;*.md&quot;</span><span class="p">):</span>
+          <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+          <span class="k">print</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+          <span class="c"># Open the file and read the lines as a list</span>
+          <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+              <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+          <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+              <span class="c"># Loop through the list of lines and titlecase</span>
+              <span class="c"># any line beginning with &#39;#&#39;.</span>
+              <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+                  <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;#&#39;</span><span class="p">):</span>
+                      <span class="n">line</span> <span class="o">=</span> <span class="n">titlecase</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+                  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="k">try</span><span class="p">:</span>
+      <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+  <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+      <span class="n">main</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 
                     <div class="article-info">
                             <footer class="post-info">
@@ -114,10 +171,8 @@
 
 Tags:
 	<a href="./tag/python.html"><em>python</em></a>
-	<a href="./tag/django.html"><em>django</em></a>
-	<a href="./tag/blog.html"><em>blog</em></a>
-	<a href="./tag/book.html"><em>book</em></a>
-	<a href="./tag/twoscoops.html"><em>twoscoops</em></a>
+	<a href="./tag/markdown.html"><em>markdown</em></a>
+	<a href="./tag/ppoftw.html"><em>ppoftw</em></a>
 </footer><!-- /.post-info -->                    </div>
                 </div><!-- /.entry-content -->
                                 <hr/>
@@ -125,7 +180,7 @@ Tags:
                 <h3>Comments</h3>
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
-                           var disqus_identifier = "two-scoops-of-goblins.html";
+                           var disqus_identifier = "titlecasing-markdown-headers-with-python.html";
                            (function() {
                                 var dsq = document.createElement('script');
                                 dsq.type = 'text/javascript'; dsq.async = true;

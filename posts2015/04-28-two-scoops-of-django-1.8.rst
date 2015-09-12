@@ -3,7 +3,7 @@ Two Scoops of Django 1.8 is Out!
 ==============================================
 
 :date: 2015-04-29 10:00
-:tags: twoscoops, python, django, audrey, book, forms, class-based-views
+:tags: twoscoops, python, django, audrey, book, class-based-views
 :category: book
 :slug: two-scoops-of-django-1-8
 
