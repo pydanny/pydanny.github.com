@@ -15,9 +15,9 @@ Titlecasing Markdown Headers with Python
    :target: http://www.pydanny.com/static/title-case.png
 
 
-Recently I've been writing a lot of Markdown. While not as sophisticated as ReStructuredText, it's simplicity is nice for accelerated writing. The problem is that I like to put section headings in *Title Case*.
+Recently I've been writing a lot of Markdown. While not as sophisticated as ReStructuredText, it's simplicity is nice for accelerated writing. The problem is that I like to put section headings in *titlecase*.
 
-What do I mean by title case?
+What do I mean by titlecase?
 
 ::
 
@@ -38,7 +38,7 @@ So how do I programmatically (i.e. quickly) ensure that dozens of files scattere
 Accurately Titlecasing Programmatically
 =======================================
 
-The solution to this is a handy library called titlecase_. Empowered by this tool I wrote the following script that allows me to transforms all my markdown files to have title cased section headings.
+The solution to this is a handy library called titlecase_. Empowered by this tool I wrote the following script that allows me to transforms all my markdown files to have titlecased section headings.
 
 .. _titlecase: https://pypi.python.org/pypi/titlecase
 

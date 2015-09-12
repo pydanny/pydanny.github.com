@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/markdown.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-09-12T09:00:00-07:00</updated><entry><title>Titlecasing Markdown Headers with Python</title><link href="http://pydanny.com/titlecasing-markdown-headers-with-python.html" rel="alternate"></link><updated>2015-09-12T09:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-09-12:titlecasing-markdown-headers-with-python.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://www.pydanny.com/static/title-case.png"&gt;&lt;img alt="Markdown" class="align-center" id="markdown" src="http://pydanny.com/static/title-case.png" /&gt;&lt;/a&gt;
-&lt;p&gt;Recently I've been writing a lot of Markdown. While not as sophisticated as ReStructuredText, it's simplicity is nice for accelerated writing. The problem is that I like to put section headings in &lt;em&gt;Title Case&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;What do I mean by title case?&lt;/p&gt;
+&lt;p&gt;Recently I've been writing a lot of Markdown. While not as sophisticated as ReStructuredText, it's simplicity is nice for accelerated writing. The problem is that I like to put section headings in &lt;em&gt;titlecase&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;What do I mean by titlecase?&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 go to the room
 &lt;/pre&gt;
@@ -17,7 +17,7 @@ Go To The Room  # 'to' and 'the' have titlecase, when they should not.
 &lt;p&gt;So how do I programmatically (i.e. quickly) ensure that dozens of files scattered across multiple directories have section headers that are accurately titlecased?&lt;/p&gt;
 &lt;div class="section" id="accurately-titlecasing-programmatically"&gt;
 &lt;h2&gt;Accurately Titlecasing Programmatically&lt;/h2&gt;
-&lt;p&gt;The solution to this is a handy library called &lt;a class="reference external" href="https://pypi.python.org/pypi/titlecase"&gt;titlecase&lt;/a&gt;. Empowered by this tool I wrote the following script that allows me to transforms all my markdown files to have title cased section headings.&lt;/p&gt;
+&lt;p&gt;The solution to this is a handy library called &lt;a class="reference external" href="https://pypi.python.org/pypi/titlecase"&gt;titlecase&lt;/a&gt;. Empowered by this tool I wrote the following script that allows me to transforms all my markdown files to have titlecased section headings.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 &lt;span class="sd"&gt;Titlecases all markdown section headers in a directory.&lt;/span&gt;
 &lt;span class="sd"&gt;Confirmed to work with Python 2.7, 3.3, and 3.4.&lt;/span&gt;
