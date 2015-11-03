@@ -1,4 +1,17 @@
-h1, h2, h3, h4, h5, h6 {
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+
+h1.article-title {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+  font-size: 44px;
+  line-height: 60px;
+}
+
+h1.article-title a {
+  text-decoration: none;
+}
+
+h2, h3, h4, h5, h6 {
     font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 article img, .article img {
@@ -40,7 +53,7 @@ article img, .article img {
    padding: 9px 0;
  }
  .capitalize {
-     text-transform: capitalize;
+  text-transform: capitalize;
  }
  .two-scoops-cover-thumb {
     width: 130px;

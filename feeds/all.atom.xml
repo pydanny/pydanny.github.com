@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/all.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-09-12T09:00:00-07:00</updated><entry><title>Titlecasing Markdown Headers with Python</title><link href="http://pydanny.com/titlecasing-markdown-headers-with-python.html" rel="alternate"></link><updated>2015-09-12T09:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-09-12:titlecasing-markdown-headers-with-python.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://www.pydanny.com/static/title-case.png"&gt;&lt;img alt="Markdown" class="align-center" id="markdown" src="http://pydanny.com/static/title-case.png" /&gt;&lt;/a&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/all.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-11-03T09:00:00-08:00</updated><entry><title>Intensive Django Training with the US Air Force</title><link href="http://pydanny.com/intensive-django-training-us-air-force.html" rel="alternate"></link><updated>2015-11-03T09:00:00-08:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-11-03:intensive-django-training-us-air-force.html</id><summary type="html">&lt;p&gt;Last week &lt;a class="reference external" href="http://www.codemakesmehappy.com/"&gt;Audrey Roy Greenfeld&lt;/a&gt; and I had the privilege of teaching the US Air Force's &lt;a class="reference external" href="https://en.wikipedia.org/wiki/91st_Cyberspace_Operations_Squadron"&gt;91st Cyberspace Operations Squadron&lt;/a&gt; the finer details of how to build, test, and deploy &lt;a class="reference external" href="https://djangoproject.com"&gt;Django&lt;/a&gt; web applications.&lt;/p&gt;
+&lt;a class="reference external image-reference" href="http://www.pydanny.com/intensive-django-training-us-air-force.html"&gt;&lt;img alt="Two Scoops Academy 91st COS Django Training" class="align-center" id="two-scoops-academy-91st-cos-django-training" src="http://www.pydanny.com/static/two-scoops-academy-91cos-django-training.png" /&gt;&lt;/a&gt;
+&lt;p&gt;It was a challenging, exciting experience for us as instructors. We've taught numerous Python and Django trainings over the years under &lt;a class="reference external" href="http://www.cartwheelweb.com/training/"&gt;Cartwheel Web&lt;/a&gt; , but this was the first time we taught as &lt;a class="reference external" href="http://www.twoscoopsacademy.com"&gt;Two Scoops Academy&lt;/a&gt; using our new system of instruction.&lt;/p&gt;
+&lt;p&gt;The environment that the 91st Network Warfare Squadron works in is heavily isolated from the internet. What this means is that until technology or information is approved, it is unavailable to the software developers. While they can access Google, Stack Overflow, and Read the Docs, reading the source on GitHub is something they do at home, not on the job. This means they really need to understand their material. Our experience with their team (already competent in other programming tools) was that they were bright, focused, and willing to learn.&lt;/p&gt;
+&lt;p&gt;The class included material on:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Python, PEP8, PEP20, object oriented programming&lt;/li&gt;
+&lt;li&gt;Django and related best practices&lt;/li&gt;
+&lt;li&gt;Class-based views, ModelForms, and Forms&lt;/li&gt;
+&lt;li&gt;Using third-party Python/Django components&lt;/li&gt;
+&lt;li&gt;Bootstrapping projects with &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/pydanny/cookiecutter-django"&gt;Cookiecutter-Django&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PostgreSQL, pgAdmin III, and PyCharm's database tools&lt;/li&gt;
+&lt;li&gt;PyCharm settings, debugging, testing, and coverage integration&lt;/li&gt;
+&lt;li&gt;Bootstrap, SASS, CSS, and Grunt&lt;/li&gt;
+&lt;li&gt;Simple and advanced version control workflows with Git&lt;/li&gt;
+&lt;li&gt;APIs with Django REST Framework&lt;/li&gt;
+&lt;li&gt;Django project deployment with Docker&lt;/li&gt;
+&lt;li&gt;Custom material as requested by the US Air Force&lt;/li&gt;
+&lt;li&gt;Much more&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We readily admit taking our course material is like receiving a firehose of knowledge to the face; that large portions probably won't make sense for months. Yet as always with smart students, we could tell that the core concepts of our curriculum were sticking.&lt;/p&gt;
+&lt;p&gt;During the afternoon of the last day we switched to &amp;quot;project&amp;quot; mode, where the class breaks up into small teams to begin trying to resolve various in-house challenges. To our delight, challenges were completed and real progress was made. As instructors, nothing is more exciting than seeing your students succeed.&lt;/p&gt;
+&lt;p&gt;The class ended on a high note, but as always I'm sad that it's over. Our host, Captain &lt;a class="reference external" href="https://twitter.com/jondelmil"&gt;Jonathan D. Miller&lt;/a&gt;, was gracious and accommodating. The students were friendly and willing to learn. I'm grateful to have taught them on &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Lackland_Air_Force_Base"&gt;Lackland Air Force Base&lt;/a&gt;, and I look forward to hearing about their successes in the future.&lt;/p&gt;
+&lt;div class="section" id="testimonial-by-captain-jonathan-d-miller"&gt;
+&lt;h2&gt;Testimonial by Captain Jonathan D. Miller&lt;/h2&gt;
+&lt;p&gt;Here are some kind words that we received about the training we provided:&lt;/p&gt;
+&lt;em&gt;&lt;p&gt;&amp;ldquo;Daniel and Audrey just ran the most effective, focused training course I've had the pleasure of attending. They worked tirelessly with me in the months leading up to the course so that it was tailored specifically for our squadron's development environment, and they followed up afterward to ensure that their slides were flawless for our continued reference.&lt;/p&gt;
+
+&lt;p&gt;At several points during the course, my developers took me aside to mention to me how impressed they were with the Greenfelds' quality of instruction, preparation, and attention to detail. Having two instructors was a true force multiplier -- we covered more ground on Python and Django than I thought possible. After four days we were already building working prototypes of our desired applications, and many in the class had never touched Python before!&lt;/p&gt;
+
+&lt;p&gt;Our squadron's return on investment for this course was remarkable. Daniel and Audrey have my strongest endorsement, and I know the 91st COS will be sending future developers.&amp;rdquo;&lt;/p&gt;&lt;/em&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="https://twitter.com/jondelmil"&gt;Jonathan D. Miller&lt;/a&gt;, Capt, US Air Force&lt;/div&gt;
+&lt;div class="line"&gt;91st Cyberspace Operations Squadron&lt;/div&gt;
+&lt;div class="line"&gt;Flight Commander - Software, Infrastructure, and Projects&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;hr /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="django"></category><category term="python"></category><category term="Two Scoops Academy"></category><category term="training"></category><category term="Cartwheel Web"></category></entry><entry><title>Titlecasing Markdown Headers with Python</title><link href="http://pydanny.com/titlecasing-markdown-headers-with-python.html" rel="alternate"></link><updated>2015-09-12T09:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-09-12:titlecasing-markdown-headers-with-python.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://www.pydanny.com/static/title-case.png"&gt;&lt;img alt="Markdown" class="align-center" id="markdown" src="http://pydanny.com/static/title-case.png" /&gt;&lt;/a&gt;
 &lt;p&gt;Recently I've been writing a lot of Markdown. While not as sophisticated as ReStructuredText, it's simplicity is nice for accelerated writing. The problem is that I like to put section headings in &lt;em&gt;titlecase&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;What do I mean by titlecase?&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
