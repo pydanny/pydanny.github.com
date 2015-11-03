@@ -49,6 +49,10 @@ During the afternoon of the last day we switched to "project" mode, where the cl
 
 The class ended on a high note, but as always I'm sad that it's over. Our host, Captain `Jonathan D. Miller`_, was gracious and accommodating. The students were friendly and willing to learn. I'm grateful to have taught them on `Lackland Air Force Base`_, and I look forward to hearing about their successes in the future.
 
+For more details, see Audrey's `blog post`_.
+
+
+.. _`blog post`: http://www.codemakesmehappy.com/2015/11/intensive-django-training-with-91st.html
 .. _`Jonathan D. Miller`: https://twitter.com/jondelmil
 .. _`91st Cyberspace Operations Squadron`: https://en.wikipedia.org/wiki/91st_Cyberspace_Operations_Squadron
 .. _`Two Scoops Academy`: http://www.twoscoopsacademy.com
