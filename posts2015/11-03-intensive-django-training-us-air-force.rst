@@ -22,7 +22,7 @@ It was a challenging, exciting experience for us as instructors. We've taught nu
 .. _`Audrey Roy Greenfeld`: http://www.codemakesmehappy.com/
 .. _`Django`: https://djangoproject.com
 
-The environment that the 91st Network Warfare Squadron works in is heavily isolated from the internet. What this means is that until technology or information is approved, it is unavailable to the software developers. While they can access Google, Stack Overflow, and Read the Docs, reading the source on GitHub is something they do at home, not on the job. This means they really need to understand their material. Our experience with their team (already competent in other programming tools) was that they were bright, focused, and willing to learn.
+The environment that the 91st Cyberspace Operations Squadron works in is heavily isolated from the internet. What this means is that until technology or information is approved, it is unavailable to the software developers. While they can access Google, Stack Overflow, and Read the Docs, reading the source on GitHub is something they do at home, not on the job. This means they really need to understand their material. Our experience with their team (already competent in other programming tools) was that they were bright, focused, and willing to learn.
 
 The class included material on:
 
