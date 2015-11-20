@@ -114,7 +114,7 @@ Now, instead of monkeying around for awhile doing copy/paste package setup, I'm 
 Summary
 =============
 
-``cookiecutter-djangopackage`` does a lot, but even with its tight focus on package creation it could do more. Some of the things I would love to see included in the future:
+`cookiecutter-djangopackage`_ does a lot, but even with its tight focus on package creation it could do more. Some of the things I would love to see included in the future:
 
 * Option for Appveyor CI support
 * Option to replace ``django.test`` with ``py.test``.
@@ -123,7 +123,8 @@ Summary
 
 Try it out and let me know what you think. I'm open to new ideas and receiving pull requests.
 
-.. _`issue tracker`: https://github.com/pydanny/cookiecutter-djangopackage/issu
+.. _`cookiecutter-djangopackage`: https://github.com/pydanny/cookiecutter-djangopackage
+.. _`issue tracker`: https://github.com/pydanny/cookiecutter-djangopackage/issues
 .. _PyPI: pypi.python.org/pypi
 .. _`Django Packages`: https://wwww.djangopackages.com
 .. _`cookiecutter.json`: https://github.com/pydanny/cookiecutter-djangopackage/blob/master/cookiecutter.json
