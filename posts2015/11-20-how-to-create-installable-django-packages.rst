@@ -1,5 +1,5 @@
 ========================================================
-How To Create Installable Django Packages
+How To Create Installable, Reusable Django Packages
 ========================================================
 
 :date: 2015-11-20 18:30
@@ -41,7 +41,7 @@ Well, here's how I do it.
 Introducing cookiecutter-djangopackage
 ======================================
 
-`cookiecutter-djangopackage`_ is a Cookiecutter_ template for creating reusable Django packages. Using it is easy: 
+`cookiecutter-djangopackage`_ is a Cookiecutter_ template for creating reusable Django packages. Using it is easy:
 
 First, get Cookiecutter_.  Trust me, it's awesome:
 
