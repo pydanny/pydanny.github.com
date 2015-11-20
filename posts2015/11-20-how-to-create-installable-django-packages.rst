@@ -2,50 +2,68 @@
 How To Create Installable Django Packages
 ========================================================
 
-:date: 2015-11-12 09:00
-:tags: python, python3, django, cheatsheet, ppoftw,
+:date: 2015-11-20 18:30
+:tags: python, python3, django, cheatsheet, ppoftw, djangopackages
 :category: Django
-:slug: how-to-create-installable-django-packages.rst
-:status: draft
+:slug: how-to-create-installable-django-packages
 
-Ever want to quickly create an installable Django package to submit to PyPI_ and `Django Packages`_? One that goes beyond the basics described in the `Django tutorial`_? Specifically, a package that includes:
+.. image:: http://www.pydanny.com/static/django-package-470x246.png
+  :name: Django Package Ecosystem: cookiecutter-djangopackage
+  :align: center
+  :alt: Django Package Ecosystem: cookiecutter-djangopackage
+  :target: http://www.pydanny.com/how-to-create-installable-django-packages.html
+
+What I mean by an "installable Django package": a reusable component that can be shared across Django projects, allowing us to combine our own efforts with others. Some examples include:
+
+* `django-test-plus`_
+* `django-crispy-forms`_
+* `dj-stripe`_
+* `dj-spam`_
+
+.. _`django-crispy-forms`: https://www.djangopackages.com/packages/p/django-crispy-forms/
+.. _`django-test-plus`: https://www.djangopackages.com/packages/p/django-test-plus/
+.. _`dj-stripe`: https://www.djangopackages.com/packages/p/dj-stripe/
+.. _`dj-spam`: https://www.djangopackages.com/packages/p/dj-spam/
+
+Ever want to quickly create a similarly installable Django package to submit to PyPI_ and `Django Packages`_? One that goes beyond the basics described in the `Django tutorial`_? Specifically, a package that includes:
 
 .. _`Django tutorial`: https://docs.djangoproject.com/en/1.8/intro/reusable-apps/
 
-* Configuration in place: Travis, editorconfig, gitignore, etc.
-* Read the Docs-ready Sphinx docs.
 * Test runner so you don't need a example/test project (Although those can be useful).
+* The important configuration in place: Travis, editorconfig, gitignore, etc.
+* The important documentation in place: Readme, License, Read the Docs-ready Sphinx docs, etc.
 * Static files ready to go.
 * A base DTL/Jinja2 template ready to go.
-* Lots more!
+* All those other fiddly bits not included in ``django-admin.py startapp`` that are hard to remember.
 
-Well, assuming I'm in a virtualenv here's how I do it:
+Well, here's how I do it.
 
-.. code-block:: bash
+Introducing cookiecutter-djangopackage
+======================================
 
-    (env) $ pip install cookiecutter
-    (env) $ cookiecutter Cloning into 'cookiecutter-pypackage'...
-    remote: Counting objects: 183, done.
-    remote: Compressing objects: 100% (100/100), done.
-    remote: Total 183 (delta 87), reused 161 (delta 70)
-    Receiving objects: 100% (183/183), 29.36 KiB | 0 bytes/s, done.
-    Resolving deltas: 100% (87/87), done.
-    Checking connectivity... done
-    full_name (default is "Your name")? Daniel Roy Greenfeld
-    email (default is "you@example.com")? pydanny@example.com
-    github_username (default is "yourname")? pydanny
-    project_name (default is "dj-package")? cheese
-    repo_name (default is "dj-package")? cheese
-    app_name (default is "djpackage")? cheese
-    ... snip for brevity
-
-See how it asks my full name? Well, at this point, Cookiecutter_ begins to ask a number of questions. These questions are actually specified in the `cookiecutter.json`_ file for `cookiecutter-djangopackage`_.
-
-Once you've answered everything that cookiecutter-djangopackage wants, it generates your project. Let's go check. It should have generated something like this:
+First, get Cookiecutter_.  Trust me, it's awesome:
 
 .. code-block:: bash
 
-    $ tree cheese
+    $ pip install cookiecutter
+
+Now run it against this repo:
+
+.. code-block:: bash
+
+    $ cookiecutter https://github.com/pydanny/cookiecutter-djangopackage.git
+
+You'll be prompted to enter some values. Enter them. Then an installable Django package will be built for you.
+
+**Warning**: ``app_name`` must be a valid Python module name or you will have issues on imports.
+
+Enter the new package (in my case, I called it 'newpackage') and look around. Open up the ``AUTHORS.rst``, ``setup.py``, or ``README.rst`` files and you'll see your input inserted into the appropriate locations.
+
+Speaking of the ``README.rst``, that file includes instructions for putting the new package on PyPI_ and `Django Packages`_.
+
+.. code-block:: bash
+
+    newpackage
     ├── .editorconfig
     ├── .gitignore
     ├── .travis.yml
@@ -56,16 +74,16 @@ Once you've answered everything that cookiecutter-djangopackage wants, it genera
     ├── MANIFEST.in
     ├── Makefile
     ├── README.rst
-    ├── cheese
+    ├── newpackage
     │   ├── __init__.py
     │   ├── models.py
     │   ├── static
     │   │   ├── css
-    │   │   │   └── cheese.css
+    │   │   │   └── newpackage.css
     │   │   ├── img
     │   │   │   └── .gitignore
     │   │   └── js
-    │   │       └── cheese.js
+    │   │       └── newpackage.js
     │   └── templates
     │       └── cheese
     │           └── base.html
@@ -91,10 +109,21 @@ Once you've answered everything that cookiecutter-djangopackage wants, it genera
     │   └── test_models.py
     └── tox.ini
 
-Now, instead of monkeying around with how to setup my project, I'm ready to write the code.
+Now, instead of monkeying around for awhile doing copy/paste package setup, I'm immediately ready to write code.
 
+Summary
+=============
 
+``cookiecutter-djangopackage`` does a lot, but even with its tight focus on package creation it could do more. Some of the things I would love to see included in the future:
 
+* Option for Appveyor CI support
+* Option to replace ``django.test`` with ``py.test``.
+* Generation of model boilerplate, admin, and CRUD views.
+* More in the `issue tracker`_.
+
+Try it out and let me know what you think. I'm open to new ideas and receiving pull requests.
+
+.. _`issue tracker`: https://github.com/pydanny/cookiecutter-djangopackage/issu
 .. _PyPI: pypi.python.org/pypi
 .. _`Django Packages`: https://wwww.djangopackages.com
 .. _`cookiecutter.json`: https://github.com/pydanny/cookiecutter-djangopackage/blob/master/cookiecutter.json

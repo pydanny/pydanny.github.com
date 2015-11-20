@@ -1,5 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python3.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-02-13T18:20:00-08:00</updated><entry><title>Python Decorator Cheatsheet</title><link href="http://pydanny.com/python-decorator-cheatsheet.html" rel="alternate"></link><updated>2015-02-13T18:20:00-08:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-02-13:python-decorator-cheatsheet.html</id><summary type="html">&lt;p&gt;I can never remember the syntax for writing &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Python_syntax_and_semantics#Decorators"&gt;decorators&lt;/a&gt;. I always have to look it up. Worse, I always have to remember where to look to find references. Hence the reason for this article. I'll never lose this reference: It's on my laptop and the internet.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python3.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2015-11-20T18:30:00-08:00</updated><entry><title>How To Create Installable Django Packages</title><link href="http://pydanny.com/how-to-create-installable-django-packages.html" rel="alternate"></link><updated>2015-11-20T18:30:00-08:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-11-20:how-to-create-installable-django-packages.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://www.pydanny.com/how-to-create-installable-django-packages.html"&gt;&lt;img alt="Django Package Ecosystem: cookiecutter-djangopackage" class="align-center" id="django-package-ecosystem-cookiecutter-djangopackage" src="http://www.pydanny.com/static/django-package-470x246.png" /&gt;&lt;/a&gt;
+&lt;p&gt;What I mean by an &amp;quot;installable Django package&amp;quot;: a reusable component that can be shared across Django projects, allowing us to combine our own efforts with others. Some examples include:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.djangopackages.com/packages/p/django-test-plus/"&gt;django-test-plus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.djangopackages.com/packages/p/django-crispy-forms/"&gt;django-crispy-forms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.djangopackages.com/packages/p/dj-stripe/"&gt;dj-stripe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.djangopackages.com/packages/p/dj-spam/"&gt;dj-spam&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ever want to quickly create a similarly installable Django package to submit to &lt;a class="reference external" href="pypi.python.org/pypi"&gt;PyPI&lt;/a&gt; and &lt;a class="reference external" href="https://wwww.djangopackages.com"&gt;Django Packages&lt;/a&gt;? One that goes beyond the basics described in the &lt;a class="reference external" href="https://docs.djangoproject.com/en/1.8/intro/reusable-apps/"&gt;Django tutorial&lt;/a&gt;? Specifically, a package that includes:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Test runner so you don't need a example/test project (Although those can be useful).&lt;/li&gt;
+&lt;li&gt;The important configuration in place: Travis, editorconfig, gitignore, etc.&lt;/li&gt;
+&lt;li&gt;The important documentation in place: Readme, License, Read the Docs-ready Sphinx docs, etc.&lt;/li&gt;
+&lt;li&gt;Static files ready to go.&lt;/li&gt;
+&lt;li&gt;A base DTL/Jinja2 template ready to go.&lt;/li&gt;
+&lt;li&gt;All those other fiddly bits not included in &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;django-admin.py&lt;/span&gt; startapp&lt;/tt&gt; that are hard to remember.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Well, here's how I do it.&lt;/p&gt;
+&lt;div class="section" id="introducing-cookiecutter-djangopackage"&gt;
+&lt;h2&gt;Introducing cookiecutter-djangopackage&lt;/h2&gt;
+&lt;p&gt;First, get &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt;.  Trust me, it's awesome:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install cookiecutter
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now run it against this repo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cookiecutter https://github.com/pydanny/cookiecutter-djangopackage.git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You'll be prompted to enter some values. Enter them. Then an installable Django package will be built for you.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: &lt;tt class="docutils literal"&gt;app_name&lt;/tt&gt; must be a valid Python module name or you will have issues on imports.&lt;/p&gt;
+&lt;p&gt;Enter the new package (in my case, I called it 'newpackage') and look around. Open up the &lt;tt class="docutils literal"&gt;AUTHORS.rst&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;setup.py&lt;/tt&gt;, or &lt;tt class="docutils literal"&gt;README.rst&lt;/tt&gt; files and you'll see your input inserted into the appropriate locations.&lt;/p&gt;
+&lt;p&gt;Speaking of the &lt;tt class="docutils literal"&gt;README.rst&lt;/tt&gt;, that file includes instructions for putting the new package on &lt;a class="reference external" href="pypi.python.org/pypi"&gt;PyPI&lt;/a&gt; and &lt;a class="reference external" href="https://wwww.djangopackages.com"&gt;Django Packages&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;newpackage
+├── .editorconfig
+├── .gitignore
+├── .travis.yml
+├── AUTHORS.rst
+├── CONTRIBUTING.rst
+├── HISTORY.rst
+├── LICENSE
+├── MANIFEST.in
+├── Makefile
+├── README.rst
+├── newpackage
+│   ├── __init__.py
+│   ├── models.py
+│   ├── static
+│   │   ├── css
+│   │   │   └── newpackage.css
+│   │   ├── img
+│   │   │   └── .gitignore
+│   │   └── js
+│   │       └── newpackage.js
+│   └── templates
+│       └── cheese
+│           └── base.html
+├── docs
+│   ├── Makefile
+│   ├── authors.rst
+│   ├── conf.py
+│   ├── contributing.rst
+│   ├── history.rst
+│   ├── index.rst
+│   ├── installation.rst
+│   ├── make.bat
+│   ├── readme.rst
+│   └── usage.rst
+├── requirements-test.txt
+├── requirements.txt
+├── requirements_dev.txt
+├── runtests.py
+├── setup.cfg
+├── setup.py
+├── tests
+│   ├── __init__.py
+│   └── test_models.py
+└── tox.ini
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now, instead of monkeying around for awhile doing copy/paste package setup, I'm immediately ready to write code.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cookiecutter-djangopackage&lt;/span&gt;&lt;/tt&gt; does a lot, but even with its tight focus on package creation it could do more. Some of the things I would love to see included in the future:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Option for Appveyor CI support&lt;/li&gt;
+&lt;li&gt;Option to replace &lt;tt class="docutils literal"&gt;django.test&lt;/tt&gt; with &lt;tt class="docutils literal"&gt;py.test&lt;/tt&gt;.&lt;/li&gt;
+&lt;li&gt;Generation of model boilerplate, admin, and CRUD views.&lt;/li&gt;
+&lt;li&gt;More in the &lt;a class="reference external" href="https://github.com/pydanny/cookiecutter-djangopackage/issu"&gt;issue tracker&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Try it out and let me know what you think. I'm open to new ideas and receiving pull requests.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="python3"></category><category term="django"></category><category term="cheatsheet"></category><category term="ppoftw"></category><category term="djangopackages"></category></entry><entry><title>Python Decorator Cheatsheet</title><link href="http://pydanny.com/python-decorator-cheatsheet.html" rel="alternate"></link><updated>2015-02-13T18:20:00-08:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2015-02-13:python-decorator-cheatsheet.html</id><summary type="html">&lt;p&gt;I can never remember the syntax for writing &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Python_syntax_and_semantics#Decorators"&gt;decorators&lt;/a&gt;. I always have to look it up. Worse, I always have to remember where to look to find references. Hence the reason for this article. I'll never lose this reference: It's on my laptop and the internet.&lt;/p&gt;
 &lt;p&gt;Each type will include a basic version, a &lt;tt class="docutils literal"&gt;functools.wraps&lt;/tt&gt; version, and a &lt;a class="reference external" href="https://github.com/GrahamDumpleton/wrapt"&gt;wrapt&lt;/a&gt; version.&lt;/p&gt;
 &lt;div class="section" id="decorators-without-arguments"&gt;
 &lt;h2&gt;Decorators Without Arguments&lt;/h2&gt;
