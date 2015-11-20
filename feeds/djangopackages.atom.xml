@@ -19,6 +19,7 @@
 &lt;p&gt;Well, here's how I do it.&lt;/p&gt;
 &lt;div class="section" id="introducing-cookiecutter-djangopackage"&gt;
 &lt;h2&gt;Introducing cookiecutter-djangopackage&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/pydanny/cookiecutter-djangopackage"&gt;cookiecutter-djangopackage&lt;/a&gt; is a &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt; template for creating reusable Django packages. Using it is easy:&lt;/p&gt;
 &lt;p&gt;First, get &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt;.  Trust me, it's awesome:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install cookiecutter
 &lt;/pre&gt;&lt;/div&gt;
