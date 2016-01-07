@@ -2,14 +2,22 @@
 Events
 ===========
 
-:date: 2014-09-15 07:30
+:date: 2016-01-08 10:05
+
+May 2016: PyCon US
+==================================
+
+* Portland, Oregon
+* https://us.pycon.org/2016/
+
+For most of the conference I'll be at the Cookiecutter booth in the Exhibit Hall. Stop by and say hi!
 
 
-June 2015: PyCon Singapore
+June 2016: PyCon Singapore
 ==================================
 
 * Singapore
-
+* https://pycon.sg/
 
 ----
 
