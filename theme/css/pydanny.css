@@ -114,3 +114,9 @@ article img, .article img {
     /* remove underline from button links */
     text-decoration: none;
 }
+
+.img-responsive {
+  display: block;
+  max-width: 100%; // Set a maximum relative to the parent
+  height: auto;    // Scale the height according to the width, otherwise you get stretching
+}
