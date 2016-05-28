@@ -2,7 +2,7 @@
 Code, Code, Code
 ========================================================
 
-:date: 2017-05-28 17:00
+:date: 2016-05-28 17:00
 :tags: django, python
 :category: python
 :slug: code-code-code
