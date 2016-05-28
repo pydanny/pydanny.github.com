@@ -13,7 +13,7 @@ I'm often asked by new programmers how they can forge a path into using their sk
 How to Improve Your Coding Skills
 ====================================
 
-This was my path. It may not be your path.
+This was my path. It may not be your path. This path also isn't in any particular order, all of them apply from the moment you start on the path.
 
 1. I coded. A lot. From silly little scripts to automating tasks to attempting full-blown projects. At work or for fun. I failed a lot, but learned along the way.
 

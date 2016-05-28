@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="http://pydanny.com/" rel="alternate"></link><link href="http://pydanny.com/feeds/python.atom.xml" rel="self"></link><id>http://pydanny.com/</id><updated>2016-05-28T17:00:00-07:00</updated><entry><title>Code, Code, Code</title><link href="http://pydanny.com/code-code-code.html" rel="alternate"></link><updated>2016-05-28T17:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2016-05-28:code-code-code.html</id><summary type="html">&lt;p&gt;I'm often asked by new programmers how they can forge a path into using their skills professionally. Or how they can get better at writing software.&lt;/p&gt;
 &lt;div class="section" id="how-to-improve-your-coding-skills"&gt;
 &lt;h2&gt;How to Improve Your Coding Skills&lt;/h2&gt;
-&lt;p&gt;This was my path. It may not be your path.&lt;/p&gt;
+&lt;p&gt;This was my path. It may not be your path. This path also isn't in any particular order, all of them apply from the moment you start on the path.&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;I coded. A lot. From silly little scripts to automating tasks to attempting full-blown projects. At work or for fun. I failed a lot, but learned along the way.&lt;/li&gt;
 &lt;li&gt;I didn't jump from language to language. Instead I stayed in a few places for years and focused my learning on those tools. My 19+ year career can be summed up as FoxPro then Java then Python. In the middle of things I picked up JavaScript. Sure, I've dallied with a few things (Lisp, Haskell, Lua, Perl, ColdFusion, Go), but by staying focused on a small set of tools I'm better than mediocre.&lt;/li&gt;
