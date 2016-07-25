@@ -7,41 +7,19 @@ I like to do open source.
 Current/Featured Work
 =====================
 
-
-dj-stripe
-----------
-
-Django + Stripe made easy.
-
-* https://github.com/pydanny/dj-stripe
-* https://dj-stripe.rtfd.org
-
-----
-
-django-admin2
---------------
-
-A full-reboot of Django's admin interface.
-
-* http://djangoadmin.org
-* https://github.com/pydanny/django-admin2
-* https://django-admin2.rtfd.org
-
-----
-
-cookiecutter-dj-project
+Cookiecutter Django
 -----------------------
 
 A cookiecutter_ template for creating Django projects quickly the way I want.
 
-* https://github.com/pydanny/cookiecutter-dj-project
+* https://github.com/pydanny/cookiecutter-django
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
 ----
 
-cookiecutter-dj-package
------------------------
+cookiecutter-djangopackage
+--------------------------
 
 A cookiecutter_ template for creating reusable Django packages quickly the right way. Stuff like setup.py, travis, docs, and more included!
 
@@ -54,27 +32,51 @@ A cookiecutter_ template for creating reusable Django packages quickly the right
 Django Packages
 ---------------
 
-A directory of reusable apps, sites, tools, and more for your Django projects. I co-lead this with Audrey Roy. 
+A directory of reusable apps, sites, tools, and more for your Django projects. I co-lead this with Audrey Roy Greenfeld.
 
 * `Django Packages`_
-* https://github.com/opencomparison/opencomparison/
+* https://github.com/pydanny/djangopackages/
 
 ----
 
-Ongoing Efforts
+cached-property
+---------------
+
+A decorator for caching properties in classes.
+
+* https://github.com/pydanny/cached-property
+
+----
+
+whichcraft
+-----------
+
+A package providing cross-platform cross-python shutil.which functionality.
+
+* https://github.com/pydanny/whichcraft
+
+----
+
+Other Efforts
 =====================
 
+* https://github.com/audreyr/cookiecutter (core contributor)
+* https://github.com/audreyr/cookiecutter-pypackage (core contributor)
+* https://github.com/audreyr/cookiecutter-pypackage (core contributor)
 * `pydanny-event-notes`_
 * https://github.com/django/django (contributor)
-* https://github.com/pydanny/shortener_project (lead)
-* https://github.com/pydanny/django-mongonaut (lead)
-* https://github.com/maraujop/django-crispy-forms (co-lead)
-* https://github.com/pydanny/django-wysiwyg (lead)
-* https://github.com/pydanny/that (lead)
 
 .. _`Pet Cheatsheets`: http://petcheatsheets.com
 .. _`Audrey Roy`: http://audreymroy.com
 .. _fiancee: http://audreymroy.com
-.. _Capoeira: http://valleycapoeira.com
 .. _`Django Packages`: http://djangopackages.com
 .. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
+
+---
+
+Works I Started That I've Handed Off
+=====================================
+
+* https://github.com/jazzband/django-admin2
+* https://github.com/jazzband/django-mongonaut
+* https://github.com/maraujop/django-crispy-forms
