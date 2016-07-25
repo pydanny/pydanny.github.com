@@ -72,11 +72,12 @@ Other Efforts
 .. _`Django Packages`: http://djangopackages.com
 .. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
 
----
+----
 
 Works I Started That I've Handed Off
 =====================================
 
 * https://github.com/jazzband/django-admin2
 * https://github.com/jazzband/django-mongonaut
+* https://github.com/kavdev/dj-stripe
 * https://github.com/maraujop/django-crispy-forms
