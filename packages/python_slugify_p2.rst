@@ -140,5 +140,5 @@ In any case, this is a very useful package.
 .. _`Dmitry Voronin`: https://github.com/dimka665
 .. _`a few issues`: https://github.com/dimka665/awesome-slugify/issues
 .. _`Michael P. Jung`: http://bikeshedder.com/
-.. _`blog post`: http://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string.html
+.. _`blog post`: https://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string.html
 .. _`awesome-slugify`: https://pypi.python.org/pypi/awesome-slugify

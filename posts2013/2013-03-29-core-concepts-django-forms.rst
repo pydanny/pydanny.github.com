@@ -105,7 +105,7 @@ We don't have to stop in just the ``forms.py`` module. You can also modify forms
 
 As you can see, with an understanding of basic Python types and some experience with Django forms you can become very creative in applications of forms. Please keep in mind that the devil is in the details, and overly creative use of forms (or anything) is a road you should carefully tread. It's always good to remember that simplicity is best and that the goal isn't to just write code, but to write maintainable code.
 
-.. _`previous post`: http://pydanny.com/overloading-form-fields.html
+.. _`previous post`: https://pydanny.com/overloading-form-fields.html
 
 Forms validate dictionaries.
 ============================
@@ -166,5 +166,5 @@ ModelForms adds at least three more bullets...
 
 ... and I touch on them in `my post on ModelForms`_.
 
-.. _`my post on ModelForms`: http://pydanny.com/core-concepts-django-modelforms.html
+.. _`my post on ModelForms`: https://pydanny.com/core-concepts-django-modelforms.html
 

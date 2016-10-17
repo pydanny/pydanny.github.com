@@ -29,7 +29,7 @@ With blogger, I needed an internet connection to get my blog posts to format cor
 I want to publish via git
 ---------------------------
 
-My http://pydanny-event-notes.rtfd.org has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require some amount of manual correction. Jekyll, and it's alternatives, let me just write.
+My https://pydanny-event-notes.rtfd.org has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require some amount of manual correction. Jekyll, and it's alternatives, let me just write.
 
 Jekyll wasn't for me
 ====================
@@ -79,8 +79,8 @@ At some point I'll use the ``CSS`` setting to change the color of ``pygments`` t
    
 
 .. _`Mike Bayer`: http://techspot.zzzeek.org/2010/12/04/in-response-to-stupid-template-languages/
-.. _`not my friend`: http://pydanny.blogspot.com/2010/12/stupid-template-languages.html
-.. _`give Jekyll a try`: http://pydanny.com/tried-out-jekyll.html
+.. _`not my friend`: https://pydanny.blogspot.com/2010/12/stupid-template-languages.html
+.. _`give Jekyll a try`: https://pydanny.com/tried-out-jekyll.html
 .. _`audreymroy.com`: http://audreymroy.com
 .. _`https://github.com/mojombo/jekyll`: https://github.com/mojombo/jekyll
 .. _blogofile: http://www.blogofile.com/
@@ -89,4 +89,4 @@ At some point I'll use the ``CSS`` setting to change the color of ``pygments`` t
 .. _Python: http://python.org
 .. _hyde: http://hyde.github.com/
 .. _pelican: http://pelican.readthedocs.org/
-.. _`old blog`: http://pydanny.blogspot.com/
+.. _`old blog`: https://pydanny.blogspot.com/

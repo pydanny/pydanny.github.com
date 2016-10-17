@@ -10,11 +10,11 @@ Intensive Django Training with the US Air Force
 
 Last week `Audrey Roy Greenfeld`_ and I had the privilege of teaching the US Air Force's `91st Cyberspace Operations Squadron`_ the finer details of how to build, test, and deploy `Django`_ web applications.
 
-.. image:: http://www.pydanny.com/static/two-scoops-academy-91cos-django-training.png
+.. image:: https://www.pydanny.com/static/two-scoops-academy-91cos-django-training.png
    :name: Two Scoops Academy 91st COS Django Training
    :align: center
    :alt: Two Scoops Academy 91st COS Django Training
-   :target: http://www.pydanny.com/intensive-django-training-us-air-force.html
+   :target: https://www.pydanny.com/intensive-django-training-us-air-force.html
 
 It was a challenging, exciting experience for us as instructors. We've taught numerous Python and Django trainings over the years under `Cartwheel Web`_ , but this was the first time we taught as `Two Scoops Academy`_ using our new system of instruction.
 

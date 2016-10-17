@@ -49,7 +49,7 @@ Sure, you could go to the official Eventbrite job site, but this method is a fun
 
 Good luck!
 
-.. image:: http://pydanny.com/static/eventbrite_logo_gradient_v2.png
+.. image:: https://pydanny.com/static/eventbrite_logo_gradient_v2.png
    :name: Want to work for Eventbrite?
    :align: center
    :height: 116px

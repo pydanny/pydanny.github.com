@@ -131,7 +131,7 @@ Try it. You'll like it. :-)
 .. _`PBS`: http://pbs.org
 .. _`Sphinx`: http://sphinx.pocoo.org/
 .. _`Alice Rowland`: http://twitter.com/arowla
-.. _`I even blogged my announcement his role as project leader`: http://pydanny.blogspot.com/2011/06/announcing-django-uni-form-080-beta.html
+.. _`I even blogged my announcement his role as project leader`: https://pydanny.blogspot.com/2011/06/announcing-django-uni-form-080-beta.html
 .. _`Brian Rosner`: http://twitter.com/brosner
 .. _`Advanced Django Form Usage at DjangoCon 2011`: http://www.slideshare.net/pydanny/advanced-django-forms-usage
 .. _`Twitter Bootstrap`: http://twitter.github.com/bootstrap/

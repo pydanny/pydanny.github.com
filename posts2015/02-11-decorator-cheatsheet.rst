@@ -150,7 +150,7 @@ References:
 * Graham Dumpleton's `Introspecting a function`_ article on decorators for concerns about ``functools.wraps``)
 * https://wiki.python.org/moin/PythonDecoratorLibrary
 
-.. image:: http://pydanny.com/static/sample-rst.png
+.. image:: https://pydanny.com/static/sample-rst.png
    :name: packages
    :align: center
 

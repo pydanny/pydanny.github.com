@@ -70,7 +70,7 @@ Other Efforts
 .. _`Audrey Roy`: http://audreymroy.com
 .. _fiancee: http://audreymroy.com
 .. _`Django Packages`: http://djangopackages.com
-.. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
+.. _`pydanny-event-notes`: https://pydanny-event-notes.readthedocs.org/
 
 ----
 

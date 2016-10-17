@@ -57,13 +57,13 @@
 &lt;div class="section" id="django-vanilla-views"&gt;
 &lt;h2&gt;django-vanilla-views&lt;/h2&gt;
 &lt;p&gt;This should also work with &lt;a class="reference external" href="http://django-vanilla-views.org"&gt;django-vanilla-views&lt;/a&gt;, but I haven't tested it yet.&lt;/p&gt;
-&lt;a class="reference external image-reference" href="https://twitter.com/audreyr"&gt;&lt;img alt="http://pydanny.com/static/form-attributes.png" class="align-center" id="vanilla-and-strawberry-forms" src="http://pydanny.com/static/form-attributes.png" /&gt;&lt;/a&gt;
+&lt;a class="reference external image-reference" href="https://twitter.com/audreyr"&gt;&lt;img alt="https://pydanny.com/static/form-attributes.png" class="align-center" id="vanilla-and-strawberry-forms" src="https://pydanny.com/static/form-attributes.png" /&gt;&lt;/a&gt;
 &lt;/div&gt;
 &lt;div class="section" id="see-you-at-barcamp-django-sf"&gt;
 &lt;h2&gt;See you at BarCamp Django SF!&lt;/h2&gt;
-&lt;p&gt;On October 4th and 5th I'll be at &lt;a class="reference external" href="http://pydanny.com/barcamp-django-sf.html"&gt;BarCamp Django SF&lt;/a&gt; if you want to talk about Django, Python, or have me teach you how to do cartwheels.&lt;/p&gt;
+&lt;p&gt;On October 4th and 5th I'll be at &lt;a class="reference external" href="https://pydanny.com/barcamp-django-sf.html"&gt;BarCamp Django SF&lt;/a&gt; if you want to talk about Django, Python, or have me teach you how to do cartwheels.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="python"></category><category term="django"></category><category term="howto"></category><category term="class-based-views"></category><category term="forms"></category></entry><entry><title>Core Concepts of Django ModelForms</title><link href="http://pydanny.com/core-concepts-django-modelforms.html" rel="alternate"></link><updated>2013-06-13T15:33:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2013-06-13:core-concepts-django-modelforms.html</id><summary type="html">&lt;p&gt;In my opinion, the concepts behind Django's model forms can be listed in just six (6) bullets. The bullets I've marked in &lt;strong&gt;bold&lt;/strong&gt; at the top are the topic of this blog post, while the two of these that were &lt;a class="reference external" href="http://pydanny.com/core-concepts-django-forms.html"&gt;covered in a previous blog post on Django forms&lt;/a&gt; are at bottom of my list.&lt;/p&gt;
+</summary><category term="python"></category><category term="django"></category><category term="howto"></category><category term="class-based-views"></category><category term="forms"></category></entry><entry><title>Core Concepts of Django ModelForms</title><link href="http://pydanny.com/core-concepts-django-modelforms.html" rel="alternate"></link><updated>2013-06-13T15:33:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2013-06-13:core-concepts-django-modelforms.html</id><summary type="html">&lt;p&gt;In my opinion, the concepts behind Django's model forms can be listed in just six (6) bullets. The bullets I've marked in &lt;strong&gt;bold&lt;/strong&gt; at the top are the topic of this blog post, while the two of these that were &lt;a class="reference external" href="https://pydanny.com/core-concepts-django-forms.html"&gt;covered in a previous blog post on Django forms&lt;/a&gt; are at bottom of my list.&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;strong&gt;ModelForms render Model fields as HTML.&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;ModelForms select validators based off of Model field definitions.&lt;/strong&gt;&lt;/li&gt;
@@ -169,7 +169,7 @@
 
         &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MyModel&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I don't like this technique. This makes it so we are defining the title field in two places, once in the model and once in the form. I go into more of the details and problems of this approach in my previous blog post at &lt;a class="reference external" href="http://pydanny.com/overloading-form-fields.html"&gt;Overloading Django Form Fields&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I don't like this technique. This makes it so we are defining the title field in two places, once in the model and once in the form. I go into more of the details and problems of this approach in my previous blog post at &lt;a class="reference external" href="https://pydanny.com/overloading-form-fields.html"&gt;Overloading Django Form Fields&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="modelforms-don-t-have-to-display-change-all-available-fields"&gt;
 &lt;h2&gt;ModelForms don't have to display/change all available fields.&lt;/h2&gt;
@@ -206,7 +206,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="modelforms-save-dictionaries-to-sql-tables"&gt;
 &lt;h2&gt;ModelForms save dictionaries to SQL tables&lt;/h2&gt;
-&lt;p&gt;In my &lt;a class="reference external" href="http://pydanny.com/core-concepts-django-forms.html"&gt;previous post of Django forms&lt;/a&gt; I covered &lt;em&gt;forms validate dictionaries&lt;/em&gt;. Well, ModelForms do the same thing AND give us the power to save that validated dictionary to SQL tables. We don't even need to involve web pages!&lt;/p&gt;
+&lt;p&gt;In my &lt;a class="reference external" href="https://pydanny.com/core-concepts-django-forms.html"&gt;previous post of Django forms&lt;/a&gt; I covered &lt;em&gt;forms validate dictionaries&lt;/em&gt;. Well, ModelForms do the same thing AND give us the power to save that validated dictionary to SQL tables. We don't even need to involve web pages!&lt;/p&gt;
 &lt;p&gt;This is really useful because it means that we can take data from any source, be it user input from the web, JSON data fetched from an API, and even CSVs generated from Excel reports and transform that into data that resides in SQL.&lt;/p&gt;
 &lt;p&gt;Let's go over using our ModelForm with title/slug fields used with all those methods. In our samples (web page, json, csv), we'll use generating a timestamp to demonstrate how we can modify the model data before it's saved, and we'll base all three examples off the model and ModelForm combination listed below.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# myapp/models.py&lt;/span&gt;
@@ -381,7 +381,7 @@
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fields&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forms&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fields&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x1024a17d0&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Understanding the structure of Django forms is really useful. This structure is what allows the modification mechanism that I described in my &lt;a class="reference external" href="http://pydanny.com/overloading-form-fields.html"&gt;previous post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Understanding the structure of Django forms is really useful. This structure is what allows the modification mechanism that I described in my &lt;a class="reference external" href="https://pydanny.com/overloading-form-fields.html"&gt;previous post&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;We don't have to stop in just the &lt;tt class="docutils literal"&gt;forms.py&lt;/tt&gt; module. You can also modify forms in views (either the classic &lt;tt class="docutils literal"&gt;views.py&lt;/tt&gt; module or in whatever API library you might be using):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;forms&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.shortcuts&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;redirect&lt;/span&gt;
@@ -459,7 +459,7 @@
 &lt;li&gt;ModelForms automatically choose validators based off of Model field definitions.&lt;/li&gt;
 &lt;li&gt;ModelForms save dictionaries to SQL tables.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;... and I touch on them in &lt;a class="reference external" href="http://pydanny.com/core-concepts-django-modelforms.html"&gt;my post on ModelForms&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;... and I touch on them in &lt;a class="reference external" href="https://pydanny.com/core-concepts-django-modelforms.html"&gt;my post on ModelForms&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="forms"></category><category term="class-based-views"></category></entry><entry><title>Overloading Django Form Fields</title><link href="http://pydanny.com/overloading-form-fields.html" rel="alternate"></link><updated>2013-03-27T09:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2013-03-27:overloading-form-fields.html</id><summary type="html">&lt;p&gt;One of the patterns we get positive feedback for mentioning in our &lt;a class="reference external" href="http://django.2scoops.org/"&gt;book&lt;/a&gt; is &lt;strong&gt;overloading form fields&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The problem this pattern handles is the use case of when we have a model with a field(s) that allows for blank values, how do we force users to enter values?&lt;/p&gt;

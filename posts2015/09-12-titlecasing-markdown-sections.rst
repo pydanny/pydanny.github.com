@@ -8,11 +8,11 @@ Titlecasing Markdown Headers with Python
 :slug: titlecasing-markdown-headers-with-python
 
 
-.. image:: http://pydanny.com/static/title-case.png
+.. image:: https://pydanny.com/static/title-case.png
    :name: Markdown
    :align: center
    :alt: Markdown
-   :target: http://www.pydanny.com/static/title-case.png
+   :target: https://www.pydanny.com/static/title-case.png
 
 
 Recently I've been writing a lot of Markdown. While not as sophisticated as ReStructuredText, it's simplicity is nice for accelerated writing. The problem is that I like to put section headings in *titlecase*.

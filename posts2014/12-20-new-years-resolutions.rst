@@ -21,10 +21,10 @@ Resolutions Accomplished in 2014
 * Took a fun class with Audrey. We did woodshop!
 * Learned how to do `Aú Batido`_!
 
-.. image:: http://pydanny.com/static/aubatido.jpg
+.. image:: https://pydanny.com/static/aubatido.jpg
    :name: Aú Batido!
    :align: center
-   :target: http://pydanny.com/static/aubatido.jpg
+   :target: https://pydanny.com/static/aubatido.jpg
 
 .. _`Aú Batido`: http://en.wikipedia.org/wiki/L-kick
 
@@ -65,11 +65,11 @@ Resolutions for 2015
 * See all my friends. All of them.
 * Enjoy life with Audrey more.
 
-.. _resolutions: http://www.pydanny.com/tag/resolutions.html
+.. _resolutions: https://www.pydanny.com/tag/resolutions.html
 .. _`Capoeira Batuque`: https://www.facebook.com/valleycapoeirabatuque
 .. _`Inland Empire Capoeira group`: http://www.meetup.com/Riverside-Capoeira-Meetup/
 .. _`fake island in the San Francisco Bay`: www.forbesisland.com
 .. _Eventbrite: http://www.eventbrite.com
-.. _`New Year's Resolutions`: http://www.pydanny.com/tag/resolutions.html
+.. _`New Year's Resolutions`: https://www.pydanny.com/tag/resolutions.html
 .. _`going off the grid`: http://danielroygreenfeld.com/2014/12/21/going-off-the-grid/
 .. _`LA Django`: www.meetup.com/ladjango

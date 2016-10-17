@@ -207,4 +207,4 @@ This was my 2013 `April Fool's Joke`_.
 
 However, the code was a lot of fun to write and after Mike Bayer's comment about ``__new__`` and a number of serious questions that people emailed me yesterday, I plan to follow this post with some more discussion on how to expand on native types in Python.
 
-.. _`April Fool's Joke`: http://pydanny.com/fixing-pythons-string-class.html#april-fool-s-joke
+.. _`April Fool's Joke`: https://pydanny.com/fixing-pythons-string-class.html#april-fool-s-joke

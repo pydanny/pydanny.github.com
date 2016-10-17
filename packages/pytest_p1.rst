@@ -138,4 +138,4 @@ In my next `blog post`_ I describe the following features of writing tests with 
 .. _unittest: http://docs.python.org/2/library/unittest.html
 .. _nose: https://pypi.python.org/pypi/nose
 .. _`its best`: http://pytest.org/latest/nose.html#unsupported-idioms-known-issues
-.. _`blog post`: http://pydanny.com/pytest-no-boilerplate-testing-2.html
+.. _`blog post`: https://pydanny.com/pytest-no-boilerplate-testing-2.html

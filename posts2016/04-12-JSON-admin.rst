@@ -64,7 +64,7 @@ The field remains the same, but we also get a display of nicely formatted data:
 
 .. raw:: html
 
-    <img alt="Admin Pretty JSON" class="align-center img-responsive" id="admin-pretty-json" src="http://www.pydanny.com/static/admin-pretty-json.png">
+    <img alt="Admin Pretty JSON" class="align-center img-responsive" id="admin-pretty-json" src="https://www.pydanny.com/static/admin-pretty-json.png">
 
 Much better!
 
@@ -82,4 +82,4 @@ I'll be at PyCon with `Audrey Roy Greenfeld`_. You can easily find us at the Coo
 .. _`Cookiecutter sprint`: https://us.pycon.org/2016/community/sprints/#cookiecutter
 
 
-.. _`Cookiecutter Django Package`: http://www.pydanny.com/how-to-create-installable-django-packages.html
+.. _`Cookiecutter Django Package`: https://www.pydanny.com/how-to-create-installable-django-packages.html

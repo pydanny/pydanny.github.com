@@ -10,8 +10,8 @@ I'll admit it, I love a good rant. I respect those who can give rants well. I wo
 
 Of course, as much as I like to read or listen to them, I also like to give them. As of 11/26/2012 there are 2 on this blog_ and 26 on my `old blog`_. 
 
-.. _blog: http://pydanny.com/tag/rant.html
-.. _`old blog`: http://pydanny.blogspot.com/search/label/rant
+.. _blog: https://pydanny.com/tag/rant.html
+.. _`old blog`: https://pydanny.blogspot.com/search/label/rant
 
 Unfortunately, I have a problem in giving rants. It ties with this unfortunate trait I possess where if I let myself get angry I say things that destroy relationships. No, I'm not giving examples, but there you are.
 

@@ -160,7 +160,7 @@ Stay tuned for Part III of this series where I cover the second day of talks bes
 
 .. _`PyCon US 2013`: https://us.pycon.org/2013/
 .. _Python: http://python.org
-.. _`Part I`: http://pydanny.com/beginners-guide-pycon-2013-part-1.html
+.. _`Part I`: https://pydanny.com/beginners-guide-pycon-2013-part-1.html
 .. _tutorials: https://us.pycon.org/2013/schedule/tutorials/
 .. _register: https://us.pycon.org/2013/registration/register/
 .. _PSF: http://python.org/psf/

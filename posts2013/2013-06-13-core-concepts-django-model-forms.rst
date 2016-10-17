@@ -11,7 +11,7 @@ Core Concepts of Django ModelForms
 
 In my opinion, the concepts behind Django's model forms can be listed in just six (6) bullets. The bullets I've marked in **bold** at the top are the topic of this blog post, while the two of these that were `covered in a previous blog post on Django forms`_ are at bottom of my list. 
 
-.. _`covered in a previous blog post on Django forms`: http://pydanny.com/core-concepts-django-forms.html
+.. _`covered in a previous blog post on Django forms`: https://pydanny.com/core-concepts-django-forms.html
 
 * **ModelForms render Model fields as HTML.**
 * **ModelForms select validators based off of Model field definitions.**
@@ -143,7 +143,7 @@ There are other ways to override the title field validators. The easiest but not
 
 I don't like this technique. This makes it so we are defining the title field in two places, once in the model and once in the form. I go into more of the details and problems of this approach in my previous blog post at `Overloading Django Form Fields`_.
 
-.. _`Overloading Django Form Fields`: http://pydanny.com/overloading-form-fields.html
+.. _`Overloading Django Form Fields`: https://pydanny.com/overloading-form-fields.html
 
 ModelForms don't have to display/change all available fields.
 =============================================================
@@ -344,4 +344,4 @@ I can think of three things:
 **What about AJAX?**: Whoops! Does this mean I have to write another blog post? Not at all. In Django, AJAX is just another view, either function- or class-based. The secret is to validate the incoming data the same way as you would any other view request by using forms.
 
 
-.. _`previous post of Django forms`: http://pydanny.com/core-concepts-django-forms.html
+.. _`previous post of Django forms`: https://pydanny.com/core-concepts-django-forms.html

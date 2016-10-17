@@ -11,7 +11,7 @@ In Python, the ``@cached_property`` decorator is a really nice piece of code. Wh
 
 If that doesn't make much sense, below is a snippet of code that shows the code and demonstrates it in action. As always, I'm using pytest_ to validate my code:
 
-.. _pytest: http://pydanny.com/pytest-no-boilerplate-testing.html
+.. _pytest: https://pydanny.com/pytest-no-boilerplate-testing.html
 
 .. code-block:: python
 
@@ -131,7 +131,7 @@ Going forward
 
 One exciting development has been the `discussion to include a cached_property decorator in core Python`_. Even if my contribution to the effort has been merely the encapsulation of the code, it's nice to know I may have some small part in the development of the language.
 
-.. image:: http://pydanny.com/static/directions_med.png
+.. image:: https://pydanny.com/static/directions_med.png
    :name: Whither shall I go?
    :align: center
 

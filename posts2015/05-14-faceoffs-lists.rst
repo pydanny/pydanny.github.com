@@ -9,11 +9,11 @@ Markup Language Faceoff: Lists
 
 Today I want to talk about lists. Not for shopping, not the programming data type, but the display of items in both unordered and ordered fashion. 
 
-.. image:: http://pydanny.com/static/bullets.png
+.. image:: https://pydanny.com/static/bullets.png
    :name: Bullets faceoff
    :align: center
    :alt: Bullets faceoff
-   :target: http://www.pydanny.com/markup-language-faceoff-lists.html
+   :target: https://www.pydanny.com/markup-language-faceoff-lists.html
 
 Specifically this:
 

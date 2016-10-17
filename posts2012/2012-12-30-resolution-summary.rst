@@ -57,4 +57,4 @@ Resolution Failure
 .. _`San Luis Obispo`: http://en.wikipedia.org/wiki/San_Luis_Obispo
 .. _Disneyland: http://en.wikipedia.org/wiki/Disneyland
 .. _`Disney California Adventure`: https://en.wikipedia.org/wiki/Disney_California_Adventure
-.. _`old blog`: http://pydanny.blogspot.com/search?updated-min=2012-01-01T00:00:00-08:00&updated-max=2013-01-01T00:00:00-08:00&max-results=12
+.. _`old blog`: https://pydanny.blogspot.com/search?updated-min=2012-01-01T00:00:00-08:00&updated-max=2013-01-01T00:00:00-08:00&max-results=12

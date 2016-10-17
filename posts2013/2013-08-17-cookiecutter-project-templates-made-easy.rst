@@ -183,7 +183,7 @@ Even if you don't know Python you can use cookiecutter_. The templating is done 
 .. _virtualenv: http://www.virtualenv.org/
 .. _`Hynek Schlawack`: http://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/
 .. _Jeff: http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/
-.. _ranting: http://pydanny.com/made-up-statistics.html#debate-statistics 
+.. _ranting: https://pydanny.com/made-up-statistics.html#debate-statistics 
 .. _cookiecutter:  https://github.com/audreyr/cookiecutter
 .. _`Cargo Cult programming`: http://en.wikipedia.org/wiki/Cargo_cult_programming
 

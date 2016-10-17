@@ -76,7 +76,7 @@ django-vanilla-views
 
 This should also work with `django-vanilla-views`_, but I haven't tested it yet.
 
-.. image:: http://pydanny.com/static/form-attributes.png
+.. image:: https://pydanny.com/static/form-attributes.png
    :name: Vanilla and Strawberry forms
    :align: center
    :target: https://twitter.com/audreyr
@@ -93,7 +93,7 @@ On October 4th and 5th I'll be at `BarCamp Django SF`_ if you want to talk about
 
 
 
-.. _`BarCamp Django SF`: http://pydanny.com/barcamp-django-sf.html
+.. _`BarCamp Django SF`: https://pydanny.com/barcamp-django-sf.html
 
 .. _`django-vanilla-views`: http://django-vanilla-views.org
 .. _`http://ccbv.co.uk`: http://ccbv.co.uk

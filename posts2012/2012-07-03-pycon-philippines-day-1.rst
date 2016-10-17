@@ -161,13 +161,13 @@ Coming soon
 .. _`PyCon Philippines 2012`: http://ph.pycon.org
 
 
-.. [1] http://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/basic_python.html
-.. [2] http://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/python_tricks.html
-.. [3] http://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/django_quickstart.html
-.. [4] http://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/game_programming.html
-.. [5] http://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/functional_programming.html
-.. [6] http://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/ansible.html
-.. [7] http://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/python_advocacy.html
-.. [8] http://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/closing-keynote.html
-.. [9] http://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/closing-keynote.html
+.. [1] https://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/basic_python.html
+.. [2] https://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/python_tricks.html
+.. [3] https://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/django_quickstart.html
+.. [4] https://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/game_programming.html
+.. [5] https://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/functional_programming.html
+.. [6] https://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/ansible.html
+.. [7] https://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/python_advocacy.html
+.. [8] https://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/closing-keynote.html
+.. [9] https://pydanny-event-notes.readthedocs.org/en/latest/PyconPH2012/closing-keynote.html
 

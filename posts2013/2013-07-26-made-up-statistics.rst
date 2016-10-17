@@ -139,4 +139,4 @@ No chart? Getting this one to look meaningful was turning into a herculean effor
 
 **Update**: Added link to the `Python Packaging User Guide`_.
 
-.. _article: http://pydanny.blogspot.com/2011/12/made-up-statistics.html
+.. _article: https://pydanny.blogspot.com/2011/12/made-up-statistics.html

@@ -20,7 +20,7 @@ Hasta pronto!
 .. _Eventioz: http://eventioz.com.ar
 .. _
 
-.. image:: http://pydanny.com/static/800px-Flag_of_Argentina.png
+.. image:: https://pydanny.com/static/800px-Flag_of_Argentina.png
    :name: Argentina!
    :align: center
    :height: 183px

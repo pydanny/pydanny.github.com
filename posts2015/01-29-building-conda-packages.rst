@@ -120,7 +120,7 @@ Finally, start uploading the new packages:
 
 `Check out the results of my work`_ or take a look right below at what's on binstar_:
 
-.. image:: http://pydanny.com/static/packages.png
+.. image:: https://pydanny.com/static/packages.png
    :name: packages
    :align: center
    :target: https://binstar.org/search?q=cookiecutter

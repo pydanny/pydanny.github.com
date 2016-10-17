@@ -7,7 +7,7 @@
 &lt;div class="section" id="how-did-i-get-a-hernia"&gt;
 &lt;h2&gt;How Did I Get A Hernia?&lt;/h2&gt;
 &lt;p&gt;Genetic predisposition, not to mention moving a refrigerator. And a sofa. And much more.&lt;/p&gt;
-&lt;p&gt;Last year in early April my wife and were given the &lt;a class="reference external" href="http://pydanny.com/off-to-europe.html"&gt;chance to work in Europe&lt;/a&gt; for a while. We moved out of our place and put all our stuff into storage. We don't have that much stuff, so we decided to do all the packing and moving ourselves. While I hadn't worked out consistently in a couple of months, I &lt;em&gt;knew&lt;/em&gt; I was up for any heavy lifting.&lt;/p&gt;
+&lt;p&gt;Last year in early April my wife and were given the &lt;a class="reference external" href="https://pydanny.com/off-to-europe.html"&gt;chance to work in Europe&lt;/a&gt; for a while. We moved out of our place and put all our stuff into storage. We don't have that much stuff, so we decided to do all the packing and moving ourselves. While I hadn't worked out consistently in a couple of months, I &lt;em&gt;knew&lt;/em&gt; I was up for any heavy lifting.&lt;/p&gt;
 &lt;p&gt;In fact, for all my adult life every once in a while I either moved or helped friends move their stuff. I'm in pretty good shape, have endurance, and know how to lift. I'm really flexible too, able to get low and push up.&lt;/p&gt;
 &lt;p&gt;For several days Audrey and I packed and moved stuff into the storage facility. It was hard, sweaty work and we were racing to meet a deadline. I didn't mind the work or pace at all. For me it's fun to do hard labor for short periods and this was a blast. I also love pushing myself physically.&lt;/p&gt;
 &lt;p&gt;Let's review:&lt;/p&gt;
@@ -107,7 +107,7 @@
 &lt;p&gt;If you've got any ideas, let me know!&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="rant"></category><category term="blog"></category></entry><entry><title>Thoughts on ranting</title><link href="http://pydanny.com/thoughts-on-ranting.html" rel="alternate"></link><updated>2012-11-26T16:00:00-08:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2012-11-26:thoughts-on-ranting.html</id><summary type="html">&lt;p&gt;I'll admit it, I love a good rant. I respect those who can give rants well. I would list the ones I really like, but I'm not sure I want to deal with the arguments that would follow. ;-)&lt;/p&gt;
-&lt;p&gt;Of course, as much as I like to read or listen to them, I also like to give them. As of 11/26/2012 there are 2 on this &lt;a class="reference external" href="http://pydanny.com/tag/rant.html"&gt;blog&lt;/a&gt; and 26 on my &lt;a class="reference external" href="http://pydanny.blogspot.com/search/label/rant"&gt;old blog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Of course, as much as I like to read or listen to them, I also like to give them. As of 11/26/2012 there are 2 on this &lt;a class="reference external" href="https://pydanny.com/tag/rant.html"&gt;blog&lt;/a&gt; and 26 on my &lt;a class="reference external" href="https://pydanny.blogspot.com/search/label/rant"&gt;old blog&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Unfortunately, I have a problem in giving rants. It ties with this unfortunate trait I possess where if I let myself get angry I say things that destroy relationships. No, I'm not giving examples, but there you are.&lt;/p&gt;
 &lt;p&gt;So when I do rant, I try to never do so in anger. Especially when it's the written word. Instead, I try to do so under one of the following conditions:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -119,8 +119,8 @@
 &lt;/ul&gt;
 </summary><category term="blog"></category><category term="rant"></category><category term="family"></category><category term="friends"></category></entry><entry><title>Choosing a new python based blog engine</title><link href="http://pydanny.com/choosing-a-new-python-based-blog-engine.html" rel="alternate"></link><updated>2012-04-05T12:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2012-04-05:choosing-a-new-python-based-blog-engine.html</id><summary type="html">&lt;div class="section" id="why-a-new-blog-engine"&gt;
 &lt;h2&gt;Why a new blog engine?&lt;/h2&gt;
-&lt;p&gt;On my &lt;a class="reference external" href="http://pydanny.blogspot.com/"&gt;old blog&lt;/a&gt;, I had been having issues with Blogger for some time.  The WYSIWYG text editor was annoying in that it produced wonky HTML, so I had to hand craft the posts. Which meant I often wrote the HTML formatted copy in a text editor and then copy/pasted it into the browser. A few times this blew up and I really wished I had version controlled back ups. Adding code examples was problematic, even with a stylesheet helpfully provided by Google. Finally, some of the changes to the blog engine itself were beginning to worry me, so I started looking for alternatives.&lt;/p&gt;
-&lt;p&gt;After my fiancee, Audrey Roy, converted her blog to &lt;a class="reference external" href="https://github.com/mojombo/jekyll"&gt;https://github.com/mojombo/jekyll&lt;/a&gt; at it's new location of &lt;a class="reference external" href="http://audreymroy.com"&gt;audreymroy.com&lt;/a&gt;, the static file hosting seemed so awesome I was impressed enough to &lt;a class="reference external" href="http://pydanny.com/tried-out-jekyll.html"&gt;give Jekyll a try&lt;/a&gt;. Why did Jekyll and static file hosting interest me so much?&lt;/p&gt;
+&lt;p&gt;On my &lt;a class="reference external" href="https://pydanny.blogspot.com/"&gt;old blog&lt;/a&gt;, I had been having issues with Blogger for some time.  The WYSIWYG text editor was annoying in that it produced wonky HTML, so I had to hand craft the posts. Which meant I often wrote the HTML formatted copy in a text editor and then copy/pasted it into the browser. A few times this blew up and I really wished I had version controlled back ups. Adding code examples was problematic, even with a stylesheet helpfully provided by Google. Finally, some of the changes to the blog engine itself were beginning to worry me, so I started looking for alternatives.&lt;/p&gt;
+&lt;p&gt;After my fiancee, Audrey Roy, converted her blog to &lt;a class="reference external" href="https://github.com/mojombo/jekyll"&gt;https://github.com/mojombo/jekyll&lt;/a&gt; at it's new location of &lt;a class="reference external" href="http://audreymroy.com"&gt;audreymroy.com&lt;/a&gt;, the static file hosting seemed so awesome I was impressed enough to &lt;a class="reference external" href="https://pydanny.com/tried-out-jekyll.html"&gt;give Jekyll a try&lt;/a&gt;. Why did Jekyll and static file hosting interest me so much?&lt;/p&gt;
 &lt;div class="section" id="i-don-t-want-to-maintain-my-own-server"&gt;
 &lt;h3&gt;I don't want to maintain my own server&lt;/h3&gt;
 &lt;p&gt;A couple times I rolled out a blog on a site I stood up, but didn't really feel like maintaining a site. I want someone else to do it. When I write, I want someone else to worry about the details. I want to focus on writing and nothing else.&lt;/p&gt;
@@ -132,7 +132,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="i-want-to-publish-via-git"&gt;
 &lt;h3&gt;I want to publish via git&lt;/h3&gt;
-&lt;p&gt;My &lt;a class="reference external" href="http://pydanny-event-notes.rtfd.org"&gt;http://pydanny-event-notes.rtfd.org&lt;/a&gt; has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require some amount of manual correction. Jekyll, and it's alternatives, let me just write.&lt;/p&gt;
+&lt;p&gt;My &lt;a class="reference external" href="https://pydanny-event-notes.rtfd.org"&gt;https://pydanny-event-notes.rtfd.org&lt;/a&gt; has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require some amount of manual correction. Jekyll, and it's alternatives, let me just write.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="jekyll-wasn-t-for-me"&gt;
@@ -148,7 +148,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="blogofile"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://www.blogofile.com/"&gt;blogofile&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;This is probably the most mature, most common Python static file generator around. It looks really awesome, and everyone who uses it swears by it. Alas, it's powered by &lt;a class="reference external" href="http://www.makotemplates.org/"&gt;Mako&lt;/a&gt; templates, which is... um... &lt;a class="reference external" href="http://pydanny.blogspot.com/2010/12/stupid-template-languages.html"&gt;not my friend&lt;/a&gt; (apologies to &lt;a class="reference external" href="http://techspot.zzzeek.org/2010/12/04/in-response-to-stupid-template-languages/"&gt;Mike Bayer&lt;/a&gt;). What I really wanted was something with templates powered by &lt;a class="reference external" href="http://www.pocoo.org/projects/jinja2/"&gt;Jinja2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is probably the most mature, most common Python static file generator around. It looks really awesome, and everyone who uses it swears by it. Alas, it's powered by &lt;a class="reference external" href="http://www.makotemplates.org/"&gt;Mako&lt;/a&gt; templates, which is... um... &lt;a class="reference external" href="https://pydanny.blogspot.com/2010/12/stupid-template-languages.html"&gt;not my friend&lt;/a&gt; (apologies to &lt;a class="reference external" href="http://techspot.zzzeek.org/2010/12/04/in-response-to-stupid-template-languages/"&gt;Mike Bayer&lt;/a&gt;). What I really wanted was something with templates powered by &lt;a class="reference external" href="http://www.pocoo.org/projects/jinja2/"&gt;Jinja2&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="hyde"&gt;
 &lt;h2&gt;&lt;a class="reference external" href="http://hyde.github.com/"&gt;hyde&lt;/a&gt;&lt;/h2&gt;
@@ -177,7 +177,7 @@ AUTHOR = 'Daniel Greenfeld'
 DISQUS_SITENAME = 'pydanny'
 GITHUB_URL = 'https://github.com/pydanny'
 GOOGLE_ANALYTICS='UA-18066389-2'
-SITEURL = 'http://pydanny.github.com'
+SITEURL = 'https://pydanny.github.com'
 SITENAME = 'pydanny'
 SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
           ('github', 'https://github.com/pydanny'),
@@ -194,7 +194,7 @@ git push
 &lt;/pre&gt;
 &lt;div class="section" id="results"&gt;
 &lt;h2&gt;Results!&lt;/h2&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://pydanny.github.com"&gt;http://pydanny.github.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://pydanny.github.com"&gt;https://pydanny.github.com&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="blog"></category></entry><entry><title>Tried out Jekyll</title><link href="http://pydanny.com/tried-out-jekyll.html" rel="alternate"></link><updated>2012-02-09T10:20:00-08:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2012-02-09:tried-out-jekyll.html</id><summary type="html">&lt;div class="section" id="why-jekyll"&gt;
 &lt;h2&gt;Why Jekyll?&lt;/h2&gt;
@@ -220,7 +220,7 @@ git push
 &lt;/div&gt;
 &lt;div class="section" id="ability-to-publish-via-git"&gt;
 &lt;h2&gt;Ability to publish via git&lt;/h2&gt;
-&lt;p&gt;My &lt;a class="reference external" href="http://pydanny-event-notes.rtfd.org"&gt;http://pydanny-event-notes.rtfd.org&lt;/a&gt; has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require an some amount of manual correction. Jekyll, and it's alternatives,let me just write.&lt;/p&gt;
+&lt;p&gt;My &lt;a class="reference external" href="https://pydanny-event-notes.rtfd.org"&gt;https://pydanny-event-notes.rtfd.org&lt;/a&gt; has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require an some amount of manual correction. Jekyll, and it's alternatives,let me just write.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="why-not-jekyll"&gt;
 &lt;h2&gt;Why not Jekyll?&lt;/h2&gt;

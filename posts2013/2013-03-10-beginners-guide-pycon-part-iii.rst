@@ -9,7 +9,7 @@ Beginner's Guide to PyCon 2013 Part III
 
 This is Part III in a series of blog posts about `PyCon US 2013`_. The goal is to provide a handy reference guide for first time attendees of the world's largest Python_ conference.  `Part I`_ was mostly about tutorials_, `Part II`_ was mostly about the first day of talks, this third post in the series will be about the second day of talks.
 
-.. _`Part I`: http://pydanny.com/beginners-guide-pycon-2013-part-1.html
+.. _`Part I`: https://pydanny.com/beginners-guide-pycon-2013-part-1.html
 
 Early Saturday Morning
 ==================================
@@ -163,4 +163,4 @@ Stay tuned for Part IV of this series where I cover the third day of talks best 
 .. _tutorials: https://us.pycon.org/2013/schedule/tutorials/
 .. _`PyCon US 2013`: https://us.pycon.org/2013/
 .. _Python: http://python.org
-.. _`Part II`: http://pydanny.com/beginners-guide-pycon-2013-part-2.html
+.. _`Part II`: https://pydanny.com/beginners-guide-pycon-2013-part-2.html

@@ -154,7 +154,7 @@ No. I've answered in full here_.
 
 We're considering other non-credit card options to handle payment.
 
-.. _here: http://pydanny.com/we-are-not-using-paypal.html
+.. _here: https://pydanny.com/we-are-not-using-paypal.html
 
 .. raw:: html
 
@@ -199,4 +199,4 @@ Please send errata to 2scoops@cartwheelweb.com. We try to respond personally to 
 .. _`Getting Started with Django`: http://gettingstartedwithdjango.com/
 .. _`Wiring Up Django Packages`: https://us.pycon.org/2013/schedule/presentation/11/
 .. _`register for the tutorials`: https://us.pycon.org/2013/registration/register/
-.. _final: http://pydanny.com/two-scoops-beta-released.html#final
+.. _final: https://pydanny.com/two-scoops-beta-released.html#final

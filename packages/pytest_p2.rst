@@ -9,7 +9,7 @@ pytest: no-boilerplate testing (part 2)
 
 In my previous `blog post`_ I covered test discovery and writing basic tests using pytest_. Today I'm going to cover a few more features that I really enjoy: ``raises`` and ``fixtures``.
 
-.. _`blog post`: http://pydanny.com/pytest-no-boilerplate-testing.html
+.. _`blog post`: https://pydanny.com/pytest-no-boilerplate-testing.html
 
 The Intuitively Named ``raises`` **context manager**
 =====================================================
@@ -37,7 +37,7 @@ This is similar to, but just a bit easier to remember than the implementation in
 
 What I like about it is that even if I step away from code and tests for enough time to go on vacation and `get married`_, when I come back I always remember the precise name of the **context manager** used to raise exceptions. 
 
-.. _`get married`: http://pydanny.com/i-married-audrey-roy.html
+.. _`get married`: https://pydanny.com/i-married-audrey-roy.html
 
 Fixtures as Function Arguments
 ==============================
@@ -144,7 +144,7 @@ In my `next blog post`_ I describe usage of the following **pytest** features:
 * Integration with **Django** and other frameworks.
 * Integration with ``setup.py``
 
-.. _`next blog post`: http://pydanny.com/pytest-no-boilerplate-testing-3.html
+.. _`next blog post`: https://pydanny.com/pytest-no-boilerplate-testing-3.html
 .. _pytest: http://pytest.org/
 .. _unittest: http://docs.python.org/2/library/unittest.html
 .. _`pytest fixtures documentation`: http://pytest.org/latest/fixture.html

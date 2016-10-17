@@ -24,7 +24,7 @@ Genetic predisposition, not to mention moving a refrigerator. And a sofa. And mu
 
 Last year in early April my wife and were given the `chance to work in Europe`_ for a while. We moved out of our place and put all our stuff into storage. We don't have that much stuff, so we decided to do all the packing and moving ourselves. While I hadn't worked out consistently in a couple of months, I *knew* I was up for any heavy lifting.
 
-.. _`chance to work in Europe`: http://pydanny.com/off-to-europe.html
+.. _`chance to work in Europe`: https://pydanny.com/off-to-europe.html
 
 In fact, for all my adult life every once in a while I either moved or helped friends move their stuff. I'm in pretty good shape, have endurance, and know how to lift. I'm really flexible too, able to get low and push up.
 

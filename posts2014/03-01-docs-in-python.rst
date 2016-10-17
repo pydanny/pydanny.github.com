@@ -9,14 +9,14 @@ Docstrings and Various Python Objects
 
 Early in my journeys with Python I struggled with understanding the purpose and use of **lambda** functions. When I finally understood them I was disappointed by their lack of **docstrings**. For that reason, and various other shortcomings, `I went back to standard functions`_. Also, for what it's worth, I've even spoken about how `you shouldn't use lambdas`_.
 
-.. _`I went back to standard functions`: http://pydanny.blogspot.com/2007/07/lambdas-no-more.html
+.. _`I went back to standard functions`: https://pydanny.blogspot.com/2007/07/lambdas-no-more.html
 .. _`you shouldn't use lambdas`: http://www.slideshare.net/pydanny/python-worst-practices/41
 
 Recently I was thinking about how everything in Python is an object. This includes lambdas. Since all Python objects have the `__doc__` special (aka 'magic') attribute, can we add custom docstrings to everything? 
 
 Using pytest_, Python 2.7.x, and lambdas, let's find out!
 
-.. _pytest: http://pydanny.com/pytest-no-boilerplate-testing.html
+.. _pytest: https://pydanny.com/pytest-no-boilerplate-testing.html
 
 .. code-block:: python
 
@@ -158,7 +158,7 @@ I wonder if I scratch this particular itch long enough I might be able to create
 
 **Resource**: The entire ``test_docstrings.py`` module: https://gist.github.com/pydanny/9373279
 
-.. _`String Theory`: http://pydanny.com/fixing-pythons-string-class.html
+.. _`String Theory`: https://pydanny.com/fixing-pythons-string-class.html
 
 .. image:: https://s3.amazonaws.com/pydanny/lambda_scoops.png
    :name: Lambda Scoops

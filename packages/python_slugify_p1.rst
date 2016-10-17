@@ -96,7 +96,7 @@ Using awesome-slugify
 
 Rather than describe **awesome-slugify** in paragraph format, here is working test code (`using pytest which I described before`_) that explains what we can do:
 
-.. _`using pytest which I described before`: http://pydanny.com/pytest-no-boilerplate-testing.html
+.. _`using pytest which I described before`: https://pydanny.com/pytest-no-boilerplate-testing.html
 
 .. code-block:: python
     
@@ -222,7 +222,7 @@ As demonstrated, **awesome-slugify** covers many common use cases. Nevertheless,
 
 .. _`flying-sheep`: http://www.reddit.com/user/flying-sheep
 
-.. _`my next blog post`: http://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string-2.html
+.. _`my next blog post`: https://pydanny.com/awesome-slugify-human-readable-url-slugs-from-any-string-2.html
 
 
 .. _pip: http://www.pip-installer.org/

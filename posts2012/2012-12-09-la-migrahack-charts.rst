@@ -66,6 +66,6 @@ For `LA Hackathon on Immigration`_
 .. _`LA Hackathon on Immigration`: http://hackathon2012.wikidot.com/
 .. _`Scott Smith`: https://twitter.com/connectacopia
 .. _`Agustin Duran`: http://latinocalifornia.com
-.. _`Daniel Greenfeld`: http://pydanny.com
+.. _`Daniel Greenfeld`: https://pydanny.com
 .. _`Rachel Estabrook`: https://twitter.com/restabro
 .. _`Carlos Hernandez`: http://sblatino.com

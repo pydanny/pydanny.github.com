@@ -6,7 +6,7 @@ Tools
 
 My blog post, "`I use this`_", explains my reasoning for using some these tools.
 
-.. _`I use this`: http://pydanny.com/i-use-this.html
+.. _`I use this`: https://pydanny.com/i-use-this.html
 
 Frameworks
 ==========
@@ -24,7 +24,7 @@ Frameworks
 References
 ==========
 
-* http://pydanny-event-notes.rtfd.org
+* https://pydanny-event-notes.rtfd.org
 * http://api.jquery.com
 * http://caniuse.com/
 * `docs.djangoproject.com`_

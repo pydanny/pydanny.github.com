@@ -18,7 +18,7 @@ My settings.py file::
     DISQUS_SITENAME = 'pydanny'
     GITHUB_URL = 'https://github.com/pydanny'
     GOOGLE_ANALYTICS='UA-18066389-2'
-    SITEURL = 'http://pydanny.github.com'
+    SITEURL = 'https://pydanny.github.com'
     SITENAME = 'pydanny'
     SOCIAL = (('twitter', 'http://twitter.com/pydanny'),
               ('github', 'https://github.com/pydanny'),
@@ -36,4 +36,4 @@ How I push up entries and pages and themes::
 Results!
 ========
 
-http://pydanny.github.com
+https://pydanny.github.com

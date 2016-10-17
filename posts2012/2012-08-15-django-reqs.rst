@@ -10,7 +10,7 @@ A little over three months ago `I blogged about my preferred requirements`_ list
 It's now nearly the eve of `Django Dash`_, and I feel it's time to update the list.
 I'm going to bump the versions on some of the existing packages and add some new ones to the list.
 
-.. _`I blogged about my preferred requirements`: http://pydanny.com/django-requirements-for-a-project.html
+.. _`I blogged about my preferred requirements`: https://pydanny.com/django-requirements-for-a-project.html
 .. _`Django Dash`: http://djangodash.com
 
 New Packages

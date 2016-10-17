@@ -7,7 +7,7 @@ setup.py tricks
 :category: python
 :slug: python-dot-py-tricks
 
-.. image:: http://pydanny.com/static/setup.png
+.. image:: https://pydanny.com/static/setup.png
    :name: Setup.py tricks
    :align: center
    :alt: Setup.py tricks
@@ -101,7 +101,7 @@ Alrighty then...
 I like `py.test`_. I've `blogged about the use of py.test`_. I try to use it everywhere. Yet, I'm really not a fan of how we're supposed tie it into **python setup.py test**. The precise moment I get uncomfortable with **py.test** is when it makes me add special classes into **setup.py**.
 
 .. _`py.test`: http://pytest.org
-.. _`blogged about the use of py.test`: http://www.pydanny.com/pytest-no-boilerplate-testing.html
+.. _`blogged about the use of py.test`: https://www.pydanny.com/pytest-no-boilerplate-testing.html
 
 Fortunately, there is another way:
 

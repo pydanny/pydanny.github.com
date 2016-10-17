@@ -11,10 +11,10 @@ Writing reusable code is a good thing, right? The trick is to do so in a way tha
 
 .. _`functools.partial`: https://docs.python.org/2.7/library/functools.html#functools.partial
 
-.. image:: http://pydanny.com/static/partials.png
+.. image:: https://pydanny.com/static/partials.png
    :name: Python Partials are Fun!
    :align: center
-   :target: http://pydanny.com/python-partials-are-fun.html
+   :target: https://pydanny.com/python-partials-are-fun.html
 
 While the documentation has a nice explanation and demonstration of ``functools.partial``, it's very serious. I've got my own internal version of things which I think is a little more fun.
 
@@ -36,7 +36,7 @@ First, let's say we want to create a function that explicitly performs exponenti
 .. _exponentiation: https://en.wikipedia.org/wiki/Exponentiation
 .. _squares: https://en.wikipedia.org/wiki/Square_(algebra)
 .. _cubes: https://en.wikipedia.org/wiki/Cube_(algebra)
-.. _`py.test`: http://pydanny.com/pytest-no-boilerplate-testing.html
+.. _`py.test`: https://pydanny.com/pytest-no-boilerplate-testing.html
 
 .. code-block:: python
 
@@ -55,7 +55,7 @@ Now what if we want to have dedicated square and cube functions that leverage th
         
 This works, but what if we want to create 15 or 20 variations of our ``power()`` function? What about 1000 of them? Writing that much repetitive code is, needless to say, annoying. This is where partials come into play. Let's rewrite our square and cube functions using partials, and test it for success using `py.test`_:
 
-.. _`py.test`: http://pydanny.com/pytest-no-boilerplate-testing.html
+.. _`py.test`: https://pydanny.com/pytest-no-boilerplate-testing.html
 
 .. code-block:: python
 

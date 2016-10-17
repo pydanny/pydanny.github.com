@@ -40,7 +40,7 @@ I need an internet connection to get my blogger posts to format right. With Jeky
 Ability to publish via git
 ===========================
 
-My http://pydanny-event-notes.rtfd.org has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require an some amount of manual correction. Jekyll, and it's alternatives,let me just write.
+My https://pydanny-event-notes.rtfd.org has really exploded in my own usage and continued because it uses the same patterns I use in software development. I'm used to the pattern of using Git to push up content, so why use naked HTML? Sure, there are RST-to-HTML processors that I could use to generate that HTML, but they always require an some amount of manual correction. Jekyll, and it's alternatives,let me just write.
 
 Why not Jekyll?
 =====================

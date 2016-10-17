@@ -3,7 +3,7 @@
 &lt;p&gt;I'm extremely excited. I've wanted to go to Argentina for years. It's a beautiful country filled with magnificent culture, lovely architecture, great food, superb wine, and wonderful people. Speaking of which, I can't wait to finally put faces to people I've gotten to know over the internet.&lt;/p&gt;
 &lt;p&gt;Hasta pronto!&lt;/p&gt;
 &lt;!-- _ --&gt;
-&lt;a class="reference external image-reference" href="http://en.wikipedia.org/wiki/Argentina"&gt;&lt;img alt="http://pydanny.com/static/800px-Flag_of_Argentina.png" class="align-center" id="id1" src="http://pydanny.com/static/800px-Flag_of_Argentina.png" style="width: 292px; height: 183px;" /&gt;&lt;/a&gt;
+&lt;a class="reference external image-reference" href="http://en.wikipedia.org/wiki/Argentina"&gt;&lt;img alt="https://pydanny.com/static/800px-Flag_of_Argentina.png" class="align-center" id="id1" src="https://pydanny.com/static/800px-Flag_of_Argentina.png" style="width: 292px; height: 183px;" /&gt;&lt;/a&gt;
 </summary><category term="python"></category><category term="django"></category><category term="argentina"></category><category term="eventbrite"></category><category term="pyladies"></category></entry><entry><title>Want to work for Eventbrite? (part 2)</title><link href="http://pydanny.com/want-to-work-for-eventbrite-2.html" rel="alternate"></link><updated>2014-07-23T13:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:pydanny.com,2014-07-23:want-to-work-for-eventbrite-2.html</id><summary type="html">&lt;p&gt;For various reasons I had to change some things about my Eventbrite test. The new version is listed here and the previous blog post has been updated:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 104, 116, 116, 112, 115, 58, 47, 47, 103, 105, 115, 116, 46, 103, 105, 116, 104, 117,
@@ -34,6 +34,6 @@ hints: chr, problem solving, list comprehension
 &lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This is the updated test that is identical to my next blog post.&lt;/p&gt;
 &lt;p&gt;Good luck!&lt;/p&gt;
-&lt;a class="reference external image-reference" href="https://www.eventbrite.com"&gt;&lt;img alt="http://pydanny.com/static/eventbrite_logo_gradient_v2.png" class="align-center" id="id1" src="http://pydanny.com/static/eventbrite_logo_gradient_v2.png" style="width: 300px; height: 116px;" /&gt;&lt;/a&gt;
+&lt;a class="reference external image-reference" href="https://www.eventbrite.com"&gt;&lt;img alt="https://pydanny.com/static/eventbrite_logo_gradient_v2.png" class="align-center" id="id1" src="https://pydanny.com/static/eventbrite_logo_gradient_v2.png" style="width: 300px; height: 116px;" /&gt;&lt;/a&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="eventbrite"></category><category term="django-rest-framework"></category><category term="argentina"></category></entry></feed>

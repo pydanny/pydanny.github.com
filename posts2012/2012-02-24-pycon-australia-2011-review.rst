@@ -8,7 +8,7 @@ PyCon Australia 2011 Review
 
 In June of 2011 I had the good fortune of having my then girlfriend, Audrey Roy, now fiancee, `invited to present a keynote speech at PyCon Australia 2011`_. 
 
-.. _`invited to present a keynote speech at PyCon Australia 2011`: http://pydanny.blogspot.com/2011/06/im-going-to-pycon-australia.html
+.. _`invited to present a keynote speech at PyCon Australia 2011`: https://pydanny.blogspot.com/2011/06/im-going-to-pycon-australia.html
 
 I was terribly excited for her to get that invitation, and that excitement was compounded when they allowed me to present on `Confessions of Joe Developer`_. 
 
@@ -38,10 +38,10 @@ When it came time for me to present on `Confessions of Joe Developer`_, I finish
 
 The `rest of the talks I saw were all quite good`_, in fact the `one on decorators`_ was incredible.
 
-.. _`rest of the talks I saw were all quite good`: http://pydanny-event-notes.readthedocs.org/en/latest/PyconAU2011/index.html
-.. _`one on decorators`: http://pydanny-event-notes.readthedocs.org/en/latest/PyconAU2011/decorators.html
+.. _`rest of the talks I saw were all quite good`: https://pydanny-event-notes.readthedocs.org/en/latest/PyconAU2011/index.html
+.. _`one on decorators`: https://pydanny-event-notes.readthedocs.org/en/latest/PyconAU2011/decorators.html
 
-.. _`Zen of Python`: http://pydanny-event-notes.readthedocs.org/en/latest/PyconAU2011/zen_of_python.html
+.. _`Zen of Python`: https://pydanny-event-notes.readthedocs.org/en/latest/PyconAU2011/zen_of_python.html
 .. _`Anti-Zen of Python`: http://pypi.python.org/pypi/that
 
 **Result: Super**

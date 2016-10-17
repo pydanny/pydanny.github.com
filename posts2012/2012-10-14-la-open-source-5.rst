@@ -23,7 +23,7 @@ I'll be there to:
 * Co-lead the event with the assistance of the awesome Los Angeles technical community!
 * Code like a fiend. I plan to work on core `Django`_. Maybe some ember.js stuff too.
 
-.. _`last effort went smashingly well`: http://pydanny.com/july-15th-2012-la-open-source-recap.html
+.. _`last effort went smashingly well`: https://pydanny.com/july-15th-2012-la-open-source-recap.html
 .. _`http://www.meetup.com/LA-Hackathons/events/85658952/`: http://www.meetup.com/LA-Hackathons/events/85658952/
 .. _`Django`: http://djangoproject.com
 

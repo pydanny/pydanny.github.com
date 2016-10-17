@@ -46,8 +46,8 @@ What I Wish I Had Done
 Practice makes perfect, right?
 
 
-.. image:: http://www.pydanny.com/static/code-code-code.png
+.. image:: https://www.pydanny.com/static/code-code-code.png
    :name: Code, Code, Code
    :align: center
    :alt: Code, Code, Code
-   :target: http://www.pydanny.com/code-code-code.html
+   :target: https://www.pydanny.com/code-code-code.html

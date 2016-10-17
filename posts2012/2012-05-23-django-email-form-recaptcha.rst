@@ -11,7 +11,7 @@ Django Class Based View: email form with CAPTCHA
 
 .. _Django: http://djangoproject.com
 .. _RECAPTCHA: http://www.google.com/recaptcha
-.. _`Yesterday I showed how to implement a simple email form`: http://pydanny.com/simple-django-email-form-using-cbv.html
+.. _`Yesterday I showed how to implement a simple email form`: https://pydanny.com/simple-django-email-form-using-cbv.html
 
 This version requires ``pip`` installing the following into your ``virtualenv``. 
 

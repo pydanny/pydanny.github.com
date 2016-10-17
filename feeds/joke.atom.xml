@@ -159,7 +159,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="april-fool-s-joke"&gt;
 &lt;h2&gt;&lt;cite&gt;April Fool's Joke&lt;/cite&gt;&lt;/h2&gt;
-&lt;p&gt;This was my 2013 &lt;a class="reference external" href="http://pydanny.com/fixing-pythons-string-class.html#april-fool-s-joke"&gt;April Fool's Joke&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This was my 2013 &lt;a class="reference external" href="https://pydanny.com/fixing-pythons-string-class.html#april-fool-s-joke"&gt;April Fool's Joke&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;However, the code was a lot of fun to write and after Mike Bayer's comment about &lt;tt class="docutils literal"&gt;__new__&lt;/tt&gt; and a number of serious questions that people emailed me yesterday, I plan to follow this post with some more discussion on how to expand on native types in Python.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="joke"></category></entry></feed>

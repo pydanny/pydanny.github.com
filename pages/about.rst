@@ -10,7 +10,7 @@ I do Python, Django, and JavaScript out of the Inland Empire in California. I lo
 .. _wife: http://audreyr.com
 .. _Capoeira: http://www.meetup.com/Riverside-Capoeira-Meetup
 .. _`Django Packages`: http://djangopackages.com
-.. _`pydanny-event-notes`: http://pydanny-event-notes.readthedocs.org/
+.. _`pydanny-event-notes`: https://pydanny-event-notes.readthedocs.org/
 .. _`previous version`: http://twoscoopspress.org/products/two-scoops-of-django-1-5
 
 ----
@@ -63,8 +63,8 @@ In 2013 we spent about 5 months living in Europe.
 * `Why?`_
 * `How?`_
 
-.. _`Why?`: http://pydanny.com/off-to-europe.html
-.. _`How?`: http://pydanny.com/travel-tips-for-geeks-living-cheaply.html
+.. _`Why?`: https://pydanny.com/off-to-europe.html
+.. _`How?`: https://pydanny.com/travel-tips-for-geeks-living-cheaply.html
 
 ========== =========== =============== =============
 City        Country     Date            Status

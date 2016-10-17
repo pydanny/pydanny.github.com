@@ -8,7 +8,7 @@ A Public Service Message to the Python Community
 
 Hi, I'm Daniel Greenfeld. You might know me from my blog_. I'm here to talk to you about a very import subject: **Submitting your talk early to PyCon US.**
 
-.. _blog: http://pydanny.com
+.. _blog: https://pydanny.com
 
 Last year there were hundreds of talks were submitted for just a very few speaking slots. **Unpaid volunteers** labored for hours before and after their normal jobs reviewing and debating which talks were to get in. The volume of talks combined with simple reviewer fatigue means that earlier submitted talks got more attention. 
 

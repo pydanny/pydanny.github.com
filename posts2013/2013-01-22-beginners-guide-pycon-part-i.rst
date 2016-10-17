@@ -90,7 +90,7 @@ Part II
 
 Check out `Beginner's Guide to PyCon 2013 Part II`_ where I cover the first day of talks best suited for new Python developers!
 
-.. _`Beginner's Guide to PyCon 2013 Part II`: http://pydanny.com/beginners-guide-pycon-2013-part-2.html
+.. _`Beginner's Guide to PyCon 2013 Part II`: https://pydanny.com/beginners-guide-pycon-2013-part-2.html
 
 .. _`code of conduct`: https://us.pycon.org/2013/about/code-of-conduct/
 .. _tutorials: https://us.pycon.org/2013/schedule/tutorials/

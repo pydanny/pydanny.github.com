@@ -87,6 +87,6 @@ Want to do your own list? here's how:
 .. _`impressive results`: http://www.petcheatsheets.com/
 .. _`Armin Ronacher on the subject`: http://lucumr.pocoo.org/2012/12/29/sql-is-agile/
 .. _`django-mongonaut`: https://github.com/pydanny/django-mongonaut/blob/master/mongonaut/views.py
-.. _`I blogged about`: http://pydanny.com/tag/class-based-views.html
+.. _`I blogged about`: https://pydanny.com/tag/class-based-views.html
 .. _`Django CBV documentation`: https://docs.djangoproject.com/en/1.5/topics/class-based-views/
 .. _`#2012pythonmeme`: https://twitter.com/search/realtime?q=%232012pythonmeme&src=typd

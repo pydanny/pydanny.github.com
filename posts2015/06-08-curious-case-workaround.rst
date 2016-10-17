@@ -7,11 +7,11 @@ Why Doesn't Python Have Switch/Case?
 :category: python
 :slug: why-doesnt-python-have-switch-case
 
-.. image:: http://pydanny.com/static/aliens.png
+.. image:: https://pydanny.com/static/aliens.png
    :name: Aliens
    :align: center
    :alt: Aliens
-   :target: http://www.pydanny.com/static/aliens.png
+   :target: https://www.pydanny.com/static/aliens.png
 
 Unlike every other programming language I've used before, Python does not have a switch or case statement. To get around this fact, we use dictionary mapping:
 
