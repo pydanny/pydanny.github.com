@@ -8,7 +8,7 @@ May 12th, 2012 LA Open Source Recap
 
 On May 12th, 2012, over 50 Python_, `C++`_, Ruby_, PHP_, JavaScript_, and `Node.js`_ developers arrived to code on a variety of projects. It was awesome! Tons of open source projects saw contributions, and people across languages and frameworks worked together. 
 
-.. image:: http://farm9.staticflickr.com/8007/7193954598_1b071cb5e4.jpg
+.. image:: https://farm9.staticflickr.com/8007/7193954598_1b071cb5e4.jpg
    :name: May 12 Open Source Sprint
    :align: center
    :target: http://www.flickr.com/photos/59834630@N07/7193954598/
@@ -41,7 +41,7 @@ RSVP here: http://www.meetup.com/LA-Hackathons/events/64542582/
 
 If you want to sponsor or volunteer, email me at pydanny (at) cartwheelweb.com or audreyr (at) cartwheelweb.com. We go out of our way to ensure that sponsors and volunteers feel appreciated.
 
-.. image:: http://farm9.staticflickr.com/8003/7193961164_b26d27093d.jpg
+.. image:: https://farm9.staticflickr.com/8003/7193961164_b26d27093d.jpg
    :name: Me and Audrey at the Open Source Sprint
    :align: center
    :target: http://www.flickr.com/photos/59834630@N07/7193961164/

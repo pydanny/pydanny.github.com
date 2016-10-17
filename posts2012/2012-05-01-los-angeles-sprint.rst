@@ -6,7 +6,7 @@ Los Angeles Open Source Sprint on May 12th!
 :tags: python, django, LA, sprint, hackathon
 :category: python
 
-.. image:: http://farm9.staticflickr.com/8022/7132778527_6e3b49b313_o.png
+.. image:: https://farm9.staticflickr.com/8022/7132778527_6e3b49b313_o.png
    :name: LA Open Source Sprint hosted on Flickr
    :align: center
    :target: http://www.flickr.com/photos/pydanny/7132778527/

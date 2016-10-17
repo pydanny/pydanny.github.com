@@ -8,7 +8,7 @@ Announcing Two Scoops of Django 1.6!
 :slug: announcing-two-scoops-of-django-1.6
 
 
-.. image:: http://twoscoops.smugmug.com/Pydannycom/i-M5FKCtv/0/M/two-scoops-django-co-authors-M.jpg
+.. image:: https://twoscoops.smugmug.com/Pydannycom/i-M5FKCtv/0/M/two-scoops-django-co-authors-M.jpg
    :name: Two Scoops of Django 1.6
    :align: center
    :target: http://twoscoopspress.com/products/two-scoops-of-django-1-6
@@ -64,7 +64,7 @@ In fact...
 We expanded the book so much that **3 > 4**:
 ---------------------------------------------
 
-.. image:: http://twoscoops.smugmug.com/Pydannycom/i-bDBT2Lt/0/M/3vs4-M.jpg
+.. image:: https://twoscoops.smugmug.com/Pydannycom/i-bDBT2Lt/0/M/3vs4-M.jpg
    :name: 3 vs 4
    :align: center
    :target: http://twoscoopspress.com/products/two-scoops-of-django-1-6

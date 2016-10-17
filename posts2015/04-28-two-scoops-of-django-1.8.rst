@@ -9,7 +9,7 @@ Two Scoops of Django 1.8 is Out!
 
 I'm pleased to announce the "Early Release" of the `Two Scoops of Django: Best Practices for Django 1.8`_ **PDF** ebook.
 
-.. image:: http://twoscoops.smugmug.com/Two-Scoops-Press-Media-Kit/i-HZqTR3Z/0/S/two-scoops-1.8-ebook-S.jpg
+.. image:: https://twoscoops.smugmug.com/Two-Scoops-Press-Media-Kit/i-HZqTR3Z/0/S/two-scoops-1.8-ebook-S.jpg
    :name: Two Scoops of Django 1.8 Cover
    :align: center
    :alt: Two Scoops of Django
