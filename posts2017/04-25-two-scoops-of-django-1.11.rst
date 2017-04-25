@@ -2,7 +2,7 @@
 Two Scoops of Django 1.11 is Out!
 ==============================================
 
-:date: 2017-04-25 10:00
+:date: 2017-04-26 00:05
 :tags: twoscoops, python, django, audrey, book, class-based-views
 :category: book
 :slug: two-scoops-of-django-1-11
