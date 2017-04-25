@@ -2,7 +2,7 @@
 Open Source
 ==================
 
-I like to do open source. I would do more, but working on open source does not pay the bills. 
+I like to do open source. I would do more, but working on open source does not pay the bills.
 
 Current/Featured Work
 =====================
@@ -13,6 +13,7 @@ Cookiecutter Django
 A cookiecutter_ template for creating Django projects quickly the way I want.
 
 * https://github.com/pydanny/cookiecutter-django
+* http://cookiecutter-django.readthedocs.io
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
@@ -23,7 +24,7 @@ cookiecutter-djangopackage
 
 A cookiecutter_ template for creating reusable Django packages quickly the right way. Stuff like setup.py, travis, docs, and more included!
 
-* https://github.com/pydanny/cookiecutter-dj-package
+* https://github.com/pydanny/cookiecutter-djangopackage
 
 ----
 
