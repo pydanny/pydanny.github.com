@@ -2,69 +2,58 @@
 Tools
 ===========
 
-:date: 2012-02-19 01:33
-
-My blog post, "`I use this`_", explains my reasoning for using some these tools.
-
-.. _`I use this`: https://pydanny.com/i-use-this.html
+Here's a short list of tools I use
 
 Frameworks
 ==========
 
 * Django_
-* JQuery_
-* AngularJS_
 * Cookiecutter_
+* Flask_ (for use with AWS Lambda)
+* Lektor_ (some day I'll move this blog over to Lektor)
 
-.. _Django: http://djangoproject.com
-.. _JQuery: http://jquery.com/
-.. _AngularJS: http://angularjs.org/
+.. _Django: https://djangoproject.com
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _Lektor: https://www.getlektor.com
+.. _Flask: http://flask.pocoo.org/
 
 References
 ==========
 
-* https://pydanny-event-notes.rtfd.org
-* http://api.jquery.com
-* http://caniuse.com/
 * `docs.djangoproject.com`_
-* `Emoji Cheat Sheet`_
-* jqapi_
-* http://quirksmode.org
+* http://pydanny-event-notes.rtfd.io
 * Stack Overflow
 * Wikipedia_
 
 .. _`docs.djangoproject.com`: https://docs.djangoproject.com
-.. _`Emoji Cheat Sheet`: http://www.emoji-cheat-sheet.com/
-.. _jqapi: http://jqapi.com/
 .. _`Wikipedia`: http://www.wikipedia.org/
 
 Programming Languages
 =====================
 
-* JavaScript_
 * Python_
+* JavaScript_
 
-.. _JavaScript: http://en.wikipedia.org/wiki/JavaScript
 .. _Python: http://python.org
+.. _JavaScript: http://en.wikipedia.org/wiki/JavaScript
+
 
 Services
 ==========
 
-* gmail
-* Heroku_
-* `Pet Cheatsheets`_
-
-.. _Heroku: Heroku
-.. _`Pet Cheatsheets`: http://petcheatsheets.com
+* Amazon Elastic Beanstalk
+* AWS Lambda
+* Google Drive (for writing fiction)
+* Dropbox
+* https://github.com
+* https://gitlab.com
 
 Software
 ========
 
-* Filezilla
+* LaTeX (For writing tech books)
 * Google Chrome
 * Mozilla Firefox
 * OSX
-* TextMate
 * Sublime
-
+* Atom

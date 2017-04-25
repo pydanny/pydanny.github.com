@@ -4,50 +4,63 @@ About
 
 :date: 2013-09-04 13:11
 
-I do Python, Django, and JavaScript out of the Inland Empire in California. I love to read, write, hang out with my wife_, and play at Capoeira_. I am a total Space and NASA Geek.
+I do Python, Django, and JavaScript out of Los Angeles, California. I love to read, write, hang out with my wife_, and play at Capoeira. I am a total Space and NASA Geek. I used to attend software industry events_.
 
 .. _`Audrey Roy Greenfeld`: http://audreymroy.com
 .. _wife: http://audreyr.com
-.. _Capoeira: http://www.meetup.com/Riverside-Capoeira-Meetup
 .. _`Django Packages`: http://djangopackages.com
 .. _`pydanny-event-notes`: https://pydanny-event-notes.readthedocs.org/
 .. _`previous version`: http://twoscoopspress.org/products/two-scoops-of-django-1-5
+.. _events: /pages/events.html
 
 ----
 
-Fiction Book
+Fiction Works
 ===============
 
-I'm a fiction author!
+I'm a fiction author! If you want to read about my upcoming fantasy series, check out my `author blog`_. In the meantime, here's my first work:
 
 .. image:: http://cdn.shopify.com/s/files/1/0304/6901/products/itb32_large.png?v=1427508565
    :name: Into the Brambles
    :align: center
    :target: http://www.amazon.com/into-the-brambles-ebook/dp/B00VC5UQHO/?tag=the-brambles-20
 
-Technical Books
+.. _`author blog`: https://www.danielroygreenfeld.com/
+
+----
+
+Technical Works
 ===============
 
-I co-wrote an ice-cream themed book series on Django with my wife, `Audrey Roy Greenfeld`_. The most current version is for Django 1.8
+I co-wrote an ice-cream themed book series on Django with my wife, `Audrey Roy Greenfeld`_. The most current version is for Django 1.11, the latest Long Term Support (LTS) version of the framework. That means this book is good until April of 2020!
+
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/tsd-111-alpha.jpg?13020655073870052027
+   :name: Two Scoops of Django: Best Practices for Django 1.11
+   :align: center
+   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-11
+   :height: 480
+   :width: 389
+
+You can still purchase the 1.8, which is still good until April of 2018.
 
 .. image:: http://cdn.shopify.com/s/files/1/0304/6901/products/two-scoops-django-1.8-best-practices_abe21353-2734-4208-8566-c95e22759f59_large.png?v=1432913237
    :name: Two Scoops of Django: Best Practices for Django 1.8
    :align: center
-   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-8
+   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-8
 
-You can still purchase the 1.6 edition.
+You can also purchase the 1.6 edition:
 
 .. image:: http://cdn.shopify.com/s/files/1/0304/6901/products/1.6-cover-389x480_1024x1024.png?v=1391472047
    :name: Two Scoops of Django: Best Practices for Django 1.6
    :align: center
-   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-6
+   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-6
 
 And the 1.5 edition
 
 .. image:: https://s3.amazonaws.com/twoscoops/img/tsd-cover.png
    :name: Two Scoops of Django: Best Practices for Django 1.5
    :align: center
-   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-5
+   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-5
 
 ----
 

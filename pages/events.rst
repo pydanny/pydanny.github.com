@@ -2,48 +2,25 @@
 Events
 ===========
 
-:date: 2016-05-26 10:05
-
-May 2016: PyCon US
-==================================
-
-* Portland, Oregon
-* https://us.pycon.org/2016/
-
-I'll be at PyCon with `Audrey Roy Greenfeld`_. You can easily find us at the Cookiecutter_ booth during the main conference days or at the `Cookiecutter sprint`_. Stop by and say hi!
-
-.. _`Audrey Roy Greenfeld`: https://twitter.com/audreyr
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`Cookiecutter sprint`: https://us.pycon.org/2016/community/sprints/#cookiecutter
-
+For years, I got the chance to travel to and talk at events all over the world. I don't get to enjoy this priviledge any longer, but below are lists of what I did.
 
 June 2016: PyCon Singapore
 ==================================
 
-* Singapore
-* https://pycon.sg/
-
-I've giving a keynote speech called `Overscaling to Negative Infinity`_ and co-presenting a `tutorial on Django best practices`_.
-
-.. _`tutorial on Django best practices`: https://pycon.sg/schedule/presentation/84/
-
-.. _`Overscaling to Negative Infinity`: https://pycon.sg/schedule/presentation/82/
+With `Audrey Roy Greenfeld`_, I co-presented a keynote speech called Overscaling to Negative Infinity and co-taught a tutorial on Django best practices.
 
 
-July 2016: DjangoCon US
+
+May 2016: PyCon US
 ==================================
 
-* Philadelphia, PA
-* https://pycon.sg/
+I was at PyCon with `Audrey Roy Greenfeld`_ running the Cookiecutter_ booth during the main conference days and later at the Cookiecutter_ sprints.
 
-I'll be co-presenting a called "Supercharge Your Next Project With the Cookiecutter Django Framework". Tickets_ available now and the description is below:
+.. _`Audrey Roy Greenfeld`: https://twitter.com/audreyr
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
 
-  Cookiecutter Django is a framework for jumpstarting production-ready Django projects quickly. Coming with dozens of proven third-party packages already preconfigured, you can jump right into the code. In this tutorial, you’ll learn about using it from beginning to end, including installation, usage, tips, and cutting-edge tricks. You’ll walk away with your own documented, tested, production-ready ice cream-themed project.
 
-.. _Description:
-.. _Tickets: https://defna.ticketbud.com/djangocon-us-2016#product_name_316272
 
-----
 
 Previous
 ========
