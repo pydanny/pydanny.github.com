@@ -4,7 +4,7 @@ Two Scoops of Django 1.11 is Out!
 
 :date: 2017-04-26 00:05
 :tags: twoscoops, python, django, audrey, book, class-based-views
-:category: book
+:category: python
 :slug: two-scoops-of-django-1-11
 
 .. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/tsd-111-alpha-470x235.jpg?2934688328290951771
