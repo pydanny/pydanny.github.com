@@ -3,16 +3,16 @@
 &lt;div class="section" id="changing-the-behavior-of-pytest"&gt;
 &lt;h2&gt;Changing the Behavior of &lt;strong&gt;pytest&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;When &lt;strong&gt;pytest&lt;/strong&gt; is called, either via the command-line or by &lt;tt class="docutils literal"&gt;pytest.main()&lt;/tt&gt;, it &lt;a class="reference external" href="http://pytest.org/latest/customize.html#how-test-configuration-is-read-from-configuration-ini-files"&gt;looks for a configuration file&lt;/a&gt; called either &lt;tt class="docutils literal"&gt;pytest.ini&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;tox.ini&lt;/tt&gt;, and &lt;tt class="docutils literal"&gt;setup.cfg&lt;/tt&gt;. If it finds a configuration file, it follows standard practices for those things. In the following example, I demonstrating searching for tests inside of all Python files while ignoring the &lt;strong&gt;_build&lt;/strong&gt; directories:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# pytest.ini (or tox.ini or setup.cfg)&lt;/span&gt;
-&lt;span class="err"&gt;[pytest]&lt;/span&gt; &lt;span class="c1"&gt;# You must put pytest-related controls in a &amp;#39;pytest&amp;#39; block&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# pytest.ini (or tox.ini or setup.cfg)&lt;/span&gt;
+&lt;span class="na"&gt;[pytest] # You must put pytest-related controls in a &amp;#39;pytest&amp;#39; block&lt;/span&gt;
 &lt;span class="na"&gt;python_files&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;*.py  # Run tests against all python modules&lt;/span&gt;
 &lt;span class="na"&gt;norecursedirs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;_build # Don&amp;#39;t look inside of _build directories&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="changing-pytest-behavior-dynamically"&gt;
 &lt;h3&gt;Changing &lt;strong&gt;pytest&lt;/strong&gt; Behavior Dynamically&lt;/h3&gt;
 &lt;p&gt;This is pretty nice, but if I need to ignore certain Python modules like &lt;tt class="docutils literal"&gt;setup.py&lt;/tt&gt;? I can do this by creating a &lt;tt class="docutils literal"&gt;conftest.py&lt;/tt&gt; module and defining a &lt;tt class="docutils literal"&gt;collect_ignore&lt;/tt&gt; variable.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# conftest.py&lt;/span&gt;
-&lt;span class="n"&gt;collect_ignore&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;setup.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;conftest.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# conftest.py&lt;/span&gt;
+&lt;span class="n"&gt;collect_ignore&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;setup.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;conftest.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The &lt;tt class="docutils literal"&gt;conftest.py&lt;/tt&gt; module can actually be defined per directory. So if test behavior needs to change in different packages, just create additional &lt;tt class="docutils literal"&gt;conftest.py&lt;/tt&gt; modules. It's simple to do, but really powerful.&lt;/p&gt;
 &lt;p&gt;The &lt;tt class="docutils literal"&gt;conftest&lt;/tt&gt; module is capable of a lot of other things. Right now there doesn't seem to be a page that documents it in full, so I'm considering submitting a documentation pull request. In the meantime, I live off the &lt;tt class="docutils literal"&gt;conftest.py&lt;/tt&gt; &lt;a class="reference external" href="http://pytest.org/latest/search.html?q=conftest&amp;amp;check_keywords=yes&amp;amp;area=default"&gt;search results&lt;/a&gt;.&lt;/p&gt;
@@ -20,9 +20,9 @@
 &lt;div class="section" id="pytest-is-plug-in-driven"&gt;
 &lt;h3&gt;&lt;strong&gt;pytest&lt;/strong&gt; is Plug-In Driven&lt;/h3&gt;
 &lt;p&gt;One feature I really like about &lt;strong&gt;pytest&lt;/strong&gt; is that much of it's default capabilities are driven by about 20 plug-ins. It's a sign of maturity that not only does it have plug-ins, but that most of the time this feature is transparent. You can add new plug-ins to your project in a &lt;a class="reference external" href="http://pytest.org/latest/plugins.html#plugin-discovery-order-at-tool-startup"&gt;number of ways&lt;/a&gt;, including &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt; installation from &lt;a class="reference external" href="https://pypi.python.org/pypi/"&gt;PyPI&lt;/a&gt;. For locally defined plug-ins I prefer to rely on explicit &lt;tt class="docutils literal"&gt;conftest.py&lt;/tt&gt; declarations:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# conftest.py&lt;/span&gt;
-&lt;span class="n"&gt;collect_ignore&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;setup.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;conftest.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;pytest_plugins&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;dream_plugin&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;dream.utils.testplugin&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# conftest.py&lt;/span&gt;
+&lt;span class="n"&gt;collect_ignore&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;setup.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;conftest.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;pytest_plugins&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dream_plugin&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;dream.utils.testplugin&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;There are a lot of &lt;a class="reference external" href="https://pypi.python.org/pypi?%3Aaction=search&amp;amp;term=pytest-&amp;amp;submit=search"&gt;third-party pytest plug-ins&lt;/a&gt;, which brings me to the next major section: Integration with other tools and frameworks.&lt;/p&gt;
 &lt;/div&gt;
@@ -50,12 +50,12 @@
 &lt;div class="section" id="the-intuitively-named-raises-context-manager"&gt;
 &lt;h2&gt;The Intuitively Named &lt;tt class="docutils literal"&gt;raises&lt;/tt&gt; &lt;strong&gt;context manager&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;When using &lt;strong&gt;pytest&lt;/strong&gt;, you can assert whether or not an exception occurred via the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# test_exceptions.py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# test_exceptions.py&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;raises&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_an_exception&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;raises&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ne"&gt;IndexError&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="c"&gt;# Indexing the 30th item in a 3 item list&lt;/span&gt;
+        &lt;span class="c1"&gt;# Indexing the 30th item in a 3 item list&lt;/span&gt;
         &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;CustomException&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -72,28 +72,28 @@
 &lt;h2&gt;Fixtures as Function Arguments&lt;/h2&gt;
 &lt;p&gt;When writing tests, it's not uncommon to need common objects used between tests. However, if you have a complicated process to generate these common objects, then you have to write tests for your tests. When using Python's venerable &lt;strong&gt;unittest&lt;/strong&gt; framework, this always causes a spaghetti-code headache. However, via the virtue of simplicity, &lt;strong&gt;pytest&lt;/strong&gt; helps keep our test code cleaner and more maintainable.&lt;/p&gt;
 &lt;p&gt;Rather than try and explain that further, I'll write some code to get my point across:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# test_fixtures.py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# test_fixtures.py&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;fixture&lt;/span&gt;
 
-&lt;span class="nd"&gt;@fixture&lt;/span&gt;  &lt;span class="c"&gt;# Registering this function as a fixture.&lt;/span&gt;
+&lt;span class="nd"&gt;@fixture&lt;/span&gt;  &lt;span class="c1"&gt;# Registering this function as a fixture.&lt;/span&gt;
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;complex_data&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="c"&gt;# Creating test data entirely in this function to isolate it&lt;/span&gt;
-    &lt;span class="c"&gt;#   from the rest of this module.&lt;/span&gt;
+    &lt;span class="c1"&gt;# Creating test data entirely in this function to isolate it&lt;/span&gt;
+    &lt;span class="c1"&gt;#   from the rest of this module.&lt;/span&gt;
     &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;DataTypes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;
         &lt;span class="nb"&gt;list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;DataTypes&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_types&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;complex_data&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="c"&gt;# fixture is passed as an argument&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Elephant&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;complex_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_types&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;complex_data&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="c1"&gt;# fixture is passed as an argument&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Elephant&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;complex_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;complex_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Nice and simple, which is how I think test harnesses should operate.&lt;/p&gt;
 &lt;div class="section" id="writing-tests-for-fixtures"&gt;
 &lt;h3&gt;Writing Tests for Fixtures&lt;/h3&gt;
 &lt;p&gt;Let's pretend that the &lt;tt class="docutils literal"&gt;complex_data()&lt;/tt&gt; is a terribly sophisticated function in it's own right. It's so sophisticated that I can't determine what it's actually doing, and I start to get worried. Fortunately, because the &lt;tt class="docutils literal"&gt;complex_data()&lt;/tt&gt; argument itself is written as a function, I can easily write a test for it.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# test_fixtures.py&lt;/span&gt;
-&lt;span class="c"&gt;# note: this version of test_fixtures.py is built off the previous example&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# test_fixtures.py&lt;/span&gt;
+&lt;span class="c1"&gt;# note: this version of test_fixtures.py is built off the previous example&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_complex_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;complex_data&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;complex_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -106,30 +106,30 @@
 &lt;div class="section" id="scoping-fixtures"&gt;
 &lt;h3&gt;Scoping Fixtures&lt;/h3&gt;
 &lt;p&gt;What if I want a fixture that shares it's scope across several test functions?&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# test_fixtures_with_scope.py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# test_fixtures_with_scope.py&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;fixture&lt;/span&gt;
 
-&lt;span class="nd"&gt;@fixture&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scope&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;module&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;# Registering fixture with module-level scope&lt;/span&gt;
+&lt;span class="nd"&gt;@fixture&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scope&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;module&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Registering fixture with module-level scope&lt;/span&gt;
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;scope_data&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_first&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scope_data&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;scope_data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-    &lt;span class="n"&gt;scope_data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;scope_data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;scope_data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_second&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scope_data&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;scope_data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;scope_data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="executing-teardown-code"&gt;
 &lt;h3&gt;Executing Teardown Code&lt;/h3&gt;
 &lt;p&gt;I can tear down data structures in them. This is useful for any sort of data binding, including file management.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# test_fixtures_with_teardown.py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# test_fixtures_with_teardown.py&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;fixture&lt;/span&gt;
 
 &lt;span class="nd"&gt;@fixture&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;file_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="c"&gt;# The fixture MUST have a &amp;#39;request&amp;#39; argument&lt;/span&gt;
-    &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;data.txt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;file_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="c1"&gt;# The fixture MUST have a &amp;#39;request&amp;#39; argument&lt;/span&gt;
+    &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;data.txt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
     &lt;span class="nd"&gt;@request.addfinalizer&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;teardown&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
@@ -167,20 +167,20 @@
 &lt;div class="section" id="test-discovery"&gt;
 &lt;h2&gt;Test Discovery&lt;/h2&gt;
 &lt;p&gt;The first thing that &lt;strong&gt;pytest&lt;/strong&gt; provides is test discovery. Like &lt;strong&gt;nose&lt;/strong&gt;, starting from the directory where it is run, it will find any Python module prefixed with &lt;tt class="docutils literal"&gt;test_&lt;/tt&gt; and will attempt to run any defined &lt;strong&gt;unittest&lt;/strong&gt; or function prefixed with  &lt;tt class="docutils literal"&gt;test_&lt;/tt&gt;. &lt;strong&gt;pytest&lt;/strong&gt; explores properly defined Python packages, searching recursively through directories that include &lt;tt class="docutils literal"&gt;__init__.py&lt;/tt&gt; modules. Since an image is probably easier to read, here's a sample directory structure annotated with which files are checked for tests:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;address/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;address/
     __init__.py
     envelope.py
     geo.py
-    test_envelope.py &lt;span class="c"&gt;# checked for tests&lt;/span&gt;
-    test_geo.py &lt;span class="c"&gt;# checked for tests&lt;/span&gt;
+    test_envelope.py &lt;span class="c1"&gt;# checked for tests&lt;/span&gt;
+    test_geo.py &lt;span class="c1"&gt;# checked for tests&lt;/span&gt;
 records/
-    &lt;span class="c"&gt;# pytest WON&amp;#39;T look here because it lacks __init__.py&lt;/span&gt;
+    &lt;span class="c1"&gt;# pytest WON&amp;#39;T look here because it lacks __init__.py&lt;/span&gt;
     records.csv
     records.py
-    test_records.py &lt;span class="c"&gt;# skipped because records/ lacks __init__.py&lt;/span&gt;
+    test_records.py &lt;span class="c1"&gt;# skipped because records/ lacks __init__.py&lt;/span&gt;
 __init__.py
 main.py
-test_main.py  &lt;span class="c"&gt;# checked for tests&lt;/span&gt;
+test_main.py  &lt;span class="c1"&gt;# checked for tests&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now that I've explained which files are checked for tests, here is how &lt;strong&gt;pytest&lt;/strong&gt; determines what in each Python module is run as a test.&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
@@ -193,18 +193,18 @@ test_main.py  &lt;span class="c"&gt;# checked for tests&lt;/span&gt;
 &lt;div class="section" id="writing-tests-as-functions"&gt;
 &lt;h2&gt;Writing Tests as Functions&lt;/h2&gt;
 &lt;p&gt;Python's &lt;strong&gt;unittest&lt;/strong&gt; framework works, but it's always felt like too much boilerplate. I admit I like to write tests, but working with the &lt;strong&gt;unittest&lt;/strong&gt; framework always dimmed that fun. I suppose this is why the assert keyword is useful, because it changes this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt;
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestMyStuff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_the_obvious&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;unittest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;to this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The former is nine lines of code (seven if you are using &lt;strong&gt;pytest&lt;/strong&gt; to find this test) to do what the assert statement does in one. However, the nine lines of &lt;strong&gt;unittest&lt;/strong&gt; code has a couple major advantages:&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
@@ -212,16 +212,16 @@ test_main.py  &lt;span class="c"&gt;# checked for tests&lt;/span&gt;
 &lt;li&gt;Produces a more illuminating response than an uninformative &lt;cite&gt;AssertionError&lt;/cite&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Fortunately, tools like &lt;strong&gt;pytest&lt;/strong&gt; (and &lt;strong&gt;nose&lt;/strong&gt;) provide the ability to write tests as functions. This means we can combine the advantages of both &lt;tt class="docutils literal"&gt;unittest&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;assert&lt;/tt&gt; thus:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_the_obvious&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_the_obvious&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now we are down to just two lines of code! That could be increased to five if we called &lt;strong&gt;pytest&lt;/strong&gt; the same as we did in the &lt;strong&gt;unittest&lt;/strong&gt; example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_the_obvious&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;pytest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The next part is wonderful. If an &lt;tt class="docutils literal"&gt;assert&lt;/tt&gt; statement fails, then &lt;strong&gt;pytest&lt;/strong&gt; provides a very informative response. Let's check it out by running the following code:&lt;/p&gt;
@@ -231,16 +231,16 @@ test_main.py  &lt;span class="c"&gt;# checked for tests&lt;/span&gt;
 4
 5
 6
-7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pytest&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_gonna_fail&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;  &lt;span class="c"&gt;# Going to fail here on line 4&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;  &lt;span class="c1"&gt;# Going to fail here on line 4&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;pytest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;When I run this code, I get the following response:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;====================&lt;/span&gt; &lt;span class="nv"&gt;FAILURES&lt;/span&gt; &lt;span class="o"&gt;=====================&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;====================&lt;/span&gt; &lt;span class="nv"&gt;FAILURES&lt;/span&gt; &lt;span class="o"&gt;=====================&lt;/span&gt;
 ----------------- test_gonna_fail -----------------
 
     def test_gonna_fail&lt;span class="o"&gt;()&lt;/span&gt;:
@@ -248,7 +248,7 @@ test_main.py  &lt;span class="c"&gt;# checked for tests&lt;/span&gt;
 E       assert &lt;span class="nv"&gt;True&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; False
 
 samples.py:4: &lt;span class="nv"&gt;AssertionError&lt;/span&gt;
-&lt;span class="o"&gt;========&lt;/span&gt; 1 failed, 0 passed in 0.1 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;========&lt;/span&gt;
+&lt;span class="o"&gt;========&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; failed, &lt;span class="m"&gt;0&lt;/span&gt; passed in &lt;span class="m"&gt;0&lt;/span&gt;.1 &lt;span class="nv"&gt;seconds&lt;/span&gt; &lt;span class="o"&gt;========&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;As you can see, pytest identified where the &lt;tt class="docutils literal"&gt;assert&lt;/tt&gt; statement failed on line 4 and displays exactly caused the failure (&lt;tt class="docutils literal"&gt;True&lt;/tt&gt; did not equal &lt;tt class="docutils literal"&gt;False&lt;/tt&gt;). Very nice indeed.&lt;/p&gt;
 &lt;/div&gt;

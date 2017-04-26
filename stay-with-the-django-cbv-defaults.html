@@ -100,7 +100,7 @@
                     <p>One virtue of Django Class Based Views (CBVs) is that they come with pretty good default settings. The virtue of this is you can really pare your code down in size and complexity.</p>
 <p>For example, here is an implementation of CBVs based on a straight-forward Django model , <tt class="docutils literal">stuffage.models.Stuff</tt>, that has a <tt class="docutils literal">get_absolute_url</tt> method:</p>
 <p><strong>stuffage/views.py</strong>:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
 
 <span class="kn">from</span> <span class="nn">stuffage.models</span> <span class="kn">import</span> <span class="n">Stuff</span>
 
@@ -117,31 +117,31 @@
     <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
 </pre></div>
 <p><strong>stuffage/urls.py</strong>:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">include</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">include</span>
 
 <span class="kn">from</span> <span class="nn">stuffage</span> <span class="kn">import</span> <span class="n">views</span>
 
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
 
     <span class="n">url</span><span class="p">(</span>
-        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^create/$&quot;</span><span class="p">,</span>
+        <span class="n">regex</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^create/$&quot;</span><span class="p">,</span>
         <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffCreateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_create&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stuff_create&quot;</span><span class="p">,</span>
     <span class="p">),</span>
     <span class="n">url</span><span class="p">(</span>
-        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^update/(?P&lt;pk&gt;\d+)/$&quot;</span><span class="p">,</span>
+        <span class="n">regex</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^update/(?P&lt;pk&gt;\d+)/$&quot;</span><span class="p">,</span>
         <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffUpdateView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_update&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stuff_update&quot;</span><span class="p">,</span>
     <span class="p">),</span>
     <span class="n">url</span><span class="p">(</span>
-        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^(?P&lt;pk&gt;\d+)/$&quot;</span><span class="p">,</span>
+        <span class="n">regex</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^(?P&lt;pk&gt;\d+)/$&quot;</span><span class="p">,</span>
         <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffDetailView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_detail&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stuff_detail&quot;</span><span class="p">,</span>
     <span class="p">),</span>
     <span class="n">url</span><span class="p">(</span>
-        <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+        <span class="n">regex</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^$&quot;</span><span class="p">,</span>
         <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stuff_list&quot;</span><span class="p">,</span>
     <span class="p">),</span>
 <span class="p">)</span>
 </pre></div>
@@ -161,34 +161,34 @@ stuffage/stuff_list.html (StuffListView)
 <p>One trait of developers is we like to <strong>tinker</strong>.</p>
 <p>Unfortunately, I keep seeing developers tinkering on the settings for Django CBVs without any reason besides tinkeringWhich means you get things like:</p>
 <p><strong>unfortunately tinkered stuffage/views.py</strong></p>
-<div class="highlight"><pre><span class="c"># 1. Using template_name means extra code and extra developer lookup time.</span>
-<span class="c"># 2. Changing the context_object_name means extra code  and extra developer</span>
-<span class="c">#       lookup time.</span>
+<div class="highlight"><pre><span></span><span class="c1"># 1. Using template_name means extra code and extra developer lookup time.</span>
+<span class="c1"># 2. Changing the context_object_name means extra code  and extra developer</span>
+<span class="c1">#       lookup time.</span>
 <span class="k">class</span> <span class="nc">StuffDetailView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">Stuff</span>
-    <span class="n">template_name</span> <span class="o">=</span> <span class="s">&quot;stuffage/stuffs.html&quot;</span>
-    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s">&#39;stuff&#39;</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;stuffage/stuffs.html&quot;</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s1">&#39;stuff&#39;</span>
 </pre></div>
 <p><strong>unfortunately tinkered stuffage/urls.py</strong></p>
-<div class="highlight"><pre><span class="c"># 1. Logic into your URLConf should be kept to a minimum</span>
-<span class="c"># 2. Unless you are using the same view more than once, specifying the</span>
-<span class="c">#       template_name here is a waste of code. And makes it harder to</span>
-<span class="c">#       understand the view.</span>
+<div class="highlight"><pre><span></span><span class="c1"># 1. Logic into your URLConf should be kept to a minimum</span>
+<span class="c1"># 2. Unless you are using the same view more than once, specifying the</span>
+<span class="c1">#       template_name here is a waste of code. And makes it harder to</span>
+<span class="c1">#       understand the view.</span>
 <span class="n">url</span><span class="p">(</span>
-    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
-    <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s">&quot;stuffage/stuffs.html&quot;</span><span class="p">),</span>
-    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+    <span class="n">regex</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^$&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;stuffage/stuffs.html&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stuff_list&quot;</span><span class="p">,</span>
 <span class="p">),</span>
 
-<span class="c"># No matter how fat your models get, you always end up extending all views,</span>
-<span class="c">#   so this will have to be moved into the formal views.py at some point. So</span>
-<span class="c">#   why not start with it in the views.py in the first place.</span>
+<span class="c1"># No matter how fat your models get, you always end up extending all views,</span>
+<span class="c1">#   so this will have to be moved into the formal views.py at some point. So</span>
+<span class="c1">#   why not start with it in the views.py in the first place.</span>
 <span class="n">url</span><span class="p">(</span>
-    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+    <span class="n">regex</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^$&quot;</span><span class="p">,</span>
     <span class="n">view</span><span class="o">=</span><span class="n">ListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span>
         <span class="n">model</span><span class="o">=</span><span class="n">Stuff</span><span class="p">,</span>
-        <span class="n">template_name</span><span class="o">=</span><span class="s">&quot;stuffage/stuffs.html&quot;</span><span class="p">),</span>
-    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+        <span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;stuffage/stuffs.html&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stuff_list&quot;</span><span class="p">,</span>
 <span class="p">),</span>
 </pre></div>
 <p>Don't forget you can also tinker/tweak formats and slug/pk identifier defaults, and a ton of other things that are part of Django CBVs. While this gives you great power, if misused that power can cause grief in terms of code obfuscation and the need for additional testing.</p>
@@ -198,17 +198,17 @@ stuffage/stuff_list.html (StuffListView)
 <h2>My Advice</h2>
 <p>Stick with the defaults and only modify behavior that actually needs to be modified. For example, if you want to show multiple versions of a ListView you might do something like:</p>
 <p><strong>stuffage/urls.py with a pydanny approved use of template_name</strong></p>
-<div class="highlight"><pre><span class="n">url</span><span class="p">(</span>
-    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^$&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><span class="n">url</span><span class="p">(</span>
+    <span class="n">regex</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^$&quot;</span><span class="p">,</span>
     <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span>
-    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stuff_list&quot;</span><span class="p">,</span>
 <span class="p">),</span>
 
-<span class="c"># Same view but with a template designed to show larger list items.</span>
+<span class="c1"># Same view but with a template designed to show larger list items.</span>
 <span class="n">url</span><span class="p">(</span>
-    <span class="n">regex</span><span class="o">=</span><span class="s">r&quot;^large/$&quot;</span><span class="p">,</span>
-    <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s">&quot;stuffage/stuff_list_large.html&quot;</span><span class="p">),</span>
-    <span class="n">name</span><span class="o">=</span><span class="s">&quot;stuff_list_large&quot;</span><span class="p">,</span>
+    <span class="n">regex</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^large/$&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="n">views</span><span class="o">.</span><span class="n">StuffListView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s2">&quot;stuffage/stuff_list_large.html&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;stuff_list_large&quot;</span><span class="p">,</span>
 <span class="p">),</span>
 </pre></div>
 </div>
@@ -287,109 +287,29 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
 </p>
 
 <h4 class="nav-header">Tags</h4>
-<span class="tag-2">
-    <a href="./tag/holidays.html">
-        holidays
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nodejs.html">
-        nodejs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/philippines.html">
-        philippines
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/australia.html">
-        australia
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/djangocon.html">
-        djangocon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypy.html">
-        pypy
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/meme.html">
-        meme
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/i18n.html">
-        i18n
+    <a href="./tag/pycon.html">
+        pycon
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/cartwheel-web.html">
-        Cartwheel Web
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/setup.html">
-        setup
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/europe.html">
-        europe
+    <a href="./tag/perl.html">
+        perl
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/pumpkin.html">
-        pumpkin
+    <a href="./tag/barcamp.html">
+        barcamp
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/gondor.html">
-        gondor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/vs.html">
-        vs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pydiversity.html">
-        pydiversity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/unicode.html">
-        unicode
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/halloween.html">
-        halloween
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypi.html">
-        pypi
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/friends.html">
-        friends
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/twoscoops.html">
-        twoscoops
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/php.html">
-        php
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
     </a>
 </span>
 <span class="tag-4">
@@ -398,83 +318,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/hackathon.html">
-        hackathon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/latex.html">
-        LaTeX
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pyramid.html">
-        pyramid
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/joke.html">
-        joke
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/heroku.html">
-        heroku
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/testing.html">
-        testing
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/usability.html">
-        usability
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/la.html">
-        LA
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/conda.html">
-        conda
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/casestudy.html">
-        casestudy
+    <a href="./tag/api.html">
+        api
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/rant.html">
-        rant
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dotcloud.html">
-        dotcloud
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/blog.html">
-        blog
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/django.html">
-        django
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pyladies.html">
-        pyladies
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/pycon.html">
-        pycon
+    <a href="./tag/family.html">
+        family
     </a>
 </span>
 <span class="tag-3">
@@ -483,173 +333,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/eventbrite.html">
-        eventbrite
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/audrey.html">
-        audrey
+    <a href="./tag/flask.html">
+        flask
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/restructuredtext.html">
-        RestructuredText
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackathons.html">
-        lahackathons
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/capoeira.html">
-        capoeira
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
-        Consumer-Notebook
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/python.html">
-        python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/css.html">
-        css
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/python3.html">
-        python3
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/training.html">
-        training
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/markdown.html">
-        markdown
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/forms.html">
-        forms
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/brambles.html">
-        brambles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/la.html">
-        la
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/api.html">
-        api
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/postgresql.html">
-        postgresql
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/barcamp.html">
-        barcamp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/packaging.html">
-        packaging
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/clojure.html">
-        clojure
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/review.html">
-        review
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/mongodb.html">
-        mongodb
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/tools.html">
-        tools
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackthons.html">
-        lahackthons
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/surgery.html">
-        surgery
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/cheatsheet.html">
-        cheatsheet
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/europython.html">
-        europython
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dsf.html">
-        dsf
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nasa.html">
-        nasa
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/functions.html">
-        functions
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/django-rest-framework.html">
-        django-rest-framework
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/class-based-views.html">
-        class-based-views
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/travel.html">
-        travel
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/recipe.html">
-        recipe
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/sprint.html">
-        sprint
+    <a href="./tag/los-angeles.html">
+        los-angeles
     </a>
 </span>
 <span class="tag-3">
@@ -663,13 +353,38 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/djangodash.html">
-        djangodash
+    <a href="./tag/css.html">
+        css
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/jinja2.html">
-        jinja2
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/cartwheel-web.html">
+        Cartwheel Web
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pydiversity.html">
+        pydiversity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/halloween.html">
+        halloween
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/latex.html">
+        LaTeX
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
     </a>
 </span>
 <span class="tag-3">
@@ -677,9 +392,49 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         argentina
     </a>
 </span>
+<span class="tag-4">
+    <a href="./tag/whartonwc.html">
+        WhartonWC
+    </a>
+</span>
 <span class="tag-3">
-    <a href="./tag/cookiecutter.html">
-        cookiecutter
+    <a href="./tag/pypi.html">
+        pypi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cheatsheet.html">
+        cheatsheet
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/packaging.html">
+        packaging
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/postgresql.html">
+        postgresql
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/restructuredtext.html">
+        RestructuredText
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
     </a>
 </span>
 <span class="tag-2">
@@ -688,63 +443,33 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/perl.html">
-        perl
+    <a href="./tag/conda.html">
+        conda
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/oauth.html">
-        OAuth
+    <a href="./tag/pyramid.html">
+        pyramid
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
-        pycon-2013-guide
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        Los Angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/paypal.html">
-        paypal
+    <a href="./tag/meme.html">
+        meme
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/ruby.html">
-        ruby
+    <a href="./tag/testing.html">
+        testing
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/wsgi.html">
-        wsgi
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        los-angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/whartonwc.html">
-        WhartonWC
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/ppoftw.html">
-        ppoftw
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/howto.html">
-        howto
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/meteor.html">
-        meteor
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
     </a>
 </span>
 <span class="tag-4">
@@ -753,8 +478,98 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/flask.html">
-        flask
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/eventbrite.html">
+        eventbrite
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cookiecutter.html">
+        cookiecutter
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/training.html">
+        training
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nasa.html">
+        nasa
     </a>
 </span>
 <span class="tag-4">
@@ -763,8 +578,98 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
+    <a href="./tag/pumpkin.html">
+        pumpkin
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/surgery.html">
+        surgery
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/recipe.html">
+        recipe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
     <a href="./tag/science.html">
         science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/markdown.html">
+        markdown
     </a>
 </span>
 <span class="tag-4">
@@ -772,19 +677,114 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         rails
     </a>
 </span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/i18n.html">
+        i18n
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/unicode.html">
+        unicode
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/jinja2.html">
+        jinja2
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/ppoftw.html">
+        ppoftw
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/brambles.html">
+        brambles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
 <span class="tag-4">
     <a href="./tag/binstar.html">
         binstar
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/family.html">
-        family
+<span class="tag-3">
+    <a href="./tag/django-rest-framework.html">
+        django-rest-framework
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/book.html">
-        book
+    <a href="./tag/python3.html">
+        python3
     </a>
 </span>
 

@@ -101,7 +101,7 @@
 <div class="section" id="attaching-a-custom-exception-to-a-function">
 <h2>Attaching a custom exception to a function</h2>
 <p>This works because <a class="reference external" href="http://python.org">Python</a> functions are first-class objects. They can be passed around as things, and in this case, have things assigned to them.</p>
-<div class="highlight"><pre><span class="c"># logic.py</span>
+<div class="highlight"><pre><span></span><span class="c1"># logic.py</span>
 <span class="k">class</span> <span class="nc">DoesNotCompute</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Easy to understand naming conventions work best! &quot;&quot;&quot;</span>
     <span class="k">pass</span>
@@ -113,27 +113,27 @@
     <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">DoesNotCompute</span>
 
-<span class="c"># Assign DoesNotCompute exception to this_function</span>
+<span class="c1"># Assign DoesNotCompute exception to this_function</span>
 <span class="n">this_function</span><span class="o">.</span><span class="n">DoesNotCompute</span> <span class="o">=</span> <span class="n">DoesNotCompute</span>
 </pre></div>
 <p>Now I can import the function, and it won't just through <tt class="docutils literal">DoesNotCompute</tt> exceptions, it will also carry the function along with the import:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">logic</span> <span class="kn">import</span> <span class="n">this_function</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">logic</span> <span class="kn">import</span> <span class="n">this_function</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="mi">3125</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
 <span class="mf">869.8739233809259</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="s">&#39;will throw an error.&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_function</span><span class="p">(</span><span class="s1">&#39;will throw an error.&#39;</span><span class="p">)</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-  <span class="n">File</span> <span class="s">&quot;logic.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">10</span><span class="p">,</span> <span class="ow">in</span> <span class="n">this_function</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;logic.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">10</span><span class="p">,</span> <span class="ow">in</span> <span class="n">this_function</span>
     <span class="k">raise</span> <span class="n">DoesNotCompute</span>
 <span class="n">DoesNotCompute</span>
 </pre></div>
 <p>Alright, that doesn't seem like much, but let's add in some exception handling:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
-<span class="o">...</span>     <span class="n">this_function</span><span class="p">(</span><span class="s">&#39;is an example&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">this_function</span><span class="p">(</span><span class="s1">&#39;is an example&#39;</span><span class="p">)</span>
 <span class="o">...</span> <span class="k">except</span> <span class="n">this_function</span><span class="o">.</span><span class="n">DoesNotCompute</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;See what attaching custom exceptions to functions can do?&#39;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;See what attaching custom exceptions to functions can do?&#39;</span><span class="p">)</span>
 <span class="o">...</span>
 <span class="o">...</span>
 <span class="n">See</span> <span class="n">what</span> <span class="n">attaching</span> <span class="n">custom</span> <span class="n">exceptions</span> <span class="n">to</span> <span class="n">functions</span> <span class="n">can</span> <span class="n">do</span><span class="err">?</span>
@@ -142,16 +142,16 @@
 <div class="section" id="attaching-the-custom-exception-to-a-class">
 <h2>Attaching the custom exception to a class</h2>
 <p>All we have to do is enhance our existing <cite>logic.py</cite> file by adding <tt class="docutils literal">ThisClass</tt>:</p>
-<div class="highlight"><pre><span class="c"># logic.py</span>
+<div class="highlight"><pre><span></span><span class="c1"># logic.py</span>
 <span class="k">class</span> <span class="nc">DoesNotCompute</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Easy to understand naming conventions work best! &quot;&quot;&quot;</span>
     <span class="k">pass</span>
 
-<span class="c"># removed the function example for clarity</span>
+<span class="c1"># removed the function example for clarity</span>
 
 <span class="k">class</span> <span class="nc">ThisClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="c"># Since the DoesNotCompute exception exists, let&#39;s just assign it</span>
-    <span class="c"># as an attribute of ThisClass</span>
+    <span class="c1"># Since the DoesNotCompute exception exists, let&#39;s just assign it</span>
+    <span class="c1"># as an attribute of ThisClass</span>
     <span class="n">DoesNotCompute</span> <span class="o">=</span> <span class="n">DoesNotCompute</span>
 
     <span class="k">def</span> <span class="nf">this_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
@@ -162,20 +162,20 @@
             <span class="k">raise</span> <span class="n">DoesNotCompute</span>
 </pre></div>
 <p>Now to demonstrate in the shell (Python REPL for the semantic purists):</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">t</span> <span class="kn">import</span> <span class="n">ThisClass</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">t</span> <span class="kn">import</span> <span class="n">ThisClass</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span> <span class="o">=</span> <span class="n">ThisClass</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="mf">3.3</span><span class="p">)</span>
 <span class="mf">51.415729444066585</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="s">&#39;Jack Diederich warned against custom exceptions&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="s1">&#39;Jack Diederich warned against custom exceptions&#39;</span><span class="p">)</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-  <span class="n">File</span> <span class="s">&quot;logic.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">24</span><span class="p">,</span> <span class="ow">in</span> <span class="n">this_method</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;logic.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">24</span><span class="p">,</span> <span class="ow">in</span> <span class="n">this_method</span>
     <span class="k">raise</span> <span class="n">DoesNotCompute</span>
 <span class="n">DoesNotCompute</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
-<span class="o">...</span>     <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="s">&#39;I need to write a follow-up on my OAuth post&#39;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="n">this_class</span><span class="o">.</span><span class="n">this_method</span><span class="p">(</span><span class="s1">&#39;I need to write a follow-up on my OAuth post&#39;</span><span class="p">)</span>
 <span class="o">...</span> <span class="k">except</span> <span class="n">ThisClass</span><span class="o">.</span><span class="n">DoesNotCompute</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;Waiting to see how the OAuth stuff pans out&#39;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Waiting to see how the OAuth stuff pans out&#39;</span><span class="p">)</span>
 <span class="o">...</span>
 <span class="o">...</span>
 <span class="n">Waiting</span> <span class="n">to</span> <span class="n">see</span> <span class="n">how</span> <span class="n">the</span> <span class="n">OAuth</span> <span class="n">stuff</span> <span class="n">pans</span> <span class="n">out</span>
@@ -255,109 +255,29 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
 </p>
 
 <h4 class="nav-header">Tags</h4>
-<span class="tag-2">
-    <a href="./tag/holidays.html">
-        holidays
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nodejs.html">
-        nodejs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/philippines.html">
-        philippines
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/australia.html">
-        australia
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/djangocon.html">
-        djangocon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypy.html">
-        pypy
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/meme.html">
-        meme
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/i18n.html">
-        i18n
+    <a href="./tag/pycon.html">
+        pycon
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/cartwheel-web.html">
-        Cartwheel Web
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/setup.html">
-        setup
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/europe.html">
-        europe
+    <a href="./tag/perl.html">
+        perl
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/pumpkin.html">
-        pumpkin
+    <a href="./tag/barcamp.html">
+        barcamp
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/gondor.html">
-        gondor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/vs.html">
-        vs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pydiversity.html">
-        pydiversity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/unicode.html">
-        unicode
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/halloween.html">
-        halloween
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypi.html">
-        pypi
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/friends.html">
-        friends
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/twoscoops.html">
-        twoscoops
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/php.html">
-        php
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
     </a>
 </span>
 <span class="tag-4">
@@ -366,83 +286,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/hackathon.html">
-        hackathon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/latex.html">
-        LaTeX
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pyramid.html">
-        pyramid
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/joke.html">
-        joke
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/heroku.html">
-        heroku
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/testing.html">
-        testing
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/usability.html">
-        usability
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/la.html">
-        LA
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/conda.html">
-        conda
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/casestudy.html">
-        casestudy
+    <a href="./tag/api.html">
+        api
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/rant.html">
-        rant
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dotcloud.html">
-        dotcloud
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/blog.html">
-        blog
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/django.html">
-        django
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pyladies.html">
-        pyladies
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/pycon.html">
-        pycon
+    <a href="./tag/family.html">
+        family
     </a>
 </span>
 <span class="tag-3">
@@ -451,173 +301,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/eventbrite.html">
-        eventbrite
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/audrey.html">
-        audrey
+    <a href="./tag/flask.html">
+        flask
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/restructuredtext.html">
-        RestructuredText
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackathons.html">
-        lahackathons
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/capoeira.html">
-        capoeira
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
-        Consumer-Notebook
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/python.html">
-        python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/css.html">
-        css
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/python3.html">
-        python3
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/training.html">
-        training
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/markdown.html">
-        markdown
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/forms.html">
-        forms
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/brambles.html">
-        brambles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/la.html">
-        la
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/api.html">
-        api
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/postgresql.html">
-        postgresql
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/barcamp.html">
-        barcamp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/packaging.html">
-        packaging
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/clojure.html">
-        clojure
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/review.html">
-        review
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/mongodb.html">
-        mongodb
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/tools.html">
-        tools
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackthons.html">
-        lahackthons
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/surgery.html">
-        surgery
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/cheatsheet.html">
-        cheatsheet
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/europython.html">
-        europython
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dsf.html">
-        dsf
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nasa.html">
-        nasa
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/functions.html">
-        functions
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/django-rest-framework.html">
-        django-rest-framework
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/class-based-views.html">
-        class-based-views
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/travel.html">
-        travel
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/recipe.html">
-        recipe
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/sprint.html">
-        sprint
+    <a href="./tag/los-angeles.html">
+        los-angeles
     </a>
 </span>
 <span class="tag-3">
@@ -631,13 +321,38 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/djangodash.html">
-        djangodash
+    <a href="./tag/css.html">
+        css
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/jinja2.html">
-        jinja2
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/cartwheel-web.html">
+        Cartwheel Web
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pydiversity.html">
+        pydiversity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/halloween.html">
+        halloween
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/latex.html">
+        LaTeX
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
     </a>
 </span>
 <span class="tag-3">
@@ -645,9 +360,49 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         argentina
     </a>
 </span>
+<span class="tag-4">
+    <a href="./tag/whartonwc.html">
+        WhartonWC
+    </a>
+</span>
 <span class="tag-3">
-    <a href="./tag/cookiecutter.html">
-        cookiecutter
+    <a href="./tag/pypi.html">
+        pypi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cheatsheet.html">
+        cheatsheet
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/packaging.html">
+        packaging
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/postgresql.html">
+        postgresql
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/restructuredtext.html">
+        RestructuredText
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
     </a>
 </span>
 <span class="tag-2">
@@ -656,63 +411,33 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/perl.html">
-        perl
+    <a href="./tag/conda.html">
+        conda
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/oauth.html">
-        OAuth
+    <a href="./tag/pyramid.html">
+        pyramid
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
-        pycon-2013-guide
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        Los Angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/paypal.html">
-        paypal
+    <a href="./tag/meme.html">
+        meme
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/ruby.html">
-        ruby
+    <a href="./tag/testing.html">
+        testing
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/wsgi.html">
-        wsgi
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        los-angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/whartonwc.html">
-        WhartonWC
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/ppoftw.html">
-        ppoftw
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/howto.html">
-        howto
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/meteor.html">
-        meteor
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
     </a>
 </span>
 <span class="tag-4">
@@ -721,8 +446,98 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/flask.html">
-        flask
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/eventbrite.html">
+        eventbrite
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cookiecutter.html">
+        cookiecutter
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/training.html">
+        training
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nasa.html">
+        nasa
     </a>
 </span>
 <span class="tag-4">
@@ -731,8 +546,98 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
+    <a href="./tag/pumpkin.html">
+        pumpkin
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/surgery.html">
+        surgery
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/recipe.html">
+        recipe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
     <a href="./tag/science.html">
         science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/markdown.html">
+        markdown
     </a>
 </span>
 <span class="tag-4">
@@ -740,19 +645,114 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         rails
     </a>
 </span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/i18n.html">
+        i18n
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/unicode.html">
+        unicode
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/jinja2.html">
+        jinja2
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/ppoftw.html">
+        ppoftw
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/brambles.html">
+        brambles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
 <span class="tag-4">
     <a href="./tag/binstar.html">
         binstar
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/family.html">
-        family
+<span class="tag-3">
+    <a href="./tag/django-rest-framework.html">
+        django-rest-framework
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/book.html">
-        book
+    <a href="./tag/python3.html">
+        python3
     </a>
 </span>
 

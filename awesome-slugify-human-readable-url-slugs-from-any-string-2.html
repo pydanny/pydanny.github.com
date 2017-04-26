@@ -106,95 +106,95 @@
 <li>Generate a translation function using <tt class="docutils literal">slugify.main.get_slugify()</tt>.</li>
 </ol>
 <p>Explaining this in depth will take paragraphs of text, so I'll just demonstrate it using <a class="reference external" href="https://en.wikipedia.org/wiki/Emoji">emoji</a>:</p>
-<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
-<span class="c"># test_slugify_emoji.py</span>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># test_slugify_emoji.py</span>
 
 <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">get_slugify</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
 
-<span class="c"># Step 1: Define the translation dictionary</span>
+<span class="c1"># Step 1: Define the translation dictionary</span>
 <span class="n">ALT_EMOJI</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">u&#39;ʘ‿ʘ&#39;</span><span class="p">:</span> <span class="s">u&#39;smiling&#39;</span><span class="p">,</span>
-    <span class="s">u&#39;ಠ_ಠ&#39;</span><span class="p">:</span> <span class="s">u&#39;disapproval&#39;</span><span class="p">,</span>
-    <span class="s">u&#39;♥‿♥&#39;</span><span class="p">:</span> <span class="s">u&#39;enamored&#39;</span><span class="p">,</span>
-    <span class="s">u&#39;♥&#39;</span><span class="p">:</span> <span class="s">u&#39;love&#39;</span><span class="p">,</span>
+    <span class="sa">u</span><span class="s1">&#39;ʘ‿ʘ&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;smiling&#39;</span><span class="p">,</span>
+    <span class="sa">u</span><span class="s1">&#39;ಠ_ಠ&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;disapproval&#39;</span><span class="p">,</span>
+    <span class="sa">u</span><span class="s1">&#39;♥‿♥&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;enamored&#39;</span><span class="p">,</span>
+    <span class="sa">u</span><span class="s1">&#39;♥&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;love&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="c"># Step 2: Generate a translation function</span>
+<span class="c1"># Step 2: Generate a translation function</span>
 <span class="n">slugify_emoji</span> <span class="o">=</span> <span class="n">get_slugify</span><span class="p">(</span><span class="n">pretranslate</span><span class="o">=</span><span class="n">ALT_EMOJI</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">test_basic_emoji</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">slugify_emoji</span><span class="p">(</span><span class="s">u&quot;ʘ‿ʘ&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;smiling&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify_emoji</span><span class="p">(</span><span class="s">u&quot;ಠ_ಠ&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;disapproval&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_emoji</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;ʘ‿ʘ&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="sa">u</span><span class="s2">&quot;smiling&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_emoji</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;ಠ_ಠ&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="sa">u</span><span class="s2">&quot;disapproval&quot;</span>
 
 <span class="k">def</span> <span class="nf">test_sentence</span><span class="p">():</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">u&quot;I ♥ Audrey Roy Greenfeld&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify_emoji</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;I-love-Audrey-Roy-Greenfeld&quot;</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;I ♥ Audrey Roy Greenfeld&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_emoji</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="sa">u</span><span class="s2">&quot;I-love-Audrey-Roy-Greenfeld&quot;</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 <img alt="I ♥ your unicode smile" class="align-center" id="i-your-unicode-smile" src="https://s3.amazonaws.com/pydanny/i-♥-your-unicode-smile.png" />
 <div class="section" id="more-practical-applications">
 <h3>More Practical Applications</h3>
 <p>While writing an <strong>emoji</strong>-based translation function is fun, most of the time we need more practical translation functions. Built into <strong>awesome-slugify</strong> is a cyrillic translation function that works like this:</p>
-<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
-<span class="c"># test_slugify_cyrillic.py</span>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># test_slugify_cyrillic.py</span>
 <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">get_slugify</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
 
-<span class="c"># The following code is nearly identical to the source code of</span>
-<span class="c">#   awesome-slugify. All credit goes to Dmitry Voronin.</span>
+<span class="c1"># The following code is nearly identical to the source code of</span>
+<span class="c1">#   awesome-slugify. All credit goes to Dmitry Voronin.</span>
 
-<span class="c"># Step 1: Define the translation dictionary</span>
+<span class="c1"># Step 1: Define the translation dictionary</span>
 <span class="n">ALT_CYRILLIC</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">u&#39;ё&#39;</span><span class="p">:</span> <span class="s">u&#39;e&#39;</span><span class="p">,</span>    <span class="c"># instead of &#39;io&#39; / &#39;yo&#39;</span>
-    <span class="s">u&#39;ж&#39;</span><span class="p">:</span> <span class="s">u&#39;j&#39;</span><span class="p">,</span>    <span class="c"># instead of &#39;zh&#39;</span>
-    <span class="s">u&#39;у&#39;</span><span class="p">:</span> <span class="s">u&#39;y&#39;</span><span class="p">,</span>    <span class="c"># instead of &#39;u&#39;</span>
-    <span class="s">u&#39;х&#39;</span><span class="p">:</span> <span class="s">u&#39;h&#39;</span><span class="p">,</span>    <span class="c"># instead of &#39;kh&#39;</span>
-    <span class="s">u&#39;щ&#39;</span><span class="p">:</span> <span class="s">u&#39;sch&#39;</span><span class="p">,</span>  <span class="c"># instead of &#39;shch&#39;</span>
-    <span class="s">u&#39;ю&#39;</span><span class="p">:</span> <span class="s">u&#39;u&#39;</span><span class="p">,</span>    <span class="c"># instead of &#39;iu&#39; / &#39;yu&#39;</span>
-    <span class="s">u&#39;я&#39;</span><span class="p">:</span> <span class="s">u&#39;ya&#39;</span><span class="p">,</span>   <span class="c"># instead of &#39;ia&#39;</span>
+    <span class="sa">u</span><span class="s1">&#39;ё&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;e&#39;</span><span class="p">,</span>    <span class="c1"># instead of &#39;io&#39; / &#39;yo&#39;</span>
+    <span class="sa">u</span><span class="s1">&#39;ж&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;j&#39;</span><span class="p">,</span>    <span class="c1"># instead of &#39;zh&#39;</span>
+    <span class="sa">u</span><span class="s1">&#39;у&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>    <span class="c1"># instead of &#39;u&#39;</span>
+    <span class="sa">u</span><span class="s1">&#39;х&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;h&#39;</span><span class="p">,</span>    <span class="c1"># instead of &#39;kh&#39;</span>
+    <span class="sa">u</span><span class="s1">&#39;щ&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;sch&#39;</span><span class="p">,</span>  <span class="c1"># instead of &#39;shch&#39;</span>
+    <span class="sa">u</span><span class="s1">&#39;ю&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;u&#39;</span><span class="p">,</span>    <span class="c1"># instead of &#39;iu&#39; / &#39;yu&#39;</span>
+    <span class="sa">u</span><span class="s1">&#39;я&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;ya&#39;</span><span class="p">,</span>   <span class="c1"># instead of &#39;ia&#39;</span>
 <span class="p">}</span>
 
-<span class="c"># Step 2: Generate a translation function</span>
+<span class="c1"># Step 2: Generate a translation function</span>
 <span class="n">slugify_ru</span> <span class="o">=</span> <span class="n">get_slugify</span><span class="p">(</span><span class="n">pretranslate</span><span class="o">=</span><span class="n">ALT_CYRILLIC</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">test_some_cyrillic</span><span class="p">():</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">u&quot;ж and я are really fun letters.&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify_ru</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;j-and-ya-are-really-fun-letters&quot;</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;ж and я are really fun letters.&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_ru</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="sa">u</span><span class="s2">&quot;j-and-ya-are-really-fun-letters&quot;</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 <p><a class="reference external" href="http://bikeshedder.com/">Michael P. Jung</a> created a German translation function, which I've included below:</p>
-<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
-<span class="c"># test_slugify_german.py</span>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># test_slugify_german.py</span>
 <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">get_slugify</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
 
-<span class="c"># Step 1: Define the translation dictionary</span>
+<span class="c1"># Step 1: Define the translation dictionary</span>
 <span class="n">ALT_GERMAN</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">u&#39;ä&#39;</span><span class="p">:</span> <span class="s">u&#39;ae&#39;</span><span class="p">,</span>
-    <span class="s">u&#39;Ä&#39;</span><span class="p">:</span> <span class="s">u&#39;Ae&#39;</span><span class="p">,</span>
-    <span class="s">u&#39;ö&#39;</span><span class="p">:</span> <span class="s">u&#39;oe&#39;</span><span class="p">,</span>
-    <span class="s">u&#39;Ö&#39;</span><span class="p">:</span> <span class="s">u&#39;Oe&#39;</span><span class="p">,</span>
-    <span class="s">u&#39;ü&#39;</span><span class="p">:</span> <span class="s">u&#39;ue&#39;</span><span class="p">,</span>
-    <span class="s">u&#39;Ü&#39;</span><span class="p">:</span> <span class="s">u&#39;Ue&#39;</span>
+    <span class="sa">u</span><span class="s1">&#39;ä&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;ae&#39;</span><span class="p">,</span>
+    <span class="sa">u</span><span class="s1">&#39;Ä&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;Ae&#39;</span><span class="p">,</span>
+    <span class="sa">u</span><span class="s1">&#39;ö&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;oe&#39;</span><span class="p">,</span>
+    <span class="sa">u</span><span class="s1">&#39;Ö&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;Oe&#39;</span><span class="p">,</span>
+    <span class="sa">u</span><span class="s1">&#39;ü&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;ue&#39;</span><span class="p">,</span>
+    <span class="sa">u</span><span class="s1">&#39;Ü&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;Ue&#39;</span>
 <span class="p">}</span>
 
-<span class="c"># Step 2: Generate a translation function</span>
+<span class="c1"># Step 2: Generate a translation function</span>
 <span class="n">slugify_de</span> <span class="o">=</span> <span class="n">get_slugify</span><span class="p">(</span><span class="n">pretranslate</span><span class="o">=</span><span class="n">ALT_GERMAN</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">test_german_dumpling</span><span class="p">():</span>
-    <span class="c"># According to Michael P. Jung, this looks like ice cream.</span>
-    <span class="k">assert</span> <span class="n">slugify_de</span><span class="p">(</span><span class="s">u&#39;Thüringer Klöße&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;Thueringer-Kloesse&quot;</span>
+    <span class="c1"># According to Michael P. Jung, this looks like ice cream.</span>
+    <span class="k">assert</span> <span class="n">slugify_de</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;Thüringer Klöße&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="sa">u</span><span class="s2">&quot;Thueringer-Kloesse&quot;</span>
 
 <span class="k">def</span> <span class="nf">test_german_road</span><span class="p">():</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">u&quot;I&#39;ve never been in a car on a German straße&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify_de</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;Ive-never-been-in-a-car-on-a-German-strasse&quot;</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;I&#39;ve never been in a car on a German straße&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_de</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="sa">u</span><span class="s2">&quot;Ive-never-been-in-a-car-on-a-German-strasse&quot;</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -274,109 +274,29 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
 </p>
 
 <h4 class="nav-header">Tags</h4>
-<span class="tag-2">
-    <a href="./tag/holidays.html">
-        holidays
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nodejs.html">
-        nodejs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/philippines.html">
-        philippines
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/australia.html">
-        australia
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/djangocon.html">
-        djangocon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypy.html">
-        pypy
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/meme.html">
-        meme
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/i18n.html">
-        i18n
+    <a href="./tag/pycon.html">
+        pycon
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/cartwheel-web.html">
-        Cartwheel Web
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/setup.html">
-        setup
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/europe.html">
-        europe
+    <a href="./tag/perl.html">
+        perl
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/pumpkin.html">
-        pumpkin
+    <a href="./tag/barcamp.html">
+        barcamp
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/gondor.html">
-        gondor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/vs.html">
-        vs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pydiversity.html">
-        pydiversity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/unicode.html">
-        unicode
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/halloween.html">
-        halloween
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypi.html">
-        pypi
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/friends.html">
-        friends
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/twoscoops.html">
-        twoscoops
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/php.html">
-        php
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
     </a>
 </span>
 <span class="tag-4">
@@ -385,83 +305,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/hackathon.html">
-        hackathon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/latex.html">
-        LaTeX
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pyramid.html">
-        pyramid
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/joke.html">
-        joke
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/heroku.html">
-        heroku
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/testing.html">
-        testing
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/usability.html">
-        usability
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/la.html">
-        LA
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/conda.html">
-        conda
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/casestudy.html">
-        casestudy
+    <a href="./tag/api.html">
+        api
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/rant.html">
-        rant
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dotcloud.html">
-        dotcloud
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/blog.html">
-        blog
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/django.html">
-        django
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pyladies.html">
-        pyladies
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/pycon.html">
-        pycon
+    <a href="./tag/family.html">
+        family
     </a>
 </span>
 <span class="tag-3">
@@ -470,173 +320,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/eventbrite.html">
-        eventbrite
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/audrey.html">
-        audrey
+    <a href="./tag/flask.html">
+        flask
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/restructuredtext.html">
-        RestructuredText
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackathons.html">
-        lahackathons
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/capoeira.html">
-        capoeira
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
-        Consumer-Notebook
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/python.html">
-        python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/css.html">
-        css
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/python3.html">
-        python3
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/training.html">
-        training
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/markdown.html">
-        markdown
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/forms.html">
-        forms
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/brambles.html">
-        brambles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/la.html">
-        la
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/api.html">
-        api
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/postgresql.html">
-        postgresql
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/barcamp.html">
-        barcamp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/packaging.html">
-        packaging
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/clojure.html">
-        clojure
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/review.html">
-        review
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/mongodb.html">
-        mongodb
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/tools.html">
-        tools
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackthons.html">
-        lahackthons
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/surgery.html">
-        surgery
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/cheatsheet.html">
-        cheatsheet
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/europython.html">
-        europython
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dsf.html">
-        dsf
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nasa.html">
-        nasa
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/functions.html">
-        functions
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/django-rest-framework.html">
-        django-rest-framework
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/class-based-views.html">
-        class-based-views
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/travel.html">
-        travel
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/recipe.html">
-        recipe
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/sprint.html">
-        sprint
+    <a href="./tag/los-angeles.html">
+        los-angeles
     </a>
 </span>
 <span class="tag-3">
@@ -650,13 +340,38 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/djangodash.html">
-        djangodash
+    <a href="./tag/css.html">
+        css
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/jinja2.html">
-        jinja2
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/cartwheel-web.html">
+        Cartwheel Web
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pydiversity.html">
+        pydiversity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/halloween.html">
+        halloween
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/latex.html">
+        LaTeX
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
     </a>
 </span>
 <span class="tag-3">
@@ -664,9 +379,49 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         argentina
     </a>
 </span>
+<span class="tag-4">
+    <a href="./tag/whartonwc.html">
+        WhartonWC
+    </a>
+</span>
 <span class="tag-3">
-    <a href="./tag/cookiecutter.html">
-        cookiecutter
+    <a href="./tag/pypi.html">
+        pypi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cheatsheet.html">
+        cheatsheet
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/packaging.html">
+        packaging
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/postgresql.html">
+        postgresql
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/restructuredtext.html">
+        RestructuredText
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
     </a>
 </span>
 <span class="tag-2">
@@ -675,63 +430,33 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/perl.html">
-        perl
+    <a href="./tag/conda.html">
+        conda
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/oauth.html">
-        OAuth
+    <a href="./tag/pyramid.html">
+        pyramid
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
-        pycon-2013-guide
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        Los Angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/paypal.html">
-        paypal
+    <a href="./tag/meme.html">
+        meme
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/ruby.html">
-        ruby
+    <a href="./tag/testing.html">
+        testing
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/wsgi.html">
-        wsgi
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        los-angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/whartonwc.html">
-        WhartonWC
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/ppoftw.html">
-        ppoftw
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/howto.html">
-        howto
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/meteor.html">
-        meteor
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
     </a>
 </span>
 <span class="tag-4">
@@ -740,8 +465,98 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/flask.html">
-        flask
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/eventbrite.html">
+        eventbrite
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cookiecutter.html">
+        cookiecutter
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/training.html">
+        training
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nasa.html">
+        nasa
     </a>
 </span>
 <span class="tag-4">
@@ -750,8 +565,98 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
+    <a href="./tag/pumpkin.html">
+        pumpkin
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/surgery.html">
+        surgery
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/recipe.html">
+        recipe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
     <a href="./tag/science.html">
         science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/markdown.html">
+        markdown
     </a>
 </span>
 <span class="tag-4">
@@ -759,19 +664,114 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         rails
     </a>
 </span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/i18n.html">
+        i18n
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/unicode.html">
+        unicode
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/jinja2.html">
+        jinja2
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/ppoftw.html">
+        ppoftw
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/brambles.html">
+        brambles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
 <span class="tag-4">
     <a href="./tag/binstar.html">
         binstar
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/family.html">
-        family
+<span class="tag-3">
+    <a href="./tag/django-rest-framework.html">
+        django-rest-framework
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/book.html">
-        book
+    <a href="./tag/python3.html">
+        python3
     </a>
 </span>
 

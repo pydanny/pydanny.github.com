@@ -103,14 +103,14 @@
 <p>Years ago, when I was working with <a class="reference external" href="http://plone.org">Plone</a> at <a class="reference external" href="http://nasa.gov">NASA</a>, one thing I dreaded was when content editors would copy-and-paste from Microsoft Word into the title bar. All kinds of funny characters would appear in the title bar and URL. I would have to go into the database (ZODB) and fix things. Things didn't get better until <a class="reference external" href="https://github.com/reedobrien">Reed O'Brien</a> turned on a title validator (probably in <tt class="docutils literal">Plone.i18n</tt>).</p>
 <p>When we started using <a class="reference external" href="https://www.djangoproject.com">Django</a>, one thing that made it nice was the presence of it's <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/utils/#module-django.utils.text">slugify()</a> function and template filter. Inspired by the newspaper industry, this function it easier on both content editors and software engineers. In any case, using <tt class="docutils literal">slugify()</tt> we completed a number of projects, with <a class="reference external" href="http://science.nasa.gov/">NASA Science</a> being the only public one I worked on.</p>
 <p>As much as the <tt class="docutils literal">slugify()</tt> function was useful, there were problems. As I discovered time and time again over the years, it didn't handle <a class="reference external" href="https://en.wikipedia.org/wiki/Unicode">unicode</a>. Or rather, it handled them by simply vanishing non-ASCII unicode characters. For example:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.utils.text</span> <span class="kn">import</span> <span class="n">slugify</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="p">(</span><span class="s">u&quot;straße&quot;</span><span class="p">)</span> <span class="c"># German for road</span>
-<span class="s">u&quot;strae&quot;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.utils.text</span> <span class="kn">import</span> <span class="n">slugify</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;straße&quot;</span><span class="p">)</span> <span class="c1"># German for road</span>
+<span class="sa">u</span><span class="s2">&quot;strae&quot;</span>
 </pre></div>
 <p>If you read German, you'll know that the default Django <tt class="docutils literal">slugify()</tt> function is converting the word 'road' to nonsense. For sites dealing with internationalization, this won't do. So over three years ago while at <a class="reference external" href="http://www.mozilla.org/">Mozilla</a>, <a class="reference external" href="http://pinterest.com">Pinterest</a> engineer <a class="reference external" href="https://twitter.com/davedash">Dave Dash</a> created <a class="reference external" href="https://pypi.python.org/pypi/unicode-slugify">unicode-slugify</a>. From then on we could do this:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="p">(</span><span class="s">u&quot;straße&quot;</span><span class="p">)</span> <span class="c"># Again with the German word for road</span>
-<span class="s">u&quot;straße&quot;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;straße&quot;</span><span class="p">)</span> <span class="c1"># Again with the German word for road</span>
+<span class="sa">u</span><span class="s2">&quot;straße&quot;</span>
 </pre></div>
 <div class="section" id="what-if-i-m-not-using-django">
 <h3>What If I'm Not Using Django?</h3>
@@ -122,72 +122,72 @@
 <div class="section" id="introducing-awesome-slugify">
 <h2>Introducing awesome-slugify</h2>
 <p>Created and maintained by <a class="reference external" href="https://github.com/dimka665">Dmitry Voronin</a>, <a class="reference external" href="https://pypi.python.org/pypi/awesome-slugify">awesome-slugify</a> is easy to use and <strong>100% independent from Django</strong>. You call it thus:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">slugify</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="o">.</span><span class="n">slugify</span><span class="p">(</span><span class="s">u&quot;straße&quot;</span><span class="p">)</span> <span class="c"># Yet again the German for road</span>
-<span class="s">u&#39;strasse&#39;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">slugify</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="o">.</span><span class="n">slugify</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;straße&quot;</span><span class="p">)</span> <span class="c1"># Yet again the German for road</span>
+<span class="sa">u</span><span class="s1">&#39;strasse&#39;</span>
 </pre></div>
 <p>Works! Hooray!</p>
 <p>However, please note that unlike the Django-only <strong>unicode-slugify</strong> package which preserves the non-ASCII characters, <strong>awesome-slugify</strong> transformed the German 'ß' into an ASCII substitution of 'ss'. This is similar to how the popular <a class="reference external" href="https://pypi.python.org/pypi/python-slugify">python-slugify</a> package works. While this behavior of translating unicode to ASCII might work for English-only sites, it's not so useful for the rest of the world. Fortunately, <strong>awesome-slugify</strong> also provides the incredibly useful <tt class="docutils literal">slugify_unicode()</tt> function:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">slugify</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="o">.</span><span class="n">slugify_unicode</span><span class="p">(</span><span class="s">u&quot;straße&quot;</span><span class="p">)</span> <span class="c"># What is it with German Roads?</span>
-<span class="s">u&#39;stra</span><span class="se">\xdf</span><span class="s">e&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="o">.</span><span class="n">slugify_unicode</span><span class="p">(</span><span class="s">u&quot;straße&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;straße&quot;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">slugify</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="o">.</span><span class="n">slugify_unicode</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;straße&quot;</span><span class="p">)</span> <span class="c1"># What is it with German Roads?</span>
+<span class="sa">u</span><span class="s1">&#39;stra</span><span class="se">\xdf</span><span class="s1">e&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">slugify</span><span class="o">.</span><span class="n">slugify_unicode</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;straße&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="sa">u</span><span class="s2">&quot;straße&quot;</span>
 <span class="bp">True</span>
 </pre></div>
 <div class="section" id="using-awesome-slugify">
 <h3>Using awesome-slugify</h3>
 <p>Rather than describe <strong>awesome-slugify</strong> in paragraph format, here is working test code (<a class="reference external" href="https://pydanny.com/pytest-no-boilerplate-testing.html">using pytest which I described before</a>) that explains what we can do:</p>
-<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
-<span class="c"># test_awesome_slugify.py</span>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># test_awesome_slugify.py</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
 <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span><span class="p">,</span> <span class="n">slugify_unicode</span>
 
 <span class="k">def</span> <span class="nf">test_simple</span><span class="p">():</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">&quot;This is basic functionality!!!    &quot;</span>
-    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;This-is-basic-functionality&quot;</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;This is basic functionality!!!    &quot;</span>
+    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;This-is-basic-functionality&quot;</span>
 
 <span class="k">def</span> <span class="nf">test_remove_special_characters</span><span class="p">():</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">&quot;special characters (#?@$%^&amp;*) are also ASCII&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;special-characters-are-also-ASCII&quot;</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;special characters (#?@$%^&amp;*) are also ASCII&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;special-characters-are-also-ASCII&quot;</span>
 
 <span class="k">def</span> <span class="nf">test_basic_accents_and_backslash_escapes</span><span class="p">():</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">&#39;Where I</span><span class="se">\&#39;</span><span class="s">ve gone before&#39;</span>
-    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;Where-Ive-gone-before&quot;</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;Where I</span><span class="se">\&#39;</span><span class="s1">ve gone before&#39;</span>
+    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Where-Ive-gone-before&quot;</span>
 
 <span class="nd">@pytest.fixture</span>
 <span class="k">def</span> <span class="nf">accents</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s">u&#39;Àddîñg áçćèńtš tô Éñgłïśh íš śīłłÿ!&#39;</span>
+    <span class="k">return</span> <span class="sa">u</span><span class="s1">&#39;Àddîñg áçćèńtš tô Éñgłïśh íš śīłłÿ!&#39;</span>
 
 <span class="k">def</span> <span class="nf">test_accents</span><span class="p">(</span><span class="n">accents</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">accents</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;Adding-accents-to-English-is-silly&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">accents</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Adding-accents-to-English-is-silly&quot;</span>
 
 <span class="k">def</span> <span class="nf">test_keep_accents</span><span class="p">(</span><span class="n">accents</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">slugify_unicode</span><span class="p">(</span><span class="n">accents</span><span class="p">)</span> <span class="o">==</span> \
-                        <span class="s">&#39;Àddîñg-áçćèńtš-tô-Éñgłïśh-íš-śīłłÿ&#39;</span>
+                        <span class="s1">&#39;Àddîñg-áçćèńtš-tô-Éñgłïśh-íš-śīłłÿ&#39;</span>
 
 <span class="k">def</span> <span class="nf">test_keep_accents_lower</span><span class="p">(</span><span class="n">accents</span><span class="p">):</span>
-    <span class="c"># Because awesome-slugify doesn&#39;t lower() while slugify, we</span>
-    <span class="c">#   have to do it ourselves. I&#39;m torn if I like this or hate it</span>
+    <span class="c1"># Because awesome-slugify doesn&#39;t lower() while slugify, we</span>
+    <span class="c1">#   have to do it ourselves. I&#39;m torn if I like this or hate it</span>
     <span class="k">assert</span> <span class="n">slugify_unicode</span><span class="p">(</span><span class="n">accents</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> \
-                        <span class="s">&#39;àddîñg-áçćèńtš-tô-éñgłïśh-íš-śīłłÿ&#39;</span>
+                        <span class="s1">&#39;àddîñg-áçćèńtš-tô-éñgłïśh-íš-śīłłÿ&#39;</span>
 
 <span class="k">def</span> <span class="nf">test_musical_notes</span><span class="p">():</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">&quot;Is ♬ ♫ ♪ ♩ a melody or just noise?&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;Is-a-melody-or-just-noise&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify_unicode</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;Is-a-melody-or-just-noise&quot;</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;Is ♬ ♫ ♪ ♩ a melody or just noise?&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Is-a-melody-or-just-noise&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_unicode</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Is-a-melody-or-just-noise&quot;</span>
 
 <span class="k">def</span> <span class="nf">test_chinese</span><span class="p">():</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">&quot;美国&quot;</span> <span class="c"># Chinese for &#39;America&#39;</span>
-    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;Mei-Guo&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify_unicode</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span>  <span class="s">&quot;美国&quot;</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;美国&quot;</span> <span class="c1"># Chinese for &#39;America&#39;</span>
+    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Mei-Guo&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_unicode</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span> <span class="o">==</span>  <span class="s2">&quot;美国&quot;</span>
 
 <span class="k">def</span> <span class="nf">test_separator</span><span class="p">():</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">&quot;Separator is a word I frequently mispell.&quot;</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s">&quot;_&quot;</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="s">&quot;Separator_is_a_word_I_frequently_mispell&quot;</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;Separator is a word I frequently mispell.&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="n">capitalize</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="s2">&quot;Separator_is_a_word_I_frequently_mispell&quot;</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 <p>Easy to use as any good <tt class="docutils literal">slugify()</tt> function!</p>
@@ -196,53 +196,53 @@
 <h3>Restricting the length of a returned slug</h3>
 <p>When using <strong>awesome-slugify</strong>'s <tt class="docutils literal">slugify()</tt> and <tt class="docutils literal">slugify_unicode()</tt> functions, the <tt class="docutils literal">max_length</tt> argument acts in an interesting fashion. On very short strings it removes longer words to make things fit. As the author of <strong>awesome-slugify</strong> is Russian, and the Russian language, as far as I know, doesn't have prepositions (words like 'the' and 'a') this makes sense.</p>
 <p>Let's take a look, shall we?</p>
-<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
-<span class="c"># test_awesome_slugify_max_length.py</span>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># test_awesome_slugify_max_length.py</span>
 <span class="kn">import</span> <span class="nn">pytest</span>
 <span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span><span class="p">,</span> <span class="n">slugify_unicode</span>
 
 <span class="k">def</span> <span class="nf">test_max_length_tiny</span><span class="p">():</span>
-    <span class="c"># Removes the longer words to fit smaller words in.</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">&quot;$ is a special character, as is #.&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;is-a-as-is&quot;</span>
+    <span class="c1"># Removes the longer words to fit smaller words in.</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;$ is a special character, as is #.&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;is-a-as-is&quot;</span>
 
 <span class="k">def</span> <span class="nf">test_max_length_medium</span><span class="p">():</span>
-    <span class="c"># Keeps in prepositions, but removes meaningful words.</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">&quot;$ is a special character, as is #.&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;is-a-special-as&quot;</span>
+    <span class="c1"># Keeps in prepositions, but removes meaningful words.</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;$ is a special character, as is #.&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;is-a-special-as&quot;</span>
 
 <span class="k">def</span> <span class="nf">test_max_length_realistic</span><span class="p">():</span>
-    <span class="c"># Long enough that long words are not removed from the string in favor</span>
-    <span class="c">#   of shorter words.</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;This sentence illuminates the method that this package</span>
-<span class="s">                handles truncation of longer strings.</span>
-<span class="s">    &quot;&quot;&quot;</span>
+    <span class="c1"># Long enough that long words are not removed from the string in favor</span>
+    <span class="c1">#   of shorter words.</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This sentence illuminates the method that this package</span>
+<span class="s2">                handles truncation of longer strings.</span>
+<span class="s2">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span> <span class="o">==</span> \
-        <span class="s">&quot;This-sentence-illuminates-the-method-that-this-of&quot;</span>
+        <span class="s2">&quot;This-sentence-illuminates-the-method-that-this-of&quot;</span>
 
-<span class="c"># The next few tests cover how the max_length argument handles truncation</span>
-<span class="c">#   inside of a word. When working with longer word languages, like German,</span>
-<span class="c">#   understanding how your chosen slugify() function works is important.</span>
+<span class="c1"># The next few tests cover how the max_length argument handles truncation</span>
+<span class="c1">#   inside of a word. When working with longer word languages, like German,</span>
+<span class="c1">#   understanding how your chosen slugify() function works is important.</span>
 
 <span class="k">def</span> <span class="nf">test_truncating_word</span><span class="p">():</span>
-    <span class="c"># This demonstrates taking a long German word and truncating it.</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">u&quot;Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz&quot;</span>
+    <span class="c1"># This demonstrates taking a long German word and truncating it.</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz&quot;</span>
     <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span> <span class="o">==</span> \
-                <span class="s">&quot;Rindfleischetikettierungsuberwachungsauf&quot;</span>
+                <span class="s2">&quot;Rindfleischetikettierungsuberwachungsauf&quot;</span>
     <span class="k">assert</span> <span class="n">slugify_unicode</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span> <span class="o">==</span> \
-                <span class="s">u&quot;Rindfleischetikettierungsüberwachungsauf&quot;</span>
+                <span class="sa">u</span><span class="s2">&quot;Rindfleischetikettierungsüberwachungsauf&quot;</span>
 
 <span class="k">def</span> <span class="nf">test_truncating_varying_letter_size</span><span class="p">():</span>
-    <span class="c"># Truncating unicode slugs is challenging. For example, the German</span>
-    <span class="c">#   letter &#39;ß&#39; is &#39;ss&#39; in English. Should a slugify&#39;s max_length</span>
-    <span class="c">#   argument use the German or the English length? In the case of</span>
-    <span class="c">#   awesome-slugify, it uses the length of English letter for both the</span>
-    <span class="c">#   slugify() and slugify_unicode() functions.</span>
-    <span class="n">txt</span> <span class="o">=</span> <span class="s">u&quot;straße&quot;</span> <span class="c"># I really can&#39;t stop using German roads.</span>
-    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;stras&quot;</span>
-    <span class="k">assert</span> <span class="n">slugify_unicode</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s">u&quot;straß&quot;</span>
+    <span class="c1"># Truncating unicode slugs is challenging. For example, the German</span>
+    <span class="c1">#   letter &#39;ß&#39; is &#39;ss&#39; in English. Should a slugify&#39;s max_length</span>
+    <span class="c1">#   argument use the German or the English length? In the case of</span>
+    <span class="c1">#   awesome-slugify, it uses the length of English letter for both the</span>
+    <span class="c1">#   slugify() and slugify_unicode() functions.</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;straße&quot;</span> <span class="c1"># I really can&#39;t stop using German roads.</span>
+    <span class="k">assert</span> <span class="n">slugify</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;stras&quot;</span>
+    <span class="k">assert</span> <span class="n">slugify_unicode</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="sa">u</span><span class="s2">&quot;straß&quot;</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -321,109 +321,29 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
 </p>
 
 <h4 class="nav-header">Tags</h4>
-<span class="tag-2">
-    <a href="./tag/holidays.html">
-        holidays
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nodejs.html">
-        nodejs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/philippines.html">
-        philippines
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/australia.html">
-        australia
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/djangocon.html">
-        djangocon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypy.html">
-        pypy
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/meme.html">
-        meme
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/i18n.html">
-        i18n
+    <a href="./tag/pycon.html">
+        pycon
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/cartwheel-web.html">
-        Cartwheel Web
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/setup.html">
-        setup
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/europe.html">
-        europe
+    <a href="./tag/perl.html">
+        perl
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/pumpkin.html">
-        pumpkin
+    <a href="./tag/barcamp.html">
+        barcamp
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/gondor.html">
-        gondor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/vs.html">
-        vs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pydiversity.html">
-        pydiversity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/unicode.html">
-        unicode
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/halloween.html">
-        halloween
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypi.html">
-        pypi
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/friends.html">
-        friends
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/twoscoops.html">
-        twoscoops
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/php.html">
-        php
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
     </a>
 </span>
 <span class="tag-4">
@@ -432,83 +352,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/hackathon.html">
-        hackathon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/latex.html">
-        LaTeX
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pyramid.html">
-        pyramid
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/joke.html">
-        joke
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/heroku.html">
-        heroku
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/testing.html">
-        testing
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/usability.html">
-        usability
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/la.html">
-        LA
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/conda.html">
-        conda
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/casestudy.html">
-        casestudy
+    <a href="./tag/api.html">
+        api
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/rant.html">
-        rant
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dotcloud.html">
-        dotcloud
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/blog.html">
-        blog
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/django.html">
-        django
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pyladies.html">
-        pyladies
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/pycon.html">
-        pycon
+    <a href="./tag/family.html">
+        family
     </a>
 </span>
 <span class="tag-3">
@@ -517,173 +367,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/eventbrite.html">
-        eventbrite
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/audrey.html">
-        audrey
+    <a href="./tag/flask.html">
+        flask
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/restructuredtext.html">
-        RestructuredText
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackathons.html">
-        lahackathons
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/capoeira.html">
-        capoeira
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
-        Consumer-Notebook
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/python.html">
-        python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/css.html">
-        css
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/python3.html">
-        python3
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/training.html">
-        training
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/markdown.html">
-        markdown
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/forms.html">
-        forms
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/brambles.html">
-        brambles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/la.html">
-        la
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/api.html">
-        api
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/postgresql.html">
-        postgresql
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/barcamp.html">
-        barcamp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/packaging.html">
-        packaging
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/clojure.html">
-        clojure
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/review.html">
-        review
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/mongodb.html">
-        mongodb
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/tools.html">
-        tools
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackthons.html">
-        lahackthons
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/surgery.html">
-        surgery
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/cheatsheet.html">
-        cheatsheet
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/europython.html">
-        europython
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dsf.html">
-        dsf
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nasa.html">
-        nasa
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/functions.html">
-        functions
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/django-rest-framework.html">
-        django-rest-framework
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/class-based-views.html">
-        class-based-views
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/travel.html">
-        travel
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/recipe.html">
-        recipe
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/sprint.html">
-        sprint
+    <a href="./tag/los-angeles.html">
+        los-angeles
     </a>
 </span>
 <span class="tag-3">
@@ -697,13 +387,38 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/djangodash.html">
-        djangodash
+    <a href="./tag/css.html">
+        css
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/jinja2.html">
-        jinja2
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/cartwheel-web.html">
+        Cartwheel Web
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pydiversity.html">
+        pydiversity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/halloween.html">
+        halloween
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/latex.html">
+        LaTeX
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
     </a>
 </span>
 <span class="tag-3">
@@ -711,9 +426,49 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         argentina
     </a>
 </span>
+<span class="tag-4">
+    <a href="./tag/whartonwc.html">
+        WhartonWC
+    </a>
+</span>
 <span class="tag-3">
-    <a href="./tag/cookiecutter.html">
-        cookiecutter
+    <a href="./tag/pypi.html">
+        pypi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cheatsheet.html">
+        cheatsheet
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/packaging.html">
+        packaging
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/postgresql.html">
+        postgresql
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/restructuredtext.html">
+        RestructuredText
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
     </a>
 </span>
 <span class="tag-2">
@@ -722,63 +477,33 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/perl.html">
-        perl
+    <a href="./tag/conda.html">
+        conda
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/oauth.html">
-        OAuth
+    <a href="./tag/pyramid.html">
+        pyramid
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
-        pycon-2013-guide
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        Los Angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/paypal.html">
-        paypal
+    <a href="./tag/meme.html">
+        meme
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/ruby.html">
-        ruby
+    <a href="./tag/testing.html">
+        testing
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/wsgi.html">
-        wsgi
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        los-angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/whartonwc.html">
-        WhartonWC
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/ppoftw.html">
-        ppoftw
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/howto.html">
-        howto
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/meteor.html">
-        meteor
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
     </a>
 </span>
 <span class="tag-4">
@@ -787,8 +512,98 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/flask.html">
-        flask
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/eventbrite.html">
+        eventbrite
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cookiecutter.html">
+        cookiecutter
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/training.html">
+        training
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nasa.html">
+        nasa
     </a>
 </span>
 <span class="tag-4">
@@ -797,8 +612,98 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
+    <a href="./tag/pumpkin.html">
+        pumpkin
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/surgery.html">
+        surgery
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/recipe.html">
+        recipe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
     <a href="./tag/science.html">
         science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/markdown.html">
+        markdown
     </a>
 </span>
 <span class="tag-4">
@@ -806,19 +711,114 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         rails
     </a>
 </span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/i18n.html">
+        i18n
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/unicode.html">
+        unicode
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/jinja2.html">
+        jinja2
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/ppoftw.html">
+        ppoftw
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/brambles.html">
+        brambles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
 <span class="tag-4">
     <a href="./tag/binstar.html">
         binstar
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/family.html">
-        family
+<span class="tag-3">
+    <a href="./tag/django-rest-framework.html">
+        django-rest-framework
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/book.html">
-        book
+    <a href="./tag/python3.html">
+        python3
     </a>
 </span>
 

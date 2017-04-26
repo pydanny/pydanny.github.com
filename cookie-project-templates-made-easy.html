@@ -104,25 +104,25 @@
 <h2>cookiecutter does one thing and it does it well</h2>
 <p>What <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a> does is make creating and maintaining project templates easy and intuitive. This allow developers of all languages (not just Python) the ability to break free from cargo-cult configuration and follow patterns dictated by the experts who present their own cookiecutter templates. So if you don't like how the author of cookiecutter's creates her projects, you can use someone else's or roll your own.</p>
 <p>Okay, enough talk, let's use cookiecutter to build a Python project. Assuming you have <a class="reference external" href="http://www.virtualenv.org/">virtualenv</a> installed:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pip install cookiecutter
+<div class="highlight"><pre><span></span>$ pip install cookiecutter
 </pre></div>
 <p><strong>note</strong>: In the works is a <a class="reference external" href="https://github.com/mxcl/homebrew">Homebrew</a> package, and possibly packages for the various Linux distributions as well.</p>
 <p>Done? Okay, now use cookiecutter to create your Python project. For this example, I'm going to create a sample project called &quot;<em>cheese</em>&quot;.:</p>
-<div class="highlight"><pre><span class="nv">$ </span>cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
+<div class="highlight"><pre><span></span>$ cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
 Cloning into <span class="s1">&#39;cookiecutter-pypackage&#39;</span>...
-remote: Counting objects: 183, <span class="k">done</span>.
-remote: Compressing objects: 100% <span class="o">(</span>100/100<span class="o">)</span>, <span class="k">done</span>.
-remote: Total 183 <span class="o">(</span>delta 87<span class="o">)</span>, reused 161 <span class="o">(</span>delta 70<span class="o">)</span>
-Receiving objects: 100% <span class="o">(</span>183/183<span class="o">)</span>, 29.36 KiB | 0 bytes/s, <span class="k">done</span>.
-Resolving deltas: 100% <span class="o">(</span>87/87<span class="o">)</span>, <span class="k">done</span>.
+remote: Counting objects: <span class="m">183</span>, <span class="k">done</span>.
+remote: Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">100</span>/100<span class="o">)</span>, <span class="k">done</span>.
+remote: Total <span class="m">183</span> <span class="o">(</span>delta <span class="m">87</span><span class="o">)</span>, reused <span class="m">161</span> <span class="o">(</span>delta <span class="m">70</span><span class="o">)</span>
+Receiving objects: <span class="m">100</span>% <span class="o">(</span><span class="m">183</span>/183<span class="o">)</span>, <span class="m">29</span>.36 KiB <span class="p">|</span> <span class="m">0</span> bytes/s, <span class="k">done</span>.
+Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">87</span>/87<span class="o">)</span>, <span class="k">done</span>.
 Checking connectivity... <span class="k">done</span>
 full_name <span class="o">(</span>default is <span class="s2">&quot;Audrey Roy&quot;</span><span class="o">)</span>? Daniel Greenfeld
 project_name <span class="o">(</span>default is <span class="s2">&quot;your project&quot;</span><span class="o">)</span>? cheese
-... snip <span class="k">for </span>brevity
+... snip <span class="k">for</span> brevity
 </pre></div>
 <p>See how it asks my full name? Well, at this point, <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a> begins to ask a number of questions. These questions are actually specified in the <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a> file for <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage">cookiecutter-pypackage</a>.</p>
 <p>Once you've answered everything that <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage">cookiecutter-pypackage</a> wants, it generates your project. Let's go and check:</p>
-<div class="highlight"><pre><span class="nv">$ </span>tree cheese
+<div class="highlight"><pre><span></span>$ tree cheese
 cheese/
 ├── AUTHORS.rst
 ├── CONTRIBUTING.rst
@@ -162,7 +162,7 @@ cheese/
 <li><strong>Make the changes you desire.</strong> You can change anything you want, the setup.py, the test handling, or perhaps add or remove from the questions specified in <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a>. Right now <strong>repo_name</strong> is a mandatory <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a> field, but there is an issue submitted to have that changed.</li>
 <li><strong>Remember that renders everything in</strong> <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a>. Questions asked by <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a> are rendered to the project's files (be those files in Python, Javascript, HTML, etc). So if you add a field to <a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json">cookiecutter.json</a>, all you have to do to see it in a templates is write:</li>
 </ol>
-<div class="highlight"><pre><span class="x"># Place in Python, HTML. Javascript, CSS, Markdown, or any other plaintext format.</span>
+<div class="highlight"><pre><span></span><span class="x"># Place in Python, HTML. Javascript, CSS, Markdown, or any other plaintext format.</span>
 <span class="cp">{{</span><span class="nv">cookiecutter.my_new_field</span><span class="cp">}}</span><span class="x"></span>
 </pre></div>
 <ol class="arabic simple" start="4">
@@ -207,7 +207,7 @@ cheese/
 <div class="section" id="cookiecutter-isn-t-just-for-python-developers">
 <h3>cookiecutter isn't just for Python developers</h3>
 <p>Even if you don't know Python you can use <a class="reference external" href="https://github.com/audreyr/cookiecutter">cookiecutter</a>. The templating is done via <a class="reference external" href="http://jinja.pocoo.org/">Jinja2</a>, which isn't far off from other template languages like Mustache, Handlebars, or Liquid. if you are worried about collisions between templating systems, just use Jinja2's <cite>{% raw %}</cite> template tag:</p>
-<div class="highlight"><pre><span class="c">{# Jinja2&#39;s raw template to escape the Liquid template inside #}</span><span class="x"></span>
+<div class="highlight"><pre><span></span><span class="c">{# Jinja2&#39;s raw template to escape the Liquid template inside #}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">raw</span> <span class="cp">%}</span> {# Liquid template from here on #}
 &lt;ul id=&quot;products&quot;&gt;
 {% for product in products %}
@@ -302,109 +302,29 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
 </p>
 
 <h4 class="nav-header">Tags</h4>
-<span class="tag-2">
-    <a href="./tag/holidays.html">
-        holidays
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nodejs.html">
-        nodejs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/philippines.html">
-        philippines
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/australia.html">
-        australia
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/djangocon.html">
-        djangocon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypy.html">
-        pypy
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/meme.html">
-        meme
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/i18n.html">
-        i18n
+    <a href="./tag/pycon.html">
+        pycon
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/cartwheel-web.html">
-        Cartwheel Web
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/setup.html">
-        setup
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/europe.html">
-        europe
+    <a href="./tag/perl.html">
+        perl
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/pumpkin.html">
-        pumpkin
+    <a href="./tag/barcamp.html">
+        barcamp
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/gondor.html">
-        gondor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/vs.html">
-        vs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pydiversity.html">
-        pydiversity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/unicode.html">
-        unicode
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/halloween.html">
-        halloween
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pypi.html">
-        pypi
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/friends.html">
-        friends
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/twoscoops.html">
-        twoscoops
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/php.html">
-        php
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
     </a>
 </span>
 <span class="tag-4">
@@ -413,83 +333,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/hackathon.html">
-        hackathon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/latex.html">
-        LaTeX
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pyramid.html">
-        pyramid
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/joke.html">
-        joke
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/heroku.html">
-        heroku
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/testing.html">
-        testing
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/usability.html">
-        usability
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/la.html">
-        LA
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/conda.html">
-        conda
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/casestudy.html">
-        casestudy
+    <a href="./tag/api.html">
+        api
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/rant.html">
-        rant
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dotcloud.html">
-        dotcloud
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/blog.html">
-        blog
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/django.html">
-        django
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/pyladies.html">
-        pyladies
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/pycon.html">
-        pycon
+    <a href="./tag/family.html">
+        family
     </a>
 </span>
 <span class="tag-3">
@@ -498,173 +348,13 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/eventbrite.html">
-        eventbrite
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/audrey.html">
-        audrey
+    <a href="./tag/flask.html">
+        flask
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/restructuredtext.html">
-        RestructuredText
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackathons.html">
-        lahackathons
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/capoeira.html">
-        capoeira
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/consumer-notebook.html">
-        Consumer-Notebook
-    </a>
-</span>
-<span class="tag-1">
-    <a href="./tag/python.html">
-        python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/css.html">
-        css
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/python3.html">
-        python3
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/training.html">
-        training
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/markdown.html">
-        markdown
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/forms.html">
-        forms
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/brambles.html">
-        brambles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/la.html">
-        la
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/api.html">
-        api
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/postgresql.html">
-        postgresql
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/barcamp.html">
-        barcamp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/packaging.html">
-        packaging
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/clojure.html">
-        clojure
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/review.html">
-        review
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/mongodb.html">
-        mongodb
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/tools.html">
-        tools
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/lahackthons.html">
-        lahackthons
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/surgery.html">
-        surgery
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/cheatsheet.html">
-        cheatsheet
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/europython.html">
-        europython
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/dsf.html">
-        dsf
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/nasa.html">
-        nasa
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/functions.html">
-        functions
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/django-rest-framework.html">
-        django-rest-framework
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/class-based-views.html">
-        class-based-views
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/travel.html">
-        travel
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/recipe.html">
-        recipe
-    </a>
-</span>
-<span class="tag-3">
-    <a href="./tag/sprint.html">
-        sprint
+    <a href="./tag/los-angeles.html">
+        los-angeles
     </a>
 </span>
 <span class="tag-3">
@@ -678,13 +368,38 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/djangodash.html">
-        djangodash
+    <a href="./tag/css.html">
+        css
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/jinja2.html">
-        jinja2
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/cartwheel-web.html">
+        Cartwheel Web
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pydiversity.html">
+        pydiversity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/halloween.html">
+        halloween
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/latex.html">
+        LaTeX
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
     </a>
 </span>
 <span class="tag-3">
@@ -692,9 +407,49 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         argentina
     </a>
 </span>
+<span class="tag-4">
+    <a href="./tag/whartonwc.html">
+        WhartonWC
+    </a>
+</span>
 <span class="tag-3">
-    <a href="./tag/cookiecutter.html">
-        cookiecutter
+    <a href="./tag/pypi.html">
+        pypi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cheatsheet.html">
+        cheatsheet
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/packaging.html">
+        packaging
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/postgresql.html">
+        postgresql
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/restructuredtext.html">
+        RestructuredText
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
     </a>
 </span>
 <span class="tag-2">
@@ -703,63 +458,33 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
-    <a href="./tag/perl.html">
-        perl
+    <a href="./tag/conda.html">
+        conda
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/oauth.html">
-        OAuth
+    <a href="./tag/pyramid.html">
+        pyramid
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/pycon-2013-guide.html">
-        pycon-2013-guide
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        Los Angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/paypal.html">
-        paypal
+    <a href="./tag/meme.html">
+        meme
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/ruby.html">
-        ruby
+    <a href="./tag/testing.html">
+        testing
     </a>
 </span>
-<span class="tag-4">
-    <a href="./tag/wsgi.html">
-        wsgi
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/los-angeles.html">
-        los-angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/whartonwc.html">
-        WhartonWC
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/ppoftw.html">
-        ppoftw
-    </a>
-</span>
-<span class="tag-2">
-    <a href="./tag/howto.html">
-        howto
-    </a>
-</span>
-<span class="tag-4">
-    <a href="./tag/meteor.html">
-        meteor
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
     </a>
 </span>
 <span class="tag-4">
@@ -768,8 +493,98 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-3">
-    <a href="./tag/flask.html">
-        flask
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/eventbrite.html">
+        eventbrite
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cookiecutter.html">
+        cookiecutter
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/training.html">
+        training
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nasa.html">
+        nasa
     </a>
 </span>
 <span class="tag-4">
@@ -778,8 +593,98 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
     </a>
 </span>
 <span class="tag-4">
+    <a href="./tag/pumpkin.html">
+        pumpkin
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/surgery.html">
+        surgery
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/recipe.html">
+        recipe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
     <a href="./tag/science.html">
         science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/markdown.html">
+        markdown
     </a>
 </span>
 <span class="tag-4">
@@ -787,19 +692,114 @@ While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate"
         rails
     </a>
 </span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/i18n.html">
+        i18n
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/unicode.html">
+        unicode
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/jinja2.html">
+        jinja2
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/ppoftw.html">
+        ppoftw
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/brambles.html">
+        brambles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
 <span class="tag-4">
     <a href="./tag/binstar.html">
         binstar
     </a>
 </span>
-<span class="tag-2">
-    <a href="./tag/family.html">
-        family
+<span class="tag-3">
+    <a href="./tag/django-rest-framework.html">
+        django-rest-framework
     </a>
 </span>
 <span class="tag-2">
-    <a href="./tag/book.html">
-        book
+    <a href="./tag/python3.html">
+        python3
     </a>
 </span>
 

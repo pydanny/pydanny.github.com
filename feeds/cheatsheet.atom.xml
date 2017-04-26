@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="https://pydanny.com/" rel="alternate"></link><link href="https://pydanny.com/feeds/cheatsheet.atom.xml" rel="self"></link><id>https://pydanny.com/</id><updated>2016-05-26T17:00:00-07:00</updated><entry><title>Pretty Formatting JSON in the Django Admin</title><link href="https://pydanny.com/pretty-formatting-json-django-admin.html" rel="alternate"></link><updated>2016-05-26T17:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:https://pydanny.com,2016-05-26:pretty-formatting-json-django-admin.html</id><summary type="html">&lt;p&gt;Recently I was writing code to interact with a third-party API. The API changes frequently, especially the data contained in responses. However, that data has to be saved and periodically needs to be audited. I wanted a data model flexible enough to handle these periodic changes without a lot of anguish, yet queryable. Since the API serves out queryable JSON, this made it a no-brainer for using  &lt;tt class="docutils literal"&gt;django.contrib.postgres&lt;/tt&gt;'s JSONField.&lt;/p&gt;
 &lt;p&gt;After a little bit of work, I had data samples to play with. Quickly my admin filled with chunks of JSON that looked something like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;field_12&amp;quot;&lt;/span&gt;: 8, &lt;span class="s2"&gt;&amp;quot;field_16&amp;quot;&lt;/span&gt;: 4, &lt;span class="s2"&gt;&amp;quot;field_6&amp;quot;&lt;/span&gt;: 14, &lt;span class="s2"&gt;&amp;quot;field_7&amp;quot;&lt;/span&gt;: 13, &lt;span class="s2"&gt;&amp;quot;field_18&amp;quot;&lt;/span&gt;: 2, &lt;span class="s2"&gt;&amp;quot;field_2&amp;quot;&lt;/span&gt;: 18, &lt;span class="s2"&gt;&amp;quot;field_4&amp;quot;&lt;/span&gt;: 16, &lt;span class="s2"&gt;&amp;quot;field_15&amp;quot;&lt;/span&gt;: 5, &lt;span class="s2"&gt;&amp;quot;field_9&amp;quot;&lt;/span&gt;: 11, &lt;span class="s2"&gt;&amp;quot;field_3&amp;quot;&lt;/span&gt;: 17, &lt;span class="s2"&gt;&amp;quot;field_8&amp;quot;&lt;/span&gt;: 12, &lt;span class="s2"&gt;&amp;quot;field_11&amp;quot;&lt;/span&gt;: 9, &lt;span class="s2"&gt;&amp;quot;field_17&amp;quot;&lt;/span&gt;: 3, &lt;span class="s2"&gt;&amp;quot;field_10&amp;quot;&lt;/span&gt;: 10, &lt;span class="s2"&gt;&amp;quot;field_0&amp;quot;&lt;/span&gt;: 20, &lt;span class="s2"&gt;&amp;quot;field_1&amp;quot;&lt;/span&gt;: 19, &lt;span class="s2"&gt;&amp;quot;field_13&amp;quot;&lt;/span&gt;: 7, &lt;span class="s2"&gt;&amp;quot;field_5&amp;quot;&lt;/span&gt;: 15, &lt;span class="s2"&gt;&amp;quot;field_14&amp;quot;&lt;/span&gt;: 6&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;field_12&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;8&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_16&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;4&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_6&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;14&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_7&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;13&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_18&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;2&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_2&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;18&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_4&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;16&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_15&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;5&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_9&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;11&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_3&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;17&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_8&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;12&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_11&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;9&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_17&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;3&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_10&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;10&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_0&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;20&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_1&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;19&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_13&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;7&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_5&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;15&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;field_14&amp;quot;&lt;/span&gt;: &lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Kind of illegible, right? And that's a simple, flat example with just 20 keys. Imagine if this were a nested dictionary with 100 or 200 fields. For reference, that's the kind of data that I had that makes this kind of display nigh useless.&lt;/p&gt;
 &lt;p&gt;So I cooked up this quick fix:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pygments&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;highlight&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pygments.lexers&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;JsonLexer&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pygments.formatters&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;HtmlFormatter&lt;/span&gt;
@@ -17,30 +17,30 @@
 
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;APIDataAdmin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ModelAdmin&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;readonly_fields&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;data_prettified&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,)&lt;/span&gt;
+    &lt;span class="n"&gt;readonly_fields&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;data_prettified&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,)&lt;/span&gt;
 
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;data_prettified&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Function to display pretty version of our data&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 
-        &lt;span class="c"&gt;# Convert the data to sorted, indented JSON&lt;/span&gt;
+        &lt;span class="c1"&gt;# Convert the data to sorted, indented JSON&lt;/span&gt;
         &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sort_keys&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;indent&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-        &lt;span class="c"&gt;# Truncate the data. Alter as needed&lt;/span&gt;
+        &lt;span class="c1"&gt;# Truncate the data. Alter as needed&lt;/span&gt;
         &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-        &lt;span class="c"&gt;# Get the Pygments formatter&lt;/span&gt;
-        &lt;span class="n"&gt;formatter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;HtmlFormatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;colorful&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="c1"&gt;# Get the Pygments formatter&lt;/span&gt;
+        &lt;span class="n"&gt;formatter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;HtmlFormatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;colorful&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-        &lt;span class="c"&gt;# Highlight the data&lt;/span&gt;
+        &lt;span class="c1"&gt;# Highlight the data&lt;/span&gt;
         &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;highlight&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;JsonLexer&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;formatter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-        &lt;span class="c"&gt;# Get the stylesheet&lt;/span&gt;
-        &lt;span class="n"&gt;style&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;lt;style&amp;gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;formatter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_style_defs&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;lt;/style&amp;gt;&amp;lt;br&amp;gt;&amp;quot;&lt;/span&gt;
+        &lt;span class="c1"&gt;# Get the stylesheet&lt;/span&gt;
+        &lt;span class="n"&gt;style&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;style&amp;gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;formatter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_style_defs&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;/style&amp;gt;&amp;lt;br&amp;gt;&amp;quot;&lt;/span&gt;
 
-        &lt;span class="c"&gt;# Safe the output&lt;/span&gt;
+        &lt;span class="c1"&gt;# Safe the output&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;mark_safe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;style&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="n"&gt;data_prettified&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;short_description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;data prettified&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;data_prettified&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;short_description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;data prettified&amp;#39;&lt;/span&gt;
 
 &lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;register&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;APIData&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;APIDataAdmin&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -74,16 +74,16 @@
 &lt;h2&gt;Introducing cookiecutter-djangopackage&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/pydanny/cookiecutter-djangopackage"&gt;cookiecutter-djangopackage&lt;/a&gt; is a &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt; template for creating reusable Django packages. Using it is easy:&lt;/p&gt;
 &lt;p&gt;First, get &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt;.  Trust me, it's awesome:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install cookiecutter
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install cookiecutter
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now run it against this repo:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cookiecutter https://github.com/pydanny/cookiecutter-djangopackage.git
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cookiecutter https://github.com/pydanny/cookiecutter-djangopackage.git
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You'll be prompted to enter some values. Enter them. Then an installable Django package will be built for you.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: &lt;tt class="docutils literal"&gt;app_name&lt;/tt&gt; must be a valid Python module name or you will have issues on imports.&lt;/p&gt;
 &lt;p&gt;Enter the new package (in my case, I called it 'newpackage') and look around. Open up the &lt;tt class="docutils literal"&gt;AUTHORS.rst&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;setup.py&lt;/tt&gt;, or &lt;tt class="docutils literal"&gt;README.rst&lt;/tt&gt; files and you'll see your input inserted into the appropriate locations.&lt;/p&gt;
 &lt;p&gt;Speaking of the &lt;tt class="docutils literal"&gt;README.rst&lt;/tt&gt;, that file includes instructions for putting the new package on &lt;a class="reference external" href="pypi.python.org/pypi"&gt;PyPI&lt;/a&gt; and &lt;a class="reference external" href="https://wwww.djangopackages.com"&gt;Django Packages&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;newpackage
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;newpackage
 ├── .editorconfig
 ├── .gitignore
 ├── .travis.yml
@@ -147,66 +147,66 @@
 &lt;div class="section" id="decorators-without-arguments"&gt;
 &lt;h2&gt;Decorators Without Arguments&lt;/h2&gt;
 &lt;p&gt;These are decorators that do not accept arguments.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt;  &lt;span class="c"&gt;# Part of Python standard library&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt;  &lt;span class="c1"&gt;# Part of Python standard library&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;decorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="c"&gt;# do something before the function call&lt;/span&gt;
+        &lt;span class="c1"&gt;# do something before the function call&lt;/span&gt;
         &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c"&gt;# do something after the function call&lt;/span&gt;
+        &lt;span class="c1"&gt;# do something after the function call&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_wrapper&lt;/span&gt;
 
-&lt;span class="c"&gt;# decorator with functools.wraps added&lt;/span&gt;
+&lt;span class="c1"&gt;# decorator with functools.wraps added&lt;/span&gt;
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;decorator_with_wraps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="nd"&gt;@functools.wraps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="c"&gt;# do something before the function call&lt;/span&gt;
+        &lt;span class="c1"&gt;# do something before the function call&lt;/span&gt;
         &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c"&gt;# do something after the function call&lt;/span&gt;
+        &lt;span class="c1"&gt;# do something after the function call&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_wrapper&lt;/span&gt;
 
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;wrapt&lt;/span&gt;  &lt;span class="c"&gt;# Requires installing the &amp;#39;wrapt&amp;#39; library&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;wrapt&lt;/span&gt;  &lt;span class="c1"&gt;# Requires installing the &amp;#39;wrapt&amp;#39; library&lt;/span&gt;
 
-&lt;span class="c"&gt;# decorator powered by wrapt&lt;/span&gt;
+&lt;span class="c1"&gt;# decorator powered by wrapt&lt;/span&gt;
 &lt;span class="nd"&gt;@wrapt.decorator&lt;/span&gt;
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;decorator_with_wrapt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="c"&gt;# do something before the function call&lt;/span&gt;
+    &lt;span class="c1"&gt;# do something before the function call&lt;/span&gt;
     &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="c"&gt;# do something after the function call&lt;/span&gt;
+    &lt;span class="c1"&gt;# do something after the function call&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_decorators&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
 
     &lt;span class="nd"&gt;@decorator&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;func1&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;I&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;I&amp;#39;&lt;/span&gt;
 
     &lt;span class="nd"&gt;@decorator_with_wraps&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;func2&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;code&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;code&amp;#39;&lt;/span&gt;
 
     &lt;span class="nd"&gt;@decorator_with_wrapt&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;func3&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;
 
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;I&amp;#39;&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func2&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;code&amp;#39;&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func3&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;I&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func2&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;code&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func3&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="decorators-with-arguments"&gt;
 &lt;h2&gt;Decorators With Arguments&lt;/h2&gt;
 &lt;p&gt;These are decorators that accept arguments.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;arguments_decorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;arguments_decorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_outer_wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-            &lt;span class="c"&gt;# do something before the function call&lt;/span&gt;
+            &lt;span class="c1"&gt;# do something before the function call&lt;/span&gt;
             &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="c"&gt;# do something after the function call&lt;/span&gt;
+            &lt;span class="c1"&gt;# do something after the function call&lt;/span&gt;
 
-            &lt;span class="c"&gt;# Demonstrating what you can do with decorator arguments&lt;/span&gt;
+            &lt;span class="c1"&gt;# Demonstrating what you can do with decorator arguments&lt;/span&gt;
             &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;arg1&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;
 
             &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
@@ -217,11 +217,11 @@
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_outer_wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="nd"&gt;@functools.wraps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-            &lt;span class="c"&gt;# do something before the function call&lt;/span&gt;
+            &lt;span class="c1"&gt;# do something before the function call&lt;/span&gt;
             &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="c"&gt;# do something after the function call&lt;/span&gt;
+            &lt;span class="c1"&gt;# do something after the function call&lt;/span&gt;
 
-            &lt;span class="c"&gt;# Demonstrating what you can do with decorator arguments&lt;/span&gt;
+            &lt;span class="c1"&gt;# Demonstrating what you can do with decorator arguments&lt;/span&gt;
             &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;arg1&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;
 
             &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
@@ -231,11 +231,11 @@
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;arguments_decorator_with_wrapt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="nd"&gt;@wrapt.decorator&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_wrapper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="c"&gt;# do something before the function call&lt;/span&gt;
+        &lt;span class="c1"&gt;# do something before the function call&lt;/span&gt;
         &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;wrapped_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c"&gt;# do something after the function call&lt;/span&gt;
+        &lt;span class="c1"&gt;# do something after the function call&lt;/span&gt;
 
-        &lt;span class="c"&gt;# Demonstrating what you can do with decorator arguments&lt;/span&gt;
+        &lt;span class="c1"&gt;# Demonstrating what you can do with decorator arguments&lt;/span&gt;
         &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;arg1&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;
 
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
@@ -246,19 +246,19 @@
 
     &lt;span class="nd"&gt;@arguments_decorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;func4&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;We&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;We&amp;#39;&lt;/span&gt;
 
     &lt;span class="nd"&gt;@arguments_decorator_with_wraps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;func5&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;code&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;code&amp;#39;&lt;/span&gt;
 
     &lt;span class="nd"&gt;@arguments_decorator_with_wrapt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;func6&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;
 
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func4&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;WeWeWeWeWeWe&amp;#39;&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func5&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;codecodecodecode&amp;#39;&lt;/span&gt;
-    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func6&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;pythonpythonpythonpythonpythonpython&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func4&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;WeWeWeWeWeWe&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func5&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;codecodecodecode&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;func6&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;pythonpythonpythonpythonpythonpython&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="summary"&gt;

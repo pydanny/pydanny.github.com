@@ -8,31 +8,31 @@
 &lt;li&gt;A package deployed to &lt;a class="reference external" href="https://pypi.python.org/pypi/cookiecutter"&gt;PyPI&lt;/a&gt; (in our case, &lt;a class="reference external" href="https://pypi.python.org/pypi/cookiecutter/0.9.1"&gt;https://pypi.python.org/pypi/cookiecutter/0.9.1&lt;/a&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Once those are ready, create a conda recipe for Cookiecutter.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda skeleton pypi cookiecutter
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ conda skeleton pypi cookiecutter
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This will create a conda recipe, which is a directory named &lt;tt class="docutils literal"&gt;cookiecutter&lt;/tt&gt; that contains several text files.&lt;/p&gt;
 &lt;p&gt;Inside the new &lt;tt class="docutils literal"&gt;cookiecutter&lt;/tt&gt; recipe directory, find the &lt;tt class="docutils literal"&gt;meta.yaml&lt;/tt&gt; file and change the appropriate sections to have this content:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="l-Scalar-Plain"&gt;source&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;source&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
     &lt;span class="c1"&gt;# Change to match the most recent release&lt;/span&gt;
-    &lt;span class="l-Scalar-Plain"&gt;git_tag&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;0.9.1&lt;/span&gt;
-    &lt;span class="l-Scalar-Plain"&gt;git_url&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;https://github.com/audreyr/cookiecutter.git&lt;/span&gt;
+    &lt;span class="l l-Scalar l-Scalar-Plain"&gt;git_tag&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;0.9.1&lt;/span&gt;
+    &lt;span class="l l-Scalar l-Scalar-Plain"&gt;git_url&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;https://github.com/audreyr/cookiecutter.git&lt;/span&gt;
 
-&lt;span class="l-Scalar-Plain"&gt;package&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
-    &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;cookiecutter&lt;/span&gt;
-    &lt;span class="l-Scalar-Plain"&gt;version&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p-Indicator"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;environ&lt;/span&gt;&lt;span class="p-Indicator"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;GIT_DESCRIBE_TAG&amp;#39;&lt;/span&gt;&lt;span class="p-Indicator"&gt;]&lt;/span&gt; &lt;span class="p-Indicator"&gt;}}&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;package&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="l l-Scalar l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;cookiecutter&lt;/span&gt;
+    &lt;span class="l l-Scalar l-Scalar-Plain"&gt;version&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;environ&lt;/span&gt;&lt;span class="p p-Indicator"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;GIT_DESCRIBE_TAG&amp;#39;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;]&lt;/span&gt; &lt;span class="p p-Indicator"&gt;}}&lt;/span&gt;
 
-&lt;span class="l-Scalar-Plain"&gt;build&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
-    &lt;span class="l-Scalar-Plain"&gt;number&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p-Indicator"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;environ.get(&amp;#39;GIT_DESCRIBE_NUMBER&amp;#39;&lt;/span&gt;&lt;span class="p-Indicator"&gt;,&lt;/span&gt; &lt;span class="nv"&gt;0)&lt;/span&gt; &lt;span class="p-Indicator"&gt;}}&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;build&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="l l-Scalar l-Scalar-Plain"&gt;number&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;environ.get(&amp;#39;GIT_DESCRIBE_NUMBER&amp;#39;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;,&lt;/span&gt; &lt;span class="nv"&gt;0)&lt;/span&gt; &lt;span class="p p-Indicator"&gt;}}&lt;/span&gt;
 
     &lt;span class="c1"&gt;# Note that this will override the default build string with the Python&lt;/span&gt;
     &lt;span class="c1"&gt;# and NumPy versions&lt;/span&gt;
-    &lt;span class="l-Scalar-Plain"&gt;string&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p-Indicator"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;environ.get(&amp;#39;GIT_BUILD_STR&amp;#39;&lt;/span&gt;&lt;span class="p-Indicator"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;)&lt;/span&gt; &lt;span class="p-Indicator"&gt;}}&lt;/span&gt;
+    &lt;span class="l l-Scalar l-Scalar-Plain"&gt;string&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;environ.get(&amp;#39;GIT_BUILD_STR&amp;#39;&lt;/span&gt;&lt;span class="p p-Indicator"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;)&lt;/span&gt; &lt;span class="p p-Indicator"&gt;}}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="building-a-conda-package"&gt;
 &lt;h2&gt;Building a conda package&lt;/h2&gt;
 &lt;p&gt;Use the conda recipe to build a package for my operating system (in this case, Mac OS X):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda build cookiecutter
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ conda build cookiecutter
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This creates a Cookiecutter conda package at &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/miniconda/conda-bld/osx-64/cookiecutter-0.9.1_BUILDNUM.tar.bz2&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The official conda recipe for &lt;strong&gt;cookiecutter&lt;/strong&gt; is at &lt;a class="reference external" href="https://github.com/conda/conda-recipes/tree/master/cookiecutter"&gt;https://github.com/conda/conda-recipes/tree/master/cookiecutter&lt;/a&gt;.&lt;/p&gt;
@@ -40,10 +40,10 @@
 &lt;div class="section" id="converting-the-conda-package-to-other-systems"&gt;
 &lt;h2&gt;Converting the conda package to other systems&lt;/h2&gt;
 &lt;p&gt;Let's convert that to Windows and Linux systems:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda convert ~/miniconda/conda-bld/osx-64/cookiecutter-0.9.1_BUILDNUM.tar.bz2 -p all
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ conda convert ~/miniconda/conda-bld/osx-64/cookiecutter-0.9.1_BUILDNUM.tar.bz2 -p all
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This creates five new directories, each with a new package. It looks something like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ls
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ls
 linux-32
 linux-64
 osx-64
@@ -58,14 +58,14 @@ win-64
 &lt;p&gt;With these packages created, it's time to upload them to &lt;a class="reference external" href="http://binstar.org"&gt;binstar&lt;/a&gt;, the primary conda package index.&lt;/p&gt;
 &lt;p&gt;First, &lt;a class="reference external" href="https://binstar.org/account/register"&gt;register your binstar account&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Then use conda to install the binstar client:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda install binstar
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ conda install binstar
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Finally, start uploading the new packages:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload linux-32/cookiecutter-0.9.1-BUILDNUM.tar.bz2
-&lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload linux-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
-&lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload osx-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
-&lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload win-32/cookiecutter-0.9.1-BUILDNUM.tar.bz2
-&lt;span class="nv"&gt;$ &lt;/span&gt;binstar upload win-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ binstar upload linux-32/cookiecutter-0.9.1-BUILDNUM.tar.bz2
+$ binstar upload linux-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
+$ binstar upload osx-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
+$ binstar upload win-32/cookiecutter-0.9.1-BUILDNUM.tar.bz2
+$ binstar upload win-64/cookiecutter-0.9.1-BUILDNUM.tar.bz2
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://binstar.org/pydanny/cookiecutter"&gt;Check out the results of my work&lt;/a&gt; or take a look right below at what's on &lt;a class="reference external" href="http://binstar.org"&gt;binstar&lt;/a&gt;:&lt;/p&gt;
 &lt;a class="reference external image-reference" href="https://binstar.org/search?q=cookiecutter"&gt;&lt;img alt="https://pydanny.com/static/packages.png" class="align-center" id="packages" src="https://pydanny.com/static/packages.png" style="width: 500px; height: 138px;" /&gt;&lt;/a&gt;
@@ -73,8 +73,8 @@ win-64
 &lt;div class="section" id="try-installing-cookiecutter-with-conda"&gt;
 &lt;h2&gt;Try installing Cookiecutter with conda!&lt;/h2&gt;
 &lt;p&gt;If you have &lt;strong&gt;conda&lt;/strong&gt; installed, you should be able to get Cookiecutter thus:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;conda config --add channels https://conda.binstar.org/pydanny
-&lt;span class="nv"&gt;$ &lt;/span&gt;conda install cookiecutter
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ conda config --add channels https://conda.binstar.org/pydanny
+$ conda install cookiecutter
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="summary"&gt;

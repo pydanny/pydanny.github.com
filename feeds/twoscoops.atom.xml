@@ -1,5 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="https://pydanny.com/" rel="alternate"></link><link href="https://pydanny.com/feeds/twoscoops.atom.xml" rel="self"></link><id>https://pydanny.com/</id><updated>2017-04-26T00:05:00-07:00</updated><entry><title>Two Scoops of Django 1.11 is Out!</title><link href="https://pydanny.com/two-scoops-of-django-1-11.html" rel="alternate"></link><updated>2017-04-26T00:05:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:https://pydanny.com,2017-04-26:two-scoops-of-django-1-11.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://twoscoopspress.org/products/two-scoops-of-django-1-11"&gt;&lt;img alt="Two Scoops of Django" class="align-center" id="two-scoops-of-django-1-11-cover" src="https://cdn.shopify.com/s/files/1/0304/6901/files/tsd-111-alpha-470x235.jpg?2934688328290951771" /&gt;&lt;/a&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="https://pydanny.com/" rel="alternate"></link><link href="https://pydanny.com/feeds/twoscoops.atom.xml" rel="self"></link><id>https://pydanny.com/</id><updated>2017-04-27T00:05:00-07:00</updated><entry><title>Python F-Strings Are Fun!</title><link href="https://pydanny.com/python-f-strings-are-fun.html" rel="alternate"></link><updated>2017-04-27T00:05:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:https://pydanny.com,2017-04-27:python-f-strings-are-fun.html</id><summary type="html">&lt;a class="reference external image-reference" href="https://www.pydanny.github.com/python-f-strings-are-fun.html"&gt;&lt;img alt="Python F-Strings Are Fun!" class="align-center" id="id1" src="https://raw.githubusercontent.com/pydanny/pydanny.github.com/master/static/python-tip-from-pydanny.png" /&gt;&lt;/a&gt;
+&lt;p&gt;In python 3.6 we saw the adoption of &lt;a class="reference external" href="https://www.python.org/dev/peps/pep-0498/"&gt;Literal String Interpolation&lt;/a&gt;, or as they are known more commonly, &lt;a class="reference external" href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings"&gt;f-strings&lt;/a&gt;. At first I was hesitant because... well... we've got multiple string tools already available:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{},{}&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;_percent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;,&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;_concatenation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;_join&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;_format&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;_percent&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;_concatenation&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;_join&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Adding f-strings to this mix didn't seem all that useful:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;_fstring&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;{one},{two}&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;_fstring&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;_format&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;_percent&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;_concatenation&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;_join&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I was doubtful, but then I tried out f-strings on a non-trivial example. Now I'm hooked. Be it on local utility scripts or production code, I now instinctively gravitate toward their usage. In fact, f-strings so useful that going back to earlier versions of Python now feels cumbersome.&lt;/p&gt;
+&lt;p&gt;The reason why I feel this way is that f-strings are concise but easy to understand. Thanks to intuitive expression evaluation I can compress more verbose commands into smaller lines of code that are more legible. Take a look:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;_fstring&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Total: {one + two}&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# Go f-string!&lt;/span&gt;
+&lt;span class="n"&gt;_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Total: {}&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;_percent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Total: &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;_concatenation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Total: &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;_fstring&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;_format&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;_percent&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;_concatenation&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The f-string example is four characters shorter than the closest alternative and is extremely easy to read. Indeed, the f-string example in front of a non-programmer and they'll understand it fast. The same won't apply to the alternatives, odds are they'll ask what &lt;tt class="docutils literal"&gt;.format()&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;str()&lt;/tt&gt;, and the &lt;tt class="docutils literal"&gt;%&lt;/tt&gt; mean.&lt;/p&gt;
+&lt;div class="section" id="f-strings-are-addictive"&gt;
+&lt;h2&gt;F-Strings Are Addictive&lt;/h2&gt;
+&lt;p&gt;The conciseness and power of the intuitive expression evaluation can't be understated. On the surface f-strings seem like a small step forward for Python, but once I started using them I realized they were a huge step in codability for the language.&lt;/p&gt;
+&lt;p&gt;Now I'm hooked. I'm addicted to f-strings. When I step back to Python 3.5 or lower I feel like less of a Python coder. Yes, I have a problem with how much I lean on f-strings now, but I acknowledge my problem. I would go to therapy for it, but I believe I can manage the addiction for now.&lt;/p&gt;
+&lt;p&gt;Okay, enough joking, f-strings are awesome. Try them out.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="a-utility-script-example"&gt;
+&lt;h2&gt;A Utility Script Example&lt;/h2&gt;
+&lt;p&gt;We just released &lt;a class="reference external" href="https://www.twoscoopspress.com/products/two-scoops-of-django-1-11"&gt;Two Scoops of Django 1.11&lt;/a&gt;, which is written in &lt;a class="reference external" href="https://en.wikipedia.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt;. Like most programming books we provide &lt;a class="reference external" href="https://github.com/twoscoops/two-scoops-of-django-1.11/tree/master/code"&gt;code examples in a repo&lt;/a&gt; for our readers. However, as we completey revised the code-highlighting, we had to rewrite our code extractor from the ground up. In a flurry of cowboy coding, I did so in thirty minutes using Python 3.6 while leaning on f-strings:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Two Scoops of Django 1.11 Code Extractor&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;glob&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;glob&lt;/span&gt;
+
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;shutil&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rmtree&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;code&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Removed old code directory&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;FileNotFoundError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;code&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Created new code directory&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;STAR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;*&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;LEGALESE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;LEGAL TEXT GOES HERE&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;LANGUAGE_START&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{python}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{badpython}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{django}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{baddjango}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{plaintext}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{badplaintext}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{sql}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.sql&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{makefile}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{json}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.json&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{bash}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;begin{xml}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;LANGUAGE_END&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;begin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;end&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;LANGUAGE_START&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;is_example&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SWITCH&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;SWITCH&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;startswith&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;SWITCH&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;makefilename&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chapter_num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;in_example&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;code/chapter_{chapter_num}_example_{str(example_num).zfill(2)}{in_example}&amp;#39;&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+
+    &lt;span class="n"&gt;in_example&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+    &lt;span class="n"&gt;starting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chapters/*.tex&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;chapter_num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+            &lt;span class="n"&gt;chapter_num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;startswith&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;appendix&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+                &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;{STAR*40}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;{path}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;{STAR*40}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;continue&lt;/span&gt;
+        &lt;span class="n"&gt;example_num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;lines&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;starting&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="c1"&gt;# Crazy long string interpolation that should probably&lt;/span&gt;
+                &lt;span class="c1"&gt;# be broken up but remains because it&amp;#39;s easy for me to read&lt;/span&gt;
+                &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;code/chapter_{chapter_num}_example_{str(example_num).zfill(2)}{in_example}&amp;#39;&lt;/span&gt;
+                &lt;span class="n"&gt;dafile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;in_example&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+                    &lt;span class="n"&gt;dafile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;{LEGALESE}&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                    &lt;span class="n"&gt;dafile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;{LEGALESE}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;{STAR*20}&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;in_example&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;mime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+                &lt;span class="n"&gt;in_example&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;is_example&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;LANGUAGE_START&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;in_example&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                    &lt;span class="n"&gt;starting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+                &lt;span class="k"&gt;continue&lt;/span&gt;
+            &lt;span class="n"&gt;mime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;is_example&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;LANGUAGE_END&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;starting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;mime&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mime&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="n"&gt;in_example&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+                &lt;span class="n"&gt;example_num&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+                &lt;span class="n"&gt;dafile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+            &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;dafile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="twoscoops"></category><category term="python"></category><category term="django"></category><category term="python"></category><category term="python3"></category></entry><entry><title>Two Scoops of Django 1.11 is Out!</title><link href="https://pydanny.com/two-scoops-of-django-1-11.html" rel="alternate"></link><updated>2017-04-26T00:05:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:https://pydanny.com,2017-04-26:two-scoops-of-django-1-11.html</id><summary type="html">&lt;a class="reference external image-reference" href="http://twoscoopspress.org/products/two-scoops-of-django-1-11"&gt;&lt;img alt="Two Scoops of Django" class="align-center" id="two-scoops-of-django-1-11-cover" src="https://cdn.shopify.com/s/files/1/0304/6901/files/tsd-111-alpha-470x235.jpg?2934688328290951771" /&gt;&lt;/a&gt;
 &lt;p&gt;When we started the Two Scoops of Django project back in 2012, I never thought it would become a book series. Well, it's turned into just that, and so I'm pleased to announce the &amp;quot;Early Release&amp;quot; or &amp;quot;BETA&amp;quot; release of the &lt;a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-11"&gt;Two Scoops of Django: Best Practices for Django 1.11&lt;/a&gt; &lt;strong&gt;PDF&lt;/strong&gt; ebook.&lt;/p&gt;
 &lt;p&gt;Co-authored with &lt;a class="reference external" href="https://twitter.com/audreyr"&gt;Audrey Roy Greenfeld&lt;/a&gt;, the &lt;a class="reference external" href="http://twoscoopspress.com/products/two-scoops-of-django-1-11"&gt;1.11 edition&lt;/a&gt; of &lt;em&gt;Two Scoops of Django&lt;/em&gt; is filled to the brim with knowledge to help make Django projects better. We introduce various tips, tricks, patterns, code snippets, and techniques that we've picked up over the years. What we didn't know or weren't certain about, once again we found the best experts in the world and asked them for the answers. Then we packed the result into a 530+ page book.&lt;/p&gt;
 &lt;div class="section" id="what-s-next"&gt;
@@ -224,7 +342,7 @@
 &lt;p&gt;People were so positive it really gave us a boost. Hundreds of people sent us feedback and we were delighted beyond words, with a significant portion sending us commentary/corrections about our writing and code. I'll admit I did get tired over a certain 'moat' mistake since I got corrected on it over 50 times. However, the number of code corrections we were getting was higher than expected. It was clear we needed to be able to import the code modules from testable chunks of real code.  We had so many kindle/epub requests we also needed the ability to render the text attractively across multiple formats.&lt;/p&gt;
 &lt;p&gt;After stumbling through RST, Google Documents, and Apple Pages different tools, I finally agreed with Audrey that the challenges of learning LaTeX was worth it. While we could have used RST, we would have had to use LaTeX anyway for our customizations since when RST is converted to PDF it actually uses an interim step of LaTeX!&lt;/p&gt;
 &lt;p&gt;So while I handled the corrections and feedback from thousands, Audrey built the fundamentals of the LaTeX file structure. Audrey really got her hands dirty by teaching me LaTeX, since my brain is slow and thick. Here's a sample of what I've learned how to do, taken from Chapter 6, Section 1, Subsection 5 (6.1.5):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;\subsection&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;Model Inheritance in Practice: The TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;\subsection&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;Model Inheritance in Practice: The TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt;
 It&amp;#39;s very common in Django projects to include a &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;created&lt;span class="nb"&gt;}&lt;/span&gt; and &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;modified&lt;span class="nb"&gt;}&lt;/span&gt; timestamp field on all your models. We could manually add those fields to each and every model, but that&amp;#39;s a lot of work and adds the risk of human error. A better solution is to write a &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt; &lt;span class="k"&gt;\index&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt; to do the work for us:
 
 &lt;span class="k"&gt;\goodcodefile&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;chapter&lt;span class="nb"&gt;_&lt;/span&gt;06/myapp/core/timestampedmodel.py&lt;span class="nb"&gt;}&lt;/span&gt;
@@ -286,79 +404,79 @@ Django
 BeautifulSoup4
 &lt;/pre&gt;
 &lt;p&gt;And now the code:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/python&lt;/span&gt;
-&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.utils.text&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;jinja2&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;
 
-&lt;span class="n"&gt;TEMPLATE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;!DOCTYPE ncx PUBLIC &amp;quot;-//NISO//DTD ncx 2005-1//EN&amp;quot; &amp;quot;http://www.daisy.org/z3986/2005/ncx-2005-1.dtd&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;ncx xmlns=&amp;quot;http://www.daisy.org/z3986/2005/ncx/&amp;quot; version=&amp;quot;2005-1&amp;quot; xml:lang=&amp;quot;en&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;TEMPLATE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;!DOCTYPE ncx PUBLIC &amp;quot;-//NISO//DTD ncx 2005-1//EN&amp;quot; &amp;quot;http://www.daisy.org/z3986/2005/ncx-2005-1.dtd&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;ncx xmlns=&amp;quot;http://www.daisy.org/z3986/2005/ncx/&amp;quot; version=&amp;quot;2005-1&amp;quot; xml:lang=&amp;quot;en&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
 
-&lt;span class="s"&gt;&amp;lt;!-- The content of dtb:uid must be exactly the same as the uuid specified in the OPF file. --&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;!-- The content of dtb:uid must be exactly the same as the uuid specified in the OPF file. --&amp;gt;&lt;/span&gt;
 
-&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:uid&amp;quot; content=&amp;quot;urn:uuid:BLAH-BLAH-BLAH&amp;quot;/&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:depth&amp;quot; content=&amp;quot;1&amp;quot;/&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:totalPageCount&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:maxPageNumber&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;meta name=&amp;quot;dtb:uid&amp;quot; content=&amp;quot;urn:uuid:BLAH-BLAH-BLAH&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;meta name=&amp;quot;dtb:depth&amp;quot; content=&amp;quot;1&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;meta name=&amp;quot;dtb:totalPageCount&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;meta name=&amp;quot;dtb:maxPageNumber&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
 
-&lt;span class="s"&gt;&amp;lt;docTitle&amp;gt;&amp;lt;text&amp;gt;Two Scoops of Django: Best Practices for Django 1.5&amp;lt;/text&amp;gt;&amp;lt;/docTitle&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Greenfeld, Daniel&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Roy, Audrey&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;navMap&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% f&lt;/span&gt;&lt;span class="s"&gt;or chapter in chapters %}&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;navPoint id=&amp;quot;{{ chapter.slug }}&amp;quot; playOrder=&amp;quot;{{ loop.index }}&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;navLabel&amp;gt;&amp;lt;text&amp;gt;{{ chapter.string.strip() }}&amp;lt;/text&amp;gt;&amp;lt;/navLabel&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;content src=&amp;quot;{{ chapter.href }}&amp;quot; /&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% e&lt;/span&gt;&lt;span class="s"&gt;ndfor %}&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/navMap&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/ncx&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;docTitle&amp;gt;&amp;lt;text&amp;gt;Two Scoops of Django: Best Practices for Django 1.5&amp;lt;/text&amp;gt;&amp;lt;/docTitle&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Greenfeld, Daniel&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Roy, Audrey&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;navMap&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% f&lt;/span&gt;&lt;span class="s2"&gt;or chapter in chapters %}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;navPoint id=&amp;quot;{{ chapter.slug }}&amp;quot; playOrder=&amp;quot;{{ loop.index }}&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;navLabel&amp;gt;&amp;lt;text&amp;gt;{{ chapter.string.strip() }}&amp;lt;/text&amp;gt;&amp;lt;/navLabel&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;content src=&amp;quot;{{ chapter.href }}&amp;quot; /&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% e&lt;/span&gt;&lt;span class="s2"&gt;ndfor %}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;/navMap&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;/ncx&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 
-    &lt;span class="c"&gt;# Grab the base file for review&lt;/span&gt;
+    &lt;span class="c1"&gt;# Grab the base file for review&lt;/span&gt;
     &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
-    &lt;span class="c"&gt;# load the text into a bs4 object&lt;/span&gt;
+    &lt;span class="c1"&gt;# load the text into a bs4 object&lt;/span&gt;
     &lt;span class="n"&gt;soup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="c"&gt;# grab the nav element&lt;/span&gt;
-    &lt;span class="n"&gt;nav&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;soup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# grab the nav element&lt;/span&gt;
+    &lt;span class="n"&gt;nav&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;soup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="c"&gt;# loop through the TOC for chapters.&lt;/span&gt;
-    &lt;span class="c"&gt;# Sections/Subsections can&amp;#39;t be displayed, so don&amp;#39;t worry about them&lt;/span&gt;
-    &lt;span class="c"&gt;# li.chapter is how we constructed our TOC. Your mileage may vary.&lt;/span&gt;
+    &lt;span class="c1"&gt;# loop through the TOC for chapters.&lt;/span&gt;
+    &lt;span class="c1"&gt;# Sections/Subsections can&amp;#39;t be displayed, so don&amp;#39;t worry about them&lt;/span&gt;
+    &lt;span class="c1"&gt;# li.chapter is how we constructed our TOC. Your mileage may vary.&lt;/span&gt;
     &lt;span class="n"&gt;chapters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;nav&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;li&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;chapter&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;nav&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;li&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;chapter&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-            &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;href&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+            &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;href&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
             &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
             &lt;span class="n"&gt;slug&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="p"&gt;))&lt;/span&gt;
 
-    &lt;span class="c"&gt;# Render the template&lt;/span&gt;
+    &lt;span class="c1"&gt;# Render the template&lt;/span&gt;
     &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TEMPLATE&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="c"&gt;# convert to ASCII&lt;/span&gt;
-    &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ascii&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;xmlcharrefreplace&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# convert to ASCII&lt;/span&gt;
+    &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ascii&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;xmlcharrefreplace&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="c"&gt;# Save to the toc.ncx&lt;/span&gt;
-    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;toc.ncx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# Save to the toc.ncx&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;toc.ncx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;book.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;book.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;There is more to adding a table of contents then just this simple module. You also have to construct the .opf file, which is another undocumented mess that I'll blog about.&lt;/p&gt;
 </summary><category term="python"></category><category term="twoscoops"></category><category term="book"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Annotated History of My Most Used Shell Commands</title><link href="https://pydanny.com/20130410-history-of-my-most-used-shell-commands.html" rel="alternate"></link><updated>2013-04-10T09:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:https://pydanny.com,2013-04-10:20130410-history-of-my-most-used-shell-commands.html</id><summary type="html">&lt;p&gt;An oldie, but a goodie. This time I annotate it with reasons as to why things are used so much. If you blog, post your own!&lt;/p&gt;

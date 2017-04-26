@@ -6,25 +6,25 @@
 &lt;h2&gt;cookiecutter does one thing and it does it well&lt;/h2&gt;
 &lt;p&gt;What &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt; does is make creating and maintaining project templates easy and intuitive. This allow developers of all languages (not just Python) the ability to break free from cargo-cult configuration and follow patterns dictated by the experts who present their own cookiecutter templates. So if you don't like how the author of cookiecutter's creates her projects, you can use someone else's or roll your own.&lt;/p&gt;
 &lt;p&gt;Okay, enough talk, let's use cookiecutter to build a Python project. Assuming you have &lt;a class="reference external" href="http://www.virtualenv.org/"&gt;virtualenv&lt;/a&gt; installed:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install cookiecutter
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install cookiecutter
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;note&lt;/strong&gt;: In the works is a &lt;a class="reference external" href="https://github.com/mxcl/homebrew"&gt;Homebrew&lt;/a&gt; package, and possibly packages for the various Linux distributions as well.&lt;/p&gt;
 &lt;p&gt;Done? Okay, now use cookiecutter to create your Python project. For this example, I'm going to create a sample project called &amp;quot;&lt;em&gt;cheese&lt;/em&gt;&amp;quot;.:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
 Cloning into &lt;span class="s1"&gt;&amp;#39;cookiecutter-pypackage&amp;#39;&lt;/span&gt;...
-remote: Counting objects: 183, &lt;span class="k"&gt;done&lt;/span&gt;.
-remote: Compressing objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;100/100&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
-remote: Total 183 &lt;span class="o"&gt;(&lt;/span&gt;delta 87&lt;span class="o"&gt;)&lt;/span&gt;, reused 161 &lt;span class="o"&gt;(&lt;/span&gt;delta 70&lt;span class="o"&gt;)&lt;/span&gt;
-Receiving objects: 100% &lt;span class="o"&gt;(&lt;/span&gt;183/183&lt;span class="o"&gt;)&lt;/span&gt;, 29.36 KiB | 0 bytes/s, &lt;span class="k"&gt;done&lt;/span&gt;.
-Resolving deltas: 100% &lt;span class="o"&gt;(&lt;/span&gt;87/87&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+remote: Counting objects: &lt;span class="m"&gt;183&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+remote: Compressing objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;100&lt;/span&gt;/100&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
+remote: Total &lt;span class="m"&gt;183&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;87&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;, reused &lt;span class="m"&gt;161&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;delta &lt;span class="m"&gt;70&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+Receiving objects: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;183&lt;/span&gt;/183&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="m"&gt;29&lt;/span&gt;.36 KiB &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; bytes/s, &lt;span class="k"&gt;done&lt;/span&gt;.
+Resolving deltas: &lt;span class="m"&gt;100&lt;/span&gt;% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;87&lt;/span&gt;/87&lt;span class="o"&gt;)&lt;/span&gt;, &lt;span class="k"&gt;done&lt;/span&gt;.
 Checking connectivity... &lt;span class="k"&gt;done&lt;/span&gt;
 full_name &lt;span class="o"&gt;(&lt;/span&gt;default is &lt;span class="s2"&gt;&amp;quot;Audrey Roy&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;? Daniel Greenfeld
 project_name &lt;span class="o"&gt;(&lt;/span&gt;default is &lt;span class="s2"&gt;&amp;quot;your project&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;? cheese
-... snip &lt;span class="k"&gt;for &lt;/span&gt;brevity
+... snip &lt;span class="k"&gt;for&lt;/span&gt; brevity
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;See how it asks my full name? Well, at this point, &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt; begins to ask a number of questions. These questions are actually specified in the &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt; file for &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage"&gt;cookiecutter-pypackage&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Once you've answered everything that &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage"&gt;cookiecutter-pypackage&lt;/a&gt; wants, it generates your project. Let's go and check:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;tree cheese
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ tree cheese
 cheese/
 ├── AUTHORS.rst
 ├── CONTRIBUTING.rst
@@ -64,7 +64,7 @@ cheese/
 &lt;li&gt;&lt;strong&gt;Make the changes you desire.&lt;/strong&gt; You can change anything you want, the setup.py, the test handling, or perhaps add or remove from the questions specified in &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt;. Right now &lt;strong&gt;repo_name&lt;/strong&gt; is a mandatory &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt; field, but there is an issue submitted to have that changed.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Remember that renders everything in&lt;/strong&gt; &lt;a class="reference external" href="http://jinja.pocoo.org/"&gt;Jinja2&lt;/a&gt;. Questions asked by &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt; are rendered to the project's files (be those files in Python, Javascript, HTML, etc). So if you add a field to &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter-pypackage/blob/master/cookiecutter.json"&gt;cookiecutter.json&lt;/a&gt;, all you have to do to see it in a templates is write:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;# Place in Python, HTML. Javascript, CSS, Markdown, or any other plaintext format.&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;# Place in Python, HTML. Javascript, CSS, Markdown, or any other plaintext format.&lt;/span&gt;
 &lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;cookiecutter.my_new_field&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;ol class="arabic simple" start="4"&gt;
@@ -109,7 +109,7 @@ cheese/
 &lt;div class="section" id="cookiecutter-isn-t-just-for-python-developers"&gt;
 &lt;h3&gt;cookiecutter isn't just for Python developers&lt;/h3&gt;
 &lt;p&gt;Even if you don't know Python you can use &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt;. The templating is done via &lt;a class="reference external" href="http://jinja.pocoo.org/"&gt;Jinja2&lt;/a&gt;, which isn't far off from other template languages like Mustache, Handlebars, or Liquid. if you are worried about collisions between templating systems, just use Jinja2's &lt;cite&gt;{% raw %}&lt;/cite&gt; template tag:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;{# Jinja2&amp;#39;s raw template to escape the Liquid template inside #}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;{# Jinja2&amp;#39;s raw template to escape the Liquid template inside #}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;raw&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt; {# Liquid template from here on #}
 &amp;lt;ul id=&amp;quot;products&amp;quot;&amp;gt;
 {% for product in products %}
@@ -131,23 +131,23 @@ cheese/
 &lt;/div&gt;
 &lt;/div&gt;
 </summary><category term="python"></category><category term="django"></category><category term="rant"></category><category term="flask"></category><category term="pypi"></category><category term="pypy"></category><category term="python3"></category><category term="javascript"></category><category term="audrey"></category><category term="cookiecutter"></category></entry><entry><title>Python dictionary vs JavaScript object: Dynamic Keys</title><link href="https://pydanny.com/python-dictionary-vs-javascript-object-dynamic-keys.html" rel="alternate"></link><updated>2012-08-19T03:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:https://pydanny.com,2012-08-19:python-dictionary-vs-javascript-object-dynamic-keys.html</id><summary type="html">&lt;p&gt;One of the things I noticed a long time ago with JavaScript is that when you create objects you can define keys outside of strings:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;city&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;San Francisco&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;city&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;San Francisco&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
   &lt;span class="nb"&gt;Object&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In JavaScript, this is valid. In Python, you'll get a &lt;tt class="docutils literal"&gt;NameError&lt;/tt&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;city&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;San Francisco&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;city&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;San Francisco&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-  &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;lt;input&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="ne"&gt;NameError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;city&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;defined&lt;/span&gt;
+  &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;input&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="ne"&gt;NameError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;city&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;defined&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Normally this isn't too big of an issue, except when you want to use JavaScript to create object keys based off of values in a variable. Which means that while this code works fine in Python...&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;region_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;state&amp;#39;&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;region_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Californa&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;city&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;San Francisco&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;state&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="s"&gt;&amp;#39;Californa&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;region_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;state&amp;#39;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;region_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Californa&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;city&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;San Francisco&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;state&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;Californa&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;...it fails in JavaScript:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;region_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;state&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;region_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;state&amp;#39;&lt;/span&gt;
   &lt;span class="s2"&gt;&amp;quot;state&amp;quot;&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;region_name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Californa&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;city&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;San Francisco&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
   &lt;span class="nb"&gt;Object&lt;/span&gt;
@@ -157,7 +157,7 @@ cheese/
   &lt;span class="s2"&gt;&amp;quot;Californa&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;What this means is that if you want to define object keys dynamically in JavaScript, you need to add an extra line(s) of code:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;region_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;state&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;region_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;state&amp;quot;&amp;quot;&lt;/span&gt;
 &lt;span class="s2"&gt;  &amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;gt; var o = {&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;city&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;: &amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;San&lt;/span&gt; &lt;span class="nx"&gt;Francisco&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;}&lt;/span&gt;
 &lt;span class="s2"&gt;  Object&lt;/span&gt;

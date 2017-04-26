@@ -80,6 +80,40 @@
       <div class="row">
         <div class="span8" id="content">
                             <div class="article">
+            <h1 class="article-title"><a href="../python-f-strings-are-fun.html">Python F-Strings Are Fun!</a></h1>
+            <p>
+                <em>Thursday, April 27, 2017</em>
+                (<a href="../python-f-strings-are-fun.html" rel="bookmark" title="Permalink to Python F-Strings Are Fun!">permalink</a>)
+            </p>
+
+            <div class="summary"><a class="reference external image-reference" href="https://www.pydanny.github.com/python-f-strings-are-fun.html"><img alt="Python F-Strings Are Fun!" class="align-center" id="id1" src="https://raw.githubusercontent.com/pydanny/pydanny.github.com/master/static/python-tip-from-pydanny.png" /></a>
+<p>In python 3.6 we saw the adoption of <a class="reference external" href="https://www.python.org/dev/peps/pep-0498/">Literal String Interpolation</a>, or as they are known more commonly, <a class="reference external" href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings">f-strings</a>. At first I was hesitant because... well... we've got multiple string tools already available:</p>
+<div class="highlight"><pre><span></span><span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">_format</span> <span class="o">=</span> <span class="s1">&#39;{},{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">)</span>
+<span class="n">_percent</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">)</span>
+<span class="n">_concatenation</span> <span class="o">=</span> <span class="nb">str ...</span></pre></div>
+                    <a href="../python-f-strings-are-fun.html">Read more ...</a>
+            </div>
+        </div>
+        <hr />
+                <div class="article">
+            <h1 class="article-title"><a href="../python-f-strings-are-fun.html">Python F-Strings Are Fun!</a></h1>
+            <p>
+                <em>Thursday, April 27, 2017</em>
+                (<a href="../python-f-strings-are-fun.html" rel="bookmark" title="Permalink to Python F-Strings Are Fun!">permalink</a>)
+            </p>
+
+            <div class="summary"><a class="reference external image-reference" href="https://www.pydanny.github.com/python-f-strings-are-fun.html"><img alt="Python F-Strings Are Fun!" class="align-center" id="id1" src="https://raw.githubusercontent.com/pydanny/pydanny.github.com/master/static/python-tip-from-pydanny.png" /></a>
+<p>In python 3.6 we saw the adoption of <a class="reference external" href="https://www.python.org/dev/peps/pep-0498/">Literal String Interpolation</a>, or as they are known more commonly, <a class="reference external" href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings">f-strings</a>. At first I was hesitant because... well... we've got multiple string tools already available:</p>
+<div class="highlight"><pre><span></span><span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">_format</span> <span class="o">=</span> <span class="s1">&#39;{},{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">)</span>
+<span class="n">_percent</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">two</span><span class="p">)</span>
+<span class="n">_concatenation</span> <span class="o">=</span> <span class="nb">str ...</span></pre></div>
+                    <a href="../python-f-strings-are-fun.html">Read more ...</a>
+            </div>
+        </div>
+        <hr />
+                <div class="article">
             <h1 class="article-title"><a href="../two-scoops-of-django-1-11.html">Two Scoops of Django 1.11 is Out!</a></h1>
             <p>
                 <em>Wednesday, April 26, 2017</em>
@@ -182,16 +216,16 @@ Go to the Room ...</pre>
 
             <div class="summary"><a class="reference external image-reference" href="https://www.pydanny.com/static/aliens.png"><img alt="Aliens" class="align-center" id="aliens" src="https://pydanny.com/static/aliens.png" /></a>
 <p>Unlike every other programming language I've used before, Python does not have a switch or case statement. To get around this fact, we use dictionary mapping:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">numbers_to_strings</span><span class="p">(</span><span class="n">argument</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">numbers_to_strings</span><span class="p">(</span><span class="n">argument</span><span class="p">):</span>
     <span class="n">switcher</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="mi">0</span><span class="p">:</span> <span class="s">&quot;zero&quot;</span><span class="p">,</span>
-        <span class="mi">1</span><span class="p">:</span> <span class="s">&quot;one&quot;</span><span class="p">,</span>
-        <span class="mi">2</span><span class="p">:</span> <span class="s">&quot;two&quot;</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;zero&quot;</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span>
     <span class="p">}</span>
-    <span class="k">return</span> <span class="n">switcher</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span> <span class="s">&quot;nothing&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">switcher</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span> <span class="s2">&quot;nothing&quot;</span><span class="p">)</span>
 </pre></div>
 <p>This code is analogous to:</p>
-<div class="highlight"><pre><span class="kd">function</span><span class="p">(</span><span class="nx">argument</span><span class="p">){</span>
+<div class="highlight"><pre><span></span><span class="kd">function</span><span class="p">(</span><span class="nx">argument</span><span class="p">){</span>
     <span class="k">switch ...</span></pre></div>
                     <a href="../why-doesnt-python-have-switch-case.html">Read more ...</a>
             </div>
@@ -341,7 +375,7 @@ Go to the Room ...</pre>
 
             <div class="summary"><p>Sometimes in the <tt class="docutils literal">clean()</tt>, <tt class="docutils literal">clean_FOO</tt> or <tt class="docutils literal">save()</tt> methods of a Django form, you need to have additional form instance attributes available. A sample case for this is having <tt class="docutils literal">user_id</tt> available. This is a simple example of how to do it in Class-Based Views.</p>
 <p>Assuming this form:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms ...</span></pre></div>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms ...</span></pre></div>
                     <a href="../adding-django-form-instance-attributes.html">Read more ...</a>
             </div>
         </div>
@@ -619,7 +653,7 @@ Go to the Room ...</pre>
             </p>
 
             <div class="summary"><p>I wanted to see if I could have an exception as a decorator argument. Here is what I came up with:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">functools</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
 
 <span class="k">class</span> <span class="nc">MyGoof</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">pass</span>
@@ -786,7 +820,7 @@ Go to the Room ...</pre>
             </p>
 
             <div class="summary"><p>I've heard good things about filepicker.io, which is a service that makes file uploading a much better experience. Unfortunately, the Django package for filepicker.io doesn't work with South. When I try to create a migration using the filepicker.io field using code like the following...</p>
-<div class="highlight"><pre><span class="c"># products ...</span></pre></div>
+<div class="highlight"><pre><span></span><span class="c1"># products ...</span></pre></div>
                     <a href="../filepicker-and-south.html">Read more ...</a>
             </div>
         </div>
@@ -860,7 +894,7 @@ $ history | awk '{a[$2]++ } END{for(i in a){print a[i] &quot; &quot; i}}'|sort -
 <div class="section" id="forms-render-html">
 <h2>Forms render HTML.</h2>
 <p>If I construct a Django form:</p>
-<div class="highlight"><pre><span class="c"># myapp/forms.py ...</span></pre></div></div>
+<div class="highlight"><pre><span></span><span class="c1"># myapp/forms.py ...</span></pre></div></div>
                     <a href="../core-concepts-django-forms.html">Read more ...</a>
             </div>
         </div>
@@ -1231,11 +1265,11 @@ $ history | awk '{a[$2]++ } END{for(i in a){print a[i] &quot; &quot; i}}'|sort -
             </p>
 
             <div class="summary"><p>One of the things I noticed a long time ago with JavaScript is that when you create objects you can define keys outside of strings:</p>
-<div class="highlight"><pre><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">city</span><span class="o">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">city</span><span class="o">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">}</span>
   <span class="nb">Object</span>
 </pre></div>
 <p>In JavaScript, this is valid. In Python, you'll get a <tt class="docutils literal">NameError</tt>:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="p">{</span><span class="n">city</span><span class="p">:</span> <span class="s">&quot;San Francisco&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="p">{</span><span class="n">city</span><span class="p">:</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">}</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent ...</span></pre></div>
                     <a href="../python-dictionary-vs-javascript-object-dynamic-keys.html">Read more ...</a>
             </div>
@@ -1440,7 +1474,7 @@ I'm going to bump the versions on some of the existing packages and add some new
             </p>
 
             <div class="summary"><p>First off, out of the box, <a class="reference external" href="http://djangoproject.com">Django</a> lets you construct API responses with a little work. All you need to do is something like this:</p>
-<div class="highlight"><pre><span class="c"># Copied from https://docs.djangoproject.com/en/1.4/topics/class-based-views/#more-than-just-html</span>
+<div class="highlight"><pre><span></span><span class="c1"># Copied from https://docs.djangoproject.com/en/1.4/topics/class-based-views/#more-than-just-html</span>
 <span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">http</span>
 <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">simplejson</span> <span class="k">as</span> <span class="n">json</span>
 
@@ -1615,10 +1649,10 @@ I'm going to bump the versions on some of the existing packages and add some new
             </p>
 
             <div class="summary"><p>Rather than hard-code the configuration into a Python based settings file, when using a PaaS such as Heroku you want to pick up the MongoDB URI from the system settings. Here's what I do:</p>
-<div class="highlight"><pre><span class="c"># get the dynamic elements from the MongoURI</span>
+<div class="highlight"><pre><span></span><span class="c1"># get the dynamic elements from the MongoURI</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
-<span class="n">r</span> <span class="o">=</span> <span class="s">r&#39;^mongodb\:\/\/(?P ...</span></pre></div>
+<span class="n">r</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;^mongodb\:\/\/(?P ...</span></pre></div>
                     <a href="../parsing-mongodb-uri.html">Read more ...</a>
             </div>
         </div>
@@ -1701,109 +1735,29 @@ While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate
 </p>
 
 <h4 class="nav-header">Tags</h4>
-<span class="tag-2">
-    <a href="../tag/holidays.html">
-        holidays
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/nodejs.html">
-        nodejs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/philippines.html">
-        philippines
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/australia.html">
-        australia
+<span class="tag-4">
+    <a href="../tag/usability.html">
+        usability
     </a>
 </span>
 <span class="tag-2">
-    <a href="../tag/djangocon.html">
-        djangocon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/pypy.html">
-        pypy
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/meme.html">
-        meme
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/i18n.html">
-        i18n
+    <a href="../tag/pycon.html">
+        pycon
     </a>
 </span>
 <span class="tag-4">
-    <a href="../tag/cartwheel-web.html">
-        Cartwheel Web
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/setup.html">
-        setup
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/europe.html">
-        europe
+    <a href="../tag/perl.html">
+        perl
     </a>
 </span>
 <span class="tag-4">
-    <a href="../tag/pumpkin.html">
-        pumpkin
+    <a href="../tag/barcamp.html">
+        barcamp
     </a>
 </span>
-<span class="tag-4">
-    <a href="../tag/gondor.html">
-        gondor
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/vs.html">
-        vs
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/pydiversity.html">
-        pydiversity
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/unicode.html">
-        unicode
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/halloween.html">
-        halloween
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/pypi.html">
-        pypi
-    </a>
-</span>
-<span class="tag-2">
-    <a href="../tag/friends.html">
-        friends
-    </a>
-</span>
-<span class="tag-2">
-    <a href="../tag/twoscoops.html">
-        twoscoops
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/php.html">
-        php
+<span class="tag-1">
+    <a href="../tag/django.html">
+        django
     </a>
 </span>
 <span class="tag-4">
@@ -1812,83 +1766,13 @@ While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate
     </a>
 </span>
 <span class="tag-3">
-    <a href="../tag/hackathon.html">
-        hackathon
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/latex.html">
-        LaTeX
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/pyramid.html">
-        pyramid
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/joke.html">
-        joke
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/heroku.html">
-        heroku
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/testing.html">
-        testing
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/usability.html">
-        usability
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/la.html">
-        LA
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/conda.html">
-        conda
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/casestudy.html">
-        casestudy
+    <a href="../tag/api.html">
+        api
     </a>
 </span>
 <span class="tag-2">
-    <a href="../tag/rant.html">
-        rant
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/dotcloud.html">
-        dotcloud
-    </a>
-</span>
-<span class="tag-2">
-    <a href="../tag/blog.html">
-        blog
-    </a>
-</span>
-<span class="tag-1">
-    <a href="../tag/django.html">
-        django
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/pyladies.html">
-        pyladies
-    </a>
-</span>
-<span class="tag-2">
-    <a href="../tag/pycon.html">
-        pycon
+    <a href="../tag/family.html">
+        family
     </a>
 </span>
 <span class="tag-3">
@@ -1897,173 +1781,13 @@ While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate
     </a>
 </span>
 <span class="tag-3">
-    <a href="../tag/eventbrite.html">
-        eventbrite
-    </a>
-</span>
-<span class="tag-2">
-    <a href="../tag/audrey.html">
-        audrey
+    <a href="../tag/flask.html">
+        flask
     </a>
 </span>
 <span class="tag-4">
-    <a href="../tag/restructuredtext.html">
-        RestructuredText
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/lahackathons.html">
-        lahackathons
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/capoeira.html">
-        capoeira
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/consumer-notebook.html">
-        Consumer-Notebook
-    </a>
-</span>
-<span class="tag-1">
-    <a href="../tag/python.html">
-        python
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/css.html">
-        css
-    </a>
-</span>
-<span class="tag-2">
-    <a href="../tag/python3.html">
-        python3
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/training.html">
-        training
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/markdown.html">
-        markdown
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/forms.html">
-        forms
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/brambles.html">
-        brambles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/la.html">
-        la
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/api.html">
-        api
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/postgresql.html">
-        postgresql
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/barcamp.html">
-        barcamp
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/packaging.html">
-        packaging
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/clojure.html">
-        clojure
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/review.html">
-        review
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/mongodb.html">
-        mongodb
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/tools.html">
-        tools
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/lahackthons.html">
-        lahackthons
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/surgery.html">
-        surgery
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/cheatsheet.html">
-        cheatsheet
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/europython.html">
-        europython
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/dsf.html">
-        dsf
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/nasa.html">
-        nasa
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/functions.html">
-        functions
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/django-rest-framework.html">
-        django-rest-framework
-    </a>
-</span>
-<span class="tag-2">
-    <a href="../tag/class-based-views.html">
-        class-based-views
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/travel.html">
-        travel
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/recipe.html">
-        recipe
-    </a>
-</span>
-<span class="tag-3">
-    <a href="../tag/sprint.html">
-        sprint
+    <a href="../tag/los-angeles.html">
+        los-angeles
     </a>
 </span>
 <span class="tag-3">
@@ -2077,13 +1801,38 @@ While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate
     </a>
 </span>
 <span class="tag-4">
-    <a href="../tag/djangodash.html">
-        djangodash
+    <a href="../tag/css.html">
+        css
     </a>
 </span>
 <span class="tag-4">
-    <a href="../tag/jinja2.html">
-        jinja2
+    <a href="../tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/cartwheel-web.html">
+        Cartwheel Web
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/pydiversity.html">
+        pydiversity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/halloween.html">
+        halloween
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/latex.html">
+        LaTeX
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/rant.html">
+        rant
     </a>
 </span>
 <span class="tag-3">
@@ -2091,9 +1840,49 @@ While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate
         argentina
     </a>
 </span>
+<span class="tag-4">
+    <a href="../tag/whartonwc.html">
+        WhartonWC
+    </a>
+</span>
 <span class="tag-3">
-    <a href="../tag/cookiecutter.html">
-        cookiecutter
+    <a href="../tag/pypi.html">
+        pypi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/cheatsheet.html">
+        cheatsheet
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/packaging.html">
+        packaging
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/postgresql.html">
+        postgresql
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/restructuredtext.html">
+        RestructuredText
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/php.html">
+        php
     </a>
 </span>
 <span class="tag-2">
@@ -2102,63 +1891,33 @@ While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate
     </a>
 </span>
 <span class="tag-4">
-    <a href="../tag/perl.html">
-        perl
+    <a href="../tag/conda.html">
+        conda
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/lahackathons.html">
+        lahackathons
     </a>
 </span>
 <span class="tag-3">
-    <a href="../tag/oauth.html">
-        OAuth
+    <a href="../tag/pyramid.html">
+        pyramid
     </a>
 </span>
 <span class="tag-3">
-    <a href="../tag/pycon-2013-guide.html">
-        pycon-2013-guide
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/los-angeles.html">
-        Los Angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/paypal.html">
-        paypal
+    <a href="../tag/meme.html">
+        meme
     </a>
 </span>
 <span class="tag-3">
-    <a href="../tag/ruby.html">
-        ruby
+    <a href="../tag/testing.html">
+        testing
     </a>
 </span>
-<span class="tag-4">
-    <a href="../tag/wsgi.html">
-        wsgi
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/los-angeles.html">
-        los-angeles
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/whartonwc.html">
-        WhartonWC
-    </a>
-</span>
-<span class="tag-2">
-    <a href="../tag/ppoftw.html">
-        ppoftw
-    </a>
-</span>
-<span class="tag-2">
-    <a href="../tag/howto.html">
-        howto
-    </a>
-</span>
-<span class="tag-4">
-    <a href="../tag/meteor.html">
-        meteor
+<span class="tag-3">
+    <a href="../tag/sprint.html">
+        sprint
     </a>
 </span>
 <span class="tag-4">
@@ -2167,8 +1926,98 @@ While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate
     </a>
 </span>
 <span class="tag-3">
-    <a href="../tag/flask.html">
-        flask
+    <a href="../tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-1">
+    <a href="../tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/eventbrite.html">
+        eventbrite
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/cookiecutter.html">
+        cookiecutter
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/training.html">
+        training
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/nasa.html">
+        nasa
     </a>
 </span>
 <span class="tag-4">
@@ -2177,8 +2026,98 @@ While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate
     </a>
 </span>
 <span class="tag-4">
+    <a href="../tag/pumpkin.html">
+        pumpkin
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/surgery.html">
+        surgery
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/recipe.html">
+        recipe
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
     <a href="../tag/science.html">
         science
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/markdown.html">
+        markdown
     </a>
 </span>
 <span class="tag-4">
@@ -2186,19 +2125,114 @@ While you're here, why not add my <a href="../feeds/all.atom.xml" rel="alternate
         rails
     </a>
 </span>
+<span class="tag-2">
+    <a href="../tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/i18n.html">
+        i18n
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/unicode.html">
+        unicode
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/jinja2.html">
+        jinja2
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="../tag/ppoftw.html">
+        ppoftw
+    </a>
+</span>
+<span class="tag-4">
+    <a href="../tag/brambles.html">
+        brambles
+    </a>
+</span>
+<span class="tag-3">
+    <a href="../tag/clojure.html">
+        clojure
+    </a>
+</span>
 <span class="tag-4">
     <a href="../tag/binstar.html">
         binstar
     </a>
 </span>
-<span class="tag-2">
-    <a href="../tag/family.html">
-        family
+<span class="tag-3">
+    <a href="../tag/django-rest-framework.html">
+        django-rest-framework
     </a>
 </span>
 <span class="tag-2">
-    <a href="../tag/book.html">
-        book
+    <a href="../tag/python3.html">
+        python3
     </a>
 </span>
 

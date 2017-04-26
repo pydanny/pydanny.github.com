@@ -15,34 +15,34 @@
 &lt;div class="section" id="html"&gt;
 &lt;h2&gt;HTML&lt;/h2&gt;
 &lt;p&gt;If you view the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/HTML"&gt;HTML&lt;/a&gt; source of this web page, you'll find this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;simple&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item A&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item B&lt;span class="nt"&gt;&amp;lt;ol&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;arabic&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;First Numbered Inner Item&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Second Numbered Inner Item&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item C&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;simple&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Item A&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Item B&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ol&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;arabic&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;First Numbered Inner Item&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Second Numbered Inner Item&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ol&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Item C&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Or more clearly:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;simple&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item A&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item B
-        &lt;span class="nt"&gt;&amp;lt;ol&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;arabic&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;First Numbered Inner Item&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Second Numbered Inner Item&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Item C&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;simple&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Item A&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Item B
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ol&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;arabic&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;First Numbered Inner Item&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Second Numbered Inner Item&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ol&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Item C&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This works, but is incredibly verbose. &lt;strong&gt;HTML&lt;/strong&gt; requires closing tags on every element (keep in mind browsers are not the same as specifications). Working with lists in HTML becomes tedious quickly. Which is why so many people use &lt;a class="reference external" href="http://en.wikipedia.org/wiki/WYSIWYG"&gt;WYSIWYG&lt;/a&gt; tools or mark up languages like &lt;strong&gt;reStructuredText&lt;/strong&gt; and &lt;strong&gt;Markdown&lt;/strong&gt;, as it expedites creation of lists (and many other things).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="restructuredtext"&gt;
 &lt;h2&gt;reStructuredText&lt;/h2&gt;
 &lt;p&gt;This blog is written in &lt;a class="reference external" href="http://en.wikipedia.org/wiki/ReStructuredText"&gt;reStructuredText&lt;/a&gt; and transformed into &lt;strong&gt;HTML&lt;/strong&gt;. Let's see the markup for this blog post:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="m"&gt;*&lt;/span&gt; Item A
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;*&lt;/span&gt; Item A
 &lt;span class="m"&gt;*&lt;/span&gt; Item B
 
   &lt;span class="m"&gt;#.&lt;/span&gt; First Numbered Inner Item
@@ -57,7 +57,7 @@
 &lt;div class="section" id="markdown"&gt;
 &lt;h2&gt;Markdown&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; does lists really well. Terse and no weird quirks:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="m"&gt;*&lt;/span&gt; Item A
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;*&lt;/span&gt; Item A
 &lt;span class="m"&gt;*&lt;/span&gt; Item B
     &lt;span class="m"&gt;1.&lt;/span&gt; First Numbered Inner Item
     &lt;span class="m"&gt;1.&lt;/span&gt; Second Numbered Inner Item
@@ -87,7 +87,7 @@
 &lt;/ol&gt;
 &lt;p&gt;Why the extra step? Why not just go directly from markup to PDF? Well, the content in &lt;strong&gt;reStructuredText&lt;/strong&gt; and &lt;strong&gt;Markdown&lt;/strong&gt; have to be formatted in order for them to be displayed, or they will just look like plaintext markup. When they are converted to &lt;strong&gt;HTML&lt;/strong&gt;, the browser does the formatting for us. When they are translated to PDF, LaTeX is a very common choice. That is because &lt;strong&gt;LaTeX&lt;/strong&gt; isn't a markup language, but a typesetting tool. Unlike &lt;strong&gt;reStructuredText&lt;/strong&gt; and &lt;strong&gt;Markdown&lt;/strong&gt; which are designed for ease of use, &lt;strong&gt;LaTeX&lt;/strong&gt; is designed to make documents look good.&lt;/p&gt;
 &lt;p&gt;Here is how I define my sample list in &lt;strong&gt;LaTeX&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;itemize&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;itemize&lt;span class="nb"&gt;}&lt;/span&gt;
     &lt;span class="k"&gt;\item&lt;/span&gt; Item A
     &lt;span class="k"&gt;\item&lt;/span&gt; Item A
         &lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;enumerate&lt;span class="nb"&gt;}&lt;/span&gt;
@@ -181,7 +181,7 @@ sudo tlmgr install collection-fontsrecommended
 &lt;p&gt;People were so positive it really gave us a boost. Hundreds of people sent us feedback and we were delighted beyond words, with a significant portion sending us commentary/corrections about our writing and code. I'll admit I did get tired over a certain 'moat' mistake since I got corrected on it over 50 times. However, the number of code corrections we were getting was higher than expected. It was clear we needed to be able to import the code modules from testable chunks of real code.  We had so many kindle/epub requests we also needed the ability to render the text attractively across multiple formats.&lt;/p&gt;
 &lt;p&gt;After stumbling through RST, Google Documents, and Apple Pages different tools, I finally agreed with Audrey that the challenges of learning LaTeX was worth it. While we could have used RST, we would have had to use LaTeX anyway for our customizations since when RST is converted to PDF it actually uses an interim step of LaTeX!&lt;/p&gt;
 &lt;p&gt;So while I handled the corrections and feedback from thousands, Audrey built the fundamentals of the LaTeX file structure. Audrey really got her hands dirty by teaching me LaTeX, since my brain is slow and thick. Here's a sample of what I've learned how to do, taken from Chapter 6, Section 1, Subsection 5 (6.1.5):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;\subsection&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;Model Inheritance in Practice: The TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;\subsection&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;Model Inheritance in Practice: The TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt;
 It&amp;#39;s very common in Django projects to include a &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;created&lt;span class="nb"&gt;}&lt;/span&gt; and &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;modified&lt;span class="nb"&gt;}&lt;/span&gt; timestamp field on all your models. We could manually add those fields to each and every model, but that&amp;#39;s a lot of work and adds the risk of human error. A better solution is to write a &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt; &lt;span class="k"&gt;\index&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt; to do the work for us:
 
 &lt;span class="k"&gt;\goodcodefile&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;chapter&lt;span class="nb"&gt;_&lt;/span&gt;06/myapp/core/timestampedmodel.py&lt;span class="nb"&gt;}&lt;/span&gt;

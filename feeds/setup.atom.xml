@@ -7,13 +7,13 @@
 &lt;div class="section" id="step-2-install-homebrew"&gt;
 &lt;h2&gt;Step 2 - Install Homebrew&lt;/h2&gt;
 &lt;p&gt;I use Homebrew instead of Macports. If you don't have it yet, paste this in a terminal prompt:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;ruby &amp;lt;&lt;span class="o"&gt;(&lt;/span&gt;curl -fsSkL raw.github.com/mxcl/homebrew/go&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ruby &amp;lt;&lt;span class="o"&gt;(&lt;/span&gt;curl -fsSkL raw.github.com/mxcl/homebrew/go&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="step-3-install-cairo"&gt;
 &lt;h2&gt;Step 3 - Install Cairo&lt;/h2&gt;
 &lt;p&gt;In your terminal prompt, type the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;brew install cairo --use-clang
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ brew install cairo --use-clang
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You'll get some messages about &lt;cite&gt;LDFLAGS&lt;/cite&gt; and &lt;cite&gt;CPPFLAGS&lt;/cite&gt; in build variables, but that's only important if you skip Homebrew and build your own software later that interacts with &lt;strong&gt;cairo&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -21,10 +21,10 @@
 &lt;h2&gt;Step 4 - Install Pycairo itself&lt;/h2&gt;
 &lt;p&gt;The nasty little trick to this is to remember that &lt;strong&gt;Pycairo&lt;/strong&gt; is packaged on it's site and other places as &lt;strong&gt;py2cairo&lt;/strong&gt;. When they get around to releasing version 3 of Pycairo, I'm going to beg and plead that they follow an obvious naming system for their bundles. I know this is done in other communities, but it's frustrating and a real barrier for getting into a project.&lt;/p&gt;
 &lt;p&gt;In case, in your terminal prompt, type the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;brew install py2cairo
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ brew install py2cairo
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If you are using a non-Homebrew installed Python like I do, you have to set the PYTHONPATH to find pycairo.  Set your PYTHONPATH in your &lt;cite&gt;.bashrc/.profile/.whatever&lt;/cite&gt; to the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;PYTHONPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/lib/python2.7/site-packages:&lt;span class="nv"&gt;$PYTHONPATH&lt;/span&gt;.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;PYTHONPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/lib/python2.7/site-packages:&lt;span class="nv"&gt;$PYTHONPATH&lt;/span&gt;.
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Yes, it's the system Python, but for now I'm okay with it. If someone has an easy recipe for alternative Python installations, I would love to link to it.&lt;/p&gt;
 &lt;/div&gt;

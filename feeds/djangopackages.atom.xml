@@ -21,16 +21,16 @@
 &lt;h2&gt;Introducing cookiecutter-djangopackage&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/pydanny/cookiecutter-djangopackage"&gt;cookiecutter-djangopackage&lt;/a&gt; is a &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt; template for creating reusable Django packages. Using it is easy:&lt;/p&gt;
 &lt;p&gt;First, get &lt;a class="reference external" href="https://github.com/audreyr/cookiecutter"&gt;Cookiecutter&lt;/a&gt;.  Trust me, it's awesome:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install cookiecutter
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install cookiecutter
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now run it against this repo:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cookiecutter https://github.com/pydanny/cookiecutter-djangopackage.git
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cookiecutter https://github.com/pydanny/cookiecutter-djangopackage.git
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You'll be prompted to enter some values. Enter them. Then an installable Django package will be built for you.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: &lt;tt class="docutils literal"&gt;app_name&lt;/tt&gt; must be a valid Python module name or you will have issues on imports.&lt;/p&gt;
 &lt;p&gt;Enter the new package (in my case, I called it 'newpackage') and look around. Open up the &lt;tt class="docutils literal"&gt;AUTHORS.rst&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;setup.py&lt;/tt&gt;, or &lt;tt class="docutils literal"&gt;README.rst&lt;/tt&gt; files and you'll see your input inserted into the appropriate locations.&lt;/p&gt;
 &lt;p&gt;Speaking of the &lt;tt class="docutils literal"&gt;README.rst&lt;/tt&gt;, that file includes instructions for putting the new package on &lt;a class="reference external" href="pypi.python.org/pypi"&gt;PyPI&lt;/a&gt; and &lt;a class="reference external" href="https://wwww.djangopackages.com"&gt;Django Packages&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;newpackage
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;newpackage
 ├── .editorconfig
 ├── .gitignore
 ├── .travis.yml

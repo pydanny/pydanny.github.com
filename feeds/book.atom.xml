@@ -268,7 +268,7 @@ sudo tlmgr install collection-fontsrecommended
 &lt;p&gt;People were so positive it really gave us a boost. Hundreds of people sent us feedback and we were delighted beyond words, with a significant portion sending us commentary/corrections about our writing and code. I'll admit I did get tired over a certain 'moat' mistake since I got corrected on it over 50 times. However, the number of code corrections we were getting was higher than expected. It was clear we needed to be able to import the code modules from testable chunks of real code.  We had so many kindle/epub requests we also needed the ability to render the text attractively across multiple formats.&lt;/p&gt;
 &lt;p&gt;After stumbling through RST, Google Documents, and Apple Pages different tools, I finally agreed with Audrey that the challenges of learning LaTeX was worth it. While we could have used RST, we would have had to use LaTeX anyway for our customizations since when RST is converted to PDF it actually uses an interim step of LaTeX!&lt;/p&gt;
 &lt;p&gt;So while I handled the corrections and feedback from thousands, Audrey built the fundamentals of the LaTeX file structure. Audrey really got her hands dirty by teaching me LaTeX, since my brain is slow and thick. Here's a sample of what I've learned how to do, taken from Chapter 6, Section 1, Subsection 5 (6.1.5):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;\subsection&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;Model Inheritance in Practice: The TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;\subsection&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;Model Inheritance in Practice: The TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt;
 It&amp;#39;s very common in Django projects to include a &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;created&lt;span class="nb"&gt;}&lt;/span&gt; and &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;modified&lt;span class="nb"&gt;}&lt;/span&gt; timestamp field on all your models. We could manually add those fields to each and every model, but that&amp;#39;s a lot of work and adds the risk of human error. A better solution is to write a &lt;span class="k"&gt;\inlinecode&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt; &lt;span class="k"&gt;\index&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;TimeStampedModel&lt;span class="nb"&gt;}&lt;/span&gt; to do the work for us:
 
 &lt;span class="k"&gt;\goodcodefile&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;chapter&lt;span class="nb"&gt;_&lt;/span&gt;06/myapp/core/timestampedmodel.py&lt;span class="nb"&gt;}&lt;/span&gt;
@@ -330,79 +330,79 @@ Django
 BeautifulSoup4
 &lt;/pre&gt;
 &lt;p&gt;And now the code:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/python&lt;/span&gt;
-&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bs4&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.utils.text&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;slugify&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;jinja2&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;
 
-&lt;span class="n"&gt;TEMPLATE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;!DOCTYPE ncx PUBLIC &amp;quot;-//NISO//DTD ncx 2005-1//EN&amp;quot; &amp;quot;http://www.daisy.org/z3986/2005/ncx-2005-1.dtd&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;ncx xmlns=&amp;quot;http://www.daisy.org/z3986/2005/ncx/&amp;quot; version=&amp;quot;2005-1&amp;quot; xml:lang=&amp;quot;en&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;TEMPLATE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;!DOCTYPE ncx PUBLIC &amp;quot;-//NISO//DTD ncx 2005-1//EN&amp;quot; &amp;quot;http://www.daisy.org/z3986/2005/ncx-2005-1.dtd&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;ncx xmlns=&amp;quot;http://www.daisy.org/z3986/2005/ncx/&amp;quot; version=&amp;quot;2005-1&amp;quot; xml:lang=&amp;quot;en&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
 
-&lt;span class="s"&gt;&amp;lt;!-- The content of dtb:uid must be exactly the same as the uuid specified in the OPF file. --&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;!-- The content of dtb:uid must be exactly the same as the uuid specified in the OPF file. --&amp;gt;&lt;/span&gt;
 
-&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:uid&amp;quot; content=&amp;quot;urn:uuid:BLAH-BLAH-BLAH&amp;quot;/&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:depth&amp;quot; content=&amp;quot;1&amp;quot;/&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:totalPageCount&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;meta name=&amp;quot;dtb:maxPageNumber&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;meta name=&amp;quot;dtb:uid&amp;quot; content=&amp;quot;urn:uuid:BLAH-BLAH-BLAH&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;meta name=&amp;quot;dtb:depth&amp;quot; content=&amp;quot;1&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;meta name=&amp;quot;dtb:totalPageCount&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;meta name=&amp;quot;dtb:maxPageNumber&amp;quot; content=&amp;quot;0&amp;quot;/&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
 
-&lt;span class="s"&gt;&amp;lt;docTitle&amp;gt;&amp;lt;text&amp;gt;Two Scoops of Django: Best Practices for Django 1.5&amp;lt;/text&amp;gt;&amp;lt;/docTitle&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Greenfeld, Daniel&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Roy, Audrey&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;navMap&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% f&lt;/span&gt;&lt;span class="s"&gt;or chapter in chapters %}&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;navPoint id=&amp;quot;{{ chapter.slug }}&amp;quot; playOrder=&amp;quot;{{ loop.index }}&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;navLabel&amp;gt;&amp;lt;text&amp;gt;{{ chapter.string.strip() }}&amp;lt;/text&amp;gt;&amp;lt;/navLabel&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;content src=&amp;quot;{{ chapter.href }}&amp;quot; /&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% e&lt;/span&gt;&lt;span class="s"&gt;ndfor %}&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/navMap&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/ncx&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;docTitle&amp;gt;&amp;lt;text&amp;gt;Two Scoops of Django: Best Practices for Django 1.5&amp;lt;/text&amp;gt;&amp;lt;/docTitle&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Greenfeld, Daniel&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;docAuthor&amp;gt;&amp;lt;text&amp;gt;Roy, Audrey&amp;lt;/text&amp;gt;&amp;lt;/docAuthor&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;navMap&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% f&lt;/span&gt;&lt;span class="s2"&gt;or chapter in chapters %}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;navPoint id=&amp;quot;{{ chapter.slug }}&amp;quot; playOrder=&amp;quot;{{ loop.index }}&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;navLabel&amp;gt;&amp;lt;text&amp;gt;{{ chapter.string.strip() }}&amp;lt;/text&amp;gt;&amp;lt;/navLabel&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;content src=&amp;quot;{{ chapter.href }}&amp;quot; /&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;/navPoint&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;{&lt;/span&gt;&lt;span class="si"&gt;% e&lt;/span&gt;&lt;span class="s2"&gt;ndfor %}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;/navMap&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;lt;/ncx&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 
-    &lt;span class="c"&gt;# Grab the base file for review&lt;/span&gt;
+    &lt;span class="c1"&gt;# Grab the base file for review&lt;/span&gt;
     &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
-    &lt;span class="c"&gt;# load the text into a bs4 object&lt;/span&gt;
+    &lt;span class="c1"&gt;# load the text into a bs4 object&lt;/span&gt;
     &lt;span class="n"&gt;soup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BeautifulSoup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="c"&gt;# grab the nav element&lt;/span&gt;
-    &lt;span class="n"&gt;nav&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;soup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# grab the nav element&lt;/span&gt;
+    &lt;span class="n"&gt;nav&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;soup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="c"&gt;# loop through the TOC for chapters.&lt;/span&gt;
-    &lt;span class="c"&gt;# Sections/Subsections can&amp;#39;t be displayed, so don&amp;#39;t worry about them&lt;/span&gt;
-    &lt;span class="c"&gt;# li.chapter is how we constructed our TOC. Your mileage may vary.&lt;/span&gt;
+    &lt;span class="c1"&gt;# loop through the TOC for chapters.&lt;/span&gt;
+    &lt;span class="c1"&gt;# Sections/Subsections can&amp;#39;t be displayed, so don&amp;#39;t worry about them&lt;/span&gt;
+    &lt;span class="c1"&gt;# li.chapter is how we constructed our TOC. Your mileage may vary.&lt;/span&gt;
     &lt;span class="n"&gt;chapters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;nav&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;li&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;chapter&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;li&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;nav&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;li&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;chapter&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-            &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;href&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+            &lt;span class="n"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;href&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
             &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
             &lt;span class="n"&gt;slug&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;slugify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;li&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="p"&gt;))&lt;/span&gt;
 
-    &lt;span class="c"&gt;# Render the template&lt;/span&gt;
+    &lt;span class="c1"&gt;# Render the template&lt;/span&gt;
     &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TEMPLATE&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;chapters&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="c"&gt;# convert to ASCII&lt;/span&gt;
-    &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ascii&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;xmlcharrefreplace&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# convert to ASCII&lt;/span&gt;
+    &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ascii&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;xmlcharrefreplace&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="c"&gt;# Save to the toc.ncx&lt;/span&gt;
-    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;toc.ncx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# Save to the toc.ncx&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;toc.ncx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;book.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;book.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;There is more to adding a table of contents then just this simple module. You also have to construct the .opf file, which is another undocumented mess that I'll blog about.&lt;/p&gt;
 </summary><category term="python"></category><category term="twoscoops"></category><category term="book"></category><category term="django"></category><category term="howto"></category></entry><entry><title>Annotated History of My Most Used Shell Commands</title><link href="https://pydanny.com/20130410-history-of-my-most-used-shell-commands.html" rel="alternate"></link><updated>2013-04-10T09:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:https://pydanny.com,2013-04-10:20130410-history-of-my-most-used-shell-commands.html</id><summary type="html">&lt;p&gt;An oldie, but a goodie. This time I annotate it with reasons as to why things are used so much. If you blog, post your own!&lt;/p&gt;
