@@ -1,3 +1,5 @@
+USE_FOLDER_AS_CATEGORY = False
+IGNORE_FILES = ['*.html', '*.xml']
 AUTHOR = 'Daniel-Roy-Greenfeld'
 DEFAULT_DATE_FORMAT = '%A, %B %d, %Y'
 DISQUS_SITENAME = 'pydanny'
