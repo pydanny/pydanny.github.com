@@ -31,7 +31,7 @@ Adding f-strings to this mix didn't seem all that useful:
     _fstring = f'{one},{two}'
     assert _fstring == _format == _percent == _concatenation == _join
 
-I was doubtful, but then I tried out f-strings on a non-trivial example. Now I'm hooked. Be it on local utility scripts or production code, I now instinctively gravitate toward their usage. In fact, f-strings so useful that going back to earlier versions of Python now feels cumbersome.
+I was doubtful, but then I tried out f-strings on a non-trivial example. Now I'm hooked. Be it on local utility scripts or production code, I now instinctively gravitate toward their usage. In fact, f-strings are so useful that going back to earlier versions of Python now feels cumbersome.
 
 The reason why I feel this way is that f-strings are concise but easy to understand. Thanks to intuitive expression evaluation I can compress more verbose commands into smaller lines of code that are more legible. Take a look:
 
@@ -43,7 +43,7 @@ The reason why I feel this way is that f-strings are concise but easy to underst
     _concatenation = 'Total: ' + str(one + two)
     assert _fstring == _format == _percent == _concatenation
 
-The f-string example is four characters shorter than the closest alternative and is extremely easy to read. Indeed, the f-string example in front of a non-programmer and they'll understand it fast. The same won't apply to the alternatives, odds are they'll ask what ``.format()``, ``str()``, and the ``%`` mean.
+The f-string example is four characters shorter than the closest alternative and is extremely easy to read. Indeed, put the f-string example in front of a non-programmer and they'll understand it fast. The same won't apply to the alternatives, odds are they'll ask what ``.format()``, ``str()``, and the ``%`` mean.
 
 F-Strings Are Addictive
 =======================
