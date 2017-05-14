@@ -1,11 +1,11 @@
 ======================================================
-Using Google Docs and Python to Assemble Fiction Books
+Using Python to Build Books
 ======================================================
 
 :date: 2017-05-09 00:05
 :tags: python, django, python, python3
 :category: python
-:slug: using-google-docs-and-python-to-assemble-fiction-books
+:slug: using-python-to-build-books
 
 .. image:: https://raw.githubusercontent.com/pydanny/pydanny.github.com/master/static/python-tip-from-pydanny.png
    :name: Using Google Docs and Python to Assemble Fiction Books
@@ -265,10 +265,14 @@ As ``python-docx`` doesn't handle HTTP links at this time, I manually add them t
 How Well Does It Work?
 ======================
 
-For me it works wonders for my productivity. By following a "chapters as files" pattern within Google Docs I get solid collaboration power plus some (but not all) of the features of Scrivener. I can quickly regenerate the book at any time without having to struggle with Scrivener or get tools like Vellum involved.
+For me it works wonders for my productivity. By following a "chapters as files" pattern within Google Docs I get solid collaboration power plus some (but not all) of the features of Scrivener. I can quickly regenerate the book at any time without having to struggle with Scrivener or have to add tools like Vellum to the process.
+
+I have a secondary script that fixes quoting and tab issues, written before I realized Calibre could have done that for me.
 
 Thinking About the Future
 =========================
+
+Right now it generates something that looks okay. At some point I'll enhance it with better fonts and chapter headers.
 
 For about a week I thought about leveraging it and my Django_ skills to build it as a paid subscription service and rake in the passive income. After some reflection I backed off because if Google added file combination as a feature, it would destroy the business overnight.
 
