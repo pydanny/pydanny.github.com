@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Using Python and Google Docs to Build Books</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Daniel-Roy-Greenfeld">
+      <meta name="tags" content="[<pelican.contents.Tag object at 0x103d19c10>, <pelican.contents.Tag object at 0x103d19550>, <pelican.contents.Tag object at 0x103d19150>, <pelican.contents.Tag object at 0x103d199d0>, <pelican.contents.Tag object at 0x103d19390>]" />
+  <meta name="date" content="2017-05-15 15:00:00" />
+  <meta name="category" content="python" />
+  <meta name="authors" content="Daniel Roy Greenfeld" />
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./theme/css/pydanny.css" type="text/css" />
+    <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css" />
+    <link href="./theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="./theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
+
+    <link href="https://pydanny.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="pydanny ATOM Feed" />
+    
+  </head>
+
+  <body>
+
+    <div class="pre-navbar">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h1 class="site-logo">
+              <a href=".">
+              <img src="./theme/img/inside-head-of-pydanny.png" alt="Inside the Head of PyDanny" title="Click to return to Daniel Greenfeld's homepage" />
+              </a>
+            </h1>
+          </div>
+          <div class="offset1 span5">
+            <p class="about-this-blog">
+              Hi, I'm Daniel Roy Greenfeld, and welcome to my blog. I write about Python, Django, and much more.
+            </p>
+          </div>
+        </div>
+        <div class="pydanny-cartwheel"></div>
+      </div>
+    </div>
+    <div class="grass"></div>
+    <div class="navbar navbar-fixed-top" id="pydanny-navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                <li><a href=".">Home</a></li>
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/open-source.html">Open Source</a></li>
+                <li><a href="./pages/tools.html">Tools</a></li>
+                <li><a href="./tag/audrey.html">Audrey</a></li>
+                <li><a href="./tag/book.html">Books</a></li>
+                <li><a href="./tag/django.html">Python/Django</a></li>
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span8" id="content">
+            <section id="content">
+        <article>
+                <header>
+                        <h1 class="article-title">
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Using Python and Google Docs to Build Books">
+                                        Using Python and Google Docs to Build Books
+                                </a>
+                        </h1>
+                </header>
+
+                <p>
+                    <em>Monday, May 15, 2017</em>
+                    (<a href="" rel="bookmark" title="Permalink to Using Python and Google Docs to Build Books">permalink</a>)
+                </p>
+
+                <div class="entry-content">
+                    <a class="reference external image-reference" href="https://www.pydanny.com/using-google-docs-and-python-to-assemble-fiction-books.html"><img alt="Python F-Strings Are Fun!" class="align-center" id="using-google-docs-and-python-to-assemble-fiction-books" src="https://raw.githubusercontent.com/pydanny/pydanny.github.com/master/static/python-tip-from-pydanny.png" /></a>
+<p>When I started my latest fiction book, <a class="reference external" href="https://www.danielroygreenfeld.com/books/the-darkest-autumn/">The Darkest Autumn</a>, I wrote out the chapters as individual files. I did it in a text editor (Sublime) and saved the files to a git repo. The names of the files determined their order, chapters being named in this pattern:</p>
+<pre class="literal-block">
+the-darkest-autumn $ tree
+.
+├── 01_Beginnings.md
+├── 02_Town_of_Ravenna.md
+├── 03_Walls_of_Ravenna.md
+</pre>
+<p>As the book developed I thought about moving it to <a class="reference external" href="https://www.literatureandlatte.com/scrivener.php">Scrivener</a>. If you don't know, Scrivener is an excellent tool for writing. It encourages you to break up your work into chapters and scenes. The downside is that Scrivener is complex (I want to write, not figure out software) and <a class="reference external" href="http://www.literatureandlatte.com/forum/viewtopic.php?f=2&amp;t=11725">Scrivener isn't designed for simultaneous collaboration</a>. The latter issue is a very serious problem, as I like to have others review and comment on my writing as I go.</p>
+<p>What I really wanted to do is combine the chapter breaking of Scrivener with the simplicity and collaboration of Google Docs. Preferably, I would put the book chapters into Google Docs as individual files and then send invites to my editor, wife, and my beta readers. By using Google Docs I could ensure anyone could access the work without having to create a new account and learn an unfamiliar system.</p>
+<p>Unfortunately, at this time Google Docs has no way to combine multiple Google Docs contained in one directory into one large document for publication. To use Google Docs thhe way I want involves manually copy/pasting content from dozens of files into one master document any time you want to update a work. With even 5 to 10 documents this is time consuming and error prone (for me) to the point of being unusable. This is a problem because my fiction books have anywhere from 30 to 50 chapters.</p>
+<p>Fortunately for me, I know how to code. By using the Python programming language, I can automate the process of combining the Google Docs into one master file which can be converted to epub, mobi (kindle), or PDF.</p>
+<div class="section" id="how-i-combine-google-doc-files">
+<h2>How I Combine Google Doc Files</h2>
+<p>First, I download all the files in the book's Google Docs directory.</p>
+<img alt="Selecting Files With Google Docs" class="align-center" id="selecting-files-with-google-docs" src="https://www.pydanny.com/static/selecting-files.png?12346" />
+<p>This generates and downloads a zip file called something like <cite>drive-download-20170505T230011Z-001.zip</cite>. I use <cite>unzip to open it</cite>:</p>
+<pre class="literal-block">
+unzip drive-download-20170505T230011Z-001.zip -d the-darkest-autumn
+</pre>
+<p>Inside the new <cite>the-darkest-autumn</cite> folder are a bunch of MS Word-formatted files named identically to what's stored on Google Docs:</p>
+<pre class="literal-block">
+$ tree the-darkest-autumn/
+the-darkest-autumn
+├── 01.\ Beginnings.docx
+├── 02.\ Town\ of\ Ravenna.docx
+├── 03.\ Walls\ of\ Ravenna.docx
+├── 04.\ Gatehouse\ of\ Ravenna.docx
+├── 05.\ Courage.docx
+├── 06.\ To\ the\ Upper\ Valley.docx
+├── _afterward.docx
+├── _copyright.docx
+├── _dedication.docx
+└── _title.docx
+</pre>
+<p>Now it's time to bring in the code. By leveraging the <a class="reference external" href="python-docx.readthedocs.io/en/latest/index.html">python-docx</a> library, I combine all the Word files into one large Word files using this Python (3.6 or higher) script:</p>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;bookify.py: Combines multiple Word docs in a folder.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">docx</span> <span class="kn">import</span> <span class="n">Document</span>
+    <span class="kn">from</span> <span class="nn">docx.enum.text</span> <span class="kn">import</span> <span class="n">WD_ALIGN_PARAGRAPH</span>
+    <span class="kn">from</span> <span class="nn">docx.enum.text</span> <span class="kn">import</span> <span class="n">WD_COLOR_INDEX</span>
+    <span class="kn">from</span> <span class="nn">docx.shared</span> <span class="kn">import</span> <span class="n">Inches</span><span class="p">,</span> <span class="n">Pt</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;You need to &#39;pip install python-docx&#39;&quot;</span><span class="p">)</span>
+
+<span class="n">TEXT_FONT</span> <span class="o">=</span> <span class="s2">&quot;Trebuchet MS&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">add_matter</span><span class="p">(</span><span class="n">master_document</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">chapter</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Builds &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">master_document</span>
+
+    <span class="k">if</span> <span class="n">after</span><span class="p">:</span>
+        <span class="n">master_document</span><span class="o">.</span><span class="n">add_page_break</span><span class="p">()</span>
+
+    <span class="c1"># Build the heading</span>
+    <span class="n">heading</span> <span class="o">=</span> <span class="n">master_document</span><span class="o">.</span><span class="n">add_heading</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">heading</span><span class="o">.</span><span class="n">alignment</span> <span class="o">=</span> <span class="n">WD_ALIGN_PARAGRAPH</span><span class="o">.</span><span class="n">CENTER</span>
+    <span class="n">runt</span> <span class="o">=</span> <span class="n">heading</span><span class="o">.</span><span class="n">add_run</span><span class="p">(</span><span class="n">chapter</span><span class="p">)</span>
+    <span class="n">runt</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">theme_color</span> <span class="o">=</span> <span class="n">WD_COLOR_INDEX</span><span class="o">.</span><span class="n">WHITE</span>
+
+    <span class="c1"># Add the material</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">Document</span><span class="p">(</span><span class="n">docx</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">):</span>
+        <span class="n">new_paragraph</span> <span class="o">=</span> <span class="n">master_document</span><span class="o">.</span><span class="n">add_paragraph</span><span class="p">()</span>
+        <span class="n">new_paragraph</span><span class="o">.</span><span class="n">paragraph_format</span><span class="o">.</span><span class="n">alignment</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">paragraph_format</span><span class="o">.</span><span class="n">alignment</span>
+        <span class="n">new_paragraph</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">style</span>
+        <span class="c1"># Loop through the runs of a paragraph</span>
+        <span class="c1"># A run is a style element within a paragraph (i.e. bold)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">run</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paragraph</span><span class="o">.</span><span class="n">runs</span><span class="p">):</span>
+            <span class="c1"># Copy over the old style</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">text</span>
+            <span class="c1"># Add run to new paragraph</span>
+            <span class="n">new_run</span> <span class="o">=</span> <span class="n">new_paragraph</span><span class="o">.</span><span class="n">add_run</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
+            <span class="c1"># Update styles for run</span>
+            <span class="n">new_run</span><span class="o">.</span><span class="n">bold</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">bold</span>
+            <span class="n">new_run</span><span class="o">.</span><span class="n">italic</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">italic</span>
+            <span class="n">new_run</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">size</span>
+            <span class="n">new_run</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">theme_color</span> <span class="o">=</span> <span class="n">WD_COLOR_INDEX</span><span class="o">.</span><span class="n">BLACK</span>
+    <span class="n">master_document</span><span class="o">.</span><span class="n">add_page_break</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Adding {chapter}&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">master_document</span>
+
+
+<span class="k">def</span> <span class="nf">add_chapter</span><span class="p">(</span><span class="n">master_document</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">chapter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Build chapters, i.e. where the story happens.&quot;&quot;&quot;</span>
+    <span class="c1"># Build the chapter</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">Document</span><span class="p">(</span><span class="n">docx</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="c1"># Build the heading</span>
+    <span class="n">heading</span> <span class="o">=</span> <span class="n">master_document</span><span class="o">.</span><span class="n">add_heading</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">heading</span><span class="o">.</span><span class="n">alignment</span> <span class="o">=</span> <span class="n">WD_ALIGN_PARAGRAPH</span><span class="o">.</span><span class="n">CENTER</span>
+
+    <span class="n">heading</span><span class="o">.</span><span class="n">add_run</span><span class="p">(</span><span class="n">chapter</span><span class="p">)</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">theme_color</span> <span class="o">=</span> <span class="n">WD_COLOR_INDEX</span><span class="o">.</span><span class="n">BLACK</span>
+    <span class="n">heading</span><span class="o">.</span><span class="n">paragraph_format</span><span class="o">.</span><span class="n">space_after</span> <span class="o">=</span> <span class="n">Pt</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">):</span>
+        <span class="n">new_paragraph</span> <span class="o">=</span> <span class="n">master_document</span><span class="o">.</span><span class="n">add_paragraph</span><span class="p">()</span>
+        <span class="c1"># Loop through the runs of a paragraph</span>
+        <span class="c1"># A run is a style element within a paragraph (i.e. bold)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">run</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">paragraph</span><span class="o">.</span><span class="n">runs</span><span class="p">):</span>
+
+            <span class="n">text</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">text</span>
+            <span class="c1"># If at start of paragraph and no tab, add one</span>
+            <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">):</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">{text}&quot;</span>
+            <span class="c1"># Add run to new paragraph</span>
+            <span class="n">new_run</span> <span class="o">=</span> <span class="n">new_paragraph</span><span class="o">.</span><span class="n">add_run</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
+            <span class="c1"># Update styles for run</span>
+            <span class="n">new_run</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">TEXT_FONT</span>
+            <span class="n">new_run</span><span class="o">.</span><span class="n">bold</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">bold</span>
+            <span class="n">new_run</span><span class="o">.</span><span class="n">italic</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">italic</span>
+
+        <span class="c1"># Last minute format checking</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">new_paragraph</span><span class="o">.</span><span class="n">text</span>
+
+    <span class="n">master_document</span><span class="o">.</span><span class="n">add_page_break</span><span class="p">()</span>
+    <span class="c1"># Destroy the document object</span>
+    <span class="k">del</span> <span class="n">document</span>
+    <span class="k">return</span> <span class="n">master_document</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">book</span><span class="p">):</span>
+    <span class="n">master_document</span> <span class="o">=</span> <span class="n">Document</span><span class="p">()</span>
+
+    <span class="n">master_document</span> <span class="o">=</span> <span class="n">add_matter</span><span class="p">(</span>
+      <span class="n">master_document</span><span class="p">,</span>
+      <span class="n">filename</span><span class="o">=</span><span class="n">f</span><span class="s1">&#39;{book}/_title.docx&#39;</span><span class="p">,</span>
+      <span class="n">chapter</span><span class="o">=</span><span class="s1">&#39;Title Page&#39;</span>
+    <span class="p">)</span>
+    <span class="n">master_document</span> <span class="o">=</span> <span class="n">add_matter</span><span class="p">(</span>
+        <span class="n">master_document</span><span class="p">,</span>
+        <span class="n">filename</span><span class="o">=</span><span class="n">f</span><span class="s1">&#39;{book}/_copyright.docx&#39;</span><span class="p">,</span>
+        <span class="n">chapter</span><span class="o">=</span><span class="s1">&#39;Copyright Page&#39;</span>
+    <span class="p">)</span>
+    <span class="n">master_document</span> <span class="o">=</span> <span class="n">add_matter</span><span class="p">(</span>
+        <span class="n">master_document</span><span class="p">,</span>
+        <span class="n">filename</span><span class="o">=</span><span class="n">f</span><span class="s1">&#39;{book}/_dedication.docx&#39;</span><span class="p">,</span>
+        <span class="n">chapter</span><span class="o">=</span><span class="s1">&#39;Dedication&#39;</span>
+    <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">glob</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{book}/*&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{book}/_&quot;</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;skipping {filename}&#39;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Get the chapter name</span>
+        <span class="n">book</span><span class="p">,</span> <span class="n">short</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="n">chapter</span> <span class="o">=</span> <span class="n">short</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.docx&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">chapter</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">):</span>
+            <span class="n">chapter</span> <span class="o">=</span> <span class="n">chapter</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Adding {chapter}&#39;</span><span class="p">)</span>
+        <span class="n">master_document</span> <span class="o">=</span> <span class="n">add_chapter</span><span class="p">(</span><span class="n">master_document</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">chapter</span><span class="p">)</span>
+
+    <span class="n">master_document</span> <span class="o">=</span> <span class="n">add_matter</span><span class="p">(</span>
+        <span class="n">master_document</span><span class="p">,</span>
+        <span class="n">filename</span><span class="o">=</span><span class="n">f</span><span class="s1">&#39;{book}/_aboutauthor.docx&#39;</span><span class="p">,</span>
+        <span class="n">chapter</span><span class="o">=</span><span class="s1">&#39;About the Author&#39;</span><span class="p">,</span>
+        <span class="n">after</span><span class="o">=</span><span class="bp">True</span>
+    <span class="p">)</span>
+    <span class="n">master_document</span> <span class="o">=</span> <span class="n">add_matter</span><span class="p">(</span>
+        <span class="n">master_document</span><span class="p">,</span>
+        <span class="n">filename</span><span class="o">=</span><span class="n">f</span><span class="s1">&#39;{book}/_afterward.docx&#39;</span><span class="p">,</span>
+        <span class="n">chapter</span><span class="o">=</span><span class="s1">&#39;Afterward&#39;</span><span class="p">,</span>
+        <span class="n">after</span><span class="o">=</span><span class="bp">True</span>
+    <span class="p">)</span>
+    <span class="n">master_document</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{book}.docx&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;DONE!!!&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">book</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;You need to specify a book. A book is a directory of word files.&#39;</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="n">main</span><span class="p">(</span><span class="n">book</span><span class="p">)</span>
+</pre></div>
+<p>This is what it looks like when I run the code:</p>
+<pre class="literal-block">
+$ python bookify.py the-darkest-autumn/
+Adding Title Page
+Adding Copyright Page
+Adding Dedication
+Adding 1. Beginnings
+Adding 2. Town of Ravenna
+Adding 3. Walls of Ravenna
+Adding 4. Gatehouse of Ravenna
+Adding 5. Courage
+Adding 6. To the Upper Valley
+skipping the-darkest-autumn/_afterward.docx
+skipping the-darkest-autumn/_copyright.docx
+skipping the-darkest-autumn/_dedication.docx
+skipping the-darkest-autumn/_title.docx
+Adding Afterward
+DONE!!!
+</pre>
+<p>And now I've got a Word document in the same directory called <cite>the-darkest-autumn.docx</cite>.</p>
+</div>
+<div class="section" id="converting-word-to-epub">
+<h2>Converting Word to EPUB</h2>
+<p>While <cite>Kindle Direct Publishing</cite> (KDP) will accept <cite>.docx</cite> files, I like to convert it to <cite>.epub</cite> using <a class="reference external" href="https://calibre-ebook.com/">Calibre</a>:</p>
+<pre class="literal-block">
+$ ebook-convert the-darkest-autumn.docx the-darkest-autumn.epub \
+--authors &quot;Daniel Roy Greenfeld&quot; \
+--publisher &quot;Two Scoops Press&quot; \
+--series Ambria \
+--series-index 1 \
+--output-profile kindle
+</pre>
+<p>And now I can check out my results by using Calibre's book viewer:</p>
+<pre class="literal-block">
+$ ebook-viewer the-darkest-autumn.epub
+</pre>
+</div>
+<div class="section" id="add-the-links">
+<h2>Add the Links!</h2>
+<p>As <tt class="docutils literal"><span class="pre">python-docx</span></tt> doesn't handle HTTP links at this time, I manually add them to the book using Calibre's epub editor. I add links to:</p>
+<ul class="simple">
+<li>My personal author site at <a class="reference external" href="https://www.danielroygreenfeld.com/">danielroygreenfeld.com</a></li>
+<li>The book's <a class="reference external" href="https://www.amazon.com/the-darkest-autumn-ebook/product-reviews/B071L2G8SL?tag=mlinar-20">review page on Amazon</a></li>
+<li>The book's upcoming sequel, <a class="reference external" href="https://www.danielroygreenfeld.com/books/the-river-runs-uphill/">The River Runs Uphill</a>.</li>
+</ul>
+</div>
+<div class="section" id="how-well-does-it-work">
+<h2>How Well Does It Work?</h2>
+<p>For me it works wonders for my productivity. By following a &quot;chapters as files&quot; pattern within Google Docs I get solid collaboration power plus some (but not all) of the features of Scrivener. I can quickly regenerate the book at any time without having to struggle with Scrivener or have to add tools like Vellum to the process.</p>
+<p>I have a secondary script that fixes quoting and tab issues, written before I realized Calibre could have done that for me.</p>
+<p>The book I started this project for, <a class="reference external" href="https://www.danielroygreenfeld.com/books/the-darkest-autumn/">The Darkest Autumn</a>, is available now on <a class="reference external" href="https://www.amazon.com/Darkest-Autumn-Ambria-I-ebook/dp/B071L2G8SL/?tag=mlinar-20">Amazon</a>. Check it out and let me know what you think of what the script generates. Or if you want to support my writing (both fiction and non-fiction), buy it and leave an honest review.</p>
+<a class="reference external image-reference" href="https://www.amazon.com/Darkest-Autumn-Ambria-I-ebook/dp/B071L2G8SL/?tag=mlinar-20"><img alt="Cover for The Darkest Autumn" class="align-center" id="cover-for-the-darkest-autumn" src="https://pydanny.com/theme/img/the-darkest-autumn-04-01-thumbnail.jpg" /></a>
+</div>
+<div class="section" id="thinking-about-the-future">
+<h2>Thinking About the Future</h2>
+<p>Right now this snippet of code generates something that looks okay, but could be improved. I plan to enhance it with better fonts and chapter headers, the goal to generate something as nice as what <a class="reference external" href="https://draft2digital.com/">Draft2Digital</a> generates.</p>
+<p>I've considered adding the OAuth components necessary in order to allow for automated downloading. The problem is I loathe working with OAuth. Therefore I'm sticking with the manial download process.</p>
+<p>For about a week I thought about leveraging it and my <a class="reference external" href="https://www.djangoproject.com/">Django</a> skills to build it as a paid subscription service and rake in the passive income. Basically turn it into a startup. After some reflection I backed off because if Google added file combination as a feature, it would destroy the business overnight.</p>
+<p>I've also decided not to package this up on Github/PyPI. While <a class="reference external" href="https://github.com/audreyr/cookiecutter">Cookiecutter</a> makes it trivial for me to do this kind of thing, I'm not interested in maintaining yet another open source project. However, if someone does package it up and credits me for my work, I'm happy to link to it from this blog post.</p>
+</div>
+
+                    <div class="article-info">
+                            <footer class="post-info">
+
+
+Tags:
+	<a href="./tag/python.html"><em>python</em></a>
+	<a href="./tag/django.html"><em>django</em></a>
+	<a href="./tag/python.html"><em>python</em></a>
+	<a href="./tag/python3.html"><em>python3</em></a>
+	<a href="./tag/cookiecutter.html"><em>cookiecutter</em></a>
+</footer><!-- /.post-info -->                    </div>
+                </div><!-- /.entry-content -->
+                                <hr/>
+                <div class="comments">
+                <h3>Comments</h3>
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript">
+                           var disqus_identifier = "using-python-and-google-docs-to-build-books.html";
+                           (function() {
+                                var dsq = document.createElement('script');
+                                dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = 'https://pydanny.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] ||
+                                 document.getElementsByTagName('body')[0]).appendChild(dsq);
+                          })();
+                        </script>
+                </div>
+                        </article>
+</section>
+        </div><!--/span-->
+
+        <div class="offset1 span3 sidebar-nav" id="sidebar">
+            <ul class="nav nav-list">
+</ul>
+
+<h4>Two Scoops of Django 1.11</h4>
+
+<p><a href="https://twoscoopspress.com/products/two-scoops-of-django-1-11">The new edition is out!</a></p>
+
+<a href="https://twoscoopspress.com/products/two-scoops-of-django-1-11"><img class="two-scoops-cover-thumb" src="https://cdn.shopify.com/s/files/1/0304/6901/files/tsd-111-alpha-thumbnail.jpg?13020655073870052027"></a>
+
+<p>
+This book is chock-full of material that will help you with your Django projects.</p>
+
+
+<h4>The Darkest Autumn</h4>
+
+<p><a href="https://www.danielroygreenfeld.com/books/the-darkest-autumn/">My new fantasy series begins!</a></p>
+
+<a href="https://www.danielroygreenfeld.com/books/the-darkest-autumn/"><img class="two-scoops-cover-thumb" src="./theme/img/the-darkest-autumn-04-01-thumbnail.jpg" /></a>
+
+<p><strong>The adventure begins in Book One of this coming-of-age series.</strong></p>
+
+<p>Vetch is training to be a knight in a magical world. But he's afraid of battle and reluctant to hurt others. He's also nervous around girls. He's kept his fears from his friends but knows at some point he'll be revealed for the coward that he is.</p>
+
+<p>Led by a sorcerer, a massive army of men and inconceivable monsters attack Vetch's homeland. With no idea of the extent of the enemy's power, Vetch struggles against impossible odds to keep himself and those he cares about safe.</p>
+
+<p>Can a young warrior with a too-gentle heart survive?</p>
+
+
+<h4 class="nav-header">Follow Me</h4>
+    <p class="capitalize"><i class="icon-twitter-sign icon-large"></i> <a href="http://twitter.com/pydanny">twitter</a></p>
+    <p class="capitalize"><i class="icon-github-sign icon-large"></i> <a href="https://github.com/pydanny">github</a></p>
+    <p class="capitalize"><i class="icon-facebook-sign icon-large"></i> <a href="http://www.facebook.com/daniel.greenfeld">facebook</a></p>
+
+<h4>Subscribe To My Feed</h4>
+
+<p>
+While you're here, why not add my <a href="./feeds/all.atom.xml" rel="alternate">atom feed</a> to your RSS reader?
+</p>
+
+<h4 class="nav-header">Tags</h4>
+<span class="tag-4">
+    <a href="./tag/binstar.html">
+        binstar
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/hackathon.html">
+        hackathon
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/casestudy.html">
+        casestudy
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/postgresql.html">
+        postgresql
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pydiversity.html">
+        pydiversity
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/gondor.html">
+        gondor
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/meme.html">
+        meme
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/resolutions.html">
+        resolutions
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/europe.html">
+        europe
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/forms.html">
+        forms
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/unicode.html">
+        unicode
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/latex.html">
+        LaTeX
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/meteor.html">
+        meteor
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/whartonwc.html">
+        WhartonWC
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/django.html">
+        django
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumernotebook.html">
+        consumernotebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/australia.html">
+        australia
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/pycon.html">
+        pycon
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/review.html">
+        review
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/sprint.html">
+        sprint
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/cartwheel-web.html">
+        Cartwheel Web
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackthons.html">
+        lahackthons
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/conda.html">
+        conda
+    </a>
+</span>
+<span class="tag-1">
+    <a href="./tag/python.html">
+        python
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cheatsheet.html">
+        cheatsheet
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/philippines.html">
+        philippines
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/ingredients.html">
+        ingredients
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/restructuredtext.html">
+        RestructuredText
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/vs.html">
+        vs
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel.html">
+        travel
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/argentina.html">
+        argentina
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/cookiecutter.html">
+        cookiecutter
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/markdown.html">
+        markdown
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/tools.html">
+        tools
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/heroku.html">
+        heroku
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/capoeira.html">
+        capoeira
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/ruby.html">
+        ruby
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/jinja2.html">
+        jinja2
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/science.html">
+        science
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypi.html">
+        pypi
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/two-scoops-academy.html">
+        Two Scoops Academy
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/oauth.html">
+        OAuth
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/django-rest-framework.html">
+        django-rest-framework
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/pumpkin.html">
+        pumpkin
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/audrey.html">
+        audrey
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangodash.html">
+        djangodash
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/book.html">
+        book
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/brambles.html">
+        brambles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/training.html">
+        training
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/python3.html">
+        python3
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pycon-2013-guide.html">
+        pycon-2013-guide
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/rant.html">
+        rant
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        Los Angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/rails.html">
+        rails
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/usability.html">
+        usability
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/perl.html">
+        perl
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/lahackathons.html">
+        lahackathons
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/djangocon.html">
+        djangocon
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/class-based-views.html">
+        class-based-views
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pyramid.html">
+        pyramid
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/api.html">
+        api
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/i18n.html">
+        i18n
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/functions.html">
+        functions
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dotcloud.html">
+        dotcloud
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/barcamp.html">
+        barcamp
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nodejs.html">
+        nodejs
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/halloween.html">
+        halloween
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/travel-tips-for-geeks.html">
+        travel tips for geeks
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pyladies.html">
+        pyladies
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/flask.html">
+        flask
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/howto.html">
+        howto
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/la.html">
+        la
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/recipe.html">
+        recipe
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/consumer-notebook.html">
+        Consumer-Notebook
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/testing.html">
+        testing
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/css.html">
+        css
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/nasa.html">
+        nasa
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/javascript.html">
+        javascript
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/clojure.html">
+        clojure
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/los-angeles.html">
+        los-angeles
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/paypal.html">
+        paypal
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/holidays.html">
+        holidays
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/la.html">
+        LA
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/dsf.html">
+        dsf
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/wsgi.html">
+        wsgi
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/family.html">
+        family
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/joke.html">
+        joke
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/mongodb.html">
+        mongodb
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/php.html">
+        php
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/pypy.html">
+        pypy
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/twoscoops.html">
+        twoscoops
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/eventbrite.html">
+        eventbrite
+    </a>
+</span>
+<span class="tag-3">
+    <a href="./tag/setup.html">
+        setup
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/packaging.html">
+        packaging
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/djangopackages.html">
+        djangopackages
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/blog.html">
+        blog
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/europython.html">
+        europython
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/friends.html">
+        friends
+    </a>
+</span>
+<span class="tag-4">
+    <a href="./tag/surgery.html">
+        surgery
+    </a>
+</span>
+<span class="tag-2">
+    <a href="./tag/ppoftw.html">
+        ppoftw
+    </a>
+</span>
+
+
+        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">Content Copyright © 2013 Daniel Greenfeld.
+                Proudly powered by <a href="https://blog.getpelican.com">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>. Adapted from the <a href="https://github.com/getpelican/pelican-themes/tree/master/bootstrap2">Pelican Bootstrap2</a> theme by <a href="http://www.audreymroy.com">Audrey M. Roy</a>. Support my work by spreading the word about <a href="https://twoscoopspress.com/products/two-scoops-of-django-1-11">Two Scoops of Django: Best Practices For Django 1.11</a>.
+        </address><!-- /#about -->
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-18066389-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+        <script type="text/javascript">
+    var disqus_shortname = 'pydanny';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./theme/js/jquery-1.7.2.min.js"></script>
+    <script src="./theme/js/bootstrap.min.js"></script>
+  </body>
+</html>

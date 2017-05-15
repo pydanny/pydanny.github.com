@@ -1,11 +1,11 @@
 ======================================================
-Using Python to Build Books
+Using Python and Google Docs to Build Books
 ======================================================
 
-:date: 2017-05-09 00:05
-:tags: python, django, python, python3
+:date: 2017-05-15 15:00
+:tags: python, django, python, python3, cookiecutter
 :category: python
-:slug: using-python-to-build-books
+:slug: using-python-and-google-docs-to-build-books
 
 .. image:: https://raw.githubusercontent.com/pydanny/pydanny.github.com/master/static/python-tip-from-pydanny.png
    :name: Using Google Docs and Python to Assemble Fiction Books
@@ -13,7 +13,7 @@ Using Python to Build Books
    :alt: Python F-Strings Are Fun!
    :target: https://www.pydanny.com/using-google-docs-and-python-to-assemble-fiction-books.html
 
-When I started my new fiction book, `The Darkest Autumn`_, I wrote out the chapters as individual files. I did it in a text editor and saved the files to a git repo. The names of the files determined their order, chapters being named in this pattern:
+When I started my latest fiction book, `The Darkest Autumn`_, I wrote out the chapters as individual files. I did it in a text editor (Sublime) and saved the files to a git repo. The names of the files determined their order, chapters being named in this pattern:
 
 ::
 
@@ -269,16 +269,27 @@ For me it works wonders for my productivity. By following a "chapters as files" 
 
 I have a secondary script that fixes quoting and tab issues, written before I realized Calibre could have done that for me.
 
+The book I started this project for, `The Darkest Autumn`_, is available now on Amazon_. Check it out and let me know what you think of what the script generates. Or if you want to support my writing (both fiction and non-fiction), buy it and leave an honest review.
+
+.. image:: https://pydanny.com/theme/img/the-darkest-autumn-04-01-thumbnail.jpg
+   :name: Cover for The Darkest Autumn
+   :align: center
+   :alt: Cover for The Darkest Autumn
+   :target: https://www.amazon.com/Darkest-Autumn-Ambria-I-ebook/dp/B071L2G8SL/?tag=mlinar-20
+
+
 Thinking About the Future
 =========================
 
-Right now it generates something that looks okay. At some point I'll enhance it with better fonts and chapter headers.
+Right now this snippet of code generates something that looks okay, but could be improved. I plan to enhance it with better fonts and chapter headers, the goal to generate something as nice as what Draft2Digital_ generates.
 
-For about a week I thought about leveraging it and my Django_ skills to build it as a paid subscription service and rake in the passive income. After some reflection I backed off because if Google added file combination as a feature, it would destroy the business overnight.
+I've considered adding the OAuth components necessary in order to allow for automated downloading. The problem is I loathe working with OAuth. Therefore I'm sticking with the manial download process.
 
-As for open source it as a repo/package Github/PyPI I decided against it. Yes, Cookiecutter_ make it trivial for me to do this kind of thing, but I'm not interested in maintaining yet another open source project. However, if someone does package it up and credits me for my work, I'm happy to link from here to there.
+For about a week I thought about leveraging it and my Django_ skills to build it as a paid subscription service and rake in the passive income. Basically turn it into a startup. After some reflection I backed off because if Google added file combination as a feature, it would destroy the business overnight.
 
+I've also decided not to package this up on Github/PyPI. While Cookiecutter_ makes it trivial for me to do this kind of thing, I'm not interested in maintaining yet another open source project. However, if someone does package it up and credits me for my work, I'm happy to link to it from this blog post.
 
+.. _Draft2Digital: https://draft2digital.com/
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`Scrivener isn't designed for simultaneous collaboration`: http://www.literatureandlatte.com/forum/viewtopic.php?f=2&t=11725
 .. _`The Darkest Autumn`: https://www.danielroygreenfeld.com/books/the-darkest-autumn/
@@ -288,3 +299,4 @@ As for open source it as a repo/package Github/PyPI I decided against it. Yes, C
 .. _`The River Runs Uphill`: https://www.danielroygreenfeld.com/books/the-river-runs-uphill/
 .. _Scrivener: https://www.literatureandlatte.com/scrivener.php
 .. _Django: https://www.djangoproject.com/
+.. _Amazon: https://www.amazon.com/Darkest-Autumn-Ambria-I-ebook/dp/B071L2G8SL/?tag=mlinar-20

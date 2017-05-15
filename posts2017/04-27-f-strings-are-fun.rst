@@ -11,7 +11,7 @@ Python F-Strings Are Fun!
    :name: Python F-Strings Are Fun!
    :align: center
    :alt: Python F-Strings Are Fun!
-   :target: https://www.pydanny.github.com/python-f-strings-are-fun.html
+   :target: https://www.pydanny.com/python-f-strings-are-fun.html
 
 In python 3.6 we saw the adoption of `Literal String Interpolation`_, or as they are known more commonly, f-strings_. At first I was hesitant because... well... we've got multiple string tools already available:
 
