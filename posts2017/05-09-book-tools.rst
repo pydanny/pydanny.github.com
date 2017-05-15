@@ -271,7 +271,7 @@ I have a secondary script that fixes quoting and tab issues, written before I re
 
 The book I started this project for, `The Darkest Autumn`_, is available now on Amazon_. Check it out and let me know what you think of what the script generates. Or if you want to support my writing (both fiction and non-fiction), buy it and leave an honest review.
 
-.. image:: https://pydanny.com/theme/img/the-darkest-autumn-04-01-thumbnail.jpg
+.. image:: https://github.com/pydanny/pydanny.github.com/blob/master/theme/img/the-darkest-autumn-04-01-thumbnail.jpg?raw=true
    :name: Cover for The Darkest Autumn
    :align: center
    :alt: Cover for The Darkest Autumn
