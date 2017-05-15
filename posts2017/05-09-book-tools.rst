@@ -269,7 +269,7 @@ For me it works wonders for my productivity. By following a "chapters as files" 
 
 I have a secondary script that fixes quoting and tab issues, written before I realized Calibre could have done that for me.
 
-The book I started this project for, `The Darkest Autumn`_, is available now on Amazon_. Check it out and let me know what you think of what the script generates. Or if you want to support my writing (both fiction and non-fiction), buy it on Amazon_ and leave an honest review.
+The book I started this project for, `The Darkest Autumn`_, is available now on Amazon_. Check it out and let me know what you think of what the script generates. Or if you want to support my writing (both fiction and non-fiction), `buy The Darkest Autumn on Amazon`_ and leave an honest review.
 
 Thinking About the Future
 =========================
@@ -301,3 +301,4 @@ I've also decided not to package this up on Github/PyPI. While Cookiecutter_ mak
 .. _Scrivener: https://www.literatureandlatte.com/scrivener.php
 .. _Django: https://www.djangoproject.com/
 .. _Amazon: https://www.amazon.com/Darkest-Autumn-Ambria-I-ebook/dp/B071L2G8SL/?tag=mlinar-20
+.. _`buy The Darkest Autumn on Amazon`: https://www.amazon.com/Darkest-Autumn-Ambria-I-ebook/dp/B071L2G8SL/?tag=mlinar-20
