@@ -269,14 +269,7 @@ For me it works wonders for my productivity. By following a "chapters as files" 
 
 I have a secondary script that fixes quoting and tab issues, written before I realized Calibre could have done that for me.
 
-The book I started this project for, `The Darkest Autumn`_, is available now on Amazon_. Check it out and let me know what you think of what the script generates. Or if you want to support my writing (both fiction and non-fiction), buy it and leave an honest review.
-
-.. image:: https://github.com/pydanny/pydanny.github.com/blob/master/theme/img/the-darkest-autumn-04-01-thumbnail.jpg?raw=true
-   :name: Cover for The Darkest Autumn
-   :align: center
-   :alt: Cover for The Darkest Autumn
-   :target: https://www.amazon.com/Darkest-Autumn-Ambria-I-ebook/dp/B071L2G8SL/?tag=mlinar-20
-
+The book I started this project for, `The Darkest Autumn`_, is available now on Amazon_. Check it out and let me know what you think of what the script generates. Or if you want to support my writing (both fiction and non-fiction), buy it on Amazon_ and leave an honest review.
 
 Thinking About the Future
 =========================
@@ -288,6 +281,14 @@ I've considered adding the OAuth components necessary in order to allow for auto
 For about a week I thought about leveraging it and my Django_ skills to build it as a paid subscription service and rake in the passive income. Basically turn it into a startup. After some reflection I backed off because if Google added file combination as a feature, it would destroy the business overnight.
 
 I've also decided not to package this up on Github/PyPI. While Cookiecutter_ makes it trivial for me to do this kind of thing, I'm not interested in maintaining yet another open source project. However, if someone does package it up and credits me for my work, I'm happy to link to it from this blog post.
+
+.. image:: https://github.com/pydanny/pydanny.github.com/blob/master/theme/img/the-darkest-autumn-04-01-thumbnail.jpg?raw=true
+   :name: Cover for The Darkest Autumn
+   :align: center
+   :alt: Cover for The Darkest Autumn
+   :target: https://www.amazon.com/Darkest-Autumn-Ambria-I-ebook/dp/B071L2G8SL/?tag=mlinar-20
+
+
 
 .. _Draft2Digital: https://draft2digital.com/
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
