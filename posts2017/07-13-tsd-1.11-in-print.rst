@@ -21,9 +21,10 @@ Right now you can order the print version of `Two Scoops of Django 1.11`_ at eit
 * `Two Scoops Press`_ (for autographed copies directly from us), or
 * Amazon_ (this link sends you to your regional Amazon store)
 
-If you purchase the book on Amazon_, please leave an `honest review`_. Simply put, Amazon_ reviews make or break a book, each one responsible for additional sales. It's our dream that if sales of Two Scoops of Django 1.11 are good enough, we'll be able to justify doing less consulting and instead, writing more technical books.
+If you purchase the book on Amazon, please leave an `honest review`_. Simply put, `Amazon reviews`_ make or break a book, each one responsible for additional sales. It's our dream that if sales of Two Scoops of Django 1.11 are good enough, we'll be able to justify doing less consulting and instead, writing more technical books.
 
 .. _`Two Scoops of Django 1.11`: https://twoscoopspress.org/products/two-scoops-of-django-1-11
 .. _`Two Scoops Press`: https://www.twoscoopspress.com/products/two-scoops-of-django-1-11
 .. _Amazon: http://mybook.to/tsd111
 .. _`honest review`: https://www.amazon.com/review/create-review/?asin=0692915729
+.. _`Amazon reviews`: https://www.amazon.com/review/create-review/?asin=0692915729
