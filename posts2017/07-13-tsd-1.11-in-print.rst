@@ -1,0 +1,28 @@
+======================================================
+Two Scoops of Django 1.11 Is Printed!
+======================================================
+
+:date: 2017-07-13 15:00
+:tags: twoscoops, python, django, audrey, book, class-based-views
+:category: python
+:slug: two-scoops-of-django-1-11-printed
+
+.. image:: https://raw.githubusercontent.com/pydanny/pydanny.github.com/master/static/danny-and-audrey-tsd111.jpg
+   :name: Two Scoops of Django 1.11 Shipping Table
+   :align: center
+   :alt: Two Scoops of Django
+   :target: https://twoscoopspress.org/products/two-scoops-of-django-1-11
+
+
+After longer than we expected, the shiny new print copies of Two Scoops of Django 1.11 are finally ready. We've shipped all pre-orders, and many of you who ordered it in advance should have the book in your hands. We're delighted by how well it's been received, which is due only to the help and encouragement of our readers.
+
+Right now you can order the print version of Two Scoops of Django 1.11 at either:
+
+* `Two Scoops Press`_ (for autographed copies directly from us), or
+* Amazon_ (this link sends you to your regional Amazon store)
+
+If you purchase the book on Amazon_, please leave an `honest review`_. Simply put, Amazon_ reviews make or break a book, each one responsible for additional sales. It's our dream that if sales of Two Scoops of Django 1.11 are good enough, we'll be able to justify doing less consulting and instead, writing more technical books.
+
+.. _`Two Scoops Press`: https://www.twoscoopspress.com/products/two-scoops-of-django-1-11
+.. _Amazon: http://mybook.to/tsd111
+.. _`honest review`: https://www.amazon.com/review/create-review/?asin=0692915729
