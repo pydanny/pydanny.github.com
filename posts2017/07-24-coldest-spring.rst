@@ -20,7 +20,7 @@ Today is a special day. You see, the latest fantasy book I co-authored, `Coldest
 Finally, if you want to give me a truly special present for my birthday, please review any or all of my books on Amazon. Positive or negative, every review makes a difference. The positive stuff feeds my already inflated ego, and the negative stuff tells me what I need to do in order to improve.
 
 * `Two Scoops of Django 1.11`_
-* `Ambria 1: Darkest Autumn`_
+* `Ambria 1: Darkest Autumn`_ (Just $0.99 for the rest of July 2017!)
 * `Ambria 2: Brightest Winter`_
 * `Ambria 3: Coldest Spring`_
 
