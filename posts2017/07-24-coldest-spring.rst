@@ -24,6 +24,11 @@ Finally, if you want to give me a truly special present for my birthday, please 
 * `Ambria 2: Brightest Winter`_
 * `Ambria 3: Coldest Spring`_
 
+Updates
+========
+
+* July 24th 3pm: A commenter by the name of **@lingot** answered first and he'll get the autographed book. However, there is an even more precise response than the one he gave. If anyone can provide that answer, they get an autographed TSD 1.11 as well. Good luck!
+
 .. _`Two Scoops of Django 1.11 book`: https://twoscoopspress.org/products/two-scoops-of-django-1-11
 .. _`Two Scoops of Django 1.11`: https://www.amazon.com/review/create-review/?asin=0692915729?tag=ihpydanny-20
 .. _`Ambria 1: Darkest Autumn`: https://www.amazon.com/review/create-review/?asin=B071L2G8SL?tag=ihpydanny-20
