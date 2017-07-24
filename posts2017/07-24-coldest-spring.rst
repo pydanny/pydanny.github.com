@@ -27,7 +27,7 @@ Finally, if you want to give me a truly special present for my birthday, please 
 Updates
 ========
 
-* July 24th 3pm: A commenter by the name of **@lingot** answered first and he'll get the autographed book. However, there is an even more precise response than the one he gave. If anyone can provide that answer, they get an autographed TSD 1.11 as well. Good luck!
+* July 24th 3pm: A commenter by the name of **@lingot** answered first and they'll get the autographed book. However, there is an even more precise response than the one they gave. If anyone can provide that answer, they get an autographed TSD 1.11 as well. Good luck!
 
 .. _`Two Scoops of Django 1.11 book`: https://twoscoopspress.org/products/two-scoops-of-django-1-11
 .. _`Two Scoops of Django 1.11`: https://www.amazon.com/review/create-review/?asin=0692915729?tag=ihpydanny-20
