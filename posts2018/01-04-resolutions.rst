@@ -1,8 +1,8 @@
 ======================================================
-Two Scoops of Django Birthday Giveaway
+2018 New Years Resolutions
 ======================================================
 
-:date: 2018-01-04 15:00
+:date: 2018-01-04 18:00
 :tags: python, capoeira, eskrima, book, blog, django, resolutions, holidays
 :category: python
 :slug: resolutions-2018
