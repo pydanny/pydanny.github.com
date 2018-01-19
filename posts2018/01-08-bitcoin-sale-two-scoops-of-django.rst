@@ -11,7 +11,7 @@ Use Bitcoin to Get Two Scoops of Django at 25% Off
    :name: BitCoin and Two Scoops of Django!
    :align: center
    :alt: BitCoin and Two Scoops of Django!
-   :target: https://www.twoscoopspress.com/products/two-scoops-of-django-1-11
+   :target: https://www.pydanny.com/25-percent-bitcoin-sale-two-scoops-of-django.html
 
 Like the title of this blog post says, for Bitcoin purchases we're offering a 25% discount for purchases of `Two Scoops of Django`_. That puts the ebook version at $34.36 and the autographed hardcopy at $38.36. Pretty awesome, right?  If you want to take advantage of this awesome deal, the Bitcoin discount is applied during checkout.
 
