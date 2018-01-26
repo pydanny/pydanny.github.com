@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="https://www.pydanny.com/" rel="alternate"></link><link href="https://www.pydanny.com/feeds/mongodb.atom.xml" rel="self"></link><id>https://www.pydanny.com/</id><updated>2012-04-10T12:00:00-07:00</updated><entry><title>Join us at DjangoCon Europe!</title><link href="https://www.pydanny.com/join-us-at-djangocon-europe.html" rel="alternate"></link><published>2012-04-10T12:00:00-07:00</published><updated>2012-04-10T12:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:https://www.pydanny.com,2012-04-10:join-us-at-djangocon-europe.html</id><summary type="html">&lt;p&gt;This year in June, the European edition of &lt;a class="reference external" href="http://djangocon.eu"&gt;DjangoCon&lt;/a&gt; is going to be held in lovely &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Zurich"&gt;Zurich&lt;/a&gt;, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Switzerland"&gt;Switzerland&lt;/a&gt;. It is my great fortune and delight to announce that &lt;a class="reference external" href="http://audreymroy.com"&gt;Audrey&lt;/a&gt; and I will be attending. Hooray!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pydanny</title><link href="https://www.pydanny.com/" rel="alternate"></link><link href="https://www.pydanny.com/feeds/mongodb.atom.xml" rel="self"></link><id>https://www.pydanny.com/</id><updated>2018-01-26T20:00:00-08:00</updated><entry><title>When to Use MongoDB with Django</title><link href="https://www.pydanny.com/when-to-use-mongodb-with-django.html" rel="alternate"></link><published>2018-01-26T20:00:00-08:00</published><updated>2018-01-26T20:00:00-08:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:https://www.pydanny.com,2018-01-26:when-to-use-mongodb-with-django.html</id><summary type="html">&lt;div class="section" id="short-answer"&gt;
+&lt;h2&gt;Short Answer&lt;/h2&gt;
+&lt;p&gt;You don't.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="long-answer"&gt;
+&lt;h2&gt;Long Answer&lt;/h2&gt;
+&lt;p&gt;First off, let's get one thing out of the way. This isn't a bash on MongoDB. MongoDB works great with lots of things (Flask, Tornado, Node, etc), but it's a mismatch with Django. In other words, this article is about using the right tool for the right job.&lt;/p&gt;
+&lt;p&gt;Second, I'm not speaking from ignorance. In fact, I have quite a bit of experience combining MongoDB and Django. You can see some of my early work with combining these tools in the defunct &lt;a class="reference external" href="https://www.pydanny.com/pretty-formatting-json-django-admin.html"&gt;django-mongonaut&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Okay then, let's get into the background of this post: On various Django help forums, you'll hear requests from new-ish Django developers on how to use MongoDB with Django. Most of the time they want to replace the Django ORM with calls to MongoDB. Here are the reasons I've been quoted.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-90-reason-json-storage"&gt;
+&lt;h2&gt;The 90% Reason: JSON storage&lt;/h2&gt;
+&lt;p&gt;Most of the time people want to replace SQL with MongoDB in Django, the reason is they want to store JSON data and search it.&lt;/p&gt;
+&lt;p&gt;In which case, they should use &lt;a class="reference external" href="https://docs.djangoproject.com/en/2.0/ref/contrib/postgres/fields/#jsonfield"&gt;Django's built-in implementation of PostgreSQL's JSON field&lt;/a&gt;. It's not just a string field, it's fully searchable. Example below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib.postgres.fields&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;JSONField&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
+
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Product&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="n"&gt;metadata&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;JSONField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;blank&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Just save your data into this field using a JSON-serializable dict. It's that easy. Even better, in this previous &lt;a class="reference external" href="https://www.pydanny.com/pretty-formatting-json-django-admin.html"&gt;article&lt;/a&gt;, I show how you can pretty print the JSON in the Django admin.&lt;/p&gt;
+&lt;p&gt;Using this field, you get all the built-in features of Django and a searchable JSON field without the mess of stapling a non-relational database (MongoDB) into a framework and vibrant ecosystem designed to work with relational databases (Django).&lt;/p&gt;
+&lt;p&gt;For those using MySQL instead of PostgreSQL, there's always Django-MySQL's &lt;a class="reference external" href="https://django-mysql.readthedocs.io/en/latest/model_fields/json_field.html"&gt;jsonfield&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-5-reason-performance"&gt;
+&lt;h2&gt;The 5% Reason: Performance&lt;/h2&gt;
+&lt;p&gt;A fraction of people want to use MongoDB with Django because of supposed performance reasons. Sure, if you run MongoDB without any write safeguards and decide to forego database transactions, it will run faster than any relational storage. However, that's a dangerously insecure approach to things. It's simply not worth the risk of corrupted data.&lt;/p&gt;
+&lt;p&gt;Don't take my word for it, spend an hour searching for articles about write safety in MongoDB. Ignore the hype articles published by mongodb.com, read what real businesses and projects case studies have to say.&lt;/p&gt;
+&lt;p&gt;Also, if you want to speed database i/o up with Django, standard practice is to employ asynchronous tools such as Celery before switching out the datastore.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-4-reason-scaling-up"&gt;
+&lt;h2&gt;The 4% Reason: Scaling Up&lt;/h2&gt;
+&lt;p&gt;Anyone who tells you that relational databases can't scale as well as MongoDB (or anything else) is selling you something. Or was sold on something and don't want to admit they bought the hype.&lt;/p&gt;
+&lt;p&gt;Again, don't take my word for it, spend an hour searching for articles about scaling issues with MongoDB. Again, ignore the hype and read the real case studies.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-1-reason-management"&gt;
+&lt;h2&gt;The 1% Reason: Management&lt;/h2&gt;
+&lt;p&gt;Every once in a while someone tells me that using MongoDB with Django is a management decision. In which case, they should send their boss(es) to this blog post.&lt;/p&gt;
+&lt;p&gt;Management should know that Django is designed to be used with a relational database backend (PostgreSQL, MySQL) and a key/value store for ephemeral data (Redis, Memcached). Going beyond that design is going to make development slower and frustrate the team. Even if your team can work around this issue, they'll be hampered by not being able to fully exploit tools within the Django ecosystem.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="if-you-must-use-mongodb-use-flask-instead"&gt;
+&lt;h2&gt;If You Must Use MongoDB, Use Flask Instead&lt;/h2&gt;
+&lt;p&gt;There's nothing wrong with MongoDB. However, it's suboptimal when used with Django. If you use it with correct write permissions, MongoDB doesn't provide any speed benefits with Django. You also lose many of the advantages of Django (database transactions, rock-solid security, forms, easy Django REST framework use, hundreds of third-party packages, etc). There is quite a lot of things you are going to have to rewrite.&lt;/p&gt;
+&lt;p&gt;And if you're going to have to rewrite that much of Django's functionality to use MongoDB, you might as well be using Flask. Honestly, this isn't a bad choice, as the flexibility of Flask makes it perfect for use with non-relational databases.&lt;/p&gt;
+&lt;p&gt;I know, because this is how we use Flask on the job, which is not with relational data. We have dozens of microservices that rely on DynamoDB. While DynamoDB isn't MongoDB, they are similar enough that I can tell you this approach is delightful.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="stay-tuned"&gt;
+&lt;h2&gt;Stay Tuned!&lt;/h2&gt;
+&lt;p&gt;If you found this article useful and want to see more like it, or if you want to encourage me to do more open source work, hit me up on &lt;a class="reference external" href="https://www.patreon.com/danielroygreenfeld"&gt;Patreon&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="django"></category><category term="mongodb"></category></entry><entry><title>Join us at DjangoCon Europe!</title><link href="https://www.pydanny.com/join-us-at-djangocon-europe.html" rel="alternate"></link><published>2012-04-10T12:00:00-07:00</published><updated>2012-04-10T12:00:00-07:00</updated><author><name>Daniel-Roy-Greenfeld</name></author><id>tag:https://www.pydanny.com,2012-04-10:join-us-at-djangocon-europe.html</id><summary type="html">&lt;p&gt;This year in June, the European edition of &lt;a class="reference external" href="http://djangocon.eu"&gt;DjangoCon&lt;/a&gt; is going to be held in lovely &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Zurich"&gt;Zurich&lt;/a&gt;, &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Switzerland"&gt;Switzerland&lt;/a&gt;. It is my great fortune and delight to announce that &lt;a class="reference external" href="http://audreymroy.com"&gt;Audrey&lt;/a&gt; and I will be attending. Hooray!&lt;/p&gt;
 &lt;p&gt;Needless to say, we're extremely excited. My &lt;a class="reference external" href="http://dannygreenfeld.blogspot.com/search/label/ploneconf2007"&gt;trip to Europe in 2007&lt;/a&gt; was an amazingly fun and educational experience, and I can't wait to share a similar experience with Audrey. We can't wait to see all our old European friends, make new ones, and be dazzled by what Europe has to offer.&lt;/p&gt;
 &lt;p&gt;Also, let's face it, the conference is going to be &lt;strong&gt;incredible&lt;/strong&gt;. They've lined up some awesome venues, the food (&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Raclette"&gt;cheese&lt;/a&gt;, chocolate, &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Muesli"&gt;muesli&lt;/a&gt;, etc) in Switzerland is world-renowned, the website looks fantastic, and they've got Jacob Kaplan-Moss to keynote. It looks so good I'm surprised there are any &lt;a class="reference external" href="http://2012.djangocon.eu/sponsors/"&gt;sponsor slots left&lt;/a&gt;!&lt;/p&gt;
 &lt;div class="section" id="talks"&gt;

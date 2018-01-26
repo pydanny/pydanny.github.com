@@ -5,6 +5,7 @@
 :date: 2018-01-04 18:00
 :tags: python, capoeira, eskrima, book, blog, django, resolutions, holidays
 :category: python
+:description: My New Year's resolutions for 2018.
 :slug: resolutions-2018
 
 .. image:: https://raw.githubusercontent.com/pydanny/pydanny.github.com/master/static/lasergun.jpg

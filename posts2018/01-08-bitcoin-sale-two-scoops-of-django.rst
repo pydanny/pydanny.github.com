@@ -5,10 +5,10 @@ Use Bitcoin to Get Two Scoops of Django at 25% Off
 :date: 2018-01-09 01:00
 :tags: python, book, django, bitcoin, cryptocurrency
 :category: django
+:description: We're offering a 25% BitCoin discount off all books on Two Scoops Press. 
 :slug: 25-percent-bitcoin-sale-two-scoops-of-django
 
 .. image:: https://raw.githubusercontent.com/pydanny/pydanny.github.com/master/static/bitcointsd111.png
-   :name: BitCoin and Two Scoops of Django!
    :align: center
    :alt: BitCoin and Two Scoops of Django!
    :target: https://www.pydanny.com/25-percent-bitcoin-sale-two-scoops-of-django.html

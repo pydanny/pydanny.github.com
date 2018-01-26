@@ -5,6 +5,7 @@ Hola, PyCon Colombia!
 :date: 2018-01-19 20:00
 :tags: python, django, colombia, pycon
 :category: python
+:description: We're going to PyCon Colombia!
 :slug: hola-pycon-colombia
 
 We (me and Audrey) are going to be giving a keynote speech at `PyCon Colombia`_ on February 11th! Hooray!
