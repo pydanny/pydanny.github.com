@@ -7,12 +7,12 @@
 &lt;h2&gt;Long Answer&lt;/h2&gt;
 &lt;p&gt;First off, let's get one thing out of the way. This isn't a bash on MongoDB. MongoDB works great with lots of things (Flask, Tornado, Node, etc), but it's a mismatch with Django. In other words, this article is about using the right tool for the right job.&lt;/p&gt;
 &lt;p&gt;Second, I'm not speaking from ignorance. In fact, I have quite a bit of experience combining MongoDB and Django. You can see some of my early work with combining these tools in the defunct &lt;a class="reference external" href="https://www.pydanny.com/pretty-formatting-json-django-admin.html"&gt;django-mongonaut&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Okay then, let's get into the background of this post: On various Django help forums, you'll hear requests from new-ish Django developers on how to use MongoDB with Django. Most of the time they want to replace the Django ORM with calls to MongoDB. Here are the reasons I've been quoted.&lt;/p&gt;
+&lt;p&gt;Okay then, let's get into the background of this post: On various Django help forums, you'll hear requests from new-ish Django developers on how to use MongoDB with Django. Most of the time they want to replace the Django ORM with calls to MongoDB. Here are the reasons I've heard so far.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="the-90-reason-json-storage"&gt;
 &lt;h2&gt;The 90% Reason: JSON storage&lt;/h2&gt;
 &lt;p&gt;Most of the time people want to replace SQL with MongoDB in Django, the reason is they want to store JSON data and search it.&lt;/p&gt;
-&lt;p&gt;In which case, they should use &lt;a class="reference external" href="https://docs.djangoproject.com/en/2.0/ref/contrib/postgres/fields/#jsonfield"&gt;Django's built-in implementation of PostgreSQL's JSON field&lt;/a&gt;. It's not just a string field, it's fully searchable. Example below:&lt;/p&gt;
+&lt;p&gt;In which case, they should use &lt;a class="reference external" href="https://docs.djangoproject.com/en/2.0/ref/contrib/postgres/fields/#jsonfield"&gt;Django's built-in implementation of PostgreSQL's JSON field&lt;/a&gt;. It's not just a string field, it's fully searchable. Implementation example below:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib.postgres.fields&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;JSONField&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
 
@@ -34,7 +34,7 @@
 &lt;div class="section" id="the-4-reason-scaling-up"&gt;
 &lt;h2&gt;The 4% Reason: Scaling Up&lt;/h2&gt;
 &lt;p&gt;Anyone who tells you that relational databases can't scale as well as MongoDB (or anything else) is selling you something. Or was sold on something and don't want to admit they bought the hype.&lt;/p&gt;
-&lt;p&gt;Again, don't take my word for it, spend an hour searching for articles about scaling issues with MongoDB. Again, ignore the hype and read the real case studies.&lt;/p&gt;
+&lt;p&gt;Again, don't take my word for it, spend an hour searching for articles about scaling issues with MongoDB. Again, ignore the marketing and read real case studies.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="the-1-reason-management"&gt;
 &lt;h2&gt;The 1% Reason: Management&lt;/h2&gt;

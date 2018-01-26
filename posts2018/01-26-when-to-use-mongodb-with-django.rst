@@ -22,14 +22,14 @@ Second, I'm not speaking from ignorance. In fact, I have quite a bit of experien
 
 .. _`django-mongonaut`: https://www.pydanny.com/pretty-formatting-json-django-admin.html
 
-Okay then, let's get into the background of this post: On various Django help forums, you'll hear requests from new-ish Django developers on how to use MongoDB with Django. Most of the time they want to replace the Django ORM with calls to MongoDB. Here are the reasons I've been quoted.
+Okay then, let's get into the background of this post: On various Django help forums, you'll hear requests from new-ish Django developers on how to use MongoDB with Django. Most of the time they want to replace the Django ORM with calls to MongoDB. Here are the reasons I've heard so far.
 
 The 90% Reason: JSON storage
 =============================
 
 Most of the time people want to replace SQL with MongoDB in Django, the reason is they want to store JSON data and search it.
     
-In which case, they should use `Django's built-in implementation of PostgreSQL's JSON field`_. It's not just a string field, it's fully searchable. Example below:
+In which case, they should use `Django's built-in implementation of PostgreSQL's JSON field`_. It's not just a string field, it's fully searchable. Implementation example below:
 
 .. code-block:: python
 
@@ -63,7 +63,7 @@ The 4% Reason: Scaling Up
 
 Anyone who tells you that relational databases can't scale as well as MongoDB (or anything else) is selling you something. Or was sold on something and don't want to admit they bought the hype. 
 
-Again, don't take my word for it, spend an hour searching for articles about scaling issues with MongoDB. Again, ignore the hype and read the real case studies.
+Again, don't take my word for it, spend an hour searching for articles about scaling issues with MongoDB. Again, ignore the marketing and read real case studies.
 
 The 1% Reason: Management
 =========================
