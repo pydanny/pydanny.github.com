@@ -3,7 +3,7 @@ When to Use MongoDB with Django
 ======================================================
 
 :date: 2018-01-26 20:00
-:tags: python, django, mongodb
+:tags: python, django, mongodb, rant
 :category: django
 :description: Short answer is you don't use MongoDB with Django. Read on for the specifics.
 :slug: when-to-use-mongodb-with-django
