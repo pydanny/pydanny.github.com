@@ -79,7 +79,7 @@ There's nothing wrong with MongoDB. However, it's suboptimal when used with Djan
 
 And if you're going to have to rewrite that much of Django's functionality to use MongoDB, you might as well be using Flask. Honestly, this isn't a bad choice, as the flexibility of Flask makes it perfect for use with non-relational databases.
 
-I know, because this is how we use Flask on the job, which is not with relational data. We have dozens of microservices that rely on DynamoDB. While DynamoDB isn't MongoDB, they are similar enough that I can tell you this approach is delightful.
+I know, because this is how we use Flask on the job, which is not with relational data. We have dozens of microservices that rely on DynamoDB. While DynamoDB isn't MongoDB, they are similar enough that I can tell you this approach is delightful. Keep an eye out for my upcoming article about it.
 
 Stay Tuned!
 =============

@@ -45,7 +45,7 @@
 &lt;h2&gt;If You Must Use MongoDB, Use Flask Instead&lt;/h2&gt;
 &lt;p&gt;There's nothing wrong with MongoDB. However, it's suboptimal when used with Django. If you use it with correct write permissions, MongoDB doesn't provide any speed benefits with Django. You also lose many of the advantages of Django (database transactions, rock-solid security, forms, easy Django REST framework use, hundreds of third-party packages, etc). There is quite a lot of things you are going to have to rewrite.&lt;/p&gt;
 &lt;p&gt;And if you're going to have to rewrite that much of Django's functionality to use MongoDB, you might as well be using Flask. Honestly, this isn't a bad choice, as the flexibility of Flask makes it perfect for use with non-relational databases.&lt;/p&gt;
-&lt;p&gt;I know, because this is how we use Flask on the job, which is not with relational data. We have dozens of microservices that rely on DynamoDB. While DynamoDB isn't MongoDB, they are similar enough that I can tell you this approach is delightful.&lt;/p&gt;
+&lt;p&gt;I know, because this is how we use Flask on the job, which is not with relational data. We have dozens of microservices that rely on DynamoDB. While DynamoDB isn't MongoDB, they are similar enough that I can tell you this approach is delightful. Keep an eye out for my upcoming article about it.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="stay-tuned"&gt;
 &lt;h2&gt;Stay Tuned!&lt;/h2&gt;
