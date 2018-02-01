@@ -43,9 +43,9 @@ First, the serializer:
         htmlize = serializer.BooleanField(required=False, default=False)  
         
         def create(self, validated_data):
-          if validated_data['htmlize']:
-            validated_data['html_message'] = markdown(validated_data['message'])
-          send_mail(**validated_data)
+            if validated_data['htmlize']:
+                validated_data['html_message'] = markdown(validated_data['message'])
+            send_mail(**validated_data)
 
 Now the view:
 
